@@ -82,7 +82,7 @@ output/
 
 Save each chunk as:
 
-chunks/session_<session_number>*chunk*<chunk_number>.txt
+chunks/crms_session_<session_number>chunk-<chunk_number>.txt
 
 ---
 
@@ -198,13 +198,13 @@ Now implement the full project.
 
 Each chunk MUST follow EXACT naming:
 
-session_<session_number>*chunk*<chunk_number>.txt
+crms_session_<session_number>chunk-<chunk_number>.txt
 
 Examples:
 
-* session_1_chunk_1.txt
-* session_1_chunk_2.txt
-* session_2_chunk_1.txt
+* crms_session_1chunk-1.txt
+* crms_session_1chunk-2.txt
+* crms_session_2chunk-1.txt
 
 Rules:
 

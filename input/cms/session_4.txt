@@ -1,0 +1,1232 @@
+:4716 minutes, 47 secondsHello, good afternoon everyone. Is there time or am I the only one waiting for instructor?
+16:5516 minutes, 55 secondsOh, it's the same for all.
+17:0917 minutes, 9 secondsWe'll just be starting the session just in five minutes. We'll just be starting. Okay. All right. Thank you.
+23:1523 minutes, 15 secondsHey guys, there's some issue with my system. I've been struggling to kind of join. See, I I've joined from another one. So, Samir Dub, you can see another Sam Dub there. So, just give me five,
+23:2523 minutes, 25 secondsseven minutes. In the meantime, just uh just go through whatever we had done in the last session. Right? There's some issue that is going on. I let me try to
+23:3223 minutes, 32 secondsresolve it and then I'll be with you guys. Right? just 5 7 10 minutes max right so let me just resolve it and I'll be back with you in the meantime just go
+23:4023 minutes, 40 secondsthrough the notebook that we had explored in the last session right just go through it once and I I think we'll be on track okay just give me five seven minutes okay
+23:4923 minutes, 49 secondsokay okay okay thank you thank
+33:1833 minutes, 18 secondsOkay guys, I think we we can start now.
+33:2033 minutes, 20 secondsOkay, thank you so much for joining in all of you. So I think we are good to start. Uh so in the last session in the last session we had taken a look on how
+33:2833 minutes, 28 secondsto how to really upload all the documents whatever you have you're on mute or we are not able to hear you.
+33:3533 minutes, 35 secondsCan you hear me guys? I I think we can hear I think we can
+33:4333 minutes, 43 secondsyou try rejoining once I think some issues there. Just try once.
+33:5133 minutes, 51 secondsAble to hear. Yeah. Yeah. Yeah. Just try once.
+34:0234 minutes, 2 secondsEveryone let me know once all of you are able to hear us.
+34:1634 minutes, 16 secondsOkay, we good. Okay, just let everyone join. Just give it one more minute.
+34:2434 minutes, 24 secondsOkay. So in the last session we had looked at a series of steps that let you upload your your whatever data you have to to pine cone to any vector database.
+34:3634 minutes, 36 secondsThat was the agenda of the last session.
+34:3934 minutes, 39 secondsIn today's session right so we we have understood a basic pipeline in the last session. I already told you that the step number three which was there which is actually making your chunking better.
+34:5134 minutes, 51 secondsRight? That is the step where the most of the hard work will be done right and we'll do that hard work not today but I think tomorrow where we'll actually
+34:5834 minutes, 58 secondswhich is the final session on rag where we'll do advanced rags we'll try to kind of you know do better chunking right and
+35:0635 minutes, 6 secondswe'll have more much more better strategies in place right so we'll be talking about them in the next session but today what we are going to do is a similar kind of pipeline we need to
+35:1535 minutes, 15 secondsunderstand for pulling the documents pulling the most relevant documents as per your query Right? So let's say you have a query. Let's say you have a
+35:2335 minutes, 23 secondsquery. We want to find out the best possible set of documents corresponding to that that particular query. So that
+35:3035 minutes, 30 secondsis the agenda for today. So what is the agenda guys? The agenda is to build a similar kind of structured pipeline to get get the best set of documents.
+35:4035 minutes, 40 secondsRight? That is what we are going to do today. That is first. That is first. So today we will be working on let me just share my screen. Just one minute. Just just one minute.
+35:5135 minutes, 51 secondsOkay.
+36:0736 minutes, 7 secondsThis one
+36:3336 minutes, 33 secondsgets
+36:4636 minutes, 46 secondsso we had understood we had already understood the upserting right as I said it's always of two parts rag I divide it into two parts primarily one is
+36:5536 minutes, 55 secondsupserting your documents we looked at some six steps here a series of six steps and today what we are going to look at is pulling your relevant
+37:0337 minutes, 3 secondsdocuments that is on agenda for today right and
+37:1037 minutes, 10 secondsagain we will have a series of some six five six seven somewhere like that steps which will let you which will let you pull the documents in an organized
+37:1837 minutes, 18 secondsfashion just like you did in the in the last session right same way we will be able to do it and of course you'll be able to run our prompt and everything
+37:2537 minutes, 25 secondsright so that is where we are going to start okay so I I propose everyone just get your jupyter notebooks ready we will kind of start with that right and I'll
+37:3437 minutes, 34 secondsjust walk you through each step one by one step one step two and so on and we will directly put it inside Jupyter notebook only uh there's very less
+37:4137 minutes, 41 secondstheory about it to be honest then I will talk about some advanced things that you can do that is today in the in the
+37:4837 minutes, 48 secondsretrieval part and we will then look at some vector database algorithms because they are very important from an interview perspective so if anyone is
+37:5537 minutes, 55 secondstrying to switch into these roles uh those questions come very very specifically so we'll be talking about them as So just just get your Jupyter notebooks
+38:0438 minutes, 4 secondsready and give me a thumbs up as soon as you are ready. Just give me a thumbs up as soon as you're ready. Just give me a Jupyter notebook. Right,
+38:1138 minutes, 11 secondsSamir, we are going to extend what we have done last time or this will be a completely different book. You need a new book. Just make sure that the last time you were able to
+38:1938 minutes, 19 secondsdo it successfully and you have a vector database there, right? Okay,
+38:2438 minutes, 24 secondsthat is that is of course the assumption. So yeah, it's it's like an extension only of the last session. So you have to ensure that guys that you have a vector database in place right
+38:3338 minutes, 33 secondswithout that though it won't be possible.
+38:3838 minutes, 38 secondsSo you need to have a vector database in place guys. Okay everyone please make sure that you you have a vector database in place and the same vector database
+38:4538 minutes, 45 secondsthat you created the last time the same right just do it just do it.
+38:5538 minutes, 55 secondsSo let me now come to this the session that session.
+39:1339 minutes, 13 secondsOkay, great. Great. Ready. Just let me know when. So I'm just going to open my session. Okay.
+39:3339 minutes, 33 secondsdone. Everyone is ready.
+39:5539 minutes, 55 secondsSo let's quickly just make sure that all our packages are in place. Let's ensure that our packages are in place. So let's
+40:0240 minutes, 2 secondsjust quickly set up our packages. I'm going to give this to you as well.
+40:2440 minutes, 24 secondsJust ensure your packages are let's run this.
+40:3340 minutes, 33 secondsUh so can we also use open AI or is it only uh you can use open AAI but then uh just uh you know kind of get the relevant uh
+40:4140 minutes, 41 secondspackage right for open right you can use open AI right so instead of this lang
+40:4740 minutes, 47 secondsGoogle gen I think it will be open okay let me know when you installed it I
+40:5440 minutes, 54 secondsthink you'll be you can use open air anyone all of you you can use open
+41:1741 minutes, 17 secondsI can't hear you. Sorry.
+41:2941 minutes, 29 secondsWhat is this issue? Sush I don't get it. We are operating on on uh launching now. So what is the issue?
+41:3741 minutes, 37 secondsI installed Jupiter but after that the notebook is not getting installed.
+41:4241 minutes, 42 secondsUh you need to install it using pip install. So but you use this only now before now this collab Google collab. Okay. Okay. Okay. Fine.
+41:5441 minutes, 54 secondsSo, I hope everyone has your keys here,
+41:5641 minutes, 56 secondsright? Make sure you have your keys in here, right? Open AI key, Google geni key, open AI key, and pine cone API key. All of you have the keys, right?
+42:0442 minutes, 4 secondsEveryone has the key, right? Yes.
+42:0842 minutes, 8 secondsAre you sharing your screen or are you in sharing my screen? Yeah, I'm so sorry. It's stuck in the whiteboard.
+42:1642 minutes, 16 secondsYeah. Yeah, perhaps. Let me share it.
+42:2542 minutes, 25 secondsSo yesterday I was in China. It has been a very late night flight. Tired.
+42:3542 minutes, 35 secondsOkay. Now I think this is done. Right. You can see the screen right.
+42:4442 minutes, 44 secondsSo this is what we had done in the last session. This is from the last session.
+42:4742 minutes, 47 secondsSo let's first thing first let's get our keys. Right. Let's get our keys. Right. Let's get the keys in place. Right.
+42:5242 minutes, 52 secondsEveryone get your keys in place from the last session notebooks. Otherwise, you can use this. Just make sure you change the names with your own whatever names
+43:0143 minutes, 1 secondyou use. Right? So, open AI API key. For example, I'm using Google API key. So,
+43:0543 minutes, 5 secondsif you're using Gemini API key, change this name to Gemini API key. So, make sure you change the names. Right? That's much more important than anything else.
+43:1543 minutes, 15 secondsGrant access. Grant access.
+43:2643 minutes, 26 secondsCuts. Done.
+43:3543 minutes, 35 secondsRight.
+43:3743 minutes, 37 secondsThis I think won't be required any longer because we are not actually getting any data which is fine.
+43:4843 minutes, 48 secondsdone. Let me know when done is let me know when
+44:0444 minutes, 4 secondsOkay, there are some packages that you will be needed. Let's kind of get all those packages in one place in the in the same place that is in the imports
+44:1244 minutes, 12 secondsonly. So let me put them here. Let me put them here. So all the packages I'm pulling. See the usual packages. There's one YML package I'm breaking to show you
+44:2144 minutes, 21 secondshow you create how you can create prompt templates specifically. We won't be using it right now. We'll be using it later on. Then pine cone the usual one
+44:2944 minutes, 29 secondslike we did in the last session. Sus transformer we did in the last session.
+44:3344 minutes, 33 secondsThis you have been doing. Runnables runnable lambda is something that I'm bringing because I'll be using lang chain and lang chain. Then there is something called as output parser.
+44:4144 minutes, 41 secondsoutput parser same packages nothing fancy nothing new same packages I'm using let me give this to you as it is
+44:4744 minutes, 47 secondsso you can import it on your end as well
+44:5744 minutes, 57 secondsuh just one question sir uh today we are doing in collab only not Jupyter notebook these things we're doing in collab only yesterday last time also we did in collab only
+45:0645 minutes, 6 secondsyeah yeah but you said to make Jupyter notebook but you know see there's an overhead for moving to Jupyter notebook.
+45:1245 minutes, 12 secondsHalf of the people will be able to set up, half will not be able to set up.
+45:1445 minutes, 14 secondsThat's a challenge actually with Jupyter notebook. We'll have to move eventually with to Visual Studio Code or something like that. But for now, I mean, let's for understanding let's try kind of go
+45:2345 minutes, 23 secondsthis way. Then when we'll develop some project or something like that, we'll move there. Okay.
+45:2845 minutes, 28 secondsInitially you mentioned Jupyter notebook setup. I started downloading cond. You have it. Have it. That is important. Have it right. Have it integrate.
+45:3645 minutes, 36 secondsWe'll integrate it with Visual Studio. No. Okay. VS code will do sir. Okay. Thank you.
+45:4545 minutes, 45 secondsOkay.
+45:4845 minutes, 48 secondsUh one last question. So last session I was able to do 90% but the last part I wasn't able to upsert the documents. I left in this. Will it be necessary? Will we be using the same documents that?
+45:5945 minutes, 59 secondsYeah it will be necessary. You can upsert it in one shot only. I mean just upsert it quickly. Right.
+46:0646 minutes, 6 secondsI go and manually push it uh there.
+46:0946 minutes, 9 secondsNo, you cannot manually do it. You have to push it directly. But I think it was easy, right? I mean it was okay simple only, right?
+46:1946 minutes, 19 secondsThis last notebook if you will see you will be able to kind of get it. You can push it directly inside your and we were
+46:2646 minutes, 26 secondsalso doing this part right we were actually getting the documents and all. So this was we were doing this.
+46:3446 minutes, 34 secondsSo do that guys. those those that that that vector database is important without that you won't be able to kind of get it right that's the important
+46:4146 minutes, 41 secondspart so have make sure guys whenever you're finishing the session make sure that you have that end product in place otherwise you'll be stuck in the in the
+46:4846 minutes, 48 secondsnext session right okay okay now what I'm going to do is I'm going to just add this Google API key to
+46:5746 minutes, 57 secondsmy environment okay so if you're using open AI you add your open AI key to my environment right so how do we do it is it's very simple
+47:0547 minutes, 5 secondsbasically add it to the environment like this like this this like this you add it to the environment now you don't have to
+47:1347 minutes, 13 secondspass it again and again it will just automatically assume that it is there and it will directly pass it on its own so this is Google key or Google API key
+47:2647 minutes, 26 secondsadd it to your environment I need to run this first and then I need
+47:3347 minutes, 33 secondsto run this What is Google key?
+47:4147 minutes, 41 secondsPardon me.
+47:4247 minutes, 42 secondsSo Google API key we Google key. What is Google key?
+47:4747 minutes, 47 secondsThis is Google API key only. Now I'm just taking it in my variable Google key. Okay. Okay.
+47:5247 minutes, 52 secondsThat variable I'm putting in the environment. That's what I'm going to use. Right now I imported all the modules. I put it in the environment.
+47:5947 minutes, 59 secondsEverything is sorted. Just let me know when you have done this. When you have done this. Right? So I'm putting it in the environment. What happens is I'm passing again and again. Whenever
+48:0748 minutes, 7 secondswhenever I'm calling LLM, I'm passing Google key or open AI key. Instead just put it in the environment. That way you don't have to pass it again and again.
+48:1348 minutes, 13 secondsRight? If you're using open AI key, you are welcome. You can use open AI key.
+48:1748 minutes, 17 secondsInstead of this you use the open AI thing, right?
+48:2148 minutes, 21 secondsSo we do need to use the open AI key or Google key.
+48:2548 minutes, 25 secondsI'm using Google key only for now. You can use open AI key if you want to. All right. Okay. Okay. Thank you.
+48:3348 minutes, 33 secondsI've shared the master link with you guys.
+48:3748 minutes, 37 secondsThe master link has been shared. What else do you need?
+48:4848 minutes, 48 secondsThe session name is introduction to rag.
+48:4948 minutes, 49 secondsThis is the session. Introduction to rag. Session two. Introduction to rag man. Right. There's some practice sessions as well in there. The ones that
+48:5748 minutes, 57 secondsI keep beforehand, right? So you can use it.
+49:0349 minutes, 3 secondsAll right. Now once this much is done guys, once this much is done, you need to you need to have your you need to
+49:1049 minutes, 10 secondshave your documents in place. For example, you've already upserted the documents, right? Everyone we have upserted the documents. Is there anyone who has not upserted the documents? Do
+49:1949 minutes, 19 secondsyou want to do that again? Anyone just let me know.
+49:2749 minutes, 27 secondsTell me. Uh 2 minutes. Could you please give it? I'm doing it. Is it okay? Please.
+49:3349 minutes, 33 secondsSure. Sure. I'll give you all two minutes. Take two minutes and make sure the documents are there. Please. If you need help, ask me. If you need help, ask
+49:4049 minutes, 40 secondsme. Right. But you need to have your own pine cone API key, guys. Make sure of that. Okay? You need to have your own pine cone API key.
+49:5749 minutes, 57 secondsSo uh yeah I have a question. Yeah after set up this uh Google API key like last time what we did uh we mounting the data
+50:0650 minutes, 6 secondsfrom the Google drive. So we need to do the same.
+50:0950 minutes, 9 secondsNo not now no this time it's not okay.
+50:2650 minutes, 26 secondsTry it out guys. Quickly do it. Absert all of you because you should have the documents in place. If you need any help, you ask me. You should have a pine cone API key which I showed you how to
+50:3550 minutes, 35 secondsset up in the last session. It should be there, right?
+50:4050 minutes, 40 secondsI have I have uh all the API pine open Google but while importing uh I am
+50:4950 minutes, 49 secondsfacing error that uh no module named pine bone.
+50:5450 minutes, 54 secondsYou not installed it. Huh? Because that's why you're facing errors. You need to kind of install it first,
+51:0351 minutes, 3 secondsright?
+51:2151 minutes, 21 secondsGot it.
+52:0052 minutesHow much time it will take for local installation pine cone for what? For pine cone installation
+52:0852 minutes, 8 seconds2 minutes barely. It's a very simple normal package. Just two pip install just this and this. All of these packages you need basically for for pine
+52:1852 minutes, 18 secondsfor last session guys. Quickly do it guys. I'm really really want you guys to make sure that you do it after the
+52:2652 minutes, 26 secondssession because otherwise it gets a lot of pain because of course see all the things are connected everything is connected everything is like sequential
+52:3252 minutes, 32 secondsin nature so if we are kind of not doing whatever was done in the last session then what will happen is we won't be able to catch up in the current session
+52:4052 minutes, 40 secondsright and most of the people here they have it they have it in place so you need to kind of be a little responsible
+52:4852 minutes, 48 secondsthere guys there okay Hey Sam, uh sorry I think I missed your
+52:5952 minutes, 59 secondsuh statement on why are we adding this Google key to the environment. Okay,
+53:0453 minutes, 4 secondsthat is because see you generally pass it now lm then Google API that you don't have to pass by doing
+53:1153 minutes, 11 secondsthis okay that's why we okay yeah you just add it in the environment itself it is there it will automatically
+53:1953 minutes, 19 secondspick it from the environment okay okay will it prevent uh will it prevent the
+53:2653 minutes, 26 secondskeys to expose will it what prevent the keys to expose yeah yeah of course that's why right So
+53:3353 minutes, 33 secondsif anyone is coming he can just do it now print right. So that's why uh I summit can you share the first line of the code please?
+53:4353 minutes, 43 secondsThe installation right right as many of you are lagging behind please try to understand we have to catch up on
+53:5053 minutes, 50 secondsthese things. You cannot keep on like uh you know doing the same thing again and again. We have to be sure that
+53:5753 minutes, 57 secondswhatever we have done we in the last session we are up to date. Okay. Please try to understand that. Okay. I'm upset at the documents like how do I know it's confirmed? Where do I see in pine cone?
+54:0654 minutes, 6 secondsRun the run the run that part now this part you the querying the querying part uh in pine cone where can I see the
+54:1354 minutes, 13 secondswhen you must have upserted when you must have upserted it must have given you how many were upserted right that response you're getting so actually upserted with a different
+54:2254 minutes, 22 secondsprogram I had done but I think I it is done then you can go and check it on the pine pine cone console on the pine cone console should be there number of records
+54:3054 minutes, 30 secondsin the vector in the DB itself right oh okay got now let's Start now let's start please pay attention okay now what we do here
+54:3954 minutes, 39 secondsfrom here right now we will just see what are the steps of this first we understand the steps then we'll do all the optimization okay
+54:5054 minutes, 50 secondsthe number one step the number one step is
+54:5854 minutes, 58 secondsthe same right get your LLM ready right get your LLM ready can you do it can you
+55:0455 minutes, 4 secondsget it ready. Just do it. You already know how to get your LLM ready. Just in inside LLM variable, inside LLM
+55:1255 minutes, 12 secondsvariable, get your LLM ready. Get your LLM ready. We have done it in the last session multiple times. You can do it ahead.
+55:3055 minutes, 30 secondsYou know it right. This is your access vector data DV. This is what we did.
+55:4055 minutes, 40 secondsJust do it. Everyone do it.
+55:5255 minutes, 52 secondsHow do you load your LM guys? It's very simple, right? Like last time it was not required LLM. This time you require LLM.
+55:5855 minutes, 58 secondsSo you need an LM, right? So what is it first? What do you do? Tell me.
+56:0456 minutes, 4 secondschat generative AI and you'll pass model is
+56:0956 minutes, 9 secondsequals to whatever it is Gemini 2.5 flash and you can have your API key
+56:2056 minutes, 20 secondswhich is basically from the environment or you can you can also leave it blank it should work ideally but if you want to pass it you can just pass it like
+56:2856 minutes, 28 secondsthis right or you can just pass this also so you don't need to put it in environment and you can pass this directly as well right this is just to
+56:3556 minutes, 35 secondsensure that you know it's kind of just do it quickly
+56:4456 minutes, 44 secondsso this is you're getting your LLM ready so I'll call it what LLM right first thing is always have your LLM ready this is the first thing because we it's
+56:5156 minutes, 51 secondsneeded in many steps it is needed okay this is the first step then done
+56:5956 minutes, 59 secondschat Google generative AI and you just need to pass an LM name so one line code.
+57:0657 minutes, 6 secondsNext thing we need to do is next thing we need to do is I hope this much is done right.
+57:1457 minutes, 14 secondsSorry why this Google API key is not defined. Error I'm getting file.
+57:1857 minutes, 18 secondsSo you use your Google key directly. No worries. You use your Google key directly. It's okay. This is an additional step I'm telling you. You don't have to do it. You can do it directly like this. See I got Google key. Forget it. Forget it. Done. Okay.
+57:2957 minutes, 29 secondsJust get your Google key. Pass the Google key. Right? if you have it. But make sure you have your Google same.
+57:3657 minutes, 36 secondsYes, I have it. Now, step number two, guys,
+57:4757 minutes, 47 secondsaccess your access your pine cone index and embedding model. So, I'll show you what how this is done.
+58:0258 minutes, 2 secondsRight?
+58:0558 minutes, 5 secondsAccess your pine cone index in embedding model. You need to access that pine cone wherever it is and you need to be ready with your embedding model. Right? So
+58:1358 minutes, 13 secondsI'll just show you how this will be done. Right? I'll just show you how this will be done. Straightforward very straightforward. Right? And just let me just directly copy paste it here.
+58:2858 minutes, 28 secondsLook at this. We're accessing the pine cone with our API key of the pine cone API key. This was our index. This was my
+58:3658 minutes, 36 secondsindex. So if you had a different index name, you replace it with your index.
+58:3958 minutes, 39 secondsYou're accessing the index here. Same model that you used there. Same model you will be using here. Make sure you don't have a different model. You're
+58:4758 minutes, 47 secondsusing the same model. Whatever you use there, same model you should have here.
+58:5058 minutes, 50 secondsOkay? Same model. Same to same model you should have here.
+58:5958 minutes, 59 secondsGet the same model here guys. Please get the same model. Ensure you have the same model guys.
+59:0859 minutes, 8 secondsPlease.
+1:00:011 hour, 1 secondthe index name was vector hybrid last time for you. I think for me it was vector change it right. So vector hybrid was
+1:00:091 hour, 9 secondsfor the first one we created.
+1:00:121 hour, 12 secondsYeah, two we created. Right. The for the first one it was vector hybrid.
+1:00:171 hour, 17 secondsOkay. And this way you will be able to access your index right so it's it's loading the same uh you know same things this is the
+1:00:261 hour, 26 secondsstep number two same steps only we have to follow I'll tell you how to customize where to customize where not to customize that way you learn it there's no problem
+1:00:341 hour, 34 secondsright next comes step number three let's do it step number three step three step three is going to be all
+1:00:441 hour, 44 secondsabout step three is all going to be all about whatever query that you are going to give right so user is going to give a
+1:00:531 hour, 53 secondsquery right whatever query that the user is going to give right we need to sometimes customize that query we need
+1:01:001 hour, 1 minuteto do editing in that query right so user is going to give us a query for those query we will pull out the relevant documents right so step number
+1:01:061 hour, 1 minute, 6 secondsthree is always editing the query right this is the step that you need to customize this is where customization will be done so I'll write it here
+1:01:151 hour, 1 minute, 15 secondscustomize ize whenever I'm writing customize these steps you will have to work hard on right these are the steps you will have
+1:01:241 hour, 1 minute, 24 secondsto work a real a bit hard on right you'll have to do customization for now I'm just making it a very simple step what I'm doing here is I'm just giving a
+1:01:311 hour, 1 minute, 31 secondsfunction to you guys I'm just giving you a function right and you just use that function for now
+1:01:391 hour, 1 minute, 39 secondsright later on later on right we will kind of customize this function so what is the function Look at this very simple
+1:01:461 hour, 1 minute, 46 secondsfunction I'm giving right now. Very simple function I'm giving right now.
+1:01:501 hour, 1 minute, 50 secondsSee this I'm writing returning the query itself as it is. Right? See this whatever the query is coming I'm returning that only as it is. Just see
+1:01:571 hour, 1 minute, 57 secondsthis. That's it. I'm just making a function to customize the query. Right?
+1:02:021 hour, 2 minutes, 2 secondsI'm just making a function to customize the query. Right? So basically what you will be doing here is a query will come from the user. A query will so after
+1:02:101 hour, 2 minutes, 10 secondsthis point right up to this point you're setting up. Step number one and two is all about setting up. Step number three is where the it starts. So probably the
+1:02:171 hour, 2 minutes, 17 secondsquery will come here, right? Query what is the what are the loans
+1:02:251 hour, 2 minutes, 25 secondsavailable? Let's say right something like this. So what this function will do is it will actually
+1:02:331 hour, 2 minutes, 33 secondsedit this query. Sometimes we edit this queries and I'll talk about various ways which are there to edit the query. There are many ways to edit this query. I'll
+1:02:411 hour, 2 minutes, 41 secondstalk about it today itself. I'll talk about theory today. Tomorrow we'll implement all these changes, right?
+1:02:491 hour, 2 minutes, 49 secondsOkay. Done. Okay. Simple step. Just some customizations are required. I'm telling you. I'll tell you what are the customizations are required.
+1:03:121 hour, 3 minutes, 12 secondsThe next step is the next step is retrieval that you kind of bring the query. You kind of bring the matching
+1:03:191 hour, 3 minutes, 19 secondsdocuments retrieval. The next step is retrieval. Right? How do we do it? Let's just see this. We have already done it. Look at this. We have already done it.
+1:03:271 hour, 3 minutes, 27 secondsYou just need to create a function out of it because we working in a functional approach. We are not doing it directly.
+1:03:311 hour, 3 minutes, 31 secondsNow this time we're working working in a function basic. We'll be creating a function for everything. Then we'll kind of put all the functions together with lamb. That's the idea as of now. Right?
+1:03:381 hour, 3 minutes, 38 secondsSo look at this. We did it in the last session. If you see here that's this is how we have done it.
+1:03:451 hour, 3 minutes, 45 secondsRight? This is where we did the right we did it like this. Right? So let's get a query. Let's get a query in
+1:03:521 hour, 3 minutes, 52 secondsplace. Right? Let's just so what is the step number one inside this?
+1:03:581 hour, 3 minutes, 58 secondsThat of course we should have a query in place. So let me first name it.
+1:04:051 hour, 4 minutes, 5 secondsStep number four is retrieval, right? Retrieval.
+1:04:151 hour, 4 minutes, 15 secondsThis is your step number four. Now look at this. This is your query text that you're going to get, right? This is the query text that you're going to get, right? Whatever query you're getting,
+1:04:221 hour, 4 minutes, 22 secondsright? How will you retrieve? First of all, you will create an embedding of the query or not. Isn't it guys? Can you create it from the last session? Can you create the embedding of this query?
+1:04:301 hour, 4 minutes, 30 secondsQuickly do it. Try it out yourself. Just try it out yourself from the last session. I've already shown you. See this query vector create the emitting of this.
+1:04:511 hour, 4 minutes, 51 secondsDo it. Do it. Uh,
+1:04:581 hour, 4 minutes, 58 secondssorry sir. Uh, I'm having a uh Index name error actually in point number four.
+1:05:061 hour, 5 minutes, 6 secondsWhat is the error? Index name error.
+1:05:101 hour, 5 minutes, 10 secondsIndex name error. That means you're not referring to the right index. Please make the right index. Now whatever index is available in your pine cone, not my pine cone. Okay.
+1:05:201 hour, 5 minutes, 20 secondsCheck that index. Right. I'm using vector docs. So whatever index name is available with you, you check in your
+1:05:271 hour, 5 minutes, 27 secondsfile in the file only you
+1:05:541 hour, 5 minutes, 54 secondsSo if I am referencing a vector database that has 105 54 dimensions in the pine cone and right now I think last session
+1:06:021 hour, 6 minutes, 2 secondswe did 354. Will there be an error or a mismatch or something or is it okay?
+1:06:091 hour, 6 minutes, 9 secondsYou need to have exactly the same number of dimensions like the last session, right? You cannot change anything.
+1:06:151 hour, 6 minutes, 15 secondsWhatever you used there, you will have to use exactly exactly that here, right? No changes at all. Right?
+1:06:221 hour, 6 minutes, 22 secondsOkay. Oh, last time we created chunks, right?
+1:06:291 hour, 6 minutes, 29 secondsUh before embedding. So, we do that.
+1:06:331 hour, 6 minutes, 33 secondsYou don't need to create chunks because it's just a query. This is a user query. You are giving a query, right? Okay. So, you don't need a chunk, right? So,
+1:06:401 hour, 6 minutes, 40 secondsthat's okay. Got that. It's a different.
+1:06:471 hour, 6 minutes, 47 secondsSo, now here uh we need to convert the query into the vector, right?
+1:06:501 hour, 6 minutes, 50 secondsQuy into the vectors. We did this in the last session.
+1:06:571 hour, 6 minutes, 57 secondsJust convert the query into the then we'll do back vector matching. Right? That's the whole idea. 544.
+1:07:191 hour, 7 minutes, 19 secondsDo we need to upsert as well in the index?
+1:07:231 hour, 7 minutes, 23 secondsNo, no need to ask. Just query. See, we are making query a vector. Now we'll search which is the most closest. Okay.
+1:07:301 hour, 7 minutes, 30 secondsSo this is my vector docs, right? You copy this name. What is the problem?
+1:07:341 hour, 7 minutes, 34 secondsJust copy this name. Vector do. So use the same name, right? Use the same name.
+1:07:391 hour, 7 minutes, 39 secondsThis is my vector docs, right? It has many variables. 70 something that 50 something. Okay.
+1:07:561 hour, 7 minutes, 56 secondsHow do we do it guys? Can someone tell me how do we do it? Model encode.
+1:08:031 hour, 8 minutes, 3 secondsHow do it? Model. Query text tool list.
+1:08:051 hour, 8 minutes, 5 secondsThis is what we do. Ra. What is the problem everyone? We have done it right.
+1:08:101 hour, 8 minutes, 10 secondsThen what is the next thing you do? Tell me.
+1:08:161 hour, 8 minutes, 16 secondsGetting the response. Right. Getting the response. So you can actually get it like this. Same thing results. Same thing. Now no changes, right? Whatever
+1:08:241 hour, 8 minutes, 24 secondswe did in the last session, this is step number three. Query pine. Then display the results. Display the results. You don't need to display the results. What we are going to do is we are cap going
+1:08:331 hour, 8 minutes, 33 secondsto capture all these results in one place. We are going to kind of make it a little something. Just tell me is it done for everyone? Tell me.
+1:08:461 hour, 8 minutes, 46 secondsSee this. It's a big result right what are the what are there text is there metadata is there so so much is there right metadata score is there values are
+1:08:541 hour, 8 minutes, 54 secondsthere right we need to pick some specific things from this right we need to pick some specific things right so what we going to do is I'm just going to show you right what we going to do is
+1:09:011 hour, 9 minutes, 1 secondfor each of the result for each of the result I I'll share the okay first take
+1:09:151 hour, 9 minutes, 15 secondsThere you go. Right. For each of the result, right? How many results are there? How many results are there? Let's let's take a look. Let's take a look.
+1:09:211 hour, 9 minutes, 21 secondsSee how many results are there? Length response.
+1:09:321 hour, 9 minutes, 32 secondsThis is this is okay that's not working. So we can convert it to list. Let's try
+1:09:441 hour, 9 minutes, 44 secondsH that is not working directly because we need to kind of it's it's a query response type of vector. So the number of results will be basically equals to three. Let's make it five this time.
+1:09:531 hour, 9 minutes, 53 secondsLet's make it five this time. Let's get five results. The top five results we're trying to get. So this these are the top five results. Right? First result. This
+1:10:011 hour, 10 minutes, 1 secondis first result. Look at this. This is first result. Score values, metadata,
+1:10:051 hour, 10 minutes, 5 secondseverything is given, right? This is this is another result, right? So this is how this is how you actually interpret results. You pick one of the results.
+1:10:121 hour, 10 minutes, 12 secondsLook at this. One of the results you pick
+1:10:271 hour, 10 minutes, 27 secondsmatches results.get matches.
+1:10:321 hour, 10 minutes, 32 secondsget matches.
+1:10:391 hour, 10 minutes, 39 secondsSee this is the this this is the these are the matches, right? This is this is what you're getting actually, right?
+1:10:441 hour, 10 minutes, 44 secondsLook at this. From this you can actually find what the zerooth map. Look at this one match. Look at the one match.
+1:10:511 hour, 10 minutes, 51 secondsThe ID is the document ID that we made in the last session. Right? Remember we made a document ID in the last session. Everyone remembers that? Correct. Doc one, doc two, doc three.
+1:11:001 hour, 11 minutesThat's how right then we have the metadata. See, we have the metadata.
+1:11:031 hour, 11 minutes, 3 secondsThen we have the score. We have the score, right? We have the values, right? Whatever multiple things are there,
+1:11:071 hour, 11 minutes, 7 secondsright? So, what we're going to do is what we're going to do is for each of these results, for each of these results, for each of these results, we are going to just kind of put them in a
+1:11:151 hour, 11 minutes, 15 secondsin an organized format, right? We going to put them in an organized format. And I'm going to directly give you the code. Let me just get here.
+1:11:261 hour, 11 minutes, 26 secondsBy the way, you can do a len on that len uh len of results.get match. Now you can do now you can do length.
+1:11:311 hour, 11 minutes, 31 secondsYes, now it is a list. Now you can do length of see this is what I'm doing right just for
+1:11:451 hour, 11 minutes, 45 secondsthis is what I'm doing.
+1:11:481 hour, 11 minutes, 48 secondsSo I'm making my results again. So what I'm going to do is I'll call this response.
+1:11:551 hour, 11 minutes, 55 secondsSo mean is it necessary to uh give the query text u as a list to the model?
+1:12:021 hour, 12 minutes, 2 secondsIt's better right because you can have multiple queries as well right so that's why you can give it yeah I think it yes it'll work as a text
+1:12:101 hour, 12 minutes, 10 secondslist it can also work without list you can give it you can give it I mean just try
+1:12:191 hour, 12 minutes, 19 secondsyeah because I just wrote a query text and it goes
+1:12:271 hour, 12 minutes, 27 secondsnow please understand this guys I I'll tell you the difference I'll talk about the difference so basically what happens is these models are deep learning about they expect a batch of data right since
+1:12:351 hour, 12 minutes, 35 secondswe don't have a batch I'm just passing one item right but if you pass one item then also then you will not need the zero right you'll not need this zero
+1:12:431 hour, 12 minutes, 43 secondsthen then right right it's the same way yeah yeah yeah so basically if you're using this then you need this zero if you're using without it then but see that is used because because when you're
+1:12:521 hour, 12 minutes, 52 secondssending multiple documents so yes you can do it directly right so guys this is what I'm doing just please pay attention from the results matches right we we got
+1:13:001 hour, 13 minutesmatches now get matches right what we doing is for each of the match what what are we doing we are appending so let's
+1:13:051 hour, 13 minutes, 5 secondscall it response response dot append first of all id match ID the score and
+1:13:131 hour, 13 minutes, 13 secondsthe text and the text the metadata text right three things we are making a list of our own right see this we are making
+1:13:201 hour, 13 minutes, 20 secondsa list of our own we are taking out whatever is necessary right so this is the step number four it is pretty much
+1:13:281 hour, 13 minutes, 28 secondsfixed only tweaking will be required here only
+1:13:371 hour, 13 minutes, 37 secondsto get whatever you need right you can tweak it I'm getting only three things from here ID score and text right three
+1:13:451 hour, 13 minutes, 45 secondsthings I'm get you can get value as well if there's more metadata or particularly a specific metadata you want to get you can get that for example if I would have
+1:13:541 hour, 13 minutes, 54 secondstagged each document with metadata that this is one type of document this is another type of document I can get that
+1:14:011 hour, 14 minutes, 1 secondalso in here. Right. Right. So this thing you need to do. You need to do some customizations here but not much.
+1:14:081 hour, 14 minutes, 8 secondsRight. This is retrieval step. This is how you retrieve. This is how you retrieve. Okay. This is how you retrieve. Okay. But this step I'll
+1:14:161 hour, 14 minutes, 16 secondsfurther break down in the next session in two parts. Right? In two parts I'll break it down because there's some advanced retrieval strategies I have to teach. Right? Okay. So query comes in.
+1:14:261 hour, 14 minutes, 26 secondsQuery is coming in. Basically query was coming in here only. Like what are the loads available? For example, let's put it here only.
+1:14:341 hour, 14 minutes, 34 secondsSo query will come in at this step.
+1:14:381 hour, 14 minutes, 38 secondsRight? Query will come in at this step only. And then you will just basically make your vector and make a customized customized kind of a response. Right?
+1:14:471 hour, 14 minutes, 47 secondsCustomized kind of a response. Let's run this. Let's run this.
+1:14:541 hour, 14 minutes, 54 secondsI think it has run. Let's look at our response. It's a customized list of our own,
+1:15:041 hour, 15 minutes, 4 secondsright? ID is there, score is there, and text is there. Everyone do this. You try to do this. Everyone do this. I'll just give you the code exact and as it is code.
+1:15:181 hour, 15 minutes, 18 secondsLet me know if anyone is lagging by. I can help you out, right? I can help you catch up, right? If if you're lagging there, just let it.
+1:15:331 hour, 15 minutes, 33 secondsSo I'm getting five documents. Mostly we get 10 15 documents up to 10 15. Then we do some more steps to kind of reduce it further. That's how we generally do it.
+1:15:421 hour, 15 minutes, 42 secondsBut we'll talk about it.
+1:15:541 hour, 15 minutes, 54 secondsGot it. Got it. Everyone. Everyone. Is it clear? We are good up to this step.
+1:15:591 hour, 15 minutes, 59 secondsJust let me know all of you. Can everyone tell me we are good up to this step?
+1:16:061 hour, 16 minutes, 6 secondsThe retrieval step. The retrieval step which is basically you are just getting your documents. This step we also did in the last session. Right. But now I have added one, two, three more steps. Right.
+1:16:171 hour, 16 minutes, 17 secondsOkay,
+1:16:241 hour, 16 minutes, 24 secondsnext step is the the important part which we have to kind of think about.
+1:16:431 hour, 16 minutes, 43 secondsNow, now guys, I told you one thing. I told you one thing if you remember if you remember clearly I told you one very
+1:16:501 hour, 16 minutes, 50 secondssimple thing and that was and that was that was that we need we need to ensure
+1:16:581 hour, 16 minutes, 58 secondsthat we need to ensure that we plug in the context inside we plug in
+1:17:051 hour, 17 minutes, 5 secondsthe context inside our prompt only isn't it where will you put the context whatever you're pulling out whatever
+1:17:131 hour, 17 minutes, 13 secondsyou're pulling out what will you get from this? What will you put with the query? You will probably get the text,
+1:17:201 hour, 17 minutes, 20 secondsisn't it? Tell me. You will probably pass this text. This text is what you have to pass
+1:17:281 hour, 17 minutes, 28 secondsinside the prompt to get your final result. Isn't it? Tell me. That's right.
+1:17:341 hour, 17 minutes, 34 secondsSo, the next part is the next part is I call it context building. I call it what? Con context building.
+1:17:411 hour, 17 minutes, 41 secondsI'll talk about it.
+1:17:491 hour, 17 minutes, 49 secondsThat means you ready that text which you want to inject inside the prop. Just like we were injecting history. Just
+1:17:571 hour, 17 minutes, 57 secondslike we were injecting history. Same way. Same way I want to inject I want to inject my own prompt. I want to inject
+1:18:061 hour, 18 minutes, 6 secondsmy context context that is from this from this list that we have created from this from this list that we have created
+1:18:131 hour, 18 minutes, 13 secondsthe response list from this response list I want to I want to get the final text which will go inside my prompt
+1:18:221 hour, 18 minutes, 22 secondsright I want to get the final text which will go inside my prompt okay so I'm going to give you I'm so what will be the input to this function can you tell me what will be the input to this
+1:18:311 hour, 18 minutes, 31 secondsfunction if I want the final text what will be the input to this function. Tell me user query and the retrieval what we had
+1:18:401 hour, 18 minutes, 40 secondsthe response that we have right this will go as the input not query not needed right yeah yeah response we just need final text and what will be
+1:18:481 hour, 18 minutes, 48 secondsthe output what will be the output guys the text which needs to be put inside the prompt okay what will be the output the text so let me show you this let me
+1:18:561 hour, 18 minutes, 56 secondsshow you not query query will not be the input okay you can probably I mean depends if it's a separate use case but this I
+1:19:051 hour, 19 minutes, 5 secondsdon't think it will be required. So look, let me just give you a very simple context builder. Let me give you a very simple context builder. Just see this a
+1:19:131 hour, 19 minutes, 13 secondsvery simple context builder. This is a very simple context builder. And I'm just going to make it what is number step is it step number five. Right? This is step number five.
+1:19:231 hour, 19 minutes, 23 secondsContext building. This is step five.
+1:19:251 hour, 19 minutes, 25 secondsContext building. Right? This is important step. Right? Look at this.
+1:19:281 hour, 19 minutes, 28 secondsWhat this what this is doing like look at this what this is doing. Right? For each of the item in the results,
+1:19:371 hour, 19 minutes, 37 secondsright? Then we are passing response here. Basically that response will be passed here. So basically we will pass response here for each of the items in that response. That is it will iterate
+1:19:461 hour, 19 minutes, 46 secondsover each of them. It will iterate over each of them. It is getting the text up taking out the text part. Right. Right.
+1:19:531 hour, 19 minutes, 53 secondsAnd then it is just basically combining the text together up to a up to a limit.
+1:19:571 hour, 19 minutes, 57 secondsIt is saying that I can only give a context of 1200 elements. So what is it doing is whatever context you are
+1:20:041 hour, 20 minutes, 4 secondsbringing it is further shortening it down. It is further shortening it down using what an upper limit that I can
+1:20:111 hour, 20 minutes, 11 secondsallow only this many characters. This is one type of context building. This this particular section is subject to customizations.
+1:20:241 hour, 20 minutes, 24 secondsRight? This particular topic is subject to customizations. You can have your own ways to kind of reduce the context size.
+1:20:321 hour, 20 minutes, 32 secondsSee the most important idea is to combine all of them together and then reduce it. In this part, we mostly do
+1:20:391 hour, 20 minutes, 39 secondswhat? We combine all the texts that we got from the other part together and then reduce it. I've done a very simple
+1:20:461 hour, 20 minutes, 46 secondslogic to combine the text and then reduce it. You can just go through it once. Just take a look at it once and let me know if you have any doubt. Just
+1:20:531 hour, 20 minutes, 53 secondstake a look at it once. Right? Just a code I have written just a piece of code I have written which is where I'm giving some max characters and whatever is
+1:21:001 hour, 21 minutescoming I'm just kind of combining it just take a look at it
+1:21:091 hour, 21 minutes, 9 secondsjust take a look at it similarly you can have your own strategy see the first part is of course to concatenate all of them together and the second part is to
+1:21:161 hour, 21 minutes, 16 secondskind of reduce it what you can use it you can use a cheaper model perhaps which actually gives you a summary of all your rag documents or if you have
+1:21:251 hour, 21 minutes, 25 secondsthat much of token wastage space then you don't do anything just combine all the text together and throw it to the
+1:21:331 hour, 21 minutes, 33 secondsprompt combine it with the prompt right the only only output is the only thing you have to understand is out input what
+1:21:391 hour, 21 minutes, 39 secondswill be going all the retrievals all the retrievals that will be going as the input to this function and what will be coming as
+1:21:471 hour, 21 minutes, 47 secondsoutput combined combined text combined text right now you shorten that text you
+1:21:551 hour, 21 minutes, 55 secondssummarize that text whatever you want to do to that text you can do it you can do it right in the next in the next session I'll
+1:22:041 hour, 22 minutes, 4 secondsshow you post filtering is also included inside this something called as post filtering this post filtering this thing if you think about it I I'll also write
+1:22:111 hour, 22 minutes, 11 secondsit this is post filtering that is you are filtering after retrieval you're filtering further after
+1:22:201 hour, 22 minutes, 20 secondsretrieval right see during retrieval you already pulled out five elements. Now you are further doing filtering that is you are only allowing let's say 1200
+1:22:291 hour, 22 minutes, 29 secondscharacters. So this is something that you generally do. This is something that you generally do. Is that clear? Is that clear everyone? Any confusion in this?
+1:22:371 hour, 22 minutes, 37 secondsLet me know. Can you try this and see if it is running for you?
+1:22:451 hour, 22 minutes, 45 secondsCan you try and see if it is running for you?
+1:22:481 hour, 22 minutes, 48 secondsWhat did we change from 1200 to something else? Is it whatever you want you can do it. Okay,
+1:22:531 hour, 22 minutes, 53 secondsyou can do it. This is just an idea that I'm trying to give you that this is how you do it. Okay.
+1:23:031 hour, 23 minutes, 3 secondsUh one more thing I mean in case we want to also have a grounded uh version of the output after we pass to LRM to find
+1:23:101 hour, 23 minutes, 10 secondsout where did it really come from. So this combination and concatenation may lose out that context in this only in the context only you will embed the links.
+1:23:181 hour, 23 minutes, 18 secondsOkay, that's why I have given a separate part to it. Right? You'll put the links and everything here and then you'll tell LMS to give the proper links. Okay.
+1:23:261 hour, 23 minutes, 26 secondsOkay. But make you have to make sure and those links should come in your metadata first. Those links should be present in your met. We'll do that. We'll do that probably tomorrow.
+1:23:341 hour, 23 minutes, 34 secondsFirst today we need to kind of be very very sure with retrieval, right?
+1:23:371 hour, 23 minutes, 37 secondsRetriever and augmentation is something we need to be very sure. That's important. So Samir uh here we do chunking also,
+1:23:451 hour, 23 minutes, 45 secondsright?
+1:23:471 hour, 23 minutes, 47 secondsNo, this is not chunking per se. This is basically whatever the context whatever the response that is coming through chunking was in the last session that is
+1:23:541 hour, 23 minutes, 54 secondsupserting the documents right that's a separate design this is this is retrieval so whatever you retrieved you're just kind of concatenating them
+1:24:031 hour, 24 minutes, 3 secondstogether you're basically kind of beautifying your output which you need to plug inside ll right which you will be sending with the ll that's the whole
+1:24:111 hour, 24 minutes, 11 secondsidea of this right you can probably add links to it I'm just I'm just going to write it here right what all what all can you do here
+1:24:181 hour, 24 minutes, 18 secondsSo I'm going to remove it from here and I'm going to write it here.
+1:24:251 hour, 24 minutes, 25 secondsPost filtering is one thing you can do. Then you can do add links,
+1:24:341 hour, 24 minutes, 34 secondsright? Shorten the context.
+1:24:381 hour, 24 minutes, 38 secondsFirst thing you do always is what? First thing you do is basically concatenate the context together,
+1:24:501 hour, 24 minutes, 50 secondsright? Post filtering, add links,
+1:24:531 hour, 24 minutes, 53 secondsshorten the context and so on. This is this is the kind of things summarize all these things you can do here. This is this this is the kind of thing you can do.
+1:25:021 hour, 25 minutes, 2 secondsUh I want to ask one thing. Can can I do uh transliteration also in this? What is transliteration?
+1:25:101 hour, 25 minutes, 10 secondsa conversion of English translation into Hindi you can do it you can do it if if it is a requirement you can do it right so
+1:25:181 hour, 25 minutes, 18 secondsthat's why see all of the customizations post retrieval they are done in this step all the customization after
+1:25:251 hour, 25 minutes, 25 secondsretrieving will be done here okay make sense sorry can you show us an example of that example of what
+1:25:331 hour, 25 minutes, 33 secondstransitration if possible uh an application you'll have to think of an application Let's say a user is
+1:25:411 hour, 25 minutes, 41 secondsasking question in Hindi, right? You want to respond to him in Hindi, right?
+1:25:471 hour, 25 minutes, 47 secondsSo what you can do is certainly you can transliterate your rag outputs to ensure that that uh your rag also answers in Hindi.
+1:25:571 hour, 25 minutes, 57 secondsYou understand that that is kind of thing you can do with transliteration.
+1:26:011 hour, 26 minutes, 1 secondActually something like he's typing in English and that is transliterating in Hindi in the another window. So that's
+1:26:081 hour, 26 minutes, 8 secondswhat I actually mean to say that it is translating a whole text into it's like a conversion.
+1:26:151 hour, 26 minutes, 15 secondsSee ideally though your LLM only will take care of it right your LLM when you give the prompt to LLM LLM will take care of it it will give the final answer
+1:26:241 hour, 26 minutes, 24 secondsin Hindi only right but let's say you have a weaker LLM let's say you have a open source LM let's say llama that will not be able to handle it right so what
+1:26:321 hour, 26 minutes, 32 secondsyou do in that case is you basically kind of convert whatever text that you're getting here right convert it to it into
+1:26:401 hour, 26 minutes, 40 secondsHindi and then only send it to LL okay so that that's the whole idea In that in such a case you can use transliteration
+1:26:481 hour, 26 minutes, 48 secondsbut the whole idea overall idea is guys context building means all the context which has to go into the LLM right you need to prepare it here only you need to prepare
+1:26:561 hour, 26 minutes, 56 secondsbut in case of retrieval there are some losses right that's right side if I'm if I'm not wrong
+1:27:041 hour, 27 minutes, 4 secondsum I don't get it what is in retrieval there are some losses yes is in in case of summarization and
+1:27:121 hour, 27 minutes, 12 secondsretrieval like we will have losses uh during retrieval that is certain. So we'll have to kind
+1:27:201 hour, 27 minutes, 20 secondsof ensure that our top K right all these things and then there are many other algorithms pre-filtering post filtering
+1:27:281 hour, 27 minutes, 28 secondspost filtering is this only that I'm talking about then there is pre-filtering that we will learn about uh and then there is reranking to kind
+1:27:351 hour, 27 minutes, 35 secondsof ensure that the context is very relevant so there's there's quite quite a lot of things that we do to minimize our losses
+1:27:431 hour, 27 minutes, 43 secondsSam I have a question so in my uh program when we ran the retrieval here uh the whatever it has retrieved it has
+1:27:521 hour, 27 minutes, 52 secondsgotten it partially for example if it says v value we eval and it's cutting everything down those I I noticed couple
+1:28:001 hour, 28 minutesof things are like missing we will do it better we'll do it better because for this we need better chunking right so we will do advanced things uh
+1:28:071 hour, 28 minutes, 7 secondstomorrow right tomorrow is advanced rack tomorrow's session is all about advanced rack where we'll do better chunking embedding links doing it all with lchain and history that is due for tomorrow,
+1:28:181 hour, 28 minutes, 18 secondsright?
+1:28:191 hour, 28 minutes, 19 secondsSo, no need to worry here because I noticed I started reading certain parts. I just skipped certain parts.
+1:28:241 hour, 28 minutes, 24 secondsYeah. Yeah. No need to worry for now. We are just designing a pipeline, right?
+1:28:281 hour, 28 minutes, 28 secondsSo, last session pipeline was of uh insertion, right? Upsert pipeline of retrieval,
+1:28:351 hour, 28 minutes, 35 secondsretrieval and augmentation, right? Once we are thorough with the pipeline that yes, these are the steps we have to follow, then we will kind of improvise
+1:28:421 hour, 28 minutes, 42 secondson the steps, right? So, building an MVP right now that's what we Okay, fair enough. Okay, what is summarization? Right, just try to understand what exactly summarization,
+1:28:511 hour, 28 minutes, 51 secondsright? See, you are getting a large amount of context in the in the which has to be sent into LLMs, right? S certain times you would not want such
+1:29:001 hour, 29 minuteslarge amount of context to be sent to LLMs. So what people do is in inside this function only or probably they create a new function which is called in
+1:29:071 hour, 29 minutes, 7 secondsthis function but inside this step only they will actually use a cheaper LLM to summarize all the text that they have
+1:29:141 hour, 29 minutes, 14 secondsinto smaller text. Okay that is where that is how summarization is used and that they will use as context for the
+1:29:221 hour, 29 minutes, 22 secondsfor the LLM. Got it? Is that there Jenny? That's what summarization is all about.
+1:29:281 hour, 29 minutes, 28 secondsYes sir. Thank you so much. Uh I was just wondering if you know if time permits if we can actually look at the code for the summarization like how I'll show you I'll show you I'll show you I'll show you.
+1:29:371 hour, 29 minutes, 37 secondsThank you so much.
+1:29:381 hour, 29 minutes, 38 secondsWe we'll use a cheaper model and try to Yeah. Thank you.
+1:29:431 hour, 29 minutes, 43 secondsAll right. So this is how this is how we do it guys. This is how we do it for this. Now let's next we go to
+1:29:491 hour, 29 minutes, 49 secondsuh Samir one one point uh result is uh yeah after executing third step correct the result is getting but response is
+1:29:571 hour, 29 minutes, 57 secondsnot getting result you getting yeah result is getting response but you're not getting how is it you run this as it is just run this
+1:30:051 hour, 30 minutes, 5 secondsif you're yeah as it is as it is running what is coming in your response uh nothing so actually just blank nothing so
+1:30:131 hour, 30 minutes, 13 secondsyou must be putting this list inside for loop Uh okay okay okay that's why I'm saying
+1:30:201 hour, 30 minutes, 20 secondsrun this as it is right okay okay guys is clear so five steps we have
+1:30:301 hour, 30 minutes, 30 secondsunderstood first and second step to are easy only third step is a little uh thing that you have to edit the query this is where a lot of hard work is done
+1:30:381 hour, 30 minutes, 38 secondsby the way reeranking sorry query uh what is it synonym interchange query the
+1:30:451 hour, 30 minutes, 45 secondsoptimization multiple things are done here right we'll do all of them right a lot of things are done here I'll just list them down if you want me to what is done in step number three I'll just list
+1:30:541 hour, 30 minutes, 54 secondsit down you do multiquery expansion this is the first thing that is done we'll be learning all of this right I'll be showing you two things hide and multiquy
+1:31:021 hour, 31 minutes, 2 secondsexpressions the rest you can explore so this is an excessive find this is this is one right so how how you can actually make this better
+1:31:101 hour, 31 minutes, 10 secondsjust first is multiquery expansion this is the first thing that is used right so basically in this what you do is instead
+1:31:181 hour, 31 minutes, 18 secondsof having just one query you make multiple versions of your query right you make two three versions of your
+1:31:231 hour, 31 minutes, 23 secondsquery if right so that's the first thing then second thing is second thing is
+1:31:301 hour, 31 minutes, 30 secondshere what we do is this right sorry okay second thing what we do is hide
+1:31:361 hour, 31 minutes, 36 secondshypothetical document embeddings right hide right what we do in this case I'll
+1:31:441 hour, 31 minutes, 44 secondstell you there's a very interesting step height instead of getting rag we pass our query directly to LLM
+1:31:531 hour, 31 minutes, 53 secondswe pass the query directly for example if you're asking what is the what is what is the query
+1:32:021 hour, 32 minutes, 2 secondsquery was two wheel how do I get a two wheeler load right this one right you just pass this right you just get this and you pass it right
+1:32:111 hour, 32 minutes, 11 secondslet's say let's say Okay, let me just share uh I think my Gemini or something.
+1:32:171 hour, 32 minutes, 17 secondsLet me open it here. Where is it? This is Let's open Gemini.
+1:32:291 hour, 32 minutes, 29 secondsLook at this, right? And I'm writing it to say this. Answer this from a height perspective.
+1:32:371 hour, 32 minutes, 37 secondsI'm just writing it. Just see this. Please understand this.
+1:32:421 hour, 32 minutes, 42 secondsHow do I get a two-heer loan? Answer this from a hide perspective. Just see this. It'll automatically know what it what it means, right? It'll give me some outputs. Just see this.
+1:33:021 hour, 33 minutes, 2 secondsWe should have used the fast
+1:33:251 hour, 33 minutes, 25 secondsTrying to over smart.
+1:33:361 hour, 33 minutes, 36 secondsLet's force it.
+1:33:401 hour, 33 minutes, 40 secondsidentity. See now it has given some my god what is wrong with it
+1:33:471 hour, 33 minutes, 47 secondshas it has gone crazy sometimes even does this right anyway so what will happen is your AI will give some answer right your AI when you ask it just give
+1:33:551 hour, 33 minutes, 55 secondsme an answer from a hide perspective right then what will happen is AI will give you some answers based on its own knowledge right without access having
+1:34:021 hour, 34 minutes, 2 secondsaccess to documents what you will do is instead of just passing this query right you will also pass that answer you will
+1:34:101 hour, 34 minutes, 10 secondsalso pass that answer to your to your vector database to get better retrievance. You understand? Instead of
+1:34:181 hour, 34 minutes, 18 secondsjust passing this query, first you give the query to LLM, LLM will give you back
+1:34:241 hour, 34 minutes, 24 secondssome documents. Some documents, no some answers. That answer and this query
+1:34:331 hour, 34 minutes, 33 secondscombine you generate embeddings. This answer and that query you combine and generate embeddings. and then then do
+1:34:411 hour, 34 minutes, 41 secondsthe vector query then do this vector matching then do this vector matching so this actually enriches this basically
+1:34:481 hour, 34 minutes, 48 secondsenriches your things right so if you want to take notes guys you can take notes right step number three right step number three right which is the
+1:34:551 hour, 34 minutes, 55 secondscustomization steps what all we can do I'm just kind of explaining multi-query expansion first one right multi-query expansion
+1:35:041 hour, 35 minutes, 4 secondsfirst write multi-query expansion in multi-query expansion MQE in MQ we
+1:35:131 hour, 35 minutes, 13 secondsask LLM we ask LM I think this has gone crazy so we can just kind of I don't
+1:35:211 hour, 35 minutes, 21 secondssometimes Gemini actually is acting crazy I don't know let's try okay let's just give it again let me just show you
+1:35:281 hour, 35 minutes, 28 secondsin fact and let me switch to fast yeah give multiple queries
+1:35:361 hour, 35 minutes, 36 secondsversions of the same query Just is it crazy or what? I'm asking it.
+1:35:471 hour, 35 minutes, 47 secondsHallucinating.
+1:35:481 hour, 35 minutes, 48 secondsYeah, it's totally hallucinating. It's a pro version that I'm using. It does this actually.
+1:35:571 hour, 35 minutes, 57 secondsIt happens with copilot also.
+1:36:001 hour, 36 minutesYeah, it does sometimes. It does sometimes. and just ask the same question.
+1:36:101 hour, 36 minutes, 10 secondsCan we multiple I'm just kind of trying to show you gone crazy.
+1:36:201 hour, 36 minutes, 20 secondsCan you put the same query in Google and type Google AI overview? Gemini works there, but I noticed it's slightly different. Is it
+1:36:271 hour, 36 minutes, 27 secondswhich one? Which one? Take the same query, the first question which you put here and put it in a Google search bar and type uh AI overview and see what response it gives.
+1:36:391 hour, 36 minutes, 39 secondsSometimes that gives a different Gemini.
+1:36:421 hour, 36 minutes, 42 secondsNo, the first one. First one, sir. The first one. Yeah. Yeah. The first question initi. Yeah. Yeah. That one.
+1:36:481 hour, 36 minutes, 48 secondsHow do you get two wheeler loan? How do I get Let me try again. Let's try one more time. Right. Okay.
+1:36:541 hour, 36 minutes, 54 secondsgive a multi-query expansion version of this query.
+1:37:041 hour, 37 minutes, 4 secondsHow do I get a personal don't answer just ask the same question
+1:37:151 hour, 37 minutes, 15 secondsfor vector retrie making it more enriched. Let's try see if this works.
+1:37:241 hour, 37 minutes, 24 secondsSo it is giving some multiquy expression right. What are the eligibility criterion application requirements for unsecured consumer credit? Walk through
+1:37:331 hour, 37 minutes, 33 secondsthe end of end to end process of applying a private installment loan from a financial institution.
+1:37:401 hour, 37 minutes, 40 secondsHow can I secure a signature loan or a personal line of credit? So it has given me multiple versions of the same query.
+1:37:461 hour, 37 minutes, 46 secondsSo what you do is instead of instead of instead of creating only one uh instead of having only one query what you do is
+1:37:551 hour, 37 minutes, 55 secondsbasically you basically have multiple queries in place right you basically kind of get multiple queries in place and you make a vector using these
+1:38:031 hour, 38 minutes, 3 secondsmultiple queries using these multiple queries you make your vector right you make your vector right here you pass multiple queries
+1:38:101 hour, 38 minutes, 10 secondshere and then you take average of the vectors so basically you get multiple for each query How do you get a vector right? You take the average of all the
+1:38:181 hour, 38 minutes, 18 secondsvectors. So basically your vector is now more generic in nature, right? It basically this is this is the idea of multi. So you can write it down. In
+1:38:261 hour, 38 minutes, 26 secondsmultivari expansion we ask we ask LL we ask LL to make various versions to make various versions of the same query.
+1:38:371 hour, 38 minutes, 37 secondsRecite it.
+1:38:401 hour, 38 minutes, 40 secondsIn multiquery expansion, we ask LLM to make various versions of the same query.
+1:38:461 hour, 38 minutes, 46 secondsWe then we then pass we then pass all these versions. We then pass all these
+1:38:531 hour, 38 minutes, 53 secondsversions to our encoder to our
+1:39:031 hour, 39 minutes, 3 secondsvector al encoding to our vector encoding model to our vector encoding model to get richer embeddings to get
+1:39:111 hour, 39 minutes, 11 secondsricher embeddings. So that is the idea of multi-quy expression. That is the idea of multi-quy expression. Right?
+1:39:181 hour, 39 minutes, 18 secondsDone.
+1:39:221 hour, 39 minutes, 22 secondsNow write hide. H Y D E to get to get richer richer embeddings. Embeddings.
+1:39:321 hour, 39 minutes, 32 secondsRight.
+1:39:361 hour, 39 minutes, 36 secondsYeah, you can do all that. See, we will do all that. We'll do it. We'll do it again. Don't worry about it. Right. We will ask him to answer it professionally
+1:39:431 hour, 39 minutes, 43 secondsand we'll get it just the just the text of queries only. Next hide in hide. In hide
+1:39:531 hour, 39 minutes, 53 secondshyd hide which is hypothetical document embeddings. Hide is hypothetical document embeddings.
+1:40:061 hour, 40 minutes, 6 secondsIn hide we ask we ask the LLM to answer the question.
+1:40:181 hour, 40 minutes, 18 secondsWe ask LLM to answer the question without context. That is we just put it into LLM right we just ask LLM to answer
+1:40:261 hour, 40 minutes, 26 secondsthe question directly. We ask LLM to answer the question directly.
+1:40:331 hour, 40 minutes, 33 secondsThen we take that answer. Then we take that answer and make its embeddings.
+1:40:421 hour, 40 minutes, 42 secondsThen we take that answer and then we make its embeddings.
+1:40:461 hour, 40 minutes, 46 secondsThis gives us richer embeddings. This gives us richer query embeddings. Right?
+1:40:521 hour, 40 minutes, 52 secondsSo these are some of the ways to enhance it. And there are more ways. Synonyms expansion. There are multiple other ways. We can try them out. Right? Later on, but right now we need just to understand what exactly is being done.
+1:41:021 hour, 41 minutes, 2 secondsOkay.
+1:41:041 hour, 41 minutes, 4 secondsSo in the various questions multiple questions at the beginning. Mhm.
+1:41:101 hour, 41 minutes, 10 secondsCan it also it should also include passive voice right?
+1:41:141 hour, 41 minutes, 14 secondsHow can that depends on your prompt? Now whatever prompt you want you can do it. You can try it out. You want passive,
+1:41:211 hour, 41 minutes, 21 secondsyou want different synonyms everything you can ask, right? You can ask that. It is not given but we should also include that. I think yeah we can we can there
+1:41:281 hour, 41 minutes, 28 secondsis a number of ways that a question can be asked. Yes. Yes. Yes.
+1:41:341 hour, 41 minutes, 34 secondsAll right. So these are two solutions that I showed you for improvement. Then step number four which is retrieval. You already know it's pretty straightforward right? This is I've already written you.
+1:41:431 hour, 41 minutes, 43 secondsYou may need to tweak here to get whatever you need. Right? So this is the tweak. Then find then write step number five.
+1:41:501 hour, 41 minutes, 50 secondsThen step number five. What are the things that can be done? Write this.
+1:41:541 hour, 41 minutes, 54 secondsWrite this down. Write these things down quickly. Write these things down. Conc concatenate the context together. This is the first thing. This is the essential thing that you need to do,
+1:42:021 hour, 42 minutes, 2 secondsright? You need to concatenate the context, right? Then there's something called as post filtering. Let me just kind of tell you what post filtering is then you I'll make you write it. Okay?
+1:42:111 hour, 42 minutes, 11 secondsWhat is post filtering? Let's say I asked a healthcare related question. I asked a healthcare related question. But I got a travel related answer, right? I
+1:42:201 hour, 42 minutes, 20 secondsgot I got a travel related answer or a trip related answer, right? I asked a healthcare related question about India.
+1:42:261 hour, 42 minutes, 26 secondsLet's say I want to ask what is what is the way to go to hospital right something like this and then it it sent me it also brought in a document which
+1:42:351 hour, 42 minutes, 35 secondsis what is the way to go to Paris right we need to remove we need to keep metadata text during chunking itself
+1:42:431 hour, 42 minutes, 43 secondsduring the upserting phase only we keep some metadata text that what is this document about okay what is this document about we keep some metadata
+1:42:511 hour, 42 minutes, 51 secondstext so after after getting all the documents we remove some unnecessary documents using these metadata tags,
+1:42:581 hour, 42 minutes, 58 secondsright? Using these metadata tags, this is called as post filtering. This is called as post filtering. Okay, this is a this is a good step to kind of
+1:43:071 hour, 43 minutes, 7 secondsimprove. But which is prefiltering and I'll talk about it later on, not right now. Okay,
+1:43:131 hour, 43 minutes, 13 secondsbefore getting the queries, you first filter from the vector database itself.
+1:43:171 hour, 43 minutes, 17 secondsOkay, you remove your travel etc etc type of metadata from the vector database itself. So that does not come
+1:43:241 hour, 43 minutes, 24 secondsin in your in your in your retrieve documents right that is pre-filtering okay so write both of them write down
+1:43:311 hour, 43 minutes, 31 secondsfirst pre-filtering this is done this is done before this is done during here in retrieval step that customization we
+1:43:391 hour, 43 minutes, 39 secondswill add right prefiltering but how do we know what what to remove uh that is the most
+1:43:461 hour, 43 minutes, 46 secondssystem that it can be confused with that we should the designer should be able to deduce
+1:43:541 hour, 43 minutes, 54 secondsSee we put metadata text right for example travel right whatever it is right what we do is we there is a way to kind of while you're querying the
+1:44:021 hour, 44 minutes, 2 secondsdatabase only now there there only you can actually ask it to filter that metadata first which is relevant then the search will happen the query
+1:44:101 hour, 44 minutes, 10 secondssearching will happen from those documents only which are filtered at the vector database end right okay so we are focusing narrowing down
+1:44:191 hour, 44 minutes, 19 secondsthe search context okay correct correct So it is like this. It is like this. Let's say I want I want to hire two data scientists and I I get applications of data scientists,
+1:44:291 hour, 44 minutes, 29 secondsmarketing guys, sales guys. So what will I do? I'll filter out the applications. Right? So that same thing we do here, right? Using the query, using the query,
+1:44:371 hour, 44 minutes, 37 secondswhatever queries gen we are getting, we filter out the unnecessary metadata tags. Right? Okay.
+1:44:441 hour, 44 minutes, 44 secondsRight. This is pre-filtering. Write it down guys. Prefiltering. Step number four. Write it. Step number four. First,
+1:44:501 hour, 44 minutes, 50 secondswrite step number four. We'll enhance it with prefiltering. We'll enhance it with prefiltering. What is pre-filtering? You
+1:44:581 hour, 44 minutes, 58 secondsyou fetch only for for retrieval. For retrieval, we
+1:45:041 hour, 45 minutes, 4 secondsshortlist. For retrieval, we shortlist only those vectors
+1:45:121 hour, 45 minutes, 12 secondsonly those vectors which are relevant. and then
+1:45:201 hour, 45 minutes, 20 secondsand then the vector matching is done and then the vector matching is done. Okay,
+1:45:281 hour, 45 minutes, 28 secondsyou first remove them then only do the vector match. So these are some of the ways to kind of stick to be very focused right but not being over focused right
+1:45:371 hour, 45 minutes, 37 secondsthat you remove unnecessary information that is also very important right so that's something we will try to take care of guys I'll tell you one thing
+1:45:441 hour, 45 minutes, 44 secondsthis prefiltering and post filtering is the secret sauce between a good rag personal and a bad rag personal everyone
+1:45:521 hour, 45 minutes, 52 secondselse can actually do all the other steps right basic basic steps they all can do right what is the good what is the secret sources this pre-filtering and
+1:46:001 hour, 46 minutespost filter This will make your algorithm faster. This will make your algorithm better, narrow, focused,
+1:46:061 hour, 46 minutes, 6 secondsright? This how well you implement this,
+1:46:091 hour, 46 minutes, 9 secondsright? That actually differentiates you as a rag developer from others as a rag developer. Everyone else most of the people are in similarly chunking while
+1:46:181 hour, 46 minutes, 18 secondsasserting the documents. Chunking is the step that differentiates between a good developer and bad developer. Right? So these are the just to just to recapture in
+1:46:261 hour, 46 minutes, 26 secondspre-filtering we will remove we'll focus on the required documents we narrow it down to the required in post filtering
+1:46:331 hour, 46 minutes, 33 secondswe'll in the post filtering once we are getting out the documents again we do one level of removal so that we all see
+1:46:411 hour, 46 minutes, 41 secondsthis is in the context building part see in the context building part you cannot send such a big cont let's say you're taking getting out 10 documents you cannot get send 10 documents what is the
+1:46:501 hour, 46 minutes, 50 secondswhat is the easiest step I have put here I'm taking only up 1200 characters right this is the easiest oh okay post filtering that I have done isn't it
+1:46:581 hour, 46 minutes, 58 secondspost filtering this is post filtering only right easiest post filtering is yeah but we will not lose out on some of the important that's what that's what to not lose out
+1:47:061 hour, 47 minutes, 6 secondson some of the information we we do a better post filtering which is using metadata right instead of instead of removing 1200 characters what we'll do
+1:47:151 hour, 47 minutes, 15 secondsis we would rather remove we would rather remove only remove the unnecessary parts using metadata that's ID right? Oh, using metadata that is the key.
+1:47:251 hour, 47 minutes, 25 secondsMetadata. Yes, using metadata. Okay.
+1:47:271 hour, 47 minutes, 27 secondsI have a question here. So, you mentioned that if we do this uh pre-filtering and post filtering things will happen faster. Uh how does it won't
+1:47:351 hour, 47 minutes, 35 secondsit become slightly slower because there is two additional steps like I put a query from a user's perspective. Uh won't it increase the latency and make
+1:47:431 hour, 47 minutes, 43 secondsit slightly slower though it's more accurate or am I missing something?
+1:47:471 hour, 47 minutes, 47 secondsSee, imagine it like this. Earlier you were searching through one lakh documents, right? Now with pre-filtering you removed 90,000 documents.
+1:47:541 hour, 47 minutes, 54 secondsNow you're searching in only 10,000 documents. So isn't that fast right?
+1:48:001 hour, 48 minutesUh and in post filtering uh when we filter the output doesn't add some post filtering is some overhead.
+1:48:081 hour, 48 minutes, 8 secondsYes that is adding a little bit of latency there but that's a good step to kind of you know be very active.
+1:48:151 hour, 48 minutes, 15 secondsOkay. And when we get the output do we wait for so there is this thing do we wait for the whole output to get generated and then pass the output or do
+1:48:241 hour, 48 minutes, 24 secondswe stream it one by one uh what is the take on that database the entire context must be ready you cannot just keep passing it
+1:48:311 hour, 48 minutes, 31 secondsyou should have the entire context in place then only you pass it but yes you can get LLM to answer it one by one that the streaming functionality which is
+1:48:391 hour, 48 minutes, 39 secondspresent there right you can actually get it to stream so LLM answer will come one by one for for just this that is just for a visual ual appeal right that's
+1:48:461 hour, 48 minutes, 46 secondsactually no has no use case it's only for visual appeal so user feels like yes my answer is coming right so that's and in all of this where does I don't
+1:48:541 hour, 48 minutes, 54 secondsknow if you can ignore this where does caching responses come in all this process so caching is also very important what we do is the most of the recent
+1:49:031 hour, 49 minutes, 3 secondsquestions most recently asked questions we keep them in in a place right so instead of going to vector database to answer that question I would rather go
+1:49:111 hour, 49 minutes, 11 secondsto the cached database if the question has a let's say let's say I Ask a question. You ask question, right? You asked how do I get a two-heer loan and I asked how do I get a motorcycle loan,
+1:49:211 hour, 49 minutes, 21 secondsright? So what I will do is your your question which was that how do I get a two-heer loan? Whatever answer came up using rag, I will cache that answer.
+1:49:301 hour, 49 minutes, 30 secondsRight? Now when I come in and I ask how do I get a motorcycle loop? Right? What I would do I would compare my query to
+1:49:381 hour, 49 minutes, 38 secondsyour query. If there's a very close match I will just give your answer as it is. Right? That is caching. So then to
+1:49:451 hour, 49 minutes, 45 secondssummarize query comes compare it to the cache response then filter prefiltering ID. Yes. Yes. Yes. First
+1:49:531 hour, 49 minutes, 53 secondsokay then pre-filtering then taking only the required embedding comes out post filtering and then context injection with this and then output is it?
+1:50:031 hour, 50 minutes, 3 secondsYes. Yes. Yes. First always caching is done. If there is no hit in the caching then we go to rack. Right. Ideally in a good application right? But for now we
+1:50:111 hour, 50 minutes, 11 secondsare avoiding caching altogether. We just understanding ra where is the cache response stored like it's not in there are databases like radius right it
+1:50:181 hour, 50 minutes, 18 secondsis stored in databases proper databases right okay thank you because your cache cannot have larger you cannot you do not have you won't have in your application more than 1 GB
+1:50:271 hour, 50 minutes, 27 seconds2 GB 5GB of cache because it's it's residing in memory it's residing in RAM not in vector database it's in RAM only right
+1:50:341 hour, 50 minutes, 34 secondsso caches that's why caching is faster okay and all this should happen under 3 seconds everything ideally ideally But it depends right. It
+1:50:431 hour, 50 minutes, 43 secondsdepends. It depends on application to application. Just take a look at charg thinking mode takes up to five minutes right. Yeah.
+1:50:501 hour, 50 minutes, 50 secondsTo answer right. So that is what it depends if you ask a question. Now if I'm asking him that give me what is 2 +
+1:50:551 hour, 50 minutes, 55 seconds2 equals to four and if it's taking five minutes for that then that is dumbass right. But that is the dumbest thing of course right but at the same time if
+1:51:031 hour, 51 minutes, 3 secondsyou're asking him some very complex logic and it is taking five minutes then it's justified right? So depends on application to application. Right.
+1:51:101 hour, 51 minutes, 10 secondsThank you sir. So here let's say I ask something like how do I let's say something specific like how do I just chuck my vehicle loan and I upload my
+1:51:191 hour, 51 minutes, 19 secondsbill or something like that that is another additional context what happens there in a real life like how does that happen here I mean
+1:51:281 hour, 51 minutes, 28 secondsin a real life see now to upload the documents and all uh there is no answer he's asking right what he's asking is he
+1:51:351 hour, 51 minutes, 35 secondswants to do something right so LLM is supposed to provide him with that functionality basically right this This is where agentic AI triggers it, right?
+1:51:431 hour, 51 minutes, 43 secondsSo there will be a function available with you which will let user upload the document. That function will be triggered and then LLM will answer it
+1:51:501 hour, 51 minutes, 50 secondslike okay send me the document and I will upload it. As soon as now the user uploads the document LM sends it to that function and that function will upload
+1:51:581 hour, 51 minutes, 58 secondsthe document. So something like that actually happens right? So in that case rag isn't called or is that's why I said in the last session you need to have a router in place to
+1:52:071 hour, 52 minutes, 7 secondsdecide you need rag or not I need rag right just to make sure that you're not wasting a lot of rag because rag comes
+1:52:141 hour, 52 minutes, 14 secondsat a cost right unnecessary context generation this is that right and you don't need it at the end of the day why use rag understand
+1:52:221 hour, 52 minutes, 22 secondsokay right then it won't need rag if the coil is about not about you know rags so it won't use rag
+1:52:301 hour, 52 minutes, 30 secondsOkay. So another layer should be there before this for routing. Routing then caching. We'll see that in in aentic. Okay.
+1:52:371 hour, 52 minutes, 37 secondsOkay. Thank you. I hope I didn't take too much time but thank you.
+1:52:431 hour, 52 minutes, 43 secondsUh so my question is if we are scrapping all the data from some sites in that case we are post filtering and
+1:52:511 hour, 52 minutes, 51 secondsprefiltering the data. So see it's not about scrapping and anything right? It's it's just about first of all it is about uploading your
+1:53:001 hour, 53 minutesdocument. So you can see that's why I've given two separate process. One is upserting. Second is retrieval. You
+1:53:081 hour, 53 minutes, 8 secondsretrieve you you kind of scrap from website you scrap from walls you scrap from earth. Wherever you want to scrap
+1:53:161 hour, 53 minutes, 16 secondsfrom you can scrap it and you have to take care of it in the upserting part.
+1:53:201 hour, 53 minutes, 20 secondsRight? Whatever creativity is there you that I've already showed you which parts you need to tweak right to absert to scrap and all right pre-filtering is now
+1:53:291 hour, 53 minutes, 29 secondsit is available in rag right now prefiltering will be done on the rag side right so that's a standard process
+1:53:361 hour, 53 minutes, 36 secondsthis process you take care of in the uh upserting part got it yes sir
+1:53:431 hour, 53 minutes, 43 secondssir sir you were explaining two things one pre-filtering and post filtering being the key aspect for a good rag there there was something else you were
+1:53:501 hour, 53 minutes, 50 secondssaying about embedding. I missed the context there because you said that pre-filtering, post filtering is a key
+1:53:581 hour, 53 minutes, 58 secondsfactor for a good rag developer. And then you were saying something similar for embeddings. I think somebody interrupted you when you were saying that.
+1:54:041 hour, 54 minutes, 4 secondsYeah. Yeah. So I was saying for upserting chunking is the key factor while we sub up abserting chunking is the key factor right which differentiates a good programmer versus
+1:54:131 hour, 54 minutes, 13 secondsa bad programmer. that is the way you chunk your documents, how well you kind of organize them and chunk them and then send them. So that's what I was saying basically.
+1:54:221 hour, 54 minutes, 22 secondsOkay. Thank you. Yeah. Yeah.
+1:54:251 hour, 54 minutes, 25 secondsSo actually you we you told in the previous class right? So uh we can narrow down the vector sub spaces using
+1:54:321 hour, 54 minutes, 32 secondson the metadata itself. So when you say prefilter post filter that's where you are telling that's what it okay. So there is no
+1:54:411 hour, 54 minutes, 41 secondsother method right on the pre-f filtering and post see metadata we keep some tags of the of every document we generate some good tags of every document that this is
+1:54:491 hour, 54 minutes, 49 secondsrelated to this part this is related to this part you know hashtags like you make hashtags right same way we use those tags to kind of filter down before
+1:54:571 hour, 54 minutes, 57 secondsafter like this okay okay thank you guys can you lower your hands I don't have the co-host access so
+1:55:041 hour, 55 minutes, 4 secondsI won't be able Yeah. Uh see my understanding of
+1:55:141 hour, 55 minutes, 14 secondsprefiltering is prefiltering means we apply the filter before the vector data search right. Yes. Yes. Yes.
+1:55:211 hour, 55 minutes, 21 secondsAnd post filtering is after the vectors data search. And you mention here during during vector data search you apply pre-filtering right during while
+1:55:281 hour, 55 minutes, 28 secondsyou're searching going and searching for the vectors you first say okay I don't need you I don't need you. And you say okay I'll only search from this area. Instead of searching from this area,
+1:55:361 hour, 55 minutes, 36 secondsyou'll just say I'll search from this area only. That's pre-filtering, right? Yeah.
+1:55:391 hour, 55 minutes, 39 secondsGot it. Post filtering is you are getting your you got your 10 documents.
+1:55:431 hour, 55 minutes, 43 secondsNow you want to further remove five documents, right?
+1:55:461 hour, 55 minutes, 46 secondsThat is post filtering, right? You want to further remove your five documents based on relevance basics, right? You can what is the simplest post filtering?
+1:55:551 hour, 55 minutes, 55 secondsTake documents where the score is greater than 0.5. Another another post filtering. What do you think? Isn't it? Yeah.
+1:56:011 hour, 56 minutes, 1 secondWhere the relevant score is greater than 0.5. So you can have your own post filtering methods right. The important part is you need to understand is where to fit it right.
+1:56:111 hour, 56 minutes, 11 secondsYeah. Yeah. And one more question I have the context building uh the step number five you mentioned the maximum character limit is 1200. Right. So if it is
+1:56:201 hour, 56 minutes, 20 secondsexceeding I'm putting it I'm putting it that's that's a post filtering step I have put here just to show you guys. Right.
+1:56:251 hour, 56 minutes, 25 secondsThat's one of the post filtering steps I've just put. Right. It's not it's not like standard right. I have put it right.
+1:56:311 hour, 56 minutes, 31 secondsYeah. Yeah. I understood it's not standard that you put it. So on what basis we need to mention it I mean uh is there any criteria or
+1:56:391 hour, 56 minutes, 39 secondsyou see you see what is your token cost what is the token cost that you can bear right how much tokens can you burn right basis that you will take a call when you
+1:56:471 hour, 56 minutes, 47 seconds1200 2500 right don't over don't give too much context to your model right that is a call that you'll have to take right okay
+1:56:551 hour, 56 minutes, 55 secondsgenerally we don't give a token limit generally guys we don't give a token limit I've given it here right but generally we don't do it we we used a good post filtering method to remove
+1:57:021 hour, 57 minutes, 2 secondssome of the documents probably we use filtering by relevance score. We say that okay we need greater than 0.5 only right something like that we do generally
+1:57:101 hour, 57 minutes, 10 secondsso basically it's not necessary to put the code uh limit right not necessary okay okay and if it is exceeding then
+1:57:181 hour, 57 minutes, 18 seconds1200 but the data is relevant like if it is exceeding then 1200 uh okay and the
+1:57:261 hour, 57 minutes, 26 secondsyeah yeah I mean the next data will be that's why I'm saying that's why I'm saying that we never use it with with 1200 I've just showed you just to give you an example that this is one way of
+1:57:351 hour, 57 minutes, 35 secondspost filter ing right otherwise you don't need it needed right that's important right yeah all right yeah thank you I hope guys we we were we are able to
+1:57:421 hour, 57 minutes, 42 secondsmake sense where is it that the tweaking is needed where is it that we need to kind of you know uh change things customize things as per the important
+1:57:511 hour, 57 minutes, 51 secondspart right so this is this is more of a drag pipeline context building is done now next part is step number six we'll go to step number six so context
+1:57:581 hour, 57 minutes, 58 secondsbuilding so what will be the output of this the final context let's pass it let's pass something inside this let's just
+1:58:061 hour, 58 minutes, 6 secondsSo let's just see what I'm going to do is inside this I'm going to pass my response.
+1:58:151 hour, 58 minutes, 15 secondsSo let's do it.
+1:58:231 hour, 58 minutes, 23 secondsLet's pass the response and we're going to give max cash
+1:58:331 hour, 58 minutes, 33 secondslet's say 1,000 and you can give anything I've given it 12 as default you can give anything else look what will come out see the combined text you get
+1:58:421 hour, 58 minutes, 42 secondssee this this is what you need to feed to llm right I this is what you need to come feed to lm right and probably while building this you can also enter you
+1:58:511 hour, 58 minutes, 51 secondsknow embed links inside this you do a lot of things whatever you need. Right?
+1:58:541 hour, 58 minutes, 54 secondsSo this is this is what my expected output is. Right? This is what my expected output is. Right?
+1:59:061 hour, 59 minutes, 6 secondsGuys, let's all get to this point. I think we need this function here. Build context. I think I don't know if I've sent it. I've said it again.
+1:59:191 hour, 59 minutes, 19 secondsJust use this. Just use this. Right.
+1:59:231 hour, 59 minutes, 23 secondsAfter this, after this, let's quickly build this pipeline. Uh once you've done this pipeline, we will kind of do uh a quick revision of our vector algorithms.
+1:59:321 hour, 59 minutes, 32 secondsWe'll just quickly go through them and then we are good for today. Uh next session, we'll just use the two architectures. Make sure everyone has these two architectures in place and you
+1:59:411 hour, 59 minutes, 41 secondsare able to very much comfortable with these. Then next time we'll kind of tweak it a little with multiple things, right? History we'll bring in, right?
+1:59:481 hour, 59 minutes, 48 secondsMultiple things we try to bring in.
+2:00:112 hours, 11 secondsSo this building context is it the augmentation here?
+2:00:162 hours, 16 secondsYeah. Yeah. This is the part you will augment understand. Okay. This is the thing that you will augment.
+2:00:222 hours, 22 secondsAugmentation is done. This is we are readying that masala for augmentation actually. That's the thing. Okay.
+2:00:302 hours, 30 secondsDo it guys. Give me thumbs up when it is done up to here. Just let me know. No, it won't take you that much time.
+2:00:382 hours, 38 secondsTrust me on this.
+2:00:442 hours, 44 secondsTrust me. Trust me. You just follow the standard. See standard I've given you.
+2:00:472 hours, 47 secondsRight now you need to keep experimenting. Keep on experimenting. And that's what you need.
+2:01:442 hours, 1 minute, 44 secondsdone. Just post a thumbs up in the chat,
+2:01:462 hours, 1 minute, 46 secondsguys. one's done. Just let
+2:02:402 hours, 2 minutes, 40 secondsOkay, I think we're done with this. So, let's move to the next part.
+2:02:552 hours, 2 minutes, 55 secondsStep six.
+2:03:142 hours, 3 minutes, 14 secondsLook at this very simple and easy part for now, right? We'll make it a little complicated next time, right? But for
+2:03:212 hours, 3 minutes, 21 secondsnow just kind of it's called as prompt rendering and augmentation.
+2:03:302 hours, 3 minutes, 30 secondsThis is the step number six.
+2:03:352 hours, 3 minutes, 35 secondsLook at this very simple step. What I'm doing is I'm defining a prompt template, right? I'm defining a prompt template.
+2:03:412 hours, 3 minutes, 41 secondsUse the following context to answer the question. Use the following question context to answer the context. Whatever you got here, we'll plug it in here.
+2:03:512 hours, 3 minutes, 51 secondsWe'll plug it inside here. Right? Same thing we'll do with langin. Don't worry about it. Right? And whatever the question is, you'll plug it the question here. The query that has come the query
+2:03:592 hours, 3 minutes, 59 secondsplug. So that's it. Instead of this, you pass query text. What is your query text? You pass that here. That's it.
+2:04:082 hours, 4 minutes, 8 secondsDo it quickly. Do it.
+2:04:112 hours, 4 minutes, 11 secondsTry it out yourself. Just try it out yourself.
+2:04:142 hours, 4 minutes, 14 secondsAnd what you do is just just to try what you do is you pass whatever the output is coming here. Whatever the you call this function first. You call this
+2:04:222 hours, 4 minutes, 22 secondsfunction right with the response. Call this function. This output you get inside something called a source. Get it in source.
+2:04:302 hours, 4 minutes, 30 secondsSources.
+2:04:332 hours, 4 minutes, 33 secondsGet it in sources. Right? This is your sources. You try to pass sources to this one. You try try to pass your query and
+2:04:402 hours, 4 minutes, 40 secondssources to this one and see what is the output coming of this. So let me just give it to you and you try it out yourself.
+2:05:062 hours, 5 minutes, 6 secondsJust try it. Just try to call this function. try to call this function and just let me know if you're getting the right output.
+2:05:182 hours, 5 minutes, 18 secondsOf course, customizations will come in here. Custom, there will be some customizations. So, I'll write it,
+2:05:252 hours, 5 minutes, 25 secondsright? Customizations will be right. You can change your prompt.
+2:05:302 hours, 5 minutes, 30 secondsGenerally, we take this prompt from an outside source. We have we keep a file a YML file and we directly load that file instead of you know kind of doing it
+2:05:392 hours, 5 minutes, 39 secondslike this but it's okay for now it's fine.
+2:05:412 hours, 5 minutes, 41 secondsCan you please scroll up a bit before the prompt template the code block?
+2:05:462 hours, 5 minutes, 46 secondsUh yeah can you please paste that the source the source equals build that one.
+2:05:512 hours, 5 minutes, 51 secondsYou just need to call that function that I sent you, right?
+2:05:552 hours, 5 minutes, 55 secondsThis this function that I this function is
+2:06:222 hours, 6 minutes, 22 secondsSo should we be waiting for an output on this prompt template code? Pardon me.
+2:06:302 hours, 6 minutes, 30 secondsWe need to check what is the output of this prompt template. What does it look like? Right.
+2:06:332 hours, 6 minutes, 33 secondsOkay. Just what is the output of this function basically? That's okay.
+2:06:562 hours, 6 minutes, 56 secondsDone. Done. Done. Done.
+2:07:532 hours, 7 minutes, 53 secondsDone, guys. Just put done when done, guys. Everyone needs to try this out.
+2:08:122 hours, 8 minutes, 12 secondsSo we are just executing prompt template right and it has the variable still the source and query but we had to feed it.
+2:08:252 hours, 8 minutes, 25 secondsPardon me the source and query we have to feed it right. Hey, of course source you'll have to create. No,
+2:08:342 hours, 8 minutes, 34 secondshere this this is source from the build context function that I've shown you right the context building part guys do it then only it will be clear otherwise it will be all in the air understand right?
+2:08:442 hours, 8 minutes, 44 secondsYeah.
+2:10:082 hours, 10 minutes, 8 secondsdone. All of you done.
+2:10:222 hours, 10 minutes, 22 secondsJust give me one minute. Just something.
+2:11:352 hours, 11 minutes, 35 secondsOkay. All right. Oh, yes. Yes. S sir, I'm looking at the output uh from
+2:11:432 hours, 11 minutes, 43 secondsthat prompt template code. Uh so should I be looking at something specific because I am seeing FAQs. I'm getting
+2:11:522 hours, 11 minutes, 52 secondsspecific question and answer. So I'm not sure I'm looking at the right output here.
+2:11:562 hours, 11 minutes, 56 secondsSo let's pass it to it. Let's just see if we are able to do it the right way.
+2:12:002 hours, 12 minutesLet's just see. So basically your sources, you have your sources in this fine. All of that is fine. Yeah, absolutely. Yeah,
+2:12:072 hours, 12 minutes, 7 secondslet's try now with this. Let's try. I think I didn't random. I agree. Same for me too.
+2:12:142 hours, 12 minutes, 14 secondsLet let me also try. May maybe you're right. So I need to give first of all the query. What is the query? Query text. And second thing I need to pass is
+2:12:212 hours, 12 minutes, 21 secondssources. Then let's see what is it that we are getting. See that's what you're getting. Basically you're basically getting a use the following context to
+2:12:282 hours, 12 minutes, 28 secondsanswer the following context. Let's let's try to print it right and just then you will be able to see it better.
+2:12:352 hours, 12 minutes, 35 secondsRight? Just print it and it's use the following context to answer the following question. See this context this is what you've given overview right it's nice right. What's the problem?
+2:12:462 hours, 12 minutes, 46 secondsThat's fine.
+2:12:462 hours, 12 minutes, 46 secondsYeah that's all I think I'm getting as a question. Yeah. Yeah.
+2:12:522 hours, 12 minutes, 52 secondsSee we have not done a very good chunking to be honest. So okay all right thank you sir.
+2:12:592 hours, 12 minutes, 59 secondsYeah and now how do we know that okay chunking has happened properly like before we generate output like why we
+2:13:062 hours, 13 minutes, 6 secondsstart the chunking process like how do we know okay I'll tell you there there are some ways to do it. So basically you basically check the scores your scores should be
+2:13:142 hours, 13 minutes, 14 secondsgood these these uh the scores of the outputs that are coming right those scores should be good. So what you have is what you
+2:13:222 hours, 13 minutes, 22 secondsgenerally do is you keep a truth set with you right let's say you keep a set of documents like this uh you ask some
+2:13:302 hours, 13 minutes, 30 seconds100 questions right for all the 100 questions you find out from my documents which answers should come from
+2:13:382 hours, 13 minutes, 38 secondsthe documents which part should come out right then then we kind of compare what
+2:13:452 hours, 13 minutes, 45 secondswe think should come out versus what the the the comparison algorithm is giving Right? That's how we do and you know kind of find out how effective we are.
+2:13:542 hours, 13 minutes, 54 secondsI'll talk about these metrics these metrics I'll talk about. Don't worry about it.
+2:13:592 hours, 13 minutes, 59 secondsRaas Raza's framework. I'll talk about it.
+2:14:012 hours, 14 minutes, 1 secondIs it an iterative process where we do multiple we just chunk it?
+2:14:052 hours, 14 minutes, 5 secondsOf course. Of course. You will you will have to chunking do chunking multiple times. You will have to try it out multiple times to you know enhance it over the time. Yes. That that is that
+2:14:122 hours, 14 minutes, 12 secondswill be the Okay. So this is what we're getting guys. So this will be sent to what? This will be sent to LLM, right? Whatever we
+2:14:202 hours, 14 minutes, 20 secondsgetting here will be actually sent to LLM, right? So, you can send it directly to LLM, right? You can actually send it directly to LM. Whatever you're getting,
+2:14:272 hours, 14 minutes, 27 secondslet's say this is your prompt. Let's just let's just say you're getting this. So, I just call it my prompt,
+2:14:342 hours, 14 minutes, 34 secondsright? This so this becomes my prompt,
+2:14:372 hours, 14 minutes, 37 secondsright? I have my prompt here. So, you can directly call your LLM, isn't it?
+2:14:412 hours, 14 minutes, 41 secondsHow do you call your LLM? Tell me. You can directly call it, but we want to do it using LA, right? We want to do all the steps all the six seven whatever
+2:14:502 hours, 14 minutes, 50 secondssteps we have taken using language right so last part is to build your language but before that there's one part which is incomplete and we need to fix it is
+2:14:592 hours, 14 minutes, 59 secondswe need to convert this into a function right whatever we are getting here we need to convert it into sorry uh so I think I missed the sources
+2:15:072 hours, 15 minutes, 7 secondswhat is the value of sources what is sources um at the end in the render prompt we are sources is nothing but whatever is
+2:15:152 hours, 15 minutes, 15 secondscoming out of build context that you are putting inside the random prompt this right see query and sources you're
+2:15:222 hours, 15 minutes, 22 secondsputting just sources and query you're putting calling the function that's it got it source is nothing but we are just whatever we are getting from here now
+2:15:312 hours, 15 minutes, 31 secondsguys you don't want to do it step by step right you don't want to do it like this you want to do it using lanching so how do we do it like using lanching for that we need to first fix this part only
+2:15:402 hours, 15 minutes, 40 secondsthis one is not in the form of function so let's put a function in this I'll call Retrieval,
+2:15:492 hours, 15 minutes, 49 secondsright? Retrieval. You tell me which variables are required inside this.
+2:15:522 hours, 15 minutes, 52 secondsWhich variables are required? Can you tell me?
+2:15:572 hours, 15 minutes, 57 secondsCan you tell me which variables are required? Tell me query text query
+2:16:042 hours, 16 minutes, 4 secondsthe query. Of course, the query you need, right? Query query text. Yes. What is the other variable which you need? Anyone else?
+2:16:132 hours, 16 minutes, 13 secondsindex. Which one? The index name. No, no, this is just DB.
+2:16:202 hours, 16 minutes, 20 secondsThis is actually just embedding. This is Let's call it Let's call Let's give it a better name. I just call it
+2:16:312 hours, 16 minutes, 31 secondsLet's call it uh I calling it in my check.
+2:16:452 hours, 16 minutes, 45 secondsretrieve docs. We call it retrieve docs.
+2:16:492 hours, 16 minutes, 49 secondsRetrieve docs, right? So, you're passing a query and let's also give this top,
+2:16:522 hours, 16 minutes, 52 secondsright? Top let's put a default to five, right?
+2:16:562 hours, 16 minutes, 56 secondsLet's put a default to five. What else do you think we need? Probably you can also pass model inside this, right? But we have it in the main program, so it's
+2:17:042 hours, 17 minutes, 4 secondsfine. We don't have to do it. I think this much is fine, right? This much is fine. And you just put this and select all of this and make it a right. Can you do this same way? You've done this part.
+2:17:152 hours, 17 minutes, 15 secondsYou've done this part. You need to convert it to into a function. Can you do this? Can you quickly convert it into a function or let me also let me give you the word otherwise it will take some time.
+2:17:302 hours, 17 minutes, 30 secondsJust do this part.
+2:17:482 hours, 17 minutes, 48 secondsBasically now you have a function. So you need to return what? What will you return guys? Tell me inside this function.
+2:17:562 hours, 17 minutes, 56 secondsResponse.
+2:17:582 hours, 17 minutes, 58 secondsResponse. The response is what you So you have a series of functions.
+2:18:132 hours, 18 minutes, 13 secondsSo you have a series of functions. Now this is no longer valid. So just comment it out, right? And then this is the building context which will give you
+2:18:212 hours, 18 minutes, 21 secondssources. Let's comment this out. This how you can call it. I'm I've just shown you how to call each function. Now we don't need it anymore. Prompt rendering.
+2:18:292 hours, 18 minutes, 29 secondsAgain, you don't need this, right? This is done, right? Just quickly fix it.
+2:18:342 hours, 18 minutes, 34 secondsJust plug it. These six steps is all you need. This these six steps is all you need, right? To be able to make this,
+2:18:402 hours, 18 minutes, 40 secondsright?
+2:18:442 hours, 18 minutes, 44 secondsOh, sir, what all the changes done recently? Pardon me.
+2:18:492 hours, 18 minutes, 49 secondsSo the changes what uh recent changes we have done here the function nothing changed. Nothing has been changed only one this part we have
+2:18:572 hours, 18 minutes, 57 secondsconverted into a function. The retrieval part and I've already given you the code right. You have the code right just that nothing else.
+2:19:242 hours, 19 minutes, 24 secondsNow chain I'll show you how is it made.
+2:19:262 hours, 19 minutes, 26 secondsThere's a it's a little different. The chain making is a little different than the usual one. Another way we are going to explore for chain making right uh
+2:19:342 hours, 19 minutes, 34 secondsbecause we need to what we are doing here is we need to manually pass we need to actually keep passing the output of one query to another query and plus the
+2:19:432 hours, 19 minutes, 43 secondsoutput that is coming out is also different. So I'll show you how it is done right.
+2:19:532 hours, 19 minutes, 53 secondsReady guys? Final step is making the change.
+2:20:082 hours, 20 minutes, 8 secondsSir, we had a edit query also earlier. Are we not putting that in the chain? Yeah, that is there. That is there, right? That is there.
+2:20:182 hours, 20 minutes, 18 secondsStep seven, making the change. The edit query function is there.
+2:20:302 hours, 20 minutes, 30 secondsAll these functions we need to call from edit query to all the functions we need to call using that. Okay, for this we make one function which is let's just
+2:20:382 hours, 20 minutes, 38 secondsmake it uh something like underscore start something like this. What you're doing is basically inside this is just a wrapper function that I'm creating which
+2:20:452 hours, 20 minutes, 45 secondsis basically doing nothing. It's basically taking it's basically taking a string from you and you are basically
+2:20:522 hours, 20 minutes, 52 secondsreturning returning like this query right you're basically returning this right
+2:21:012 hours, 21 minutes, 1 secondthis is what you're doing that's it there's nothing else this right so just making a start function just making a start function and I'll show you now how
+2:21:082 hours, 21 minutes, 8 secondsto now please pay attention first please pay attention how how the chain is created chain is equals to look at this I'll create and end in a different way.
+2:21:172 hours, 21 minutes, 17 secondsSo please pay attention. What is the first function we need to call guys? The first function we need to call is the start function. You need to pass the query inside this. Right? Whatever the query is you want to pass inside this,
+2:21:272 hours, 21 minutes, 27 secondsright? Let's do it. Right? Look at this.
+2:21:312 hours, 21 minutes, 31 secondsRunnable lambda runnable sorry lambda and you
+2:21:382 hours, 21 minutes, 38 secondspass your and you pass your start function inside start right start right.
+2:21:452 hours, 21 minutes, 45 secondsThis is the first calling that you need to do inside G right that you need to do inside G right
+2:21:532 hours, 21 minutes, 53 secondsthat's what the first thing you need to right please do it dot assign now this is the important part instead of using those pipes we used to do instead of
+2:22:032 hours, 22 minutes, 3 secondsusing these those pipes we used to do which is the LCL language which is pipes we used to use right what we are going
+2:22:102 hours, 22 minutes, 10 secondsto do is see what is the output what is the output of this query what is the output of this query It's a dictionary. It's not one value that is coming.
+2:22:182 hours, 22 minutes, 18 secondsThat's what you need to understand.
+2:22:202 hours, 22 minutes, 20 secondsOkay? You're not getting one value. What you're getting is what? A dictionary.
+2:22:242 hours, 22 minutes, 24 secondsRight? A dictionary is what you're getting. Right? A dictionary is what you're getting. Right?
+2:22:292 hours, 22 minutes, 29 secondsSo, what we do in this case, just take a just take a look. What we do in this case, we do we do
+2:22:372 hours, 22 minutes, 37 secondswe do it like this. dot assign dot assign query_edited
+2:22:442 hours, 22 minutes, 44 secondsis equals to query_edited is equals to now we'll call the second function just see this like this we'll keep on calling the functions right this is how we'll
+2:22:532 hours, 22 minutes, 53 secondskeep on calling the functions right dot assign dot assign right query what is this problem here
+2:23:022 hours, 23 minutes, 2 secondschain is equals to this what is the error dot assign query for addicted
+2:23:232 hours, 23 minutes, 23 secondsmaybe indentation change. This is fine.
+2:23:312 hours, 23 minutes, 31 secondsThis is fine.
+2:23:352 hours, 23 minutes, 35 secondsChange is equals to
+2:23:462 hours, 23 minutes, 46 secondsassigned dot assign now see output of this one will be what
+2:23:542 hours, 23 minutes, 54 secondsa query that query I need to send it to the next part right I need to send it to the next part so what I'm doing is just see I'm now calling the next part right
+2:24:022 hours, 24 minutes, 2 secondswhich is which is just see query_edited
+2:24:092 hours, 24 minutes, 9 secondsis equals to is equals to now I'll need another runnable lambda now now see this I I'll call runnable lambda again just
+2:24:192 hours, 24 minutes, 19 secondsthis is somehow not working okay lambda runnable lambda and inside this inside this what I'll do is I'll pass my I'll
+2:24:292 hours, 24 minutes, 29 secondscall my edit query function now right I'll now call my edit query function look at this how I'll call that is a little different that is what you have
+2:24:372 hours, 24 minutes, 37 secondsto understand. That is what you have to understand. Okay. How I will call it? That is what you have to understand.
+2:24:422 hours, 24 minutes, 42 secondsWhat is the output of this function? It will be this dictionary. So I need to pick this dictionary. How I I'm going to pick this dictionary is like this.
+2:24:482 hours, 24 minutes, 48 secondsLambda d lambda d. And you're going to call edit query. Edit query d query.
+2:24:562 hours, 24 minutes, 56 secondsThat's the only change that comes in. I just want you to first adapt to this syntax. What is really happening here?
+2:25:022 hours, 25 minutes, 2 secondsThat's what I want you to understand first. Right? I want you to understand what is exactly happening here, right?
+2:25:092 hours, 25 minutes, 9 secondsOkay, just take a look. Okay, this assign function, this assign function basically, this assign function
+2:25:162 hours, 25 minutes, 16 secondsbasically works, it basically works on a key value basis. It basically works on a key and a value basis. Right? Now,
+2:25:252 hours, 25 minutes, 25 secondswhatever the output is coming out of this, whatever the output, that's this is the key and this is the value that needs to be passed to the next part. The
+2:25:332 hours, 25 minutes, 33 secondsnext part is actually expect expecting just the query. Look at this. The addict query function. Look at the edit query function. Look at this. Where is it?
+2:25:412 hours, 25 minutes, 41 secondsWhere is it? Where is it?
+2:25:442 hours, 25 minutes, 44 secondsDing. Right. What is it expecting? It's expecting only the only the string.
+2:25:492 hours, 25 minutes, 49 secondsRight. So what I'm doing is what I'm doing is first I'm calling this function. The output of this is going to
+2:25:562 hours, 25 minutes, 56 secondsbe is going to be something. So I'm calling this function. Right? Now the output of this will be inside D that
+2:26:042 hours, 26 minutes, 4 secondswill be inside D and I'm passing D query that is this query inside this function right I know it's a little confusing
+2:26:122 hours, 26 minutes, 12 secondsright even it it confuses me why what confuses me is so many brackets but this is the only way to call this with so many functions with so many functions
+2:26:202 hours, 26 minutes, 20 secondsthis is the only way to call this actually right so what I'm what we're going to do is we're going to actually kind of have this here
+2:26:282 hours, 26 minutes, 28 secondsand this Try here. Right? So this is your first assign. This is done. This is how you do it. Right? Just try this.
+2:26:372 hours, 26 minutes, 37 secondsJust try this on your own. Then we'll do then we'll call more functions. Then we'll call more functions. First try this out. Just try this out. What are you doing? You're first calling lambda
+2:26:452 hours, 26 minutes, 45 secondsrunnable lambda start. So what will happen when you do this? When you do this, the query will be passed to this function. You will get the actual query.
+2:26:532 hours, 26 minutes, 53 secondsRight? That query has come out. But where is it? It's inside a dictionary.
+2:26:582 hours, 26 minutes, 58 secondsIt's inside a dictionary where the key is query and the query is of course the query. We need to access that dictionary. That dictionary you always
+2:27:052 hours, 27 minutes, 5 secondsaccess using what? Runnable lambda. That dictionary you access using runnable lambda right just just try it out. Just try it out once. Then I'll show you one
+2:27:132 hours, 27 minutes, 13 secondsmore method. Please try it out. Just try to do it on your own. I'm not giving the code. Just try to do it on your own. The code is here. You try to do it. Get accustomed to it because it's it's kind of important. We need to do it.
+2:27:472 hours, 27 minutes, 47 secondsLet me basically write here what will be the uh this thing here.
+2:28:102 hours, 28 minutes, 10 secondsdot assignable lambda start then you're calling the next one dot assign query edited I'm taking this into the output I'm taking inside this right that's what
+2:28:182 hours, 28 minutes, 18 secondsI'm doing nothing else
+2:28:322 hours, 28 minutes, 32 secondsJust try once. Just try once.
+2:28:462 hours, 28 minutes, 46 secondsSo let me write it here. The output of this will be like like this. What query?
+2:29:002 hours, 29 minutesWhat are the what what is the query? The query our query. How do I get a
+2:29:112 hours, 29 minutes, 11 secondshow do I get to? This will be the output here. This output you want to pass into the next function. Right? So forget this for a while right just passing it into
+2:29:192 hours, 29 minutes, 19 secondsthe next function dot assign runnable lambda edit query normally how would you have done it guys please understand normally how would you done it let's let's just try to understand it like
+2:29:272 hours, 29 minutes, 27 secondsthis normally how would you do it right normally you will put a pipe and then you'll call that function runnable lambda
+2:29:352 hours, 29 minutes, 35 secondsright and you'll call what edit query that's what you will do normally right that's what you'll do normally but
+2:29:422 hours, 29 minutes, 42 secondsyou cannot do it like this here right because the inputs shapes are different from some region different types of input is coming from some region different type. So what we're doing is
+2:29:512 hours, 29 minutes, 51 secondsdot assign plus you need to know dot assign dot assign right call this function you properly call this function how do
+2:29:582 hours, 29 minutes, 58 secondsyou call this function you need to pass what this this this part this part this part is what you need to pass how do you pass
+2:30:072 hours, 30 minutes, 7 secondsit using what lambda d query that is from this output which was
+2:30:142 hours, 30 minutes, 14 secondswhich is here which is waiting here you pick the query and whatever output is coming you need to take it back into what? Edited quit.
+2:30:262 hours, 30 minutes, 26 secondsThat's it. So after this step, please pay attention. After this step, your output will be what? Look at this.
+2:30:322 hours, 30 minutes, 32 secondsEdited_query and the query, right? It always comes in
+2:30:402 hours, 30 minutes, 40 secondskey value pairs. What is the query? The query will be what? How do I get a two?
+2:30:502 hours, 30 minutes, 50 secondsRight? That will be the output after this. This is how assign works. This is how assign works. Then whatever the output is coming out of this, I'll
+2:30:582 hours, 30 minutes, 58 secondsassign it to what? Dot assign. Which function I will I call next? You tell me guys which function will I call next?
+2:31:082 hours, 31 minutes, 8 secondsResponse.
+2:31:092 hours, 31 minutes, 9 secondsTell me retrieval.
+2:31:162 hours, 31 minutes, 16 secondsWhich which which one will I call?
+2:31:212 hours, 31 minutes, 21 secondsThe retrieval function. I will let's call the retrieval function. Let's do it. Okay.
+2:31:272 hours, 31 minutes, 27 secondsLet's call the retrieval function. Just right. Let's call the retrieval function.
+2:31:352 hours, 31 minutes, 35 secondsLet's do it. Let's just please pay attention. How will you call it again? Runnable lambda.
+2:31:422 hours, 31 minutes, 42 secondsWhich one? Retrieval. Retrieved docs. Right. That's one.
+2:31:482 hours, 31 minutes, 48 secondsDocs. What all do you need to pass inside this guys? You tell me. What all do you need to pass inside this?
+2:31:562 hours, 31 minutes, 56 secondsTwo things. The edited query which is coming here and the top K. So I'll just put it like this. I'll just put it like this.
+2:32:062 hours, 32 minutes, 6 secondslambda d lambda d right
+2:32:162 hours, 32 minutes, 16 secondssorry you need to put lambda d outside sorry sorry sorry sorry we are putting it inside I'm sorry right this this you need to put outside actually not here
+2:32:242 hours, 32 minutes, 24 secondsyou put it here like this you need to put it here similar you'll put this here outside
+2:32:322 hours, 32 minutes, 32 secondslambda d retrieve docs Right? What will you do? D query edited
+2:32:392 hours, 32 minutes, 39 secondsquery edited query. And one more thing you need to pass is what? Top right.
+2:32:482 hours, 32 minutes, 48 secondsUh so this part is done. So this editor query should it should be the assigned value like should it be editor query is
+2:32:582 hours, 32 minutes, 58 secondsequal to runnable lambda or uh edited query basically is just the function will be called
+2:33:062 hours, 33 minutes, 6 secondsthe function is go sorry please go ahead huh so basically here just the function is got that output is captured inside
+2:33:142 hours, 33 minutes, 14 secondsedited query like this as a dictionary okay right then again I think the syntax that that that had
+2:33:232 hours, 33 minutes, 23 secondsbeen written was edit query is equal to runnable lambda is what we wrote last time.
+2:33:272 hours, 33 minutes, 27 secondsAh so yeah here you need to kind of take it back in something. So what would you like to take it back in? You tell me results
+2:33:352 hours, 33 minutes, 35 secondsright results right take back results results.
+2:33:412 hours, 33 minutes, 41 secondsSo now now you need to take it back in results. So what will the output of this step? Just take a look. The output of this step will be what?
+2:33:512 hours, 33 minutes, 51 secondsresults and what are the results? All the all the results, right? All the text from back from vector database, right?
+2:34:072 hours, 34 minutes, 7 secondsNow, what is the next function you will call? Can you try calling the next function? What is the next function you will call? Tell me.
+2:34:142 hours, 34 minutes, 14 secondsPrompt.
+2:34:192 hours, 34 minutes, 19 secondsWhat is the next function you will call guys?
+2:34:222 hours, 34 minutes, 22 secondsLlm assigning context retrie is done. Building the context,
+2:34:302 hours, 34 minutes, 30 secondsright? Building the context, right? So, let's do it.
+2:34:462 hours, 34 minutes, 46 secondsI'm making a lot of mist. See, even I'm I get confused. This this will not come here. This will come here. Sorry. Yes,
+2:34:512 hours, 34 minutes, 51 secondsyou are right. Who whoever was calling it? This will also not come here. This will come.
+2:34:562 hours, 34 minutes, 56 secondsYeah, that's that's see even I get confused because the syntax is actually not that straightforward. It's launches own, right? So that's okay. Results this will come here, right?
+2:35:082 hours, 35 minutes, 8 secondsThis will come outside, right? Then see I do it like this, right? I do it like this. First I call the function normally. How I do it is I first call
+2:35:152 hours, 35 minutes, 15 secondsthe function runnable lambda. What what is the function name?
+2:35:212 hours, 35 minutes, 21 secondsLet's say it is let's say it is build context.
+2:35:252 hours, 35 minutes, 25 secondsBuild context. Look at this. Now please pay attention. Build context. I just this is how you would have normally called the function isn't it? But you need something from the previous output.
+2:35:352 hours, 35 minutes, 35 secondsYes, I need something. So put a lambda.
+2:35:372 hours, 35 minutes, 37 secondsSo put a lambda. lambda d build_c context going to call it now.
+2:35:442 hours, 35 minutes, 44 secondsSo what will you get? D what will you get from the previous tell me what will you get results comma is there anything else we need to
+2:35:522 hours, 35 minutes, 52 secondspass max max cash is equals to let's say 1200
+2:35:592 hours, 35 minutes, 59 secondswhatever you want possible pass and then you need to capture the result back into some some variable what is it what will
+2:36:062 hours, 36 minutes, 6 secondsit be source sources sources right
+2:36:142 hours, 36 minutes, 14 secondsthis So what will the output here? What will the output of this? The output of this will be
+2:36:302 hours, 36 minutes, 30 secondsalso this will be the output basically. Right?
+2:36:362 hours, 36 minutes, 36 secondsAgain that you need to pass to whom? You have the context. What you need to pass it to? Huh?
+2:36:452 hours, 36 minutes, 45 secondsThe context is here. We need to pass it to what? Tell me to pass it to render prompt.
+2:36:552 hours, 36 minutes, 55 secondsRight. So let's pass it to render prompt.
+2:37:002 hours, 37 minutesHow do you pass it dot assign? First call the function. First call the function normally then lambda d. Right? Then do render.
+2:37:092 hours, 37 minutes, 9 secondsSorry. This is something you do normally, right? That's how you will do it, right? Runnable runnable lambda
+2:37:212 hours, 37 minutes, 21 secondsright render prompt first normally call the function that you would normally do right normally pass the function name right that's how you would normally do
+2:37:292 hours, 37 minutes, 29 secondsit but but you need to get some custom input from the past place so what how will you do it how will you get do
+2:37:372 hours, 37 minutes, 37 secondslambda d render prompt render prompt and you need to pass inside this. You need to pass inside
+2:37:462 hours, 37 minutes, 46 secondsthis d what is what is sources.
+2:37:512 hours, 37 minutes, 51 secondsAnything else we need to pass inside this query and source I think query query it will automatically pass
+2:37:592 hours, 37 minutes, 59 secondsquery chain we'll call we'll pass query right when you call the chain we pass query so it actually needs a query as
+2:38:072 hours, 38 minutes, 7 secondswell as source you need to pass the query yeah you need to pass the query as well
+2:38:152 hours, 38 minutes, 15 secondsbecause uh it so basically render prompt should be pass query. Yes, you need to pass query
+2:38:222 hours, 38 minutes, 22 secondsas well as the source. So query is coming from there. So query is already in D. So you can pass D query
+2:38:322 hours, 38 minutes, 32 secondsedited query comma D
+2:38:422 hours, 38 minutes, 42 secondssources sources right this is what you need to pass right. So now when you do this when you do this part when you do this part
+2:38:502 hours, 38 minutes, 50 secondsright it will give you a proper chain which is which will run which will run but now final finally after the chain
+2:38:572 hours, 38 minutes, 57 secondscomes after the chain is done running what will be your final output right we need the answer right we finally need
+2:39:052 hours, 39 minutes, 5 secondsthe answer so I'll just show you what to do how to do it actually then you need to just do
+2:39:122 hours, 39 minutes, 12 secondsdotpick answer right answer dotpick answer that's what you need to do right that's
+2:39:202 hours, 39 minutes, 20 secondswhat you need to do now you need to passse your output also you need to pass your output so now you put after this
+2:39:272 hours, 39 minutes, 27 secondsstr output what is it str what is the name str output par this
+2:39:372 hours, 39 minutes, 37 secondsI know I know not the best way to make the change but this is something we have to right okay see whatever is in the previous steps Why are we using this?
+2:39:462 hours, 39 minutes, 46 secondsWhy are we using aside? See, lchain only does one way. 1 2 3 4. Whatever is in
+2:39:542 hours, 39 minutes, 54 secondsthe current step gets passed to the next step. That gets passed to the next step.
+2:39:572 hours, 39 minutes, 57 secondsThat gets passed to the next step. That gets passed to the next step. But here,
+2:39:592 hours, 39 minutes, 59 secondslook at this. You can also use something which is coming from here. Look at this.
+2:40:042 hours, 40 minutes, 4 secondsThis is query like the edited query which is coming from two steps behind.
+2:40:092 hours, 40 minutes, 9 secondsYou can also use this. So I'm just what I'm trying to tell you is normally lchain normal lang chain pipes
+2:40:182 hours, 40 minutes, 18 secondslchain pipes right function one like this function one
+2:40:252 hours, 40 minutes, 25 secondsfunction two whatever it is that you're doing this basically works in this the output of this function will be passed to this the output of this function will
+2:40:322 hours, 40 minutes, 32 secondsbe passed to this and so on right but in this case in this case what is happening is if you have this many this can use is
+2:40:402 hours, 40 minutes, 40 secondsscabby output. This can also use is scabby output. Right? The output from this guy can also go there. The output from this guy can also it can receive
+2:40:482 hours, 40 minutes, 48 secondsany of the outputs. That is the difference. But functions are executed linearly. Function executed execution is
+2:40:552 hours, 40 minutes, 55 secondssequentially but this function can use the output of any of the previous functions using this assign. That's why
+2:41:032 hours, 41 minutes, 3 secondsassign is used. Right? You go through it. The only way I would tell you is to do it is dot assign
+2:41:112 hours, 41 minutes, 11 secondsto runnable lambda pass the function name first that is
+2:41:182 hours, 41 minutes, 18 secondslet's say in this case edit query right then just see do you need anything from the past yes I do then what you do is
+2:41:262 hours, 41 minutes, 26 secondsthen what you do is inside this write it like this lambda d edit query and inside this you pass inside this you pass
+2:41:342 hours, 41 minutes, 34 secondswhatever Whatever you need from the past and it's best that you take it inside a variable then another dictionary is
+2:41:422 hours, 41 minutes, 42 secondsmaintained that is you will have edited whatever edited
+2:41:512 hours, 41 minutes, 51 secondsso all these are not these are not standalone dictionary only one dictionary is being maintained and all these are actually present in that dictionary we are just accessing it
+2:41:592 hours, 41 minutes, 59 secondsusing what this lambda right let's run it There's some error takes one
+2:42:062 hours, 42 minutes, 6 secondspositionable assign. So I think we need to pass this here to something like answer.
+2:42:182 hours, 42 minutes, 18 secondsSo answer now you will have answer.
+2:42:292 hours, 42 minutes, 29 secondsNow you can actually So the chain has been made. The chain has been made. See this? The chain has been built. Understand? The chain has been built, right?
+2:42:402 hours, 42 minutes, 40 secondsAnd now you need to just kind of just kind of uh call it how you call it.
+2:42:482 hours, 42 minutes, 48 secondsLet's just do it.
+2:42:572 hours, 42 minutes, 57 secondsLet's just instead of this let's just take what loans can I take
+2:43:082 hours, 43 minutes, 8 secondssomething like this whatever query you want to pass you can pass it see and then you get so what is the
+2:43:162 hours, 43 minutes, 16 secondsoutput coming right now we are getting the prompt as the output right now llm we are not we have not even called llm as of now right have we called llm Tell
+2:43:242 hours, 43 minutes, 24 secondsme guys, have we called LLM? So what is the output coming right now? The final context is coming as the output right now. See this the final context we are
+2:43:322 hours, 43 minutes, 32 secondsable to call as the output, right? Isn't it? Don't you think so? Tell me guys,
+2:43:382 hours, 43 minutes, 38 secondsit's only the prompt that it is giving it.
+2:43:412 hours, 43 minutes, 41 secondsSo there's one more step which is we are missing that is before this dot assign.
+2:43:462 hours, 43 minutes, 46 secondsWhat you need to do is what you need to do is instead of giving this as answer I'll call it as prompt
+2:43:542 hours, 43 minutes, 54 secondsand what I'll do here I'll just get the answer is equals to I'll call the llm directly llm dot
+2:44:012 hours, 44 minutes, 1 secondinvoke invoke that's how you'll normally do it right that's how you'll normally do it right but you do you need something from the previous step you
+2:44:102 hours, 44 minutes, 10 secondstell me do you need something from the previous step here it will be prompt
+2:44:202 hours, 44 minutes, 20 secondsRight now you tell me do you need something from the previous step here?
+2:44:242 hours, 44 minutes, 24 secondsHere here tell me wrong you need a prompt. So what you'll do is lambda first of all you call it using runnable lambda
+2:44:352 hours, 44 minutes, 35 secondsand then you need to what do lambda d lm.invoke Invoke what will you invoke it with?
+2:44:452 hours, 44 minutes, 45 secondsD tell me what do you invoke it with? Wrong.
+2:44:502 hours, 44 minutes, 50 secondsThat's and now the chain is created. And now just run it and you'll get a decent output. What is the error and chain?
+2:45:022 hours, 45 minutes, 2 secondsOkay. What is that? It's a GMA 2.5 flash invalid argument. What is the invalid argument? API key is invalid. Oh god.
+2:45:112 hours, 45 minutes, 11 secondsYou try this guys. Let me give this to you first. You try this. My API key certainly has gone crazy. So probably
+2:45:172 hours, 45 minutes, 17 secondsno same same error for me as I I tried getting new as well. I did that but uh
+2:45:252 hours, 45 minutes, 25 secondseven after that it's same same error that a key is
+2:45:342 hours, 45 minutes, 34 secondshuh after creating a new key as well. After what? creating a new key as well.
+2:45:422 hours, 45 minutes, 42 secondsOh,
+2:45:432 hours, 45 minutes, 43 secondsso let's do one thing, man. Let's remove this part, right? Just see this. If that is the key, let's remove this part for now. And let's only pick the prompt.
+2:45:532 hours, 45 minutes, 53 secondsLet's only pick the prompt. Let's just see.
+2:45:542 hours, 45 minutes, 54 secondsSir, could you just show the render prompt function a bit?
+2:45:592 hours, 45 minutes, 59 secondsYeah. Yeah. Render prompt is this function.
+2:46:072 hours, 46 minutes, 7 secondsI think it's working with the open AI keys because it's by default taking open AI actually that is the problem right that
+2:46:162 hours, 46 minutes, 16 secondsis actually the problem that it is by default taking an open AI key so that's why it is not working we need to while
+2:46:222 hours, 46 minutes, 22 secondswe are invoking the LL just give me one Check.
+2:46:412 hours, 46 minutes, 41 secondsLet's check uh how to kind of invoke how to kind of change the default key Actually,
+2:47:122 hours, 47 minutes, 12 secondsthere we go.
+2:47:182 hours, 47 minutes, 18 secondschain has been built but LM have built the LM the right way. This is fine. We have done it the right way.
+2:47:382 hours, 47 minutes, 38 secondsSo this saying Gemini 2.5 is argument model argument please the API key
+2:47:482 hours, 47 minutes, 48 secondslet's try with a different API key let me get a different API key just give me one minute
+2:47:562 hours, 47 minutes, 56 secondsthe last session whatever API key we had used that was fine let me use that Wow.
+2:48:182 hours, 48 minutes, 18 secondsBut if it is taking the right uh Gemini key, why is I mean I'm just thinking why is it not taking the right Google API
+2:48:272 hours, 48 minutes, 27 secondskey? That's the whole point. Just give me one minute.
+2:48:472 hours, 48 minutes, 47 secondsTry running it directly.
+2:49:012 hours, 49 minutes, 1 secondOkay, sir.
+2:49:032 hours, 49 minutes, 3 secondsIs it working for anyone else? For Gemini, just let me know if it is working for anyone.
+2:49:082 hours, 49 minutes, 8 secondsModel name is wrong. Samir, it's G has to be in lower case. Oh, okay. In the
+2:49:162 hours, 49 minutes, 16 secondsLLM part, right? Uh Yeah, there I have used lower case itself then to it
+2:49:252 hours, 49 minutes, 25 secondsdoesn't work still. It works for me. No, it works for me.
+2:49:292 hours, 49 minutes, 29 secondsIt worked for me also with lower case. Now it should work.
+2:49:362 hours, 49 minutes, 36 secondsLet's try now.
+2:49:392 hours, 49 minutes, 39 secondsUh oh.
+2:49:412 hours, 49 minutes, 41 secondsAPI key require expired error message. I'm getting a proper API key expired message.
+2:49:492 hours, 49 minutes, 49 secondsto work for me also.
+2:49:512 hours, 49 minutes, 51 secondsLet me restart my environment and try to do it again. One minute.
+2:50:052 hours, 50 minutes, 5 secondsLet's try again. It has gone in environment. So it's working guys. Let me know.
+2:50:152 hours, 50 minutes, 15 secondsJust check and tell me. It's working. Okay. Yeah.
+2:50:232 hours, 50 minutes, 23 secondsSo this is how assign is used guys. It's it's different from pipes. A little complicated but the syntax is pretty much the same. This syntax only is used.
+2:50:322 hours, 50 minutes, 32 secondsSee it's see lang has its own programming language. So it's it's using its own ways to kind of create you know these sequences. So that's why you need
+2:50:392 hours, 50 minutes, 39 secondsto kind of follow the same pattern all the time. Just understand the logic the concept that how it is basically picking up from the past cells that is made it
+2:50:482 hours, 50 minutes, 48 secondswork now I guess flash f is also small okay that that may may have been the problem let me check I'm running it all
+2:50:552 hours, 50 minutes, 55 secondsagain flash is small only is it correct yeah it's correct
+2:51:032 hours, 51 minutes, 3 secondscapital but it's capital let's Try
+2:51:192 hours, 51 minutes, 19 secondsthis is the fine only. And uh let's try
+2:52:242 hours, 52 minutes, 24 secondsThe change is not made or what change is there but pick is not
+2:52:302 hours, 52 minutes, 30 secondshappening. Change is not error
+2:52:422 hours, 52 minutes, 42 secondsmaybe. I think it's API key only. I think
+2:52:542 hours, 52 minutes, 54 secondswhen creating the LLM, we are taking it from the environment variable. Does that make a difference? Because you're taking it directly.
+2:53:022 hours, 53 minutes, 2 secondsThat should not make a difference because I just changed it, right?
+2:53:142 hours, 53 minutes, 14 secondsthe same problem. It's not it's not working at all.
+2:53:182 hours, 53 minutes, 18 secondsIt's fine. I'll change my AP. It should be working for you guys. That's what Yeah, it's working fine. And it also if I change the query also, it is giving me correct answers based on the query.
+2:53:282 hours, 53 minutes, 28 secondsYeah, so answers are satisfactory level. Three out of five types coming. Yeah, very precise for me.
+2:53:352 hours, 53 minutes, 35 secondsOkay, that's great. Great.
+2:53:412 hours, 53 minutes, 41 secondsIs it working guys? The rest of you are we getting okay quality answers. So see this. So we basically did nothing
+2:53:492 hours, 53 minutes, 49 secondsalmost here. I mean we have not done any engineering to be honest. No context engineering has done. This is a very simple pipeline that we have been able
+2:53:562 hours, 53 minutes, 56 secondsto create right and uh uh we have to now kind of build on top of this pipeline
+2:54:032 hours, 54 minutes, 3 secondsonly. in the next session. Right? So I hope this breaking down into steps is working for you. Right? Because I pretty much understand it like this only.
+2:54:132 hours, 54 minutes, 13 secondsRight? Break it down into steps and then see which parts you need to kind of you know kind of screw a little which parts you need to let loose, which parts are
+2:54:202 hours, 54 minutes, 20 secondsfixed. So that's how I am going about doing it. Right? So I just kind of you know do it like this and it works for me. So I hope that also works for you.
+2:54:292 hours, 54 minutes, 29 secondsRight? So I think I think yeah please question.
+2:54:342 hours, 54 minutes, 34 secondsUh so some uh here in this chaining you said it is going to be sequential uh right uh and both the input and the outputs of
+2:54:422 hours, 54 minutes, 42 secondsevery step would be available for the subsequent steps.
+2:54:462 hours, 54 minutes, 46 secondsYes. Yes. So only the output of the previous step is available for the subsequent step. But with dot assign the output of the past all steps are kept in
+2:54:542 hours, 54 minutes, 54 secondsa dictionary that is we are which we are creating using lambda d. Right. Okay,
+2:54:582 hours, 54 minutes, 58 secondslambda is basically giving us that dictionary that we are using it here,
+2:55:022 hours, 55 minutes, 2 secondsright? That we are using here. So if you want to use output of the previous steps, previous to previous steps, you need to kind of reassure, right? So guys, the question the problem here was
+2:55:102 hours, 55 minutes, 10 secondsthe problem here was that uh my Gemini API key was written in small. The Gemini name was written in small. You need to in capital you need to make it small.
+2:55:192 hours, 55 minutes, 19 secondsOkay. All right. So guys, I think we did not even have a break. So I think I'll keep it to here only for today. What do you suggest? uh there's some theory left
+2:55:282 hours, 55 minutes, 28 secondsfor half an hour theory is is there which I want to teach but I think I'll take it up in the next session only otherwise it will get too heavy uh
+2:55:372 hours, 55 minutes, 37 secondsso that is all I think we we can stop here you have the access to the folder you can absolutely go and access the notebook most of the thing is done in
+2:55:452 hours, 55 minutes, 45 secondsnotebook only very less scribbling here so I don't think this is worth sharing so I think that is all that is all so we take a pause here we take a moment here
+2:55:542 hours, 55 minutes, 54 secondsand just let me know how is it going for you Guys, are you are you practicing?
+2:55:572 hours, 55 minutes, 57 secondsAre you going good? Are you able to catch up? Are you able to kind of relate?
+2:56:032 hours, 56 minutes, 3 secondsUm, I hope it's it's going good for you guys. Just just let me know if you have anything for me that you want to kind of change this that anything just just let
+2:56:122 hours, 56 minutes, 12 secondsme know. I I can definitely make little modifications for your particular style. I personally really like your sessions.
+2:56:192 hours, 56 minutes, 19 secondsEverything is simplified, broken step by step. Even though just my experience again I want to say thank you ma. Thanks a lot. Uh I really enjoy it. Everything
+2:56:282 hours, 56 minutes, 28 secondsis clarified. I missed the initial sessions though if I I started like last to last week. I'm able to catch up have a lot of clarity from my side. Thank
+2:56:362 hours, 56 minutes, 36 secondsyou. And yeah, it's all good. Thank you so much.
+2:56:392 hours, 56 minutes, 39 secondsThanks a lot. Thank you so much. Thank you so much Sid sir.
+2:56:432 hours, 56 minutes, 43 secondsYeah thank you. Last session also I was able to catch up uh execute all the uh
+2:56:512 hours, 56 minutes, 51 secondscollab code. So in just one quick question when you're talking about pre-filtering and post filtering
+2:56:572 hours, 56 minutes, 57 secondswas it initially pioneered by Google when they were doing the search looks no no no iteration is not see these guys
+2:57:062 hours, 57 minutes, 6 secondsare already doing a very high-end everything pre-filtering post filtering everything in their in their application so they are doing everything because they have everything in house they're
+2:57:142 hours, 57 minutes, 14 secondsvertic yeah yeah they're very much vertically integrated right integrated but we have to incorporate it so there are white papers coming in time in and time out from the premium institutes,
+2:57:242 hours, 57 minutes, 24 secondsGoogle, IBM, multiple of these are actually you know kind of publishing white papers on how you can make your ranks better and everything that's how
+2:57:322 hours, 57 minutes, 32 secondsthese subjects have now come into phase and that's how people got to learn about that this is what we should do to kind of make our answers better so that's the whole idea if you understand
+2:57:402 hours, 57 minutes, 40 secondsso it is ever changing so we have to follow the white papers of course you have to follow all things that are going on in the market right
+2:57:482 hours, 57 minutes, 48 secondsyeah thank No just bit of feedback. So thank you very much. I think last couple of
+2:57:562 hours, 57 minutes, 56 secondssessions have been really wonderful. I think today you need to get some rest.
+2:58:012 hours, 58 minutes, 1 secondBut uh one suggestion if possible I know this has been code heavy for the last few weeks uh where if possible for example today's session right you kind
+2:58:102 hours, 58 minutes, 10 secondsof broke down into six steps uh in your collab itself but you know one small chart saying step one steps two step
+2:58:172 hours, 58 minutes, 17 secondsthree this and then go into the coding piece then I think our ability to relate and recall retrieve and augment will
+2:58:252 hours, 58 minutes, 25 secondsmuch better sure I I'll take that into account I'll take that but thank you very much energy and enthusiasm is fantastic. Thank you.
+2:58:332 hours, 58 minutes, 33 secondsThank you. Thank you so much. Yes, I I'll take Can we Can we show all the steps in a langraph in a graphical?
+2:58:402 hours, 58 minutes, 40 secondsLang graph. There are different set of steps. I have compiled some steps there also when we go to agents. No, we I have their own yeah there there there I also have steps
+2:58:492 hours, 58 minutes, 49 secondsright so it has its own steps there their views and all will come in. So those are also custom created. You won't find it in the internet or anywhere.
+2:58:582 hours, 58 minutes, 58 secondsover the time after struggling a lot I've created them how to how to kind of yeah of course these steps these steps it's not like it's not you won't find
+2:59:062 hours, 59 minutes, 6 secondsthese steps directly anywhere to be honest right I'm not saying that I have I've done a big job or anything it's all by God's grace that I got the
+2:59:132 hours, 59 minutes, 13 secondsopportunity to work that is the in the first place the biggest thing if you understand right people are people are trained people are wellqualified people are very much intelligent but they're
+2:59:222 hours, 59 minutes, 22 secondsnot getting the opportunity right so by the god's grace I got the opportunity right now it's my job to share it out the exact way that I understood it.
+2:59:302 hours, 59 minutes, 30 secondsRight. So that's that's something that I believe right thank you Sat.
+2:59:362 hours, 59 minutes, 36 secondsYeah. uh I would like to really give this feedback because before your session know we had uh uh uh like recall
+2:59:462 hours, 59 minutes, 46 secondssession means we had faced lot of problems in understanding and uh uh from the past trainers and the lack of clarity in what they were telling and
+2:59:552 hours, 59 minutes, 55 secondsthe takeaways were also not clear but I would really like to say that your classes are very much uh having the
+3:00:043 hours, 4 secondsclarity uh the the the the the topics are very much clear actually this is what we expected from the beginning of
+3:00:113 hours, 11 secondsthe session. Uh but at least now they considered it and the classes are very much clear and the takeaways from the classes are very much clear. You are
+3:00:203 hours, 20 secondsclearly splitting the problems into different chunks and we can able to understand the each chunk properly and we can definitely able to use this in
+3:00:283 hours, 28 secondsour work life. We can adopt this and solve many of our work related problems.
+3:00:343 hours, 34 secondsSo this is this is really helping me at least and I hope this will continue for the upcoming sessions and hope we can cover the rest of the syllabus or all
+3:00:413 hours, 41 secondsthe syllabus with this approach. Uh I I'll try that I'll try I'll try I'll try my best to kind of keep it simple only right not keep it complicated. See what
+3:00:493 hours, 49 secondsI'm I really believe in it first make it simple then tell where exactly you need to get complicated. So I I'll complicate it in the next session. So next session
+3:00:583 hours, 58 secondsto be very honest you will find it a little complicated. the course will be a little swinging by. But if you look at it piece-wise that okay this piece is a
+3:01:063 hours, 1 minute, 6 secondscomplicated but this is nothing but integrated into step number three right you will be able to make better sense out of it. So to be very honest, next
+3:01:143 hours, 1 minute, 14 secondssession will be a little complicated because there that the codes will be a little more hi-fi chunking advanced chunking codes. So it will be a big code I'll bring bring which I which I'll just
+3:01:223 hours, 1 minute, 22 secondscopy paste directly which will be an advanced chunking code right but look at don't look at it like okay this is a very big code understand two three
+3:01:293 hours, 1 minute, 29 secondsthings where is this code fitting in plug and play is this plug and play everything should be plug and play then understand what is going inside and what
+3:01:373 hours, 1 minute, 37 secondsis coming out of it that's it right so in this way if you approach it you will be fine right yeah uh this is really growing great and I have one question also in the lag
+3:01:463 hours, 1 minute, 46 secondsgraph we have this node and uh uh tree architecture right and here we are seeing that assign and runnable lambda
+3:01:533 hours, 1 minute, 53 secondsthis uh this kind of statements how different both are so langraph is basically a decision- based architecture
+3:02:003 hours, 2 minutesbasically you can grow go from any of the node to not any of the node but you can actually give multiple option to each node that you can go here you can
+3:02:093 hours, 2 minutes, 9 secondsalso go here you can also go here but in langchain you can only go one way right you can only follow there's only a fixed path that you have to follow in lang you
+3:02:173 hours, 2 minutes, 17 secondscannot deviate from that path So that is the difference.
+3:02:203 hours, 2 minutes, 20 secondsThis is lang chen and that is lang graph. Okay,
+3:02:233 hours, 2 minutes, 23 secondslang graph may you can give option that okay if this you can let's say there is a there is a function that let's say there is an editor right so if the query
+3:02:303 hours, 2 minutes, 30 secondscomes to editor the editor can choose that I can push the query to a publisher I can push the query to a researcher
+3:02:373 hours, 2 minutes, 37 secondslike this right so in this way it has the options to kind of instead of just going sequentially it can go in multiple ways right so that's that's what lang
+3:02:453 hours, 2 minutes, 45 secondsgraph is we'll cover lang graph don't worry about it we'll cover lang graph yeah thanks a lot thank sir sir uh can you please uh uh in the
+3:02:543 hours, 2 minutes, 54 secondscode itself can you please provide the notes sir important notes see most of the things are in the code are pretty straightforward and wherever
+3:03:023 hours, 3 minutes, 2 secondsI need it I made you write it but if you need one from the next session onwards I'll properly create a diagram and then I then I'll show okay we'll try to do
+3:03:103 hours, 3 minutes, 10 secondsthat or probably what I'll do is guys the best thing I'll tell you what I'll do is in the notebook itself I'll put some notes right
+3:03:173 hours, 3 minutes, 17 secondsso it is there all in one place right and separately a diagram and If the need be what I'll do is over the time after
+3:03:243 hours, 3 minutes, 24 secondsthe session I'll just attach the voice is not audible sir.
+3:03:403 hours, 3 minutes, 40 secondsAm I audible now? Yes. Yes. Okay.
+3:03:483 hours, 3 minutes, 48 secondsYeah. It was a fantastic session. I really liked it. Actually I can cope up with you this time. Uh but the same
+3:03:563 hours, 3 minutes, 56 secondserror I'm also getting you know the last one that you got it that Gemini.
+3:04:003 hours, 4 minutesYeah that Gemini one I think uh keys are the problem actually I think because everyone else is working right. So that means I think the only problem is the key. So I think we'll
+3:04:093 hours, 4 minutes, 9 secondshave to have a new key. So I'll get a new key for myself. Let's see.
+3:04:163 hours, 4 minutes, 16 secondsSir for running this code. Uh are you pro sharing the key sir? I'm not sharing my key because I I hope it is not shared. I hope my key is not shared.
+3:04:253 hours, 4 minutes, 25 secondsI'll check it.
+3:04:263 hours, 4 minutes, 26 secondsDo you have uh the course specific key to actually the future? Yeah, they provide one Google key.
+3:04:343 hours, 4 minutes, 34 secondsOkay. Okay. You need to have your own key. You can you can get it or if futurist is providing it use that.
+3:04:443 hours, 4 minutes, 44 secondsOkay.
+3:04:463 hours, 4 minutes, 46 secondsIt is a wonderful session and uh thank you. uh I I meant to say that uh that uh it I really
+3:04:553 hours, 4 minutes, 55 secondscorrelated with the session and the thing which I also want to mention is uh although other session were also good
+3:05:033 hours, 5 minutes, 3 secondsand u in this session we have a deep learning in sense of like uh knowledge base and practical oriented orientation.
+3:05:133 hours, 5 minutes, 13 secondsSo what I meant was uh I want uh some more uh hand-on expertise on that uh in
+3:05:203 hours, 5 minutes, 20 secondsmy personal belief and uh for uh that I need some of your guidance if possible in some later class or some if possible
+3:05:283 hours, 5 minutes, 28 secondsin in some future maybe uh always you can reach out to me on LinkedIn at any time. I'll always guide you wherever needed that's not at all.
+3:05:383 hours, 5 minutes, 38 secondsThank you. So kind of thank you. Thank you. Thank you.
+3:05:433 hours, 5 minutes, 43 secondsOkay. Okay guys, then we drop for tomorrow, right? Uh we end this for tomorrow. Let's catch up. Thank you so much, guys. Diva, Chatanya, thanks a lot. Kala, please.
+3:05:553 hours, 5 minutes, 55 secondsUh so actually uh I want to know right so after this session right what are the different session left like so are you going to take?
+3:06:023 hours, 6 minutes, 2 secondsYeah. Yeah. So I'll tell you yes I wanted to tell you right. So basically we'll extend a little then the plan program because I want to really go slow and first build the basics properly.
+3:06:103 hours, 6 minutes, 10 secondsRight. So we'll probably take one week extra or one and a half week extra depends right and I also want to do a quick project with you guys to make sure
+3:06:183 hours, 6 minutes, 18 secondsthat whatever we doing we also implement to able to implement it right so what is left after this after this we'll have I
+3:06:253 hours, 6 minutes, 25 secondsthink one one and a half more session on rag right so one next session on rag we'll just do the advanced things right then there's a framework in rag which is
+3:06:343 hours, 6 minutes, 34 secondscalled as raas which is an iterative framework where you can keep on improving your uh your rack framework right so that
+3:06:433 hours, 6 minutes, 43 secondsframework is there right so that also I want to introduce to be honest right that you should be aware of that framework it's an evaluation framework right every step we evaluate how is our
+3:06:523 hours, 6 minutes, 52 secondsrack performing right and then there are sometimes we have to do offline u
+3:06:593 hours, 6 minutes, 59 secondscleaning that means after the rag is built it's in production everything is there so sometimes you'll have to change the code change things here and there that kind of betterment you will have to
+3:07:073 hours, 7 minutes, 7 secondsdo sometimes you can do it on the run itself so you can code it inside the code only and it will check some metrics and it will make better right then I
+3:07:153 hours, 7 minutes, 15 secondsalso want to introduce you to corrective rag and adaptive rag right at least one implementation of corrective rag I want to show you right there are two types of
+3:07:233 hours, 7 minutes, 23 secondsrag and then there is corrective adaptive rag which is crack right so uh so these are the most important rack then people have made a lot of rags
+3:07:323 hours, 7 minutes, 32 secondsreactive rag I don't know there many rags I don't want to go into that much we'll understand the basic most important rags that is correct active
+3:07:393 hours, 7 minutes, 39 secondsrack adaptive rag these are some of the rags which we should know so this is left so I feel there will two classes so it will take for rag only then after two
+3:07:473 hours, 7 minutes, 47 secondsclasses we'll start with agent tech framework right right first of all we'll go to lang graph first thing first we'll understand
+3:07:563 hours, 7 minutes, 56 secondslang graph first okay so we have hands some hands-on experience on lang graph similarly like we learned lang chain similarly we learn lang graph right then
+3:08:043 hours, 8 minutes, 4 secondsI'll show you two three agentic architectures right what are what is possible right so one class will go in langraph, one class will go in agentic
+3:08:113 hours, 8 minutes, 11 secondsarchitecture, right? To understand what are the agentic architectures which are there. Then one class will be for agent states right uh state management right
+3:08:203 hours, 8 minutes, 20 secondsproperly how to how to this context management properly. So I I believe two weeks properly for agents right right
+3:08:283 hours, 8 minutes, 28 secondsand then we will combine agents with rag so one class on that so two and a half week from agents right so I think uh today's session and the next session
+3:08:363 hours, 8 minutes, 36 secondsnext Saturday after next week two more weeks that's that's that's how it is going to there
+3:08:433 hours, 8 minutes, 43 secondswe our job will be finished which where we'll have covered advanced agent we would have covered all the context engineering all the network topologies
+3:08:513 hours, 8 minutes, 51 secondsthe agent topologies MC MCP is not with me otherwise I would have covered it. So MCP is certainly not with me. So that I think will be covered later on. I think
+3:09:003 hours, 9 minutesthe guys these guys have also covered it some somehow. I'm not sure. Right. So this is how we are going to Great. Great. Thanks. Thanks.
+3:09:113 hours, 9 minutes, 11 secondsSo one question um generally with the with a lot of these large context models that are coming through uh I mean it's
+3:09:183 hours, 9 minutes, 18 secondsnot a very generic uh question because in uh in our use cases also we are moving slowly from rag to uh you know cachier augmented generation like the
+3:09:273 hours, 9 minutes, 27 secondsCAG which is more uh passing the entire context to the model because there is 2 million or 1 million context window that
+3:09:333 hours, 9 minutes, 33 secondsis available. So howable is that? I mean because uh rag seems to be one of those that we are doing but uh with large
+3:09:423 hours, 9 minutes, 42 secondscontext models coming in uh I mean many of these are also being passed directly to the models.
+3:09:503 hours, 9 minutes, 50 secondsSee uh you cannot keep on passing it directly to the models. See you have free access to Gemini. So you're passing anything you want to to Gemini right?
+3:09:593 hours, 9 minutes, 59 secondsBut when you're developing an application which gives you bills right you cannot be just keep on passing anything to as context to any model to
+3:10:073 hours, 10 minutes, 7 secondsbe honest right because the bills when they come they're large very large right we have goofed up in our company we have
+3:10:143 hours, 10 minutes, 14 secondsdone it multiple times we have seen the kind of expenses that we have invited right so you need to be always very
+3:10:223 hours, 10 minutes, 22 secondsefficient with this context management part that what is it that you're plugging into rack to ensure that unnecessary stuff doesn't go into that.
+3:10:313 hours, 10 minutes, 31 secondsYou get it right. You only send important stuff. So there is see with your free Google and everything you can keep sending whatever you want to send 1
+3:10:403 hours, 10 minutes, 40 secondsmillion tokens you send all the 1 million tokens right but when you go to uh implementing it in your company where
+3:10:463 hours, 10 minutes, 46 secondsevery token has a cost right so as the tokens increase your cost increases so you cannot afford that there you understand that is the difference.
+3:10:553 hours, 10 minutes, 55 secondsSure. I mean we we do have some use cases where uh we don't see the right way of chunking because there is no way to really chunk it in a in a certain
+3:11:043 hours, 11 minutes, 4 secondsform and shape. So that way we leave it to the Yeah. Tomorrow we'll cover one two ways to chunk properly. Right. Today though
+3:11:113 hours, 11 minutes, 11 secondswe did we did some come just to kind of you know sail through chalk chunking but we will do some
+3:11:183 hours, 11 minutes, 18 secondsbetter chunking but I won't I will explain them theoretically. We won't code them. I'll just give you ready made functions right
+3:11:263 hours, 11 minutes, 26 secondsthat's how we do it thank you al so uh like one query uh I don't know like
+3:11:363 hours, 11 minutes, 36 secondslike daytoday we got to know something new about the things so I just sometimes uh get confused or the confidence gets
+3:11:453 hours, 11 minutes, 45 secondssometimes low that would I be able to pace it or not so is it like better that whatever you are teaching so we just
+3:11:523 hours, 11 minutes, 52 secondsread that and do that much that is enough because uh that is not enough why I'll tell you because new technologies are keep keep
+3:12:003 hours, 12 minuteson coming for example rack page index some people are using page index but for me it's not the best choice because it's very much it's a token heavy algorithm
+3:12:083 hours, 12 minutes, 8 secondsit basically takes a lot of tokens so if you're building an optimized uh application that that is not the way about it then how cloudbot was built
+3:12:163 hours, 12 minutes, 16 secondscloudbot right which was right how how was that built understanding these things is very essential right so you
+3:12:233 hours, 12 minutes, 23 secondsknow okay let's say tomorrow if work comes to you you know that okay I can follow this strategy I can follow that strategy right or what is available in
+3:12:303 hours, 12 minutes, 30 secondsthe market for example my one of my teams needed a chatbot an internal chatbot right so now why should I go
+3:12:383 hours, 12 minutes, 38 secondswith the rag way instead what I do did is I was aware of that right Google file store is is is a capability which automates most of the rag parts but it's
+3:12:463 hours, 12 minutes, 46 secondsgood only for smaller data as the data gets larger it it's not the best choice right to be honest
+3:12:523 hours, 12 minutes, 52 secondsSo I used Google file store and built it on the go within within one week it went live right. So these are the kind of
+3:13:013 hours, 13 minutes, 1 secondemerging technologies that you must be aware of. For example, recently what is happening? Google has launched its embedded part two which is an embedding
+3:13:093 hours, 13 minutes, 9 secondsfor voice, audio, text, images, all of it, right? It's a it's a multimodal embedding, right? So that is the new in the news, right? So keep yourself
+3:13:183 hours, 13 minutes, 18 secondsupdated. Uh what I do to keep myself updated is I think we had this description in the last session as well and I did not share it with you. So what
+3:13:253 hours, 13 minutes, 25 secondsI do basically to keep myself updated is I basically read all the substack. I scroll through LinkedIn and I follow
+3:13:333 hours, 13 minutes, 33 secondssome good people on LinkedIn and I have some people on Substack. So I'll
+3:13:403 hours, 13 minutes, 40 secondsshare some Substack guys with you. I I have my phone open. So I'll kind of share uh with you who all you can
+3:13:483 hours, 13 minutes, 48 secondsfollow. So I'll I'll just kind of put the list in the chat. Marcus on AI. So these are see I most on substack I most
+3:13:563 hours, 13 minutes, 56 secondsmore follow AI news that is what is happening is the company going to get down where are these people burning
+3:14:033 hours, 14 minutes, 3 secondsmoney where is the investment going so I know what the job market is going to look like right that's why I read a lot of news on ongoing processes on AI that
+3:14:123 hours, 14 minutes, 12 secondswhat is exactly these companies doing what are the selling to the investors right what is it that is happening so more more a board board meeting type of
+3:14:203 hours, 14 minutes, 20 secondsthing I read from substract so I'll just kind of tell you what exactly So Marcus is there. Then there is the leverage. There's one newsletter of leverage.
+3:14:283 hours, 14 minutes, 28 secondsThen there is uh this guy there's a business engineer. The business engineer kindly mention in chat I'm putting it
+3:14:363 hours, 14 minutes, 36 secondsall right. And then there is Will Lockit I don't like him much now for for the
+3:14:423 hours, 14 minutes, 42 secondsthis part. See a lot of this depends on the chips right the the the GPUs and all for that I I focus a lot on that part
+3:14:503 hours, 14 minutes, 50 secondsright basically what exactly where is the chip market going right what kind of chips are coming right how are they going to make it better why why TPUs are
+3:14:583 hours, 14 minutes, 58 secondsbetter than GPUs inference versus training which chip is better right so for that I follow chips
+3:15:053 hours, 15 minutes, 5 secondschips strat then there is import AI this is more uh learning level right import AI then
+3:15:123 hours, 15 minutes, 12 secondsthere is myself. Then there's bite bite go.
+3:15:213 hours, 15 minutes, 21 secondsThis bite bite go and this ahead of AI
+3:15:293 hours, 15 minutes, 29 secondssystems by Ak is on LinkedIn is on is on um Instagram is a good guy right
+3:15:363 hours, 15 minutes, 36 secondsunderrated very underrated but good guy then you follow along these guys you will automatic automatically find more
+3:15:433 hours, 15 minutes, 43 secondsthen Rohans yeah we get to know some news like daily dayto-day but how can we like ourselves
+3:15:513 hours, 15 minutes, 51 secondscan practice so that we can uh like do that kind of job or see that's the thing that's the thing you need to be aware of the basic
+3:15:593 hours, 15 minutes, 59 secondspipeline that what exactly is the basic thing and you need to just know that if this thing has come in where will it fit in my existing okay
+3:16:063 hours, 16 minutes, 6 secondsuh you know framework right where will it and if you understand that just quickly take it down and fit it right that's it on the go right don't wait
+3:16:153 hours, 16 minutes, 15 secondsright see with with these AI models and all you can it out on the go and you know Test it out on the right. Won't more take more than 1 hour, right? Just try it out and once you've tried it out,
+3:16:253 hours, 16 minutes, 25 secondsyou're cool. Now when the work will come, we'll explore in deep. Right. Right.
+3:16:303 hours, 16 minutes, 30 secondsOkay. That's all. So guys, you follow these guys. Uh the talent
+3:16:373 hours, 16 minutes, 37 secondsuh I can't see in your chat. I put it on chat.
+3:16:433 hours, 16 minutes, 43 secondsGreat. Then the AI corner is there. Many many are there. The AI corner on Substack. I follow these on Substack.
+3:16:513 hours, 16 minutes, 51 secondsOkay.
+3:16:533 hours, 16 minutes, 53 secondsThe AI maker is there. Many are there actually. Then what I also do, I'll tell you whenever I find a good news uh whenever I find a good uh article,
+3:17:023 hours, 17 minutes, 2 secondsright, on the internet, right? I follow them. I follow them and I subscribe to them. So I have a separate email only for AI subscriptions and at the end of
+3:17:103 hours, 17 minutes, 10 secondsthe day, I go through these AI all the newsletters and whatever I find interesting, I keep it. Otherwise I just ignore it and then I unfollow them eventually. Right? If if they are not
+3:17:193 hours, 17 minutes, 19 secondssending good thing for a long time then I unfollow them. Right? So this is also I go about it. This is the second source which is newsletters. So subst also is
+3:17:273 hours, 17 minutes, 27 secondsnewsletters only. Right? Then uh I have a premium subscription of mint and wall street journal and economist.
+3:17:393 hours, 17 minutes, 39 secondsRight? These three I particularly keep uh which I read uh in the morning in the specific order only in this order only
+3:17:473 hours, 17 minutes, 47 secondsthat first I read mint which is the Indian what is happening in the Indian segment I directly go through the headlines what is happening in the market and all and directly go to the
+3:17:543 hours, 17 minutes, 54 secondstech section in the tech section recently these days AI is only there right so I understand that this this lets me keep ahead of AI right what is
+3:18:023 hours, 18 minutes, 2 secondsgoing on and then how will it be implemented so there there are layers which you have to layer by layer you'll have to learn right that is learning which is the market layer, then the tech layer, then the implementation layer,
+3:18:123 hours, 18 minutes, 12 secondsright? So this business engineer and import AI, these are all more on the application side, right? Whereas Marcus
+3:18:183 hours, 18 minutes, 18 secondson AI and ahead of AI, I think they are no not ahead of AI. Uh Marcus AI is basically more on the news side of it.
+3:18:273 hours, 18 minutes, 27 secondsSo in this way we have to kind of go about it. We need to be aware of everything right which is going on in the market right not just the tech but also what where the companies are going
+3:18:353 hours, 18 minutes, 35 secondsright which companies going to go bankrupt. For example, for example, I'll tell you, you might you may not be aware, but it is like uh this they are
+3:18:433 hours, 18 minutes, 43 secondsthese are these guys are very much this AI market is actually under very much pressure right now. I'll tell you why.
+3:18:483 hours, 18 minutes, 48 secondsWith the Iran war and this US war going on, right? Uh Iran is increasingly bombing UAE for a reason, right?
+3:18:583 hours, 18 minutes, 58 secondsSo that their funding dries up. So the funding in AI market dries up, right?
+3:19:023 hours, 19 minutes, 2 secondsThat's what they're trying to do to be honest, right? And if a market slides down then US is all on is all gone right. So that that's the strategy that
+3:19:103 hours, 19 minutes, 10 secondsthey are adopting right now. The strategy is to kind of push the all prices up push inflation. So they're actually having three four ways to kind
+3:19:183 hours, 19 minutes, 18 secondsof you know pull us lag lag down. And to be honest from my perspective US is actually losing this war. While it may appear from the from the agenda building
+3:19:263 hours, 19 minutes, 26 secondsand all it may appear that US is bombing them US has killed that killed those but actually US is losing this war. If you think yeah they're losing two 10 billion
+3:19:343 hours, 19 minutes, 34 secondsdollars and Iran is losing it cheap with the cheap drones and all and hitting the
+3:19:413 hours, 19 minutes, 41 secondsdata centers sir data centers also which are needed for yeah they're hitting the data centers in the UAE yeah that's all
+3:19:493 hours, 19 minutes, 49 secondsso AI is under pressure right now but we don't have to worry about it because we are very well less exposed first of all then secondly our application layer we
+3:19:563 hours, 19 minutes, 56 secondsare at the application layer right so Gemini and Microsoft is never going to go down We are yet to put up data centers in Andhra Pradesh. It is in the future.
+3:20:053 hours, 20 minutes, 5 secondsWe we don't even have data data centers that's so we are not under stress but yeah when the market will break down yeah of course inflation recession will
+3:20:133 hours, 20 minutes, 13 secondshit everywhere that problems will be there but in the longer run we are pretty much safe right so it's it's a big war that's going on. So we need to
+3:20:223 hours, 20 minutes, 22 secondsbe aware of these things right what is going on. So and only so on all all the three fronts you be aware on the on the news front what is going on the imp
+3:20:293 hours, 20 minutes, 29 secondsimplications you must know what is Nvidia doing when Nvidia is actually funding these startups what is it really doing with that money right you need to be aware of that circular funding going
+3:20:373 hours, 20 minutes, 37 secondson circular the circular funding is going on which is very dangerous this happened in bubble they are just that they have
+3:20:443 hours, 20 minutes, 44 secondsthey are propping up open AI open AI is propping up Nvidia and now there is a break in that they
+3:20:513 hours, 20 minutes, 51 secondscannot do that forever Now imagine where this circle can break.
+3:20:563 hours, 20 minutes, 56 secondsThat's what we have to understand. Now Google has come up with we had a bet with my other group last year. We were he was one of my
+3:21:043 hours, 21 minutes, 4 secondscolleagues was saying uh this quarter Jan Feb March but I was saying second quarter the bubble will burst.
+3:21:133 hours, 21 minutes, 13 secondsI feel the bubble burst in the second quarter.
+3:21:153 hours, 21 minutes, 15 secondsSecond quarter I feel. Yeah. Yeah. Let's see. So all this is going on guys. So you told the professor that the stock market the
+3:21:233 hours, 21 minutes, 23 secondsstocks may go now but the technology is going to stay technology is definitely going to stay right there's no way the technology is going to go because see Google has built
+3:21:323 hours, 21 minutes, 32 secondsit Google you cannot shake Google right open can go down AI can disappear or probably can be taken over by another company right but
+3:21:403 hours, 21 minutes, 40 secondsthe the technology has to stay right that will stay there there is a use case in the industry right people are using it after all right so it has found its place in the in the
+3:21:493 hours, 21 minutes, 49 secondscorporate Right. So technology is definitely good.
+3:21:523 hours, 21 minutes, 52 secondsFear of being left out. That's why they want to adapt to AI. That's what that's competition. Yeah. Exactly.
+3:22:013 hours, 22 minutes, 1 secondSo take these things into account guys and keep on going. Right. For example,
+3:22:043 hours, 22 minutes, 4 secondsNvidia how it can break is Google has come up with TPUs right that and if TPUs gain momentum, Nvidia's GPU sales will go down, right?
+3:22:133 hours, 22 minutes, 13 secondsAnd if the GPU sales go down, right? So basically now what the industry sentiment is that they don't need GPUs
+3:22:203 hours, 22 minutes, 20 secondsfor inferencing that is for predicting whatever we are doing right they don't need GPUs for that TPUs are enough much
+3:22:263 hours, 22 minutes, 26 secondsmore cheaper onetenth the cost and they're enough right smart so people are saying why should we use GPUs for inferencing right when we have
+3:22:343 hours, 22 minutes, 34 secondsTPUs something like TPUs of sort of so Nvidia has acquired another startup right right to actually which are which is similar which creates similar chips
+3:22:413 hours, 22 minutes, 41 secondsto TPUs right so just understand this this dynamics that is going on in the market. We need to be aware, right? What exactly is going to be the future,
+3:22:483 hours, 22 minutes, 48 secondsright? So that that's something.
+3:22:523 hours, 22 minutes, 52 secondsOkay guys, I think that is all. Let's catch up tomorrow, right? And uh finish this, right? Okay. Sure. Thank you so much.
+3:23:003 hours, 23 minutesThank you so much. Thank you. Byebye. Thanks.
+
+Sync to video time

@@ -1,24 +1,39 @@
 # Transcript Auto Cleaning
 
-Python pipeline for cleaning and structuring lecture transcripts session by session using a local Ollama model.
+Python pipeline for cleaning and structuring lecture transcripts module by module using a local Ollama model.
 
 ## What It Does
 
 - Reads transcript files from `input/`
-- Detects session numbers from filenames like `session_1.txt`
+- Treats each subfolder in `input/` as one module
+- Reads session files named `session_<number>.txt` inside each module folder
 - Splits each transcript into roughly 1200-word chunks
-- Saves chunk files to `chunks/` using strict naming:
-  - `session_1_chunk_1.txt`
-  - `session_1_chunk_2.txt`
+- Saves chunk files to `chunks/<module>/`
 - Cleans and structures each chunk with Ollama
-- Merges cleaned chunks into `output/final_cleaned.txt`
+- Stores one cleaned output per session in `output/sessions/<module>/`
+- Skips sessions that already have a saved cleaned output on rerun
+- Generates one final cleaned file per module in `output/`
 
 ## Project Structure
 
 ```text
 input/
+  cms/
+    session_1.txt
+    session_2.txt
+  ma/
+    session_1.txt
 chunks/
+  cms/
+  ma/
 output/
+  cms_final_cleaned.txt
+  ma_final_cleaned.txt
+  sessions/
+    cms/
+      session_1_cleaned.txt
+    ma/
+      session_1_cleaned.txt
 main.py
 utils.py
 requirements.txt
@@ -39,20 +54,30 @@ pip install -r requirements.txt
 3. Make sure Ollama is running locally and the target model is available:
 
 ```bash
-ollama pull llama3
+ollama pull mistral
 ollama serve
 ```
 
 ## Add Transcripts
 
-Place transcript files in `input/` using this format:
+Place transcript files in module folders inside `input/`.
 
 ```text
-session_1.txt
-session_2.txt
+input/
+  cms/
+    session_1.txt
+    session_2.txt
+  ma/
+    session_1.txt
+  contextual_management_systems/
+    session_1.txt
 ```
 
-Each file should contain one session transcript.
+Rules:
+- Folder names are the module names.
+- Module folder names should use lowercase letters, numbers, and underscores only.
+- Session files must be named `session_<number>.txt`.
+- Sessions are merged in ascending numeric order inside each module.
 
 ## Run
 
@@ -66,53 +91,39 @@ The script sends chunk-cleaning requests to:
 http://localhost:11434/api/generate
 ```
 
-using model `llama3`.
+using model `mistral`.
 
 ## Output
 
-- Raw chunks are saved in `chunks/`
-- Final merged cleaned document is saved to:
+- Raw chunks are saved in `chunks/<module>/`
+- Per-session cleaned files are saved in `output/sessions/<module>/`
+- Final cleaned module files are saved in `output/` as:
 
 ```text
-output/final_cleaned.txt
+cms_final_cleaned.txt
+ma_final_cleaned.txt
+xyz_final_cleaned.txt
 ```
 
-## Chunk File Format
+## Final Output Format
 
-Each chunk file name strictly follows:
-
-```text
-session_<session_number>_chunk_<chunk_number>.txt
-```
-
-Each chunk file also starts with:
-
-```text
-Session <session_number> - Chunk <chunk_number>
-```
-
-## Example Final Output
+Each module output contains only that module's sessions:
 
 ```text
 ### Session 1
 
-### Topic: Introduction to Photosynthesis
+[cleaned session 1 content]
 
-Explanation:
-Plants convert light energy into chemical energy.
+---
 
-Key Points:
-- Role of chlorophyll
-- Light-dependent reactions
+### Session 2
 
-Student Doubts:
-Q: Why are leaves green?
-A: Because chlorophyll reflects green wavelengths.
+[cleaned session 2 content]
 ```
 
 ## Notes
 
-- Ollama must be installed and running locally.
-- The `llama3` model must be available locally, or you can change the default model in [`utils.py`](/abs/path/C:/Users/Admin/Documents/AI%20Projects/Transcript_auro_cleaning/utils.py).
-- Session order and chunk order are preserved in the final merged file.
-- If no transcript files are found, the script exits with a clear message.
+- No content is mixed between modules.
+- Each module gets exactly one standalone final output file.
+- On rerun, only sessions without an existing file in `output/sessions/<module>/` are processed.
+- If you want to reprocess a session, delete its matching file from `output/sessions/<module>/` and run the script again.

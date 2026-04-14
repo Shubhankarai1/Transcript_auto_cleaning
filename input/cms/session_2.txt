@@ -1,0 +1,1359 @@
+Okay guys, hi all. Hi everyone. Hope you're doing well. So I hope we good to start. Uh there are some 47 students who
+14:3014 minutes, 30 secondshave joined us. I think people will keep on joining us. But I think we are we are ready to get started. So welcome back
+14:3614 minutes, 36 secondsyet another session on Hi. Hi. Hi Sha sir. Hi Santo sir. Good to see you guys. So,
+14:4514 minutes, 45 secondsso in the last session up until the last session we we introduced ourselves to the context that is important what goes
+14:5314 minutes, 53 secondsinside the LLM right that is what we were trying to trying to understand right it's not just one message that you
+15:0115 minutes, 1 secondsend into an LLM it's basically a collection of the past messages which you can of course curate which you can
+15:0915 minutes, 9 secondsof course edit then you send them to LLM which is what we had seen and we just tried to create a very working process of how to kind of maintain a history,
+15:1915 minutes, 19 secondsmaintain a list and then send that list to to the uh LLM. Right? That's what we had seen up in the last session. Right?
+15:2915 minutes, 29 secondsToday we'll kind of level up a little and try to make this process a little better because in our last process there were still some gaps and we'll try to
+15:3715 minutes, 37 secondsfill those gaps today and we'll I'll introduce you to the new tools which lchain provides us. We will be using
+15:4415 minutes, 44 secondsthose tools to enhance our context engineering that we are doing that is recording the history and everything. So
+15:5215 minutes, 52 secondsthere are advanced ways which you can certainly use to improve your history recording thing that we had done in the last session. Right? I hope everyone tried it back at their place.
+16:0416 minutes, 4 secondsWhatever we had we had discussed today we'll kind of build on top of this whatever we had done we'll kind of build
+16:1116 minutes, 11 secondson top of that and the same thing we'll try to do it much more better will with some advanced tools. Okay. So let me
+16:1916 minutes, 19 secondskind of give you a brief on what is it that we are going to do today. I will try to keep the session light so you are
+16:2616 minutes, 26 secondsable to digest more and then come back in the next session with having this information digested. That is where we
+16:3416 minutes, 34 secondsdeep dive into rags like anything. So I'll just kind of give you an overview of what it is going to look like. So
+16:4016 minutes, 40 secondstoday we'll kind of understand history in a much better way right using lang
+16:4816 minutes, 48 secondschains there is something in lang chains which lets you maintain history like anything and it's a very good tool which is
+16:5616 minutes, 56 secondsavailable with lang right for once we have done this right this will I think this will take us some one
+17:0317 minutes, 3 secondsto one.5 hours today because I want you guys to also implement it so we'll go slow at it but once we have done this
+17:0917 minutes, 9 secondsmuch I I would be pretty sure that you are you understand context particularly right that what is it that we have to
+17:1717 minutes, 17 secondssend to LLM we will use this we will use this whatever we discuss here we will use this to understand
+17:2617 minutes, 26 secondsthe concept of rack the concept concept of rack that is that is basically first we'll understand external data right external data that
+17:3517 minutes, 35 secondsis abid what you're doing you're plugging in history into the context.
+17:4017 minutes, 40 secondsYou're basically plugging plugging in past conversations into the context. But there will come a time where you will have to plug in external data from
+17:4817 minutes, 48 secondsexternal sources into the context and that's what we are going to understand first right and it's very simple and it's very simple and you will be able to
+17:5617 minutes, 56 secondspretty easily understand right then I will introduce you to rags what really rags are what do they work like what do
+18:0318 minutes, 3 secondsthey do so we'll kind of discuss that a framework of rag basically we'll try to discuss today so a little bit of more practical part
+18:1218 minutes, 12 secondshere more theoretical ical part here right more theoretical part here okay so we'll discuss the rag framework what does it do and what is it that we will
+18:2018 minutes, 20 secondsstudy in the upcoming sessions that is the next two sessions will be purely dedicated to rag only I will spend those two sessions entirely with rag and once
+18:2818 minutes, 28 secondswe have done rag we will just do a function tool calling with paidantic and then we will directly move into agents
+18:3618 minutes, 36 secondsso I think from the next to next week I think we were we will be pretty much in a place to move into agents
+18:4418 minutes, 44 secondsAll right. So this is something we will understand the framework of rack. Once we have done the framework of racks, I will introduce you to pine cone for now.
+18:5418 minutes, 54 secondsAnd if possible, I may also introduce you to fis.
+18:5918 minutes, 59 secondsLet's see. But at least we'll set up our pine cone account today. If you have not set it up, I'll help you set it up. And we will have a pine cone API key
+19:0719 minutes, 7 secondsavailable with us today itself. And we will try we'll try and see if we can just push
+19:1419 minutes, 14 secondssome data in pine cone. Right? But before doing this actually there is one more thing I want to discuss which is the embeddings. I'm pretty sure you have
+19:2419 minutes, 24 secondsdiscussed embeddings in detail but we'll just go through it one more time. Why?
+19:2819 minutes, 28 secondsBecause it's a little different when it goes inside pine cone. So there are multiple approaches that are taken up
+19:3519 minutes, 35 secondswhile using these embeddings and I'll be discussing those approaches shortly.
+19:3919 minutes, 39 secondsThis is going to be more theoretical in nature and once you understand this well once you understand this well from the
+19:4719 minutes, 47 secondsnext session onwards we will move to properly pushing the data. We we'll try to make a proper pipeline of pushing the data into chain. That is the first thing
+19:5519 minutes, 55 secondsand then retrieving the data from the lang chain. I'll you'll get to understand all of that by while by while by while by while by while I discuss this part which is the theory part okay
+20:0420 minutes, 4 secondsso this is my agenda for today help me achieve this today u I'm sure we will be able to finish this much it's pretty less compared in terms of volume so I'm
+20:1220 minutes, 12 secondspretty sure we will be able to cover this much today and once we do this much u tomorrow I think I think yeah tomorrow
+20:2020 minutes, 20 secondswe have a session right so tomorrow we will we will be in a shape to kind of uh push data into rags at least push data
+20:2820 minutes, 28 secondsinto rags and do basic retrievalss from racks that we will complete tomorrow itself. Right? All right. So with that in mind, I think I think we should just
+20:3520 minutes, 35 secondskick start. Let's open our the same notebook that we were on the last time and just take a look at it once, right?
+20:4220 minutes, 42 secondsJust go through it one more time. Uh just take a look at what we had done. So you are familiar. Let me also share it.
+20:4920 minutes, 49 secondsI think it's shared already. Right? So see this is what we had done up until the last time, right? We were
+20:5720 minutes, 57 secondswe were creating look at this let's take a look here start from round one like right here right here what we had done is we this is where we were calling our
+21:0621 minutes, 6 secondsLLM this is the first step you call your LLM second step is you have a list we were having a list of messages right in
+21:1421 minutes, 14 secondsthat list we were I was putting the system message directly in that list I was putting the system message directly right and then we were saying okay let
+21:2321 minutes, 23 secondsthe user text come now as As soon as the user text comes, I would append it inside the chat history. I would
+21:3021 minutes, 30 secondsdirectly append it inside the chat history list that we have here. Right.
+21:3521 minutes, 35 secondsRight. And then we will use this whole thing the chat history the updated chat history to make a chat prompt template.
+21:4321 minutes, 43 secondsWe would we would make a new chat prompt template. All right. So we make a new chat prompt template with chat history.
+21:4921 minutes, 49 secondsAnd then what we do is we make our chain here. We make our chain here which is using your prompt which you just created using the chat history using your llm
+21:5821 minutes, 58 secondsand the runnable lambda which is a sanitize LC output. We have just taken some random function to kind of complete the chain and then we are invoking our
+22:0622 minutes, 6 secondschain with blank message. Why? Why are we invoking our chain with blank message? Can someone tell me? Can someone tell me why are we invoking our chain with blank message? Tell me.
+22:1922 minutes, 19 secondsEveryone has gone through this. I think user input is already there. So that's why actually we're not Yes, because the user input I have
+22:2622 minutes, 26 secondsalready plugged it into where the chat history this we discussed the last time, right? We discussed this the last time.
+22:3222 minutes, 32 secondsSo I am invoking my chain with a blank message, right? And then I go for round two. This do the same thing again. Get
+22:3922 minutes, 39 secondsthe user text. Get the chat history that is append. Whatever the user text comes just append it into the chat history.
+22:4722 minutes, 47 secondsThe list that you have. You have a new list now. and then uh create a prompt template out of it. Create the chain
+22:5522 minutes, 55 secondsagain and then you invoke the chain using blank message and whatever the AI output comes you append that also into
+23:0223 minutes, 2 secondsthe chat history. So in this way your chat history starts getting bloated and it kind of keeps all the messages from
+23:1023 minutes, 10 secondsthe past of the conversation. I told you to try and make a loop out of this which is I very simple right you can absolutely do it. I won't do it right
+23:1823 minutes, 18 secondsright now. I'll kind of talk about another concept and then I'll make the loop directly. Okay. Anyone has any question quick I'll take quick questions like quick two three minutes questions.
+23:2923 minutes, 29 secondsIf anyone has any questions from this part that we have discussed in the last session you can just let me know. Uh Sam
+23:3823 minutes, 38 secondsuh actually uh last time I have this one whatever code is shared that is all executed but actually lost. Uh so it is
+23:4623 minutes, 46 secondspossible to share uh I'll share the notebook with you if you need it.
+23:5123 minutes, 51 secondsYeah yeah yeah please please that is correct actually lost actually but I don't know did you receive it or not but I did share it. So let me share it still. Uh just one minute. So I need
+24:0024 minutesto make it open I guess first. Just give me one minute. Let me This is the notebook, right? So, let me first of all
+24:0624 minutes, 6 secondsshare share.
+24:1424 minutes, 14 secondsOkay, maybe I did not share the excesses that's why. So, I'm going to share it with all of you.
+24:2124 minutes, 21 secondsSo, you have it and let me copy the link and just paste it.
+24:2724 minutes, 27 secondsThere you go guys. Everyone who anyone who does not have the notebook can directly get the notebook from here.
+24:3324 minutes, 33 secondsI I I'm pretty sure that it must be available. Go ahead. Okay. Okay.
+24:4224 minutes, 42 secondsOkay. Anyone has any challenge guys?
+24:5124 minutes, 51 secondsAny any other challenge guys that you have?
+24:5524 minutes, 55 secondsOkay. My background was CN. I was taking a a webinar for CN before this. My background was still that. Okay. Anyway,
+25:0325 minutes, 3 secondsso now now we go to the next part u which is which is try to make this better. See
+25:1125 minutes, 11 secondswhat are the challenges in this framework that we are using. Just look at there are certain challenges. Can anyone point out what are the challenges
+25:1825 minutes, 18 secondsthat you feel we have in this particular one big challenge I see right in front of my eyes which is related to prompt by
+25:2625 minutes, 26 secondsthe way. Can someone tell me what that challenge is?
+25:3025 minutes, 30 secondsCan anyone identify there's one thing we are doing which we should not be doing again and again. What is that?
+25:4025 minutes, 40 secondsAdding the prompt into chat history.
+25:4325 minutes, 43 secondsAdding the prompt into chat history which is certain we have to do it any which ways. There's one more challenge.
+25:4825 minutes, 48 secondsChain the chain. We are making the chain again and again. Why is it that we are making the chain again and again? Why is it
+25:5725 minutes, 57 secondsthat we are making the chain again and again? Because we are appending the messages again and again. We're just appending the messages again and again
+26:0426 minutes, 4 secondsbecause this chain is being made again and again. Why? Why is the chain getting made again? Because the prompt is updated again and again. Because the
+26:1326 minutes, 13 secondsprompt is not updated automatically. You are manually going and updating the prompt. If you just take a look at the
+26:2026 minutes, 20 secondscode directly, you will be able to see you are manually updating the prompt.
+26:2526 minutes, 25 secondsIsn't it? See? Just take a look. going to go here.
+26:3126 minutes, 31 secondsYou're actually making the prompt template again, right? But prompt template, if you would have seen in some
+26:3826 minutes, 38 secondsof the past things, the prompt template, I think we have prompt from messages somewhere
+26:4726 minutes, 47 secondshere. Yes, look at this. The prompt template gives you an option of placeholders. Like look at this. It gives you an option of placeholder,
+26:5826 minutes, 58 secondsright? Prompt template gives you this option of placeholder. So what you're doing currently, you are using you are making a list of whatever you want to
+27:0627 minutes, 6 secondsput in. And what you're doing is basically then you're making your prompt again. Then you're making your prompt again because you're making a prompt
+27:1427 minutes, 14 secondsagain. Because you're making a prompt again, you have to update your chain again, right? You have to update your chain again. We have to avoid this. We
+27:2227 minutes, 22 secondshave to avoid this. How do we avoid this? I'm going to show you a method in which you can avoid it. We are not now going to append everything into our chat
+27:3227 minutes, 32 secondshistory. What we are rather going to do is what we rather going to do is just take a look. I'll just show you. Just give me one
+27:3827 minutes, 38 secondsthing like let me first put it here. Uh the come here text here
+27:4827 minutes, 48 secondsmaking the history better with placeholder.
+27:5827 minutes, 58 secondsSo I'm going to have a placeholder for history.
+28:0528 minutes, 5 secondsI'm going to have a placeholder for history only. And that placeholder will automatically update the prompt. That will automatically update the prompt.
+28:1428 minutes, 14 secondsAnd I don't need to do it again and again again. And you see the difference. Just give me one minute. Okay. Just one. Yeah.
+28:2528 minutes, 25 secondsYeah. So let me now show you. Just look at this. So what you have to do is of course you need to import all your libraries. So I'm going to import all
+28:3328 minutes, 33 secondsthe libraries. One more library that I'm importing is str output parser which is an important library which is in lang chain core. This is an important uh
+28:4128 minutes, 41 secondsimportant um function. I'll show you the use of this function. But first important thing is this message placeholder. I'll show you the use of
+28:5028 minutes, 50 secondsthis use of this placeholder. I'll show you the use of this placeholder. Okay.
+28:5428 minutes, 54 secondsI'll show you the use of this placeholder. Let's let's first import these libraries quickly. Right? I'm going to share all the libraries with you. I'm pretty sure they must be there
+29:0229 minutes, 2 secondswith you. Just one minute. Let me just copy paste the code as is just one minute. Code block here.
+29:1729 minutes, 17 secondsI've shared the code. You can just copy it directly and just import these libraries quickly.
+29:2729 minutes, 27 secondsJust import these libraries quickly.
+29:4029 minutes, 40 secondsOkay, done. Now, now do the same thing. You import your LLM and import your LLM.
+29:4729 minutes, 47 secondsLet's get an LLM.
+29:5229 minutes, 52 secondsImport your LLM. And what I'm doing in this additional is let's not actually do it right now. We we'll do it later. Just import your LLM quickly. Just import
+30:0130 minutes, 1 secondyour LM. Do it whichever LLM you're using. If you're using your uh OpenAI, right? I propose you use you use that. Okay, no problem. Right.
+30:1630 minutes, 16 secondsSo actually instead of this I need I think just if you're using your OpenAI, please
+30:2530 minutes, 25 secondsplease import open AI. So I'll I'll give you the code for that as well.
+31:0031 minutesI mean sir uh the code which you shared
+31:0631 minutes, 6 secondsuh Google generative AI is not imported I'm thinking I did install all of it but
+31:1431 minutes, 14 secondsI think it's somehow gone that's what I'm thinking actually with me also the same problem is there
+31:2531 minutes, 25 secondshow I mean just let me just check this give Give me one minute. Let me just check how to get my environment back because I can't see
+31:3331 minutes, 33 secondssame environment. Just give me one minute. Okay, I'll just get you. I just get you there. Okay, just give me one minute. Let me just check.
+32:2632 minutes, 26 secondsirritating. So let me get all the packages again. Is also not suggesting anything new. I think it's only telling me to get all the packages again. Let me
+32:3432 minutes, 34 secondsget them. There is one way to do it and we'll talk about it. That's why I wanted uh your own environment.
+33:1133 minutes, 11 secondsEveryone please install them again. I think you guys have to do it anyways because this is a problem. Just give me one moment. So do the installation one
+33:2033 minutes, 20 secondsmore time otherwise you'll have to import your keys as well.
+33:2933 minutes, 29 secondsSo give me one minute. So let me just also install it.
+34:0134 minutes, 1 secondhas come down
+34:2034 minutes, 20 secondsalso get the Google. So you for now just install it again.
+34:2434 minutes, 24 secondsWe'll fix it later on. I'll find a way to fix it. There's a way to do it. We'll have to kind of put it inside our drive and all. It is doable but for now just
+34:3234 minutes, 32 secondsjust fix it. Just install these things and we'll be good. Okay.
+34:3734 minutes, 37 secondsLet me know when done. Let me know when done everyone.
+34:4034 minutes, 40 secondsAnd then you run this code. You get need to get the Google API. But I need to update my API key. Just give me one minute because my API key is exhausted.
+34:4834 minutes, 48 secondsSo I need to update it. Let's see if this works. Let's just try.
+34:5534 minutes, 55 secondsLet me know when done, guys. Let me know when done. Everyone do it. Everyone do it again.
+35:0335 minutes, 3 secondsThis is the problem with uh using uh this thing.
+35:0835 minutes, 8 secondsThat's why I want a separate everything on your own system. That's what I want. It's okay. It's okay.
+35:1835 minutes, 18 secondsMi here. Mhm. Samir. Yes. Am I audible? Yeah. Yeah. Please tell me.
+35:2435 minutes, 24 secondsYeah. I just joined the the session. My apology for this. I need to run only this code, right? That you uh just paste on the chart.
+35:3535 minutes, 35 secondsYeah. Yeah. For now, just run this and just let just check if this is done first and then I'll tell you more codes to run. So I shared a couple of more codes. I'll share them. Don't worry.
+35:4335 minutes, 43 secondsOkay. Okay. This is the first code, right? Yeah. For now. Yes. Okay. Thank you. Just try it. We are done till you lain.
+35:5335 minutes, 53 secondsOkay. Great. Great. Great. Everyone let everyone do it. Just do it. Let's set it up.
+36:0236 minutes, 2 secondsRight. And use this API key also. Just set up this API key also. Right. So, use this API. I'll have to change my API key. So, give me one minute.
+36:1036 minutes, 10 secondsDeployment.
+36:1636 minutes, 16 secondsIs this a specific API key? We generated Google API key last time. I'm using the same. Uh if it is the same, it's working for you.
+36:2236 minutes, 22 secondsIt's good. But API key, I'm using a different one because I changed my API key because uh something happened. So that's why. But you can use the same one. No, no problem.
+36:4236 minutes, 42 secondsThe rest of you just do it once. Just do it quickly. Install the packages.
+36:5136 minutes, 51 secondsSee because the thing is packages on chat. I'm not able to see them.
+36:5736 minutes, 57 secondsI have put it on chat already multiple times. So just check it out to check out chat otherwise I'll share it again.
+37:0837 minutes, 8 secondsLet me
+37:2737 minutes, 27 secondsopen the messages uh which were shared before we joined are Don't worry I'll share it again. Don't worry I'll share it again. Just just set
+37:3437 minutes, 34 secondsup what I've told. Just do that. I'll share it again.
+37:4737 minutes, 47 secondsOkay. So, let me share the messages again. Everyone is asking for it.
+37:5237 minutes, 52 secondsOkay, that's great. So, guys, just go for these simple imports. Once you have installed everything, just go for these
+37:5937 minutes, 59 secondssimple imports. Right. So I was just discussing that we are going to discuss a new method to actually plug in your
+38:0638 minutes, 6 secondscontext right and uh that's what I have been telling there's nothing that you have missed as of now we just starting okay now the second one is you just
+38:1438 minutes, 14 secondsinitialize your LLM right instead of this if you're using open AI you are welcome no no problem I'll just give you an open AI LLM first of all you get your
+38:2438 minutes, 24 secondsopen AI key like this right just the way we were doing it first you get this make sure it is there in the keys and
+38:3038 minutes, 30 secondssecondly You need to get the LLM like this. Just a minute. This like
+38:3938 minutes, 39 secondsthis, right? You need to get your LLM like this lchain openi. You need to install you need to pip install lang chain- openi one more time. So you need
+38:4838 minutes, 48 secondsto just go do like this before doing this.
+38:5238 minutes, 52 secondsbefore pip install lchain-
+38:5638 minutes, 56 secondsopen AI that's all it is right this you have to p install before doing this okay so if you're using
+39:0439 minutes, 4 secondsuh sorry for API key we have to give name uh Google API key that's totally up to you whatever you
+39:1239 minutes, 12 secondsgive uh I have given it as Google API key and open AI API key these are the two keys I'm maintaining if you want to
+39:2039 minutes, 20 secondsmaintain something else you can totally do it And but just make sure that when you're importing it here right you're importing it here you just import it the
+39:2739 minutes, 27 secondsright way you use the same name which you have used in there okay just use the same name right
+39:3539 minutes, 35 secondsI hope everyone is ready with this much anyone has any challenge
+39:4939 minutes, 49 secondscool are we Are we ready with all the API keys and everything?
+39:5939 minutes, 59 secondsWait a minute.
+40:3640 minutes, 36 secondsOkay, let's start. Guys, please raise your hands before asking a question otherwise it will be a proper you know mess out here. Okay,
+40:4440 minutes, 44 secondslet's get started. Okay,
+40:4940 minutes, 49 secondslet's get started. Okay, now look at this. Look at this.
+40:5440 minutes, 54 secondsSo we first of all Samir uh Samir, sorry to interrupt you. Can you please check your message?
+41:0041 minutesUh I just send my uh screenshot to you. Do I need to install anything else?
+41:0841 minutes, 8 secondsNo, I think we're good. I think you installed it. This is okay.
+41:1341 minutes, 13 secondsOkay. Whatever I have given you, you've installed it, right? Yep. Okay.
+41:1841 minutes, 18 secondsBecause I joined uh late. So that's why I just want to confirm it.
+41:2541 minutes, 25 secondssays uh to me says open AI key not available not put it will not be available sush
+41:3441 minutes, 34 secondswhy don't you understand that no but I put it I inserted it then it must be available there's no way in in Google collab that it won't be
+41:4241 minutes, 42 secondsavailable let's check it later for now just try with Gemini API key or Google API key make it available and just get
+41:5041 minutes, 50 secondsit right for whatever the name you have put there. You just use the same name and import it here using user data and put it as whatever key name and then you
+41:5841 minutes, 58 secondsknow kind of call your LM with that particular key name. It if you have put it here right there is no way that it won't be available. Just turn these both
+42:0542 minutes, 5 secondson turn turn these both buttons on and it will be available. Okay guys my humble request to all of you please raise your hands and then ask your
+42:1342 minutes, 13 secondsquestions. We cannot take cautious separately. Try to understand because everyone else is also affected affected
+42:2042 minutes, 20 secondsbecause you are running a little slow or probably you are not able to catch up.
+42:2442 minutes, 24 secondsEveryone else is affected. We understand your pain but we'll take it up as soon as we get time. We cannot just take keep taking individual questions otherwise
+42:3342 minutes, 33 secondsyou you understand right? Okay. So now we get started right? Now we get started right? So first thing is initialize your
+42:4042 minutes, 40 secondsL. Right? First thing you initialize is edit. Right? Now guys, if you remember,
+42:4542 minutes, 45 secondsif you remember, we were doing we were doing we were doing uh we were doing one thing
+42:5242 minutes, 52 secondswhich is which is if you remember we were doing an output parser, right?
+42:5742 minutes, 57 secondsRemember that output parser we were using. So today I'm going to use a different output parser, right? Which is inbuilt which is basically inbuilt in
+43:0543 minutes, 5 secondsyour in your chain. Uh it it basically comes with your chain itself, right?
+43:1043 minutes, 10 secondsThat output parser is known as str output parser. Basically what it does is it just parses your string which is
+43:1743 minutes, 17 secondscoming out of ln and converts it to a proper string format. Right? And I'm just going to introduce you to it.
+43:2443 minutes, 24 secondsLook at this. I'm defining my parser here. Right? So the earlier parser that I was using,
+43:3243 minutes, 32 secondsI'm using this parser now which is inbuilt. Right? You don't have to write a custom function to kind of clean your text and that function was also limited.
+43:3943 minutes, 39 secondsSo second part is of course define your parser but don't have to give it as a separate step. This is something you can do it if you've imported these packages
+43:4743 minutes, 47 secondsyou can absolutely define your parser quickly define your parser. Then we move forward to the next part. Then we move forward to the next part. Okay now
+43:5543 minutes, 55 secondsunderstand. Now understand imagine there was no such thing as history. Imagine there was no such thing as history. How
+44:0344 minutes, 3 secondswere you making your prompt template? We have studied this right? Or we have studied this. How are you making your prompt template? You're making your
+44:1044 minutes, 10 secondsprompt template like this. And just remove this for now. I'll just talk about it in a while. Okay. You were making your prompt template like this.
+44:1844 minutes, 18 secondsIsn't it? This is how you were making a prompt template, isn't it guys? Right?
+44:2344 minutes, 23 secondsAnd then when when you have to make a chain, you would directly make a chain using this prompt template. But but how would this work? How would this work?
+44:3144 minutes, 31 secondsHow would this work differently than that one? You make a chain. You make a chain. Look at this. Let me just share this. You make a chain like this. You
+44:3844 minutes, 38 secondsmake a chain. I I'll share it. Don't worry. Don't write it. Listen. First.
+44:4244 minutes, 42 secondsListen. Then you write. Okay. This is your chain. Prompt template. Llm parser.
+44:4644 minutes, 46 secondsThis is your chain. Right. I've given the chain. That is first you will give the prompt. Then you give the llm and then you give the parser. Right? Now,
+44:5444 minutes, 54 secondsnow when you're calling this chain, when you're calling this chain, how do you call it? Chain.voke.
+45:0245 minutes, 2 secondsInvoke. Invoke. And you need to invoke it with what? Tell me guys what was different about this chain. You need to invoke it with empty message or you need
+45:1045 minutes, 10 secondsto give a message to this chain. Tell me we have already discussed this in detail. But everyone tell me you have to give the message.
+45:1945 minutes, 19 secondsWhat will be the name of that message?
+45:2245 minutes, 22 secondsUser_input will be the message that will go. Hello.
+45:2945 minutes, 29 secondsI am thinking of doing a genai course. Tell me in one line what to study.
+45:3845 minutes, 38 secondsRight? Something like this. Let's see if it is working. I I just want to check that my API key is working or not. Right? So I run this like look at this.
+45:4645 minutes, 46 secondsMaster of deep learning fundamentals transforms architectures practical prompt engineer. Right? See this?
+45:5245 minutes, 52 secondsSo what I'm doing here is I'm just kind of passing my giving a placeholder.
+45:5745 minutes, 57 secondsSimilarly, similarly guys, please pay attention. There is a placeholder for history as well in lang chain.
+46:0546 minutes, 5 secondsSimilarly, there is a placeholder for history as well in lang chain. Right?
+46:1046 minutes, 10 secondsThat placeholder is known as that place is known as messages placeholder.
+46:1846 minutes, 18 secondsYou will append the same way into your list. But that placeholder is known as messages placeholder. And I'll show you
+46:2646 minutes, 26 secondsI'll show you how to create that messages flow soler. So what you'll do is look at this.
+46:3246 minutes, 32 secondsWhere will your history come? If this is your prompt template guys, if this is your prompt template, where will your history come? Will it come before the
+46:4046 minutes, 40 secondssystem message? You tell me. Will it come before the system message? Tell me guys. No. Right. No.
+46:4846 minutes, 48 secondsWhere will it come after the human input? Tell me. History will come.
+46:5446 minutes, 54 secondsNo. After the before human the history will come where? Let us say right now there is no history.
+47:0047 minutesAfter the human system and the human inputs between the system and the human input
+47:0747 minutes, 7 secondsyour history between the system and see this is your human input. Here you are giving your input. Here is your system prompt. You will inject the history here. Isn't it?
+47:1747 minutes, 17 secondsWhy? Because why? Because by putting the history here, by putting the history here, you are basically powering your
+47:2447 minutes, 24 secondsLLM to answer to your human input using the history. Isn't it? So where will you power where will you put it? Where here
+47:3147 minutes, 31 secondsis where you will put it? How do you put it? Let me show you. Messages placeholder.
+47:3647 minutes, 36 secondsThis thing guy this guy. Okay, just bring this guy. Messages placeholder.
+47:4147 minutes, 41 secondsRight? And what you do is what you do is you just make a variable just like this is a variable. Same way you make a variable. variable name is equals to and
+47:5047 minutes, 50 secondsyou just give a variable name which is I'll call it chat_history right now what I'm going to do guys is
+47:5847 minutes, 58 secondsvery simple something very very simple I'll tell you what I'm going to do from here here I will put my history he's saying you inject your history here with
+48:0648 minutes, 6 secondsa list called as chat history let me just put you inject
+48:1248 minutes, 12 secondshistory here with a list called as chat history, right? With a list called as
+48:2048 minutes, 20 secondschat history, right? With a list called as chat history, you your history will directly come here, right? Since this is
+48:2848 minutes, 28 secondsa variable, guys, this was also a variable. This is also a variable. Since this is a variable, where can you pass
+48:3448 minutes, 34 secondsit? Where can you pass it? During during invoke, you pass this variable during invoke or not? You can also pass this
+48:4348 minutes, 43 secondschat history variable. you during invoke while you're invoking you can pass the
+48:5048 minutes, 50 secondschest history while list okay answer me this what you're basically doing is you're saying answer me this question
+48:5748 minutes, 57 secondsbut use this history and history will directly go and fit in history will directly go and fit in
+49:0649 minutes, 6 secondsthat is the idea that is the thing that you have to use by doing this what are you doing you are
+49:1249 minutes, 12 secondsnot changing your prompt Now you're passing the new history bloated context
+49:2049 minutes, 20 secondswith the LLM itself. Your prompt is not changed. Your prompt remains your template of the prompt prompt remains the same. Inside this now new message
+49:2949 minutes, 29 secondshistory comes in and fits in and sits right. That is what you are doing right now. Earlier what were you doing?
+49:3549 minutes, 35 secondsEarlier what you were doing? Look at this. Earlier what were you doing here? You were making your history like this.
+49:4149 minutes, 41 secondsThen you're updating your chat prompt template, right? You you are updating your prompt basically, right? You are actually killing the concept of
+49:4949 minutes, 49 secondstemplating. You are actually killing the concept of templating here because you are actually creating your actual prompt by passing the list again and again
+49:5849 minutes, 58 secondsagain and again. Here what you're doing is you're saying no don't have you don't have to create the actual prompt. You don't have to create the actual prompt.
+50:0750 minutes, 7 secondsWhat you're doing is just have a prompt template. just have a prompt template right I don't want an actual prompt lang chain lang chain never wants an actual
+50:1450 minutes, 14 secondsit just wants a prompt template and in that prompt template lang chain will is saying that you pass whatever you want to pass inside when you call me and I
+50:2450 minutes, 24 secondswill automatically make the prompt that lang chain will handle on its own you don't have to worry about it you don't have to worry about it that's what we
+50:3150 minutes, 31 secondswill do now that's what we will do now so let's do it first of all you run this code so you're aware aware of this I'm just going to give you this code just
+50:3950 minutes, 39 secondsrun it quickly and then I will kind of show you how to inject history inside this the same way.
+50:5050 minutes, 50 secondsThe same way the see this done quickly do it quickly just run this code and you will be fine.
+51:1451 minutes, 14 secondsSo we will first make some chat history manually and then we'll make it automatically like we did the last time.
+51:2051 minutes, 20 secondsJust first run this code. Just run this code.
+51:3851 minutes, 38 secondsmaking some history manually. I'll be making history manually. Yeah,
+51:4451 minutes, 44 secondssee we have made it in past right? So I'll be able to make it very easily. So let me copy that only.
+51:5551 minutes, 55 secondsThis is your past done. That much is done. Now pay
+52:0652 minutes, 6 secondsattention here. Don't do it. Just pay attention. Now we want to pass the history guys. When we are passing the history, when we are giving the history,
+52:1452 minutes, 14 secondsputting the history between the system message and the human message,
+52:1952 minutes, 19 secondsdo I need to pass? Do I need to pass the system message inside history? You tell me.
+52:2652 minutes, 26 secondsTell me guys. We should still give it, right?
+52:3052 minutes, 30 secondsNo. No, you don't need We don't need Why? Because system message is already here. He is saying I only need history. I don't need the
+52:3752 minutes, 37 secondssystem message. So how will what will history begin with? You tell me. User will ask the first question. You will go and ask the first question. So what will the first thing that will go in history?
+52:4752 minutes, 47 secondsYou tell me. Previous chats history.
+52:5152 minutes, 51 secondsPrevious chats may first thing that will go in history. First message that will go inside history. Will it be human message? Will it be AI message? You tell me.
+52:5852 minutes, 58 secondsUh human message. First human message.
+53:0053 minutesHuman message. See this human message is coming here. So you don't need this.
+53:0453 minutes, 4 secondsWhy? But just remove this. Let's keep what? Let's start with human message first. I'm starting with human. Look at
+53:1253 minutes, 12 secondsthis. Then AI would reply. So AI message will come. Then human will ask again.
+53:1753 minutes, 17 secondsThen again human message will come. Then AI will reply. Again message will come.
+53:2053 minutes, 20 secondsRight? This is your past conversation history. Now let me copy this code as it is. Let me copy this code as it is. And plug in this message history that you
+53:2953 minutes, 29 secondshave. this message history that you have directly here. Let me show you how to do it. Okay, let me show you how to do it.
+53:3653 minutes, 36 secondsThere's actually nothing you have to do it. You first define your history. Put your history. This is your history. Okay, whatever it is, it is our history. Let's run it. Okay, let's run it. Now,
+53:4453 minutes, 44 secondswhat you need to do is you need to just you need to just give inside this list.
+53:5053 minutes, 50 secondsLook at this. It's a very simple way to do it. Inside this list, you're giving user input, right? You're giving us Let me put this text separately otherwise it
+53:5853 minutes, 58 secondswill be confusing. So let me put it here user text that is the current message that is the current question that user is asking you can also take it using
+54:0554 minutes, 5 secondsinput look at this hello I'm thinking of doing a genos tell me in one line what to study so the first thing what you'll
+54:1254 minutes, 12 secondspass inside the chain is what you pass let me sh tell you now how many variables do you need to pass inside the chain guys look at look at your template
+54:2254 minutes, 22 secondslook at your pom template and tell me how many variables you need to pass tell me tell me everyone two two history and Human input history and user input.
+54:3054 minutes, 30 secondsWhich is the first one, guys? Tell me. Chat history. Chat history. Chat history.
+54:3554 minutes, 35 secondsInstead of chat history, what will you be passing? You tell me this list. The list,
+54:4154 minutes, 41 secondsisn't it? So pass this past conversation list. Sorry. Okay. Pass this. What is the second thing you need to pass guys?
+54:4954 minutes, 49 secondsSo what is the second thing you need to pass? User input. User_ut.
+54:5554 minutes, 55 secondsSo what do you do now? you pass over this user text and these are the two things I needed to pass right these are the two things you
+55:0355 minutes, 3 secondsneed to pass let let's ask it's it some question so let's check whether it remembers our something from our context
+55:1055 minutes, 10 secondsor not let's say this what was the first question
+55:1755 minutes, 17 secondsI asked let us say then run it message place on object is not callable
+55:2555 minutes, 25 secondsJust give me one messages placeholder variable name is chat history. Just give me one minute. There's something wrong
+55:3255 minutes, 32 secondsI'm doing with the we have to place comma history.
+55:3955 minutes, 39 secondsYeah, we need to just call comma. That's fine. And yeah, that's why it is calling this this it is calling this function as a function using this as an input to the
+55:4855 minutes, 48 secondsfunction. Right? That's what it is doing. Okay, let's do it again.
+55:5455 minutes, 54 secondsYou first mentioned that you're teaching data analysis and my favorite is subject databases. I see yes. So it's basically remembers from our chat history. Now
+56:0256 minutes, 2 secondswhat is the last thing that is left guys? Can someone tell me what is the last thing that is left? We need to be able to make this history. We need to be
+56:1156 minutes, 11 secondsable to make this history. First let me give you these codes. You try to run it.
+56:1556 minutes, 15 secondsYou try to run it. And I'm going to give you a very short exercise where I want you to do this appending appending of history yourself within this workflow.
+56:2556 minutes, 25 secondsCan you try that? Tell me. Give me thumbs up if you can try that. It's very similar to the last one only. You need to this time you need to append from the
+56:3256 minutes, 32 secondsuser text. That's it. So can you try it or not? Yes or no? Tell me.
+56:3756 minutes, 37 secondsEveryone tell me. Try it. I'll give you five minutes. Five exact minutes. But you have to do you have to create this list of conversation yourself. Okay. So,
+56:4656 minutes, 46 secondslet me give you this code first. So,
+56:4856 minutes, 48 secondsyou're able to run this
+57:0457 minutes, 4 secondspart and the second part of this which is this part.
+57:2457 minutes, 24 secondsBy the way, you can copy this code directly using a copy button which is on your site. So entire code will be copied and the formatting will also remain
+57:3157 minutes, 31 secondsintact. Okay, that's why we are sending it like this. Okay, so you can just copy the code directly.
+57:3957 minutes, 39 secondsLet me know once you are able to run this just give me thumbs up in the chat so I can see and I can count that most of the people are aligned and then I will move forward to the next part.
+57:5357 minutes, 53 secondsRight guys if you're using LLM I would propose you use your own LLM. That's a fill in the blank for you. You try it.
+58:0058 minutesYou use your own LLM. By now I'm pretty sure you must be able to at least define the LLM. Now let me take a pause before I move to the next exercise and let me
+58:0958 minutes, 9 secondsask those people who are facing problem with importing. So sh is it fine now?
+58:1758 minutes, 17 secondsAPI key is not defined the error came error is still coming your you look at this here look at this here. So first
+58:2658 minutes, 26 secondsmake this API key and then you need to import your API key like this here right like this here and then make sure that
+58:3458 minutes, 34 secondsmake sure that you're passing it here right you're passing when you're calling the LLM you're also passing it otherwise if you're not passing it it will try to
+58:4258 minutes, 42 secondsfind the API key in the environment and we have not put it in the environment yet we are actually getting it manually so it will fail so you make sure these
+58:5058 minutes, 50 secondsthings you are doing right google get user data go get Google API API key and then kind of just have it here, right?
+58:5858 minutes, 58 secondsBut before having this here, you need to have it here. If you don't have it, copy your API key again or make a new API key
+59:0559 minutes, 5 secondswherever you had it on OpenAI or or on Google, delete this and make your key key again, right? Make your key again.
+59:1459 minutes, 14 secondsI think that will be best. Okay. A new API key.
+59:1859 minutes, 18 secondsYeah, when you use new API key, if this is not working somehow, then just delete it. Copy paste it again. Don't don't need a new API key. If you have it
+59:2559 minutes, 25 secondscopied somewhere, you use the same API key only, but just delete it and do it again. And make sure you turn on the notebook access, right?
+59:3759 minutes, 37 secondsOkay. Are we good, guys? Are we good? Just let me know. Are we good? Um, I have a question.
+59:4559 minutes, 45 secondsSo, I'm sorry I came late. Uh, I have added be right back.
+1:00:011 hour, 1 secondHi. Um, yes. So, uh, I have added my OpenAI API key.
+1:00:071 hour, 7 secondsUh, do I add need to add a Gemini also extra or do No, no, you don't need it if you're having OpenAI API key. You just need to
+1:00:151 hour, 15 secondscall your open AI wrapper here instead of using the chat Google generative AI right which by the way is this one right
+1:00:231 hour, 23 secondswhere it go where it go for example here I'm using look at this uh I'm somewhere here right I'm using look at this I'm
+1:00:311 hour, 31 secondsimporting chat Google generative AI similarly there is an option of open AI right so you import your open AI wrapper
+1:00:401 hour, 40 secondsand then you instead of defining this llm you use your OpenAI LLM. Currently I have some issues with OpenAI. So I'm not
+1:00:481 hour, 48 secondsusing OpenAI because somehow my account got blocked. So what happened? I was taking a batch and I accidentally shared
+1:00:541 hour, 54 secondsmyV keys keys with them and those guys literally rugged it off and now now my
+1:01:021 hour, 1 minute, 2 secondsaccount is blocked. Okay. So first of all they just squeezed my $5 in
+1:01:081 hour, 1 minute, 8 secondsthe account out and then they they just kind of so open kind of with excessive number of requests open blocked my
+1:01:151 hour, 1 minute, 15 secondsaccount so that's why I'm not able to use it. Okay.
+1:01:181 hour, 1 minute, 18 secondsOkay. So Gemini from usual Google studio we create our key.
+1:01:221 hour, 1 minute, 22 secondsIt's free also right gives you up to 20 requests per day. Thank you.
+1:01:301 hour, 1 minute, 30 secondsRight. Okay. All right. Okay. Okay. Good works, right? Let's now move to the next part. Now guys, what you have to do is in the same thing, in the same thing,
+1:01:391 hour, 1 minute, 39 secondsyou have to create a list. This chat history and make a list here. Chat history. Make it as an empty list this
+1:01:461 hour, 1 minute, 46 secondstime. Right? And then do the appending as soon as the user text comes in and the appending after the after the AI
+1:01:551 hour, 1 minute, 55 secondsanswer comes in. Right? Append using the human message. How will you append the output of this? using the AI
+1:02:021 hour, 2 minutes, 2 secondsmessage. So append that in the chat history quickly and try it out and then we will move to the next part. So this
+1:02:101 hour, 2 minutes, 10 secondspart I'll leave to you. I'll give you 3 to 4 minutes. We have at 14 53 I I'll give you up to 1457 somewhere because
+1:02:191 hour, 2 minutes, 19 secondsit's only two two u line of work. So try this out. better copy this in a separate
+1:02:281 hour, 2 minutes, 28 secondsright making the history right something like this copy this in a separate tab and just try
+1:02:361 hour, 2 minutes, 36 secondsto make your own history by adding an empty list of calling it as chat history create an empty list here instead of basically what I'm saying is instead of
+1:02:441 hour, 2 minutes, 44 secondsusing this past conversation list create an empty list of your own any list right you just need to pass it the right way here so make a list pass conversation
+1:02:521 hour, 2 minutes, 52 secondslist like this like this is this is this and then add the user input and add the and add the chain and
+1:03:011 hour, 3 minutes, 1 secondadd the chain just try and do this otherwise of course I'll take care of the trunk just try and do this first okay just try and do this if there's any
+1:03:091 hour, 3 minutes, 9 secondschallenge any problem you're facing I I'll I'll help you to solve it but I think it's a very simple good you know very easy right dot append is all you
+1:03:161 hour, 3 minutes, 16 secondsneed to do try it out try it out everyone
+1:03:241 hour, 3 minutes, 24 secondsI'll just get myself some water. You guys try it. I'll just get myself some water. Just be here. Okay.
+1:04:221 hour, 4 minutes, 22 secondsI see an error with someone. Let me check this. What is the error coming in?
+1:04:461 hour, 4 minutes, 46 secondsSo you may have not installed it must be installed. Why is this error coming? Initialize the problems. So you
+1:04:541 hour, 4 minutes, 54 secondshave your open AI then you use the open AI a see this is the problem. So you are passing chat Google generated AI and you
+1:05:021 hour, 5 minutes, 2 secondsare actually using the open you're passing the parameter open key right? So that you can't do may Yuri.
+1:05:131 hour, 5 minutes, 13 secondsSo I need to use Google uh API key. Of course.
+1:05:181 hour, 5 minutes, 18 secondsUh S uh just wanted to confirm the past conversation list that your uh so we are passing an empty list, right?
+1:05:261 hour, 5 minutes, 26 secondsJust give start an empty list here.
+1:05:291 hour, 5 minutes, 29 secondsYou start an empty list. But when this starts when the when the user conversation and this part starts Yeah. Yeah,
+1:05:341 hour, 5 minutes, 34 secondsI just want you to update that list as soon as the user input comes in and then when the AI kind of spits out an answer that
+1:05:411 hour, 5 minutes, 41 secondsI want you to append it to the to the uh to the empty list that I'm I'm asking. Okay.
+1:05:491 hour, 5 minutes, 49 secondsUh sir actually invoke on this getting error something. Is giving you error? Yeah.
+1:05:581 hour, 5 minutes, 58 secondsAnd what is the error exactly?
+1:06:071 hour, 6 minutes, 7 secondsTag I can't comment on that error to be honest. I'm not aware which code you're running is not callable. Same error I was also
+1:06:161 hour, 6 minutes, 16 secondsgetting because I gave you the code you're using the same code that's why you're getting this error. So what you need to do is just put a comma here.
+1:06:221 hour, 6 minutes, 22 secondsJust put a comma. I was not I had not put a comma so that was the error. Just put a comma. You'll be fine. Okay.
+1:06:281 hour, 6 minutes, 28 secondsNo last ch.invoke invoke that's for Rajaram so you tell me yeah chain invoke is giving an error because your llm is not getting called so
+1:06:361 hour, 6 minutes, 36 secondssomething must be wrong with your individual components for example you check it will be it will telling you something must be wrong either with your
+1:06:431 hour, 6 minutes, 43 secondsprompt template or with your LLM probably most probably I feel something must be wrong here right
+1:06:551 hour, 6 minutes, 55 secondsis saying that he has done it which is great good one Guys, nice one, Sha. Very well done. So, show is the first guy to do it. Very nicely done. Right.
+1:07:081 hour, 7 minutes, 8 secondsOkay. Let's check more people to do it. Done. Kalap has done it. Very nice. Santos has done it very very well, guys.
+1:07:171 hour, 7 minutes, 17 secondsGood going. Good going. Right. One more minute, guys. One more minute and then we stop. Okay. One more minute and then we stop. Just try. Attempt. Struggle.
+1:07:251 hour, 7 minutes, 25 secondsThe more you struggle, the better you get. It's just simple. Simple. It's very simple guys. I I totally believe that some of
+1:07:331 hour, 7 minutes, 33 secondsyou are really good programmers. Some of you are mediocre programmers. Some of you are non-programmers. Some of you are actually watching this doing this course in order to understand the systems. I
+1:07:421 hour, 7 minutes, 42 secondstotally understand this. I'm also creating codes which help you understand systems and not production grade codes.
+1:07:491 hour, 7 minutes, 49 secondsRight? I'm not building any production grade code here. Okay? So I'll also try to make the most of the codes which help
+1:07:561 hour, 7 minutes, 56 secondsyou understand systems basically right one by one. So rest assured you just try it but even if you're not able to do it but you you're able to understand the
+1:08:051 hour, 8 minutes, 5 secondsworkflow you're still good right because if you're a team lead who is going to lead geni projects in the future you
+1:08:121 hour, 8 minutes, 12 secondscertainly don't need to run the code on your own you need to understand yes what is the workflow right but you don't really need to run the codes on your own
+1:08:201 hour, 8 minutes, 20 secondswhich is perfectly fine so don't be demotivated in case it comes that it's not working no worries it will work you
+1:08:271 hour, 8 minutes, 27 secondsyou go back you try it will work for you Besides if you are if you're actually doing this course to understand the workflows you're good any which ways
+1:08:351 hour, 8 minutes, 35 secondsright so keep that in mind keep your objective clear in mind don't get swayed by others this is what happens I have seen in generic classes people will come
+1:08:431 hour, 8 minutes, 43 secondswith a perspective that they want to understand the systems but they get swayed into learning programming don't
+1:08:511 hour, 8 minutes, 51 secondsif you are a leader you don't need to learn programming you have to know what the system is like so you can get it executed on the ground so you can lead a
+1:08:591 hour, 8 minutes, 59 secondsproject know where the project is going wrong architect it that's that should motive should be clear keep your aim clear if you are if you're relatively
+1:09:081 hour, 9 minutes, 8 secondsyounger in your career and you feel like I need to learn and I I need to kind of develop genius systems absolutely there's no escape from programming you
+1:09:161 hour, 9 minutes, 16 secondsneed programming period right but it depends so keep your aim very very clear don't get swayed just because someone
+1:09:241 hour, 9 minutes, 24 secondselse is coding it fluently okay keep that in mind Okay. Okay. Most of the people have been able to do it. Now
+1:09:331 hour, 9 minutes, 33 secondsguys, can you help me do it? Can you just help me do it? Where do I put it?
+1:09:371 hour, 9 minutes, 37 secondsThis is my list. What is the first appending that I do? Tell me.
+1:09:431 hour, 9 minutes, 43 secondsTell me system message. The human message.
+1:09:491 hour, 9 minutes, 49 secondsSystem message. No, you don't need to append system message. That's why I did this. No, guys, I did this because you don't need system message. System message is already there in your in the
+1:09:581 hour, 9 minutes, 58 secondsin your prompt template. It is already there. You don't need it. All right. No need for system message. Right. Now, what would you start with? Tell me.
+1:10:061 hour, 10 minutes, 6 secondsHuman message. Human message. So, what will you do?
+1:10:081 hour, 10 minutes, 8 secondsPast conversation list do.append. What will you do? Human
+1:10:181 hour, 10 minutes, 18 secondsmessage content is equals to what? User text. Is it correct? Tell me. Is this correct?
+1:10:281 hour, 10 minutes, 28 secondsYes. Am I doing right? Yes.
+1:10:331 hour, 10 minutes, 33 secondsAnd then what you need to do after the chain gives you a message. After you the chain gives you something. After the chain gives you something. Oh wait a
+1:10:411 hour, 10 minutes, 41 secondsminute. Actually after the chain gives you something only then you will add.
+1:10:441 hour, 10 minutes, 44 secondsYeah. Exactly. Because your because otherwise your human message will go with the chain.
+1:10:491 hour, 10 minutes, 49 secondsThat's what I was trying to write it. Okay. No worries. I get you manu. Okay. Now you need to add it here.
+1:10:571 hour, 10 minutes, 57 secondsAnd then you need to add what? Whatever the AI message that came in,
+1:11:031 hour, 11 minutes, 3 secondsright? You need to add that. How will you add it? Again the same thing, right?
+1:11:081 hour, 11 minutes, 8 secondsInstead of this use AI message and content is equals to what? This AI message, right?
+1:11:171 hour, 11 minutes, 17 secondsAm I right, guys? Am I right? Just take a look at after one round of conversation. After one round of conversation, just take a look at what
+1:11:251 hour, 11 minutes, 25 secondsyour AI message looks like. Just see this is done. And I have the AI message
+1:11:321 hour, 11 minutes, 32 secondsinside the past conversation list. So let's look at it. Let's look at the prompt template.
+1:11:391 hour, 11 minutes, 39 secondsAnd how do you make the prompt? Does anyone remember the way to make a prompt? Chat prompt template. uh prompt
+1:11:471 hour, 11 minutes, 47 secondstemplate invoke.
+1:11:571 hour, 11 minutes, 57 secondsNot like this. It'll go like this. Let's see if it works.
+1:12:031 hour, 12 minutes, 3 secondsThis is not working. So, there's a way to check template. This is a wrong template. Wrong template.
+1:12:121 hour, 12 minutes, 12 secondsLet's try again.
+1:12:131 hour, 12 minutes, 13 secondsNo no no I'm not supposed to change this but it's supposed to work anyway. So let's look at our messages
+1:12:211 hour, 12 minutes, 21 secondsdirectly using the display this this part only for past conversation list.
+1:12:311 hour, 12 minutes, 31 secondsLook at this. So this is your message after after one round of conversation with the AI. Look at what is the
+1:12:381 hour, 12 minutes, 38 secondsquestion I have asked? I have asked what was the first question I asked. This is the question. This is the first question I am asking correctly right let's let's just say
+1:12:461 hour, 12 minutes, 46 secondsand AI is also giving this same it is also giving me the same answer that what was the first question I asked right so let me give it like this
+1:12:551 hour, 12 minutes, 55 secondstell me about genai in one line right let's give this and let's run this
+1:13:031 hour, 13 minutes, 3 secondsand let's run this let's take a look so look at this tell me about geni in one line and then AI is kind of giving you whatever right so this is getting
+1:13:111 hour, 13 minutes, 11 secondsappended to AI. See whatever the AI gave you right now in the round two when you have second round of conversation guys
+1:13:191 hour, 13 minutes, 19 secondsplease attention when you have the second round of conversation you tell me now will you be defining the LLM again
+1:13:261 hour, 13 minutes, 26 secondsplease tell me no no will you be defining the parser again no no
+1:13:341 hour, 13 minutes, 34 secondswill you defining the prompt template again no no will you be defining this past conversation List empty again. Tell me.
+1:13:461 hour, 13 minutes, 46 secondsNo question is already created.
+1:13:481 hour, 13 minutes, 48 secondsWhat is the part that you will run again? Will you be defining your chain again? Chain will you define chain again?
+1:13:571 hour, 13 minutes, 57 secondsNo.
+1:13:571 hour, 13 minutes, 57 secondsNo. Right. Chain is also defined. So what will you define again? Your user text. Say user text.
+1:14:021 hour, 14 minutes, 2 secondsThis part is what? So you'll get your user text again. Okay.
+1:14:061 hour, 14 minutes, 6 secondsSorry, I didn't get that. They did not right get that and let's take a look at
+1:14:151 hour, 14 minutes, 15 secondswhat the AI messageages and what our past conversation now looks like after this part. Right? Let's just take a look at this.
+1:14:271 hour, 14 minutes, 27 secondsI'm so bad at collab guys. My apologies.
+1:14:301 hour, 14 minutes, 30 secondsI really work very rarely with collab. I have GPUs in my in my company. I have everything in my system. I have a I have
+1:14:381 hour, 14 minutes, 38 secondsa GPU at my own home as well. So I really don't like working with collab.
+1:14:431 hour, 14 minutes, 43 secondsOkay. Anyway, so uh let's just try try this out. Okay, let's run this. Let's only run this part. Sorry, I did not get
+1:14:501 hour, 14 minutes, 50 secondsthat. So AI will be giving me some output. Let's take a look at what is the conversation history. See, we started with tell me about geni in one line. The
+1:14:591 hour, 14 minutes, 59 secondsAI message came out to this, right? This was the AI message. Then I sorry I didn't get that. Okay, AI then replay
+1:15:081 hour, 15 minutes, 8 secondsit's artificial intelligence that can create brand new things like something like this. So basically it is this is how we are maintaining the text history
+1:15:161 hour, 15 minutes, 16 secondsright and what we're doing is basically we just giving this what we need the user message and the this list that we are creating we
+1:15:241 hour, 15 minutes, 24 secondspassing it inside this pass converation list now can you create a l loop out of this who of you think we can create a loop out of this the part that is
+1:15:331 hour, 15 minutes, 33 secondsrepeating only this part I want the entire code I want the entire code with the loop and a human entering the
+1:15:401 hour, 15 minutes, 40 secondsmessage can you do it just Try it out once. Whatever you try, I don't care.
+1:15:441 hour, 15 minutes, 44 secondsJust try once. You will be able to do it. The loop will apply only on this part. That should be clear by now because this part only is repeating. The
+1:15:521 hour, 15 minutes, 52 secondsloop will apply only on this part. Just write a loop while true and put this part inside the loop. You are done. You are done. Just do it quickly.
+1:16:091 hour, 16 minutes, 9 secondsDo it quickly.
+1:16:111 hour, 16 minutes, 11 secondsIf anyone has any doubts so far, you can ask. You can ask me. I can take your doubts now.
+1:16:191 hour, 16 minutes, 19 secondsLooping is done. Very nice. Very nice. Good one. Good one, guys.
+1:16:571 hour, 16 minutes, 57 secondsDone. Looping is done guys. Quickly do it. Very simple, very easy. Only this part.
+1:17:031 hour, 17 minutes, 3 secondsAnd instead of user text, just write input. Enter your message. Input. Use the input of the Python. Right.
+1:17:111 hour, 17 minutes, 11 secondsTwo more minutes then we move to looping. Then let me do it. Okay. After
+1:17:191 hour, 17 minutes, 19 secondsthis last leg, the last leg of your history or context maintaining is left with geni and then we will move to then
+1:17:271 hour, 17 minutes, 27 secondswe'll move to rags. We'll try to understand rags today some theory today practical tomorrow by tomorrow you will be in a place to at least build a simple
+1:17:361 hour, 17 minutes, 36 secondsrag on your own. Right after this the part that comes in is to integrate this whole thing with grado and I will leave
+1:17:441 hour, 17 minutes, 44 secondsthat to you to do it. I won't be doing it. You can easily comfortably and I give you total credits that you can ask
+1:17:511 hour, 17 minutes, 51 secondschat GPD. But before that you should have a function in place. Okay, you should have a function in place. I'll talk about it. Don't worry. Okay,
+1:18:121 hour, 18 minutes, 12 secondsone more minute and then I'll do it. Okay. Yeah, please tell me. So I have a question around this only.
+1:18:221 hour, 18 minutes, 22 secondsOkay. But okay. So you are maintaining the context in the chat history. Suppose say any kind of real system. Suppose
+1:18:291 hour, 18 minutes, 29 secondsuser is asking something and maintain the context in the chat history. Suppose he or she suddenly changes the context
+1:18:361 hour, 18 minutes, 36 secondsover there. Then how get rid of that chat history and start a new chat history in the running time? That's what uh my question is.
+1:18:451 hour, 18 minutes, 45 secondsSee just imagine it whenever you're confused like this just imagine what your question and try to relate it to what if you are chatting to a chat GPD
+1:18:541 hour, 18 minutes, 54 secondswindow right now. Can you change the context in the chat GPD window? Can you change the past messages in the chat GPD window? You tell me.
+1:19:021 hour, 19 minutes, 2 secondsNo, I cannot change it. But uh but I need to uh uh I need to because I am asking a about a product something ABC.
+1:19:121 hour, 19 minutes, 12 secondsOkay, right now I suddenly change I ask a different product which is not at all related to the previous context. Right? That's okay.
+1:19:191 hour, 19 minutes, 19 secondsThen then how then how I'll build a uh chart history on the on the uh on the ABC not on the XY chart. I'll teach you
+1:19:281 hour, 19 minutes, 28 secondsthat in when we go to agentic AI what I do is for example I built a aentic system what we did is uh basically to
+1:19:361 hour, 19 minutes, 36 secondssave the token cost. See now if you're asking a very separate question very different question right u what we
+1:19:431 hour, 19 minutes, 43 secondsreally do is your particular case will not be taken care of to be honest but what we do is we build a router right
+1:19:511 hour, 19 minutes, 51 secondsfirst the router function comes in so what router function does is it comes the query that comes LLM tries to
+1:19:581 hour, 19 minutes, 58 secondsidentify whether I need the chat history for this question or not understand first LM tries to identify that if the
+1:20:071 hour, 20 minutes, 7 secondschat history is not required for a question. For example, let's say you're inquiring about product. Then you let's say you ask a product, okay, what is your product? What is this particular
+1:20:151 hour, 20 minutes, 15 secondsfeature in your product A? What is that particular feature in your product? A you keep on asking questions which are related. So in all these questions, you need a history. Isn't it color? Right?
+1:20:261 hour, 20 minutes, 26 secondsYes.
+1:20:271 hour, 20 minutes, 27 secondsBut but let's say all of a sudden you ask what is product B? Right? Now this particular case will not be handled. But
+1:20:351 hour, 20 minutes, 35 secondslet's say I ask a question. Let's say I ask a question which does not need history, right? Let's say
+1:20:411 hour, 20 minutes, 41 secondsa normal question like okay uh what is all of a sudden you ask let's say how do
+1:20:491 hour, 20 minutes, 49 secondsI travel to Paris let's say how is the weather right now yeah exactly weather right now you understand this question does not need
+1:20:561 hour, 20 minutes, 56 secondsany historical context right so what I would do is I would not use history to answer such a question why because I want to save my token costs right so I
+1:21:051 hour, 21 minutes, 5 secondswould not use the entire history to to to kind of answer this question but to your question Right? If it all of a
+1:21:121 hour, 21 minutes, 12 secondssudden asks product B, right? Even the router will classify it as use history and it will certainly use history. So
+1:21:191 hour, 21 minutes, 19 secondsthere is no workar around from the angle that you are asking. There's no direct work around. But yes, what you can do is
+1:21:271 hour, 21 minutes, 27 secondsyou can certainly maintain a a past a summary of the past conversation in one place and in your
+1:21:341 hour, 21 minutes, 34 secondsrouter you can check whether my history is relevant or not. Right?
+1:21:391 hour, 21 minutes, 39 secondsThis is There are some workarounds that are possible. Yes.
+1:21:421 hour, 21 minutes, 42 secondsFinding and intent of the user and trying to map with the chat history whether the intent and entities reflect.
+1:21:501 hour, 21 minutes, 50 secondsThat's what but the point is if you ma map with the entire chat history the problem is the situation remains as it
+1:21:571 hour, 21 minutes, 57 secondsis. You are using all the tokens. You understand? Okay.
+1:22:001 hour, 22 minutesCorrect. That's why I'm saying instead of that you try to maintain a smaller summary of your chat history and try to you know kind of match with that instead
+1:22:081 hour, 22 minutes, 8 secondsof matching with the entire thing and for that these these LLMs they use uh smaller models to maintain a summary right which are which are cost which are
+1:22:161 hour, 22 minutes, 16 secondsnot so costly because I'm not using that right then then what will happen may give like
+1:22:251 hour, 22 minutes, 25 secondsproduct a information which may user may not internet to receive that kind of information where the user will also feel some kind of thing right
+1:22:321 hour, 22 minutes, 32 secondsno no no LLM will not do it because that's why I made this message placeholder so LLM will understand this is history right it will use it only
+1:22:411 hour, 22 minutes, 41 secondswhen it is relevant it will not use it otherwise LLM will take care of that that is why this it has a separate name what is the name AI message human
+1:22:501 hour, 22 minutes, 50 secondsmessage AI message human message and history variable it's a separate history variable so LM will consider it as a
+1:22:571 hour, 22 minutes, 57 secondshistory only so it will not use it if the information is not relevant Okay.
+1:23:011 hour, 23 minutes, 1 secondMeans you are telling that if the I ask about some other product right then it will not give like uh product a
+1:23:081 hour, 23 minutes, 8 secondsinformation because the chat history is maintained over there. That's no no no no no it will not do give the product a information that LLM it will let the LLM answer it instead of
+1:23:171 hour, 23 minutes, 17 secondsthe chat history if you're asking about product B or whether it will not look up chat history but it will ask the LLM
+1:23:241 hour, 23 minutes, 24 secondsright it will direct it to the LLM. You see yes it will use the chat history but it will not use the context of the LLM inside its processing will not use the
+1:23:321 hour, 23 minutes, 32 secondscontext of the chat history because it understands that this these two things are not relevant.
+1:23:371 hour, 23 minutes, 37 secondsSo our problem is not whether LLM will use incorrect information from the chat history. Our problem more that LLM will
+1:23:441 hour, 23 minutes, 44 secondstake care of LLM is smart enough. There is a transformers network there which is attention mechanism going on. It will automatically take care of it. M but our bigger challenge is to save
+1:23:531 hour, 23 minutes, 53 secondstoken cost that why unnecessarily send chat history if it is not required right that should be our challenge we don't
+1:24:001 hour, 24 minuteshave to worry about chat history we we send the chat history but how are you making sure that uh the
+1:24:071 hour, 24 minutes, 7 secondssystem is not parsing the chat history because you're wasting the searching time right or the token time if if it is searching that you can take care of so you will
+1:24:161 hour, 24 minutes, 16 secondsput an if else statement you will put a if else statement while calling your list Right? While calling your chain,
+1:24:221 hour, 24 minutes, 22 secondsyou'll put an if else statement and whenever you feel like the chart history is not relevant, you will pass this list as empty. Got it? Okay. To the LM call, right?
+1:24:311 hour, 24 minutes, 31 secondsBut uh you keep recording even if it is out of context in the if statement.
+1:24:371 hour, 24 minutes, 37 secondsYeah. See, you will keep recording the history. H history record you will keep.
+1:24:411 hour, 24 minutes, 41 secondsBut here you have the option to give it to LLM or not give it to if I give it blank then it will not go give go right.
+1:24:471 hour, 24 minutes, 47 secondsSo how will you check whether context is relevant or not? That's a good question.
+1:24:511 hour, 24 minutes, 51 secondsFor that I need a router. There is there is a router concept that we will discuss. Okay. Sure.
+1:24:561 hour, 24 minutes, 56 secondsRight. When we go forward that will first understand the user intent and classify we need history or not. If the history is needed, it will
+1:25:041 hour, 25 minutes, 4 secondssend the history list. If the history is not needed, it will not send history list. That is the first step.
+1:25:101 hour, 25 minutes, 10 secondsThat that will be the first step when we move forward.
+1:25:131 hour, 25 minutes, 13 secondsRouter router functions. How to create router functions? We'll discuss right when we go to agent. Just one more.
+1:25:201 hour, 25 minutes, 20 secondsSo uh will als routers also are also routers also like decision making agents which have
+1:25:271 hour, 25 minutes, 27 secondsthat's what they are. That's what they are. They are the decision-m agents.
+1:25:301 hour, 25 minutes, 30 secondsThey basically classify your query into multiple grounds, right? Do you do a does your query need rack? Does your query need analysis? Does your query
+1:25:391 hour, 25 minutes, 39 secondsneed reasoning? Does your query need history? That's why routers are always kept and you must be able to see routers you ask Gemini once any question you ask
+1:25:471 hour, 25 minutes, 47 secondsGemini look at the kind of you know titles it gives you while processing it if you do it with Gemini pro look at the kind of
+1:25:561 hour, 25 minutes, 56 secondstitles okay analyzing the query customizing for the user intent right multiple types of things it it shows on
+1:26:021 hour, 26 minutes, 2 secondsthe screen this is all router thinking that what do I need from the query right okay
+1:26:101 hour, 26 minutes, 10 secondsoh that is orchestr ation. Okay, that agent right or am I wrong in saying
+1:26:181 hour, 26 minutes, 18 secondsorchestration is like a platform which connects multiple other things I think.
+1:26:221 hour, 26 minutes, 22 secondsYeah. But here also it is doing it right. It is channelizing actually redirecting or something.
+1:26:271 hour, 26 minutes, 27 secondsIs not connecting sir. It is not connecting other platforms. It is sending to other platforms like NAN example is an orchestration platform. I
+1:26:361 hour, 26 minutes, 36 secondshave linked in this that it is connecting bringing things here sir it is already there. It is sending in Gemini is routing that's why we call it
+1:26:441 hour, 26 minutes, 44 secondsrout yeah this is my understanding
+1:26:541 hour, 26 minutes, 54 secondsI think we lost yeah I think he dropped off
+1:27:061 hour, 27 minutes, 6 secondshe dropped off I think no no he got disconnected with the network connection
+1:27:121 hour, 27 minutes, 12 secondsnetwork issue and since answered it he was disconnected.
+1:27:561 hour, 27 minutes, 56 secondsSo before he gets connected this API keys while we are uh every session even if you're initializing it is not recognizing the API key.
+1:28:061 hour, 28 minutes, 6 secondsDoes anybody have any answers for it's like reloading refreshing?
+1:28:111 hour, 28 minutes, 11 secondsYeah it is getting reset. Uh yeah yeah yeah I also face the same problem you can just another one meaning
+1:28:181 hour, 28 minutes, 18 secondsand then put it there another one I have only one key but you can oh okay you're using from
+1:28:261 hour, 28 minutes, 26 secondsthem is it purchased one yeah you post it right so then then you can just change it
+1:28:331 hour, 28 minutes, 33 secondsokay so sir I haven't faced my connection out so all I'm trying to do is I'm you know I
+1:28:411 hour, 28 minutes, 41 secondshosted that in my you know secret keys and I'm just initializing every time I'm you know running for that particular
+1:28:481 hour, 28 minutes, 48 secondsday. So I've never faced any connection issues around that already. Okay sir I think we have Mr. Samir back.
+1:28:561 hour, 28 minutes, 56 secondsYes I'm back. I'm back.
+1:28:591 hour, 28 minutes, 59 secondsOkay so let me share my screen again. So this is what we have been now. Now guys we have understood this part. Let me just kind of make the for loop quickly
+1:29:071 hour, 29 minutes, 7 secondsand then we kind of move to the next part which is the last leg of maintaining your message history and I'll give you some small things to read from home because I won't be able to
+1:29:151 hour, 29 minutes, 15 secondscover them here. Uh so look at this. I think the screen is visible right check. Yes, this is good.
+1:29:231 hour, 29 minutes, 23 secondsLet me just check if this is okay. So I don't know my system went out all.
+1:29:311 hour, 29 minutes, 31 secondsAll right now let's just put this inside a for loop. See this is the only part which is repeating right this is the only part which is repeating so this is the only part that you need to put
+1:29:391 hour, 29 minutes, 39 secondsinside the for loop right so what you will do is I'll just copy this right and I'll just kind of put it here
+1:29:561 hour, 29 minutes, 56 secondsthis here and what I'll do is what I'll do is this I have initialized this is the part was repeat that was repeating isn't it guys this is the part this is
+1:30:031 hour, 30 minutes, 3 secondsfor loop while true right and what you need to do is
+1:30:131 hour, 30 minutes, 13 secondsjust put it inside the for loop now this will run indefinitely until you stop it right until you stop it or you ask you give a specific thing to stop it we'll
+1:30:211 hour, 30 minutes, 21 secondstalk about it later but right now what you need to do is instead of this I'll give it as input enter
+1:30:301 hour, 30 minutes, 30 secondsyour message right enter your message and we will Just have the message here.
+1:30:341 hour, 30 minutes, 34 secondsRight now when you run this, when you run this, it will run indefinitely. See the LLM is initialized. The STR output
+1:30:421 hour, 30 minutes, 42 secondsis initialized. Prompt template is initialized. Pass conversation list is initialized. And finally, you're just Oh, sorry. This will keep outside. This will keep outside. My bad. My bad.
+1:30:541 hour, 30 minutes, 54 secondsLike this. Your chain is initialized.
+1:30:561 hour, 30 minutes, 56 secondsWhat you're doing is basically you're just iterating and running your chain and appending to your message list again and again. Let's run it quickly. Just
+1:31:041 hour, 31 minutes, 4 secondssee this now message. Hi, how do I learn geni? Tell me in one line, right? Do it.
+1:31:141 hour, 31 minutes, 14 secondsLook at this. I'm not printing the output. So, it's not kind of giving me.
+1:31:191 hour, 31 minutes, 19 secondsSo, I need to kind of be able to print the output. So, let me stop this.
+1:31:301 hour, 31 minutes, 30 secondsOh, yes. Okay. Now look at this.
+1:31:391 hour, 31 minutes, 39 secondsSo I need to print the AI message. So let's just print AI message.
+1:31:491 hour, 31 minutes, 49 secondsJust a minute. So I really really don't like it's great. Let's try to run it again.
+1:32:071 hour, 32 minutes, 7 secondsStart time it.
+1:32:131 hour, 32 minutes, 13 secondsAnyway, you try this code. You try this code at your on your own. I'll just fix this. Okay. Try this code.
+1:32:191 hour, 32 minutes, 19 secondsI think you have to give some uh exit condition otherwise the loop was Yeah, I'll give this exit condition. Let me actually give the exit condition.
+1:32:261 hour, 32 minutes, 26 secondsSo, let's do it. Let's just take user text if user text is equals to equals to exit
+1:32:341 hour, 32 minutes, 34 secondsright dot lower dot lower is equals to equals to exit then what
+1:32:401 hour, 32 minutes, 40 secondsyou'll do is break isn't it why is this cutting going to okay this
+1:32:491 hour, 32 minutes, 49 secondsis fine and you try this with this now you can just break the loop if the user text is exit okay so just try
+1:33:031 hour, 33 minutes, 3 secondsIf anyone has not done it, you can try this. Now if you've done it, it's cool.
+1:33:071 hour, 33 minutes, 7 secondsBut in case you have not done it, you can try this. Send it. Let's try this.
+1:33:121 hour, 33 minutes, 12 secondsI'll have to now the last part. Let's finish that.
+1:33:201 hour, 33 minutes, 20 secondsThen we'll go on a break and then we'll come back and we'll we'll discuss racks.
+1:33:231 hour, 33 minutes, 23 secondsOkay. last part which is very easy actually and you know that will actually just up your game with context
+1:33:301 hour, 33 minutes, 30 secondsright first you try and run this let me know once it's running with you once it's now you enter anything you can enter your own message so you basically
+1:33:371 hour, 33 minutes, 37 secondshave a functional chatbot in your own u Jupyter notebook right and basically you're able to kind of give any message
+1:33:451 hour, 33 minutes, 45 secondsto it which keeps a tracks of history and everything
+1:33:561 hour, 33 minutes, 56 secondsTry and run this. Try and run this everyone. Let me know when it's working.
+1:34:201 hour, 34 minutes, 20 secondsworking. Great. Great.
+1:34:461 hour, 34 minutes, 46 secondsRight. Just last thing is left and I'll be covering that and we are good. Right. Did this run? No, it's not running. Yes.
+1:35:241 hour, 35 minutes, 24 secondsCan someone send me the list of pip installs I sent you? A run taken over. No, not needed. It's fine. Okay, great.
+1:35:441 hour, 35 minutes, 44 secondsI'll be able to run this. Hi, how do I get started with JAI?
+1:35:551 hour, 35 minutes, 55 secondsTell me in one line.
+1:35:591 hour, 35 minutes, 59 secondsLet's just see how does it go. Start by understanding your foundation. This is it. Okay. Can you ask anything?
+1:36:071 hour, 36 minutes, 7 secondsUh Mr. Shamir, I have one question. I just uh asked the current weather,
+1:36:131 hour, 36 minutes, 13 secondsbut it does not pro provide the real time information.
+1:36:161 hour, 36 minutes, 16 secondsWhy would it provide you real time information? Did you give it any realtime functionality, right? So, we need to Yeah.
+1:36:231 hour, 36 minutes, 23 secondsSo, we need to connect with the access to real time weather information,
+1:36:291 hour, 36 minutes, 29 secondsright? It will just directly tell you that. Okay. Okay.
+1:36:341 hour, 36 minutes, 34 secondsSo, so if I want a real time information, uh how do I give it? You need to give it uh additional functions, right? I'll be talking about tools shortly, right? So,
+1:36:431 hour, 36 minutes, 43 secondsstay tuned.
+1:36:461 hour, 36 minutes, 46 secondsConnect to open AQ API and then get the real time. Yeah, we'll connect to all those things.
+1:36:521 hour, 36 minutes, 52 secondsBut wait for it. Okay. Let let the messages let that part come. Right. For now we are not going to that part for we now we are sticking just to uh
+1:37:011 hour, 37 minutes, 1 secondunderstanding the context right that is that is more towards function calling tool calling and agentic AI we have not stepped into agent first let's fix the
+1:37:091 hour, 37 minutes, 9 secondsbasics let's fix the context engineering part right okay now you can actually ask it any question
+1:37:171 hour, 37 minutes, 17 secondsuh what was the first question I asked And then you can use this and see it will kind of keep giving you answers.
+1:37:291 hour, 37 minutes, 29 secondsYour first question will how do I get started? So in this way you can maintain your history. I hope most of the people are able to maintain the history. So
+1:37:351 hour, 37 minutes, 35 secondsthis is like your small uh stupid chatbot that you are able to build pretty much and then you write exit. I think it will just exit the loop right.
+1:37:441 hour, 37 minutes, 44 secondsSo the loop exits once you exit.
+1:37:471 hour, 37 minutes, 47 secondsOkay. Is that working? Everyone give me thumbs up all of you if that's working for you. That much must be working. Great, great, great,
+1:37:561 hour, 37 minutes, 56 secondsgreat guys. Great.
+1:38:011 hour, 38 minutes, 1 secondOkay. Anyone who is struck, anyone is struck and is not able to go forward with this, you can ask me if there is any challenge.
+1:38:141 hour, 38 minutes, 14 secondsGreat. All right. Great. Okay. So, I'm going to share with you the notebook. I think I've already shared. Can someone share the link to the notebook please with Jenny uh please please uh share the
+1:38:221 hour, 38 minutes, 22 secondslink to the notebook that I have shared already okay this is fine now append now next problem
+1:38:321 hour, 38 minutes, 32 secondsnow next improvement see we are iteratively improving so how did we start let's kind of look back how did we really start we started with understanding the concept of AI message
+1:38:411 hour, 38 minutes, 41 secondshuman message and we were appending everything into AI message human message what it was doing what it was doing it for changing right let me just put it
+1:38:491 hour, 38 minutes, 49 secondshere let me just put it here in words we started with AI message
+1:38:571 hour, 38 minutes, 57 secondshuman message right I'm not putting it separately in a
+1:39:041 hour, 39 minutes, 4 secondsfile why because this all will remain in one place then you will be able to see this right we started with AI message human message we were appending
+1:39:141 hour, 39 minutes, 14 secondsAI message and human message
+1:39:201 hour, 39 minutes, 20 secondsto a list and then making prompt, right? What was the problem?
+1:39:281 hour, 39 minutes, 28 secondsProblem was what was the problem, guys? Tell me what was the problem. Problem?
+1:39:391 hour, 39 minutes, 39 secondsWe had to update chain again and again with the
+1:39:461 hour, 39 minutes, 46 secondsnew prompt. Right? This is the first thing. So we then switched
+1:39:541 hour, 39 minutes, 54 secondswe switched to what? What did we switch to?
+1:39:581 hour, 39 minutes, 58 secondsMessage placeholder holder to hold our history. Right? to hold our history.
+1:40:111 hour, 40 minutes, 11 secondsNow, we don't need to make a prompt. We just use a prompt template.
+1:40:221 hour, 40 minutes, 22 secondsWe plug in the history with
+1:40:371 hour, 40 minutes, 37 secondsnot on mute.
+1:40:391 hour, 40 minutes, 39 secondsSo you please put your I'm sorry. I'm sorry. Yeah. Yeah. Okay. Then this is the second thing we did,
+1:40:461 hour, 40 minutes, 46 secondscorrect?
+1:40:481 hour, 40 minutes, 48 secondsThis the second thing we did, right? But there's still a problem with this. The problem is problem is lists. The problem
+1:40:561 hour, 40 minutes, 56 secondsis lists. Lists are a little bit of problem for us. We don't want lists because lists is not a lang chain
+1:41:041 hour, 41 minutes, 4 secondsframework. It's still coming from Python, right? Langchain prefers its own people, right? Its own data structures,
+1:41:111 hour, 41 minutes, 11 secondsits own things, right? Its own things,
+1:41:131 hour, 41 minutes, 13 secondsright? So we switch to something now which will help us now replace lists and it will be very very quick. It will be
+1:41:211 hour, 41 minutes, 21 secondsvery very quick. You don't even need to you know think much on this right and I'll tell you for that what do you need so I'm going to use the last code only
+1:41:291 hour, 41 minutes, 29 secondsthe last code only that is with with of course the imports. So first I need all the imports in one place. Let me just get the imports. So let's get the imports first.
+1:41:411 hour, 41 minutes, 41 secondsSo let's get the imports here. So let me just do one thing and that is I'm just going to put it here.
+1:41:511 hour, 41 minutes, 51 secondsReplacing lists with replacing list with message history. Something called as message history which is in latches.
+1:42:001 hour, 42 minutesOkay. Replacing list with message history. And I'm going to copy this.
+1:42:051 hour, 42 minutes, 5 secondsAnd I need to import one more thing which is called as which is called as inmemory chat message history. It is
+1:42:131 hour, 42 minutes, 13 secondslike list only but this is a lang chains. It is very close to the heart of lang chain. So lchain is able to kind of maintain it better. What is the benefit
+1:42:211 hour, 42 minutes, 21 secondsof it? You'll realize when I go to the next part right first let's kind of do the same thing whatever we were doing with the chat message. So let me just
+1:42:291 hour, 42 minutes, 29 secondscopy this code as it is. Let me just copy this code as it is. Put this here.
+1:42:331 hour, 42 minutes, 33 secondsPut this here. And what I'm going to do is what I'm going to do is instead of using this list instead of using this list I'm going to initialize a chat
+1:42:411 hour, 42 minutes, 41 secondsmessage history. Just look at this how you initialize the chat message history.
+1:42:451 hour, 42 minutes, 45 secondsSo instead of this you just initialize a chat message history like this inmemory chat message just replacing
+1:42:551 hour, 42 minutes, 55 secondsthis guys I'm doing nothing trust me on this.
+1:42:571 hour, 42 minutes, 57 secondsNothing. Just replacing the list with just like me like this. Replacing list
+1:43:031 hour, 43 minutes, 3 secondswith chat message history. Replacing list with chat message history. Okay,
+1:43:101 hour, 43 minutes, 10 secondsthis is the first thing that you need to understand. This is the first thing that you need to understand. And now the append part. Since we have replaced list, we also need to replace the append
+1:43:181 hour, 43 minutes, 18 secondspart or not. So how do you replace the append part? I'll talk about that. And it's very simple. You just need to add
+1:43:261 hour, 43 minutes, 26 secondslike this dot add user message. If it's a user message,
+1:43:341 hour, 43 minutes, 34 secondsyou add the user message. And now you don't need all this human message. It will take care of it on its own. It will automatically convert it to human message. Okay. Add user message. And what is the user message in this case?
+1:43:441 hour, 43 minutes, 44 secondsThe user text. And similarly here you need to add what? You need to add the AI message.
+1:43:541 hour, 43 minutes, 54 secondsAnd you just don't need all this. Just need to pass the AI message here and this will be done. That's it. This is
+1:44:031 hour, 44 minutes, 3 secondsall actually that you need to do. This is all that you need to. There's nothing else to be honest, right? There's nothing else. That's all. Can you try
+1:44:101 hour, 44 minutes, 10 secondsthis? Can you try this and see if it's working for you? Just try this quickly. Quickly try this.
+1:44:221 hour, 44 minutes, 22 secondsOne last thing that you need to do is instead of doing this directly, you will put here dot messages. This is the last thing that you need to do. Pass
+1:44:291 hour, 44 minutes, 29 secondsconversation list dot message. You cannot pass this directly. You'll do dot messages from this. Now just try this guys. Just try this. No change right.
+1:44:391 hour, 44 minutes, 39 secondsJust inmemory chat message history is what I'm getting. So let me send you this to import. So you're able to import it directly.
+1:44:481 hour, 44 minutes, 48 secondsJust import it directly. And after importing it, just come here and instead of initializing a list, initialize inmemory chat message history.
+1:44:581 hour, 44 minutes, 58 secondsInitialize inmemory chat message history. And then instead of appending,
+1:45:021 hour, 45 minutes, 2 secondsyou just need to use this these two things. Just quickly do it. Just quickly do it.
+1:45:081 hour, 45 minutes, 8 secondsAll right. All right. Last part after this, just the last part which is how to replace a lot of things. I'll just show you.
+1:45:491 hour, 45 minutes, 49 secondsthe next part which is coming shortly. Okay.
+1:46:021 hour, 46 minutes, 2 secondsDone guys. Let me know when done. Let me know when done. I want you to do these on your own so you are able to relate.
+1:46:071 hour, 46 minutes, 7 secondsOkay. Which part is it that I need to change? Which part is it that I need to update? That's why I'm making you do it on your own. Otherwise, I can send you the code as is it as it is which I'm not
+1:46:151 hour, 46 minutes, 15 secondsdoing certainly but just do it. So this is one additional module that you need to import and put
+1:46:221 hour, 46 minutes, 22 secondsit here. Right? Nothing fancy guys. very simple if we know processes if we know the backbone if we understand the backbone which are we are going to
+1:46:291 hour, 46 minutes, 29 secondscreate very soon right which we're going to create very soon okay
+1:46:371 hour, 46 minutes, 37 secondsguys I don't believe in learning a lot of tools a lot of new things of course we should be aware of everything that is
+1:46:441 hour, 46 minutes, 44 secondscoming I believe in learning systems I believe in building systems whenever I I'm learning something I try to learn it with systems okay what is the number one
+1:46:521 hour, 46 minutes, 52 secondsstep what is the number two steps what number three steps and I try to find out if I can make a series of seven eight
+1:47:001 hour, 47 minutessteps maximum where I can do it all right where I can do it all and then I find out which steps remain as it is all
+1:47:081 hour, 47 minutes, 8 secondsthe time and which steps are subjective to change which which which steps can be tweaked that's actually building a
+1:47:151 hour, 47 minutes, 15 secondssystem if you build a system like this you can learn any subject no matter what and we'll try to build a system I'll show you a system proper don't worry
+1:47:231 hour, 47 minutes, 23 secondsabout
+1:47:361 hour, 47 minutes, 36 secondsNow if I would have gone to this directly you would never understand what is going inside what is going right what is what is what is the history that we
+1:47:441 hour, 47 minutes, 44 secondsare keeping you would never understand that that's why we went the list route that that's why we went the list route
+1:47:511 hour, 47 minutes, 51 secondssimple yeah please tell One question out of context. My Google key seems to be exhausted. Uh should I
+1:47:591 hour, 47 minutes, 59 secondscreate a new one or should I add credits to it?
+1:48:021 hour, 48 minutes, 2 secondsIf you have another account, you can create a new one. Otherwise, use right. You can use your open AI key as well. So just instead of that this one LLM.
+1:48:111 hour, 48 minutes, 11 secondsYeah.
+1:48:111 hour, 48 minutes, 11 secondsCan someone tell me can someone send the LLM code guys? The import just Yeah. Thank you.
+1:48:251 hour, 48 minutes, 25 secondsThe only one change we have to do and everything else remains the same, right? With with LLMs, right?
+1:48:311 hour, 48 minutes, 31 secondsOkay. I hope everyone has done this. Has everyone done this guys? Is it clear? Is it good? Right. Now I'm moving to the
+1:48:391 hour, 48 minutes, 39 secondsnext part and I've put it here. The ultimate chatbot automating the memory.
+1:48:431 hour, 48 minutes, 43 secondsLook at the problem. Look at the problem. We have a working loop. We have a working loop. Everything is good. But
+1:48:491 hour, 48 minutes, 49 secondswhat was the sole agenda of lang chain that you don't do things manually on your own let lang chain take care of
+1:48:571 hour, 48 minutes, 57 secondseverything right and we have pretty much automated most of the things first thing we automated with langchain is what we are no longer we are no longer making
+1:49:061 hour, 49 minutes, 6 secondsour prompt manually with the list of messages langchain is doing it see langchain is doing it using what message
+1:49:131 hour, 49 minutes, 13 secondsplaceholder and by passing it here inside the lang here by passing it here inside the lchain. Langchain is taking care of it. We don't have to worry about
+1:49:211 hour, 49 minutes, 21 secondsit. Right? What is the second thing we automated with lang? What is the second thing we automated with lang chain?
+1:49:281 hour, 49 minutes, 28 secondsI don't think so. We have a second thing we automated with lang. But now there's a second thing which we are going to automate with lchain. This this your
+1:49:361 hour, 49 minutes, 36 secondsPython program is doing your Python program the program that you are writing. I don't want you to do it. I want to do it on its own. I want this
+1:49:451 hour, 49 minutes, 45 secondsthing also taken care of by LAN chain and not right. This is something that we need to understand how to do it. Right?
+1:49:541 hour, 49 minutes, 54 secondsLet me just go back to our problems part and update our problems here.
+1:50:041 hour, 50 minutes, 4 secondsLook at this. This is our first problem. We have taken care of by lanching,
+1:50:081 hour, 50 minutes, 8 secondsright? This thing. Now the problem was list. What did we do? We switched to what?
+1:50:181 hour, 50 minutes, 18 secondsIn memory chat message history, right?
+1:50:211 hour, 50 minutes, 21 secondsIn memory chat message history instead of list.
+1:50:251 hour, 50 minutes, 25 secondsRight? Now the problem still is we are still doing the append part ourselves.
+1:50:391 hour, 50 minutes, 39 secondsWe're still doing the append part ourselves. This part we are still doing it ourself right.
+1:50:461 hour, 50 minutes, 46 secondsLand chain is the orchestrator.
+1:50:511 hour, 50 minutes, 51 secondsIt should do it right. It it is like this. It is like this. You hired a driver. You hired a driver to drive your
+1:50:581 hour, 50 minutes, 58 secondscar. But what you're doing is what you're doing is you are every morning you are waking up and going and cleaning your car yourself.
+1:51:061 hour, 51 minutes, 6 secondsYou tell me does that sound logical? You have a driver in place who drives you everywhere but the cleaning part you're doing it yourself.
+1:51:161 hour, 51 minutes, 16 secondsDoes it make sense? No. Right. So we'll try to fix that. We'll try to fix that with something called as runnable message history. Right? Runnable with message history. This is the this is the
+1:51:241 hour, 51 minutes, 24 secondsfunction which will help us which will help us automate this part as well.
+1:51:291 hour, 51 minutes, 29 secondsRight? Let's try to understand how does it work. Okay. Let's try to understand how this does it work. Okay. Let me make a new piece of code here.
+1:51:391 hour, 51 minutes, 39 secondsAnd let me kind of do it like this. Just give me one minute.
+1:51:511 hour, 51 minutes, 51 secondsOkay. Okay. Let's let's do it like this,
+1:52:011 hour, 52 minutes, 1 secondright? Let me first bring the code as it is here. Let's just bring the code as it is here and I'll just show you what all changes this this new thing needs.
+1:52:101 hour, 52 minutes, 10 secondsBasically, we are doing it all to kind of remove this part. We are just doing it all to remove this part. So, we don't have to remove this part. So, what this
+1:52:181 hour, 52 minutes, 18 secondsrunnable with message history does is this runnable with message history what it does is it is basically like a it is
+1:52:251 hour, 52 minutes, 25 secondsbasically like a string. Right? Now, you have a chain. You have a chain that is going like this. But you need to wrap
+1:52:321 hour, 52 minutes, 32 secondsthis chain into into an area where the messages are kept on its own. Where the
+1:52:401 hour, 52 minutes, 40 secondsmessages are kept on its own. So basically runnable with message history. This is a new one that is coming in.
+1:52:471 hour, 52 minutes, 47 secondsRunnable with message history. So understand the differences. Message placeholder is for what? To leave a
+1:52:541 hour, 52 minutes, 54 secondsplaceholder for the chat for the message history. Chat message history is what?
+1:52:591 hour, 52 minutes, 59 secondsFor what? It is for to maintain. It is to maintain your list. It is to maintain your list. List of messages, right?
+1:53:071 hour, 53 minutes, 7 secondsMessage placeholder is the placeholder where your list will come. To maintain the list, you're using the in-memory chat message history. The third thing,
+1:53:131 hour, 53 minutes, 13 secondsthe third thing is runnable with message history. And how does it work? Let's talk about it. Okay,
+1:53:201 hour, 53 minutes, 20 secondslet me show you how does it work. Okay,
+1:53:231 hour, 53 minutes, 23 secondseverything remains as it is. Everything remains as it is.
+1:53:281 hour, 53 minutes, 28 secondsYou will now create this. You will basically now upgrade your chain. And I'll show you how.
+1:53:361 hour, 53 minutes, 36 secondsYou create the chain first. That's okay.
+1:53:381 hour, 53 minutes, 38 secondsNow the next thing you need to do is upgrade the chain.
+1:53:431 hour, 53 minutes, 43 secondsUpgrade the chain. Okay. I'll formalize all the steps. Don't worry about it.
+1:53:461 hour, 53 minutes, 46 secondsFirst understand. First you make a chain. You need to wrap this chain aroundable with message history. So let me show you how to do it. Right? So what
+1:53:541 hour, 53 minutes, 54 secondsyou do is basically in this case and a little things just keep yourself tuned and you will get it okay
+1:54:021 hour, 54 minutes, 2 secondswhat does it do right let me just show you chain let what does it do and you will understand everything in one okay this is the function that kind of works
+1:54:091 hour, 54 minutes, 9 secondswith it just give me one minute this is the function that works with it see what I'm doing here is I'm I'm
+1:54:181 hour, 54 minutes, 18 secondswalking you through all the things right I'll first of all import the runnable with message history let Let me import it directly. So I have it here.
+1:54:331 hour, 54 minutes, 33 secondsImport it here. And what I'm going to do is I'm going to wrap my chain around I'm going to wrap my chain with runnable
+1:54:401 hour, 54 minutes, 40 secondswith message. So basically forget this part for now. Forget this part. You just have to put your chain you just have to put your chain inside this runnable with
+1:54:471 hour, 54 minutes, 47 secondsmessage history. Right? But it needs a couple of other things. It needs a couple of other things. and look at those things yourself. Look at those those things yourself. Look at this.
+1:54:571 hour, 54 minutes, 57 secondsForget this for now. Forget this for now. Look at this one. First thing it needs is what is the input message key?
+1:55:031 hour, 55 minutes, 3 secondsWhat is our input message key guys? You tell me. What is our input message key?
+1:55:061 hour, 55 minutes, 6 secondsYou tell me. Just remove this. Tell me what is our input message key? The human message that is coming in. What is it?
+1:55:161 hour, 55 minutes, 16 secondsWhat is it? User. User.
+1:55:201 hour, 55 minutes, 20 secondsUser user input. So you need to tell it what is the input message key user input. Okay.
+1:55:291 hour, 55 minutes, 29 secondsWhat is our history messages key? That is the placeholder that you've created.
+1:55:321 hour, 55 minutes, 32 secondsTell me what is our history messages key. Chat history.
+1:55:361 hour, 55 minutes, 36 secondsChat history. So you need to take this chat history. Chat history. Just use this as it is.
+1:55:421 hour, 55 minutes, 42 secondsThe history message key. That's it. Now the last thing that it needs is this function that is the get session history. So what it will do is it will
+1:55:521 hour, 55 minutes, 52 secondsempower your chain with history automatically without having you to do this without you having to do this.
+1:55:591 hour, 55 minutes, 59 secondsOkay? It will empower your chain automatically.
+1:56:031 hour, 56 minutes, 3 secondsEven if you remove this, even if you remove this, just remove this. This much part this much part is enough. This much part is enough to give you the history.
+1:56:131 hour, 56 minutes, 13 secondsRight? But but to to do this to do this,
+1:56:171 hour, 56 minutes, 17 secondsthis part is enough. part it needs one additional function which gets the history for see appending the history
+1:56:241 hour, 56 minutes, 24 secondswill be done by this much part append part is taken care of by this much part right I'll just comment it out right but
+1:56:321 hour, 56 minutes, 32 secondswhen you want to get the mystery of a get the history of a particular person when you want to get the history of a particular person then you need then you
+1:56:401 hour, 56 minutes, 40 secondsneed an additional function which will give you the history which will give you the history so now We will be making
+1:56:481 hour, 56 minutes, 48 secondsthis function and I'll show you how to make this function. It's a very simple function. Okay, let me just put it here def anything you you can make it like this.
+1:56:581 hour, 56 minutes, 58 secondsGet session history.
+1:57:041 hour, 57 minutes, 4 secondsSee understand this this function runnable with message history wraps around your chain. It wraps around your
+1:57:111 hour, 57 minutes, 11 secondschain. But to get the history to to give the history to LAN chain, it needs a function, right? You just need to create
+1:57:181 hour, 57 minutes, 18 secondsa function that will return history and nothing else, right? And let me show you how to get it. Okay? Inside this function, you need to pass something called a session ID. Why? Why session
+1:57:271 hour, 57 minutes, 27 secondsID? Because someone asked me this question. So, how does it remember the history of all the people? How does it remember the history of all the people?
+1:57:361 hour, 57 minutes, 36 secondsThis is how it remembers the history of all the people. Just see this. Let me show you right. You need to pass a session ID. Let's say five different
+1:57:431 hour, 57 minutes, 43 secondsusers are communicating with your API user A when he says user A. So it will only bring the history of user A. That's why we need this history. Okay. Okay.
+1:57:531 hour, 57 minutes, 53 secondsWhat does this do? What does this do is I'll show you just one minute.
+1:58:021 hour, 58 minutes, 2 secondsRight.
+1:58:051 hour, 58 minutes, 5 secondsWhat I'm going to do is I'm going to keep a dictionary to maintain the history of each user. Session store is equals to this. I'm just going to make it empty for now. I'm just going to make
+1:58:141 hour, 58 minutes, 14 secondsit empty for now. For now, I'm making it empty. So, what is this dictionary going to do? I'm just going to tell you what is this dictionary going to do. It's going to look like something like this.
+1:58:211 hour, 58 minutes, 21 secondsPlease pay attention to this. It's going to look something like this.
+1:58:261 hour, 58 minutes, 26 secondsIt will have session ID session let's say user one one and corresponding to that it will have that list of history
+1:58:341 hour, 58 minutes, 34 secondsof AI message human message pura kapura chitta of user one just that this is what this session
+1:58:421 hour, 58 minutes, 42 secondsis going to do right human message and so on. Similarly for user two
+1:58:491 hour, 58 minutes, 49 secondsyou will have again the same kind of list right the same kind of list for user two right so this is what the session this is what the session is
+1:58:581 hour, 58 minutes, 58 secondsgoing to maintain for you this is what the session is going to session store is going to maintain it's basically a store of multiple users which are there right
+1:59:051 hour, 59 minutes, 5 secondsso what I'm going to do is from the session store from the session store right from the session store you need the history of whom you need the history
+1:59:141 hour, 59 minutes, 14 secondsof whom you need the history of you need the history of of the particular user. So you'll just
+1:59:201 hour, 59 minutes, 20 secondsdo one thing. Okay. What is it? Return session store and the U history of the user.
+1:59:281 hour, 59 minutes, 28 secondsThat is the session ID. That is for example if I want for user one. So I just pass what session ID?
+1:59:361 hour, 59 minutes, 36 secondsI'll just pass session ID. Right? Just that's it. I'll just pass session ID here. This function will be used by this function will be used by this guy here.
+1:59:461 hour, 59 minutes, 46 secondsSorry, this guy here.
+1:59:481 hour, 59 minutes, 48 secondsThis guy. And it will just get the history of the particular user only. It will get the history of that particular user only. But there is one slight
+1:59:571 hour, 59 minutes, 57 secondsproblem. What if the user is brand new and it does not exist in your in your listing? Tell me what if the user is so
+2:00:062 hours, 6 secondswe need to add that user message.
+2:00:102 hours, 10 secondsYes. So we need to add message.
+2:00:132 hours, 13 secondsYes. So we need to add some blank list for that user or not. Tell me guys. So what you'll do is if session store
+2:00:222 hours, 22 secondsthe session id is sorry if the session ID is not in if
+2:00:292 hours, 29 secondssession ID is not in not in session
+2:00:382 hours, 38 secondsstore what will you do you'll create a new variable for him how will you create it very simple session bas session ID
+2:00:472 hours, 47 secondssession ID is equals to what? That empty list.
+2:00:502 hours, 50 secondsAnd how do you create your empty list at this point of time in memory?
+2:00:542 hours, 54 secondsChat message history is what you use to create the empty list. This is all your function is going to do. Nothing else.
+2:01:022 hours, 1 minute, 2 secondsWhat are you doing guys? You're maintaining a dictionary for each user.
+2:01:072 hours, 1 minute, 7 secondsLet's say me, you, everyone. We are communicating with the AI. We all will have a session ID. If we are very new,
+2:01:142 hours, 1 minute, 14 secondswe will be given a new list like this.
+2:01:172 hours, 1 minute, 17 secondsWe'll be given a new list, right? Like this, right? We'll be given a new list,
+2:01:212 hours, 1 minute, 21 secondsempty list for now, right? And then and then you will just return if we are already there. This function's job is to just return the history of that user.
+2:01:332 hours, 1 minute, 33 secondsThe history of that user. All right,
+2:01:352 hours, 1 minute, 35 secondsthat's it. And just see this, we are just calling it here. The chat message history. We are just calling it here. The chat message history. That's it.
+2:01:422 hours, 1 minute, 42 secondsNothing else is there. That's it. Only two things. Let me repeat. Wrap your chain. Wrap your chain with the runnable
+2:01:502 hours, 1 minute, 50 secondswith message history. Why is it giving me error was not closed?
+2:01:582 hours, 1 minute, 58 secondsComma. Right. Wrap your chain. Wrap your chain with runnable with message history normally chain. Pass the input message
+2:02:062 hours, 2 minutes, 6 secondskey. Pass the history message key and get the session history. and pass a function get session history. Don't worry about the function. Just pass this function and this function is standard.
+2:02:182 hours, 2 minutes, 18 secondsYou just need this function all the time.
+2:02:212 hours, 2 minutes, 21 secondsThis is standard. You copy this code as it is. This function is always standard. Right? Now we need to invoke our chain.
+2:02:272 hours, 2 minutes, 27 secondsBut there is one thing we need to give our chain additional this time. What is that? Can someone tell me?
+2:02:342 hours, 2 minutes, 34 secondsTell me ID.
+2:02:362 hours, 2 minutes, 36 secondsThe session ID. You need to give the session ID. Guys, let me repeat.
+2:02:402 hours, 2 minutes, 40 secondsEverything else is as it is. There's nothing else. I just removed this part.
+2:02:442 hours, 2 minutes, 44 secondsI just removed this part. Instead of this, I wrapped my chain with runnable with message history. Runnable with message history. And it is asking me,
+2:02:522 hours, 2 minutes, 52 secondsokay, what is your chain? What is the user input that you are creating that you're giving that your chain is giving?
+2:02:582 hours, 2 minutes, 58 secondsAnd what is the chat input that your chain is giving? I just pass it that and give it a function. Okay, this will be the function which will give you the
+2:03:052 hours, 3 minutes, 5 secondshistory of the user. And this function is standard. Don't worry about this function all the time. No matter what application you are creating only this this this standard code only will be
+2:03:142 hours, 3 minutes, 14 secondsused. It will not never change. This is standard. Okay. This is standard. So you think of it like this. Let me repeat one more time last time. What is it? Wrap
+2:03:222 hours, 3 minutes, 22 secondsthe chain with runnable with me message history. Whatever you were doing above,
+2:03:262 hours, 3 minutes, 26 secondskeep doing as it is. That much you understand already. Wrap the chain with runnable with message history.
+2:03:332 hours, 3 minutes, 33 secondsWhat is the next thing? What is the next thing? Give it input message key and history message key and pass a function to it which will give it the history.
+2:03:402 hours, 3 minutes, 40 secondsThis is a standard function. This is the exact copy which will go everywhere. You don't have to worry about this. Okay.
+2:03:472 hours, 3 minutes, 47 secondsSo will it uh will it scale up for huge sessions, huge volume of sessions? I know it is not the right time to ask but just in case.
+2:03:562 hours, 3 minutes, 56 secondsYes.
+2:03:562 hours, 3 minutes, 56 secondsMillions of user sessions if they're there will it scale up there?
+2:04:002 hours, 4 minutesYeah. Yeah, it will. It will of course don't worry about that. Right. For that we have different processes we'll talk about it. Okay. But but but yes it will escape. Right.
+2:04:092 hours, 4 minutes, 9 secondsRight.
+2:04:102 hours, 4 minutes, 10 secondsAll right. This is how you basically keep it. Right. Now now just understand this. Now you need to just call you need to just call your new chain that you
+2:04:192 hours, 4 minutes, 19 secondshave created which is this chain with memory. So instead of calling this you call this chain with memory. But as I said there's an additional input you
+2:04:272 hours, 4 minutes, 27 secondsneed to pass. Additional input you need to pass. What is that input guys? You tell me. What is that input?
+2:04:342 hours, 4 minutes, 34 secondssession ID session ID session and how do you pass the session ID is you basically give the session ID within a config and I'll tell you there's a
+2:04:412 hours, 4 minutes, 41 secondsstandard way to do it some environment variable some variable yeah also you can also do it with environment variable once you have a session ID for now we are just kind of
+2:04:502 hours, 4 minutes, 50 secondsgiving it like this configurable we give it like configurable session ID and this right okay this is standard way to pass
+2:04:582 hours, 4 minutes, 58 secondsthis the session ID this is a standard way to pass the session ID and then what you need to do is you basically need to just call your chain call your chain
+2:05:052 hours, 5 minutes, 5 secondswith call your chain with you don't even need to pass chat history now by the way right you just need to kind of call your chain with the config right so let's
+2:05:142 hours, 5 minutes, 14 secondskind of get rid of this you don't need to pass the chat history because that is taken care of by running lambda forget it you just need to give user input and
+2:05:222 hours, 5 minutes, 22 secondsyou need to give the config sorry you need to give the config after this
+2:05:302 hours, 5 minutes, 30 secondsyou need to give the config is equals to bond fix right that's it this is all let me just check if everything is running fine or let's just
+2:05:372 hours, 5 minutes, 37 secondsrun it and see if it breaks down we'll fix it okay let's just check it right so the first message hi I need to
+2:05:452 hours, 5 minutes, 45 secondsunderstand the itinerary the best places
+2:05:542 hours, 5 minutes, 54 secondsin Paris in one line right I'm keeping one line so we can see it right that's why I just mentioned one line right
+2:06:002 hours, 6 minuteslet's see if works. Explore the iconic Eiffel Tower world class lubé historic. Right. Okay.
+2:06:102 hours, 6 minutes, 10 secondsAnything else you'd suggest? Let's see if if to cover
+2:06:182 hours, 6 minutes, 18 secondsoffbeat, right? Let's just ask it like this. Okay, let's just see if it's maintaining our history. Of course, it's maintaining our history.
+2:06:252 hours, 6 minutes, 25 secondsSee another mystery catac.
+2:06:272 hours, 6 minutes, 27 secondsSee it's basically getting the context from this much part of the right. That's it. This is how you maintain history.
+2:06:342 hours, 6 minutes, 34 secondsLet me repeat one more time guys. Let's just exit. Right. Let me repeat one more time. What are we doing? Everything what you were doing up there. You keep it as
+2:06:422 hours, 6 minutes, 42 secondsit is. You keep it as it is and just update a few things. First make a new chain. Make a new chain with runnable
+2:06:502 hours, 6 minutes, 50 secondswith message history. Runnable with message history. Wrap your things inside. Wrap your old chain inside this new Runnable with message history.
+2:06:572 hours, 6 minutes, 57 secondsRight. And then second thing is second thing is you need to give it these things and make a function get session
+2:07:042 hours, 7 minutes, 4 secondshistory here. Get session history function. You need to make it here. This will maintain your session history. And you need to then come down. You need to then come down and just invoke your
+2:07:132 hours, 7 minutes, 13 secondschain directly like this. Invoke your chain directly like this. I'm going to give you the code right now directly.
+2:07:182 hours, 7 minutes, 18 secondsYou can try it at your own pace. But I would suggest try writing this code on your own just like I wrote it. Same way
+2:07:252 hours, 7 minutes, 25 secondsyou try writing it yourself. That will be the best that you can do. Okay.
+2:07:312 hours, 7 minutes, 31 secondsAnkit is at Vishal restaurant. Huh?
+2:07:372 hours, 7 minutes, 37 secondsAnkit. Vishal restaurant. Huh? What are you eating?
+2:07:472 hours, 7 minutes, 47 secondsOkay, let me give you the code. There you go. The code is there, right? Just the code is there. Just just take just copy the code. Just run it directly. I think you will be able to do it but look
+2:07:552 hours, 7 minutes, 55 secondsat the key things that you need to check that then you need to check it. I'll take a break after this um and then we will do what is we will just continue
+2:08:032 hours, 8 minutes, 3 secondswith the rag theory. I think 45 minutes will be enough for that theory but I need to structure this process that we have done so you have a fixed set of steps that you need to follow every time. Okay.
+2:08:142 hours, 8 minutes, 14 secondsFirst run this code let me know whether it is running. If you want to write it yourself you're most welcome. I want you to write it yourself guys. Use the old
+2:08:212 hours, 8 minutes, 21 secondscode that we had done with inmemory chat message history and wrap your chain with lambda function. Create that new session
+2:08:292 hours, 8 minutes, 29 secondsfunction and just update your chain invoking part. Right? That's it. Do it quickly. Whatever works for you. I'll give you 3 minutes, 4 minutes for this,
+2:08:392 hours, 8 minutes, 39 seconds3 to 4 minutes for this. Try to do it.
+2:08:412 hours, 8 minutes, 41 secondsWe'll then take a 5 minute, 7 minute break and then we'll come back and kind of at least touch base upon rags, set up your pine cone account and etc. So we
+2:08:492 hours, 8 minutes, 49 secondsare pretty much there
+2:09:212 hours, 9 minutes, 21 secondsI'm looking at Ank, you know, he's smiling all the while. He's in he's in auto. How is the auto ride going, An?
+2:09:322 hours, 9 minutes, 32 secondsAnd now he turned off the video. Okay. He was giving a tour of his city.
+2:09:512 hours, 9 minutes, 51 secondsYeah, please tell me.
+2:09:532 hours, 9 minutes, 53 secondsSo, how how you are going to wrap up multiple session ids in a config?
+2:09:592 hours, 9 minutes, 59 secondsYou don't need to wrap a multiple session ID. Basically whenever a new session comes in a new user comes in only that guy is see that's the thing
+2:10:072 hours, 10 minutes, 7 secondsthat's why we are maintaining this part you see this where it go this part this person this
+2:10:152 hours, 10 minutes, 15 secondsperson is basically maintaining the session ID of the users right session ID wise it is maintaining the history the session store is maintaining the history
+2:10:232 hours, 10 minutes, 23 secondsof each user session ID wise right so let's say user 1 2 3 comes in you will give it you will only pull the history of that one right user 456 comes in,
+2:10:322 hours, 10 minutes, 32 secondsyou'll pull the history of that user, right?
+2:10:362 hours, 10 minutes, 36 secondsThat session ID, right? The configure passing to the Yeah. Yeah. So basically with config,
+2:10:412 hours, 10 minutes, 41 secondsyou will pass that particular session ID only, right? That particular session ID only, right? Okay.
+2:10:462 hours, 10 minutes, 46 secondsThat you can get from the user. So for what for for example, if you have to build this, what you can do is
+2:10:542 hours, 10 minutes, 54 secondsyou can build a config instead of here inside the loop also, right? Uh so you can ask first you can ask the user for example your input you can do it like
+2:11:032 hours, 11 minutes, 3 secondsthis guys please pay attention input please enter your
+2:11:132 hours, 11 minutes, 13 secondssession ID or user user ID let's say user ID right let's say user ID right and let's say the user will enter the
+2:11:202 hours, 11 minutes, 20 secondsuser ID and I'll plug that user ID let's just say user ID is equals to this I'll plug that user user ID here.
+2:11:312 hours, 11 minutes, 31 secondsI'll plug that user ID here. So, first of all, I'm asking the user to give the user ID and then I'm using that user ID to get the history. So, let's try now.
+2:11:392 hours, 11 minutes, 39 secondsLet's try now. So, I'm going to try with two users now. I'm going to try with two users now and let's see if it maintains the history or not. Right? Let's see.
+2:11:482 hours, 11 minutes, 48 secondsFirst, it's asking for the user ID. So,
+2:11:502 hours, 11 minutes, 50 secondslet's just give it okay uh user 1 2 3 like this. Let's give it like this.
+2:11:562 hours, 11 minutes, 56 secondsNow it's asking question. I want to travel to Netherlands.
+2:12:042 hours, 12 minutes, 4 secondsI want to travel to leaders. Suggest me itinary best places in one line. Let's try.
+2:12:182 hours, 12 minutes, 18 secondsSo can multip right now. The user ID is one is done. Right. So exit.
+2:12:282 hours, 12 minutes, 28 secondsAnd look at the session ID. Look at this session.
+2:12:362 hours, 12 minutes, 36 secondsSession is not there. This is session store. Session store.
+2:12:432 hours, 12 minutes, 43 secondsSee for user 1 2 3 everything is there in memory chat message history. This list. This is the list. Basically this is the list that you have for user 1 2
+2:12:512 hours, 12 minutes, 51 seconds3. See this? That's what I'm talking about. Right? Let's just run this again.
+2:12:542 hours, 12 minutes, 54 secondsNow let's just run this again with a different user this time. Okay,
+2:12:592 hours, 12 minutes, 59 secondslet's run it again. Let's say we have user 234, right? User or whatever you want.
+2:13:062 hours, 13 minutes, 6 secondsUser 234. Let's say like this, right?
+2:13:082 hours, 13 minutes, 8 secondsNow let's say I want to travel to England.
+2:13:142 hours, 13 minutes, 14 secondsGive me in one line which places visit
+2:13:252 hours, 13 minutes, 25 secondsright and let's just see you give for user 2 3 4 now just see this see it's done and now let's just exit it
+2:13:332 hours, 13 minutes, 33 secondslook at your session store again now you have for user 2 3 4 what is happening is the session store is kind of going away so what I'll do is I'll put it in a
+2:13:412 hours, 13 minutes, 41 secondsdifferent cell here perhaps so that you have it here the session store is not getting initialized again
+2:13:492 hours, 13 minutes, 49 secondsand again so I'll run it once and I'll run it again here
+2:13:562 hours, 13 minutes, 56 secondssame thing I will do user 1 2 3 England
+2:14:022 hours, 14 minutes, 2 secondsEngland best places in one line let's just do it
+2:14:102 hours, 14 minutes, 10 secondsso user 123 is asking England best places in one to line. I'm just going to exit it. Look at your session store.
+2:14:152 hours, 14 minutes, 15 secondsThis is user 1 2 3. And let's just run it for u user 2 3 4 now.
+2:14:242 hours, 14 minutes, 24 secondsUser 2 3 4. And now ask the question uh let's say Paris best places in one line.
+2:14:342 hours, 14 minutes, 34 secondsJust do it. I hope my key doesn't run out. This is your Paris. And just exit it.
+2:14:412 hours, 14 minutes, 41 secondsand just fire session store. Look at this. Both the users are now captured.
+2:14:442 hours, 14 minutes, 44 secondsCan you see this guys? Everyone can see this. Both the users are now captured.
+2:14:492 hours, 14 minutes, 49 secondsRight? See this? Both the users are now captured. Now if I run this again and I use user 1 2 3 now. So it will answer me
+2:14:572 hours, 14 minutes, 57 secondsfrom 1 to three history. You understand this? Let's just run it and just see this. Okay.
+2:15:042 hours, 15 minutes, 4 secondsAnything else you'd like to add?
+2:15:112 hours, 15 minutes, 11 secondsadd in the capital. I'm I'm writing in the capital. So it has to it has to identify the capital of England itself.
+2:15:182 hours, 15 minutes, 18 secondsLet's just see this one sir using atmosphere. So it's
+2:15:252 hours, 15 minutes, 25 secondsbasically identifying now it's going giving me for England right this guy asked about this is the first guy right?
+2:15:312 hours, 15 minutes, 31 secondsSo in this way you maintain the history of all the users which are there at once in your system in your system right that's how you do it scaling people ask
+2:15:392 hours, 15 minutes, 39 secondsabout scaling this this thing keeps on scaling as more and more number of users keep added uh
+2:17:532 hours, 17 minutes, 53 secondsHopefully sir is aware that he got disconnected.
+2:18:312 hours, 18 minutes, 31 secondsHey guys, sorry my something is wrong with my system. It's just automatically is going on hibernation mode. I don't know it's heated up or what, but something went wrong. It's going wrong.
+2:18:392 hours, 18 minutes, 39 secondsThis is the second time it went wrong.
+2:18:402 hours, 18 minutes, 40 secondsI'll probably get it checked after the class. So, what we can do right now is let's take a quick break. Uh probably a 5 7 minute break, right? and we come
+2:18:472 hours, 18 minutes, 47 secondsback and we continue for let's say 45 more minutes and then we wrap up. Okay,
+2:18:512 hours, 18 minutes, 51 secondsbecause I believe people may want a bio break or probably a drinks break. Uh so take one and let's catch up in
+2:19:002 hours, 19 minutes10 minutes max. So 420 we catch up at 420 just like the last time. All right.
+2:19:042 hours, 19 minutes, 4 secondsSo let's catch up at 420 and then we continue with whatever is left. I think this context maintaining part is done.
+2:19:102 hours, 19 minutes, 10 secondsNow I'll kind of introduce you to rack and enhance just take this concept a level up and try to tell you how do you plug in into the same thing additional
+2:19:202 hours, 19 minutes, 20 secondsadditional you know kind of information right that we will be discussing. Okay Vijay you have a question please ask me.
+2:19:262 hours, 19 minutes, 26 secondsYeah. So, uh maintaining the chat history list by ourselves, right?
+2:19:312 hours, 19 minutes, 31 secondsAgainst uh using the inmemory uh whatever the the API call from uh lchain
+2:19:402 hours, 19 minutes, 40 secondsright I mean if you if you look at the if you print the object itself right there are it again contains message list
+2:19:472 hours, 19 minutes, 47 secondsapart from some other metadata. So what so does langchain manage memory in a better way if you use that format or uh
+2:19:562 hours, 19 minutes, 56 secondsrather than using that that's what see the whole idea is that we want don't want to do things on our own we don't want our python program
+2:20:052 hours, 20 minutes, 5 secondsto be doing the things manually right it gives you more power you can do it there's no no one stopping you to do
+2:20:122 hours, 20 minutes, 12 secondsfrom doing it but it is suggested that you not do it because you have an orchestrator the same thing right you have a driver but you're going and
+2:20:202 hours, 20 minutes, 20 secondscleaning the car yourself. So if you have called lang chain try to do as much things possible by lang chain said why because lang chain gives you power of
+2:20:282 hours, 20 minutes, 28 secondslansmith understand okay so lansmith say you can track the token costs and everything but if it is not a
+2:20:352 hours, 20 minutes, 35 secondspart of the lang chain then you will not be able to trace it understand that's why it is suggested that you plug it
+2:20:422 hours, 20 minutes, 42 secondsinside lang chain itself okay okay so apart from uh uh uh easy usability uh From the technical like
+2:20:522 hours, 20 minutes, 52 secondssystem configuration point of view there's there are no changes right you can do it you can do it on your own as well you can absolutely do it no one
+2:20:592 hours, 20 minutes, 59 secondsstopping you you can write a production grid code as well with uh with appending yourself okay no worries there sure and one one other question is
+2:21:082 hours, 21 minutes, 8 secondsthere's that parser at the end of the chain right uh in the pipe yeah yeah yeah pipe the the parser basically like what
+2:21:162 hours, 21 minutes, 16 secondswhat does it do like uh I know it uh shows the messages in a so it's basically a basic output parser
+2:21:242 hours, 21 minutes, 24 secondsof lanch chain let's say your message comes out in JSON format right so it will what it will do is it will basically convert it to text format so basic output parsing it does but for
+2:21:322 hours, 21 minutes, 32 secondsadditional parsing more better parsing you need custom functions of your own right which you will call using what runnable lambda right
+2:21:392 hours, 21 minutes, 39 secondsokay so whatever it returns is just going to be a a message object right yes yes yes okay Okay.
+2:21:512 hours, 21 minutes, 51 secondsOkay. Okay, guys. Take a break, I guess. Right. Let's take a break. Quick break.
+2:21:592 hours, 21 minutes, 59 seconds7 8 minutes. Let's regroup by 4:22 420 somewhere. We'll continue for 40 minutes. We'll wrap up the rag introduction to rag today. Then we tomorrow build some serious rags, right?
+2:22:102 hours, 22 minutes, 10 secondsThat's the plan. Okay. Thanks a lot,
+2:22:122 hours, 22 minutes, 12 secondsguys. Thank you so much. Let's catch up in seven eight minutes. Okay.
+2:35:542 hours, 35 minutes, 54 secondsHey guys, sorry for the delay. I went out and my wife forced me to have lunch not because I had not had lunch but
+2:36:022 hours, 36 minutes, 2 secondsbecause lunch right. So that's why I have to get I had to get some lunch. Okay.
+2:36:112 hours, 36 minutes, 11 secondsSo let's let's start now and uh let's uh go to the next part. So this is how this
+2:36:182 hours, 36 minutes, 18 secondsis how you build a memory inside or this is how you basically build your context overall. Right? We have finished it.
+2:36:252 hours, 36 minutes, 25 secondsWe've completed it uh pretty much in very much depth. What I want you to explore is I want you I would like you to explore a couple of things. For example,
+2:36:382 hours, 36 minutes, 38 secondsdamn it was gone. Just give me one minute. Okay. So, let me load it because it's gone actually.
+2:36:522 hours, 36 minutes, 52 secondsSo guys, these things take time but we have go gone slowly because I wanted to you know kind of make sure that you build your take your first step a little
+2:37:002 hours, 37 minutesslowly. We'll kind of try to kind of pace up from here. We'll try to understand things uh we'll try to implement things faster
+2:37:082 hours, 37 minutes, 8 secondsfrom here now that we have some idea of what exactly is LLM taking as context right what exactly is LLM taking as
+2:37:162 hours, 37 minutes, 16 secondscontext so let me now share my one note excuse me one minute and let me now show you basically that
+2:37:242 hours, 37 minutes, 24 secondswhat exactly is it that we're going to study from here first let me just formalize whatever we have done right now okay so let me just This is fine. I can just exit to it.
+2:37:382 hours, 37 minutes, 38 secondsJust done. So, let me just share my screen.
+2:37:492 hours, 37 minutes, 49 secondsLet me just share my screen.
+2:37:522 hours, 37 minutes, 52 secondsI don't want to hurry at all, guys. I mean, even if it takes us one month extra to finish the course, it's fine.
+2:37:582 hours, 37 minutes, 58 secondsBut I would not like that you guys miss out on anything of the trending technologies. I would because
+2:38:052 hours, 38 minutes, 5 secondseven from the point that you joined the course to now a lot of new technologies and a lot of new things have come in.
+2:38:122 hours, 38 minutes, 12 secondsRight. I would like it that we cover most of the things which which actually at least you know kind of set your first principles right. Of course then once
+2:38:202 hours, 38 minutes, 20 secondsyou have your first principle right then then it's all about how do you build on top of that? How do you keep yourself updated? For example, you understand
+2:38:272 hours, 38 minutes, 27 secondsrag. Let's say you understand rag. Once you understand rag, then so much new is coming. Every day a new research paper
+2:38:342 hours, 38 minutes, 34 secondsis being released. Then you can just read them, get to know about them.
+2:38:392 hours, 38 minutes, 39 secondsThat's it. And nothing else. For example, then there is page index that has come in which is very recent. Then there is Google's file store that has
+2:38:462 hours, 38 minutes, 46 secondscome in which is an alternative of rag which I'll be covering by the way in the session. Page index I will not be covering but Google's file store I'll be covering. Page index you can explore on its own.
+2:38:562 hours, 38 minutes, 56 secondsI'm not very, you know, kind of impressed by page index. People all the LinkedIn is all like page index has replaced rag. Rag is gone. Now page
+2:39:042 hours, 39 minutes, 4 secondsindex is everything. But to for me to be honest, no, it's it's not going to replace rag. And uh it's just that LinkedIn people, they're more about they're more about, you know,
+2:39:142 hours, 39 minutes, 14 secondsuh they're mostly about, you know, kind of they just follow the trend, right?
+2:39:192 hours, 39 minutes, 19 secondssomething someone posts some big guy posts something and everyone is like tries to copy this entire post and then they give it to charge GBT and then then
+2:39:262 hours, 39 minutes, 26 secondsthen they post it in their own words that's what that's what is going on in LinkedIn it's a dog there so don't get into it don't listen to it what you need to listen to is uh the trending articles
+2:39:352 hours, 39 minutes, 35 secondsuh I would say follow Substack the best people on Substack follow good people on on Instagram for example I recommended
+2:39:432 hours, 39 minutes, 43 secondsone person I think to you guys last time which was systems by Aki that guy actually has a very good content I personally follow on Substack follow the right kind of
+2:39:512 hours, 39 minutes, 51 secondspeople on on follow good articles on mint that is an Indian newspaper I also have subscription of Wall Street Journal
+2:40:002 hours, 40 minuteswhich kind of keeps me updated with what is going on in the tech industry that keeps me going but for the tech part I
+2:40:072 hours, 40 minutes, 7 secondspersonally follow Substack which has a lot of lot of uh users who post really good content
+2:40:152 hours, 40 minutes, 15 secondsand Reddit lastly you can also follow Reddit right that also will give you a lot of good content. Right? So follow these guys. It's it's much more better
+2:40:222 hours, 40 minutes, 22 secondsthan you know kind of randomly you know looking at is there someone specific on substack that yeah I I'll I'll mention by the end of today's session. I'll just I'll just
+2:40:302 hours, 40 minutes, 30 secondslook through my follow list and I'll just give you that most of the important that will be really helpful.
+2:40:352 hours, 40 minutes, 35 secondsYeah I I'll give you this. Okay. I'll give you this. Okay. All right. Now now let's kind of formalize what we have
+2:40:432 hours, 40 minutes, 43 secondsdone so far. Right. So what is the what is what are the exact steps that you need to take in order to build a memory right in order to build a working memory. Of course this is not the end
+2:40:512 hours, 40 minutes, 51 secondsgoal. The end goal is building a rack with it which is the next part that we're going to take. But just look at the steps that we need to take just steps. Okay. What are the steps we need
+2:41:002 hours, 41 minutesto take? Right? Look at this. Number one step you need is the number one step is you need is look at this. Look from the beginning. Right? Look at this. You need
+2:41:072 hours, 41 minutes, 7 secondsto have a session store. But let me skip this because it's your choice if you want to use runnable uh this runnable with message history or you want to use
+2:41:152 hours, 41 minutes, 15 secondsjust in message chat message history that is up to you right that is customizer this is a customiz step this is not a definite step the first step is
+2:41:232 hours, 41 minutes, 23 secondsalways define your LLM and parser right let me put it here just give me one minute here so first
+2:41:322 hours, 41 minutes, 32 secondsstep is always define your LLM and parser Number two step is number two step let's
+2:41:422 hours, 41 minutes, 42 secondstake a look even I don't number two step is define your chat prompt template
+2:41:472 hours, 41 minutes, 47 secondsright that's it nothing else define these two steps are fixed steps they
+2:41:562 hours, 41 minutes, 56 secondswill be fixed right they will just come like this only right once you have defined your chat from template and this guy Now you need to
+2:42:052 hours, 42 minutes, 5 secondsdefine your Now you you need to define your message message history list. Here you have multiple options.
+2:42:162 hours, 42 minutes, 16 secondsYou can use that function if you're using runnable lambda runnable with message history. So you can use the function I'm writing function or you can
+2:42:252 hours, 42 minutes, 25 secondsuse inmemory or you can use a normal list like you were doing it here right you like you were doing it here like this. Where did
+2:42:342 hours, 42 minutes, 34 secondsit go? where it go here like this. So you can initialize your uh history like this or you can probably initialize your history with a message right. So message
+2:42:432 hours, 42 minutes, 43 secondshistory initialization I will say with message
+2:42:502 hours, 42 minutes, 50 secondsor directly right. What what do I mean when I say with message? When I say with message it means this part. This part this is how
+2:42:592 hours, 42 minutes, 59 secondsyou do it with message and and this is how you do it. This is how you do it directly. Right? This is how you do it directly. Right?
+2:43:072 hours, 43 minutes, 7 secondsSo it it is totally up to you. It's totally up to you. Let me just remove it. In fact, we don't need it anymore.
+2:43:122 hours, 43 minutes, 12 secondsRight? So it's it's totally up to you whether you do it with message or you do it directly. Right? So this part is not needed by the way. Okay? In this particular thing. Now this is the third
+2:43:202 hours, 43 minutes, 20 secondsthing that you need to understand. The fourth thing the fourth thing which is there is now build your chain. Build your chain. Again you have two options.
+2:43:292 hours, 43 minutes, 29 secondsYou can build it with runnable history.
+2:43:312 hours, 43 minutes, 31 secondsYou can build it with runnable history or you can build it you can just uh build it directly right
+2:43:402 hours, 43 minutes, 40 secondsbuild it build your chain right build your chain after this the fifth part is the fifth part is what is this what is the fifth part once you build your chain
+2:43:482 hours, 43 minutes, 48 secondsthis is a chain that you built of course this is configurable which is not a part per se but the fifth part is basically you need to invoke your chain with the
+2:43:552 hours, 43 minutes, 55 secondsuser message right so look at this invoke message. Sixth part which is optional.
+2:44:092 hours, 44 minutes, 9 secondsAppend messages to the history. Right.
+2:44:152 hours, 44 minutes, 15 secondsRequired not required if you're using runnable with message history.
+2:44:272 hours, 44 minutes, 27 secondsIf this is not required if you're if you're using run, I would propose use runnable with messages. You will be able to better track your applications. But even if you're not using it, it's
+2:44:362 hours, 44 minutes, 36 secondsthere's no harm. You will still be able to build good codes, right? I use it because I find it con convenient to always use an orchestrator if I have
+2:44:432 hours, 44 minutes, 43 secondsone. That orchestrator let that orchestrator take care of everything which is going on instead of knowing a custom orchestrator or building
+2:44:522 hours, 44 minutes, 52 secondssomething like that. So or probably you know doing it on your own. I prefer a orchestrator do it all. Right? I I prefer that I don't do anything. Let orchestrator take care of everything.
+2:45:022 hours, 45 minutes, 2 secondsRight? That's my preference. You may have a different preference. You may choose to use whatever you prefer. Okay?
+2:45:072 hours, 45 minutes, 7 secondsThese are the exact steps that you need to check that you need that you need to have in order to have a working prototype of a
+2:45:152 hours, 45 minutes, 15 secondsof a um working chatbot. Basically, a basic working chatbot. Right now I want you to give uh just kind of have a
+2:45:242 hours, 45 minutes, 24 secondshomework here on top of that and that is try to do it try to do it on your own using
+2:45:332 hours, 45 minutes, 33 secondstry to build the same thing with with gradu I think you guys have
+2:45:402 hours, 45 minutes, 40 secondsalready studied gradu so I'm not going to go into it again so I would say just try to build it with gradu right what
+2:45:472 hours, 45 minutes, 47 secondsyou need to do I'll just give you a hint how to do it. Okay,
+2:45:542 hours, 45 minutes, 54 secondsbuild your gradu application or whatever and take your session ID with the gradu application only. So like I am taking the session ID here using input. You
+2:46:022 hours, 46 minutes, 2 secondstake it using gradio application and take the user input also using the grid application. Right? This user text that you're getting this also you take the grid application. This both these will
+2:46:102 hours, 46 minutes, 10 secondsbe replaced by the grid application. Now what I want you to do is create a function out of it. create a function out of this. Whatever you have done
+2:46:192 hours, 46 minutes, 19 secondshere, right? This plus this, you convert it into a function and call that function inside the gradio application.
+2:46:262 hours, 46 minutes, 26 secondsSo what you will be passing to the function is the the the session ID and the user message. These two things you will be passing to the function and call
+2:46:352 hours, 46 minutes, 35 secondsthat function within the gradu application. Don't try to build or make a mess. Gradio application you are putting all this code. Don't do that.
+2:46:442 hours, 46 minutes, 44 secondsKeep graduation code separate. and this part of the code separate. That is the best way to do it. Okay, that is more modular in nature, right?
+2:46:532 hours, 46 minutes, 53 secondsThis part this is how you do it, right?
+2:46:552 hours, 46 minutes, 55 secondsWhen we will move forward, I will also introduce you to how to deploy these models in production. But now is not the time and of course the scaling part,
+2:47:042 hours, 47 minutes, 4 secondsright? All those things. But now is not the time for that. probably when we meet again, I think in between you will have more sessions and then probably when we meet again, I'll show you how to deploy
+2:47:122 hours, 47 minutes, 12 secondsthese applications using dockers and containers, we will look at it and we will probably set up a Google cloud account as well which gives you $300 of
+2:47:212 hours, 47 minutes, 21 secondsfree credits and you can absolutely use them and kind of build a very good full-fledged application.
+2:47:262 hours, 47 minutes, 26 secondsSo this is how this is how we are going to go about it. Okay, this is how we going to go about it, right? That will be the idea. All right, so for now this
+2:47:342 hours, 47 minutes, 34 secondsis what you need to follow. This is the exact set of steps you need to follow here. If you look at this, this step is fixed.
+2:47:442 hours, 47 minutes, 44 secondsThis step is fixed. Right? This step is you can change.
+2:47:502 hours, 47 minutes, 50 secondsYou can change this step also. You can change. You can build your chain as per your own convenience. And this step you cannot change. This is also fixed.
+2:47:592 hours, 47 minutes, 59 secondsRight? This is also fixed. Right? And this step is again optional. So I'm not kind of commenting on it. So if you look at it only two things are there which
+2:48:072 hours, 48 minutes, 7 secondsyou may want to change as per your own logic you can keep changing them whichever way you want right for example
+2:48:152 hours, 48 minutes, 15 secondsmessage initialization uh whatever you're using whether you're using with message or using directly or building the chain depends on what chain
+2:48:242 hours, 48 minutes, 24 secondsyou are building how many messages or how many how many functions you're having within the chain it totally depends so these things you may change
+2:48:322 hours, 48 minutes, 32 secondsyou may have a custom logic here but the rest the rest remains very much fixed.
+2:48:372 hours, 48 minutes, 37 secondsOkay. All right. So this is about this is about uh kind of having your
+2:48:442 hours, 48 minutes, 44 secondsum context right. This is the first step towards context that we have been able to complement right now we'll talk about rags. Now now we'll talk about rags
+2:48:522 hours, 48 minutes, 52 secondsright and it's a very simple way to look at rags. If you understand these context you will also be able to look at rags very easily.
+2:49:012 hours, 49 minutes, 1 secondOkay. What exactly is a is a rat? What exactly is a rat? Let's let's ask that question, right? Let me give you some
+2:49:092 hours, 49 minutes, 9 secondsdata first and try to download that data and then I'll ask you some questions from that data and that will actually clarify what exactly is rag for you.
+2:49:192 hours, 49 minutes, 19 secondsOkay. So, give me one moment. Let me get the data. It must be somewhere around here. Um,
+2:49:302 hours, 49 minutes, 30 secondsjust give me one minute. I'll just share the data with you.
+2:49:432 hours, 49 minutes, 43 secondsYes. So, let me share the data. I have Okay, I have the zipped. So, let me share it.
+2:49:562 hours, 49 minutes, 56 secondsJust download this data. This is the data that we will be using to kind of build our rag system, right? It has multiple files. If you will look at it,
+2:50:042 hours, 50 minutes, 4 secondsit has multiple text files that you will look at it. It is giving you a basically it's basically a loan data. It's
+2:50:122 hours, 50 minutes, 12 secondsbasically a loan data. If you'll just look at this data, if you just look at this data for some random company, I've just made it up and it it basically
+2:50:212 hours, 50 minutes, 21 secondsconsists of all the loan documents that what what exactly do you need? What exactly? How will you become eligible for the loan? Everything about the loan
+2:50:292 hours, 50 minutes, 29 secondsis given. There are FAQs, there is home loan, there's loan against property,
+2:50:332 hours, 50 minutes, 33 secondsthere's no cost EMI, there's personal loan. Multiple things are there within this. You just download it and you will be able to see. Just download this and you will be able to see. Okay.
+2:50:452 hours, 50 minutes, 45 secondsOkay. Please download it everyone. Please download it everyone.
+2:50:492 hours, 50 minutes, 49 secondsNow let's first download it then I'll talk about it.
+2:51:462 hours, 51 minutes, 46 secondsdone. Done. So now let's look at this.
+2:51:492 hours, 51 minutes, 49 secondsSo these are some of the documents that we are going to keep and we are going to kind of push them into rack probably in the next session. But for today we'll just look at how do you do that and
+2:51:572 hours, 51 minutes, 57 secondseverything. Okay. Now let's say I ask LLM a question. I ask LLM a question from one of these documents, right? That
+2:52:052 hours, 52 minutes, 5 secondsokay, how for example, let's say this is a company. What is the name of the company? I've given the name of the company I think
+2:52:152 hours, 52 minutes, 15 secondsBritBridge something like that. Bright Finance, right? The name of the company is BrightBridge Finance. And what I'm what I'm asking you is just see let's
+2:52:232 hours, 52 minutes, 23 secondssay I ask you right and ask let's say Brightbridge Finance has a chatbot or probably an agentic chatbot. We'll actually build an agentic chatbot of
+2:52:322 hours, 52 minutes, 32 secondsbridebridge finance going forward. But let's just try to understand let's say bridebridge finance has a chatbot and it
+2:52:392 hours, 52 minutes, 39 secondschatbot has multiple functionalities right one of the functionality we will be right now working on one of the
+2:52:462 hours, 52 minutes, 46 secondsfunctionality which is answering user queries about product okay which is answering user queries about product.
+2:52:552 hours, 52 minutes, 55 secondsWhen we go forward, we will keep on adding more functionalities to the chatbot such as being a sales agent, it tries to pitch you sales, giving EMI
+2:53:042 hours, 53 minutes, 4 secondscalculator to it, right? That a user can actually calculate his EMIs.
+2:53:082 hours, 53 minutes, 8 secondsFinally, we will also give it queries such as uh help me resolve my EMI issue.
+2:53:142 hours, 53 minutes, 14 secondsI'm not able to pay EMI. So now chatbot can actually look into your system and check your account balance and everything. So we'll keep on adding functionalities to this chatbot, right?
+2:53:242 hours, 53 minutes, 24 secondsfor but for now what we want to do is we want to empower it with a basic chat the chat that you have built as of now right
+2:53:332 hours, 53 minutes, 33 secondsdo you think it will be able to handle bright problems you tell me the chatbot that
+2:53:412 hours, 53 minutes, 41 secondsyou have built right now will it be able to handle the bright finance company's problems do you think so if I if you ask
+2:53:492 hours, 53 minutes, 49 secondsyour chatbot let's just do it actually look at this no it won't right it won't What is the reason behind it? Because it
+2:53:562 hours, 53 minutes, 56 secondsdoes not know what exactly cannot uh act upon. Yeah.
+2:54:012 hours, 54 minutes, 1 secondRight. See this. Run this. Just give me one minute guys. These guys are calling me again. Just one minute guys. Okay. Actually, I have a parcel coming in.
+2:54:092 hours, 54 minutes, 9 secondsJust one minute.
+2:54:512 hours, 54 minutes, 51 secondsSorry. So basically, so basically as of now the chatbot that you have built, if you try to run this chatbot, let's try to run it in fact then we'll see.
+2:55:012 hours, 55 minutes, 1 secondSo let's say I enter my user ID is 1 2 3 and if I ask it query about tell me about tell me what
+2:55:102 hours, 55 minutes, 10 secondshow can I take a personal loan from bright
+2:55:172 hours, 55 minutes, 17 secondsbridge finance company let us I give it give it this just see the answer right
+2:55:262 hours, 55 minutes, 26 secondsokay I think it's already it's best best to business and okay whatever so maybe there is a company which is bright bridge finance. So it's best to check the account right to offer person if
+2:55:352 hours, 55 minutes, 35 secondsthey offer personal loans right it's kind of telling me that but see the idea is it is not able to tell me it is not probably there is a company bright
+2:55:422 hours, 55 minutes, 42 secondsfinance maybe I've just copied the name right but the idea is guys the idea is that this is not able to provide me what I need right for example what is the
+2:55:522 hours, 55 minutes, 52 secondseligibility criteria if I ask it
+2:55:592 hours, 55 minutes, 59 secondsjust see if it just kind of does special business files product and you
+2:56:062 hours, 56 minutes, 6 secondssee it's not able to actually tell me what exactly it is right but I want I want basically right I want basically to find out what
+2:56:152 hours, 56 minutes, 15 secondsexactly is the eligibility criteria what exactly are the offerings probably there is a company bridebridge and it kind of knows about it during the training
+2:56:232 hours, 56 minutes, 23 secondsprocess right but but it is not able to answer the things that I want right so what I want to give it is what I want.
+2:56:322 hours, 56 minutes, 32 secondsBut if I would have given it, just just understand this. If I would have given it, look at this.
+2:56:392 hours, 56 minutes, 39 secondsLet's just say okay, uh let's just kind of say this thing look at this loan home loan name. What was the loan? The
+2:56:462 hours, 56 minutes, 46 secondspersonal loan, right? So, let me just kind of get the text of personal loan.
+2:56:502 hours, 56 minutes, 50 secondsLook at the text of personal loan for a question like I just asked. Tell me what part of the text of personal loan will you take up?
+2:57:012 hours, 57 minutes, 1 secondLook at this. There is a part of eligibility. If you will look at this,
+2:57:042 hours, 57 minutes, 4 secondsI'm not sharing screen. So please look at this.
+2:57:092 hours, 57 minutes, 9 secondsLook at this and tell me look at this. Can you see? So basically if I copy this part, this is there's a part of eligibility guys inside this.
+2:57:182 hours, 57 minutes, 18 secondsLook at this. There's a part of eligibility in there.
+2:57:232 hours, 57 minutes, 23 secondsThis is the part. Let me just show you this is a part eligibility.
+2:57:302 hours, 57 minutes, 30 secondsThis part is giving me everything about the eligibility that how will I become eligible right for the loan right for
+2:57:372 hours, 57 minutes, 37 secondsthe loan along with asking the question when I ask a question if I can provide this context to my LLM if I can provide
+2:57:462 hours, 57 minutes, 46 secondsthis context to my LLM just take a look I'm just going to provide the same context to LLM what is the eligibility
+2:57:582 hours, 57 minutes, 58 secondslet's let's do it like this I'm going to give it this text. I'm just going to show you the text, right? Let's just exit it for now. What I'm going to give to LLM, I'm just going to show you.
+2:58:092 hours, 58 minutes, 9 secondsRight. Just see this. What I'm going to give the LM, I'm just going to show you.
+2:58:142 hours, 58 minutes, 14 secondsI'm going to give this text is US2. And I'm going to copy this here and this.
+2:58:262 hours, 58 minutes, 26 secondsAnd I'm going to say which tight.
+2:58:492 hours, 58 minutes, 49 secondsRight. So this is my text. Right. This is the text that I have. And what I'm going to add to this text is look at this. what I'm going to add to this text.
+2:59:042 hours, 59 minutes, 4 secondsLook at this. Use the following context to answer
+2:59:122 hours, 59 minutes, 12 secondsuser query. Right? This is the context that I have provided. This is the context that I have provided. And now I'm going to give it the user query.
+2:59:202 hours, 59 minutes, 20 secondsuser query.
+2:59:262 hours, 59 minutes, 26 secondsThe query is how do I become eligible
+2:59:332 hours, 59 minutes, 33 secondsfor personal loan at Bri Finance.
+2:59:412 hours, 59 minutes, 41 secondsThis is your query. This was your query,
+2:59:432 hours, 59 minutes, 43 secondsright? You were giving this query directly earlier, right? But now what you're also giving it the context which is required to answer this query. If you
+2:59:512 hours, 59 minutes, 51 secondsgive this as a text if this give you give this as a text to your query to to to this this thing right let's give this as a text. Let's give this as a text.
+3:00:033 hours, 3 secondsLet's give a user ID. User ID 1 2 3 and give the text. Give this text. This is if I'm giving this text this entire
+3:00:103 hours, 10 secondstext. Let's see what the answer comes now.
+3:00:153 hours, 15 secondsWe'll see this if offers person on eligibility generally offers a stable income, good credit profile, manageable
+3:00:233 hours, 23 secondsexisting obligations and comfortable income to EMI ratio. Age residency credit contact them directly for
+3:00:303 hours, 30 secondsspecifics. Right? Let's see this. By giving this context, its answer changed,
+3:00:373 hours, 37 secondsright? It's answer changed, right?
+3:00:413 hours, 41 secondsYou already know guys how to plug in with a message placeholder the message history. The message
+3:00:493 hours, 49 secondshistory. You just need one more message placeholder to give it this context.
+3:00:573 hours, 57 secondsIsn't it guys? Do you all agree or not?
+3:01:003 hours, 1 minuteIf I can give with another message placeholder some more context.
+3:01:073 hours, 1 minute, 7 secondsDo you agree that it will be able to still narrow down to my answer? What do you think?
+3:01:123 hours, 1 minute, 12 secondsYes sir. But why are we giving the context ourselves?
+3:01:163 hours, 1 minute, 16 secondsAB we are giving it answer just to show you that the answer how the answer has changed. Right? How the answer has changed. But we don't want to give the context ourselves. We want to give the context
+3:01:253 hours, 1 minute, 25 secondswhere in the chat prompt template itself. So we'll put one more message placeholder and call it what? Context.
+3:01:333 hours, 1 minute, 33 secondsCall it context. probably we'll we'll see how to do it right for now we are not discussing that we'll see how to plug it into the chat prompt template
+3:01:403 hours, 1 minute, 40 secondsbut the idea basically is that one way or the other you need to plug it inside your prompt template and pass it while
+3:01:483 hours, 1 minute, 48 secondsyou're calling the llm while you're calling the right while you're invoking the lm you need to pass that context we passed it in manually but you will not
+3:01:573 hours, 1 minute, 57 secondsbe passing it manually otherwise right this extra information that I'm pulling
+3:02:043 hours, 2 minutes, 4 secondsguys this extra information that I'm pulling is known as what it is called as retrieve retrieved information. This called as augmented information.
+3:02:163 hours, 2 minutes, 16 secondsThis extra information if you are taking notes guys please note it down. This extra information that we are pulling is
+3:02:223 hours, 2 minutes, 22 secondsknown as augmented information which you will be giving to your LLM to answer a specific query.
+3:02:303 hours, 2 minutes, 30 secondsAnd the whole thing is how to get this extra information. How to get this extra information? And that is called as retrieval augmented generation.
+3:02:423 hours, 2 minutes, 42 secondsThat is called as retrieval augmented generation. That extra information is with you in your text files. You need to
+3:02:503 hours, 2 minutes, 50 secondspull just the relevant information out of the text file and plug it into the chat prompt template while calling the
+3:02:563 hours, 2 minutes, 56 secondsLLM. Right? plug it into the chat prompt template while plugging while calling the LLM. If you pass this extra information, your LLM will give you
+3:03:053 hours, 3 minutes, 5 secondsbetter answers, more it's called as grounded answers. That is from the source that is available instead of
+3:03:123 hours, 3 minutes, 12 secondsguessing it itself. Probably it will be guessing itself, right? LNM will probably be guessing itself, right? But
+3:03:193 hours, 3 minutes, 19 secondsnow it's will be from this context that you have provided. This augmented information that you provided. This
+3:03:263 hours, 3 minutes, 26 secondswhole part of getting the information plugging into the LLM is known as retrieval augmented generation. This is known as retrieval augmented generation.
+3:03:363 hours, 3 minutes, 36 secondsRight? You can take notes. If you're taking notes, let me just dictate it. You can write it down.
+3:03:433 hours, 3 minutes, 43 secondsBy providing context, by providing context by providing context, we ensure we
+3:03:523 hours, 3 minutes, 52 secondsensure that LLM's that LLMs give us answers.
+3:03:593 hours, 3 minutes, 59 secondsThat LLMs give us answers from our data sources. From our data sources,
+3:04:103 hours, 4 minutes, 10 secondsfrom our data sources.
+3:04:133 hours, 4 minutes, 13 secondsAll right. By providing extra information, this augmented information,
+3:04:173 hours, 4 minutes, 17 secondswe ensure that LM gives us answers from our given data sources. This is called as grounding. This is called as grounding.
+3:04:283 hours, 4 minutes, 28 secondsThis is called as grounding.
+3:04:313 hours, 4 minutes, 31 secondsThen write now. Now we cannot we cannot give
+3:04:403 hours, 4 minutes, 40 secondsentire data source to LLM. Just see this for example. Look at this text file. Can you give this text file directly to LLM?
+3:04:473 hours, 4 minutes, 47 secondsNo. That will be a lot of data, isn't it? We cannot give entire data source to LLM.
+3:04:583 hours, 4 minutes, 58 secondsWe cannot give the entire data source to LLM. Thus, Th does we try to pull out
+3:05:053 hours, 5 minutes, 5 secondsrelevant information. We try to pull out relevant information from our data source.
+3:05:143 hours, 5 minutes, 14 secondsWe try to pull out relevant information from our data source.
+3:05:213 hours, 5 minutes, 21 secondsThis process,
+3:05:233 hours, 5 minutes, 23 secondsthis process of pulling out relevant information from the data source.
+3:05:313 hours, 5 minutes, 31 secondsThis process of pulling out this process of pulling out relevant information from the data source is called as retrieval.
+3:05:433 hours, 5 minutes, 43 secondsThis process of pulling out the relevant information from the data source is called as retrieval. All right is called as retrieval.
+3:05:553 hours, 5 minutes, 55 secondsThen write then write. Once you pull out the relevant information,
+3:06:023 hours, 6 minutes, 2 secondsOnce you pull out the relevant information,
+3:06:073 hours, 6 minutes, 7 secondsyou need to plug it You need to plug it into your prompt.
+3:06:143 hours, 6 minutes, 14 secondsYou need to plug it into your prompt along with along with historical conversations.
+3:06:233 hours, 6 minutes, 23 secondsalong with historical conversations and the current human message. Right?
+3:06:323 hours, 6 minutes, 32 secondsThe last part is what the human message.
+3:06:343 hours, 6 minutes, 34 secondsRight? So you need to plug this information with your prompt along with historical what are conversations that is history in message chat history and
+3:06:433 hours, 6 minutes, 43 secondshuman message and human message.
+3:06:493 hours, 6 minutes, 49 secondsRight. Right. This part is called as augmentation. This part is called as augmentation.
+3:06:573 hours, 6 minutes, 57 secondsAll right. This part is called as augmentation.
+3:07:003 hours, 7 minutesSir, can you please repeat one one second, sir?
+3:07:023 hours, 7 minutes, 2 secondsYes. So once you have pulled the relevant information, Once you have pulled the relevant information,
+3:07:093 hours, 7 minutes, 9 secondsyou need to you need to plug in you need to plug in this relevant information.
+3:07:163 hours, 7 minutes, 16 secondsYou need to plug in this relevant information right
+3:07:243 hours, 7 minutes, 24 secondsinto your prompt into your prompt along with historical conversations
+3:07:313 hours, 7 minutes, 31 secondsalong with historical conversations and the current human message. This part is called as augmentation.
+3:07:393 hours, 7 minutes, 39 secondsThis part is called as augmentation.
+3:07:453 hours, 7 minutes, 45 secondsOkay. After doing this, after doing this, the output that comes from LLM,
+3:07:553 hours, 7 minutes, 55 secondsthe output that comes from LLM is called as generation.
+3:08:023 hours, 8 minutes, 2 secondsThe output that comes from LLM is called as generation. Right? So it becomes what? retrieval, augmentation and
+3:08:103 hours, 8 minutes, 10 secondsgeneration which is your rag which is your rag. Okay, this is what we are going to learn in the next session,
+3:08:203 hours, 8 minutes, 20 secondsright? But what is the trigger for the So you are saying pull out the relevant
+3:08:273 hours, 8 minutes, 27 secondsinformation that you need. But what triggers that? How do you know that you have to pull the relevant information? That's what retrieval is all about.
+3:08:353 hours, 8 minutes, 35 secondsWe'll we'll study that. That that's what on the user prompts, the questions.
+3:08:403 hours, 8 minutes, 40 secondsWe will put all our data into a database first. Okay. The text data that you see, we'll first put it into database.
+3:08:483 hours, 8 minutes, 48 secondsWe'll convert our data to vectors. Vectors. Okay.
+3:08:523 hours, 8 minutes, 52 secondsRight. Using vector matching, we will pull out.
+3:08:553 hours, 8 minutes, 55 secondsWe will do the searching based on the chart.
+3:08:573 hours, 8 minutes, 57 secondsUsing vector search, we will pull out the most relevant information only. The one which has higher score to our query.
+3:09:033 hours, 9 minutes, 3 secondsSo we'll be converting our query to vector. The data is already stored as vector. we will match our query with this data which is stored and then we
+3:09:123 hours, 9 minutes, 12 secondswill pull out the most important information right so that is going to be the process all right got it we'll talk about it right but guys this is about
+3:09:213 hours, 9 minutes, 21 secondsretrieval right this is about retrieval generation augmented generation but one part about rags which is which no one
+3:09:283 hours, 9 minutes, 28 secondstalks about is called as injection that is how do you put this data into vectors or how do you put this data into your
+3:09:363 hours, 9 minutes, 36 secondsdatabase how how to actually insert this data into your database and that is the real art I'll tell you that actually is the
+3:09:453 hours, 9 minutes, 45 secondsreal art and no one talks about it no one nowhere only very few people you will see talking about injection
+3:09:523 hours, 9 minutes, 52 secondsinjection is the real art everyone will be posting fancy diagrams of rag you know pipes building from here to here
+3:09:593 hours, 9 minutes, 59 secondsand doing this all that but no one is actually talking about the most important part that is how to build your vector vector database. How to build
+3:10:083 hours, 10 minutes, 8 secondsyour vector database? Right? This information will now go inside a database. This information will now go inside a database too. Now you write it.
+3:10:183 hours, 10 minutes, 18 secondsTo facilitate retrieval to facilitate retrieval,
+3:10:253 hours, 10 minutes, 25 secondswe need to transfer our documents.
+3:10:293 hours, 10 minutes, 29 secondsWe need to transfer our documents to facilitate retrieval. And I'm going to show you guys just stay with me for
+3:10:383 hours, 10 minutes, 38 seconds20 more minutes. I'm going to show you what happens. Okay? To facilitate retrieval, we need to transfer our documents. We need to transfer our
+3:10:463 hours, 10 minutes, 46 secondsdocuments into a database. Into a database
+3:10:533 hours, 10 minutes, 53 secondswhere where they are indexed. They are indexed. I I'll explain you where they're indexed by vectors.
+3:11:043 hours, 11 minutes, 4 secondswhere they are indexed by vectors.
+3:11:073 hours, 11 minutes, 7 secondsRight? Let me explain you this part first. Then we will go to the rest of it. Okay? Let me first explain you this part. This is the most important part.
+3:11:143 hours, 11 minutes, 14 secondsYou need to understand this part. Now look at your data. Look at your data.
+3:11:223 hours, 11 minutes, 22 secondsWhat we do is what we do is we transfer this data to a database. But what that database looks like is something you
+3:11:293 hours, 11 minutes, 29 secondshave to understand. Okay. What we do is the simplest strategy I'm telling you.
+3:11:343 hours, 11 minutes, 34 secondsYou will take this text. Please understand this. See, I'm copying this text. I'm bringing it here. Just see this.
+3:11:413 hours, 11 minutes, 41 secondsThis is my part one of the text. See this entire document. Whatever docu what is the name of name of the do? Personal loan.txt. That is my document. Right.
+3:11:553 hours, 11 minutes, 55 secondsRight. So my document is personal loan.txt.
+3:12:033 hours, 12 minutes, 3 secondsI'm transferring it to a a database.
+3:12:063 hours, 12 minutes, 6 secondsJust understand I'm transferring this data to database. But how what that database looks? It's not like your SQL database. It's a different kind of database. We'll talk about it. Okay.
+3:12:153 hours, 12 minutes, 15 secondsThis part of the text that you get,
+3:12:193 hours, 12 minutes, 19 secondsyou will embed it in vectors. And I believe you've already understood vectors right I think um vine vine sir has already taught you vectors right so
+3:12:283 hours, 12 minutes, 28 secondsyou convert it to vectors format right these are some vectors 0.2 0.1 0.05 05 and so on. These are the vector. This is
+3:12:363 hours, 12 minutes, 36 secondshow your vectors will be like. This is how the vectors will be like. Okay. Then you take your second text, second piece
+3:12:433 hours, 12 minutes, 43 secondsof the text. This one this part I'm just telling you very simple strategy in in reality you can do a lot of part here. Right?
+3:12:533 hours, 12 minutes, 53 secondsBut aren't they aren't these chunks like we were told about chunks by Mr. These are chunks. These are chunks. These are chunks. These are chunks.
+3:13:013 hours, 13 minutes, 1 secondRight? We first break down our big document into chunks. You convert this also into a vector
+3:13:103 hours, 13 minutes, 10 secondslike this right like this. Take the third part, fourth part and so on. Let's take this part right. Let's take this
+3:13:173 hours, 13 minutes, 17 secondspart eligibility part like this. Right? You convert this part also into vectors. Guys, we'll go step
+3:13:263 hours, 13 minutes, 26 secondsby step. We'll go step by step at everything. There's a lot to learn in this. There is so much you cannot even imagine. There is a proper it's proper science this whole thing. We learn it
+3:13:343 hours, 13 minutes, 34 secondsstep by step. Right? Let's go step by step. Now understand this like this you have this vector. Now this
+3:13:433 hours, 13 minutes, 43 secondspersonal loan txt has been stored into your data as a vector. Right? Similarly you will store other documents also one by one inside your vectors right as a
+3:13:523 hours, 13 minutes, 52 secondsvector. Right? Now what will happen is someone will ask you a question. Let's say query comes. The query is let's say a query query comes the query is this
+3:13:593 hours, 13 minutes, 59 secondsone how do I become eligible for
+3:14:083 hours, 14 minutes, 8 secondsloan at bright finance right how do I become eligible this is your query now see this this is the query that is coming in query
+3:14:163 hours, 14 minutes, 16 secondsthe query that comes in is this right this is the query that comes in what
+3:14:243 hours, 14 minutes, 24 secondswe'll do is we'll create vectors out of this as We'll create vectors out of this as well
+3:14:373 hours, 14 minutes, 37 secondslike this. Right? And what we will do is just understand and what we will do is we'll try to match this vector to all of these
+3:14:453 hours, 14 minutes, 45 secondsvectors. We'll try to match this one vector to all of these vectors. Let's say you try matching. Let's say you try matching. Just please pay attention. And
+3:14:543 hours, 14 minutes, 54 secondsin the first you when you try to match with this one vector you get a match score
+3:15:023 hours, 15 minutes, 2 seconds0 let's say 43 something like this right here you try to match you get a match
+3:15:093 hours, 15 minutes, 9 secondsscore of 0
+3:15:163 hours, 15 minutes, 16 seconds57 let's say right here you try to match
+3:15:243 hours, 15 minutes, 24 secondsDoes it get a match score of 0.82? Now when you do match is basically uh coming from cosine similarity vector similarity similar similarities vector similarity.
+3:15:333 hours, 15 minutes, 33 secondsYes. Match score will come with vector similarity. You try to match two vectors together. Right? We'll show you all this. I'll show you all this. Okay.
+3:15:393 hours, 15 minutes, 39 secondsRight. I know you must have done it but just two minute job. I'll show you. Right.
+3:15:453 hours, 15 minutes, 45 secondsNow which of the document will you choose?
+3:15:483 hours, 15 minutes, 48 secondsYou tell me which of the document will you choose? The last one point last the last one 8 but you just don't choose
+3:15:553 hours, 15 minutes, 55 secondsone document you generally choose top five top six top 10 generally like this okay but let's just say you choose one document only in this case so what
+3:16:033 hours, 16 minutes, 3 secondsyou'll do is this is how you will just pull out all the text from this document retrieval what we called as retrieval by
+3:16:123 hours, 16 minutes, 12 secondsdoing this process by doing this matching whichever the highest score you find you will find you will plug you will just take out this one and you will
+3:16:203 hours, 16 minutes, 20 secondsplug plug it into your chat prompt template. You'll plug it into your chat prompt template. So your final document that comes out
+3:16:283 hours, 16 minutes, 28 secondsyou do this. So first step what happens is the query comes.
+3:16:323 hours, 16 minutes, 32 secondsSecond thing what is going to happen is second thing what is going to happen is let's see second thing is going to be you're doing vectorization of the query.
+3:16:423 hours, 16 minutes, 42 secondsYes. Yes. I'm doing yes I'm doing vectorization right retrieval will happen. So using the top
+3:16:493 hours, 16 minutes, 49 secondsscore let's say using the
+3:17:063 hours, 17 minutes, 6 secondsagain it is frozen right looks like his uh audio is frozen video is also frozen.
+3:17:133 hours, 17 minutes, 13 secondsYeah. Yeah. same thing.
+3:17:183 hours, 17 minutes, 18 secondsSo, Mr. Samir, we can't hear you. I think you're frozen. Maybe he'll rejoin.
+3:17:263 hours, 17 minutes, 26 secondsYeah, just like previous time.
+3:17:313 hours, 17 minutes, 31 secondsSo, we should consider if two of the chunks get 81 then it will uh store both of them and it will search in both of those.
+3:17:423 hours, 17 minutes, 42 secondsYeah.
+3:17:453 hours, 17 minutes, 45 secondslike uh every query doesn't have to be uh pointing for like go for retrieval,
+3:17:523 hours, 17 minutes, 52 secondsright? It's like uh uh if at all it means whenever uh we put a particular
+3:17:593 hours, 17 minutes, 59 secondsdoesn't have to uh just go and search in the factory database every time, right? Yeah. Yeah.
+3:18:293 hours, 18 minutes, 29 secondsYou're on mute s.
+3:18:333 hours, 18 minutes, 33 secondsSo yeah, you part you give this part to LM and then you get your generation your final output and you get your generation
+3:18:403 hours, 18 minutes, 40 secondsyour final. This is the exact process that you will be following. This is the exact process that you will be following. If more than two chunks get
+3:18:483 hours, 18 minutes, 48 secondspointed by 81 uh scoring you you will be picking more of them right you may be picking up to top five chunks
+3:18:563 hours, 18 minutes, 56 secondsup to top 10 chunks then then a concept comes in called as reanking where you once you get the chunks out you kind of reank them you kind of you know kind of
+3:19:043 hours, 19 minutes, 4 secondsreorder them with a new algorithm you check okay this was a first cut whatever is coming right and then there is a lot guys there
+3:19:123 hours, 19 minutes, 12 secondsis there's a lot coming in there's called as something I'll be teaching you the secret sauce which is pre-filtering and post filtering which is very manual
+3:19:193 hours, 19 minutes, 19 secondsin nature but which is very very important that you should be if you are developing your act system and I'll walk you through it when the time comes okay but just understand the overall process
+3:19:283 hours, 19 minutes, 28 secondsand that is that is that we need to just first of all ingest the documents this is called as ingestion this is called as what injest
+3:19:373 hours, 19 minutes, 37 secondsand this is the part no one talks about this injection is very important chunking the art of chunking is very very hierarchal sequential multiple
+3:19:453 hours, 19 minutes, 45 secondstypes of chunking strategies are there which you will follow which this is happening dynamically in on the fly
+3:19:523 hours, 19 minutes, 52 secondsthis one this the injection yeah injection yeah you can make it dynamic as well is manual but generally companies keep it
+3:19:593 hours, 19 minutes, 59 secondsmanual why I'll tell you because the data keeps changing right so you need to remove data which is old you need to plug in new data so generally this part
+3:20:063 hours, 20 minutes, 6 secondsof the rag is always kept as manual in nature okay manual so you need to predefine this injection is like predefined it's not
+3:20:143 hours, 20 minutes, 14 secondsyes yes yes this is Always always kind of design your rag in two separate parts. Injection should be a separate code running occasionally or whenever
+3:20:223 hours, 20 minutes, 22 secondsyour data is updated and uh this this querying part is always a separate piece of code all the time. So we will also do it like this only. First we'll
+3:20:303 hours, 20 minutes, 30 secondsunderstand injection and then we will understand the query. Okay, that's how it's going to be. Okay guys, if I'm dealing with a realtime system then if
+3:20:383 hours, 20 minutes, 38 secondsI'm injecting data manually then my data is stale, right? So then I have a problem of not having realtime data. Correct.
+3:20:443 hours, 20 minutes, 44 secondsYes. Yes. that that that is certainly a challenge but just try to understand it like this where would you be inserting data all
+3:20:533 hours, 20 minutes, 53 secondsthe time you cannot be inserting data all the time let's say you're building a system let's say you're building a proper system of anything anything like
+3:21:003 hours, 21 minuteswhatever product is right so what what what all information will you be injecting your product information probably your user information at the
+3:21:083 hours, 21 minutes, 8 secondsbest right user information so I'm not saying you do it manually I'm just saying you create a separate pipeline line of this, right? There's a separate
+3:21:163 hours, 21 minutes, 16 secondspipeline where you will just update your data. That pipeline will just keep the,
+3:21:203 hours, 21 minutes, 20 secondsyou know, just get the data from this updated source and push it into your uh uh vector database, right?
+3:21:283 hours, 21 minutes, 28 secondsSo the idea is you have a separate pip and I'll show you how to build that separate pipe, right?
+3:21:343 hours, 21 minutes, 34 secondsAll right. Not manually, I don't mean manual. By manually, I don't mean you keep sit and you know run your Jupyter notebooks. No, you have a proper deployment framework for that as well,
+3:21:423 hours, 21 minutes, 42 secondsright? But that deployment framework should be separate and your this this deployment framework where you're doing rag retrieval and augmentation that
+3:21:503 hours, 21 minutes, 50 secondsshould be separate. These are two separate things. We have to always take them up separately. They cannot be a part of the same project whatsoever.
+3:21:583 hours, 21 minutes, 58 secondsOkay. Just understand that part. Okay. So two different agents then. Okay. Yeah. Go ahead.
+3:22:133 hours, 22 minutes, 13 secondswith two did he said was two different agents like those are handled by two different agents I think
+3:22:213 hours, 22 minutes, 21 secondsagent will I don't think he to use agents he said pipelines because data is a separate pipeline is what but ultimately it will be handled by an agent right
+3:22:293 hours, 22 minutes, 29 secondsyeah but let let's confirm it yeah that's again we lost
+3:22:433 hours, 22 minutes, 43 secondsBut ideally I think for injection part right you don't really need an LLM. So uh it could just be another process or
+3:22:533 hours, 22 minutes, 53 secondssome like like a framework kind of agent.
+3:22:563 hours, 22 minutes, 56 secondsSo but I think he will come this is a simple cases he's explaining right.
+3:23:083 hours, 23 minutes, 8 secondsBij just thinking out loud. So when you say hey guys hey guys sorry sorry sorry for that you know my my laptop has gone berserk today. Uh you know I don't know
+3:23:163 hours, 23 minutes, 16 secondswhat is wrong. So it's kind of I don't know hibernating again and again on its own. So but yeah I've joined from the phone. Uh so let me know if you have any questions. I think we are already
+3:23:243 hours, 23 minutes, 24 secondstowards the closure. Uh just after this I want you to just show one thing. I'm I'm in the in the meantime I'm also joining from the from the from the laptop. So but I just want you to take
+3:23:333 hours, 23 minutes, 33 secondscare of one thing that you create an account on pine cone. Okay, just create an account on pine cone and get your API keys, right? Make sure you have that in
+3:23:403 hours, 23 minutes, 40 secondsplace. Then we will in the next session we it will be like very smooth for us to you know set up a you know first of all we'll try to set up an injection
+3:23:483 hours, 23 minutes, 48 secondspipeline and then we'll try to set up a a retrieval and augmentation pipeline.
+3:23:533 hours, 23 minutes, 53 secondsRight. So in the next session most probably we'll be mostly working on the injection injection pipeline. Okay that's great. So sir that's very nice.
+3:24:043 hours, 24 minutes, 4 secondsOkay.
+3:24:063 hours, 24 minutes, 6 secondsOkay guys, any questions just let me know. I think we are good to close the today's session. I think we have covered mostly everything. My laptop is also going crazy. But just create your Pine
+3:24:143 hours, 24 minutes, 14 secondsCone account whatsoever and let me share the updated uh notebook with you. Let me share all the resources directly so we
+3:24:243 hours, 24 minutes, 24 secondsdon't you know depend on LMS and all. So let me share these resources directly then I'll put I'll ask the team to put them on LMS as well. Okay.
+3:24:303 hours, 24 minutes, 30 secondsSure. Sure. So Samir, can you also share the Substack references?
+3:24:353 hours, 24 minutes, 35 secondsYes. Yes. Yes. So let me just open it and just share it just uh it may not be now. You can also update it through LMS that will also be open.
+3:24:463 hours, 24 minutes, 46 secondsSure. Sure. Sure. Yes. Yes. Yes. I I'll give a word file there. I mean the the the ones you can follow, right? Let me join the meeting first from the laptop. So I
+3:24:553 hours, 24 minutes, 55 secondshave in place. Just give me one moment. Right.
+3:25:083 hours, 25 minutes, 8 secondsLet me join from the laptop. Just one moment. Okay.
+3:26:243 hours, 26 minutes, 24 secondsSo just to let you know we can see your screen but there's no audio.
+3:26:293 hours, 26 minutes, 29 secondsSorry about that. Okay. So now you need to kind of go to this because I cut there. No I just disconnected there. I joined it. Okay. So this is how your API
+3:26:373 hours, 26 minutes, 37 secondskeys will look like. Right. This is how your API keys will look like. You need to go to this uh pine cone.io file, right? And you
+3:26:463 hours, 26 minutes, 46 secondsneed to actually create your own API key by clicking plus. Have this API key ready, right? Because that will make
+3:26:533 hours, 26 minutes, 53 secondsthings very easy for us. And by using lchain only, we will be able to put data like this, right? Here for example, this is our database. This is one database,
+3:27:043 hours, 27 minutes, 4 secondsright? This is another database. This is another database, right? So these are some databases which we have in place,
+3:27:103 hours, 27 minutes, 10 secondsright? So next time when you come have one pine cone API ready by your side and while using that API we will kind of you
+3:27:193 hours, 27 minutes, 19 secondsknow just absert at least try to ingest you know learn to ingest the data and we will learn about theoretical concepts of chunking. It is not possible to
+3:27:283 hours, 27 minutes, 28 secondsimplement all the chunking concepts in here. I will be showing you a couple of chunking methods right in the class but it is definitely not possible to try all the advanced concepts in the class. Why?
+3:27:373 hours, 27 minutes, 37 secondsbecause it's a very very uh you know relative job depends on the kind of application that you have you know so
+3:27:453 hours, 27 minutes, 45 secondsbasically it's it's it's something that you will have to tweak and play with on your own but I'll tell you what all options are available with you in terms of chunking so we'll be spending a lot
+3:27:543 hours, 27 minutes, 54 secondsof time on chunking actually that that's where actually most of the time goes when you're inserting the documents right uh so that's where most of the time goes actually and we'll learn about
+3:28:023 hours, 28 minutes, 2 secondsother things as well so this is where we I would like to conclude for the substack part. Let me do two three things guys. I need to share with you the code. So I'll share it with LM.
+3:28:123 hours, 28 minutes, 12 secondsToday itself I'll share it. Last time I got late. Uh today itself I'll share everything. Um but yes I'll share
+3:28:193 hours, 28 minutes, 19 secondseverything along with the Jupiter. The collab link is already with you. Most of the things are already there. U this uh one note file I need to share with you
+3:28:283 hours, 28 minutes, 28 secondsthat I will share with um with these guys via okay. That's the best I think. Yeah,
+3:28:373 hours, 28 minutes, 37 secondsthat's it. I think that's all for today.
+3:28:393 hours, 28 minutes, 39 secondsAny anything any comments, anything? Uh do you think we are at good pace guys?
+3:28:433 hours, 28 minutes, 43 secondsDo you feel like we're going slow or we going fast? So just let me know if you feel like that. Otherwise, we're good. Right.
+3:28:523 hours, 28 minutes, 52 secondsSo we are good. So the pine cone API and the injection part we have to be ready with.
+3:28:583 hours, 28 minutes, 58 secondsYes. Yes. Be ready with the pine cone API and injection part. Okay. I'll give you any of the other APIs like lang chain or Google
+3:29:063 hours, 29 minutes, 6 secondsthat you need it that you you need any which ways right so all those you need it right addition sharing your email box I don't
+3:29:143 hours, 29 minutes, 14 secondsI'm not sure if you want to see that pardon me you're sharing your email box oh I'm so sorry
+3:29:223 hours, 29 minutes, 22 secondsso sorry what is there stupidity nothing else okay okay no problem okay we just close
+3:29:313 hours, 29 minutes, 31 secondsSo yeah, you can you can uh you can just kind of uh be ready with these and just let me know if you have any confusion,
+3:29:393 hours, 29 minutes, 39 secondsany challenge. Guys, if you're sending me request uh on LinkedIn, please let me know. I think I've accepted most of yours. But
+3:29:473 hours, 29 minutes, 47 secondsif there's anyone who is missing, do you do let me know in in a in a message on LinkedIn because I generally tend to not accept all the requests. I just kind of
+3:29:553 hours, 29 minutes, 55 secondsaccept the requests of people I'm connected to. So sir Google collab notes where where will you share here? Here here or portal?
+3:30:043 hours, 30 minutes, 4 secondsHave I not shared Google collab link I've shared? No guys can someone share with this gentleman Google collab link.
+3:30:133 hours, 30 minutes, 13 secondsI've already shared the Google collab link by the way. Yeah LinkedIn profile is
+3:30:233 hours, 30 minutes, 23 secondsthat's my profile. You can reach out and guys but just updated the updated code already I got the link the updated code will be there now sir
+3:30:313 hours, 30 minutes, 31 secondsupdated must be there then if you have shared with you a document it will automatically get updated isn't it no
+3:30:403 hours, 30 minutes, 40 secondsthat's not how it goes or what it will get updated automatically that's what
+3:30:543 hours, 30 minutes, 54 secondsOkay. So, this is the session. This is the one.
+3:31:033 hours, 31 minutes, 3 secondsCan you can you please share that to to just share this? Okay.
+3:31:123 hours, 31 minutes, 12 secondsJust refresh it. Just click on it and refresh it. It will be okay.
+3:31:183 hours, 31 minutes, 18 secondsIf it's not shared, that's a whole it's it's not saved. That's a whole uh different game all together. But I'm sure it saves automatically. The Google
+3:31:273 hours, 31 minutes, 27 secondsit updates automatically. So, it will be updated. I'm pretty sure.
+3:31:333 hours, 31 minutes, 33 secondsOkay guys, anyone has any issues with pace? So, just let me know. I I'll slow myself down if I'm going too slow. I'll
+3:31:403 hours, 31 minutes, 40 secondspace up a little. So just let me know if there is any challenge with the pace.
+3:31:453 hours, 31 minutes, 45 secondsThe rest I think we'll keep doing in the class the same way. We'll try to keep building such miniatures miniature models just like we built today and that
+3:31:533 hours, 31 minutes, 53 secondswould best help us understand everything and do it right. Uh this is how we going to go about it. We will not try to kind of you know complicate things a lot.
+3:32:013 hours, 32 minutes, 1 secondEven if we complicate it, we'll put them in functions. We'll you know kind of kind of contain everything inside functions and we'll use functions for references. Okay.
+3:32:113 hours, 32 minutes, 11 secondsAll right, I think we're good to close if that is the case and do let me know if you have any questions guys. Thank you so much. You guys are wonderful
+3:32:183 hours, 32 minutes, 18 secondsaudience one more time and I really love interacting. So let's keep it up. Let's keep it going and let's catch up tomorrow right uh to kind of understand
+3:32:263 hours, 32 minutes, 26 secondsin right thank you. Thank you so much. Thank you so much. Thank you so much.
+3:32:333 hours, 32 minutes, 33 secondsThank you Sham. Thanks a lot. Thank you.
+
+Sync to video time
+
+All
+
+For you
+
+Recently uploaded
