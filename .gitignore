@@ -4,3 +4,4 @@ __pycache__/
 chunks/
 output/
 .venv/
+test.py

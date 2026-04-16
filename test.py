@@ -4,7 +4,7 @@ from openai import OpenAI
 pc = Pinecone(api_key="pcsk_6Xi9vL_2DcEaqQn3LMtiDTq9hKv9fSiaptadwQN9hDrpAPmZpp9uYTY9YCUJ4xbP1WFULy")
 index = pc.Index("iitm-modules-rag")
 
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="OPENAI_API_KEY")
 
 # create REAL query embedding
 query = "what is context in AI"
