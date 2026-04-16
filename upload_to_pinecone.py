@@ -1,5 +1,6 @@
 import os
 import logging
+import re
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -27,8 +28,8 @@ index = pinecone_client.Index(index_name)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
-def load_chunks(base_dir: Path) -> List[Dict[str, str]]:
-    """Load all chunk files from rag_chunks/ subfolders."""
+def load_chunks(base_dir: Path) -> List[Dict]:
+    """Load all chunk files from rag_chunks/ subfolders with module info."""
     chunks = []
     rag_dir = base_dir / "rag_chunks"
     if not rag_dir.exists():
@@ -37,32 +38,42 @@ def load_chunks(base_dir: Path) -> List[Dict[str, str]]:
 
     for module_dir in rag_dir.iterdir():
         if module_dir.is_dir():
+            module = module_dir.name.lower()
             for chunk_file in module_dir.glob("*.txt"):
                 try:
                     content = chunk_file.read_text(encoding="utf-8").strip()
                     if content:
-                        chunks.append({"path": chunk_file, "content": content})
+                        chunks.append({
+                            "path": chunk_file,
+                            "module": module,
+                            "filename": chunk_file.name,
+                            "content": content
+                        })
                 except Exception as e:
                     logging.error(f"Failed to read {chunk_file}: {e}")
     return chunks
 
 
-def extract_metadata(content: str) -> Optional[Dict[str, str]]:
-    """Extract metadata from chunk content."""
+def extract_session_from_filename(filename: str) -> Optional[int]:
+    """Extract session number from filename (e.g. cms_session_1_chunk_5.txt → 1)."""
+    match = re.search(r"_session_(\d+)_", filename)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def extract_chunk_text(content: str) -> str:
+    """Extract only the text content (skip metadata header lines)."""
     lines = content.split("\n")
-    metadata = {}
-    try:
-        metadata["module"] = lines[0].split(": ")[1]
-        metadata["session"] = int(lines[1].split(": ")[1])
-        metadata["topic"] = lines[2].split(": ")[1]
-        metadata["chunk_id"] = int(lines[3].split(": ")[1])
-        # Text starts after the blank line
-        text_start = content.find("\n\n") + 2
-        metadata["text"] = content[text_start:].strip()
-        return metadata
-    except (IndexError, ValueError) as e:
-        logging.error(f"Failed to extract metadata: {e}")
-        return None
+    # Skip first 4 lines: Module, Session, Topic, Chunk
+    # Then skip the blank line
+    text_start = 0
+    for i, line in enumerate(lines):
+        if i >= 4 and line.strip() == "":
+            text_start = i + 1
+            break
+    
+    return "\n".join(lines[text_start:]).strip()
 
 
 def create_embedding(text: str) -> List[float]:
@@ -86,23 +97,38 @@ def main():
     failed_files = []
 
     for chunk in chunks:
-        metadata = extract_metadata(chunk["content"])
-        if not metadata:
+        # Extract session from filename
+        session = extract_session_from_filename(chunk["filename"])
+        if session is None:
+            logging.error(f"Could not extract session from {chunk['filename']}")
+            failed_files.append(str(chunk["path"]))
+            continue
+
+        # Extract text content
+        text_content = extract_chunk_text(chunk["content"])
+        if not text_content:
+            logging.warning(f"Empty text content in {chunk['filename']}")
             failed_files.append(str(chunk["path"]))
             continue
 
         try:
-            embedding = create_embedding(metadata["text"])
-            unique_id = f"{metadata['module']}_{metadata['session']}_{metadata['chunk_id']}"
+            # Create embedding
+            embedding = create_embedding(text_content)
+            
+            # Create metadata with only module, session, text
+            metadata = {
+                "module": chunk["module"],
+                "session": session,
+                "text": text_content
+            }
+            print(metadata)
+            
+            # Create vector
+            unique_id = f"{chunk['module']}_{session}_{chunk['filename']}"
             vector = {
                 "id": unique_id,
                 "values": embedding,
-                "metadata": {
-                    "module": metadata["module"],
-                    "text": metadata["text"],
-                    "session": metadata["session"],
-                    "chunk": metadata["chunk_id"],
-                },
+                "metadata": metadata
             }
             vectors.append(vector)
         except Exception as e:
@@ -116,9 +142,10 @@ def main():
         return
 
     try:
-        print(f"Uploading {len(vectors)} vectors...")
+        print(f"\nUploading {len(vectors)} vectors...")
+        print(f"Sample vector: {vectors[0]}")
         index.upsert(vectors=vectors)
-        print("Upload complete")
+        print("Upload complete\n")
         logging.info(f"Successfully uploaded {len(vectors)} vectors to Pinecone")
         # Verify
         stats = index.describe_index_stats()
