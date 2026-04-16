@@ -1,0 +1,18 @@
+Module: wdp
+Session: 5
+Topic: Multi-agent Patterns
+Chunk: 120
+
+Explanation: The lecture discusses different multi-agent patterns used in distributed AI systems. These patterns help in managing tasks and communication between multiple agents.
+
+Key Points:
+1. Single agent pattern is the first design that needs to be created by the users.
+2. Router pattern routes requests to appropriate agents based on the nature of the request. It does not perform any action itself.
+3. Supervisor-subagent architecture involves a supervisor who classifies requests and sends them to specific subagents. Subagents can send the work back to the supervisor if needed.
+4. Handoffs have already been discussed previously in the lecture.
+
+Student Doubts:
+1. Student asks for the location of the notes not mentioned in the transcript.
+2. A student asks about the definition of supervisor-subagent pattern.
+
+---

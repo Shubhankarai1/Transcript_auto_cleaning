@@ -1,0 +1,21 @@
+Module: cms
+Session: 4
+Topic: Uploading Documents in LLM
+Chunk: 115
+
+Explanation: The process of uploading documents in LLM involves a function that allows users to upload their documents. When the user initiates the action, the function is triggered and then LLM responds by asking the user to send the document. Once the user uploads the document, the function handles its upload. Routing should be implemented before this process for efficient management of functions.
+
+Key Points:
+- User can upload documents
+- Function triggers upon user action
+- LLM asks user to send the document
+- Function handles document upload
+- Routing should be in place for efficient use of resources
+
+Student Doubts:
+1. If we are scraping data from sites, does it involve prefiltering and post filtering?
+- The process is about uploading documents, not scrapping. Retrieval of data is a separate process called upserting. Prefiltering is available in RAG and should be taken care of in the upserting part.
+2. Was there something else mentioned about embedding during the discussion on prefiltering and post filtering?
+- Yes, for upserting, chunking is the key factor that differentiates a good programmer from a bad one. This refers to how well documents are organized and sent during the upload process. Embedding was also discussed but was interrupted.
+
+---

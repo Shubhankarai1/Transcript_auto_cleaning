@@ -1,0 +1,19 @@
+Module: cms
+Session: 2
+Topic: Maintaining Chat History and Introducing Rack and Enhance
+Chunk: 60
+
+Explanation: The lecture discusses the method of maintaining chat history in a system using an orchestrator like lchain, which provides more power and automates many tasks, including tracking token costs. It also introduces Rack and Enhance as a way to take the concept further and plug in additional information.
+
+Key Points:
+- Maintaining chat history using an orchestrator like lchain instead of doing it manually
+- Langchain provides more power and automates tasks, including tracking token costs
+- Rack and Enhance allow adding additional information to the concept
+- Using custom functions for better parsing beyond basic output parsing provided by lanchain
+
+Student Doubts:
+- If lansmith manages memory in a better way if using it instead of doing things manually
+- The purpose of the parser at the end of the chain in lanchain
+- Exploring additional things to learn after finishing the chat history maintenance lesson.
+
+---

@@ -1,0 +1,24 @@
+Module: wdp
+Session: 3
+Topic: Node behavior in Langraph
+Chunk: 67
+
+Explanation: The lecture explains how nodes work in Langraph, focusing on the "check number" and "even" nodes. It discusses what happens when a string is returned as a result, overwriting previous messages, and the importance of understanding this concept for a clear grasp of Langraph basics.
+
+Key Points:
+- Check number node adds a message to the state (result) which is initially a string.
+- The state (result) can be overwritten by subsequent nodes.
+- When the result is a string, only the latest message is visible.
+- Understanding this behavior is crucial for understanding Langraph basics.
+
+Student Doubts:
+- What is the state of the result initially?
+  - Empty (string)
+- Which node returns the human message?
+  - The "check number" node
+- Why is the langraph considering it as a human message?
+  - Because it's a string graph. Langgraph will always consider strings as human messages.
+- What happens when you return an empty string?
+  - It passes the string only, and nothing else.
+
+---

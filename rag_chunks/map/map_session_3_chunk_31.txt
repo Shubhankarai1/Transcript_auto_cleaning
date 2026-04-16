@@ -1,0 +1,22 @@
+Module: map
+Session: 3
+Topic: Understanding Agentic AI Function Calls
+Chunk: 31
+
+Explanation: The lecture explains how an agentic AI system decides which function to use based on a given query, and demonstrates the process of calling multiple functions in sequence. It also discusses the use of Python dictionary (JSON-like) for communicating with the API.
+
+Key Points:
+1. Agentic AI makes decisions about which function to use.
+2. Function names remain the same, but they can be overloaded like in C++.
+3. The system can call multiple functions in sequence without issues.
+4. The system provides information on which functions to call and in what order.
+5. JSON is used for communicating back to the API.
+
+Student Doubts:
+1. What is the format of the output coming from the AI?
+2. How should we handle the output returned by the AI?
+3. How do we pass the tool result back to the LLM?
+4. How do we create a tool message and what components does it have?
+5. How can we get the tool ID for creating a tool message?
+
+---

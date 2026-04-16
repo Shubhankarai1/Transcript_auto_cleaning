@@ -1,0 +1,20 @@
+Module: map
+Session: 3
+Topic: Understanding LLM and Function Calling with Weather API
+Chunk: 22
+
+Explanation: The lecture discusses how Language Model (LLM) works with functions, specifically focusing on a weather API. The assistant explains that LLM won't call the function for you but will give you instructions to do so. In this case, if the user query involves a 'weather-related question', LLM suggests calling the 'weather API' function and returning its output.
+
+Key Points:
+1. LLM doesn't call functions on its own
+2. LLM provides instructions for Python program to call specific functions based on user queries
+3. In this example, if a query is weather-related, the function 'weather API' should be called and its output returned
+4. After calling the function, another prompt can be made to return the function's output back to LLM
+
+Student Doubts:
+1. How does LLM differentiate between queries that require function calls and those that don't?
+2. What if there are multiple functions related to weather data, how would LLM know which one to call?
+3. Can the user query be more complex or specific than just 'weather-related'?
+4. How is the output of the function handled after being returned to LLM for further processing?
+
+---

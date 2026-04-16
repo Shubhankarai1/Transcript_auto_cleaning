@@ -1,0 +1,20 @@
+Module: cms
+Session: 1
+Topic: Understanding Context Appending in AI Assistants
+Chunk: 31
+
+Explanation:
+The assistant explains how an AI system can append contexts by creating a conversation with system messages, human messages, and AI messages. It uses an example of a helpful AI assistant answering a question about a favorite database (SQL) to demonstrate this process. The AI system keeps appending contexts in the order mentioned and passes the latest user input into the chat prompt template for further processing.
+
+Key Points:
+1. AI systems can append contexts in conversations with system messages, human messages, and AI messages.
+2. The context is created manually as of now but can be done naturally using tools like LLMs and chilanchin.
+3. The chat prompt template stores the message history for further processing.
+4. The assistant demonstrates this process by providing an example of a helpful AI assistant answering a question about SQL.
+
+Student Doubts:
+1. Can you explain more about LLMs and chilanchin, and how they help create contexts naturally?
+2. How does the AI system identify the user input in a conversation for appending it to the chat prompt template?
+3. What are some common challenges faced when manually creating context boxes, and what can be done to overcome these issues?
+
+---

@@ -1,0 +1,22 @@
+Module: map
+Session: 2
+Topic: Reciprocal Rank Fusion (RRF) Algorithm
+Chunk: 9
+
+Explanation:
+The RRF algorithm is used to shortlist a fixed number of documents from multiple queries. In this method, the denominator of a document is determined by its position in more than one document. The document with the smallest denominator will be the first document, the second document will be the next smallest, and so on.
+
+Key Points:
+- RRF algorithm is used to shortlist documents from multiple queries
+- Denominator of a document depends on its position in multiple documents
+- First document has the smallest denominator, followed by the second, and so on
+- This method helps in reducing the number of documents for further analysis
+
+Student Doubts:
+1. Why is document L not shortlisted? (Answer: Document L does not have a small enough denominator compared to other documents)
+2. Is this contextual ranking or something similar? (Answer: It's contextual ranking and Rag retrieval ranking for each query)
+3. What is the value of K in the RRF algorithm? (Answer: K can be chosen by the user as a scaling factor)
+4. How are documents placed according to cosine similarity? (Answer: Documents are ranked based on their cosine similarity scores)
+5. Is the numerator in the RRF formula the number of occurrences? (Answer: No, the numerator is not the number of occurrences; it's just 1 over the rank of the document)
+
+---

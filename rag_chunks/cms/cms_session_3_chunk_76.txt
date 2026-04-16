@@ -1,0 +1,17 @@
+Module: cms
+Session: 3
+Topic: Accessing Pinecone API in Python
+Chunk: 76
+
+Explanation: In this lecture, the instructor demonstrates how to access a Pinecone vector database using the Pinecone Python module. The process involves authenticating with the API key and checking or creating a specific vector database (in this case, `vector_hybrid`).
+
+Key Points:
+- Import required modules
+- Authenticate with the Pinecone API using the API key
+- Check if the specified vector database exists, and create it if not
+
+Student Doubts:
+- Can't I create a database with my own API key?
+- What happens if the specified vector database doesn't exist?
+
+---

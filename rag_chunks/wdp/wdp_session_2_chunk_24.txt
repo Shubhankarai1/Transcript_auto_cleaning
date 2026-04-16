@@ -1,0 +1,37 @@
+Module: wdp
+Session: 2
+Topic: Streamlit App and Deployment
+Chunk: 24
+
+Explanation: The lecturer explains how to run a Streamlit app, testing, and deployment. They mention that the topics will be covered later in the course and that it will be done in VS Code. The lecturer also explains why local tools like VS Code or PyCharm are necessary for deployment as opposed to Google Collab.
+
+Key Points:
+- Testing and implementing Streamlit app
+- Deployment of packages and creation of Docker
+- Using virtual environment and installing packages
+
+Student Doubts:
+1. Will the lecturer teach how to test the Streamlit app later in the course?
+2. Why can't we avoid local level things like VS Code PyCharm for deployment, and instead use Google Collab in industry?
+3. Can Lang Flow (a visual builder) be combined with the program?
+4. Is it possible to customize the packages in Lang Flow?
+5. What is the purpose of maintaining a dictionary of all tools available?
+6. How does the lecturer convert a function into a tool using add decorator?
+7. Can the lecturer provide more details about the steps taken in the last session?
+
+Transcript Excerpt:
+And also I realized since I want a streamllet interface I had to test do it run the streamly app test it run a test
+...
+I'll be teaching you that after May I will be taking those topics up right
+...
+Right? For that you need something like VS code and something like it's just a practice. You can try this thing that thing multiple things out right when I also from the background I know
+...
+true true yeah but you'll have to install that time right of course why because uh if you don't use that do that you will never be able to deploy your
+...
+Okay. So that time is worth worth it to be honest. Okay.
+...
+first load the notebook from the last session
+...
+So in the last session right we understood the tool calling right the tool calling and let's just go to the last piece of code which was the most important part.
+
+---

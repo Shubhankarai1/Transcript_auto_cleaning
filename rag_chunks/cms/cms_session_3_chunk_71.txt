@@ -1,0 +1,20 @@
+Module: cms
+Session: 3
+Topic: Introduction to Rags and Data Upserting
+Chunk: 71
+
+Explanation: The session focuses on understanding indexes (rags) and upserting data into them. The session also aims to cover various types of indexes, pushing data into vector databases with lang chain, and understanding how indexes are stored behind the scenes for interview purposes.
+
+Key Points:
+- Understanding Rags (indexes) and their purpose
+- Upserting data into rags
+- Types of Indexes
+  - Normal way of building indexes
+- Pushing data into vector databases with lang chain
+- Understanding how indexes are stored behind the scenes for interviews
+
+Student Doubts:
+- Need help setting up a new collab notebook. [Shown in transcript at 13:07, 13 minutes and 7 seconds]
+- Anyone having the data files shared in chat. [Shown in transcript at 14:07, 14 minutes and 7 seconds]
+
+---

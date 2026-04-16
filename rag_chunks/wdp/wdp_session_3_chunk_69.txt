@@ -1,0 +1,22 @@
+Module: wdp
+Session: 3
+Topic: Explanation of Even Node Method in Langraph
+Chunk: 69
+
+Explanation:
+The even node method is used to check if a number is even or odd. In this method, the result is being set as the number is even. However, it does not append the array but only returns the result in the right format. Langraph will handle the appending part. If a node is returning some other key, it will break down. The state should be initialized with the value that needs to be added.
+
+Key Points:
+- The even node method checks if a number is even or odd
+- It does not append the array but returns the result in the right format
+- Langraph handles the appending part
+- If a node is returning some other key, it will break down
+- The state should be initialized with the value that needs to be added
+
+Student Doubts:
+1. What if a node is returning some other key? Will it break down? (Answer: Yes)
+2. How can we initialize the state? (Answer: First put that value in the state class)
+3. Why is it not adding the message to the state? (Answer: It's working fine but not adding the message to the state, needs initialization)
+4. Can we have recursive calls to the same node? (Answer: Yes, but you may need to set a counter or chunk the messages)
+
+---

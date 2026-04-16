@@ -1,0 +1,21 @@
+Module: wdp
+Session: 1
+Topic: Waiting for Human Response in Functions
+Chunk: 17
+
+Explanation: The lecture discusses the ability to add functionality to a function that allows it to wait for a human response before proceeding further. The system's wait time is determined by the designer.
+
+Key Points:
+1. Functionality to wait for human response
+2. Wait time is designer-defined
+3. Full control over system design
+4. Langraph node as a function that can be designed and programmed
+5. Ability to call APIs and wait for responses
+6. Storing states in databases and resuming from there
+
+Student Doubts:
+1. What is the way of executing the human-in-the-loop scenario? (Chat agent or backend process)
+2. How does Google Agent Development Kit (ADK) compare with Langraph?
+3. Is there any way to wait for an external event in Langraph?
+
+---

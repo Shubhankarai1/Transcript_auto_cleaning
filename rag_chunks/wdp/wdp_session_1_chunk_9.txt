@@ -1,0 +1,21 @@
+Module: wdp
+Session: 1
+Topic: Email Classification and Orchestration using AI and if-else logic
+Chunk: 9
+
+Explanation:
+The lecture discusses the design of a workflow for email classification and orchestration in a banking context using both AI and if-else logic. The workflow involves an email classifier that identifies the intent of emails (such as address change), an orchestration agent that uses standard operational procedures to determine actions based on the classified intent, and another AI system to evaluate the output with a confidence score.
+
+Key Points:
+1. Email classification using AI for intent identification
+2. Orchestration of actions based on standard operational procedures
+3. Use of AI to evaluate output with a confidence score
+4. Importance of designing an intelligent graph for workflow implementation
+5. Benefits of combining AI and if-else logic for optimal results
+
+Student Doubts:
+1. Can every node in the langraph be AI? (Answer: Yes, but not advisable due to potential mistakes)
+2. What is the output with a confidence score on what action users might do? (Answer: The output is an action based on the classified intent of the email with a confidence score indicating the certainty of that action)
+3. Is it possible to make the entire workflow fully AI? (Answer: Yes, but it's ideal to use a mixture of if-else and AI for optimal results)
+
+---

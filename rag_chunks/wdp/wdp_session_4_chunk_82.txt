@@ -1,0 +1,22 @@
+Module: wdp
+Session: 4
+Topic: Creating and Structuring an LLM for Ticket Classification
+Chunk: 82
+
+Explanation: The lecture focuses on creating and structuring a Language Model (LLM) to classify tickets based on their content. The instructor explains the importance of output structure, returning the result in a dictionary format, and understanding the functionality of each function.
+
+Key Points:
+- Create an LLM for ticket classification
+- Ensure the output is in a structured and dictionary format
+- Understand the purpose and return values of functions like `classify_ticket` and `pyantic class`
+- Try out the exercise with a single state
+
+Student Doubts:
+1. Where does the output go when it's returned as a dictionary?
+   - The output will be added to the actual output, which is given to the LLM to reply.
+2. What happens when the output comes in?
+   - Once the output comes, you classify it and give it to the LLM to reply.
+3. Why is `pyantic` used with LLMs?
+   - `pyantic` is used because it ensures that the output will always be in a particular format, which can be added to the state for further processing by the next LLM.
+
+---

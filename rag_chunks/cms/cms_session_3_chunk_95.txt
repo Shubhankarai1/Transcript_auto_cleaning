@@ -1,0 +1,19 @@
+Module: cms
+Session: 3
+Topic: Chunking Strategies for Document Processing
+Chunk: 95
+
+Explanation: In document processing, efficient chunking strategies are used to break down documents into smaller pieces (chunks) while retaining their context. This helps in improving results and making it easier to process large documents.
+
+Key Points:
+- Metadata indexing is a way of including a summary of the entire document within each chunk to help identify which chunks belong to which document.
+- Semantic chunking can be used, where a new chunk is created as soon as the topic changes.
+- Proper chunking is crucial for business applications, and techniques like semantic and indexing chunking can be employed to ensure everything is captured.
+
+Student Doubts:
+1. Jenny's code produces eight chunks instead of seven when it should only upsert seven. The instructor suggests that her chunking might not have been done properly or she may have only chunked one document. (2:55:44 - 2:55:59)
+2. Jenny asks about the query showing unrelated results (home loan instead of two-wheeler loan). The instructor explains it's due to mathematical matching, and the model used is not expected to provide exact answers but close enough text. (2:56:03 - 2:56:29)
+3. Jenny seeks guidance on factors to consider when building business applications. The instructor highlights the importance of proper chunking and mentions semantic and indexing chunking, as well as dense and sparse vectors in future sessions. (2:57:07 - 2:58:19)
+4. Jenny wants to know if there's something missing from her code after chunking. The instructor confirms that the code seems complete, with chunking, embedding, organizing embeddings, and pushing them into the vector database being the necessary steps. (2:58:19 - 2:58:47)
+
+---

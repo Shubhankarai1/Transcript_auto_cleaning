@@ -1,0 +1,22 @@
+Module: wdp
+Session: 3
+Topic: Introduction to Langraph
+Chunk: 49
+
+Explanation:
+The lecturer is introducing the students to Langraph, a framework that simplifies tool calling in AI projects. The student will receive two projects on using Langraph, one for basic usage and another for building a chatbot. The lecturer plans to cover agentic AI first, followed by context engineering and metrics, each with its own project. Recordings of the sessions are available on the LMS within 24 hours.
+
+Key Points:
+- Projects on Langraph
+- Agentic AI, Context Engineering, and Metrics covered in separate projects
+- Recordings available on LMS within 24 hours
+
+Student Doubts:
+1. Recording availability for an 8:30 session
+- The recording will be available on the LMS within the next 24 hours.
+2. Missed 8:30 session due to late notification
+- The lecturer acknowledges that scheduling last minute on a Sunday morning may cause some students to miss the session.
+3. Content availability on the LMS
+- A future team will look into this issue as soon as possible.
+
+---

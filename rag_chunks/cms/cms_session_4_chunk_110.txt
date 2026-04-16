@@ -1,0 +1,17 @@
+Module: cms
+Session: 4
+Topic: Customizations Post Retrieval and Transliteration
+Chunk: 110
+
+Explanation: In this lecture, the professor discusses customizations that can be made post retrieval in the context of language models (LLM). He also explains transliteration and its use case.
+
+Key Points:
+- Customizations after retrieval include post filtering, adding links, shortening context, etc.
+- Transliteration is a conversion of English text to Hindi. It can be used when the LLM cannot handle Hindi text directly.
+- The idea behind transliteration is to prepare the context for the LLM to ensure it generates appropriate responses in Hindi.
+
+Student Doubts:
+1. Can I do translation also in this? (Answer: Yes, you can use transliteration to convert English text into Hindi.)
+2. In my program, certain parts are missing during retrieval. Will we do better with advanced chunking and embedding links using lchain and history? (Answer: Yes, the upcoming session will focus on advanced techniques for better results.)
+
+---

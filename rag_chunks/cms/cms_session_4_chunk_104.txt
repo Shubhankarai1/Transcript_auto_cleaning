@@ -1,0 +1,21 @@
+Module: cms
+Session: 4
+Topic: Introduction to Google API Key and Pine Cone API Key in a Vector Database
+Chunk: 104
+
+Explanation: The lecture discusses adding Google API key and Pine Cone API key to the environment for efficient use of vector database.
+
+Key Points:
+- Add Google/Open AI API keys to the environment
+- Passing API keys directly to the LLM is not necessary when they are in the environment
+- Having documents in place before continuing with the session
+- Importing pine cone API requires its installation
+
+Student Doubts:
+1. What happens if we don't add the API key to the environment?
+2. Why should we install the pine cone API?
+3. How does adding API keys to the environment prevent key exposure?
+4. Can you share the first line of the code for installation?
+5. Why are we adding the Google key to the environment specifically?
+
+---

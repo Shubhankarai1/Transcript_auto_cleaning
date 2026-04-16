@@ -1,0 +1,20 @@
+Module: cms
+Session: 4
+Topic: Emerging Technologies and Staying Updated
+Chunk: 129
+
+Explanation: The lecture discusses the importance of staying updated with emerging technologies in the field of AI, particularly focusing on new Google technologies like embedded part two and the role of substack, LinkedIn, and following specific individuals for updates. The instructor also emphasizes the need to understand where new technologies fit into existing frameworks and the importance of testing them out quickly.
+
+Key Points:
+- Emerging AI technologies (Google Embedded Part 2)
+- Importance of staying updated through substack, LinkedIn, and following specific individuals
+- Understanding where new technologies fit in existing frameworks
+- Quick testing and exploration of new AI models
+
+Student Doubts:
+1. How can I improve my confidence in understanding and applying new technologies?
+2. What is the best strategy for staying updated in the rapidly evolving field of AI?
+3. How do I decide which emerging technology to focus on or implement in my existing projects?
+4. Can you recommend specific individuals or resources to follow for updates on AI?
+
+---

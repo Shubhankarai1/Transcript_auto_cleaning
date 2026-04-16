@@ -1,0 +1,21 @@
+Module: cms
+Session: 1
+Topic: Creating a Chain in Langchain to Call LLM and Function Simultaneously
+Chunk: 19
+
+Explanation:
+The transcript discusses the creation of a chain using Langchain to call an LLM (Language Model) and a function simultaneously. The user explains that you need a prompt, which can be either a system message or a user message. The LLM is called with the prompt, and its output is passed to a function enclosed within `runnable lambda`.
+
+Key Points:
+1. Creating a chain using Langchain (LCEL) to call an LLM and a function simultaneously
+2. Using prompt templates for easier integration of the LLM
+3. The LLM's output is passed to a function enclosed within `runnable lambda`
+4. A system message or user message can be used as the prompt
+5. The chain should be prepared with all necessary components before calling it
+
+Student Doubts:
+1. Can we define a role analyzer in the system prompt?
+2. Will the LLM answer in one line if it's a system message, and how to change that behavior?
+3. Repeat the steps for creating the chain with the user prompt plugged after the system message.
+
+---

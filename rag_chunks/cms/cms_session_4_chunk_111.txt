@@ -1,0 +1,19 @@
+Module: cms
+Session: 4
+Topic: Summarization in LLMs (Language Learning Models)
+Chunk: 111
+
+Explanation:
+The use of summarization in LLMs is to reduce the amount of large context data sent to them, particularly when it's not necessary. A cheaper LLM can be used within a function or a new function created for this purpose to summarize the text into smaller text. The summary serves as context for the LLM.
+
+Key Points:
+- Reducing large context data sent to LLMs
+- Using a cheaper LLM or creating a new function for summarization
+- Summarized text acts as context for the LLM
+
+Student Doubts:
+1. Request for the code of the summarization process.
+2. Understanding why no response is coming after executing the third step.
+3. Query about the steps involved in multiquery expansion and hiding hypothetical document embeddings.
+
+---

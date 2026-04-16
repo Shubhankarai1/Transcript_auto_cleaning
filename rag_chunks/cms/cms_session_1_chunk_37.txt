@@ -1,0 +1,20 @@
+Module: cms
+Session: 1
+Topic: Context Engineering in AI Tools
+Chunk: 37
+
+Explanation: The lecture discusses the first phase of context engineering, focusing on maintaining context using runnable with message history. The teacher emphasizes the importance of understanding context and rags (a concept to be introduced later) for building proper agentic AI tools.
+
+Key Points:
+- Maintaining context using runnable with message history
+- Importance of understanding context and rags for building AI tools
+- Need for an account on Pinecone for the task
+- API is used for adding context
+- External content is appended within this context
+- The methods will be different when extending the concept to other parts
+
+Student Doubts:
+1. Uh make a while loop of the chat history after that what was written. (The student wants to know how to create a while loop for the chat history.)
+2. Make a while loop of the chat history and run the same code with while loop. (Similar doubt from another student about creating a while loop for the chat history)
+
+---

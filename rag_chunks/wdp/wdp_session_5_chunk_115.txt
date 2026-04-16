@@ -1,0 +1,20 @@
+Module: wdp
+Session: 5
+Topic: Designing an Agentic AI System for Employment Salary Disbursement/Reimbursement Request
+Chunk: 115
+
+Explanation: The lecture discusses designing an agentic AI system to handle employment salary disbursement and reimbursement requests. It explains the three main parts of designing a multi-agent system, emphasizing the importance of understanding what goes in and out, and providing approve/disapprove messages or triggering functions.
+
+Key Points:
+1. Design the input and output of the system
+2. Implement multiple tools within one agent or separate agents for supervision, policy specialists, response specialists, and calculation specialists
+3. Utilize handoff as a pattern to pass requests between agents
+4. Focus on defining the process (workflow) for the multi-agent system
+
+Student Doubts:
+1. How would you design a multi-agent system? What agents should handle what tasks?
+2. Is it possible to have more than one agent with multiple tools?
+3. What is the handoff pattern in multi-agent systems?
+4. How does workflow apply to the multi-agent system design process?
+
+---

@@ -1,0 +1,17 @@
+Module: cms
+Session: 2
+Topic: Chatbot Capabilities for Handling Business Problems
+Chunk: 64
+
+Explanation: The discussion revolves around testing the current capabilities of a chatbot in handling business problems, specifically personal loan eligibility criteria from Bright Bridge Finance.
+
+Key Points:
+- The chatbot is currently not equipped to handle complex business issues like providing specific eligibility criteria for personal loans from Bright Bridge Finance.
+- To improve the chatbot's functionality, it needs to be provided with context during user queries.
+- By giving the context and relevant text, the chatbot can potentially answer more detailed questions accurately.
+
+Student Doubts:
+- The student wants to understand why the current chatbot is unable to provide specific information about Bright Bridge Finance and their personal loan offerings.
+- The student also asks for clarification on how to effectively use context with the LLM (Language Learning Model) to enhance its answering capabilities.
+
+---

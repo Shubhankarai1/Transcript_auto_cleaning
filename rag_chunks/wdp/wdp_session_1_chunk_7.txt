@@ -1,0 +1,19 @@
+Module: wdp
+Session: 1
+Topic: Designing a LAN Graph for Email Classification System
+Chunk: 7
+
+Explanation: The lecture discusses the design of a Langraph system for an email classification system. The system consists of several nodes and edges that perform various functions such as reading emails, classifying them as spam or ham, drafting responses, and notifying Mr. Vin.
+
+Key Points:
+- Read email node: reads emails
+- Classify email node: classifies emails as spam or ham based on a decision-making edge
+- Handle spam node: handles spam emails
+- Drafting response node: drafts responses for ham emails
+- Notify Mr. Vin node: notifies Mr. V
+- Routing logic: defines the flow of the system based on the output of the classify email node
+
+Student Doubts:
+- Edge is the one which connects the nodes (51:2851 minutes, 28 seconds)
+
+---

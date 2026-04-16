@@ -1,0 +1,19 @@
+Module: wdp
+Session: 2
+Topic: Understanding Pyantic for Python
+Chunk: 44
+
+Explanation: Pyantic is a library used in Python to ensure the correct input format when calling functions and to control the output format of Language Model (LLM). It works by defining a specific format for inputs or outputs within a parenthesized class. The two primary use cases of Pyantic are to provide the correct arguments for function calls and to obtain desired output formats from LLM.
+
+Key Points:
+- Pyantic ensures the right input for function calling
+- Pyantic enables the control of output format in desired formats (dictionary, JSON, XML)
+- Use if-else blocks when working with LLM to call tools or return final outputs
+- In agent development, skip the if-else block and work directly without it
+
+Student Doubts:
+- Understanding how Pyantic bindings work
+- Clarity on using Padantic for different formats (XML, JSON)
+- Need help summarizing key points about using Padantic
+
+---

@@ -1,0 +1,18 @@
+Module: wdp
+Session: 3
+Topic: Building a Graph using Langraph
+Chunk: 55
+
+Explanation: The instructor is guiding the students on how to build a graph using Langraph. He explains the necessary steps including imports, defining tools, LLM binding, creating the graph, and defining a state.
+
+Key Points:
+- Importing essential modules
+- Defining tools and binding them with the LLM
+- Creating a Langraph
+- Defining a state (messages state in this case)
+
+Student Doubts:
+1. Student asks for initial installation of libraries at 1:02:29.
+2. Student asks if binding tools to LLM means making it call the tool at 1:07:39.
+
+---

@@ -1,0 +1,19 @@
+Module: wdp
+Session: 3
+Topic: LAN Graph Explanation for Query Processing
+Chunk: 51
+
+Explanation: The LAN graph is a system designed for query processing in customer service. It consists of multiple LLMs (Language Model Modules), a central disk (LLM node), and Langraph. Each LLM specializes in specific tasks like financial queries (fin LLM) or insurance advice (insurance LLM). When a query comes, it is directed to the appropriate LLM based on its type. The chosen LLM then uses tools like interest calculator or risk calculator to process the query and provide an output. Langraph manages the flow of the queries between different LLMs.
+
+Key Points:
+- Central disk (LLM node) receives all queries
+- Multiple specialized LLMs for specific tasks (financial, insurance advice, etc.)
+- Tools like interest calculator or risk calculator for processing queries
+- Langraph manages the flow of queries between different LLMs
+
+Student Doubts:
+- How does Langraph determine which LLM to direct a query to?
+- What happens when a user asks multiple questions in quick succession?
+- Can tools be directly bound to specific LLMs, or are they always accessible by all?
+
+---

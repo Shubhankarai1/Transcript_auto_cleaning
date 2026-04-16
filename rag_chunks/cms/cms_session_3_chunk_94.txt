@@ -1,0 +1,19 @@
+Module: cms
+Session: 3
+Topic: Querying Documents in Vector Database
+Chunk: 94
+
+Explanation: The lecture explains how to query documents from a vector database by creating a query vector and querying the pine cone. The top k results are displayed, and relevant documents are accumulated and pushed inside the context studied so far.
+
+Key Points:
+- Create a query vector
+- Query the pine cone
+- Display the top k results
+- Accumulate relevant documents
+- Push documents inside context
+
+Student Doubts:
+- Why is chunk ID not visible in the result? (Answer: The instructor only shows basic details and cuts out metadata)
+- What happens when results span across multiple chunks? (Answer: All chunks with the closest cosine similarity come up. Top k can be adjusted to get more or less results, and a reranking process is used to organize them.)
+
+---

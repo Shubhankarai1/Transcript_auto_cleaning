@@ -1,0 +1,34 @@
+Module: wdp
+Session: 4
+Topic: AI Usage and Gender Bias
+Chunk: 102
+
+Explanation: The teacher discusses the importance of understanding when to use AI and when to perform tasks manually, emphasizing the need to avoid gender bias in tools.
+
+Key Points:
+- Don't let AI do everything; human involvement is crucial
+- AI should help humans, not the other way around
+- Be careful with gender bias in tools
+
+Student Doubts:
+- N/A
+
+Transcript:
+3:26:37 Create a zip file yourself.
+3:26:44 Improvise it and do the same for it.
+3:26:54 Understand versatile, but...
+3:27:00 The problem is when you go to production with this approach, it will not work.
+3:27:19 Incorporate points from lessons.
+3:27:31 That's a very good thing.
+3:27:42 Let AI help you, don't you help AI.
+3:27:50 Yes, sir. Thank you. Can I say something on a light note?
+3:27:57 You called your AI to be he. Be careful when you gender bias your tools.
+3:28:16 If AI becomes sentient and recognizes itself as her or they, neutral language should be used.
+3:28:30 If tomorrow AI comes to life and recognizes itself as a she, it will take care of Hankit.
+3:28:47 right and Jenny will have an edge in the favorite list.
+3:29:01 He's going to hate me. I've been correcting him on few things now.
+3:29:14 Okay guys. Practice what we did today. Just practice it once without practice.
+3:29:22 Right. And let's take it up in the next session.
+3:29:40 Thank you very much. Thank you. Thank you.
+
+---

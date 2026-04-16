@@ -1,0 +1,21 @@
+Module: wdp
+Session: 5
+Topic: Multi-agent System
+Chunk: 113
+
+Explanation: The lecture discusses the creation and functioning of a multi-agent system, focusing on a simple example where three agents handle tasks such as summarizing issues, drafting replies, and reviewing them before passing to the customer. The speaker also touches upon potential issues that might arise and ways to solve them.
+
+Key Points:
+1. A multi-agent system can consist of multiple entities working together in a pipeline fashion.
+2. In this example, there are three agents: one for summarizing issues, one for drafting replies, and one for reviewing the reply before sending it to the customer.
+3. The speaker mentions possible errors that might occur, such as overwriting values or naming conflicts with classes.
+4. It's essential to check the pyantic class if an error occurs related to object having no attribute 'draft_reply'.
+5. The lecture encourages students to learn from errors and study further on what additional possibilities exist in multi-agent systems.
+
+Student Doubts:
+1. How do we define the 'attribute' for 'final reply' in a dictionary? (Answer: We put it in the state itself.)
+2. What causes the issue where messages are being overwritten each time an agent receives input? (Answer: Because it is returning this and the rest of them it is overwriting it.)
+3. Is there anything else that should be done to preserve the state in the langraph? (Answer: No, but the speaker suggests reviewing the issues if something seems wrong.)
+4. What error is causing the object to have no attribute 'draft_reply'? (Answer: It could be due to a naming conflict with classes or using a different class than intended for pantic.)
+
+---

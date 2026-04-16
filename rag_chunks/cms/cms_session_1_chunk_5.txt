@@ -1,0 +1,20 @@
+Module: cms
+Session: 1
+Topic: Setting up Development Environment for Projects
+Chunk: 5
+
+Explanation: The instructor explains the need to set up a development environment using Visual Studio Code and recommends Anaconda due to its ease in creating virtual environments. He also suggests using Minion Mini if the laptop is slow. He further discusses the use of Google Collab, mentioning its interface issues but stating that it will be used for now.
+
+Key Points:
+- Use Visual Studio Code for project development
+- Anaconda recommended for easier creation of virtual environments
+- Minion Mini suggested as a smaller version of Anaconda for slower laptops
+- Google Collab has interface issues but will be used temporarily
+
+Student Doubts:
+1. Can UI also be used to create virtual environments?
+2. Is it necessary to use Anaconda on Jupiter, or can I use it on the command prompt?
+3. How to set up environment keys and everything in Google Collab?
+4. What is context and history in the context of project development?
+
+---

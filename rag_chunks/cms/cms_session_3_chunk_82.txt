@@ -1,0 +1,20 @@
+Module: cms
+Session: 3
+Topic: Embedding Documents and Upserting into Vector Database
+Chunk: 82
+
+Explanation: The instructor explains the process of embedding documents, upserting them into a vector database, and creating a set of steps to follow for better understanding. The instructor also mentions that many people struggle with this concept in the AI market.
+
+Key Points:
+1. Embedding documents
+2. Upserting embedded documents into a vector database
+3. Breaking down the process into clear steps
+4. Understanding the importance of organizing things and not relying on AI to write entire code
+5. Visualizing the final output as a dictionary with ID, values (384 dimensions), and metadata (document text)
+6. Verifying the results in Pine Cone
+
+Student Doubts:
+1. Where can I see the 384 dimensions of the embeddings?
+2. What is the internal storage format of the embedded documents (array or dictionary)?
+
+---

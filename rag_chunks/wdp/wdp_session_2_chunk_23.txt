@@ -1,0 +1,16 @@
+Module: wdp
+Session: 2
+Topic: Understanding the differences between Google Colab and VS Code for AI development
+Chunk: 23
+
+Explanation: The instructor explains that Google Colab and VS Code are different platforms for AI development. Google Colab is a cloud-based platform where packages are already installed, making it faster and more convenient to use. In contrast, VS Code requires a full installation of packages on one's local machine, which takes more time and effort.
+
+Key Points:
+- Google Colab has pre-installed packages, making it faster for AI development.
+- VS Code requires a full installation of packages on one's local machine.
+- The file structure and environment configurations are different between the two platforms.
+
+Student Doubts:
+A student asks about the difference in execution time and package management between Google Colab and VS Code for AI development, as they experienced longer setup times and more issues with package installation and debugging in VS Code compared to Google Colab. The instructor explains that Google Colab has pre-installed packages, making it faster, while VS Code requires a full installation of packages on one's local machine, leading to longer setup times and potential issues. The instructor also mentions that the file structure and environment configurations are different between the two platforms.
+
+---

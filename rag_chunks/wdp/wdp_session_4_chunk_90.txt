@@ -1,0 +1,20 @@
+Module: wdp
+Session: 4
+Topic: Tool Creation and Node Setup
+Chunk: 90
+
+Explanation: The lecture covers the creation of tools and setting up a node using LLM (Language Learning Model). The instructor explains how to create a custom dictionary for tool names, bind the tools with LLM, and create a node.
+
+Key Points:
+- Creating a custom dictionary for tool names
+- Binding tools with LLM
+- Creating a node using LLM
+- Using the system prompt and state message for invoking the LLM
+- Testing the node
+
+Student Doubts:
+- What to do after creating the LLM and node?
+- How to create a state?
+- What should be passed inside the state?
+
+---

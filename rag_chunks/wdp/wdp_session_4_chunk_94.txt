@@ -1,0 +1,21 @@
+Module: wdp
+Session: 4
+Topic: Explanation of Langraph in Multi-Agent Systems
+Chunk: 94
+
+Explanation:
+The lecture discusses the role of Langraph in multi-agent systems. The instructor explains that Langraph is a tool used to extract arguments from an LLM (Language Model) body and call functions based on these arguments without having to manually do it. It also highlights the importance of avoiding function names with multiple occurrences and the upcoming sessions' focus on early stopping, multi-agent systems, and their architectures.
+
+Key Points:
+1. Langraph extracts arguments from an LLM body and calls functions based on these arguments.
+2. Ambiguity in function names should be avoided.
+3. Upcoming sessions will cover topics like early stopping, multi-agent systems, and their architectures.
+4. The goal is to design simple codes for multi-agent systems while covering all possibilities.
+5. Proper tool definition, binding tools with the LLM, creating state, and testing are essential steps in designing multi-agent systems.
+
+Student Doubts:
+1. Question about the recent announcement of a security product related to vulnerabilities.
+2. Clarification on ethical hacking usage.
+3. Query about the upcoming sessions' focus on multi-agent systems.
+
+---

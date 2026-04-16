@@ -1,0 +1,24 @@
+Module: cms
+Session: 1
+Topic: Designing and Enhancing Prompts in Chat Models
+Chunk: 26
+
+Explanation: In this lecture, the instructor explains how to design prompts for chat models using an example of a combined system and user prompt. The system and human prompts are passed together in a list, which automatically converts the system message into the intended format. The lecture then moves on to enhancing prompts by building chains and having multi-turn conversations with the user.
+
+Key Points:
+1. Designing separate system and user prompts and combining them in a list.
+2. Automatic conversion of the system message.
+3. Building chains for chat models using LLM (Language Model).
+4. Multiple things or functions can be included inside the runnable lambda.
+5. Passing the user's message to get the output.
+6. Having multi-turn conversations with the user.
+7. The importance of building and enhancing prompts for efficient chat model interaction.
+
+Student Doubts:
+1. What is a runnable lambda?
+2. How can we define our LLM (Language Model)?
+3. Can multiple things or functions be included inside the runnable lambda in the chain?
+4. What happens during multi-turn conversations with the user?
+5. How does the system convert the system message automatically?
+
+---

@@ -1,0 +1,17 @@
+Module: cms
+Session: 1
+Topic: Building a Chatbot with LM
+Chunk: 33
+
+Explanation: The lecture covers the process of building a chatbot using Langchain (LM) in Python. It explains how to initialize the LM and set up the context for the chatbot, including the system message and user messages.
+
+Key Points:
+- Initialize LM
+- Set up context with system message and user messages
+- Convert human messages into a format suitable for the LM
+
+Student Doubts:
+1. Do I need to put the user text in the chat history as a part of the context? (Answer: Yes)
+2. What format should I convert human messages into before appending them to the context? (Answer: Human message)
+
+---

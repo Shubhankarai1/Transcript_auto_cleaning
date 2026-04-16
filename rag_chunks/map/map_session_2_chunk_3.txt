@@ -1,0 +1,17 @@
+Module: map
+Session: 2
+Topic: Editing Query, Retrieval, and Context Building in Pine Code
+Chunk: 3
+
+Explanation: The lecture covers steps three to six in using the Pine code for data analysis. Step three involves editing the query to include more keywords for better searching. Step four is retrieval with metadata filtering to get relevant documents. Step five is context building where the first 1200 characters are used for the context. Finally, step six is prompt rendering and augmentation where a function is defined to create the prompt.
+
+Key Points:
+- Editing Query: Involves adding more keywords for better searching. The process is the same as in the last session.
+- Retrieval: Documents are retrieved using metadata filtering, as shown in the previous session.
+- Context Building: First 1200 characters are used for context building. Additional links can be added if needed.
+- Prompt Rendering and Augmentation: A function is defined to create the prompt. The function requires chat prompt template, messages placeholder, in-memory chat message history, and runnable with message history.
+
+Student Doubts:
+- Student Samir requests a quick review of steps three, four, five, and six to check if they are correct. The instructor confirms that the editing the query and retrieval steps are the same as in the last session, while context building uses the first 1200 characters for the context. No clarification is provided on step five and six.
+
+---

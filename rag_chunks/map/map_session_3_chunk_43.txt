@@ -1,0 +1,19 @@
+Module: map
+Session: 3
+Topic: Development and Deployment of Chatbots
+Chunk: 43
+
+Explanation: The lecture discusses the development and deployment of chatbots, specifically mentioning the creation of a WhatsApp integrated chatbot for a dog clinic and travel forum, and the use of Google Cloud's MCP server, VM, Docker, and APIs.
+
+Key Points:
+- Development of a WhatsApp integrated chatbot for a dog clinic and travel forum
+- Use of Google Cloud's MCP server, VM, Docker, and APIs for deployment
+- Deployment on production servers and the ability to call each other's APIs
+
+Student Doubts:
+1. Will there be an opportunity for a project to test this deployment collaboratively?
+2. Is it possible to work on deployment with the teacher?
+3. Can the teacher provide information about using different topologies, specifically agentic topologies, in AI projects?
+4. The student expresses difficulty in understanding and writing code, asking for guidance on generating code through the chat or another tool.
+
+---

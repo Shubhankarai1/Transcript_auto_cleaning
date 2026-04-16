@@ -1,0 +1,9 @@
+Module: wdp
+Session: 2
+Topic: Building an MCP for Cross-platform Integration in Banking Application
+Chunk: 46
+
+6. The student explains their use case of a banking application that receives emails from customers and wants to build an MCP for automation purposes.
+   - The student is interested in creating an automation agent that will respond to specific API calls or UI interactions when certain conditions are met. They also mention having a web app-based application.
+
+---

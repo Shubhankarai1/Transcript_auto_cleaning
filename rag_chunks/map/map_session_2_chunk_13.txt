@@ -1,0 +1,21 @@
+Module: map
+Session: 2
+Topic: Retrieve Documents for Loan Against Property
+Chunk: 13
+
+Explanation: The lecture discusses retrieving documents related to loans against property using a function called `retrieve_docs_multi`. The function takes multiple queries and returns the necessary documents, along with context building and prompt generation.
+
+Key Points:
+- Retrieve documents using `retrieve_docs_multi` function
+- Function takes multiple queries
+- Results are generated based on the original query only
+- Build context, make prompt, and render final chain for the query
+- Check functions and parameters to ensure correctness
+
+Student Doubts:
+1. What are the parameters of `retrieve_docs_multi`?
+2. Why am I not getting any outputs when running my query?
+3. What could be causing an empty response?
+4. How do I fix the issue with passing a list of queries to the function?
+
+---

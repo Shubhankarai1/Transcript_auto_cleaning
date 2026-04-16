@@ -1,0 +1,15 @@
+Module: cms
+Session: 4
+Topic: Error with Gemini
+Chunk: 126
+
+Explanation: The instructor mentions an error with Gemini, suggesting that keys might be the problem. They mention they will get a new key for themselves and encourage the students to have their own keys or use the ones provided by Futurist.
+
+Key Points:
+- Error with Gemini
+- Keys might be the issue
+- Instructor will get a new key
+- Students are encouraged to have their own keys or use Futurist's provided keys
+
+Student Doubts:
+- None in this segment

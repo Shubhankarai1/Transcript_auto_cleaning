@@ -1,0 +1,23 @@
+Module: wdp
+Session: 5
+Topic: Team Project for Agent
+Chunk: 125
+
+Explanation: The teacher confirms that a project on agents will be given within the next week and mentions another simple project related to multi-agent systems.
+
+Key Points:
+- Project on agents will be given in the next week
+- There will also be a simple project on multi-agent systems
+
+Student Doubts:
+- The student asks about the nature of the teamwork for the projects (creating teams, tools used etc.)
+
+Transcript:
+3:02:57 Teacher: One last question sir actually u regarding the the teams actually you want to create
+3:03:04 3 hours, 3 minutes, 4 seconds and uh regarding the project the teamwork project right right
+3:03:11 3 hours, 3 minutes, 11 seconds so what would be the project on this on this part on agent I'll give you by the next week one project on this.
+3:03:19 3 hours, 3 minutes, 19 seconds Okay. Right.
+3:03:21 3 hours, 3 minutes, 21 seconds one project, one more project I'll give you on multi-aent sisters, right? By next, next week, right? A simple project only with tools and everything.
+3:03:29 3 hours, 3 minutes, 29 seconds I'll give it to you by next. Okay. Thank you, man. All right. Thanks a lot, guys. Thank you. Bye-bye.
+3:03:38 3 hours, 3 minutes, 38 seconds Take care and have very good Sunday ahead of you. Thank you. Bye.
+3:03:44 3 hours, 3 minutes, 44 seconds Thank you very much.

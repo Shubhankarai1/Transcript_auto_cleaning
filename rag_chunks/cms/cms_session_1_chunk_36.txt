@@ -1,0 +1,18 @@
+Module: cms
+Session: 1
+Topic: Building a Chatbot
+Chunk: 36
+
+Explanation: The instructor is explaining how to build a chatbot using Python and Pi Spark. The student is facing an issue where the chatbot is not picking up the correct user message in round three.
+
+Key Points:
+- Create a chat prompt template
+- Make a chain using the template
+- Pass the AI message to the context (chat history)
+- Update the code for user messages in round three
+- Implement the chatbot in a while loop and take user input
+
+Student Doubts:
+- The student is facing an issue where the chatbot is not picking up the correct user message in round three. The instructor suggests updating the code for user messages in round three.
+
+---

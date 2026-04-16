@@ -1,0 +1,19 @@
+Module: cms
+Session: 1
+Topic: Explanation of Agentic Rack System
+Chunk: 4
+
+Explanation: The lecture focused on the importance of understanding the concept of context in the Agentic Rack System. The speaker emphasized that cracking context is crucial as it serves as the backbone of the agentic system. He outlined the key aspects to be covered over the next sessions, including maintaining history, data acquisition (RAG), functions and tools (Pyantic), single-agent system, multi-agent system, and additional topics like autogen and crew AI.
+
+Key Points:
+1. Cracking context is essential for Agentic Rack System.
+2. Four to five sessions will focus on the concept of context.
+3. Topics include maintaining history in a chatbot, data acquisition (RAG), functions and tools (Pyantic), single-agent system, and multi-agent system.
+4. Additional topics like autogen and crew AI will be covered later.
+5. The speaker mentioned that memory management and ability to manage context are critical components in the Agentic Rack System.
+
+Student Doubts:
+1. Sushut asked for a quick summary of the lecture. Santo summarized the key points as mentioned above.
+2. No other student doubts were recorded during this transcript segment.
+
+---

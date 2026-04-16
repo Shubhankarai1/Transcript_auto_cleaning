@@ -1,0 +1,20 @@
+Module: wdp
+Session: 1
+Topic: Introduction to LangGraph
+Chunk: 1
+
+Explanation:
+The lecture introduces the LangGraph framework for implementing AI agents. The instructor clarifies that this is one of several frameworks available, but it is currently one of the most powerful in the market due to its ability to provide full control. The instructor explains the difference between regular API services and agentic systems, highlighting that agentic systems enable intelligent decision-making using computers, such as a company chatbot.
+
+Key Points:
+- LangGraph is a framework for implementing AI agents
+- It provides full control compared to other frameworks
+- Regular API services do not have intelligence, but agentic systems do
+- Agentic systems enable intelligent decision-making by computers (e.g., chatbots)
+
+Student Doubts:
+1. Is pyic similar or different from LangGraph? (Answer: Pyantic is a different package.)
+2. Will the session cover both agentic AI and pantentic, or just agentic AI? (Answer: The session will focus solely on agentic AI.)
+3. Can the instructor share more about LangGraph's complications compared to simple AI? (Answer: LangGraph is more complicated because it requires understanding and proper implementation, unlike simple AI.)
+
+---

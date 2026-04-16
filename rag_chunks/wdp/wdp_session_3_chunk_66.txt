@@ -1,0 +1,21 @@
+Module: wdp
+Session: 3
+Topic: Building a Graph for Conditional Transition Based on Number's Evenness
+Chunk: 66
+
+Explanation: The goal is to build a graph that transitions based on whether a number is even or odd. The graph starts at the 'start' node, moves to the 'check_number' node, and then either moves to the 'even' node or the 'end' node depending on if the number is even.
+
+Key Points:
+1. Initializing the state
+2. Adding nodes ('start', 'check_number', 'even')
+3. Creating edges ('start' to 'check_number')
+4. Adding conditional edge from 'check_number' to either 'even' or 'end'
+5. Defining a `route` function to handle the conditional transition
+6. Running the graph with a given number and checking the result
+
+Student Doubts:
+1. How does communication occur between nodes?
+2. What is passed when invoking the graph?
+3. How is the 'end' condition handled in the conditional edge creation?
+
+---

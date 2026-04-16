@@ -1,0 +1,29 @@
+Module: cms
+Session: 4
+Topic: Converting LLM steps into a function using LA (Language Agnostic)
+Chunk: 118
+
+Explanation: The lecture discusses converting the steps of calling an LLM (Language Model) into a function using Language Agnostic (LA) methods. The process involves converting the sources, which are values coming out of build context, into a function named Retrieval. The required variables for this function are query text and embedding (renamed as retrieve docs with a default top value of 5). The function returns a response.
+
+Key Points:
+- Convert LLM steps into a function using LA
+- Function name: Retrieval
+- Required Variables: query text, embeddings (retrieve docs)
+- Default value for top: 5
+- Return type: Response
+
+Student Doubts:
+1. What is the value of sources?
+   - Sources are values coming out of build context.
+2. Why is embedding called "retrieve docs"?
+   - It's just a better name given to embedding.
+3. Is it necessary to pass model inside the Retrieval function?
+   - No, as the model is already present in the main program.
+4. What changes were recently made?
+   - Only the retrieval part was converted into a function.
+5. How is the chain making different than usual?
+   - In this case, we manually pass the output of one query to another query and plus the output that's coming out is also different.
+6. What is the start function for?
+   - It's a wrapper function used to return the query string.
+
+---

@@ -1,0 +1,14 @@
+Module: wdp
+Session: 1
+Topic: Adding Email Category Field and Branches
+Chunk: 15
+
+Explanation: To add email categorization, a node needs to be added for email category decision and additional branches need to be created to handle each category differently. The complexity of the graph will increase but the same building blocks can still be used.
+
+Key Points:
+- Add a node for email category decision.
+- Create additional branches for handling each category.
+
+Student Doubts:
+1. How to figure out how to handle emails depending on their category?
+2. How does adding email category and branches increase the complexity of the graph?

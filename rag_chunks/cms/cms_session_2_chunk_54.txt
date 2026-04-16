@@ -1,0 +1,21 @@
+Module: cms
+Session: 2
+Topic: Replacing Lists with Message History in Langchain
+Chunk: 54
+
+Explanation: The teacher explains how to replace lists with message history in the langchain framework, which is preferred over Python's list due to its own data structures. This change will help maintain and manage code more effectively.
+
+Key Points:
+1. Replace lists with `message_history`.
+2. Import `InMemoryChatMessageHistory`.
+3. Initialize `inmemory_chat_message_history` instead of a regular list.
+4. Use `add_user_message()` and `add_ai_message()` to add messages.
+5. Instead of appending, use `messages.conversation_list.message`.
+
+Student Doubts:
+1. How do I replace the append part?
+2. What should I pass instead of `human_message` and `AI_message`?
+3. Where do I need to initialize the `inmemory_chat_message_history`?
+4. How do I import `InMemoryChatMessageHistory`?
+
+---

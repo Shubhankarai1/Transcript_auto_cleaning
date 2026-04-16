@@ -1,0 +1,18 @@
+Module: cms
+Session: 4
+Topic: Retrieval of Documents using Deep Learning Models
+Chunk: 108
+
+Explanation: The lecture explains how to retrieve documents using deep learning models in a question-answering system. It discusses the process, requirements, and customizations needed.
+
+Key Points:
+- Deep learning models expect a batch of data for training but can handle single items as well
+- When passing a single item, padding with zero is not necessary
+- During retrieval, ID, score, and text are extracted from each match and appended to a list
+- Customizations may be needed to retrieve specific metadata or values
+- The retrieval process will be further broken down in the next session
+
+Student Doubts:
+- None in this transcript
+
+---

@@ -1,0 +1,20 @@
+Module: cms
+Session: 4
+Topic: Calling Functions in Lambda Language (G)
+Chunk: 119
+
+Explanation: To call functions in the Lambda language (G), we first need to call the start function and pass the query inside it. The output of this is a dictionary, not one value. We then assign this output to `query_edited` using the `assign` function. After that, we keep on calling the functions and passing the updated query with each call.
+
+Key Points:
+- Call start function with the query
+- Output is a dictionary, not a single value
+- Assign output to `query_edited` using `assign` function
+- Keep on calling functions with the updated query
+
+Student Doubts:
+1. Why are there many brackets when calling multiple functions?
+2. How do we access the dictionary containing the query in G language?
+3. What is expected by the edit query function?
+4. Is indentation important in the Lambda language (G)?
+
+---

@@ -1,0 +1,21 @@
+Module: cms
+Session: 1
+Topic: Methods for Maintaining Accuracy in Summarizing Conversations
+Chunk: 30
+
+Explanation: The lecture discusses the challenges of maintaining accuracy when summarizing conversations over a period of time due to loss of technical accuracy and continuity. It also introduces various methods used to maintain accuracy, such as databases, knowledge graphs, RAG (Reiterated Aggregate Graph), vector embedding, and context windows.
+
+Key Points:
+- Loss of technical accuracy and continuity in summarizing conversations over time.
+- Using databases, knowledge graphs, RAG for maintaining accuracy in conversation summarization.
+- Vector embedding and context window as advanced methods for conversation summarization.
+- Larger context windows (like Gemini's 1 million tokens) can maintain information accurately.
+- Summarization can occur when reaching the context point to ensure logical sense.
+
+Student Doubts:
+1. What is RAG used for in conversation summarization?
+2. What role does vector embedding play in conversation summarization?
+3. How does a larger context window like Gemini's 1 million tokens maintain information accurately?
+4. When does summarization occur during a conversation to ensure logical sense?
+
+---

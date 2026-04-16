@@ -1,0 +1,23 @@
+Module: cms
+Session: 3
+Topic: Chunking Strategies and Upserting
+Chunk: 93
+
+Explanation: The lecture discusses how to handle different file formats using functions in a modular way. It also covers the upserting of data into the database as part of the homework.
+
+Key Points:
+- Functional approach for handling various file formats (HTML, Word, PDF)
+- Modular parts for better organization and understanding
+- Upserting data as part of the homework
+
+Student Doubts:
+1. Whether different file formats can be loaded into the code?
+Answer: Yes, you can do it all by creating a function to read the content from the files.
+2. Where should the files be uploaded for this task?
+Answer: Upload all your files in a data folder.
+3. Can the zip file be used directly in the code?
+Answer: No, you need to extract the contents of the zip file and upload them separately.
+4. What is the next step after upserting?
+Answer: The next step is creating embeddings (Step number 4).
+
+---

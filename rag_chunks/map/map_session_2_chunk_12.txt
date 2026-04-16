@@ -1,0 +1,19 @@
+Module: map
+Session: 2
+Topic: Customizing Retrieval Function for List of Queries
+Chunk: 12
+
+Explanation: The lecture discusses the need to customize a retrieval function for handling multiple queries instead of a single query. This is done by passing the number of multi-queries and modifying the retrieve docs function.
+
+Key Points:
+1. Customizing the retrieval function to accommodate lists
+2. Changing the chain of functions
+3. Using multiqueries to handle multiple queries
+4. Modifying the retrieve docs function to use retrieve blocks multi instead
+5. Maintaining a global dictionary for output management
+
+Student Doubts:
+1. "Just see this. It's already giving you error two places which are not running. Instead of edit query, what is your function? You tell. You only tell me what is the function instead of edit query bad?" - Answered with: Retrieve blocks multi
+2. "What all do you need to pass inside it? Just take a look at it yourself." - Answered with: Pass the queries that are coming from the last one and the top k per query
+
+---

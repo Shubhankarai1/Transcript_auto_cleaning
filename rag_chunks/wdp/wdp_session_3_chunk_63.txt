@@ -1,0 +1,21 @@
+Module: wdp
+Session: 3
+Topic: Understanding Custom States in Workflow Designing
+Chunk: 63
+
+Explanation: The lecture explains the creation and usage of custom states in workflow designing, using an example of a Language Model (LLM) node that responds to messages and returns responses. The custom state is designed to handle specific tasks like getting weather data for cities.
+
+Key Points:
+- Creating a custom LLM node
+- Defining the node to return messages and annotated lists
+- Ensuring all nodes respond in the same way
+- Running the graph with the custom state
+- Understanding the difference between previous methods and this one (using a custom state)
+- Adding multiple things to the custom state for future sessions
+
+Student Doubts:
+1. What is the difference between previous method and this one (using a custom state)?
+2. Can I add multiple things to the custom state?
+3. Why isn't Pyantic being used in the current session?
+
+---

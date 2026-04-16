@@ -1,0 +1,21 @@
+Module: wdp
+Session: 2
+Topic: Building a proxy system for chatbot
+Chunk: 33
+
+Explanation: The lecture discusses building a proxy system that acts as an intermediary between the user and the chatbot. This system checks if the question is valid before passing it to the chatbot.
+
+Key Points:
+- Proxy system prevents invalid questions from reaching the chatbot.
+- The proxy system determines whether the question is relevant or not based on certain parameters.
+- If the question is invalid, the proxy does not allow it to pass through and returns an error message.
+
+Student Doubts:
+1. When using a different model, the behavior is not the same as expected.
+2. The system shows name as number instead of an Indian name.
+3. There's an issue with 4.0 mini only.
+4. Request for validator function to be added in the proxy system.
+5. Discussion on using Gemini and handling invalid inputs.
+6. Clarification needed on how to use this with our tool calling.
+
+---

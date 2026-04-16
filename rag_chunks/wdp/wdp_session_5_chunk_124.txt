@@ -1,0 +1,20 @@
+Module: wdp
+Session: 5
+Topic: Designing AI Systems
+Chunk: 124
+
+Explanation: The lecture discusses designing two frameworks to make an AI system look more intelligent and explains that everything from then on is like Lego blocks where students can decide their topology and create Lego-like blocks. The teacher mentions this is the last session of season 1 and seasons 2 and 3 will begin soon.
+
+Key Points:
+- Design two frameworks to make an AI system look intelligent
+- Everything from thereon is like Lego blocks, students can decide their topology and create Lego-like blocks
+- The next sessions will be for season 2 and 3
+
+Student Doubts:
+1. Can the teacher share the link to the collabs? (Answer: Check Google drive and shared resources)
+2. Is there any framework to run long-running workflows with durable execution? (Answer: Use chron as a simple framework, airflow for something extra)
+3. Will external APIs be used in future sessions? (Answer: Yes, the teacher will provide a list of available APIs in the next session)
+4. Is there a session on MCP server? (Answer: The teacher skips MCP server for now but will consider adding it if necessary)
+5. Will the focus be on quickly making agents and deploying applications? (Answer: Yes, the teacher wants to show a simple application for deployment)
+
+---

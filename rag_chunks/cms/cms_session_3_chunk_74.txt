@@ -1,0 +1,20 @@
+Module: cms
+Session: 3
+Topic: Mounting Google Drive using GDrive and Accessing Data
+Chunk: 74
+
+Explanation: The session explains how to mount a Google Drive using GDrive and access the data in it. It also discusses installing necessary libraries (pine and sentence transformers) and facing issues during installation.
+
+Key Points:
+- Mount Google Drive using GDrive by authorizing access
+- Provide the location for mounting Google Drive
+- Install pip packages pine and sentence transformers
+
+Student Doubts:
+1. Samira, I've mounted my drive. I'm just checking if there are any files that collab is able to access in that location or not. It is saying that nothing is available. (40:04)
+2. Have you given it this data dictionary based on how I saved? (40:25)
+3. Is it available here? Can you see this here? So see this for me I think most of things are available. It will take time to load but I'm not able to see that on the left. I know it's everything is available. All the entire drive of my mind is available. You see this? (40:48)
+4. If you've done this right and you have force mounted it, I think it should be available here. If it is available, I could see it. (41:01)
+5. We will check if that happens for me as well. Let's see. (41:22)
+
+---

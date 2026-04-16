@@ -1,0 +1,21 @@
+Module: wdp
+Session: 1
+Topic: Setting API Key for Open Router
+Chunk: 11
+
+Explanation: The lecture discusses setting the correct API key for using Open Router in a code. The instructor helps students troubleshoot errors related to incorrect API keys and guides them on how to obtain the correct key from the Open Router website.
+
+Key Points:
+- Properly set API key for Open Router
+- Incorrect API key can cause authentication issues
+- Obtain an API key by logging into Open Router with Google
+- Replace the function in the code to use the Open Router API key
+- Remove unnecessary lines of code
+
+Student Doubts:
+- Question about saving files (1:16:58)
+- Error while running the code with provided API key (1:17:04, 1:17:11, 1:21:09)
+- Incorrect assumption of using Open AI key instead of Open Router key (1:18:46, 1:21:12, 1:22:56)
+- Question about defining the API key and function (1:22:15)
+
+---

@@ -1,0 +1,17 @@
+Module: map
+Session: 2
+Topic: Comparison of prompts between sessions
+Chunk: 4
+
+Explanation: The teacher is comparing the prompts used in two different sessions and explaining how they have been modified. He asks students to compare the step six from both sessions. He also reminds students to keep session two open for reference.
+
+Key Points:
+- Modifications made in the prompt between two sessions
+- Need for a function to maintain history in the prompt
+- Students are asked to compare the sixth step of both sessions
+- Reminder to keep session two open for future reference
+
+Student Doubts:
+- No significant student doubts were raised during this transcript. The teacher did not give the code that was requested earlier. It's unclear if the students found the needed function from their own notes or they are waiting for further instructions.
+
+---

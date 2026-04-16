@@ -1,0 +1,17 @@
+Module: wdp
+Session: 2
+Topic: Using LLM for Custom Output Formatting in Python
+Chunk: 43
+
+Explanation: The lecture explains how to use the LLM (Language Model) to generate custom output formats from functions and arrays. A new structured LLM is created, which takes the output of the normal LLM and reformats it into a desired structure using a loop.
+
+Key Points:
+- Creating a structured LLM for custom output formatting
+- Binding tools with the structured LLM to get the output in a desired format
+- Using Pantic classes to create or get an output in a specific format
+
+Student Doubts:
+- How to copy the code presented during the lecture? (Not explicitly mentioned, but it can be assumed that the instructor might have suggested taking notes)
+- Why is Microsoft OneNote not working as expected during the lecture? (It seems like a technical issue or bug in Microsoft OneNote, no solution was provided in the transcript)
+
+---

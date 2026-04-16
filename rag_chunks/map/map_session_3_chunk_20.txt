@@ -1,0 +1,24 @@
+Module: map
+Session: 3
+Topic: Sparse Embeddings and RAG Project
+Chunk: 20
+
+Explanation:
+Sparse embeddings are used for pre-filtering data, similar to the filtering technique we learned earlier. However, they are mixed with our algorithm so that we can enrich our Retrieval and Answer Generation (RAG) system using metrics. The structure after each step remains the same, follow it, plug-in, plug-out, and use the main function, driver function approach to design these codes.
+
+Key Points:
+1. Sparse embeddings for data pre-filtering
+2. Enrich RAG using metrics
+3. Plug-and-play game should be on at all times
+4. Increase/decrease top K and query generation to affect the answer
+5. AB testing for understanding the impact of changes
+6. Project for building multiple functionalities in a RAG system
+7. Discussion of the project to understand approaches and difficulties faced
+8. Update old information in chunks using metadata tags without rebuilding the entire chunking
+
+Student Doubts:
+1. Can reducing top K get the exact answer? (Answer: It may miss the main document, but it can still provide an answer.)
+2. What is the impact of increasing/decreasing top K on the answer? (Answer: Increasing top K gives multiple answers while decreasing it provides a specific answer.)
+3. How to update chunks with delta information without rebuilding the entire chunking? (Answer: Use metadata tags to delete old information and keep adding new information.)
+
+---

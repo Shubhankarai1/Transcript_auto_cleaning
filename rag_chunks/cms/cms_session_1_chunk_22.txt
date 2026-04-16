@@ -1,0 +1,21 @@
+Module: cms
+Session: 1
+Topic: Langin and Debugging in Langchain
+Chunk: 22
+
+Explanation: The lecture discusses the use of Langin, a programming language within Langchain, for handling errors during code execution. It also explains how to debug these errors using try-accept statements.
+
+Key Points:
+- Langin is a programming language used within Langchain.
+- It is relatively easier to handle and well-orchestrated.
+- Debugging in Langin involves placing try-accept statements at key points in the code.
+- The debugger will log errors or display them on the screen when encountered.
+
+Student Doubts:
+- How to debug errors that occur within Langchain? (Answer: Place try-accept statements at key points in the code.)
+- Is it straightforward to debug errors within Langin? (Answer: Yes, it is straightforward if you place try-accept statements at key points.)
+- Where should try-accept statements be placed when debugging Langin code? (Answer: They should be placed within each module of the chain or inside functions.)
+- Is there a difference in the data structure returned by APIs in Langchain compared to normal API responses? (Answer: Yes, there is a slight difference as Langchain wraps responses in AI messages.)
+- How can I get current news using Langchain API? (Answer: You may need to call a news API and ask the question directly.)
+
+---

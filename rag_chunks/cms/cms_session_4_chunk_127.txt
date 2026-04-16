@@ -1,0 +1,15 @@
+Module: cms
+Session: 4
+Topic: Session Feedback and Future Sessions
+Chunk: 127
+
+Explanation: The instructor thanks the students for attending the session and mentions that they found it engaging. The student asks about future sessions, to which the instructor explains that they will extend the program to build basics properly.
+
+Key Points:
+- Session feedback is positive
+- Future sessions will focus on building basics properly
+
+Student Doubts:
+- Inquiry about remaining sessions after this one
+
+---

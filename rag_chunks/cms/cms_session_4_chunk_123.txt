@@ -1,0 +1,21 @@
+Module: cms
+Session: 4
+Topic: Assigning values in See Lang
+Chunk: 123
+
+Explanation: The lecture discusses the use of `assign` function in See Lang which is different from pipes. It is used to create sequences by picking up values from previous cells. The problem encountered was that the API key was written in small case instead of capital, causing errors.
+
+Key Points:
+- `assign` function in See Lang
+- Difference between `assign` and pipes
+- Importance of following the same pattern while using `assign`
+- Capitalizing the API key to avoid errors
+
+Student Doubts:
+1. Does chaining in See Lang follow sequential execution?
+2. How can we access output from previous steps in a single step?
+3. Why was the Gemini API key causing problems?
+4. Is it necessary to break down the process into steps while using `assign` function?
+5. What is the significance of capitalizing the API key?
+
+---

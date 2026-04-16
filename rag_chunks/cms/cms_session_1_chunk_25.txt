@@ -1,0 +1,18 @@
+Module: cms
+Session: 1
+Topic: Understanding Prompt Templates in Langchain_Core
+Chunk: 25
+
+Explanation: In Langchain_Core, prompt templates help in passing system and human prompts. The `chain.invoke` method is used to get a response from the model. The prompt template converts messages into system and human messages automatically.
+
+Key Points:
+- Using `from message` instead of `from template`
+- Passing system and human prompts inside the prompt template
+- The `chain.invoke` method for getting responses from the model
+
+Student Doubts:
+1. Can we pass any variable in the user message?
+2. What is the significance of converting messages into system and human messages?
+3. How does the chain work with the new prompt template?
+
+---

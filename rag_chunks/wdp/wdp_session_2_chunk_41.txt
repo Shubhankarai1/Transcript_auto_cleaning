@@ -1,0 +1,21 @@
+Module: wdp
+Session: 2
+Topic: Validating City Input in Tool Schema
+Chunk: 41
+
+Explanation: The lecture discusses the process of validating city input using a tool schema and a validator function. The issue at hand is that the system isn't correctly handling certain cities, despite the validator being defined for specific cities.
+
+Key Points:
+1. Passing the city input to the tool schema with the validator bound to it.
+2. Validation of city input using a validator function.
+3. The tool schema uses the validator function to validate the city field.
+4. Potential contradiction between the validator and tool definition.
+5. Checking for errors in the system, such as handling different cities in the tool and validator or issues with the validator function itself.
+
+Student Doubts:
+1. Why is the system not correctly handling certain cities despite the validator being defined?
+2. Is there a contradiction between the tool and validator definitions that could be causing the issue?
+3. Why is the validator function not running when it should?
+4. What could be the reason for the system storing the last result instead of handling the current city input correctly?
+
+---

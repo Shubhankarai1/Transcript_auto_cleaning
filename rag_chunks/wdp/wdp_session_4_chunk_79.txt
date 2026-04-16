@@ -1,0 +1,20 @@
+Module: wdp
+Session: 4
+Topic: Revision of State Tools and Business Workflows
+Chunk: 79
+
+Explanation:
+The lecture focuses on revising the concepts of LAN graph, specifically state tools and business workflows. The teacher explains the purpose and design of states, and provides real-life examples for better understanding. They also discuss what should be stored in a state, what should be temporarily inside a node, and what should be passed to the tool.
+
+Key Points:
+1. States are shared runtime context, acting as a passing notepad among all parts.
+2. A state can store various types of data such as issue type, urgency, tracking status, final reply, retry count, etc.
+3. One-time calculations and some things that do not need to be put inside states should temporarily reside within a node.
+4. The teacher will cover examples for better understanding of what should be passed to the tool.
+
+Student Doubts:
+1. Clarification on what exactly a state is and what it is not.
+2. Question about handling one-time calculations in nodes vs states.
+3. Request for more examples to understand what should be passed to the tool.
+
+---

@@ -1,0 +1,17 @@
+Module: cms
+Session: 4
+Topic: Advanced RAG and Agent Tech Framework
+Chunk: 128
+
+Explanation: The lecture discusses the plan for the remaining sessions, focusing on advanced RAG (Risk Assessment Graph) and Agent Tech Framework. The instructor plans to introduce RAAS (an iterative framework for improving the RAG), corrective rag, adaptive rag, and various agentic architectures and states. The course will also combine agents with RAG, and cover context engineering, network topologies, and agent topologies.
+
+Key Points:
+- Advanced RAG: Introduction to RAAS, corrective rag, adaptive rag
+- Agent Tech Framework: Understanding various agentic architectures and states, combining agents with RAG
+- Context Engineering: Covering context management, network topologies, and agent topologies
+
+Student Doubts:
+1. With large context models coming in, is it possible to pass the entire context directly to the models instead of using RAG? The instructor explains that this isn't practical due to cost constraints when implementing in a company.
+2. The student questions the way of chunking for certain use cases where there's no way to really chunk it in a certain form and shape. The instructor promises to cover two ways to chunk properly in the upcoming sessions.
+
+---

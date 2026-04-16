@@ -1,0 +1,23 @@
+Module: wdp
+Session: 4
+Topic: Building a chat assistant using GraphQL and LLM (LangChain)
+Chunk: 93
+
+Explanation: The tutor is explaining how to create a chat assistant using GraphQL and LangChain (LLM). The assistant should be able to get everything required and return a dictionary. The students are asked to build the graph themselves to understand the process.
+
+Key Points:
+- Create a chat assistant with GraphQL and LLM
+- Return a dictionary by every person in the state
+- Understand the internal and external workings of the graph
+- Repeat the process multiple times to learn effectively
+- Custom router is used when needed for custom conditions or handling multiple tool nodes
+- Tool calls can be based on message output and history
+- LLM provides tool calls by default when bound with tools
+
+Student Doubts:
+- Anamika's question couldn't be heard clearly
+- The tutor mentions using router instead of tools condition in some cases, but the difference between the two wasn't explained.
+- The tutor doesn't search for a string in the messages, although it seems to imply that they do based on the explanation about tool calls being based on message output and history. This might need clarification.
+- The LLM provides tool calls by default when bound with tools, but it isn't clear how this happens or where these tool calls can be found in the state messages.
+
+---

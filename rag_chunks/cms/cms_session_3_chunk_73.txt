@@ -1,0 +1,22 @@
+Module: cms
+Session: 3
+Topic: Creating and Organizing Collab Files in a Repository
+Chunk: 73
+
+Explanation: The tutor explains how to create and organize collab files in a repository. They discuss the location of the data file, the need to extract it, the creation of a new folder for the session, and the placement of collab files within this session folder.
+
+Key Points:
+- Create a new folder for each session
+- Extract the data file before uploading its contents
+- Place collab files inside the corresponding session folder
+- The repository will be updated throughout the course
+
+Student Doubts:
+1. Is it correct that there is a session 3 rag intro folder with two folders: data and session three rack? (26:30)
+   - Answer: Yes, that's correct.
+2. Are we using this like a GitHub thing instead of a traditional repository? (29:44)
+   - Answer: Not yet, but they may use GitHub later on to build an end-to-end application.
+3. How to upload the collab file in session 3? (28:51)
+   - Answer: Right click and create a new collab file within the session folder.
+
+---

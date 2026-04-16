@@ -1,0 +1,25 @@
+Module: map
+Session: 3
+Topic: Creating a Tool using LLM (Large Language Model)
+Chunk: 36
+
+Explanation: The lecture discusses creating a tool using an LLM. The process involves defining a dictionary of tool names and actual tools, bringing the LLM and binding it, generating the first response, checking if the tool call was done, getting the selected tool, passing the tool call to the selected tool, appending the tool message back, and appending messages to the history.
+
+Key Points:
+- Define a dictionary of tool names and actual tools
+- Bring the LLM and bind it
+- Generate the first response
+- Check if the tool call was done
+- Get the selected tool
+- Pass the tool call to the selected tool
+- Append the tool message back
+- Append messages to the history
+
+Student Doubts:
+- Understanding how to create the mapping of tool calls and names
+- Clarifying the process of getting the selected tool corresponding to a specific tool call
+- Need for directly passing the tool call to the selected tool
+- The purpose of appending the AI message and tool messages
+- Understanding how to approach this problem when dealing with multiple steps or complexities
+
+---

@@ -1,0 +1,18 @@
+Module: map
+Session: 3
+Topic: Explanation of using Genai with LLM for generating content and utilizing tools
+Chunk: 26
+
+Explanation: The lecture discusses the use of Genai and LLM (Large Language Model) together to generate content. The process involves defining tools, passing them to LLM, and then asking it to answer queries using these tools. The example given is generating the weather forecast for Delhi.
+
+Key Points:
+- Use Genai with LLM for content generation
+- Define tools and pass them to LLM
+- LLM uses defined tools to answer queries
+- Manually call the function to get output
+
+Student Doubts:
+1. How does LLM know we have already defined functions? (Answer: You are passing it the tools)
+2. Does LLM call the function on its own? (No, you have to manually call it and get the outputs)
+
+---

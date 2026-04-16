@@ -1,0 +1,18 @@
+Module: wdp
+Session: 2
+Topic: Explanation of Pantic in LLM
+Chunk: 29
+
+Explanation:
+Pantic is a class used in LLM (Language Learning Machine) to enforce data type. This helps prevent errors when unexpected or incorrect data is sent to LLM. It ensures that the arguments passed to functions are in the correct format.
+
+Key Points:
+- Pantic enforces data types in LLM
+- Helps prevent errors caused by incorrect data
+- Ensures correct formatting of arguments
+
+Student Doubts:
+1. What happens if an invalid city name is provided? The LLM will return the argument as it is, causing a problem. Pantic can be used to force the LLM to give the right arguments.
+2. Why does the LLM only accept string city names in this function? Because the city variable is defined as str in the function. If it were changed to string or integer, the LLM would not accept it.
+
+---

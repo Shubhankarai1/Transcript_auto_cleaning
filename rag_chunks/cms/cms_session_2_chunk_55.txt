@@ -1,0 +1,21 @@
+Module: cms
+Session: 2
+Topic: Building a System for Learning
+Chunk: 55
+
+Explanation: The speaker discusses the importance of learning systems and building a system for learning any subject. He emphasizes understanding the steps involved, identifying which parts can be automated, and making adjustments as necessary.
+
+Key Points:
+- Learn by finding and following a series of steps in a system
+- Identify what can be automated within a learning system
+- Adjust the system based on changes
+
+Student Doubts:
+1. Question out of context: My Google key seems to be exhausted. Uh should I create a new one or should I add credits to it?
+   Answer: If you have another account, you can create a new one. Otherwise, use your Open AI key as well. So just instead of that this one LLM.
+2. Question: Can someone send the LLM code guys? The import just Yeah. Thank you.
+   Answer: The only change we have to do and everything else remains the same, right? With LLMs, right?
+3. Question (incomplete): We're still doing the append part ourselves...
+   Answer: Lang chain should handle the append part itself, as it is the orchestrator. However, there seems to be a missing part in the transcript regarding the solution for this issue. The speaker mentions something called "runnable message history" that will help automate this part.
+
+---

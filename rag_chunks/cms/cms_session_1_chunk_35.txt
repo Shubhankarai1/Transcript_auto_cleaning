@@ -1,0 +1,18 @@
+Module: cms
+Session: 1
+Topic: Appending AI Message to Chat History and Creating a Loop
+Chunk: 35
+
+Explanation:
+The AI is creating an AI message and appending it to the chat history. It then suggests putting the process in a while loop for continuous execution.
+
+Key Points:
+- AI creates messages
+- Messages are appended to chat history
+- Process can be put in a while loop for repeated execution
+
+Student Doubts:
+- Does the context need to be updated after each message? (Yes, the chat history serves as the context)
+- What format should the user's messages be in? (Human message)
+
+---

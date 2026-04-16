@@ -1,0 +1,23 @@
+Module: wdp
+Session: 1
+Topic: Email Classification System
+Chunk: 6
+
+Explanation:
+The email classification system takes an email as input and classifies it as spam or legitimate using AI. The system consists of several functions including `classify_email`, `handle_spam`, `drafting_response`, and `route_email`.
+
+Key Points:
+- Email state serves as the input for all functions
+- Each function uses the email state to perform its task
+- Functions may use different parts of the email state
+- The system determines if an email is spam or legitimate by checking the value of the 'is_spam' key in the email state
+- The `route_email` function makes decisions based on the value of 'is_spam' and returns either 'spam' or 'legitimate'
+
+Student Doubts:
+- What is the purpose of the `handle_spam` function?
+- How does the system personalize responses before sending?
+- What happens when the email state does not contain the 'is_spam' key?
+- Can a real-life implementation use different methods for classification instead of AI?
+- Is it possible to modify the system to handle emails with attachments or multiple recipients?
+
+---

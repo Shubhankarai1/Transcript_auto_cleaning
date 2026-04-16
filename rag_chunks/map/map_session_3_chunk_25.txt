@@ -1,0 +1,19 @@
+Module: map
+Session: 3
+Topic: Understanding Tools in LLM
+Chunk: 25
+
+Explanation: The lecture discusses the concept of tools in the context of Large Language Models (LLMs). The speaker explains how tools help to manage and organize functions within an LLM, enabling it to return desired outputs efficiently.
+
+Key Points:
+- Tools are used for organizing functions within an LLM
+- A tool can contain multiple functions
+- Each function within a tool takes specific parameters and returns particular outputs
+- LLMs can be configured to call the appropriate function based on given inputs
+
+Student Doubts:
+- How to create tools using Chat GPT?
+- What exactly does a tool do in an LLM?
+- How does an LLM determine which function to call within a tool for a specific input?
+
+---

@@ -1,0 +1,22 @@
+Module: map
+Session: 3
+Topic: Understanding Agentic AI and its framework
+Chunk: 21
+
+Explanation: The lecture focuses on understanding the Agentic AI mode and its framework. The discussion revolves around how the Large Language Model (LLM) works within this framework, its capabilities, and limitations.
+
+Key Points:
+- LLM is only called during specific steps in the work chain with history.
+- LLM provides text output only and does not execute functions or perform tasks.
+- To call functions using LLM, instructions need to be provided explicitly within the prompt, and it will be executed through a Python program.
+- A simple example is given to demonstrate this concept using a Jupyter notebook with OpenAI API.
+
+Student Doubts:
+1. How does LLM really call functions?
+2. If someone says that LLM can call APIs, why is that?
+3. In the given example, where is the session three and practice folder located?
+4. What are the steps to set up the API for this demonstration?
+5. Why was OpenAI used instead of Google Gemini in the provided example?
+6. How can you check the current weather using LLM without live weather data?
+
+---

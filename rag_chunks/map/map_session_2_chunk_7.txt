@@ -1,0 +1,23 @@
+Module: map
+Session: 2
+Topic: Multi-Query Expansion
+Chunk: 7
+
+Explanation: The lecture discusses multi-query expansion, a powerful technique used to generate various query variations for better and more accurate document retrieval.
+
+Key Points:
+- Multi-query expansion is a technique for generating multiple query variations for improved document retrieval
+- By using this technique, it's possible to obtain more accurate documents
+
+Student Doubts:
+1. If I change my key in between, do I have to run the entire LLM again?
+2. Is it necessary to use separate keys when working with multi-query expansion?
+3. How can I implement multi-query expansion?
+
+Transcript Excerpts:
+- "This is our second part. Right. This is our second part. Okay. And I'll just remove this copy of and all." (Renaming the notebook)
+- "You have to remove this runnable lambda start function you had. You remove that. You don't need the start function." (Removing the start function)
+- "One small hiccup here. If I change my key in between do I have run it from beginning like everything?" (Changing keys and running LLM again)
+- "let's say look at this now what we're going to do is what we're going to do is we're going to practice multi-query expansion" (Introduction to multi-query expansion)
+
+---

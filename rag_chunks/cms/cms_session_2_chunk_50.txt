@@ -1,0 +1,16 @@
+Module: cms
+Session: 2
+Topic: Defining Chain and Creating Loop with Python
+Chunk: 50
+
+Explanation: The transcript discusses defining chain again and then moving on to creating a loop in Python using the chat history. The user asks for an explanation of chain, and AI explains it as an artificial intelligence that can create new things like the text history they are maintaining. Then the user requests a loop to repeat only a specific part of the conversation, and AI suggests writing a while true loop and placing the repetitive part inside it.
+
+Key Points:
+- Definition of chain as an AI
+- Request for creating a loop in Python using chat history
+- Suggestion to write a while true loop and place repetitive part inside it
+
+Student Doubts:
+- Question around maintaining context in a chat system and starting a new chat history if the user suddenly changes the context. The user also asks how to build a chart history on a different product when the previous context was about another product. AI explains that they will teach this when discussing agentic AI.
+
+---

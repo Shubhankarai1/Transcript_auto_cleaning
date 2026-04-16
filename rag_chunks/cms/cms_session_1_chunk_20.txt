@@ -1,0 +1,20 @@
+Module: cms
+Session: 1
+Topic: Creating a Chain of Languages for Interaction
+Chunk: 20
+
+Explanation: The lecture explains how to create a chain of languages (LLM and LCEL) for interaction using runnable lambda. It starts with defining the LLM, creating the prompt, passing the prompt to the LLM, getting the output from the LLM, and passing it to the function in runnable lambda. The chain is called and invoked with the system prompt and user message.
+
+Key Points:
+- Define LLM using chatg or any other method
+- Create a complete prompt with user message inside
+- Pass the prompt to the LLM
+- Get the output from the LLM
+- Pass the output to the function in runnable lambda
+- Put the functions (LLM and LCEL) inside runnable lambda for interaction
+- Call the chain with system prompt and user message
+
+Student Doubts:
+- Is it possible for the runnable function to handle overloaded functions with multiple inputs? The answer is yes, it can handle all of these things.
+
+---

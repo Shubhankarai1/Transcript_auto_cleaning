@@ -1,0 +1,20 @@
+Module: cms
+Session: 3
+Topic: Organizing Documents and Vectors
+Chunk: 84
+
+Explanation: The lecture discusses six steps to organize documents and vectors. Step three involves reading and chunking documents, creating IDs for each chunked document, and storing the text of each chunked document. This is where most of the heavy lifting will be done.
+
+Key Points:
+- Six steps to organize documents and vectors
+- Step three: Read, chunk, and create format for documents
+- Chunking is introduced in step three
+- Rest of the steps remain largely the same or require additional metadata
+- Vector databases can support vector formats
+
+Student Doubts:
+1. Question: Where will you introduce chunking? (Answer: Step three)
+2. Query: How to generate code for similar projects (Answer: The instructor promises to provide an exercise after the lecture)
+3. Question: Is it possible to attach embeddings as a new column in vector databases after chunking? (Answer: Yes, this is doable and typically becomes another column in the vector column of tables)
+
+---

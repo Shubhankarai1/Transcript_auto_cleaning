@@ -1,0 +1,16 @@
+Module: wdp
+Session: 4
+Topic: Project Assignment Review and Submission
+Chunk: 97
+
+Explanation: The instructor discusses how students can submit their project files, suggesting a group discussion as the best way to review multiple projects. They propose that students first discuss within groups with similar implementations, then present their work to broader groups for further discussion on potential improvements.
+
+Key Points:
+- Students should discuss within groups first based on similar implementation.
+- After internal discussions, broader groups will be formed to discuss different strategies and potential improvements.
+
+Student Doubts:
+- How to submit project files for review considering multiple participants?
+- What is the best way to go about reviewing multiple projects?
+
+---

@@ -1,0 +1,17 @@
+Module: cms
+Session: 3
+Topic: Clarification on Chunking Issue
+Chunk: 92
+
+Explanation: The student is facing an issue where the code they are running is producing a different number of chunks than expected (74 vs 82). This is due to multiple upserts into the vector database. The solution provided is to check and ensure that only one file is being uploaded, and all files have the same size and number of files.
+
+Key Points:
+- Multiple upserts in the vector database can lead to an increase in the number of chunks created.
+- Ensure that only one file is being uploaded, and all files have the same size and number of files.
+
+Student Doubts:
+- The student is unsure about how to correctly set the chunk size and handle any issues with extra files.
+- The student is unclear on how to run the for loop correctly to avoid edge conditions.
+- The student needs clarification on how the code reads, chunks, iterates over, and adds ids to the chunks.
+
+---

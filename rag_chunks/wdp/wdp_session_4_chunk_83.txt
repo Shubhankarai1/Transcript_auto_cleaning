@@ -1,0 +1,22 @@
+Module: wdp
+Session: 4
+Topic: Building a Graph for Ticket Classification
+Chunk: 83
+
+Explanation: The lecture explains how to build a graph for ticket classification in a helpdesk system. The process involves passing the state class, adding notes, classifying the ticket, drafting the reply, adding edges between nodes, and ending the flow.
+
+Key Points:
+- Pass state class
+- Add notes
+- Classify ticket
+- Draft reply
+- Add edges between nodes (Classify ticket to Draft reply)
+- End the flow with Draft reply to end
+
+Student Doubts:
+- What node should be added first? (Classify ticket)
+- Is there any function or tool needed in this case? (No)
+- What should be sent after graph building? (User message)
+- Any additional clarification in the draft reply (A line of code `tool text is equal to state get tool text`, but it's not used here)
+
+---

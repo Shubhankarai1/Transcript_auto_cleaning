@@ -1,0 +1,21 @@
+Module: cms
+Session: 3
+Topic: Mounting Data Drive in Google Colab
+Chunk: 75
+
+Explanation: The instructor is guiding students on how to mount their data drive in Google Colab.
+
+Key Points:
+- Check if the files are mounted correctly using the provided code.
+- Ensure the path is correct and points to the right location (Content/drive).
+- Rename the file and paste its name in the appropriate place.
+- If an error occurs, fix it by rerunning the cell or checking for undefined variables.
+- The drive name can be found by looking at the screenshot of the Google Drive folder.
+
+Student Doubts:
+1. Why is `data_dir` not defined? (44:38)
+   - Solution: Rerun the cell where the error occurred or define `data_dir` as needed.
+2. How to get the drive name? (45:37)
+   - Solution: Take a screenshot of the Google Drive folder, put it in the chat, and ask the instructor to write you a drive name. The drive name will be similar to the one provided by the instructor (my drive/future/session 3 rag intro).
+
+---

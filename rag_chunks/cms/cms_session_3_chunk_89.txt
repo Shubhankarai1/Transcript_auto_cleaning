@@ -1,0 +1,17 @@
+Module: cms
+Session: 3
+Topic: Creating a Simple Chunker Function using langchain
+Chunk: 89
+
+Explanation: The lecture explains how to create a simple chunker function using langchain, which is used to split a text into chunks. The teacher first demonstrates the use of the built-in recursive character text splitter provided by langchain. The student is then encouraged to read a file from their directory, use the reading part provided, and chunk it themselves.
+
+Key Points:
+- Use the `recursive character text splitter` provided by langchain
+- Read a file from your directory
+- Chunk the content using the provided reading part
+
+Student Doubts:
+1. The Google Collab prompted the same code as the teacher while they were typing, which could be due to sharing or accessing the teacher's collab.
+2. The content of a file is not being displayed when running the code. This may be due to an issue with the file path, contents, or permissions. The student is advised to check their file once and ensure that they have the correct file path and can access it.
+
+---

@@ -1,0 +1,15 @@
+Module: map
+Session: 2
+Topic: Maintaining Rag History
+Chunk: 2
+
+Explanation: The lecture discusses maintaining a history in Rag (Rapid API Generator), emphasizing the importance of having history for the functionality of Rag. The instructor reviews the components used for maintaining history, which include message placeholder, chat prompt template, runnable message with history, and inmemory chat message history.
+
+Key Points:
+- Maintaining a history is crucial for Rag's functionality.
+- Components used for maintaining history are message placeholder, chat prompt template, runnable message with history, and inmemory chat message history.
+
+Student Doubts:
+- The instructor asks students if they remember the components used for maintaining history while working on vala session.
+
+---

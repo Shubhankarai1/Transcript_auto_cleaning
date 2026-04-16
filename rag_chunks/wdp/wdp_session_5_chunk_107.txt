@@ -1,0 +1,20 @@
+Module: wdp
+Session: 5
+Topic: Invoking and Responding with an Agent
+Chunk: 107
+
+Explanation: The discussion revolves around invoking and responding with an agent in a multi-agent system. The agent can be invoked by providing user messages and roles, and the response is obtained from a structured response action field within the structured response.
+
+Key Points:
+- Invoke the agent with user message and role
+- Response is available in structured response action field
+- Test the node for validation
+
+Student Doubts:
+- Since we have already passed the system message while creating the agent, do we need to specifically pass that here? (No, only the user message needs to be provided)
+- What should the data type of the return value be? (Dictionary)
+- What should the function return? (Issue summary and priority)
+- Is there a field from pandantic for issue summary? (Yes, it is available in the structured response returned by the agent)
+- How to test the node? (By passing a message into the intake node and checking the output)
+
+---

@@ -1,0 +1,16 @@
+Module: cms
+Session: 4
+Topic: The Future of AI and Stock Market
+Chunk: 131
+
+Explanation: Discusses the permanence of technology in the industry and the impact on Nvidia's GPU sales due to the rise of Google's TPUs for inferencing.
+
+Key Points:
+- Technology is here to stay due to its relevance in the corporate world.
+- Fear of being left out leads to competition in adapting to AI.
+- TPU's gaining momentum could lead to a decrease in GPU sales for Nvidia.
+- The industry sentiment is shifting towards using TPUs for inferencing instead of GPUs due to their cost efficiency and similar capabilities.
+- Nvidia has acquired a startup that creates chips similar to TPUs to stay competitive.
+
+Student Doubts:
+- None in this transcript.

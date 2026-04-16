@@ -1,0 +1,19 @@
+Module: wdp
+Session: 5
+Topic: Workflow Types in Machine Learning
+Chunk: 118
+
+Explanation: The lecture discusses three types of workflows in machine learning: deterministic, dynamic, and hybrid. Deterministic workflow is sequential in nature, like the example of Lunch. Dynamic workflow allows decisions at each node, while hybrid workflow combines both sequential and decision-making elements.
+
+Key Points:
+1. Deterministic Workflow - Sequential, one-dimensional flow with no decision makers (Lunch is an example).
+2. Dynamic Workflow - Allows decisions at each node, making it dynamic.
+3. Hybrid Workflow - Combines sequential and decision-making elements.
+4. Branching Workflow - Defines the input-output travel in workflows.
+5. Looping Workflow - Circular movement between nodes.
+6. Fan Out Workflow - Same task given to multiple agents, used when LLMs are probabilistic in nature.
+
+Student Doubts:
+1. What is the benefit of giving the same task to three different agents? (Answer: Agents have a deter probabilistic nature, making it useful for decisions such as marking emails as spam or not.)
+
+---

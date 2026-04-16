@@ -1,0 +1,22 @@
+Module: cms
+Session: 1
+Topic: Role of V in Langchain
+Chunk: 17
+
+Explanation:
+In the explanation, the instructor discusses the role of V in Langchain. The process involves defining a Language Model (LLM), getting an output from it, sanitizing the output using a function, and then obtaining results. The instructor highlights that V is doing most of the heavy lifting in this process, similar to a solo kirana shop owner who doesn't believe in team building.
+
+Key Points:
+- Defining Language Model (LLM)
+- Getting output from LLM
+- Sanitizing output using a function
+- Obtaining results
+- V is doing most of the heavy lifting
+
+Student Doubts:
+1. Why is V doing most of the work in Langchain?
+2. How can I ensure team building in Langchain to reduce the workload on V?
+3. What are the benefits of using Langchain's orchestration capabilities?
+4. Can you provide an example of how to use LLM as an orchestrator in Langchain?
+
+---

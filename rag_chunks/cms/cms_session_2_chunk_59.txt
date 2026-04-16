@@ -1,0 +1,17 @@
+Module: cms
+Session: 2
+Topic: Wrapping Multiple Session IDs in Config
+Chunk: 59
+
+Explanation: The teacher explains how to wrap multiple session IDs in a configuration file. He suggests asking the user for their ID first and then using that ID to retrieve their history.
+
+Key Points:
+- Ask the user for their ID
+- Use the provided ID to get the user's history
+- Maintain a separate session ID for each user
+- Store the session ID in the configuration file
+
+Student Doubts:
+- How to wrap multiple session IDs in a config? (Answer: You don't need to wrap multiple session IDs. Instead, maintain a separate session ID for each user.)
+
+---

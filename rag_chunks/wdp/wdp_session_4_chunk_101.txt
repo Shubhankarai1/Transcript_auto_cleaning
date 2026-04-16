@@ -1,0 +1,19 @@
+Module: wdp
+Session: 4
+Topic: Data Analysis and Project Approach
+Chunk: 101
+
+Explanation: The lecture discusses data analysis strategies using a specific platform, and the approach to a project given to students. It also touches upon the usage of Crew AI and Langraph.
+
+Key Points:
+- Data analysis is best done when data is aggregated, not in its entirety due to limitations.
+- A data bricks pipeline can be used for summarizing data and automation.
+- The project approach involves discussing different approaches, combining them, and discussing the best approach after considering extraordinary ones.
+- Crew AI is a group chat-like platform where multiple agents interact and suggest solutions. It was not covered in this session but will be discussed later.
+- Langraph is a message appending system, similar to a group chat, where multiple people can share information.
+
+Student Doubts:
+- Will Crew AI work the same way internally? (Answer: Yes, it's a group chat-like platform.)
+- Did Ankit make his project as a prompt for preparation? (Answer: Yes, he made his project as a prompt to prepare according to guidelines.)
+
+---

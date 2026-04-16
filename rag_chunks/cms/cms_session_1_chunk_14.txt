@@ -1,0 +1,20 @@
+Module: cms
+Session: 1
+Topic: Distinguishing User Messages from System Messages in AI Interaction
+Chunk: 14
+
+Explanation: The lecture explains the importance of maintaining history and context to help an AI model differentiate between user messages and system messages in a conversation. The system keeps track of this history by stacking the messages in order, with the first message being the user's and the second being the system's. This allows the AI to understand the sequence of the conversation.
+
+Key Points:
+- Maintaining history is crucial for AI to differentiate between user and system messages.
+- The AI uses the order of the messages to understand the sequence of the conversation.
+- The sequence is important as it helps the AI to respond appropriately.
+
+Student Doubts:
+1. What is the underlying technology for models like ChatGPT?
+2. How does ChatGPT create system messages?
+3. Is there an API that manages this behind the scenes?
+4. Can the AI automatically categorize user messages as system messages?
+5. Does the system message designing run on a smaller neural network?
+
+---

@@ -1,0 +1,23 @@
+Module: wdp
+Session: 4
+Topic: Project Structure and Discussion for Multi-Agent Systems
+Chunk: 98
+
+Explanation: The instructor explains the structure of upcoming projects related to multi-agent systems, including a project on classification, followed by combining knowledge graphs and multi-agent systems. The final project will be a deployment project with an emphasis on improving processes using metrics. The instructor encourages group discussions among students to share ideas and improve understanding.
+
+Key Points:
+- 5 projects on multi-agent systems
+- Classification project first, followed by projects combining knowledge graphs and multi-agent systems
+- Deployment project focused on process improvement with metrics
+- Encouragement of group discussions among students
+
+Student Doubts:
+- Ankit's issue with API not working during the multi-agent systems project
+- Discussion on how to deploy the final product
+- Clarification on challenges faced, techniques used, and strategies implemented during projects
+- Proposal for a two-hour call among students to discuss and clarify topics internally
+- Inquiry about reusing agents in a company context instead of reinventing the wheel
+
+The instructor suggests using AI tools such as transcription services and AI summarizers to facilitate discussions and knowledge sharing among students. The goal is to classify strategies from given steps into four to five groups for further discussion.
+
+---

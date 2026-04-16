@@ -1,0 +1,17 @@
+Module: cms
+Session: 4
+Topic: Advanced Chunking Code Explanation
+Chunk: 125
+
+Explanation: The lecture discusses two architectures - Langchain and Langgraph. Langchain follows a fixed path, while Langgraph allows multiple options to each node, enabling it to go in multiple ways. The instructor mentions that they will provide important notes in the code and also create diagrams for better understanding.
+
+Key Points:
+- Langchain follows a fixed path
+- Langgraph allows multiple options at each node
+- Important notes will be provided in the code
+- Diagrams will be created for better understanding
+
+Student Doubts:
+- Question about getting a new key for running the code
+- Asking for more hands-on expertise on deep learning in future classes or sessions
+- Inquiry about the remaining sessions after this one

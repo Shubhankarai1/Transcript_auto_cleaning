@@ -1,0 +1,19 @@
+Module: wdp
+Session: 5
+Topic: Creating a Reviewer Agent
+Chunk: 106
+
+Explanation: The conversation revolves around creating a reviewer agent for a multi-agent system. The instructor provides guidelines on how to create nodes for each agent and explains the role of the intake agent.
+
+Key Points:
+- Creating a reviewer agent in a multi-agent system
+- Importance of defining fields when working with multi-agent frameworks
+- The role of the intake agent is to ask for essential information, not to be informed about communication between parties
+- The first step in creating nodes for each agent is defining the field that the node should see
+
+Student Doubts:
+- Whether the intake agent should see the reply or just the draft reply (Answer: Only inform the intake agent about the final reply)
+- Whether the receptionist needs to know about communication between parties (Answer: No, the receptionist's job is to ask for essential information and convey that message)
+- What fields to define when creating nodes in a multi-agent framework (Answer: Define the field that each node should see)
+
+---

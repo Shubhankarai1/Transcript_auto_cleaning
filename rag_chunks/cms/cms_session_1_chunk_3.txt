@@ -1,0 +1,22 @@
+Module: cms
+Session: 1
+Topic: Understanding and Designing Multi-Agent Systems
+Chunk: 3
+
+Explanation: The lecture focuses on understanding the concept of topologies, emphasizing the importance of managing context in any system, especially in multi-agent systems. The lecturer explains that they will cover this topic for the next four weeks, aiming to design normal multi-agent systems and create a working chatbot.
+
+Key Points:
+1. Managing context is crucial in designing any system.
+2. The lecture covers understanding and managing context over the next four weeks.
+3. The goal is to design normal multi-agent systems and create a conversational chatbot.
+4. The delivered chatbot should maintain historical context.
+5. The lecturer will provide simple codes to understand the workflow without needing extensive Python knowledge.
+6. The course aims to make students understand how technology impacts their lives.
+
+Student Doubts:
+1. Can we create an exact enterprise-based agentic system? (Answer: No, due to unavailability of enterprise data and differences in data structure.)
+2. Will the provided Python codes be complex at some point? (Answer: Yes, but initially, codes will be simple for easier understanding.)
+3. What happens when we reach the complicated part? (Answer: The lecturer will organize more functions to help navigate through complexity.)
+4. What is the deliverable of this course? (Answer: A working conversational chatbot that can maintain historical context and pull data from a website.)
+
+---

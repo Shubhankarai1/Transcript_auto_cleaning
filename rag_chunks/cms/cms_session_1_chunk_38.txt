@@ -1,0 +1,19 @@
+Module: cms
+Session: 1
+Topic: Explanation of LLMs (Language Models) and Probabilistic Values
+Chunk: 38
+
+Explanation:
+The lecture discussed Language Models (LLMs) which are probabilistic models used to predict words based on a dictionary. The topmost probability is not selected for output, instead, algorithms such as Top P, Top K, and temperature come into play to select a probabilistic value. The teacher mentioned that these concepts were covered in previous sections and will be explained further in future sessions.
+
+Key Points:
+- LLMs predict words based on a dictionary
+- Top P, Top K, and temperature are used to select probabilistic values for output
+- Raising the temperature makes the output more random while reducing it makes it less random and more deterministic
+
+Student Doubts:
+1. Is there any useful book or YouTube link that can provide a detailed explanation of these concepts?
+2. How does this concept relate to search engines like Google or Gemini?
+3. Can you elaborate on the attention mechanism used by transformer models in this context?
+
+---

@@ -1,0 +1,19 @@
+Module: cms
+Session: 3
+Topic: Explanation of Vector Database and Cosine Similarity
+Chunk: 86
+
+Explanation: The lecture discusses the process of finding the closest embedding related to a query in a vector database. The database doesn't just run cosine similarity on values but also performs it only on unique values due to the presence of a randomization element in models, ensuring different embeddings for the same text.
+
+Key Points:
+- Unique dictionary with values as keys
+- Randomization element in models leading to different embeddings for the same text
+- Organization of data after pre-processing and chunking in a specific format
+- HNSW algorithm used for organizing data in vector databases
+- Custom logic required for chunking data containing numbers, dates, or times
+
+Student Doubts:
+- Whether Google Drive documents are used in the scenario (No, not yet)
+- How to handle data with numbers, dates, or times during chunking (Create custom logic depending on the type of data)
+
+---

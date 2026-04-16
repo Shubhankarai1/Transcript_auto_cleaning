@@ -1,0 +1,20 @@
+Module: wdp
+Session: 2
+Topic: Field Validator in Django
+Chunk: 40
+
+Explanation:
+In Django, field validators are used to validate the data entered by users. They ensure that the data meets specific criteria before being saved into the database.
+
+Key Points:
+- Create a custom field validator by defining a function with `def` and passing `cls` (the current class) and `vstr` (the string to be validated).
+- Check your custom logic within the function and return an error if validation fails.
+- Import `field_validator` from `pyantic`.
+
+Student Doubts:
+1. How do I use this field validator for name validation?
+   - You can validate anything with a custom field validator. To validate the name, create a function and check your custom logic within it.
+2. Why am I getting an error when I put numbers in the name string?
+   - This is because we have set a pattern that doesn't allow numbers. When the number comes in, it will not accept it since it follows exactly that pattern. If you want to allow numbers in names, modify your pattern accordingly.
+
+---

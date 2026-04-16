@@ -1,0 +1,20 @@
+Module: map
+Session: 3
+Topic: Using Tool Messages in Python
+Chunk: 32
+
+Explanation: The lecture explains how to use tool messages in Python for creating and managing tool calls. It discusses the structure of a tool message, the need for a unique Tool ID, and the usage of decorators to convert functions into tools without requiring separate tool calls or cards.
+
+Key Points:
+- Create tool messages with content and tool call ID
+- Append AI messages before appending tool messages to history
+- Use JSON.dumps to get string content
+- The Tool ID remains unique for each tool call
+- Utilize decorators to convert functions into tools without requiring separate tool calls or cards
+
+Student Doubts:
+1. Why is the Tool ID included in the messages as a tool message?
+2. If the same API is called twice, will it have different IDs?
+3. How does using decorators remove the need for separate tool calls and cards?
+
+---

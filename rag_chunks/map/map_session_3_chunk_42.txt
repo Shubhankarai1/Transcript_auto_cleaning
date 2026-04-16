@@ -1,0 +1,25 @@
+Module: map
+Session: 3
+Topic: Creating a Chatbot using Langchain and LLM
+Chunk: 42
+
+Explanation: The lecture discusses creating a chatbot using Langchain and Large Language Model (LLM). The process involves manually doing it first, then passing a tool card to LLM, and letting lang chain pass the tool card to LLM. This method is claimed to be the easiest way. The importance of testing the code multiple times and ensuring different arguments for tools was emphasized.
+
+Key Points:
+- Use Langchain and LLM to create a chatbot
+- Manually do it first, then use a tool
+- Let lang chain pass the tool card to LLM
+- Important to test the code multiple times
+- Ensure different arguments for tools
+
+Student Doubts:
+1. Can there be a limit to the number of tools that can be passed?
+   - Answer: No, many tools can be used. As many as possible.
+2. How effectively can LLM differentiate between similar tools with almost similar arguments?
+   - Answer: If arguments are different, LLM can differentiate. But if arguments are the same, it's not possible and unethical to make such tools.
+3. Who is invoking the tool (Langchain or LLM)?
+   - Answer: The user invokes the tool. Langchain tells you to call the function, but it's the user who calls the function.
+4. What kind of project will be assigned for the creation of a chatbot?
+   - Answer: A random website from the internet will be chosen, and a chatbot will be created on that website using rat-script and history, with context management.
+
+---

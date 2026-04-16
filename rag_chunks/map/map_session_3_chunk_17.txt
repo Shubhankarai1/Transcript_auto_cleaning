@@ -1,0 +1,19 @@
+Module: map
+Session: 3
+Topic: Query Pipeline and Document Reranking
+Chunk: 17
+
+Explanation: The lecture discusses the query pipeline and document reranking in the context of a retrieval system. The process includes query expansion, document retrieval, and document reranking using a cross-encoder model.
+
+Key Points:
+- Query Expansion: To expand queries to get a diverse set of documents.
+- Document Retrieval: Using an algorithm that was used with query expansion.
+- Document Reranking: Using a cross-encoder model to score each document against the query and reorder them based on their scores.
+
+Student Doubts:
+- What is the specific algorithm for multi-query expansion?
+- How does the reranking process remove or add documents?
+- Can other models be used instead of the cross-encoder for document reranking?
+- What is the purpose of setting a limit in the final top K return?
+
+---

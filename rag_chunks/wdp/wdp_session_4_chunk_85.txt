@@ -1,0 +1,26 @@
+Module: wdp
+Session: 4
+Topic: Designing and Testing a Language Model (NLM)
+Chunk: 85
+
+Explanation: The lecture discusses the process of designing and testing a Language Model (NLM). The model is designed node by node and tested with sample data to ensure its functionality. The NLM is used to generate responses based on messages received, which may require calling an external tool if needed.
+
+Key Points:
+- Designing NLM node by node
+- Testing each node with sample data
+- Using built-in state (messages state) for handling messages
+- Calling external tools when necessary
+
+Student Doubts:
+1. Understanding the casual leave policies
+2. Building the graph for the NLM
+3. Understanding how to go about designing the NLM
+4. The first thing to do when building the NLM graph
+5. Adding nodes and edges in the NLM graph
+6. Understanding why the same things are being repeated in the lecture
+7. Passing messages inside the state graph for NLM
+8. Knowing which node (help desk) to add in the NLM graph
+9. Knowing from where to add an edge in the NLM graph (start to HR)
+10. Understanding why the same concepts are being emphasized repeatedly in the lecture
+
+---

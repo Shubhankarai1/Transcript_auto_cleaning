@@ -1,0 +1,19 @@
+Module: wdp
+Session: 4
+Topic: Overview of Remaining Curriculum
+Chunk: 74
+
+Explanation: The lecture provides an overview of the remaining curriculum for multi-agent systems, explaining what topics have been covered so far and what is yet to be discussed.
+
+Key Points:
+- Multi-agent topologies (alignment of different agents, state sharing)
+- Context engineering for multi-agent systems (not covered yet)
+- Agent planning in workflow design (already discussed, more on multi-agent systems in upcoming sessions)
+- Introduction to workflow designs in multi-agent systems (covered partly, LCAL design principles already covered)
+- Real world integrations with agentic AI (introduction to APIs, databases, knowledge bases, knowledge graphs, and monitoring, including metrics)
+
+Student Doubts:
+- When will context engineering for multi-agent systems be covered? (Answer: In the future sessions)
+- What is the role of monitoring in this curriculum? (Answer: It will be covered in the module 11 on real world integrations)
+
+---

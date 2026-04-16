@@ -1,0 +1,19 @@
+Module: wdp
+Session: 5
+Topic: Testing a Writer Node in Dialogflow
+Chunk: 111
+
+Explanation: To test the Writer node in Dialogflow, create a state and put a user message inside it. The message should contain customer issues like "I have not received the product in 15 days now. Please get me the refund." Pass this state to the intake node first, so that it updates the state with intake details (issue summary and priority). After updating the state manually, call the writer node for drafting a reply based on the updated state values.
+
+Key Points:
+- Create a state containing user message
+- Pass the state to the intake node first
+- Update the state manually
+- Call the writer node to draft a reply
+
+Student Doubts:
+- How can I use custom messages for testing?
+- Can I test multiple edge cases using Gemini?
+- Should I let AI do everything or should I test it manually?
+
+---

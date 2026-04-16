@@ -1,0 +1,22 @@
+Module: wdp
+Session: 5
+Topic: Designing Multiple Workflows in a Multi-Agent System
+Chunk: 114
+
+Explanation: The lecture discusses the process of designing multiple workflows within a multi-agent system, using examples and explanations. The focus is on understanding the structure of these systems, including the roles of various agents, state management, and the sources of draft replies.
+
+Key Points:
+- Multiple workflows can be designed in a multi-agent system.
+- It's not recommended to use multiple states; instead, one state with views is preferred.
+- The writer node generates the draft reply which is then reviewed by another agent.
+- Blackboarding refers to a collaborative process where agents share ideas in a common state (shared workspace).
+- In blackboarding, there are no defined stages like intake, writing, and reviewing; all agents work concurrently.
+- The lecture also discusses other possible patterns and combinations within multi-agent systems.
+
+Student Doubts:
+1. What is the source of the draft reply? (Answer: Writer node)
+2. What is blackboarding in the context of a multi-agent system? (Answer: A collaborative process where ideas are shared among agents in a common state, similar to brainstorming.)
+3. Can multiple states be used instead of one? (Answer: Yes, but it's not recommended.)
+4. What is the better approach for managing states and views in a multi-agent system? (Answer: Having one state with views is preferred.)
+
+---

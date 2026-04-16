@@ -1,0 +1,20 @@
+Module: wdp
+Session: 5
+Topic: Introduction to Direct Agent Module
+Chunk: 105
+
+Explanation: The lecture discusses the introduction of a new module called the Direct Agent Module which simplifies the previous Language Model (LLM) by handling everything including tools and graph nodes. It is part of Langchain and does not require any if-else conditions or additional graph nodes from LLM.
+
+Key Points:
+- Introduction to Direct Agent Module
+- Simplification of Language Model (LLM)
+- No need for if-else conditions or additional graph nodes
+- Part of Langchain
+
+Student Doubts:
+1. How is the Direct Agent Module created?
+2. What is the format for defining the Direct Agent Module?
+3. Is it necessary to create a new response format class for each agent?
+4. How to create the Writer Agent and what is its prompt?
+
+---

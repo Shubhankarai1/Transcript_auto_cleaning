@@ -1,0 +1,16 @@
+Module: wdp
+Session: 4
+Topic: API Usage for Database Access
+Chunk: 96
+
+Explanation: The instructor explains how APIs are used to access databases such as Oracle and MySQL. They clarify that it is not the AI system (LLM) that accesses the database, but rather the Python code written by the user, which uses a user ID login and password to access the database.
+
+Key Points:
+- APIs are used to access databases.
+- The user's Python code accesses the database with a user ID login and password.
+- LLM does not play a role in this process, it only indicates which function to call.
+
+Student Doubts:
+- Will there be any future restrictions for AI systems accessing databases?
+- Can the instructor review the project files and what is the expected output format and expectations?
+- How should students submit their projects for review considering multiple participants?

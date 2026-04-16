@@ -1,0 +1,17 @@
+Module: wdp
+Session: 4
+Topic: Designing a State for Ticket Raising Assistant
+Chunk: 80
+
+Explanation: The lecture discusses designing a state for a ticket raising assistant in the form of a graph. The state is designed to hold issue category, subcategory, urgency, and based on urgency, the assistant drafts a reply from the LLM (Language Learning Model).
+
+Key Points:
+- Designing the state for a ticket raising assistant
+- State should include issue category, subcategory, urgency
+- Based on urgency, the assistant drafts a reply from the LLM
+
+Student Doubts:
+- What will be passed inside the state? (Answer: issue category, subcategory, urgency)
+- Why is a list or string used instead of storing history? (Answer: We don't need to store any history; we just need to draft a reply and send it back.)
+
+---

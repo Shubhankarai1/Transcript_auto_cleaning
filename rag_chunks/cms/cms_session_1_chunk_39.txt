@@ -1,0 +1,24 @@
+Module: cms
+Session: 1
+Topic: Explanation of Attention Mechanism in NLP
+Chunk: 39
+
+Explanation:
+The attention mechanism is a model that predicts the probability of the next best word during text generation. It maintains an attention to specific parts of the text to determine context and make predictions. The attention mechanism works by predicting one word at a time, appending it to the input text, and then predicting the next word. If there is ambiguity, the model normalizes the probability to choose between multiple options.
+
+Key Points:
+- Attention mechanism maintains an attention to specific parts of the text to determine context
+- Works by predicting one word at a time and appending it to the input text
+- Normalizes probability to choose between multiple options in case of ambiguity
+
+Student Doubts:
+1. Question: Ambiguity that means if it is a nearest two results are there which one to choose both having equal probability that fit.
+   Response: The model normalizes the probability. It adds a small random factor and normalizes the probability so it changes.
+2. Question: Can you differentiate summarization into a formula so that it could be used in real-world applications like chatbots?
+   Response: Consider yourself as an AI. If you cannot remember all parts of a conversation, you use RAG (Relational Articulated Graph) to remember minute details. For long-term memory, you can store conversations in a RA (RAM). You keep important memories in RA that are not currently relevant in the current chat.
+3. Question: Is it clear now whenever we want a long-term memory which we do not want to keep in the current chat, we use RAG?
+   Response: Yes, you use RAG for long-term memory. You store information that is not currently relevant in the current chat in RA (RAM). You cannot have unlimited RAM but you can certainly have a large amount of hard disk space to store such memories.
+4. Question: Out of whatever conversations happened if I'm talking about a particular cafe, I will only bring that particular part back to my current memory right?
+   Response: Yes, same thing also works with RAG. In specific places, you have to use RAG whereas you use knowledge graphs when you need pointer-based information.
+
+---

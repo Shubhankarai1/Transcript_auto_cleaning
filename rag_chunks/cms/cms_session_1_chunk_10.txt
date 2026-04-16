@@ -1,0 +1,19 @@
+Module: cms
+Session: 1
+Topic: Understanding AI Messages and their Roles using Langchain
+Chunk: 10
+
+Explanation: The lecture discusses the structure of AI responses, particularly focusing on AI messages in the context of Langchain. It explains that an AI message contains both content and additional response metadata such as finish reason, model name, etc. The speaker demonstrates how to use OpenAI API with Langchain and shows the importance of understanding the roles (user role, system role, and AI role) in Langchain.
+
+Key Points:
+1. AI messages contain content and additional response metadata.
+2. Using Langchain allows for easy switching between models.
+3. The three main roles in Langchain are user role, system role, and AI role.
+4. Understanding the roles is crucial to effectively utilize Langchain.
+
+Student Doubts:
+1. How can I install lchain? (Answer: Install it without the hash.)
+2. What changes should be expected with function calls in OpenAI? (Answer: The speaker will need to research and adapt due to differences from previous implementations.)
+3. Can you share the code for using Google API with Langchain? (Answer: The speaker asks the students to quickly get a Google API and put it in the chat to avoid breaking the flow.)
+
+---

@@ -1,0 +1,20 @@
+Module: wdp
+Session: 2
+Topic: Calling and using a function with LLM (Language Learning Model)
+Chunk: 34
+
+Explanation: The lecturer is explaining how to use a function with the Language Learning Model (LLM). He discusses creating a schema definition for a specific function, passing necessary inputs to it, and ensuring compliance with Pyantic class. He also mentions that the city input should be passed to description instead of default.
+
+Key Points:
+1. Creating a schema definition for a function
+2. Passing city as a string input
+3. Ensuring function compatibility with Pyantic class
+4. Sending city input to description instead of default
+
+Student Doubts:
+1. Why should the city input be sent to the description instead of default?
+   - Answer: Because it's not in default by default. You can give something like NA if it is not present then it will give NA stuff like that. So you have to give description. (1:38:501 hour, 38 minutes, 50 seconds)
+2. How does the function comply with the Pyantic class?
+   - Answer: By passing the schema inside the tools and ensuring that the tool is equal to the weather input. (1:40:061 hour, 40 minutes, 6 seconds)
+
+---

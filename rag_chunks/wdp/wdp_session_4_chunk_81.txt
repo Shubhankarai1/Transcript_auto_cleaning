@@ -1,0 +1,21 @@
+Module: wdp
+Session: 4
+Topic: Creating an LLM for Ticket Classification
+Chunk: 81
+
+Explanation: In this lecture, the teacher is explaining how to create a Language Model (LM) for ticket classification in a helpdesk system. The LM will take a user's message as input and return the issue type and urgency level.
+
+Key Points:
+- Import LLM quickly
+- Importer element is crucial
+- Need a function to classify tickets
+- Output should come from an LLM
+- LLM should be able to call the classification function
+- LLM will return issue type, urgency, and other relevant information
+- Use Pyantic class to structure output
+
+Student Doubts:
+- How to structure the output of the LLM? (Answer: Use a Pyantic class)
+- What is the base model for creating the Pyantic class? (Answer: Need to import it)
+
+---

@@ -1,0 +1,24 @@
+Module: cms
+Session: 2
+Topic: Creating and Using a Chain with Memory
+Chunk: 58
+
+Explanation: The lecture discusses the standard way of creating and using a chain with memory in an application. The chain is wrapped with `runnable` and `message history`. The next step is to pass input messages like session ID and history message keys, and provide a function that returns the history. The function provided is universal and will scale for millions of user sessions.
+
+Key Points:
+1. Wrap the existing chain with runnable and message history
+2. Pass session ID and history message keys to the new chain
+3. Use a standard way to pass session ID, such as configuration or environment variables
+4. Call the new chain instead of the old one after providing the necessary input
+5. Keep the old chain unchanged and just update it with the new structure
+6. The provided function will maintain session history
+7. The function and code can scale for huge sessions
+
+Student Doubts:
+1. Will the standard method scale up for large volumes of sessions? - Yes, it will scale up.
+2. How to pass the session ID? - Pass the session ID within a config or use environment variables
+3. What additional input needs to be passed with the new chain? - Session ID and history message keys need to be passed
+4. Do we need to pass chat history after wrapping it in the new runnable chain? - No, chat history is taken care of by the running lambda function
+5. Can the code be tested before moving on to the rag theory? - Yes, test the provided code first
+
+---

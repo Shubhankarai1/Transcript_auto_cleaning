@@ -1,0 +1,18 @@
+Module: wdp
+Session: 2
+Topic: Explanation of LLM and Pyantic in Python
+Chunk: 31
+
+Explanation: The lecturer explains the use of LLM (Language Model) and Pyantic in Python for automating code and simplifying function calls. He demonstrates creating a class, passing data to LLM, and discussing how LLM processes the data according to the instructions given.
+
+Key Points:
+- LLM saves effort by creating variables and arguments, printing, and formatting automatically
+- Pyantic acts like a form, filling it with proper shape and format when given input related to that form
+- When passing data to LLM, it follows all instructions given in the context provided
+
+Student Doubts:
+1. Can we restrict string fields to alphabets only? (Answer: Yes)
+2. Can we make stricter criteria for the field (Answer: Yes)
+3. Can LLM differentiate between Indian names and other names? (Answer: It can be programmed to do so, but it's a weak model for mini, so it might not be perfect.)
+
+---

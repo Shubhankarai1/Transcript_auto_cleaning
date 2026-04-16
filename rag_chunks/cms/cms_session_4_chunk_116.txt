@@ -1,0 +1,18 @@
+Module: cms
+Session: 4
+Topic: Post Filtering Steps and Context Building
+Chunk: 116
+
+Explanation: The lecture discusses post filtering steps and context building in machine learning models. The post filtering process involves removing irrelevant data based on token cost and relevance score. Context building is about passing the response to the model along with a maximum cash limit (default 1200) and expected output.
+
+Key Points:
+- Post filtering removes irrelevant data based on token cost and relevance score.
+- Context building involves passing the response, maximum cash limit, and expected output to the model.
+- Embed links can be added during context building.
+
+Student Doubts:
+1. On what basis should the token cost be decided?
+2. Is it necessary to set a token limit in every case?
+3. What is prompt rendering and augmentation?
+
+---

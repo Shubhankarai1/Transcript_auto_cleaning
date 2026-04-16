@@ -1,0 +1,20 @@
+Module: map
+Session: 3
+Topic: Learning Python for Generative AI and Number of Agents
+Chunk: 44
+
+Explanation:
+The lecturer discusses the importance of learning Python for creating agentic AI codes, emphasizing that AI can design front-ends but not full agentic AI due to complexity and customization requirements behind the scenes. The lecturer also mentions planning to create a course on Python for generative AI in the future.
+
+Key Points:
+- Importance of learning Python for creating agentic AI codes
+- Limitations of AI designing full agentic AI codes
+- Plans to create a course on Python for generative AI
+
+Student Doubts:
+- How to decide on the number of agents based on prompt size or requirements
+- Breaking down tasks for multiple agents and maintaining manageable numbers
+
+The lecturer explains that the number of agents created is not based on data availability but rather on function and role, with each agent having a specific task and tools available to them. For instance, if analyzing feedback data, breaking it down into smaller tasks might require more than two or three agents to handle multiple attributes.
+
+---

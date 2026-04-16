@@ -1,0 +1,20 @@
+Module: map
+Session: 3
+Topic: Explanation of Cross Encoder in Retrieval and Reranking
+Chunk: 18
+
+Explanation:
+The cross encoder is used to re-rank the documents retrieved from multiple queries using a second opinion model. The process includes generating multiple queries, retrieving multiple documents, applying free ranking, getting fused results, and obtaining reranked results. For debugging purposes, a logger can be added to access document rankings before and after re-ranking.
+
+Key Points:
+1. Cross encoder serves as a second opinion model for document re-ranking.
+2. The process involves generating queries, retrieving documents, applying free ranking, getting fused results, and obtaining reranked results.
+3. A logger can be added for debugging purposes to access document rankings before and after re-ranking.
+4. Cross encoder uses the original query, not the multi-query, for the re-ranking process.
+5. The cross encoder's importance lies in its ability to improve precision in a recall problem context.
+
+Student Doubts:
+1. What is precision and how many decimal points are considered?
+2. What is recall?
+
+---

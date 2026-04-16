@@ -1,0 +1,25 @@
+Module: wdp
+Session: 1
+Topic: Identifying Function at Each Node and Approach (AI or Non-AI)
+Chunk: 19
+
+Explanation: The task is to identify the function to be carried out at each node in a given transaction data. The functions should be identified for a duration of 5 minutes. The identification will determine whether the function is to be performed using AI or non-AI approaches.
+
+Key Points:
+1. Task involves identifying functions for transaction data analysis.
+2. Functions to be carried out at each node need to be determined.
+3. AI and non-AI approaches can be used depending on the identified functions.
+4. The task is time-bound (5 minutes).
+
+Student Doubts:
+1. When the term "transaction" is mentioned, it refers to numerical data.
+2. The need for IT fraud detection and general support is being discussed.
+3. Clarification required on the definition of fraud.
+4. Acceptance of AI-generated responses is good but students are expected to improvise on them.
+5. Use of AI for initial ideas is acceptable.
+6. Need for a more elaborate solution for identifying primary issues.
+7. Data classification part requires more thought on how to make decisions about the routing mechanism.
+8. Clarification needed on the master part and what needs to be done for it.
+9. Explanation required about the best approach for handling the problem (combining AI and traditional methods using langraph).
+
+---

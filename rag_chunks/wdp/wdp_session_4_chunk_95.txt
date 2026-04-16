@@ -1,0 +1,27 @@
+Module: wdp
+Session: 4
+Topic: Creating and Testing an LLM Node in Agentic AI Workflow
+Chunk: 95
+
+Explanation: The lecturer explains the steps to create and test an LLM (Language Model) node in an agentic AI workflow. The process includes creating tools, defining bindings, defining state tools, creating and testing the LLM node, logging the router, building the language, and binding the LLM with a Pyantic class for specific output requirements.
+
+Key Points:
+1. Create tools using Dockstring
+2. Define bind with the LLM
+3. Bind LLM with tools or Pideantic
+4. Define state tools
+5. Make the LLM node and test it using charg
+6. Log router
+7. Build language and bind LLM with Pyantic class (if necessary)
+8. State is like a global variable temporary to the node
+9. Use lists for handling large data instead of messages
+10. Integrate databases for fetching data
+11. Create an API for accessing the database
+
+Student Doubts:
+1. What exactly is a state? (Answer: State is like a class which acts as global variables that are temporary to the node)
+2. How will you use tables in this context? (Answer: The same way you build messages, but for large data, you can use list messages instead)
+3. What about order ids and other data from MySQL? (Answer: You'll fetch it using the API created and then retrieve it in the function)
+4. What will be used as MCP tool? (Answer: A single API, not an MCP function full-fledged function which calls the API)
+
+---

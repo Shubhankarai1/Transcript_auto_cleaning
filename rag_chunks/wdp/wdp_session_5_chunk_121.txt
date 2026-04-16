@@ -1,0 +1,22 @@
+Module: wdp
+Session: 5
+Topic: Handoff Patterns and Topologies
+Chunk: 121
+
+Explanation: The lecture discusses handoff patterns and topologies, focusing on the sequential and cyclic nature of handoffs, topology as a decision-making tool for communication, and various topologies such as pipeline and router topology.
+
+Key Points:
+- Handoffs can be sequential or cyclic
+- Topology is used to decide communication patterns
+- Pipeline topology involves one-way communication
+- Router topology involves a central agent for routing queries to relevant agents
+- In a router topology, an agent may contain multiple sub-agents with their own topologies
+
+Student Doubts:
+- Can there be a return in pipeline topology? (Answer: Yes, sometimes)
+- Where should router topology be used? (Answer: When there is only one task at hand, such as an HR request)
+- What does the router topology do? (Answer: It routes queries to relevant agents)
+- Can multiple sub-agents exist within an agent in a router topology? (Answer: Yes)
+- What are states being exchanged in communication? (Answer: The states could be the results of tasks or data related to tasks)
+
+---

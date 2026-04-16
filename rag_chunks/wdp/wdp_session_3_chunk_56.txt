@@ -1,0 +1,17 @@
+Module: wdp
+Session: 3
+Topic: Creating a Chatbot with Python
+Chunk: 56
+
+Explanation: This lecture explains the creation of a chatbot using Python by building a state graph. The teacher creates a function called `chatbot` that calls an LLM (Large Language Model) to handle the conversation. Then, a graph is built using a builder function which adds nodes and conditional edges.
+
+Key Points:
+- Creating a function `chatbot` that calls an LLM
+- Building a state graph with a builder function
+- Adding nodes (LLM node, tool node)
+- Adding conditional edges from LLM to tools using the `tools_condition`
+
+Student Doubts:
+- None in this transcript.
+
+---

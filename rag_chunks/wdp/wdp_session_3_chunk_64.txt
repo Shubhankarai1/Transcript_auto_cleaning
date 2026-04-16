@@ -1,0 +1,18 @@
+Module: wdp
+Session: 3
+Topic: Custom State and Maintaining Flow in LLM
+Chunk: 64
+
+Explanation: In custom state management, messages are appended to maintain state and flow in a logical manner. The LLM can stop the process if certain conditions are met, such as exceeding a specified count limit. The additional things that can be maintained are infinite.
+
+Key Points:
+- Maintain custom state by incrementally adding messages
+- Use additional things for maintaining the flow (infinite possibilities)
+- Stop the process if certain conditions are met (like exceeding a count limit)
+
+Student Doubts:
+1. Mayuri wanted to know why the weather information for Pune was not retrieved. The function for Pune was not defined in the code.
+2. Santo asked about the code that needs to be executed now, and was told to run the same code with the new state created instead of using Langraph's own state.
+3. There was a doubt about binding tools in Langraph and it was explained that tools need to be bound with LLM to inform it about available tools.
+
+---

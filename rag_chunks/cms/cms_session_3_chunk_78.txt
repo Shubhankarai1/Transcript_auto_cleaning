@@ -1,0 +1,21 @@
+Module: cms
+Session: 3
+Topic: Creating Index for Vector Database
+Chunk: 78
+
+Explanation: The lecture explains the steps to create an index for a vector database using embeddings. The process includes authenticating into the vector database, creating an index, and ready-ing your documents. The dimensions used depend on the model being used for embedding creation. The cosine method is used for querying documents from the database.
+
+Key Points:
+- Authenticate into the vector database
+- Create an index
+- Ready your documents (specifications discussed)
+- Use deep learning models for converting text to embeddings and querying
+- Cosine method for querying
+
+Student Doubts:
+1. Can dimensions be specified in open embeddings? Answer: Yes, but it depends on the model being used.
+2. Does a higher number of dimensions signify more accuracy? Answer: Ideally yes, but it also depends on the specific model being used.
+3. What happens when a document is ready for processing? Answer: The text in the document is converted into embeddings using a deep learning model.
+4. How are queries answered using the cosine method? Answer: Both the query and the documents are converted into embeddings. The cosine similarity between these embeddings determines the relevance of the documents to the query.
+
+---

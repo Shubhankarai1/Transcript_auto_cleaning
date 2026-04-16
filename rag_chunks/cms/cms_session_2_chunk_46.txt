@@ -1,0 +1,18 @@
+Module: cms
+Session: 2
+Topic: Passing chat history and user input in LLM
+Chunk: 46
+
+Explanation: The explanation discusses how to pass the chat history and user input when interacting with a Language Model (LLM). It explains that the user should have a prompt template, and the LLM will handle creating the actual prompt using the passed history and user input.
+
+Key Points:
+- Use a prompt template instead of an actual prompt
+- Pass the chat history and user input when interacting with the LLM
+- The LLM will automatically create the prompt using the passed history and user input
+
+Student Doubts:
+- Do I need to pass the system message inside history? No, only history is required.
+- What will the first thing that goes in history? Previous chats history, starting with the human message.
+- How do I pass the past conversation list and user input to the LLM? Pass the past conversation list as chat history and user_ut as user input.
+
+---

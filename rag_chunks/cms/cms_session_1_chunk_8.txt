@@ -1,0 +1,23 @@
+Module: cms
+Session: 1
+Topic: Understanding Roles in API Calling for AI
+Chunk: 8
+
+Explanation:
+In this lecture, the instructor explains the concept of roles in API calling for Artificial Intelligence (AI). The role helps set the mindset of the AI by providing a framework to guide its responses. The user can define the role while making an API call, and if not defined, the system assumes it as 'user'.
+
+Key Points:
+- API calls require defining roles for the AI to set its mindset.
+- User defines the role while making an API call. If not defined, the system assumes it as 'user'.
+- The user's role can be different based on their professional background (e.g., data analytics team or sales team).
+- In AI, a system role is used to set the mindset of the AI by providing a framework for its responses.
+- API calls using Lang are expected to change things in the future.
+
+Student Doubts:
+1. What other roles can be there besides 'user'?
+2. What exactly is a system role?
+3. How does a system role set the mindset of the AI?
+4. Can you explain more about lchain and its integration with API calls for AI?
+5. Will things change with Lang in terms of API calling for AI?
+
+---

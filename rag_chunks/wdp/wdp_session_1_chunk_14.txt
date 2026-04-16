@@ -1,0 +1,16 @@
+Module: wdp
+Session: 1
+Topic: Route Wallah Thing and Exception Handling
+Chunk: 14
+
+Explanation: The route wallah thing is a decision-making point, not a node. Function names are different from node names which can be the same but should be in quotes. If output is spam or ham but includes hallucinations, exception handling is required. For advanced LLMs, proper exception handling is necessary for production code.
+
+Key Points:
+- Route wallah thing is a decision-making point, not a node.
+- Function names are different from node names and should be treated as such.
+- Proper exception handling is crucial for advanced LLMs in production.
+
+Student Doubts:
+1. How to handle output hallucinations in LLMs?
+2. Where and how to add the email category field in the current graph?
+3. How to incorporate human in the loop function?

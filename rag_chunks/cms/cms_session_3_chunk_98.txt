@@ -1,0 +1,17 @@
+Module: cms
+Session: 3
+Topic: Tree-based Indexing and Chunking
+Chunk: 98
+
+Explanation: The lecture discusses the possibility of implementing a tree-based indexing system for organizing documents and the use of chunking strategies. The teacher explains that a document becomes a parent, and related documents become children in the tree structure. They also mention that multiple chunking strategies exist, and research papers should be read to find the best one.
+
+Key Points:
+- Tree-based indexing for organizing documents
+- Chunking strategies exist (research needed)
+- Parent document with child related documents in tree structure
+
+Student Doubts:
+1. Student's code is not showing sources, and they ask why sources are none even when retrieved. The teacher explains that no source has been given.
+2. Student asks for advice on investing time to understand page indexing as it is a trending topic in the market and interviews. The teacher agrees and suggests exploring more and reading research papers on chunking.
+
+---

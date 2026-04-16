@@ -1,0 +1,22 @@
+Module: map
+Session: 3
+Topic: Creating Messages for Function Output
+Chunk: 33
+
+Explanation: The lecture explains how to create messages for function outputs using Large Language Model (LLM). It involves passing messages, checking for function tool calls, getting function names and arguments, calling functions, appending AI and function messages, and structuring the code in an if-else block.
+
+Key Points:
+1. Passing Messages
+2. Checking for Function Tool Calls
+3. Getting Function Names and Arguments
+4. Calling Functions
+5. Appending AI and Function Messages
+6. Structuring the Code in an if-else Block
+
+Student Doubts:
+1. The error with 'tool result' and its definition
+2. Clarification on steps provided earlier
+3. Understanding the purpose of the steps given
+4. Query about what is being done in step four of the process
+
+---

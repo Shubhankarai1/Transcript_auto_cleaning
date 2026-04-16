@@ -1,0 +1,18 @@
+Module: wdp
+Session: 3
+Topic: Explanation of Langraph
+Chunk: 50
+
+Explanation:
+The teacher is explaining the functionality of Langraph, a tool that helps in executing multiple functions. The student asks for an explanation and the teacher compares it to a graph where LLM (Language Model) and tools associated with it are nodes. When a query comes to LLM, it decides which tool to call and Langraph takes care of calling the tool and bringing the output back to LLM. LLM then prints the output or continues execution based on its decision.
+
+Key Points:
+- LLM will have multiple tools associated with it as nodes in a graph
+- When a query comes, LLM decides which tool to call and Langraph executes it
+- The output is brought back to LLM by Langraph
+- LLM prints the output or continues execution based on its decision
+
+Student Doubts:
+The student asks for an explanation about Langraph multiple times.
+
+---

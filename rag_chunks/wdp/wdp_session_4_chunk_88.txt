@@ -1,0 +1,19 @@
+Module: wdp
+Session: 4
+Topic: Designing an agent for order tracking and refund eligibility
+Chunk: 88
+
+Explanation: The lecture discusses the design of an agent that can handle customer inquiries about order status, shipment details, and refund eligibility. Two tools are introduced: fetch_tracking_update and evaluate_refund_eligibility. The agent should convert these functions into tools, bind them with Language Models (LLMs), and call the LLMs in a specific order.
+
+Key Points:
+- Design an agent to handle customer inquiries about orders, shipments, and refund eligibility
+- Use two tools: fetch_tracking_update and evaluate_refund_eligibility
+- Convert functions into tools and bind them with LLMs
+- Call the LLMs in a specific order
+
+Student Doubts:
+- How to convert functions into tools and bind them with LLMs?
+- What should be the order of calling LLMs?
+- How to handle chat messages along with business fields (order ID, shipment ID, etc.)?
+
+---

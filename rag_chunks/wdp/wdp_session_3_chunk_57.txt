@@ -1,0 +1,21 @@
+Module: wdp
+Session: 3
+Topic: Adding Conditional Edges in Graph Building
+Chunk: 57
+
+Explanation: The lecture explains how to add conditional edges in a graph builder using Python. The instructor demonstrates the process by defining a tool condition and adding an edge from one node to another, with the option for the edge to go to a third node under certain conditions.
+
+Key Points:
+- Importing the necessary tools
+- Defining the tool condition
+- Adding edges in the graph builder
+- Compiling the graph
+- Checking the graph output
+- Using the graph to answer queries
+
+Student Doubts:
+1. How to define the edge condition?
+2. What is the purpose of the "end" variable left unassigned?
+3. How to print the full flow of the graph execution?
+
+---

@@ -1,0 +1,29 @@
+Module: map
+Session: 3
+Topic: Understanding Multi-Agent System Framework
+Chunk: 16
+
+Explanation: The lecture covers understanding the multi-agent system framework, which includes building agents, making them call APIs, and making them perform various tasks. The framework will be covered in the next two weeks.
+
+Key Points:
+1. Multi-agent system framework
+2. Building agents
+3. Making agents call APIs
+4. Understanding different functions
+5. Learning about multi-agent system workflow
+
+Student Doubts:
+1. Question about accessing the content on the portal (Susha, 19:35)
+   - Response: See the notebook links you already have
+2. Query about the session and module (20:07)
+   - Response: Session five, advanced track. We are in module eight, multi-agent planning workflow design.
+3. Question about starting agents today (20:14)
+   - Response: Yes, we will start working on agents from today
+4. Query about the prerequisites for agentic AI (21:27)
+   - Response: The most important prerequisites are pantic and tool calling. Once these are known, we can start langraph.
+5. Question about the topics to be covered in the next two weeks (23:12)
+   - Response: Understanding the multi-agent system framework within the next two weeks.
+6. Query about sharing session six (24:12)
+   - Response: Share the link for session six, it's in the master folder inside section 63 of the practice notebook in the session six folder.
+
+---

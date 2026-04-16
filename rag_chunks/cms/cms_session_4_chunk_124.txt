@@ -1,0 +1,18 @@
+Module: cms
+Session: 4
+Topic: Explanation on Pre-filtering and Post Filtering in Search Algorithms
+Chunk: 124
+
+Explanation:
+The concept of pre-filtering and post filtering in search algorithms was not initially pioneered by Google. Instead, it is a practice used by several tech giants including Google, IBM, etc., to improve the quality of their search results. Pre-filtering refers to the process of eliminating irrelevant data before further processing, while post filtering involves applying additional criteria after initial processing to refine the results.
+
+Key Points:
+- Pre-filtering and post filtering are techniques used by tech companies for better search results.
+- Google, IBM, and other premium institutions publish white papers on improving rankings and making answers more effective.
+- These techniques are ever-changing as they follow the market trends and white papers released by these institutions.
+
+Student Doubts:
+1. The student asked if it's possible to visualize the steps in a graphical format for better understanding and recall.
+2. Another student praised the clarity of the lectures and takeaways but expressed concerns about the complexity of upcoming sessions due to advanced chunking codes.
+
+---

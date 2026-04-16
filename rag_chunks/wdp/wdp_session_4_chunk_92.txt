@@ -1,0 +1,18 @@
+Module: wdp
+Session: 4
+Topic: Adding Conditional Edges in Graph Algorithm
+Chunk: 92
+
+Explanation: The assistant explains how to add conditional edges from tools to the assistant tool node in a graph algorithm. It also mentions the usage and purpose of the tool condition, router, and the function of the router in handling tool calls.
+
+Key Points:
+- Adding conditional edges from tools to the assistant tool node
+- Understanding the purpose and usage of the tool condition
+- Learning about the router function in a graph algorithm
+
+Student Doubts:
+1. What is the purpose of the tool condition?
+2. How does the router work and what does it do in a graph algorithm?
+3. Can you explain the process of building a graph in Graph Algorithm?
+
+---

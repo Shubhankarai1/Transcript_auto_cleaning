@@ -1,0 +1,22 @@
+Module: wdp
+Session: 4
+Topic: Module Overview and Clarification on Covered and Remaining Modules
+Chunk: 76
+
+Explanation: The lecture clarifies the modules covered and the ones yet to be covered in the course. The confusion arises due to the overlapping content in some modules.
+
+Key Points:
+- Module 6 Agent Topologies is being covered now.
+- Context Engineering in Module 7 Multi-agent System has been covered.
+- FIS Pine Cone was covered as part of Context Engineering.
+- Retrieval and everything related to it were also covered.
+- Modules 1, 2, and 4 are still to be done since they cover topics like basic language chain, history, function calling that were not covered initially.
+- Module 8 is partially covered, with the half part being about calculating agent coordination and task delegation. The other half involving integrating RAG components for shared contextual memory will be covered later on with knowledge graphs.
+- The lecture encourages clear module structure and mindset to avoid confusion. API calling is a crucial concept to understand.
+
+Student Doubts:
+- The student expresses confusion about the modules that have been covered, those still to be done, and the sessions required for each topic.
+- The student requests clarity on what module and topic will be covered in each session as it helps them follow along. They mention their professional commitments make it difficult to catch up if they miss a session.
+- The student is unsure about why the modules have to be studied in a specific order instead of a college semester style. The instructor clarifies that since they are starting from scratch, they need to study in a particular order.
+
+---

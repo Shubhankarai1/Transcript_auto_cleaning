@@ -1,0 +1,19 @@
+Module: cms
+Session: 2
+Topic: Vectorization and Retrieval in Information Retrieval Systems
+Chunk: 67
+
+Explanation:
+The lecture discusses the process of vectorization and retrieval in information retrieval systems. The system stores documents as vectors, and when a query comes in, it tries to match the query vector with all stored vectors to retrieve relevant documents. The matching is based on cosine similarity, and the document with the highest score is retrieved and plugged into a chat prompt template.
+
+Key Points:
+- Documents are stored as vectors in information retrieval systems.
+- When a query comes in, it is also converted into a vector.
+- The system matches the query vector with all stored vectors based on cosine similarity.
+- The document with the highest match score is retrieved and plugged into a chat prompt template.
+
+Student Doubts:
+- What happens if two chunks get an 81 score? (Answer: Both of them will be stored, and the system will search in both.)
+- Does every query have to go for retrieval in the factory database every time? (Answer: No, the system only goes for retrieval when a particular query is provided.)
+
+---

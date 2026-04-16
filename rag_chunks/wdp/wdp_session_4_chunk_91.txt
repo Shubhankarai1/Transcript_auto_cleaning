@@ -1,0 +1,24 @@
+Module: wdp
+Session: 4
+Topic: Designing State Messages in AI
+Chunk: 91
+
+Explanation: The lecture explains how to design state messages for an AI system. It discusses the structure of state messages and demonstrates a method to test variations in the design.
+
+Key Points:
+- State messages are a list of messages that need to be passed inside a list.
+- In order to understand the workflow, it is important to know what goes inside (inputs) and comes outside (outputs), and how to deal with it effectively.
+- Testing variations in design is crucial for understanding and improving the system.
+- Building a graph and defining tools are essential parts of designing an AI state message system.
+
+Student Doubts:
+1. What tools should be passed to define a tool node?
+   - Two tools: best tracking update, evaluate refund eligibility
+2. How is a tool node created?
+   - Tools equals to tool node and can contain multiple tool nodes.
+3. How are conditional edges added in the graph?
+   - Conditional edges come later.
+4. What is the next step after adding a tool node?
+   - Adding conditional edges, starting from assistant.
+
+---

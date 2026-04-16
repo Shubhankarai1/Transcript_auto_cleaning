@@ -1,0 +1,18 @@
+Module: wdp
+Session: 5
+Topic: Workflow and Patterns in Communication
+Chunk: 116
+
+Explanation:
+The lecture discusses the concept of workflow and patterns in communication within a system. The process is defined as a workflow, which is a business journey being solved. The focus is on how communication occurs between different agents (specialists) in various patterns.
+
+Key Points:
+- Workflow: A business journey being solved
+- Patterns: Multi-agent patterns such as supervisor-peer and hubspoke topologies
+- Communication Establishment: Between agents within a pattern, which can involve routing queries and calls between the agents (supervisor, policy specialist, calculation specialist)
+
+Student Doubts:
+Ankit's doubt: If an agent wants to communicate with another agent regarding a potential fraudulent transaction where the same payment is made twice in the same timeframe, how would it be identified as falsification or not?
+Response: You need to use tools and have database access to check whether this has occurred or not.
+
+---

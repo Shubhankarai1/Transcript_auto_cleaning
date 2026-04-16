@@ -1,0 +1,20 @@
+Module: cms
+Session: 2
+Topic: Handling History in Question-Answer Systems
+Chunk: 51
+
+Explanation: The system should efficiently manage chat history while answering questions. It should use the history only when necessary to save token costs and not unnecessarily search through irrelevant information.
+
+Key Points:
+1. Use a router to determine whether history is needed or not.
+2. Maintain a summary of the chat history for efficient matching.
+3. Utilize smaller models to maintain the summary.
+4. Implement an if-else statement to pass the history list only when relevant.
+
+Student Doubts:
+1. How will you check whether context is relevant or not? (Answer: A router will be used to understand user intent and classify whether history is needed.)
+2. What happens if the chat history is irrelevant? (Answer: If the history is not needed, it will not be sent to the system.)
+3. How does the system know not to use incorrect information from the chat history? (Answer: The system uses a transformers network with an attention mechanism that automatically takes care of this issue.)
+4. What is the challenge in handling token costs? (Answer: Unnecessarily sending chat history can lead to wasting search or token time, so it's important to ensure that the system only sends relevant information.)
+
+---

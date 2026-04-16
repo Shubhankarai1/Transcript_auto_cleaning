@@ -1,0 +1,18 @@
+Module: cms
+Session: 1
+Topic: Understanding API Call and Data Structure for AI Learning
+Chunk: 7
+
+Explanation: The session discusses understanding the API call and data structure when making a request to an AI model. The teacher explains that by examining the data structure, one can understand what information is being sent and manipulate it as needed.
+
+Key Points:
+- Examine the data structure of the API call
+- Understand what information is being sent
+- Tweak and add to the data structure as necessary
+
+Student Doubts:
+- What is the exact container or format in which the data is sent?
+- How can one get the key to access the API?
+- Can Google API key be used instead of open API key?
+
+---
