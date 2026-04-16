@@ -1,0 +1,1175 @@
+6:406 minutes, 40 secondsHello Shria, are you there?
+6:466 minutes, 46 secondsIs anybody from Future here on this call?
+6:576 minutes, 57 secondsHello. Am I audible? You are audible.
+7:077 minutes, 7 secondsAll right. Thanks. Shri, are you there?
+8:168 minutes, 16 secondsHello. Anybody from Futurance team here on this call?
+8:288 minutes, 28 secondsNo, nobody from I think seems to be there but
+8:368 minutes, 36 secondsthey are responding anybody from future IIT Madras praartak
+8:478 minutes, 47 secondsteam here on this call we're here we're here could you please repeat I couldn't hear you Yeah. Who's this?
+8:558 minutes, 55 secondsUh, actually my name is Kiti and I'm from the future in team. Shri is also here. Please just let us right. Great. No, I think I just had
+9:049 minutes, 4 secondssome feedback here and I'm sure my fellow cohort teammates would echo to that as well. Right. So, we get a email
+9:119 minutes, 11 secondsat 8:00 this morning saying there's a session at 8:30, right? Um, at least for me, I can speak for myself. I wasn't
+9:199 minutes, 19 secondsexpecting a workshop at 8:30 in the morning.
+9:239 minutes, 23 secondsRight. So I think communication if we can manage better I think lot of us can benefit from some workshops. Right. So I'm not sure uh if it was planned late
+9:319 minutes, 31 secondsor what but can we plan this better going forward?
+9:369 minutes, 36 secondsYeah surely we keep that in mind going forward. Uh sometimes what happens is that we have to see the guest availability as well and sometimes it
+9:449 minutes, 44 secondshappens like that but we'll totally keep this m this in mind going forward so that yeah but that doesn't mean we stop planning right.
+9:519 minutes, 51 secondsYeah, sure. Sorry. I'll take the point. Thank you.
+12:2612 minutes, 26 secondsHey guys, I'm here. Let's wait for two more minutes for everyone to join in and just start in 2 minutes. Okay.
+14:4714 minutes, 47 secondsHello. Hi, this is Santo again. Uh, future team. Hello.
+14:5614 minutes, 56 secondsHello.
+14:5814 minutes, 58 secondsUh, can someone from the future team please take this?
+15:1115 minutes, 11 secondsHello sir. Samir sir, carry on. Nobody seems
+15:2015 minutes, 20 secondsto be interested in listening to us. No worries. I'll ping them. Just let me just get a check.
+15:3615 minutes, 36 secondsSo guys I think today uh let's start quickly. So the last session was about adantic. I think Deva has been able to
+15:4415 minutes, 44 secondsfind the solution to what we were facing that is we were not able to uh
+15:5115 minutes, 51 secondsadjust that agraala part right that if it is not a part of part of the list it is not going. The reason behind it is that it is not compatible with lchain.
+16:0116 minutes, 1 secondOkay. What happens is lang chain directly for example the way has written to me as well langchain directly binds the tools to LLM right and letting the
+16:1116 minutes, 11 secondsLLM decide decide whether to use the tool or not use the tool langu tool since the tool is not getting
+16:1916 minutes, 19 secondsexecuted since the tool is not getting executed the validator is not working right this is the reason the validator
+16:2716 minutes, 27 secondsis not working so validator does not work like this with lanch change right okay we'll take care of we'll see how to
+16:3516 minutes, 35 secondsmake it work right but today I want to since we are fresh we I want to kick start with uh
+16:4316 minutes, 43 secondslang graph and you know kind of introduce you to lang graph with our existing use case and uh also
+16:5216 minutes, 52 secondsalso you know kind of uh do the same thing whatever we were doing in the last session using langraph right so this is the agenda for today okay that's what we
+17:0117 minutes, 1 secondare going to do. So everyone please set up your Jupyter notebooks and open the last notebook also whatever we used the last time that notebook also keep it
+17:1017 minutes, 10 secondsready and then we will we just going to get started just quickly do it
+17:1817 minutes, 18 secondsJupiter or collab collap same thing okay so I'll give you the first thing
+17:2817 minutes, 28 secondswhich is you have to install the couple of packages so I'm I share the code with you.
+17:3517 minutes, 35 secondsAnd the second thing
+18:3318 minutes, 33 secondsToday's session number nine. I think in the next two sessions we will be able to complete a significant chunk of uh
+18:4318 minutes, 43 secondsthis agentic AI. Right? So this is session right by the time we finish next week I
+18:5318 minutes, 53 secondsthink a significant chunk of agentic AI will be finished then when we meet next we will be exploring extensively two things which is I think I'm going to
+19:0219 minutes, 2 secondscontinue with you you guys I think the next instructor so I think we are going to continue for two three more weeks so I think I'm not
+19:1119 minutes, 11 secondssure so I'll check with the team but uh something has come up. I think I'm going to continue with you. So um so we will
+19:1819 minutes, 18 secondsbe covering then once we understand that how to build agent. So we understood how to build rags. We understood how to build history in the first part. Then we
+19:2519 minutes, 25 secondsunderstood how to build rags. Now we understood how to actually operate with tools. Now the next thing we are going to understand is how to do agents. How
+19:3319 minutes, 33 secondsto operate with agents. Once we understand all these things, we will then explore context engineering in very much detail. We'll try all sorts of
+19:4219 minutes, 42 secondscontext engineering. right uh conversational rags um databases
+19:5119 minutes, 51 secondscache all these things combined with agent so that is going to be the agenda from after uh next week and on right so
+19:5819 minutes, 58 secondsthat is how I'm planning it let us see how we go about it and then the next thing on my agenda is to cover the metrics that you are building that is
+20:0720 minutes, 7 secondsgood but how do you know that whatever you are building is good enough right so this was our phase one which we are going to complete in the next week.
+20:1820 minutes, 18 secondsSo the idea is very simple. The idea is very simple uh that we want to build something which
+20:2520 minutes, 25 secondshas rag which knows tools right this is the first thing that we're building uh projects guys I have already preparing
+20:3220 minutes, 32 secondsthe project you will get it today pro most probably today you will get two projects one for just rag and one for rag plus tools okay so two projects will
+20:4120 minutes, 41 secondsbe there where you'll have to use rag and one another project which where will you you will have to use rag as well as tools to kind of build a chatbot kind of thing right And agentic AI is what we
+20:5020 minutes, 50 secondsare starting today and tomorrow it will get in uh next Saturday it will get in full swing. So we will be actually now focusing on agentic AI right by the time
+20:5920 minutes, 59 secondswe finish agentic AI part you will get one more project specific to agentic AI building only. So three projects you will have in total right three projects
+21:0721 minutes, 7 secondsyou will totally have right. Okay, after this um then when we move to phase two which is context engineering and then metrics
+21:1621 minutes, 16 secondsthen we will have uh more projects one project each for both of them as well right so that's how we that's how I'm planning it okay anyway let's start I
+21:2421 minutes, 24 secondsthink I've already given you these packages to install can you quickly install them just quickly install them guys
+21:3221 minutes, 32 secondsokay and I'm going to share my screen just give me one minute let me just save This
+22:1022 minutes, 10 secondsLet's first quickly do a quick quick very quick introduction to uh Langraph.
+22:1522 minutes, 15 secondsI'm sorry but okay. Uh Satir if you have any question so you can ask.
+22:2522 minutes, 25 secondsUh no I had a question for future team sir. Uh team can you answer the question?
+22:3122 minutes, 31 secondsYeah can I please know the question? So yeah. So when so today morning 8:30 session will the recording be available on the LMS?
+22:3922 minutes, 39 secondsYeah. Yeah. The recording will be available on the LMS. Okay. By when?
+22:4322 minutes, 43 secondsUh it will be available um by it should be available within the next 24 hours because it's uploaded the recorded is
+22:5022 minutes, 50 secondsuploaded from the zoom to the LMS portal directly.
+22:5322 minutes, 53 secondsOkay great. And the other observation is that lot of the content for these modules are not there on the LMS as well. So if somebody can futures teams
+23:0123 minutes, 1 secondcan look into that. So I'll just check that. I'll just check that ASAP. Yeah, thank you.
+23:0923 minutes, 9 secondsAll right. So let's get started.
+23:1323 minutes, 13 secondsAll right. So guys, uh first things first, I I want you guys to you guys had a session at 8:30 in the morning.
+23:2123 minutes, 21 secondsNo, we got an email at 8:00 in the morning telling us about a session at 8:30, right? So folks like me have other commitments in the morning, right? So I
+23:3023 minutes, 30 secondsonly realize it later. So I'm sure a lot of us missed it. So what's the point of scheduling last minute on a Sunday morning?
+23:3723 minutes, 37 secondsOkay. But good. Yeah, the extensive sessions good enough. I mean anyway, I mean you're getting recordings and all but like quite some coverage
+23:4623 minutes, 46 secondshopefully. Let's see. I'll figure out okay now let us just quickly start with
+23:5423 minutes, 54 secondsokay. So now just please understand guys what is happening so far is what has h what has been happening so far is
+24:0324 minutes, 3 secondsthat you are you are basically let me just check if my screen is shar Okay.
+24:2224 minutes, 22 secondsShare this is also great. So now guys, so far what you're doing is how you how are you calling tools? Just understand this very
+24:3124 minutes, 31 secondscarefully, right? How are you calling tools? The idea is very simple that you are basically passing your input to LLM.
+24:3824 minutes, 38 secondsYou're basically passing the input to LLM. Whatever input that you have,
+24:4224 minutes, 42 secondsright? You're basically passing it to LLM and LLM is basically deciding that it needs tool call.
+24:5024 minutes, 50 secondsCorrect? That it needs tool call. Correct?
+24:5424 minutes, 54 secondsSo, LLM is giving you this output. Then you are basically typically writing a code that if the LLM output said
+25:0625 minutes, 6 secondstool call then I will do the tool call
+25:1525 minutes, 15 secondselse I'll print the LLM output directly right this is what you are actually building on top of this
+25:2925 minutes, 29 secondsthe idea here is what we want to do here is although We cannot completely escape it. But we want to escape this if else part.
+25:3725 minutes, 37 secondsThis if else part is what we want to escape. We don't want to build this if else if else if else.
+25:4525 minutes, 45 secondsWhat we want to do is we want LLM to say tool call with the arguments and that
+25:5125 minutes, 51 secondstool call gets done. That's what we want. All right. We don't want the LLM tells us tool call then we check okay
+26:0026 minuteswhich tool call has he given because Aita what we have done is only one tool call we have done isn't it we done only one tool call guys
+26:0826 minutes, 8 secondsin the future in the future you will have multiple tools you will have many many tools one will be weather API one
+26:1626 minutes, 16 secondswill be location API one will be geio API one will be temperature API anything you can have you will have a plethora of
+26:2226 minutes, 22 secondstools in fact tools like chart GPT tools like chart GPT They have hundreds of tools available with them. Correct? They
+26:3126 minutes, 31 secondshave hundreds of tools available with them.
+26:3426 minutes, 34 secondsCorrect? So just to make sure just to ensure that we need what? We need tool.
+26:4026 minutes, 40 secondsWe need tool calling. All right. Now in order to do tool calling in order to do tool calling
+26:5026 minutes, 50 secondsright directly without ifs the framework that comes in is lang graph. Okay lang
+26:5726 minutes, 57 secondsgraph. Okay lang graph typically gives you gives you a mechanism to operate in
+27:0527 minutes, 5 secondsa graphwise order. What I mean by a graph-wise order I'll show you also but let me just explain first. Okay,
+27:1327 minutes, 13 secondswhat langra will have is a llm here in the center. Okay, you will pass your input.
+27:2527 minutes, 25 secondsYou'll start this graph. You'll define this graph first. You'll pass this input to lm.
+27:3127 minutes, 31 secondsYou will first pass this input to lm, right?
+27:3727 minutes, 37 secondswill have multiple tools by its side.
+27:4727 minutes, 47 secondsWhatever tools you have, it will have all the tools here, right? Multiple tools part of the graph. They will be part of the graph only. See this? They
+27:5527 minutes, 55 secondswill be part of the graph. Now whenever whenever whenever you ask LLM a question you pass a
+28:0328 minutes, 3 secondsquestion here and LM thinks he it needs to call some tool it will call any one of these tools and these tools will give the output back to LLM.
+28:1428 minutes, 14 secondsThese tools will give the output back to LLM. LLM will then print that output to
+28:2128 minutes, 21 secondsyou and end the execution or probably continue the execution. That is all up to LM lm will print the output right.
+28:3028 minutes, 30 secondsThis is how this thing works. Pardon me. Please explain once more.
+28:3628 minutes, 36 secondsYeah. Yeah. So what we are doing is what we are doing is what we will do is we'll just have an LL and what we will do is we'll build a graph like this. a graph
+28:4528 minutes, 45 secondslike this where there will be an LLM and the other parts will be the tools associated with
+28:5428 minutes, 54 secondsLLM. Other parts will be tools associated with LLM. Whenever a query will come to LLM, LLM will decide okay
+29:0129 minutes, 1 secondwhich tool do I need to call it will directly pass that to that tool. Then Langraph will call the tool for you. You don't have to worry about anything.
+29:1129 minutes, 11 secondsOkay, this tool calling that will be done by lang graph and will bring the output back to LLM
+29:1829 minutes, 18 secondswill bring the output back to LLM. LLM can then probably call another tool or print the output. That is up to LM.
+29:2529 minutes, 25 secondsOkay, that is up to the decision right but the idea is the central idea is that you are going to give LLM all these
+29:3329 minutes, 33 secondstools as a graph as a graph right as a graph. It is like weapons of LM right?
+29:4029 minutes, 40 secondsIt will decide first I'll use this weapon whatever then result comes out of it then use this for example if you're chopping vegetables first you need a
+29:4829 minutes, 48 secondspeeler so LLM will decide I need a peeler it will peel whatever the output comes out of peeler that is the peeled fruit or vegetable it'll give it to
+29:5529 minutes, 55 secondschopper then the chopping happens then whatever output comes out of the chopper that is chopped set of fruits it'll give
+30:0230 minutes, 2 secondsit to salad maker salad will be made and so on right so just kind of giving you an example about this
+30:1030 minutes, 10 secondsThis is what we are supposed to do because abida we have operated only with one function we can operate with two functions also in the same way the way
+30:1730 minutes, 17 secondswe did that I did not do it intentionally you would have been gotten confused besides we never do that with normally why should it we do it is
+30:2630 minutes, 26 secondsalways done using lang graph only so I'll do it with lang that is the whole idea of lang graph right why lang graph stands out because there we were using
+30:3530 minutes, 35 secondsif we there we were using if here we don't have to use if else and etc. What you have to do is just pass the lln ln
+30:4330 minutes, 43 secondswill throw out I need that tool. Lang graph has the internal logic of doing if else that's it. So is it like using a
+30:5230 minutes, 52 secondscase statement sorry to int like a case statement some something like that I'll show you
+31:0031 minutesI'll show you but we are not forming the case statement but we are giving you are not doing anything you are not doing anything that is the whole thing right that is the whole
+31:0631 minutes, 6 secondsokay now understand this guys this LLM this thing that you see is this is called as a LLM node so there are two
+31:1631 minutes, 16 secondsparts to it look at this can you see this one is the LLM node
+31:2331 minutes, 23 secondsand the second is the tool node and then there is one more part which I will explain later on right first you
+31:3131 minutes, 31 secondsneed to understand these two loops right these two nodes okay let me start with
+31:3831 minutes, 38 secondsvery simple lang graph with a very simple langraph let me first kind of get
+31:4831 minutes, 48 secondsso let me First get these things installed and let me get this
+31:5731 minutes, 57 secondsright. The last session was very important from pyantic perspective because we'll be using pyantic as we go forward. This output forming input forming this all will be done using
+32:0532 minutes, 5 secondspyantic only. So we need to use pyantic at all times. Okay. Let's do this.
+32:4332 minutes, 43 secondsOkay, let's now show you how to make the nodes and everything.
+33:0133 minutes, 1 secondOkay. Now, now please understand how I'm going to make the notes, right? Intro to langraph.
+33:0733 minutes, 7 secondsI know you have done langraph but just take a look at this for just I'll not spend too much time on this. I'll go slow only but I'll not spend too much
+33:1533 minutes, 15 secondstime because I think you guys have done langraph already. So I don't want to repeat it. That's the whole idea.
+33:3033 minutes, 30 secondsRight. So let's first do a normal hello world application in Langraph quickly.
+33:3333 minutes, 33 secondsWhat you need to do is you need to import these.
+33:4133 minutes, 41 secondsAll right. What is the problem? Write this these packages. I'll show you. I'll show you. Okay. You need to import these packages and let me show you how to make
+33:4833 minutes, 48 secondsa langraph. This is nothing but uh making a type dictionary and all that's why that this is just for making dictionary. This is the state graph.
+33:5633 minutes, 56 secondsThis is of lang graph. I'll just show you. Okay. So I show I told you that there are two nodes which are important.
+34:0134 minutes, 1 secondFirst is the LLM node and which is the second is the tool node. But first thing I'm going to introduce you to is a node in general. Right? So let me start with a node.
+34:1234 minutes, 12 secondsSo look at this. Any function any function will generally look like this.
+34:1534 minutes, 15 secondsLook at this. This is a function. Let's let's just say this, right? I just take I'll just introduce to you to one more
+34:2334 minutes, 23 secondsthing first. Now there's one more thing I think we'll have to introduce it first. Okay. Now please understand please understand this very carefully.
+34:3134 minutes, 31 secondsSimilarly, similarly you can also have a LAN graph like this there is first node LM node
+34:4034 minutes, 40 secondsright if if some tool calling needs to be done or let's say if some task needs to be done right let's say this is a
+34:4734 minutes, 47 secondsnode which is a recept reception node I'll call it a reception node all the queries how does it work let's say when
+34:5534 minutes, 55 secondsyou when you're dealing with customer service how does it how does it work first your query goes to what a central disk Right? So let's say this LLM node is a central disk.
+35:0535 minutes, 5 secondsCentral disk any query that will come will come here.
+35:1135 minutes, 11 secondsNow you have four five two three different types of LLMs which are specialized in their own works. For example you have one LLM
+35:2035 minutes, 20 secondsfor for let's say financial queries all the finance queries I'll call it fin LLM.
+35:2735 minutes, 27 secondsOkay. you have one LLM which specializes in let's say um insurance
+35:3635 minutes, 36 secondsadvice right so let's say you have two LLMs right let's say you have two LM one LM specializes in financial advice another LLM specializes in insurance
+35:4435 minutes, 44 secondsadvice right now whenever whenever someone will send a query someone will send a query it will come to this LLM
+35:5235 minutes, 52 secondsthis LLM will transfer to either this guy or to this guy just please understand this very carefully. This LLM
+35:5935 minutes, 59 secondswill transfer the query either to this guy or this guy. Basis what type of query it is. If the query is finance related query, it will transfer it to
+36:0836 minutes, 8 secondswhat? This guy. If the query is insurance related query, it will transfer it to this guy. Okay. Now,
+36:1436 minutes, 14 secondsthese guys have functions or tools with them. These guys have functions or tools
+36:2136 minutes, 21 secondswith them. So, it has some tool. Let's say interest calculator.
+36:2936 minutes, 29 secondsEMI calculator some some these kind of tools it have right EMI calculator right right it has this
+36:3836 minutes, 38 secondstype of tools I'm just kind of removing it for now because tools can be bind directly so I'm just going to make it like this
+36:4836 minutes, 48 secondsright this has also some tools risk calculator just kind of making it
+36:5536 minutes, 55 secondsup right something like So these are the kind of tools which are available to these two lms. So whenever
+37:0337 minutes, 3 secondssomething is coming whenever something is coming this query is coming LLM is passing it
+37:0937 minutes, 9 secondsto one of the LLMs right basis what the output. So LM will just print the output. Okay F lm he'll just say FIN
+37:1737 minutes, 17 secondsLLM. Langra will do the if else for you and pass it to the fin LLM. Right? Langra will take care of it. Similarly,
+37:2437 minutes, 24 secondsit will say insurance LLM. Langraph will figure out it's insurance if else statements. It will do the if else statements and pass it to insurance.
+37:3337 minutes, 33 secondsThat langraph will take care of you don't have to worry about.
+37:3737 minutes, 37 secondsSo look at this how a typical query comes. For example, if I ask a query,
+37:4437 minutes, 44 secondscalculate interest on home loan of 20 lakhs for 20 years, for example,
+37:5537 minutes, 55 secondssomething like this, it asks at 7.2%.
+37:5937 minutes, 59 secondsRight? Let's say it asks this. Calculate interest on home loan of 20 lakhs for 2 years. You tell me what will be the flow. First first what will be the flow?
+38:1038 minutes, 10 secondsTell me. First part tell me. Llm one central desk. Llm one the central desk.
+38:1838 minutes, 18 secondsSecond part tell me direct to LLM pin LLM pin pin
+38:2638 minutes, 26 secondsthen and the two interest uh calculator tool tool interest calculator. Now please understand the flow very carefully guys.
+38:3638 minutes, 36 secondsfrom here. Now your query is here. He has outputed. Where will it go back? The output will go back where llm
+38:4438 minutes, 44 secondsllm fin again. Llm fin will give it back to whom?
+38:4938 minutes, 49 secondsLlm llm one will do what? Finally output the result. Right? Output.
+39:0339 minutes, 3 secondsBut that user again again asks a query.
+39:0539 minutes, 5 secondsLook at this. Something like this happened, right? That user again asked a okay now tell me how much in how much loan should I take on this home loan?
+39:1639 minutes, 16 secondsFor example, like this. How much how much insurance should I take on this home loan for example? Then what will be the direction? Tell me now.
+39:2739 minutes, 27 secondsAgain LM1 new query comes here.
+39:3339 minutes, 33 secondsagain LM1 then from LLM12 where it will go insurance it's insurance worry he won't deal with it he will just pass it on to whom
+39:4239 minutes, 42 secondsLLM insurance LM insurance will pass it on to whom let's say risk calculator
+39:5039 minutes, 50 secondsfrom LLM risk calculator where will it go tell me LLM insurance again from LLM insurance
+39:5839 minutes, 58 secondswhere will it go tell me llm one see this.
+40:0540 minutes, 5 secondsSo is lang graph carrying it all all the way from rest.
+40:0940 minutes, 9 secondsLang graph is kind of just playing the passing the parcel game right passing.
+40:1340 minutes, 13 secondsSo basically from LLM insurance you can send it back to LM again. So right see I have also designed the graph in that
+40:2040 minutes, 20 secondsway. Wherever you see dotted lines this means that that particular node has multiple options to travel. Look at it.
+40:3040 minutes, 30 secondsI have made dotted line here. Look at this. LLM 1 say you can go to LLM FIN you can also go to LLM insurance right
+40:3840 minutes, 38 secondsif you go to LLM FIN you can go to tool interest or you can go to EMI calculator or you can probably go back to LM1 right
+40:4740 minutes, 47 secondsisn't it that's I put dotted lines wherever someone does not have any option and has to go back where there
+40:5640 minutes, 56 secondsI've made a solid line look at this from tool interest you have to go back to what lm finn from EMI calculator you
+41:0341 minutes, 3 secondshave to go back to what ling there is no other option you cannot just stay here it has to come back here right same with
+41:1141 minutes, 11 secondshere right this is how I've designed this graph now one last thing which is very important guys please pay attention to this okay please pay attention to
+41:1841 minutes, 18 secondsthis whatever you're doing here some output
+41:2741 minutes, 27 secondswill be coming here isn't it guys do you believe it or not tell Whatever is happening every step for
+41:3441 minutes, 34 secondsexample lm one will output what call lm f something like this lm f will output what call emi
+41:4341 minutes, 43 secondscalculator right something like interest then interest this will be called the
+41:5141 minutes, 51 secondsinterest will be calculated let's say 23,000 something like right this will be given to l field okay your interest is 23,000 something like this this output
+41:5941 minutes, 59 secondswill be created or Right. Then LM1 will finally print it.
+42:0542 minutes, 5 secondsYour interest is 23,000. Right? Then again new query comes in.
+42:1442 minutes, 14 secondsNew query. How much loan? New query. How much loan?
+42:2142 minutes, 21 secondsThen how much insurance? Right? How much insurance should I take?
+42:3042 minutes, 30 secondsThen LM1 that is again what will LM say call LLM
+42:3842 minutes, 38 secondsinsurance then LM insurance will say call risk calculator
+42:4742 minutes, 47 secondsrisk calculator will give you some risk say 23 whatever 23% something like this he said bas your risk is this you have an insurance of 18 lakhs insurance.
+42:5742 minutes, 57 secondsHe says that then he gives it back to LM1. LM1 says get 18 lakhs insurance.
+43:0743 minutes, 7 secondsSo every call is also outputting some text something every call is outputting right isn't it?
+43:1743 minutes, 17 secondsWhen the new query came, you asked how much insurance I take on this. Did you give the loan amount and all? Tell me
+43:2643 minutes, 26 secondsguys, did you give the loan amount and all? You said how much insurance I should take on this this this loan. The first query that came in, right?
+43:3643 minutes, 36 seconds20 lakh loan whatever it is, right?
+43:3943 minutes, 39 secondsSomething like that. You asked how much insurance should I take on this loan amount? Isn't it?
+43:4743 minutes, 47 secondsThat means you need to store all the conversation which is happening between all the partners
+43:5543 minutes, 55 secondsin one place or not. You tell me. Isn't it guys? You need to store all the conversation.
+44:0244 minutes, 2 secondsYou need to store all the conversation that has been happening in one place or not. This place where you are storing all the conversations.
+44:1244 minutes, 12 secondsThis place which you where you're storing all the conversation is common between all the LLMs is common between all the LLMs and it is called as state.
+44:2544 minutes, 25 secondsOkay. This thing where all the conversation the output of every LLM is stored
+44:3344 minutes, 33 secondsand is common between all the LLMs is called as what stake. Idea is very simple. You're keeping one notepad.
+44:4044 minutes, 40 secondsAnyone who is saying anything will write it on that notepad in a sequential order. You'll keep passing the notepad as well along with the control.
+44:5144 minutes, 51 secondsGot it? You will keep passing the notepad as well along with the control. This is the central idea of land graphs.
+45:0045 minutesThis is the central idea of land graph.
+45:0445 minutes, 4 secondsOkay, did you understand guys? Did you understand? Let me know if you have any query around this. Right? I'm just trying to explain the central idea of lang. So should please tell me.
+45:1545 minutes, 15 secondsCan we say in all if else uh scenarios lang graph would be better or would be preferred.
+45:2345 minutes, 23 secondsGenerally yes. Yes. Yes. Okay. Thank you.
+45:2745 minutes, 27 secondsWhenever there are a lot of if scenarios if this then this if that then that if this then this then you prefer langraph because it gives you graph kind of functionality for traversing right.
+45:3845 minutes, 38 secondsAny other question guys? Anyone has any question? Did you get it? Everyone got it?
+45:4245 minutes, 42 secondsCan we also pass horizontally information? But we have not designed that in like uh fin I I'll show you everything right. See this
+45:5045 minutes, 50 secondsinformation this information is always dumped abruptly right and I'll tell you one trick with which you can organize this information because the biggest
+45:5845 minutes, 58 secondsproblem with agents is this abrupt information which is there. See so much information is there right? So this is a big problem with agents that information gets obsolete, right?
+46:0946 minutes, 9 secondsThat is why I came up with a with a with a with an idea over the time is to create views for each agent for each
+46:1746 minutes, 17 secondsLLM. I create a function which will give it the view it needs out of that state.
+46:2246 minutes, 22 secondsIt's like a snapshot of yeah snapshot it needs. Right. Wonderful.
+46:2746 minutes, 27 secondsThat I came up with. I I I'm I'm mean very less people are using it in industry but over the time when I failed a lot of times now I got to understand
+46:3446 minutes, 34 secondsif I give views to every LLM it becomes better but you also have to use the time stamp so that you know the order in which
+46:4446 minutes, 44 secondsthat something like that right something like that right okay so this is a way to kind of handle this complexity that I
+46:5246 minutes, 52 secondscreate a personalized views for every LLM right when you have views it becomes very easy but we'll be talking about that in the in the next in the next
+47:0047 minutesmodule. Today we just have to understand this workflow very very well with normal normal tools, normal functionalities.
+47:0747 minutes, 7 secondsThis is the idea for today that I want you guys to be very much organized with this particular workflow. Right?
+47:1447 minutes, 14 secondsAll right. Hope that makes sense to everyone. How does langraph work? Make sense guys? Everyone can you give me
+47:2147 minutes, 21 secondsthumbs up in the chat if that makes sense. If you understand what exactly lang graphs do behind the CCS please
+47:2747 minutes, 27 secondstell me ch. Uh sir um I my question is probably uh you know a debatable
+47:3447 minutes, 34 secondsquestion but my question is every time we are making a call to LLM right so how can any statement
+47:4447 minutes, 44 secondsbe validated against the cost that we are getting incurred on the LLM call because this looks like a small example
+47:5347 minutes, 53 secondsso the tokens might be usage might be less if there is a big project which is being designed on a professional front
+48:0248 minutes, 2 secondsend. Right now there will be always a question on how are we ensuring the cost optimization is done and if if an if
+48:1048 minutes, 10 secondselse is going to solve a problem for you then there will be always a question uh on why are using more tokens
+48:1948 minutes, 19 secondsbecause if else is not chargeable tokens are chargeable.
+48:2348 minutes, 23 secondsThe lang graph will not charge you anything for uh you know doing the ifs right so whatever lang graph is doing
+48:3248 minutes, 32 secondsthat is absolutely free you can run a lang graph without llm that's okay I'll show you a right away right okay that you can actually run a lang graph
+48:3948 minutes, 39 secondswithout llm it will be doing ifs only right and it will do it without lm understand so you don't need an lm to run lang
+48:4748 minutes, 47 secondsgraph so tokens are not involved tokens are involved only in answering the question whenever a llm is Right? And I'll tell you multiple ways to save
+48:5548 minutes, 55 secondsthose tokens as well. Okay? And we go forward. Okay?
+48:5848 minutes, 58 secondsThat's why context engineering is very very important.
+49:0349 minutes, 3 secondsThe main the main thing about generative is context engineering. Trust me on this. I mean if you understand context engineering very very well, you're pretty anyway. So I think this we have
+49:1249 minutes, 12 secondsdone right. Um we have installed it. Now what I'm going to do is sir sorry about this. Quickly on the point
+49:2049 minutes, 20 secondsuh when it when the lang graph is going through the logic once it has gone through an if then else or through the llm1.
+49:2949 minutes, 29 secondsMhm.
+49:2949 minutes, 29 secondsHow does it differentiate if it is going the first time or is it once again going for the second time? It's not like not redundant.
+49:3849 minutes, 38 secondsIt does not care about it. It only cares about it only cares about whatever is given to it. For example, if you tell it that you have to go to LLM1. So it does
+49:4649 minutes, 46 secondsnot care about whether it's the first lm f then it does not care whether it's the first time or second time for that you are maintaining state right it is going
+49:5449 minutes, 54 secondsto second time yeah you have state then you'll have to design your custom logic to check whether it's going for the first time here or it's going to work for the second time here right but
+50:0250 minutes, 2 secondslangraph does not care about that it only cares about okay he said I have to go to llm fin I'll just slide down to lm fin right bases the output which is
+50:1050 minutes, 10 secondscoming out of this it will go to that part one time when it acts upon it on the query in the ll So LM1 can say okay first call LLM FIN and then call LLM
+50:1950 minutes, 19 secondsinsurance. So it can first call LM FIN right with with the exact query right then LM can job it will come back right
+50:2650 minutes, 26 secondsthen it will call LM insurance that also it can do right because it's optional see this these are dotted arrows so this can keep on traveling as long as
+50:3450 minutes, 34 secondspossible right okay okay thank you so first thing we are going to do is we
+50:4250 minutes, 42 secondsare going to I'm going to show you show you is I'm going to show you how to make this state first right how to actually make this state okay so let me just show
+50:4950 minutes, 49 secondsyou the state is nothing but like I talked in the last session also how what do you know generally what were you doing when you were storing history you were using
+50:5850 minutes, 58 secondsa list isn't it you were using a list this time what we going to do is we are going to store in a uh class right in a
+51:0551 minutes, 5 secondsclass so that's what we are going to let
+51:1251 minutes, 12 secondsso I'm going to make a state look at this is how a state will be made I'm making a very simple state which is
+51:2051 minutes, 20 secondsstoring only two things. One is the name. You will pass your name here and second is this reply that will come,
+51:2751 minutes, 27 secondsright? A reply. So I'm just storing two things here, right? Uh maybe I'm just wrong.
+51:3551 minutes, 35 secondsOkay, I'm just doing two things, right?
+51:3751 minutes, 37 secondsSo you can also import these things if you have installed them and just get a state and look at the state. State is nothing but like a list only. You can
+51:4551 minutes, 45 secondsimagine it like a list which has two things. Now just name and reply. Right?
+51:5651 minutes, 56 secondsSo take a look.
+51:5951 minutes, 59 secondsSo I'm just defining a state. Can you just make a state quickly? Right.
+52:1952 minutes, 19 secondsRight now I'm defining one function. Right?
+52:2552 minutes, 25 secondsI'm I'm defining just one function. Look at this very simple function I'm defining which is hello. And I'm passing the state to that hello. Okay. I'm
+52:3452 minutes, 34 secondspassing the state to that hello. From the state it will take the name, right?
+52:3852 minutes, 38 secondsIt will just take my name. I'll show you how to get the name and all. Right? I'll show you. Okay? First do this, right? Then only you will understand, right?
+52:5852 minutes, 58 secondsNow I'm going to make a graph. Okay. Now I'm going to make a graph. So I'm going to show you how to make a graph.
+53:0653 minutes, 6 secondsSo I'm making my first graph and I'm calling it hello builder. I'm calling it state graph. This guy state graph. Okay.
+53:1253 minutes, 12 secondsI'm calling state graph and passing the state to it. Okay. I'm passing the state to it. Okay, I'm passing the state to it. See any functionality you will
+53:2053 minutes, 20 secondsdesign tomorrow instead of this function you would be designing an LLM function. Understand this very carefully. Okay,
+53:2553 minutes, 25 secondstomorrow instead of this function you will be designing an LLM function. You will always pass your state. So state will go everywhere. State will keep
+53:3353 minutes, 33 secondstraveling. Right now I'm making my graph and telling it that this is my state.
+53:3953 minutes, 39 secondsI'm making my graph and just take a look now. I'm now going to add I'm now going to add a node
+53:4853 minutes, 48 secondshello builder add node and I'm going to add a node.
+53:5653 minutes, 56 secondsLet's just call it anything like say hello and I'm going to add this hello
+54:0454 minutes, 4 secondsbuilder. Right? Okay. Please understand what I've done here. Right? Sorry. Sorry. Just say hello.
+54:1154 minutes, 11 secondsPlease understand what I have done here.
+54:1354 minutes, 13 secondsThis function that I created, I have just converted it into a node. Right?
+54:1754 minutes, 17 secondsI'll show you exactly what the graph looks like. First make the graph. Okay? Look at it.
+54:2354 minutes, 23 secondsNow all the time at every time my first starting point will be start only right.
+54:3054 minutes, 30 secondsSo basically what I'm doing is look at this here.
+54:3454 minutes, 34 secondsI'm making a function say hello. I'm giving it a name say hello only. I'm making this node say
+54:4154 minutes, 41 secondshello. Now I want to start it. So first of all from the start node I'll connect to say hello. Right? Say hello. Right?
+54:5054 minutes, 50 secondsSo let me show you. So what you'll do is hello builder
+54:5754 minutes, 57 secondsdot add edge right add edge.
+55:0355 minutes, 3 secondsOkay. From where to where? Start to say hello.
+55:0955 minutes, 9 secondsRight. From start to say right? This is the first edge you will add.
+55:1555 minutes, 15 secondsFirst take a look. Then you can draw it very easily. Okay. It's very simple.
+55:1855 minutes, 18 secondsOkay. And then you need to add an edge from this say hello to end the scene.
+55:2655 minutes, 26 secondsVery simple graph I'm building. This is the graph I'm building. Okay. Just take a look.
+55:3655 minutes, 36 secondssay_hello this particular thing to end this is my entire graph this is my entire graph all
+55:4455 minutes, 44 secondsright now I need to build a graph out of it so I what I'll say is graph is equals to hello_builder
+55:5255 minutes, 52 secondsdo compile that's it the moment you compile a graph is built and let me just show you the graph
+56:0256 minutes, 2 secondsJust take a look at the graph. Look at this is the graph. You start go to say hello and go to end. The path here is
+56:0956 minutes, 9 secondsvery definite in nature. You cannot go anywhere. As soon as an input will come,
+56:1456 minutes, 14 secondsit has to go to say hello. As soon as an input comes in, you have to go to say_hello.
+56:2256 minutes, 22 secondsRight? Say_h. Okay. And what is say hello doing? It is replying. It is what?
+56:2756 minutes, 27 secondsWhat is it saying? It is saying reply is equals to f hello state name. That's what it is doing. So let me show you what will you do without this. Let's take a look.
+56:3856 minutes, 38 secondsRight now you will invoke this graph. Look at it. You will invoke this graph.
+56:4256 minutes, 42 secondsLook at it. Hello graph sorry graph dot invoke just like you invoke lchain. You invoke this graph. What you will pass inside this graph? That is the question.
+56:5356 minutes, 53 secondsWhat will you pass inside this graph? What will you pass inside this graph?
+56:5856 minutes, 58 secondsThe name and the reply. Whatever the contents of state are, that you will pass inside this graph.
+57:0457 minutes, 4 secondsOkay. Whatever the contents of state are, what are the contents of state?
+57:0957 minutes, 9 secondsName and reply. These things you will pass inside the graph. So, let me just pass it.
+57:1757 minutes, 17 secondsLet me pass my name and reply. Since there's no reply, I'll keep it empty.
+57:2457 minutes, 24 secondsThis is the input that will come here.
+57:2657 minutes, 26 secondsIt will automatically pass this input to whom? Say_hello. What is say_hello returning?
+57:3357 minutes, 33 secondsIt is taking from the state the name and it is adding a reply. Look at this. What is it returning? It is returning a reply. It is returning a reply. Let's try it out.
+57:4357 minutes, 43 secondsSee what is it returning name.
+57:4557 minutes, 45 secondsBut this is something that you need to do. This is something that you need to right in this way the graph is working.
+57:5257 minutes, 52 secondsSimple. You sent it here. It automatically got here because it's a definite edge. There is no option from start then to go to say hello. And say
+58:0258 minutes, 2 secondshello has no other option than to go to end. Right? Finally come here. Right?
+58:0758 minutes, 7 secondsYou finally come here and of course whatever say hello was returning I'm returning it. That's what I'm doing. Right? So simple. Right? Simp like this.
+58:1558 minutes, 15 secondsRight?
+58:1758 minutes, 17 secondsOkay. So this is the simplest thing that you can just try to build it once. What I would propose is I'm going to give you the state. I'm going to give you the
+58:2658 minutes, 26 secondsstate and I'm going to give you the hello function. You have to start, end,
+58:3658 minutes, 36 secondsand everything. Right? And I'm going to give you the imports. I'm going to give you the imports.
+58:4158 minutes, 41 secondsImports. Yes, these ones. Okay. I've already given them, but I'm going to give you again. Now, build the graph as it is once. Please build the graph as it is once.
+58:5458 minutes, 54 secondsjust build up please.
+58:5758 minutes, 57 secondsUh so my question is uh quick question uh that is there any way can we have a dynamic uh class uh so that there will
+59:0659 minutes, 6 secondsbe no need to define the class as well as we input the data. So it could automatically transcribe uh the class automatically.
+59:1759 minutes, 17 secondsNot possible. You cannot have a dynamic class, right? It's it's that the fields have to be defined only. There's no way.
+59:2559 minutes, 25 secondsAll right. There's no way. Right. All right.
+59:3559 minutes, 35 secondsWe'll practice langraph today. Don't worry. Then you'll understand everything. Right. Of course, the fields have to be different, right? They cannot be dynamic class.
+59:4559 minutes, 45 secondsLet's
+59:5859 minutes, 58 secondstry it out. Please just try once and then I'll show you the next step.
+1:00:201 hour, 20 secondsSir uh it can have only one state is it the entire graph can have only one state defined uh two states are also possible multiple states are possible right I'll introduce
+1:00:291 hour, 29 secondsyou to it okay the simplest design one state but
+1:00:371 hour, 37 secondssometimes in exceptional cases you need multiple states
+1:01:391 hour, 1 minute, 39 secondsAnd uh we can also have complex uh classes is it I mean uh class inside class recursive classes is that also possible?
+1:01:471 hour, 1 minute, 47 secondsYeah. Yeah. You can have any kind of class whatever you like. You you should have a very good class in place right?
+1:02:011 hour, 2 minutes, 1 secondTry it out guys please. Everyone try it out.
+1:02:181 hour, 2 minutes, 18 secondsUh summit can you please share that initial installation of few libraries. Uh I missed the initial part.
+1:02:291 hour, 2 minutes, 29 secondsYou have access to the notebook by the way. You can always, you know, kind of open it.
+1:02:361 hour, 2 minutes, 36 secondsIt's new one. Uh, still
+1:02:421 hour, 2 minutes, 42 secondsyou have access to everything. It's also
+1:03:261 hour, 3 minutes, 26 secondsWell, guys, one more minute. One more minute and then we kind of continue.
+1:03:371 hour, 3 minutes, 37 secondsI just want that you be able to build build it, right? So I'm not sharing it but if you want me to share it I can share it. So this is how you build it.
+1:03:481 hour, 3 minutes, 48 secondsRight. So now if you want to copy it you can copy it but quickly do it. Okay.
+1:04:051 hour, 4 minutes, 5 secondsThe start and the end are predefined nodes. Right. to choose whether to go to end or not.
+1:04:141 hour, 4 minutes, 14 secondsThat that's a small
+1:05:111 hour, 5 minutes, 11 secondsOkay, let's move them. Let's move. Okay.
+1:05:441 hour, 5 minutes, 44 secondsLet's do okay now see this guys please understand now now we will kind of look at what we whatever we have done in the last session right then that only we
+1:05:521 hour, 5 minutes, 52 secondswill try to replicate with lang graph first right okay I'm skipping a lot of part of lang ideally I had planned a lot
+1:06:001 hour, 6 minutesof other things but we'll do it but not right now let's first understand this example then we will practice langraph modeling please understand
+1:06:091 hour, 6 minutes, 9 secondslet's first import the essential things what all do you need my imports right so let's get the
+1:06:161 hour, 6 minutes, 16 secondsimports first right so I'm just going to show you tool
+1:06:261 hour, 6 minutes, 26 secondscalling with lang I'm going to add
+1:06:361 hour, 6 minutes, 36 secondsfirst of all I need you to import some modules. I'll explain each one of them why we need them. But first import them all.
+1:06:441 hour, 6 minutes, 44 secondsOkay. I I'll explain everyone every one module as we go forward. Okay.
+1:06:541 hour, 6 minutes, 54 secondsAs we move I'll explain each module.
+1:07:011 hour, 7 minutes, 1 secondNow I'm going to bring the same tool very simple right the same tool that we were having the get weather tool
+1:07:101 hour, 7 minutes, 10 secondssame tool right I'm just kind of getting it normally just take a look
+1:07:221 hour, 7 minutes, 22 secondsthis is how you get let's define I'm not using pyantic as of now. Let's kind of simply do it first then we'll use pyantic at all. Right?
+1:07:321 hour, 7 minutes, 32 secondsOkay. Third thing I'm doing is I'm defining my lln and I'm binding it with the tools. You will ask why are you
+1:07:391 hour, 7 minutes, 39 secondsbinding it with the tools? Binding the tools does not mean does not mean that we are actually
+1:07:481 hour, 7 minutes, 48 secondsmaking it call it. It is just to give it the description of the tool. part it is just to give the description of the tool
+1:07:551 hour, 7 minutes, 55 secondsnothing else right when you bind the LLM with the with with with a tool it's just to give the description so whenever you you have an LLM you need to have a tool
+1:08:031 hour, 8 minutes, 3 secondsokay so the essentials are here right imports I'll talk about them tools and LLM the
+1:08:111 hour, 8 minutes, 11 secondsessentials I have created right now we will start with creating our langraph first see then then you do okay then
+1:08:181 hour, 8 minutes, 18 secondsfirst we will start with you'll start with making your langraph okay just Just take a look.
+1:08:251 hour, 8 minutes, 25 secondsUh we have state right state is here state.
+1:08:321 hour, 8 minutes, 32 secondsNow take a look how to make your language. So first thing what we'll do is what we'll do is we will make our I think we need a state here.
+1:08:471 hour, 8 minutes, 47 secondsJust one case. This is fine.
+1:08:521 hour, 8 minutes, 52 secondsI'm just kind of checking out the state in this case. State graph we not using it. The state. This is fine.
+1:09:011 hour, 9 minutes, 1 secondNo worries. Okay. Let let me show you how to do it. Okay. So, what I'm going to do is please pay attention. Okay.
+1:09:071 hour, 9 minutes, 7 secondsI'm going to start with a graph. Yeah.
+1:09:141 hour, 9 minutes, 14 secondsFirst of all, what I'm going to do is I'm going to create my LLM rule. Just take a look LLM right lm. Inside that, I'm going to create a state and everything, right?
+1:09:241 hour, 9 minutes, 24 secondsJust take a look.
+1:09:291 hour, 9 minutes, 29 secondsLet me just copy it directly. I guess whatever is there, I'll copy it. Just create. See, look at this. I'm just creating my LLM node. This is already there. I need this part.
+1:09:451 hour, 9 minutes, 45 secondsThis is how you create your NLM node.
+1:09:471 hour, 9 minutes, 47 secondsPlease take a look at it what I'm really doing. Okay,
+1:09:511 hour, 9 minutes, 51 secondsI'm defining a state here. Message state. So see here earlier what I did is earlier what I did is I was defining a
+1:09:581 hour, 9 minutes, 58 secondscustom state, right? That was to show you I was defining a custom state. Here what I'm doing is here what I'm doing is
+1:10:051 hour, 10 minutes, 5 secondslangraph already has something called as messages state. It's a class. Look at it. It's a class. If you'll hover over it, see, it's a class. Messages state.
+1:10:161 hour, 10 minutes, 16 secondsIt's a class. It's a similar kind of class, right? It's a similar kind of class the way you have it normally, right? So, let me just show you.
+1:10:301 hour, 10 minutes, 30 secondsIt's a class, right? If you initialize it, look at the state.
+1:10:391 hour, 10 minutes, 39 secondsThis is empty right now right it is empty right now the state is empty it's basically giving you an empty dictionary that's what it is giving you right so we are creating the state using messages
+1:10:471 hour, 10 minutes, 47 secondsstate in this in this particular case and then I'll show you a manual state as well okay don't worry about it okay so I'll show you a manual state as well so for now let me just delete it and I'm
+1:10:561 hour, 10 minutes, 56 secondsgoing to create the first part I'm creating is a function which is which is the chatbot right which is the chatbot or just llm function or whatever you can
+1:11:041 hour, 11 minutes, 4 secondscall it you want to call it basically what I'm doing here is I'm passing the messages Meages all the messages I'm passing to this
+1:11:131 hour, 11 minutes, 13 secondshere LLM will tools I'm passing inside this. So basically what I'm doing in the inside this function I'm calling this LLM inside the function. Right? I'm calling this LLM inside this function.
+1:11:241 hour, 11 minutes, 24 secondsThat's it. Nothing else I'm doing. Okay. Please understand this very carefully.
+1:11:271 hour, 11 minutes, 27 secondsOkay. Now once you have this so you have the tool,
+1:11:321 hour, 11 minutes, 32 secondsyou have the LLM. Let me build your graph. Let me build the graph. Right? So let's start.
+1:11:391 hour, 11 minutes, 39 secondsbuilder is equals to how will you bring it build it state graph and you'll pass inside
+1:11:491 hour, 11 minutes, 49 secondsthis messages state right you'll pass inside this messages
+1:11:551 hour, 11 minutes, 55 secondsstate okay this is the one right instead of having a separate class of our own you are just consider this is a
+1:12:031 hour, 12 minutes, 3 secondsclass that's it right this is what you have to understand okay now what Look builder dot add node. Look at this. Add node. Which node you're going to add?
+1:12:131 hour, 12 minutes, 13 secondsI'm going to add the first node which is chatbot. Chatbot. Right. This is the first node.
+1:12:201 hour, 12 minutes, 20 secondsRight. Second node I'm going to add is builder dot add node.
+1:12:281 hour, 12 minutes, 28 secondsOkay. And look at this. What I'm going to add is in this case this this I'm going to call it as tools. Tools. Add.
+1:12:351 hour, 12 minutes, 35 secondsAnd what I'm going to do is what I'm going to do is convert the get weather this tool into a node. Just see this.
+1:12:441 hour, 12 minutes, 44 secondsWhere is this? Where's the tool? This is the tool. Yeah, this is the tool. So I'm going to convert this get weather into a
+1:12:531 hour, 12 minutes, 53 secondstool using this tool. Okay. So I'm just going to define it here.
+1:13:021 hour, 13 minutes, 2 secondsTool. Come here. Tool.
+1:13:061 hour, 13 minutes, 6 secondsnode tool node to node and inside this I'm
+1:13:141 hour, 13 minutes, 14 secondsgoing to pass what get weather right I'm going to pass get weather inside a list because if you have more
+1:13:221 hour, 13 minutes, 22 secondstools if you have more tools all of them can be accomodated inside the same right and I'm going to pass this tool node
+1:13:291 hour, 13 minutes, 29 secondshere right so look at this what did I do I first created a function chatbot Right, which will call the LLM which will call which
+1:13:371 hour, 13 minutes, 37 secondswill handle which will take care of the LLM part. This is the LLM wa state,
+1:13:401 hour, 13 minutes, 40 secondsright? This is the LLM node. Let me actually call it LLM node here otherwise it will confuse it. LM node
+1:13:491 hour, 13 minutes, 49 secondsand I'm going to call it here also LLM node and I'm going to call this LLM
+1:13:571 hour, 13 minutes, 57 secondsright now it is fine. Right? So this is your LLM node. You created a tool node.
+1:14:011 hour, 14 minutes, 1 secondYou added your tool node. Now let's move on to the next part. Now you tell me what else to do. Ab what we have is just please understand. Okay.
+1:14:101 hour, 14 minutes, 10 secondsYou have a LLM node.
+1:14:141 hour, 14 minutes, 14 secondsYou have a tool node. Now you tell me what should I do next? You only tell me how how should I make the graph. You tell me.
+1:14:231 hour, 14 minutes, 23 secondsBut edges.
+1:14:271 hour, 14 minutes, 27 secondsEdge. Do you need to connect this and this?
+1:14:321 hour, 14 minutes, 32 secondsThere should be a definite edge or a dotted edge. Tell me should be a dotted edge. Dotted edge. There should be what?
+1:14:411 hour, 14 minutes, 41 secondsBecause LLM has the choice. It can go there. It may not go there. It is up to it. Correct? LLM has a choice. All
+1:14:491 hour, 14 minutes, 49 secondsright. LM has a choice. So, let me just show you how to connect that. Okay. So,
+1:14:531 hour, 14 minutes, 53 secondswhat you'll do is you do builder dot add conditional edge.
+1:15:011 hour, 15 minutes, 1 secondAdd conditional add from where to where guys lm node to to what
+1:15:081 hour, 15 minutes, 8 secondstool tool tool to tools node that is builder add node I have
+1:15:171 hour, 15 minutes, 17 secondsadded the tool conditions or tool conditions so I can actually add
+1:15:241 hour, 15 minutes, 24 secondsit the two node add node school node and then you can
+1:15:331 hour, 15 minutes, 33 secondsactually add tools condition also. So I'll just kind of check it out. I'll tell you one good way to do it. Okay tools condition if you add you add this.
+1:15:431 hour, 15 minutes, 43 secondsSo add conditional node right to what to all the tools which are available right to all the tools which are available
+1:15:501 hour, 15 minutes, 50 secondsusing tools condition. So this is the way to add a conditional edge. I'll show you more ways to add conditional edge but for now I'm using this but there is
+1:15:581 hour, 15 minutes, 58 secondsanother way I'll show you that. Okay. So what I'm doing is I'm adding a conditional node from LLM to all the tools right using tools condition. As
+1:16:071 hour, 16 minutes, 7 secondssoon as you pass this tools condition right as soon as you pass this tools condition then whenever there you have a tool node whenever whatever tool nodes
+1:16:161 hour, 16 minutes, 16 secondsare there in the graph a conditional node will be added from llm to that tool. Right? We have only one tool node
+1:16:231 hour, 16 minutes, 23 secondsin the graph. So a conditional node will be added from this. Got it? This is the idea about it. Right?
+1:16:301 hour, 16 minutes, 30 secondsGot it.
+1:16:331 hour, 16 minutes, 33 secondsOkay. Okay. Now tools, right? So you could one short way of addressing all the tools in the Yeah. Yeah. That's a one short way.
+1:16:401 hour, 16 minutes, 40 secondsOtherwise you could have done this also. You would have done any number of times.
+1:16:441 hour, 16 minutes, 44 secondsIt will be you could have done this also. This also you could have done. Then you would have to pass a function which is the condition when it will go to the under which it is going to go there.
+1:16:531 hour, 16 minutes, 53 secondsYou are giving the condition but nowhere you are defining the condition the tool condition.
+1:16:581 hour, 16 minutes, 58 secondsYeah. So the tool condition this thing is defined here right okay tool right it's imported it's a part of
+1:17:051 hour, 17 minutes, 5 secondsthe l okay tools tools condition right this right I'll show you another way to do it
+1:17:141 hour, 17 minutes, 14 secondsas well but first you learn this way okay this is an easier way basically right okay now from the tools from the
+1:17:221 hour, 17 minutes, 22 secondstools you need an edge back or not you tell me you need an edge back what kind of edge do you need from here to here a definite edge Yeah.
+1:17:301 hour, 17 minutes, 30 secondsSo how will you add it? builder dot add edge and you will add from where from
+1:17:361 hour, 17 minutes, 36 secondstools to what? To the llm to llm node right this edge will be added right this is add edge is also added. Now what is left?
+1:17:481 hour, 17 minutes, 48 secondsSo by default it is a definitive edger unless you say conditional it will become broken that broken line.
+1:17:561 hour, 17 minutes, 56 secondsNow what is left guys? What is left? You tell me what is left.
+1:18:061 hour, 18 minutes, 6 secondsdot the output from the add edge from where start
+1:18:131 hour, 18 minutes, 13 secondsstart to lm node lm node and builder dot
+1:18:201 hour, 18 minutes, 20 secondsadd edge add conditional actually from where lm node to where and enter.
+1:18:331 hour, 18 minutes, 33 secondsEnter.
+1:18:361 hour, 18 minutes, 36 secondsNow you check out your builder dot compile.
+1:18:441 hour, 18 minutes, 44 secondsCall it graph and print the graph. Take a look at how does it look like. A little node is not defined.
+1:18:551 hour, 18 minutes, 55 secondsBuilder add node.
+1:19:001 hour, 19 minutesI think you have to uh execute the previous cell. Exeute the previous cell. Yeah.
+1:19:061 hour, 19 minutes, 6 secondsState graph has no attribute. Add conditional. Add conditional edge. Am I doing it wrong? Edges. It's add conditional edges. Actually, not edge.
+1:19:191 hour, 19 minutes, 19 secondsEdges. Add conditional edges. Sorry. No, no, this is not the one. Do this. For now,
+1:19:261 hour, 19 minutes, 26 secondsjust leave the end va because otherwise it will create problem. For now I'm just leaving leaving it. There is one more add edges.
+1:19:331 hour, 19 minutes, 33 secondsI think that's all. Add edge is fine.
+1:19:351 hour, 19 minutes, 35 secondsConditional edges clear your So look at this now. So look at this. Um I think we have done it. Look at this.
+1:19:421 hour, 19 minutes, 42 secondsIt's automatically added. Right now look at this start right. It goes to LM node.
+1:19:471 hour, 19 minutes, 47 secondsIt can optionally go to tools. Tools will come back to definitely LM nodes and it can go to end. Right? It can go to end. Now let's try this out with our with our function. Right.
+1:20:041 hour, 20 minutes, 4 secondsOkay. So, let's do it. Let's put any query.
+1:20:121 hour, 20 minutes, 12 secondsAsk me anything, right? And then let's invoke the graph. How you invoke the graph? Graph.invoke.
+1:20:221 hour, 20 minutes, 22 secondsHow do you invoke it? We'll now use inside this. What will you pass guys? Tell me.
+1:20:291 hour, 20 minutes, 29 secondsyou'll pass the human message. So you can have a key of your own. Here I'll have one more one key only messages as
+1:20:351 hour, 20 minutes, 35 secondsas whatever else human message right and inside this I'll pass the
+1:20:421 hour, 20 minutes, 42 secondsquery that's it so I'm avoiding all the prompts and everything for now right and uh
+1:20:501 hour, 20 minutes, 50 secondswhat I'm going to do is let's try to print what is h exactly happening print
+1:20:561 hour, 20 minutes, 56 secondsthe full flow and let me just show you how to do Right. So result messages
+1:21:061 hour, 21 minutes, 6 secondswill give me so for I a for I comma message in enumerate and I'm
+1:21:141 hour, 21 minutes, 14 secondsjust showing it. Don't worry I'll actually this enumerate enumerate result
+1:21:231 hour, 21 minutes, 23 secondsmessages right result messages. So result messages will be list of messages
+1:21:281 hour, 21 minutes, 28 secondsand what I'm doing is doing this start one. So I'm going to take this in result
+1:21:351 hour, 21 minutes, 35 secondshere and just check it out the result messages start.
+1:21:481 hour, 21 minutes, 48 secondsLet's print it with the f string message I
+1:21:551 hour, 21 minutes, 55 secondsand uh you can just print the type of message I guess.
+1:22:021 hour, 22 minutes, 2 secondsOkay, type of message this.
+1:22:091 hour, 22 minutes, 9 secondsAnd then what you can do is print the message itself and print the
+1:22:181 hour, 22 minutes, 18 secondsNothing. It's fine. So, this is something you are doing. Okay. Let's just try and check if it works.
+1:22:301 hour, 22 minutes, 30 secondsLet's see. Look at this. Some different messages,
+1:22:381 hour, 22 minutes, 38 secondsright? What is the weather like in Delhi? Like this message to right? AI message refuser none token usage and all
+1:22:461 hour, 22 minutes, 46 secondsthe things it is giving me is it giving me any tool call the type is tool call so directly what happened is look at
+1:22:541 hour, 22 minutes, 54 secondsthis in the message to what happened it was passed to this was the first message that you sent right what is the weather like in Delhi then this message was sent
+1:23:021 hour, 23 minutes, 2 secondsto let's do one thing I think it will be better type message dot
+1:23:181 hour, 23 minutes, 18 secondsLook at this.
+1:23:221 hour, 23 minutes, 22 secondsAh, this is better, right? Look at this message one. This was a human message,
+1:23:271 hour, 23 minutes, 27 secondsright? This was a human message. What is the weather like in Delhi? Additional c whatever. Message two, AI message. Now,
+1:23:341 hour, 23 minutes, 34 secondswhat was what happened, guys? It was sent to LLM node. What did LLM node say?
+1:23:401 hour, 23 minutes, 40 secondsLM node said that LM node said that what is it that you need to call the tool. Look at this. It has given it somewhere here.
+1:23:511 hour, 23 minutes, 51 secondsTool calls. Look at this. You need to do this right. Okay. Then third message was what?
+1:24:001 hour, 24 minutesTool message. The tool is replying. Now look at this. Hot 34°C name get weather. Did you have to use
+1:24:081 hour, 24 minutes, 8 secondsif? No. All you did was used tool conditions. This tool conditions, it will assess
+1:24:161 hour, 24 minutes, 16 secondslangraph will automatically do the if else behind the scenes. You don't have to worry about it. That's what the tool conditions is for. That's what the tools
+1:24:261 hour, 24 minutes, 26 secondsconditions is for. Langra will take care of everything, right? You don't have to worry about it, right? So, it just saw whether in the query.
+1:24:351 hour, 24 minutes, 35 secondsYes. And then it called the appropriate function the tool.
+1:24:391 hour, 24 minutes, 39 secondsYeah, it it saw actually everything as arguments also LM is giving. Now see this it is giving you everything, right?
+1:24:451 hour, 24 minutes, 45 secondsSo it's get weather arguments, right? Got it. You pass this to the tool. Okay,
+1:24:511 hour, 24 minutes, 51 secondscorrect. Then tool message, right? So tool message came this then what happened? It had to go back to LM. Then again AI message is coming. See weather
+1:24:591 hour, 24 minutes, 59 secondsin Delhi is currently hot. There are a lot of compliments.
+1:25:051 hour, 25 minutes, 5 secondsThe part this part forget it. Don't even worry about it. This part right because I have taught this many times and every
+1:25:131 hour, 25 minutes, 13 secondstime I'm teaching I have to show the entire flow. That's why I have just kind of learned this part. So you for forget it. The first time I made it, I also googled it. How do I show every step?
+1:25:231 hour, 25 minutes, 23 secondsStep step by step. I googled it and that's how I know it. So don't worry about this part. This part is doing nothing. This part is doing nothing. It
+1:25:301 hour, 25 minutes, 30 secondsis just basically iterating over all the messages which are being added to the state. All the messages with which are being added to the state and just
+1:25:391 hour, 25 minutes, 39 secondsprinting them. That's it. Nothing else it is doing. What you need to understand is inside your state there is a key called messages. There's a key called messages.
+1:25:501 hour, 25 minutes, 50 secondsInside messages inside messages a list is being created of all the messages which are coming. Okay. Inside your
+1:25:571 hour, 25 minutes, 57 secondsstate, a key is messages. Let's take a look at it. Result.
+1:26:041 hour, 26 minutes, 4 secondsSee, it's a list.
+1:26:081 hour, 26 minutes, 8 secondsIt's a list. You're basically getting everything which was there in the state,
+1:26:121 hour, 26 minutes, 12 secondseverything is given back. Whatever was there in the state, everything is given back. Everything is given back.
+1:26:191 hour, 26 minutes, 19 secondsEverything is just it just keeps on appending to the state. Just like our Just like our what? Chatbot example.
+1:26:261 hour, 26 minutes, 26 secondsRemember the chatbot example we built we were appending the runnable lambda was append runnable with message history was appending everything to the state. Here
+1:26:351 hour, 26 minutes, 35 secondsalso here also langraph will append everything automatically to the state.
+1:26:381 hour, 26 minutes, 38 secondsYou don't have to worry it will keep appending to the state rightain the order the sequence does it maintain the sequence the messages?
+1:26:481 hour, 26 minutes, 48 secondsUh I don't get it. What does it maintain the sequence of the first?
+1:26:521 hour, 26 minutes, 52 secondsYeah, it maintain the sequence whenever the message came in. So sequence is maintained as it is.
+1:26:561 hour, 26 minutes, 56 secondsRemember that first part right that we did the first first two sessions runnable with message history. Same thing langraph will do automatically.
+1:27:041 hour, 27 minutes, 4 secondsYou don't have to worry about it. Right?
+1:27:061 hour, 27 minutes, 6 secondsThat is the benefit of langraph after all. Right? It will take care of it will keep adding to the state. It will keep adding to the state. Just take a look
+1:27:141 hour, 27 minutes, 14 secondsyou have not even defined the state in this case. You have used the langraph's own state which is messages state.
+1:27:201 hour, 27 minutes, 20 secondsRight? You use langraph's messages state right? But it will keep on adding to the state. Right? So what I want you to do is first
+1:27:271 hour, 27 minutes, 27 secondsso uh message state is nothing but the context window. Right?
+1:27:311 hour, 27 minutes, 31 secondsmessage is nothing but it is nothing but a normal state but it is predefined inside lambda right for example here you were defining your own state right look
+1:27:391 hour, 27 minutes, 39 secondsat this you were defining your own state here isn't it messages state is also something like that right and then you can put anything
+1:27:481 hour, 27 minutes, 48 secondsinside messages state I'll show you how to create a custom state with messages state okay that also I'll show you right but because I wanted to show you a lot
+1:27:561 hour, 27 minutes, 56 secondsof automation that langraph does I use langraph's own message state. Okay, I'm adding a key here which is messages,
+1:28:051 hour, 28 minutes, 5 secondsright? Look at this. Yeah, tell me.
+1:28:101 hour, 28 minutes, 10 secondsUh so one confusion here uh regarding the tools condition. So when we are creating edge, we are giving the source
+1:28:171 hour, 28 minutes, 17 secondsand the end point. But in edges we are saying LM node. So which is the starting point. But how it is deciding the end
+1:28:251 hour, 28 minutes, 25 secondspoint? Suppose like we had two set of tools like tools and important tools.
+1:28:291 hour, 28 minutes, 29 secondsNow at the in this graph we are saying it is automatically mapping it to making a connection between LLM node and tools. But if there was a one set of
+1:28:381 hour, 28 minutes, 38 secondstools how it would decide where we are defining like what should be the end target.
+1:28:451 hour, 28 minutes, 45 secondsUh see see just understand it from start. Okay. First of all what you're doing is you're making a state graph with message state which is your class
+1:28:531 hour, 28 minutes, 53 secondsbasically. Okay. Then what you're doing you're adding an LLM node here. Right.
+1:28:571 hour, 28 minutes, 57 secondsThen from LLM node you're making a tool node here, right? Then you're adding your tool node here, right? Then you're making a conditional edge between LLM
+1:29:041 hour, 29 minutes, 4 secondsnode and the tool node using tools condition. So tools condition what it does is whatever your tool node was, whatever the tool node is, right?
+1:29:121 hour, 29 minutes, 12 secondsWhichever tool node is there existing in your graph, it will automatically create a connection between your uh LLM whatever node you're giving here and the tools right based on conditions.
+1:29:241 hour, 29 minutes, 24 secondsWhat does it mean by tools conditions?
+1:29:251 hour, 29 minutes, 25 secondsIt means that whenever LLM is going to give you the name of that tool, you call that tool. That is what the mean meaning of tools condition is. This tool's
+1:29:341 hour, 29 minutes, 34 secondscondition is basically a wrapper. It's a function which is basically doing all the if else internally. Got it? Nothing
+1:29:421 hour, 29 minutes, 42 secondselse. Then you're adding an edge between tool nodes and LLM node. And then you're adding an edge between start and LLM node. You can optionally add an edge
+1:29:511 hour, 29 minutes, 51 secondsbetween LLM node and end. But I'm avoiding that. It is automatically adding an conditional edge between LLM
+1:29:591 hour, 29 minutes, 59 secondsnode and end. Right? That's it. So with the two nodes you are just saying very
+1:30:061 hour, 30 minutes, 6 secondssimply whatever tools I have connect my LLM to those tools conditionally.
+1:30:111 hour, 30 minutes, 11 secondsConditionally that is when LLM gives the name of that tool only then that tool should be called. Got it? A tool can have multiple functions also guys. Okay.
+1:30:211 hour, 30 minutes, 21 secondsA tool node can have multiple functions. Okay. Got it.
+1:30:321 hour, 30 minutes, 32 secondsYeah. Okay. I want you to just try this quickly. Let me just give you the essentials. Then I want you to build this on your own. Build this on your
+1:30:411 hour, 30 minutes, 41 secondsown. First I'm going to give you the essentials. That is the LLM node. I'm going to help you create LLM node and
+1:30:481 hour, 30 minutes, 48 secondsthen I want you to create the graph on your own and get the response by invoking the graph. this much part only right this much part only and I'll talk
+1:30:571 hour, 30 minutes, 57 secondsabout the rest of it one more thing okay one more thing first things first okay understand this very carefully please
+1:31:051 hour, 31 minutes, 5 secondsunderstand this very carefully whatever you are creating just understand this very very carefully whatever class you
+1:31:121 hour, 31 minutes, 12 secondsare creating okay whatever class you are creating or take the case of state whatever state you are
+1:31:211 hour, 31 minutes, 21 secondscreating state Whatever you are creating when you're passing when you're invoking your LAN
+1:31:281 hour, 31 minutes, 28 secondsgraph right you can pass whatever you want to send inside that state for example in this case look at above here
+1:31:411 hour, 31 minutes, 41 secondsthis was my state correct this was my state how was I calling the graph look at it name and reply whatever the state
+1:31:481 hour, 31 minutes, 48 secondsconsists of I was passing through what via what the dictionary
+1:31:571 hour, 31 minutes, 57 secondscorrect I'm passing I was passing it using what dictionary correct next thing here here my state was empty so what am
+1:32:051 hour, 32 minutes, 5 secondsI passing inside this state look at this here message messages human message this is what I'm passing messages and a list
+1:32:121 hour, 32 minutes, 12 secondsof human message that's what you're passing inside this state that is what you're passing inside this state messages and then you're passing human
+1:32:211 hour, 32 minutes, 21 secondsmessage with the query Right? That's what you're passing inside the state. So state will automatically have a key called as messages. Right? State will
+1:32:291 hour, 32 minutes, 29 secondsautomatically get a key called as messages. Right? And then what output is returned when you invoke the entire state is returned back. Always always entire state is returned back. Okay.
+1:32:391 hour, 32 minutes, 39 secondsThis all happened inside the graph. Right. Right. Okay. Got it.
+1:32:441 hour, 32 minutes, 44 secondsSo just try this out. Mayori please tell me.
+1:32:521 hour, 32 minutes, 52 secondsYeah, in this we uh we got four responses. Correct. Mhm. Correct. Yes.
+1:32:581 hour, 32 minutes, 58 secondsSo yeah, if what if uh like we want the one from like what is the current weather in Delhi? If we ask so can I get the one uh answer or four responses?
+1:33:101 hour, 33 minutes, 10 secondsWe will get four responses. First it will go as a human message. This is your message that you sent, right? Then AI replied to it. AI said you call the
+1:33:181 hour, 33 minutes, 18 secondsfunction get weather. Then the get weather was called and tool message came. Remember tool message from the last session. Yeah. Right. Yeah. Yeah.
+1:33:261 hour, 33 minutes, 26 secondsThen AI message again came back. Then tool message was again given to LLM. Then again LLM responded in its way.
+1:33:331 hour, 33 minutes, 33 secondsRight. That's what Oh, it means it shows the flow how it goes.
+1:33:381 hour, 33 minutes, 38 secondsYeah. Yeah. This this piece of code is used to see the flow. So this I'm going to give you as it is. You use it as it is.
+1:33:461 hour, 33 minutes, 46 secondsOkay. Yeah, thank you.
+1:33:501 hour, 33 minutes, 50 secondsBut you do up to here guys. Take three minutes. Take three minutes. I've given you the LLM part. Have I not given you the tools? Importing the imports I've given you, right? No,
+1:34:001 hour, 34 minuteslet's let me give you the imports also the LLM part. I have given you now you need to just build this graph. I want
+1:34:081 hour, 34 minutes, 8 secondsyou to build the graph. That is more important than anything else. And understand the flow.
+1:34:581 hour, 34 minutes, 58 secondsuh sir can you scroll to the top uh where you are adding the edge conditional edge for the tools condition
+1:35:051 hour, 35 minutes, 5 secondsI don't know if I missed it so uh basically the tools condition is uh uh
+1:35:121 hour, 35 minutes, 12 secondsis is getting from uh the tools that you have attached under tool node right correct correct okay so whatever the tools that we
+1:35:201 hour, 35 minutes, 20 secondsspecify like get weather like if you have any weather we have currently one say for example if you have one more
+1:35:281 hour, 35 minutes, 28 secondsnode like llm node maybe something else uh in that case how can we attach different set of tools
+1:35:361 hour, 35 minutes, 36 secondsI'll show you I'll show you don't worry okay thank you uh s I didn't Understand tools
+1:35:451 hour, 35 minutes, 45 secondscondition. What the is that? tells tools condition is nothing but it is saying that whichever tools are there right
+1:35:541 hour, 35 minutes, 54 secondsyou add a conditional edge to it whichever tool nodes are there this is a tool node right whichever tool node is there you just
+1:36:011 hour, 36 minutes, 1 secondmake a conditional edge with that tool that's what is tools condition okay and it is imported here it's it's an
+1:36:091 hour, 36 minutes, 9 secondsinbuilt inbuilt function right Okay.
+1:37:481 hour, 37 minutes, 48 secondsSorry to interrupt. I got this graph after that. Sorry. What are we supposed to do? Invoke the graph. Invoke the graph.
+1:37:541 hour, 37 minutes, 54 secondsEveryone do it guys. Invoke the graph with what? Human messages. Okay. And pass it as a list. Okay. Pass it as a
+1:38:011 hour, 38 minutes, 1 secondlist. I'll tell you this also why to why you are passing it as a list. Invoke this graph with messages and human message. Right? this thing.
+1:38:111 hour, 38 minutes, 11 secondsSamir, with what intelligence?
+1:38:131 hour, 38 minutes, 13 secondsWith what intelligence has this end node been created?
+1:38:171 hour, 38 minutes, 17 secondsWhich ende? Because see, if you're ending the graph, one end node has to be there. So, whatever the LLM node is there, it will from LM node only, you can go to end node, right?
+1:38:261 hour, 38 minutes, 26 secondsLet's suppose if there were multiple LLM nodes, then in that then you have to define your end. Then you'll have to define your end. Okay,
+1:38:361 hour, 38 minutes, 36 secondsdo it guys. Do it. Everyone do it. I want everyone to just see look at it what is happening right just understand the flow once then we'll move forward
+1:38:531 hour, 38 minutes, 53 secondsI gave a wrong city now uh the LLM automatically it called the tool it did not give back the result the LLM
+1:39:021 hour, 39 minutes, 2 secondscorrected the city no it corrected the city that is one problem that we are facing
+1:39:091 hour, 39 minutes, 9 secondswe have to be more strict we'll do it with pilantic later on right I'm not going there because mixing it all up will actually you know confuse it so I'm
+1:39:171 hour, 39 minutes, 17 secondsnot going in that area right now intentionally but we'll do it with pilantic later on okay no uh no sorry sir I meant it
+1:39:261 hour, 39 minutes, 26 secondsautomatically corrected I gave I missed the D in the Delhi but it the LLM called the tool and the tool did not give back the result but the LM again called the
+1:39:341 hour, 39 minutes, 34 secondstool with adding a D to Acha. Okay. So, there are six messages in total.
+1:39:421 hour, 39 minutes, 42 secondsOh, that's great. Huh? That's good.
+1:39:471 hour, 39 minutes, 47 secondsThat's good. Actually, that's good behavior. You must have used advanced chat for mini.
+1:40:001 hour, 40 minutesYou must have used an advanced light.
+1:40:081 hour, 40 minutes, 8 secondsDone guys. Everyone done? Let me know. Yes, you're able to do it. Great. Great.
+1:40:141 hour, 40 minutes, 14 secondsSome people are recent with 4.0. Even if you miss like D, it is still picking up daily. Ah,
+1:40:211 hour, 40 minutes, 21 secondsyeah. Yep.
+1:40:251 hour, 40 minutes, 25 secondsGreat. That is great. Don't be some advanc. Yes.
+1:40:341 hour, 40 minutes, 34 secondsSame for me. Same.
+1:40:471 hour, 40 minutes, 47 secondsDo it guys. One more minute then we start. Then I have to show you some variations. Right. Samir.
+1:40:541 hour, 40 minutes, 54 secondsUh one question.
+1:40:571 hour, 40 minutes, 57 secondsuh you know I'm just trying on my own and you know using when I'm using collab
+1:41:031 hour, 41 minutes, 3 secondsright I tried to give this particular you know conditional edge in the way that you gave but it is never taking in
+1:41:111 hour, 41 minutes, 11 secondsmy collab I don't understand why and collab is automatically correcting me saying that you know the one I pinged in
+1:41:171 hour, 41 minutes, 17 secondsthe chat is the right way to give it I didn't get it I mean what exactly is
+1:41:261 hour, 41 minutes, 26 secondscoming So uh remember uh when you're calling the graph right? Mhm.
+1:41:321 hour, 41 minutes, 32 secondsAnd you're building the graph there is a conditional edges add conditional edges. Yes. Yes. Yes.
+1:41:391 hour, 41 minutes, 39 secondsRight. There you just gave it as llm not node and then tools condition. Okay.
+1:41:451 hour, 41 minutes, 45 secondsCorrect. Correct. But for me in my own collab it is saying that some arguments are missing and it is automatically
+1:41:531 hour, 41 minutes, 53 secondscorrecting saying that uh I need to add some more arguments there and I just ping the arguments in the chat. It is saying that I need to add tools and
+1:42:011 hour, 42 minutes, 1 secondrefer that as tool note and then end as end.
+1:42:041 hour, 42 minutes, 4 secondsWho is saying this? LM uh collab Google collab.
+1:42:091 hour, 42 minutes, 9 secondsGoogle collab is saying this. You have turned your AI assistant on. Yeah.
+1:42:141 hour, 42 minutes, 14 secondsYeah. Yeah. H then it will eat your head all day.
+1:42:181 hour, 42 minutes, 18 secondsNo, no. Even if I'm correcting in the way that you gave me, right, it is it is throwing an error.
+1:42:251 hour, 42 minutes, 25 secondsOkay.
+1:42:281 hour, 42 minutes, 28 secondsSo I don't know but yeah just want to let you know but as long as it is working I'm fine because I'm not able to connect
+1:42:361 hour, 42 minutes, 36 secondscurrently like what exactly is happening right? I'll probably take a look at it right.
+1:42:421 hour, 42 minutes, 42 secondsOkay guys, now let's do one thing. Now let's try to design or let's do this.
+1:42:501 hour, 42 minutes, 50 secondsEveryone has done it. Anyone has left? Tell me guys.
+1:43:101 hour, 43 minutes, 10 secondsLet's try this.
+1:43:311 hour, 43 minutes, 31 secondsOkay. So now I want to talk about the state a little first then I will talk about the conditional edges as well.
+1:43:361 hour, 43 minutes, 36 secondsOkay. One by one we'll talk about everything. First I want to talk about the state. Okay. So let's first understand the state clearly. Right.
+1:43:431 hour, 43 minutes, 43 secondsCurrently what we are using is guys.
+1:43:451 hour, 43 minutes, 45 secondsApparently what we are doing is we are using a c a predefined state which is already available in langraph. Okay.
+1:43:541 hour, 43 minutes, 54 secondsWhat we are doing is we are adding a we are using a predefined state which is already there in langraph. So lang graph is using its own state. You are not custom defining your own state. Right?
+1:44:041 hour, 44 minutes, 4 secondsIf you were defining your own state, you would have to manually add messages to that state. Whatever output will come
+1:44:121 hour, 44 minutes, 12 secondsout of every node, every edge and everything, you would have to add messages to that state ideally, right?
+1:44:181 hour, 44 minutes, 18 secondsBut since you're using a langraph own state, it is not doing it. What it is doing rather is it is kind of handling
+1:44:261 hour, 44 minutes, 26 secondseverything, right? It is basically adding all the messages and everything to its state. This concept is called as reducer in Python. This concept is
+1:44:351 hour, 44 minutes, 35 secondscalled as reducer in Python, right? So basically the state The state that you see right the
+1:44:431 hour, 44 minutes, 43 secondsmessages state library messages state that you see it's
+1:44:511 hour, 44 minutes, 51 secondsbasically a reducer class now we don't have to understand what reducers are and etc. What we just want to understand is that how are they used? Okay, how are
+1:45:001 hour, 45 minutesthey used? So just try to understand that what we are doing is what we are doing is whenever we are invoking the
+1:45:071 hour, 45 minutes, 7 secondsllm whenever we are invoking the llm we are passing what? We are passing look at this.
+1:45:151 hour, 45 minutes, 15 secondsWe are passing what? Messages and this list.
+1:45:191 hour, 45 minutes, 19 secondsThis list. Now the state was earlier I showed you. If you remember the state was like this.
+1:45:281 hour, 45 minutes, 28 secondsOkay. State was like this. You pass this state. You pass this state to LLM. Look at it.
+1:45:361 hour, 45 minutes, 36 secondsYou pass this state to LAN graph or LM.
+1:45:391 hour, 45 minutes, 39 secondsRight? LLM gives some outputs. First of all, you add some input to this state which is let's say human message, right?
+1:45:471 hour, 45 minutes, 47 secondsMessages and some human message was added here,
+1:45:521 hour, 45 minutes, 52 secondsright? Something like some human message was added. It was then passed to LLM and see this LLM is returning input. How? Look at it.
+1:46:001 hour, 46 minutesHow is LLM returning input? Look at this.
+1:46:061 hour, 46 minutes, 6 secondsLook at this messages response. Look at this. Isn't it? It is returning the input like this,
+1:46:141 hour, 46 minutes, 14 secondsright? Isn't it? It is returning the input like this. So the AI message that will come, you're putting it back as a list basically.
+1:46:221 hour, 46 minutes, 22 secondsSo you are following the same pattern again and again. You're basically returning also within a response. So now after LLM response, what happens?
+1:46:301 hour, 46 minutes, 30 secondsIt becomes like this messages human message AI message right
+1:46:411 hour, 46 minutes, 41 secondsthen it goes to tool then it goes to tool tool returns some message look at this what tool is returning let's take a look
+1:46:511 hour, 46 minutes, 51 secondstool is returning us the data or whatever it is something like this so what it convert it gets converted into what tool will give what tool will give
+1:46:591 hour, 46 minutes, 59 secondsa tool message. So then when then it goes to tool the same thing becomes what messages
+1:47:081 hour, 47 minutes, 8 secondsHN a IM and tool message TN right this is how the state keeps on getting appended
+1:47:161 hour, 47 minutes, 16 secondsthis is how the state keeps on getting increasingly this is what is happening behind the scenes right
+1:47:251 hour, 47 minutes, 25 secondslook at it how how you must be thinking how is this coming now as a list so Look at this. I'll show you how is this coming as a list. Here you have defined
+1:47:321 hour, 47 minutes, 32 secondsyour tool like that. Look at this. Get weather. Here you have defined your tool name, right? It's tool node. Lang graph will automatically take take it and
+1:47:401 hour, 47 minutes, 40 secondsappend it to your reducer. Right? That's how it goes on behind the scenes. That's how it goes on behind the scenes. So you have to ensure that whenever you using
+1:47:491 hour, 47 minutes, 49 secondsthis kind of state, whenever you're using this kind of state, you have to just ensure that it should always be a list. It should always be a list. So
+1:47:561 hour, 47 minutes, 56 secondslang graph can automatically append fluid. So lang graph can automatically append. Okay. This is something we need to understand. Okay. Now let's take a look at some variations of this.
+1:48:151 hour, 48 minutes, 15 secondsLet's just take some variations of this.
+1:48:171 hour, 48 minutes, 17 secondsNow we are going to just define a custom state of our own this time. Okay. Let's try to define a custom state of our own.
+1:48:241 hour, 48 minutes, 24 secondsRight? So let me kind of show you
+1:48:341 hour, 48 minutes, 34 secondsright this is the first thing that you need to know right we are actually importing something called as add
+1:48:411 hour, 48 minutes, 41 secondsmessages this will be used to add the messages to the state this will be used to add the messages to the state and you don't have to do anything honestly you
+1:48:491 hour, 48 minutes, 49 secondshave to just give this function to lang that's it right langra will take care of everything right Okay, now see this. How do you make the how how do you make the state?
+1:49:021 hour, 49 minutes, 2 secondsLet me show you how to make this state.
+1:49:061 hour, 49 minutes, 6 secondsJust one minute, guys. My mouse is out of battery. Just give me one minute. Okay.
+1:51:431 hour, 51 minutes, 43 secondsSorry for that. Okay. Now let's get started guys. Okay. So first thing what we have to do is we will define a state of our own. Okay. First let's define a state.
+1:51:571 hour, 51 minutes, 57 secondsJust give me one minute. Let me close so many things I had to open just to clear my mouse again.
+1:52:031 hour, 52 minutes, 3 secondsUh this check
+1:52:121 hour, 52 minutes, 12 secondslet's come back. Okay. So first thing what we are doing is we we are just importing this one thing and now I'm going to define my state of my own before building the graph. Okay. Okay.
+1:52:211 hour, 52 minutes, 21 secondsSome important step because maybe many times you will be using the custom state. Many times you will be defining your own state. So I'm just going to
+1:52:291 hour, 52 minutes, 29 secondsdefine a very simple state for now. You can have a very complicated state depending on the situation. And in fact when we go forward we'll be defining
+1:52:361 hour, 52 minutes, 36 secondsvery very complicated states. Okay look at this. This is a very simple state that I'm defining right look at it. Very simple state that I'm defining. Look at this. Now you don't have to do much
+1:52:451 hour, 52 minutes, 45 secondsright. What this state expects is messages and annotated list with a function of add messages. So this add
+1:52:541 hour, 52 minutes, 54 secondsmessages. Now, Lang graph knows that add messages is what will be used to add messages to this. So, messages will automatically be added. You don't have to worry about it. Okay, I'll show you.
+1:53:041 hour, 53 minutes, 4 secondsOkay,
+1:53:061 hour, 53 minutes, 6 secondshow will they be added? Same way. Same way. Let me show you. Look at this. First, I'm generating the LLM node.
+1:53:171 hour, 53 minutes, 17 secondsI'm making an LLM node first. Look at this. Same thing. Same way. I'm doing everything the same way. I've just kind of created this state differently,
+1:53:241 hour, 53 minutes, 24 secondsright? So I've created this LLM node.
+1:53:271 hour, 53 minutes, 27 secondsLook at this. And what is it returning guys? Messages and response again. List it. You just have to make sure that
+1:53:341 hour, 53 minutes, 34 secondsevery node of yours is responding in the same way. This guy expects it. Guy expects what messages and the annotated
+1:53:421 hour, 53 minutes, 42 secondslist of that's it. So just define an LM node like this. The next thing
+1:53:501 hour, 53 minutes, 50 secondsonce you have the LM node next thing you need is what? Same same thing the one you had there right
+1:53:571 hour, 53 minutes, 57 secondsjust let me copy that as it is let me copy this
+1:54:091 hour, 54 minutes, 9 secondsbuilding the graph right what else the building is done then what else do you need then the same thing I think we need don't need to change anything
+1:54:171 hour, 54 minutes, 17 secondsactually think I can just
+1:54:261 hour, 54 minutes, 26 secondsJust so now you'll just run it like this. Run this. Run this and run this.
+1:54:361 hour, 54 minutes, 36 secondsAnd then just run this graph.
+1:54:401 hour, 54 minutes, 40 secondsMages ask it right. What is the weather
+1:54:501 hour, 54 minutes, 50 secondsin Delhi? Okay, let's see. It can handle this.
+1:54:591 hour, 54 minutes, 59 secondsNice. Nicely done. Right. So the LLM is able to kind of handle this. So you said delete. What is the weather in delay? So you this was the human message that came
+1:55:071 hour, 55 minutes, 7 secondsin. It refused. Look at this. Look at this.
+1:55:131 hour, 55 minutes, 13 secondsLet's try to see if there is anything coming out.
+1:55:251 hour, 55 minutes, 25 secondsLet's check it out. Open AI does this this this this anywhere it's saying tool calling. No, I don't think so. Finishes in tool cost. Yes, I think it did tool
+1:55:341 hour, 55 minutes, 34 secondsdo. Yeah. See, so it it just gave this get weather cities Di. Then what happened? Then what happened? Just take a look.
+1:55:451 hour, 55 minutes, 45 secondsWeather data not found. Tool call is what? Weather data not found. Get weather this this this. Then it LLM actually did it again. See this. It did
+1:55:531 hour, 55 minutes, 53 secondsAI message again. It again gave an AI message. This time it called it with what? See this. It called it with Delhi.
+1:56:001 hour, 56 minutesLook at this.
+1:56:071 hour, 56 minutes, 7 secondsSee this. It called it with Delhi. It corrected it, right?
+1:56:111 hour, 56 minutes, 11 secondsAnd then finally the tool message came and then finally so this is what is happening again everything is appended to what the
+1:56:201 hour, 56 minutes, 20 secondslist to the messages did you have to do anything did you have to do the appending nothing right that all is taken care of by now quickly make this
+1:56:301 hour, 56 minutes, 30 secondswith this state I just want you to be aware of this state quickly make this I'll give you two minutes for this quickly make this then we move forward
+1:56:381 hour, 56 minutes, 38 secondsthen we move forward
+1:56:521 hour, 56 minutes, 52 secondsThis is workflow designing we have to understand. Okay. Sometimes this, sometimes that, right?
+1:57:001 hour, 57 minutesYou can just try it. Just try try to give it any city like Kpur and all.
+1:57:041 hour, 57 minutes, 4 secondsRight. Try it out. It will just tell you there. Try it. Okay.
+1:57:131 hour, 57 minutes, 13 secondsSo, so what was the difference between previous method and this one? Pardon me. Pardon me again.
+1:57:191 hour, 57 minutes, 19 secondsUh I mean so we executed similarly uh same only just that I wanted to show you
+1:57:271 hour, 57 minutes, 27 secondswith your own custom state. Why? Because you can also add to this multiple things right count of messages multiple things
+1:57:351 hour, 57 minutes, 35 secondsyou can add to this right? That's why I'm telling got it that all that we'll do in the next session. So I'm today I'm going very
+1:57:421 hour, 57 minutes, 42 secondssimple easy tomorrow I will go very hard but tomorrow in the next session I the codes are for agents are complicated to
+1:57:491 hour, 57 minutes, 49 secondsbe honest. Thus this part we need to understand very clearly what is the messages like what is the states like
+1:57:551 hour, 57 minutes, 55 secondsokay something. Okay, got it. Thank
+1:58:281 hour, 58 minutes, 28 secondsDo it, guys. Do it.
+1:58:451 hour, 58 minutes, 45 secondsI'll show you variations of two loops. Hello sir. Yeah. Yeah.
+1:58:531 hour, 58 minutes, 53 secondsIn the cell 28 you have run that builder equals to state graph message state won't it be weather state
+1:59:021 hour, 59 minutes, 2 secondswhere cell 28 first line builder equals to state graph message state first line
+1:59:101 hour, 59 minutes, 10 secondswon't it be weather state yeah this will be yes weather sorry my bad yes
+1:59:181 hour, 59 minutes, 18 secondsand this will work the very same way you can just try yeah it is working it is working. I tried it and it is working.
+1:59:241 hour, 59 minutes, 24 secondsI'm sorry. I think the screen right now you can try it out. Okay. What is the
+1:59:301 hour, 59 minutes, 30 secondsweather like in Koreation lack of availility or responding good?
+1:59:441 hour, 59 minutes, 44 secondsYeah. Yeah. It responded same for me as well. That's why that's why I'm not paying much attention to pyantic as of now because I don't want to mix it up
+1:59:521 hour, 59 minutes, 52 secondswith pantic right now because then it'll get be it'll be confusing. First I want you to digest pyantic throughout this week. It is something that will take
+2:00:012 hours, 1 secondthings to digest right some foods they get digested easily some foods hard to digest. That's why I'm not bringing pyantic today. There's a reason behind
+2:00:092 hours, 9 secondsit because I know if I mix this up with pyantic oh my god done.
+2:00:172 hours, 17 secondsSo when we have a custom state right uh when we set and maintain custom state
+2:00:242 hours, 24 secondssee uh uh this this example I understand right because uh human message a message
+2:00:312 hours, 31 secondsall of them are appended. So when the response comes back to the LLM it knows whether to call other tools or go to the
+2:00:382 hours, 38 secondsend and complete right uh but when we are maintaining our own state how do we maintain this flow right the logical
+2:00:472 hours, 47 secondsflow you understand what I'm trying to ask yeah yeah you see basically the idea is
+2:00:532 hours, 53 secondsvery simple you have to incrementally keep adding messages to the state and maintain whatever extra extra state Okay. Okay.
+2:01:032 hours, 1 minute, 3 secondsFor example, let's say you want to maintain the count. How many LLM nodes have I gone to, right? How many iterations have I done? Let's say if the
+2:01:102 hours, 1 minute, 10 secondscount exceeds 10 trials, you want to stop. You cannot just go on, right? You want LM to just
+2:01:182 hours, 1 minute, 18 secondsstop it, right? So that's why you can have additional things and I'll show you in the next session. The way you can have additional things, it can it is infinite. I'm telling you, right?
+2:01:292 hours, 1 minute, 29 secondsOkay.
+2:01:292 hours, 1 minute, 29 secondsMany things you can have, right? But I'm not introducing him just right away. That is for next session right now. Mayori listening.
+2:01:382 hours, 1 minute, 38 secondsYeah, I'm trying this. What is the weather in Pune? But it didn't retrieve any information. It it shows the message.
+2:01:462 hours, 1 minute, 46 secondsPune is not there in the in the in our function.
+2:01:522 hours, 1 minute, 52 secondsWe uh define the function where we have defined it up here. No, it is using this function. Mayuri, where are you?
+2:02:002 hours, 2 minutesOh, I just missed it.
+2:02:022 hours, 2 minutes, 2 secondsIt is not giving you live weather information. It is defi. It is using this function. This this is the function. Ah,
+2:02:072 hours, 2 minutes, 7 secondsyeah. Oh, sorry. I Yeah, exactly. I tried Pune. Pune is Pune is not there. Delhi, Mumbai, Bangalore only.
+2:02:152 hours, 2 minutes, 15 secondsYeah. Yeah. Yeah. I will uh I try with the Pune also. Thank you.
+2:02:192 hours, 2 minutes, 19 secondsCollab has been shared multiple times here guys. Yeah. Please tell me. So, so I tried with uh DL giving I mean whether
+2:02:252 hours, 2 minutes, 25 secondsin DL not like Dilly or Dilly and uh as uh it's shown to you for Dilly right so it's the same way for me also it got
+2:02:342 hours, 2 minutes, 34 secondsreflected so it's taking the shortcuts as well trying to that's great S
+2:02:442 hours, 2 minutes, 44 secondssir I think I spend time trying to fix this and run the earlier one with just you know getting the weather in Delhi But I believe you moved on from there.
+2:02:542 hours, 2 minutes, 54 secondsSo what code needs to be executed now? Okay.
+2:03:002 hours, 3 minutesOkay. Let me come back. This is where we are right. So come here.
+2:03:062 hours, 3 minutes, 6 secondsWhat part you have up to? You have the function.
+2:03:122 hours, 3 minutes, 12 secondsYou have the function the tool.
+2:03:192 hours, 3 minutes, 19 secondsI say you were you have fixed the earlier code.
+2:03:232 hours, 3 minutes, 23 secondsSanto sir Santo sir have you fixed the earlier
+2:03:302 hours, 3 minutes, 30 secondscode now you need to run the same code with this class this correct yeah so that's what I was trying
+2:03:372 hours, 3 minutes, 37 secondsto ask yeah what okay sorry same thing you need to run as it is with this instead of using the langraph's own
+2:03:452 hours, 3 minutes, 45 secondsstate you will use this weather state this new state I'm creating okay and rerun the same piece again.
+2:03:532 hours, 3 minutes, 53 secondsSame thing. Same thing. So I just want you to see.
+2:03:562 hours, 3 minutes, 56 secondsOkay. Okay. All right. And do I need to do this happening behind the scenes? Right.
+2:03:592 hours, 3 minutes, 59 secondsThat's what Yeah, you can put it in the start only. Right. Define your LLM, define your tool,
+2:04:062 hours, 4 minutes, 6 secondsdefine everything. Basically, I've just left it up there only and then I'm just kind of running it here. Just importing these mod these these these things.
+2:04:182 hours, 4 minutes, 18 secondsAnd then this. Yeah. Yeah. Yeah.
+2:04:202 hours, 4 minutes, 20 secondsEverything is everything is okay.
+2:04:262 hours, 4 minutes, 26 secondsSo actually we have to always use the the lang chain way of binding the tools in in langraph or langraph has some kind
+2:04:342 hours, 4 minutes, 34 secondsof a function to bind the tools also lang graph has see you'll have to bind
+2:04:422 hours, 4 minutes, 42 secondsthe tools with lll because that way you're telling the lln that I have these these tools available right so binding
+2:04:492 hours, 4 minutes, 49 secondsthough you'll have to do with ln because when you're binding then it's basically that you're transferring the tool information to ln that thing you only have to do. Okay.
+2:04:572 hours, 4 minutes, 57 secondsSo, langraph I'll check if there there's anything which langraph can do.
+2:05:062 hours, 5 minutes, 6 secondsOkay. Now we are going to do the third thing guys. Susha do you want me to wait for 1 minute?
+2:05:112 hours, 5 minutes, 11 secondsYeah please just give me a second. I'll just finish up with this. Thank you.
+2:05:172 hours, 5 minutes, 17 secondsGuys let's take a break. I think it's 4:00. Let's take a quick break. 5 7 minute 10 minute break and then we'll come back. three to one two variations
+2:05:242 hours, 5 minutes, 24 secondsare left we'll finish them today so you'll understand lang graph right in its entirety see ideally the plan was I would have gotten into very small small
+2:05:332 hours, 5 minutes, 33 secondsthings of langraph but since you already did some langraph in the last few sessions so I thought I would just give a quick introduction and then start off
+2:05:412 hours, 5 minutes, 41 secondsokay so I think that's how I'm doing it okay so if if you still need a very basic land graph also I'll give you that
+2:05:492 hours, 5 minutes, 49 secondsnotebook I'll share that notebook with you so you can just go through it Okay. So, let's take a 78 minutes break.
+2:05:582 hours, 5 minutes, 58 secondsLet's regroup by 410 max. Okay. 410 max.
+2:06:012 hours, 6 minutes, 1 secondThat is the max. Okay. Preferably by 480. And then we restart. Okay. Let's take a quick quick break. Okay.
+2:17:122 hours, 17 minutes, 12 secondsOkay guys, let's start now. Now the next thing. Okay, now what we have to do is I'll show you some variations of tool calling now. Okay, so we have seen a
+2:17:202 hours, 17 minutes, 20 secondsvariation of state. I'll show you more variations of state. But in the next session, I just wanted to show you that actually my state how does it look like?
+2:17:272 hours, 17 minutes, 27 secondsIt looks like this. This is how you will be making your states. Okay. But now I want to show you now you don't have to add anything to the state per se, right?
+2:17:352 hours, 17 minutes, 35 secondsYou just understand this. You will automatically be added. But next variations which I'll show you is where every tool will be adding something to
+2:17:432 hours, 17 minutes, 43 secondsthe state. Right? So you'll define a function which will add something to the state. Okay? That all that we'll take care of. It's just basic langraph to
+2:17:512 hours, 17 minutes, 51 secondsunderstand the flow. Right? Okay. Next thing I want to show you is tool calling variations. Okay.
+2:17:582 hours, 17 minutes, 58 secondsI have an uh I want to share something.
+2:18:012 hours, 18 minutes, 1 secondUh when I put the pin code, what is the pin code of 40000001?
+2:18:072 hours, 18 minutes, 7 secondsIt shows the weather. I mean we it show the weather like 23° show information. Yeah. Yeah.
+2:18:172 hours, 18 minutes, 17 secondsInteresting. Interesting. It's going good, right?
+2:18:212 hours, 18 minutes, 21 secondsFirst it would have first it would have given error, right? But no no now also I mean I tried with the two three pin codes but it gives the
+2:18:302 hours, 18 minutes, 30 secondsinformation in in the entire message. Let's try I mean what are you saying? Let's try this.
+2:18:382 hours, 18 minutes, 38 secondsThat is what they call your what is
+2:18:462 hours, 18 minutes, 46 secondsthe weather like in 92 and delete pin code of delete
+2:18:542 hours, 18 minutes, 54 secondslet's see token uses no I could not find so it's not finding for
+2:19:022 hours, 19 minutes, 2 secondsme to be honest right yeah did you use a better lm or what?
+2:19:092 hours, 19 minutes, 9 secondsNo, the same one. Yeah. No, it is not giving me for pin code.
+2:19:152 hours, 19 minutes, 15 secondsSo, Delica pin code but it's not giving me right.
+2:19:192 hours, 19 minutes, 19 secondsUh, can you please type the Mumbai pin code? I just used just now.
+2:19:242 hours, 19 minutes, 24 secondsTry this. Try uh 400 01. 400 01.
+2:19:322 hours, 19 minutes, 32 secondsYeah. No,
+2:19:402 hours, 19 minutes, 40 secondsI don't know. But in my collab, it shows the temperature.
+2:19:422 hours, 19 minutes, 42 secondsMaybe it's kind of going converting it into right something. Let's if we do it like this, right?
+2:19:512 hours, 19 minutes, 51 secondsOkay. What are the weather convert to city name if the need be?
+2:20:042 hours, 20 minutes, 4 secondsLet's just kind of give it an explicit instruction. This is track now.
+2:20:152 hours, 20 minutes, 15 secondsEarlier it was posted code. It was not able to give now guys. Now guys, I'm going to show
+2:20:232 hours, 20 minutes, 23 secondsyou one more variation of tools calling variation. Right? I'm going to show you a tool call. So up to now we had called tools using what the tool condition. We
+2:20:322 hours, 20 minutes, 32 secondswere not giving any specific condition but this time I'm going to give a condition right I'm going to make a custom condition the if else condition
+2:20:402 hours, 20 minutes, 40 secondsof my own right and I'll show you how to do please stay with me same thing I'm giving you entire code
+2:20:492 hours, 20 minutes, 49 secondsend to end just to ensure that you're able to run it in one shot
+2:20:592 hours, 20 minutes, 59 secondsso see I'm bringing these this state graph start end etc. Same things I'm bringing I'm going to add exactly
+2:21:082 hours, 21 minutes, 8 secondsI'm keep going to keep it exactly same and see this I'm I'm actually bringing one more thing
+2:21:182 hours, 21 minutes, 18 secondslook at the state so I'm just making a state I'm just making a custom state right my state something like that which has one is
+2:21:252 hours, 21 minutes, 25 secondsnumber and the other one is string right two things I'm adding to the custom state let's just take a look at this how what happens really take a
+2:21:352 hours, 21 minutes, 35 secondsThis see this it's different from the weather right I'm I'm just making something of different now I'm making a function I'm making a function please pay attention to this you will
+2:21:432 hours, 21 minutes, 43 secondsunderstand very explain right now I'm making a function
+2:21:502 hours, 21 minutes, 50 secondslook at this it's a function result received number is equals to what state number right is equals to state number from the number you're basically taking
+2:21:592 hours, 21 minutes, 59 secondsand just printing it that's what you're doing and something different I'm going to do this Okay,
+2:22:152 hours, 22 minutes, 15 secondsthis is fine. And then I'm going to actually give you one more thing.
+2:22:262 hours, 22 minutes, 26 secondsI'm getting creating one more node here which is even underscore. Two things I'm taking. one is check number I received a
+2:22:342 hours, 22 minutes, 34 secondsnumber and the second one is even node so basically what I'm trying to go build is like something like this please try to
+2:22:422 hours, 22 minutes, 42 secondsunderstand this whatever input you're going to give it will go to it will go to
+2:22:572 hours, 22 minutes, 57 secondshappen to this Anyway,
+2:23:062 hours, 23 minutes, 6 secondsso what I'm going to do is whatever whatever input I'm going to give, I need it. Yes. What the hell? working.
+2:23:222 hours, 23 minutes, 22 secondsIt's not working yet. Anyway, I'll just restart. Whatever I'm going to build,
+2:23:262 hours, 23 minutes, 26 secondsI'm I want it to go to first one node and if it is even, if it is even, I want it to go to what? I want it to go to another node, right? Which is the even,
+2:23:372 hours, 23 minutes, 37 secondsright? Give me one.
+2:23:512 hours, 23 minutes, 51 secondsRight. I wanted to get go to even node whenever whenever the number is even. That's what I'm trying to do here. Right.
+2:24:032 hours, 24 minutes, 3 secondsGot it. Okay. Whenever what I'm trying to do is just let me draw it again.
+2:24:102 hours, 24 minutes, 10 secondsSo some some input will come some input will come to this node. If the number is even it will go to this even node right.
+2:24:162 hours, 24 minutes, 16 secondsSo I have to custom design the logic in this I have to custom design my logic.
+2:24:202 hours, 24 minutes, 20 secondsRight? So look at it please everyone. I wanted to go from here to here. Right?
+2:24:242 hours, 24 minutes, 24 secondsSo I have these two this will be one node this will be another node right and I will go to this from this node. I'll go to this node only when the number is
+2:24:332 hours, 24 minutes, 33 secondseven. That's what I want to try to build. Let me just show you how to build such a thing. Okay,
+2:24:422 hours, 24 minutes, 42 secondslet's first build the graph, right? So what will we do? Builder is equals to state my state, right? This state graph,
+2:24:532 hours, 24 minutes, 53 secondsright?
+2:24:552 hours, 24 minutes, 55 secondsRight. Simple. First you initialize with your state. Initialize with your state.
+2:24:592 hours, 24 minutes, 59 secondsYou have the state here. Now, now you want to add the nodes. So first we'll add one node builder dot add node which
+2:25:082 hours, 25 minutes, 8 secondsnode you want to add check number check number and I'm just going to
+2:25:142 hours, 25 minutes, 14 secondsgiving here check number first node I'm going to add one more node which is your
+2:25:232 hours, 25 minutes, 23 secondseven node let's check
+2:25:302 hours, 25 minutes, 30 secondswhat sorry even node But what I want to do is what I want to do is if the number is even it will go
+2:25:382 hours, 25 minutes, 38 secondsto even node otherwise it will go to what end that's what I want to do right so basically your graph will look like
+2:25:452 hours, 25 minutes, 45 secondsthis the from start it should come here right it should come here and from here it can either go to
+2:25:542 hours, 25 minutes, 54 secondsthe even node this is the check number node it can go to the even node and Or it can go to where? It can go to the end.
+2:26:072 hours, 26 minutes, 7 secondsTwo options it has. Right. Let's build this graphics.
+2:26:132 hours, 26 minutes, 13 secondsSo I have added the node. Now what do you need guys? You need an edge. First edge you need is what? From start to check number, right?
+2:26:252 hours, 26 minutes, 25 secondsEdge. from start to check
+2:26:342 hours, 26 minutes, 34 secondsright underscore number. This is the first number you need. Then what do you need next? Dot builder dot add what conditional
+2:26:432 hours, 26 minutes, 43 secondsedges. You need to add a conditional edge from where? From check number
+2:26:502 hours, 26 minutes, 50 secondsto where? Tell me to where even number
+2:26:582 hours, 26 minutes, 58 secondseven to the even number but we won't mention the even node. Okay, we won't mention the even node. I'll tell you what we
+2:27:052 hours, 27 minutes, 5 secondswill do. Okay, I'll tell you what we will do. Okay, look at this. I'll just mention the function. I'll make a function route function. And now I need
+2:27:142 hours, 27 minutes, 14 secondsto define a function which will route me either to even node either to even node
+2:27:232 hours, 27 minutes, 23 secondsor probably to end. Right? So let me bring that function. Just take a look.
+2:27:322 hours, 27 minutes, 32 secondsLook at this. I'm just going to make a function. Right?
+2:27:402 hours, 27 minutes, 40 secondsLook at this. I'm making a function.
+2:27:452 hours, 27 minutes, 45 secondsI'm making a function right and only two things can come out of the function
+2:27:522 hours, 27 minutes, 52 secondsthis one end is not end I have not defined
+2:28:022 hours, 28 minutes, 2 secondsany we'll define it if it's not anyway so only two things can come out of the function either the even node or the end so look at this if the number state from
+2:28:112 hours, 28 minutes, 11 secondsstate See this is the thing that you have to understand.
+2:28:152 hours, 28 minutes, 15 secondsNo one passes the communication directly from one node to another node. It will write the communication to the state. It
+2:28:222 hours, 28 minutes, 22 secondswill write the communication to the state. Right? And every every node will pick it up from the state. So see this
+2:28:312 hours, 28 minutes, 31 secondsit is also picking the number from the state. If it is modulus 2 equals 0 then it will go to even node otherwise it go
+2:28:382 hours, 28 minutes, 38 secondsto right. So let me import this. I think this is not fun or not. End.
+2:28:442 hours, 28 minutes, 44 secondsOkay, let's run this. So run this and then you run this. Okay, so this is the conditional edge. You don't have to mention the end condition, the end edge.
+2:28:532 hours, 28 minutes, 53 secondsNo, you don't have to mention the end vala part. It will automatically take care of it. This function, right? Okay,
+2:28:582 hours, 28 minutes, 58 secondsthis is the end if part that you have to do. Okay, then next what? What is left? Any other connections that are left, guys?
+2:29:102 hours, 29 minutes, 10 secondsfrom the from the even node. What do we do? Let's go to end again. Right.
+2:29:172 hours, 29 minutes, 17 secondsAnything else is left? Just take a look and tell me.
+2:29:302 hours, 29 minutes, 30 secondsLet's take a look at the graph.
+2:29:372 hours, 29 minutes, 37 secondsLook at this. So it will start go to the check underscore number go to the check underscore number then it will go to the it can either go to the even node or it
+2:29:452 hours, 29 minutes, 45 secondscan go to the end and even node can go will definitely go to the end. Right? This is your flow. This is your flow. Let's give it a number and check it out.
+2:29:532 hours, 29 minutes, 53 secondsLet's give it a number and check it out. The state check out the state. Okay. Okay. So how will you call it?
+2:30:012 hours, 30 minutes, 1 secondWhat will you how will you call it?
+2:30:022 hours, 30 minutes, 2 secondsgraph dot invoke you tell me guys what will you pass I just told you what will you pass tell me
+2:30:092 hours, 30 minutes, 9 secondswhatever is there in the state you will pass it what is there in the state number number so you pass the number look at it
+2:30:192 hours, 30 minutes, 19 secondsand you pass it what let's say you pass five right and then what is there wait then there is result Right?
+2:30:332 hours, 30 minutes, 33 secondsPass it empty for now. Just pass it empty. Just invoke the graph like this and you'll get the result.
+2:30:412 hours, 30 minutes, 41 secondsWhatever happens inside. Okay. Okay.
+2:30:442 hours, 30 minutes, 44 secondsThis unhash you will type diff number and result.
+2:30:492 hours, 30 minutes, 49 secondsResult is twice result and right. and just take a look at the
+2:30:592 hours, 30 minutes, 59 secondsresult right the final result right result receive number is five receive number is
+2:31:082 hours, 31 minutes, 8 secondsfive that's what your node is doing right look at this and then it is directly going to end right look at this even node result
+2:31:172 hours, 31 minutes, 17 secondsstate number is even so sorry result receive number is this right let's try an even number now let's try an even number now instead of this let's pass
+2:31:252 hours, 31 minutes, 25 secondsfour look at result is four is even so I came to even
+2:31:322 hours, 31 minutes, 32 secondsnode right so basically look at this it went to check number it went to check
+2:31:392 hours, 31 minutes, 39 secondsnumber node right and what did check number do check number what did it do guys you tell me
+2:31:472 hours, 31 minutes, 47 secondslisten to me very carefully legal or not no no I'll tell you what check number did right understand this very carefully
+2:31:552 hours, 31 minutes, 55 secondsFirst it did this only right? It added this message only. Please understand this. But your state is what? A string
+2:32:042 hours, 32 minutes, 4 secondsnot a list. Isn't it? Tell me guys what is your state? Is it a string or a list? Tell me.
+2:32:122 hours, 32 minutes, 12 secondsIt's a list. It's a string. It is a string not a list. So then what happened? It went to this second node
+2:32:192 hours, 32 minutes, 19 secondseven node. That was whatever message it had written. It was overwritten. All right. It was overwritten. Understand?
+2:32:292 hours, 32 minutes, 29 secondsThis is what happened. Got it? When you went to check underscore number, it gave this message to the state result. It
+2:32:382 hours, 32 minutes, 38 secondsgave this message to result. Look at this. It gave that message to result.
+2:32:422 hours, 32 minutes, 42 secondsBut when it went to the next one, that message was overritten. That message was overritten. You don't believe me? You
+2:32:492 hours, 32 minutes, 49 secondsdon't believe me? You just set it to do one thing. You just set it to
+2:32:552 hours, 32 minutes, 55 secondsmake this that annotated list. That one here. Just take a look. I'll show you.
+2:33:042 hours, 33 minutes, 4 secondsWhere did it go?
+2:33:102 hours, 33 minutes, 10 secondsmake it an
+2:33:212 hours, 33 minutes, 21 secondsresult and make it an empty right and then whenever you're returning something you need to return it as what
+2:33:292 hours, 33 minutes, 29 secondsa list right a list
+2:33:382 hours, 33 minutes, 38 secondssomething let's try Let's try now. Same thing.
+2:33:532 hours, 33 minutes, 53 secondsOkay, let's try this. And the result is for now empty. Check it out.
+2:34:022 hours, 34 minutes, 2 secondsWhat happened guys? Look at it. You You just used to see it. What happened here in the result?
+2:34:092 hours, 34 minutes, 9 secondsReceived number is equals to four. See first who is adding you tell me which node is adding first check number. Then what?
+2:34:202 hours, 34 minutes, 20 secondsFour is even. So I came to even see two messages. See this? Do you see this? What happens?
+2:34:272 hours, 34 minutes, 27 secondsAnyone has any question on this? Do you understand what happened here? What did I change? Can someone tell me? Can someone explain the same thing? Tell me.
+2:34:382 hours, 34 minutes, 38 secondsGot it. What really did I do?
+2:34:412 hours, 34 minutes, 41 secondsIt simply returned the human message. Uh the appended the llm message. Yeah,
+2:34:482 hours, 34 minutes, 48 secondsbecause it's a lang graph. Now so lang graph will always consider it as a human message, right? Which is fine. But the idea is not that idea is when it was a string. When your result was a string,
+2:34:572 hours, 34 minutes, 57 secondsright? When the result was a string this this part here, then what was happening?
+2:35:022 hours, 35 minutes, 2 secondsOnly one message was coming which is the latest message, right? Let me show you one more time, guys. Okay, look at it.
+2:35:072 hours, 35 minutes, 7 secondsWhen your result is this and your you're returning this look at it please please pay very careful attention
+2:35:152 hours, 35 minutes, 15 secondsresult is uh string okay when result is string and you're returning this please
+2:35:222 hours, 35 minutes, 22 secondspay attention very much okay please here and you also kind of this
+2:35:292 hours, 35 minutes, 29 secondsand then you run this then you run this and then you give result as empty string because it's a string now so it pass string only look at this empty string.
+2:35:382 hours, 35 minutes, 38 secondsOkay, let me run it. Look at it. Look at the result. What is coming? Number is four. Result is four is even. So I came to even what happened behind the scenes.
+2:35:482 hours, 35 minutes, 48 secondsUnderstand that first. Look at this graph. Let me copy this graph.
+2:35:572 hours, 35 minutes, 57 secondsRight? This is very important. You need to understand this very very carefully.
+2:36:012 hours, 36 minutes, 1 secondThen only your langraph basics are clear. Okay? Otherwise land graph basics are not clear. I'm telling you these little things will make a very big difference.
+2:36:282 hours, 36 minutes, 28 secondsThis look at it. Please pay attention to this what I'm going to say.
+2:36:412 hours, 36 minutes, 41 secondsWhat is the first number you give? You tell me what are you giving? Look at this. What is your state like?
+2:36:482 hours, 36 minutes, 48 secondsNumber is four. Four. And result is what? Nothing. Empty.
+2:36:572 hours, 36 minutes, 57 secondsCorrect. You go to which state first?
+2:37:002 hours, 37 minutesThis state. What is this state returning? This is step number one. So this state will return what you tell me.
+2:37:082 hours, 37 minutes, 8 secondsWhat will be number? You tell me. Number will remain four. Is it changing? Number will remain four. Result will become what?
+2:37:162 hours, 37 minutes, 16 secondsLook at it here. Look at what this state is returning. Look at it here. Four is even.
+2:37:212 hours, 37 minutes, 21 secondsNo, no, no, no. This is this you'll get check state return that also you will get. No.
+2:37:292 hours, 37 minutes, 29 secondsSo look at this. What will receive number is equals to four.
+2:37:382 hours, 37 minutes, 38 secondsNow the question comes is say where will it go? Since the number is four, there's a conditional edge between check number
+2:37:462 hours, 37 minutes, 46 secondsand add this even node. What is the conditional edge? This is the conditional edge driven by what function? This is the function that if
+2:37:542 hours, 37 minutes, 54 secondsthe number is modulus 2 is equals to equals to 0. If the state number modulus 2 is equals to return even node. So where will it go? You tell me guys.
+2:38:032 hours, 38 minutes, 3 secondsEveryone tell me. Where will it go next? Even node. Even node. Even node. It'll go to the even node.
+2:38:102 hours, 38 minutes, 10 secondsRight? Even node. When it goes to the even node, what is even node returning?
+2:38:152 hours, 38 minutes, 15 secondsLook at it. So second is second step is this. What will come out of this step? Number will remain four.
+2:38:262 hours, 38 minutes, 26 secondsResult will become what? Look at it. What is it returning? Look at it. four is even.
+2:38:332 hours, 38 minutes, 33 secondsFour is even. So I came to even that this will be what? Overritten. Yeah,
+2:38:402 hours, 38 minutes, 40 secondsthe received number equal to four is overritten the result.
+2:38:442 hours, 38 minutes, 44 secondsYes, that part of the state is overritten. That's what I'm trying to show you. But is it still the pipeline?
+2:38:532 hours, 38 minutes, 53 secondsIs it part?
+2:38:542 hours, 38 minutes, 54 secondsNo, not me in the pipeline. Gone. That message is gone.
+2:38:592 hours, 38 minutes, 59 secondsRight. And I'll show you how to keep that message. Okay. So what will you do?
+2:39:022 hours, 39 minutes, 2 secondsThis will be so I came to So I came to even node gone. That message is gone. Why? Why?
+2:39:122 hours, 39 minutes, 12 secondsWhy is it gone? Because override the state. This is a string. It's not a reducer. Understand?
+2:39:202 hours, 39 minutes, 20 secondsIt is not a reducer. It is a state. It is a it's a string.
+2:39:252 hours, 39 minutes, 25 secondsThat's why it's a key.
+2:39:292 hours, 39 minutes, 29 secondsYes. Tell me tell me why I'm saying it is a key value dictionary that's why it is replacing the value over there. Yes. Yes. Yes. Yes.
+2:39:382 hours, 39 minutes, 38 secondsAnd that right?
+2:39:392 hours, 39 minutes, 39 secondsYes. But if you add a message add this here. Add a list here. Instead of this add a reducer here. Look at this. This reducer you add. Just see this. Now you
+2:39:492 hours, 39 minutes, 49 secondsmake this result guy. Result guy. You make it a list. Look at it like this.
+2:39:542 hours, 39 minutes, 54 secondsPlease pay careful attention. Okay. I'm going to just keep that in comments.
+2:39:582 hours, 39 minutes, 58 secondsresult str and I'm going to comment it out right then this guy will have to return
+2:40:052 hours, 40 minutes, 5 secondswhat a list only now because it's if it this is a list the result it also has to return list only isn't it guys yes
+2:40:132 hours, 40 minutes, 13 secondsthis guy will also have to return what a list only right and you will have to also call what using
+2:40:212 hours, 40 minutes, 21 secondsempty list correct am I right in this doing this tell me guys Yeah.
+2:40:282 hours, 40 minutes, 28 secondsNow see this I'm I'm going to run everything again making the note again and I'm writing this graph and look at the result now.
+2:40:392 hours, 40 minutes, 39 secondsSee number is four but what is happening this time? Can someone tell me when it is going to this one node even node what
+2:40:482 hours, 40 minutes, 48 secondsis happening? See received number is equals to four that message is there. Then when it is
+2:40:552 hours, 40 minutes, 55 secondsrerouting it to what? Sorry when it is at check number node the num the message of the check number is here. Then when
+2:41:022 hours, 41 minutes, 2 secondsit is rerouting it to what? Even node then the message of the even node is also there. That is the difference.
+2:41:102 hours, 41 minutes, 10 secondsThat is the difference you need to understand. Yeah.
+2:41:142 hours, 41 minutes, 14 secondsGot it? This is the difference you need to understand.
+2:41:172 hours, 41 minutes, 17 secondsThis is the difference that we need to understand. So do you get it?
+2:41:212 hours, 41 minutes, 21 secondsSorry. Sorry. So that means when you want to have a reducer then you have a list as this one and you don't want to have a reducer then you have a key and
+2:41:292 hours, 41 minutes, 29 secondsdictionary value type it will be overridden overritten okay okay whatever value is inside state that
+2:41:362 hours, 41 minutes, 36 secondswill be overritten okay got it now guys this is the idea that I wanted to introduce okay so one other question Sam here uh in the
+2:41:452 hours, 41 minutes, 45 secondscheck number uh method or any other the other method right we are directly
+2:41:522 hours, 41 minutes, 52 secondsreturning the result the dictionary with the result as the key right?
+2:41:562 hours, 41 minutes, 56 secondsYes. If it goes to one node whatever it is returning that will be should be added to the state ideally that will go inside the state. Okay. That you have to understand.
+2:42:062 hours, 42 minutes, 6 secondsSo instead of a dictionary if I return anything else willly propagate
+2:42:132 hours, 42 minutes, 13 secondsit will throw error error return something it will say the state and this is not compatible. You try it out as a homework. Okay.
+2:42:202 hours, 42 minutes, 20 secondsYeah. Yeah. Because here we are not Yeah. Yeah. Because the state is not universally passed around right here or the state object.
+2:42:302 hours, 42 minutes, 30 secondsNo. What I mean is I don't handle it as part of my method.
+2:42:362 hours, 42 minutes, 36 secondsWhat I mean is langraph internally maybe manages it but I don't I don't manage that object
+2:42:442 hours, 42 minutes, 44 secondsmyself as part of you are managing it. Look at it here.
+2:42:482 hours, 42 minutes, 48 secondsThis route function. What is it? How is it getting the number? The root function that you have made which is used by this
+2:42:552 hours, 42 minutes, 55 secondswhich which you tell me root function is used by which which node this node check number right so that means check
+2:43:042 hours, 43 minutes, 4 secondsnumber is using the number using what state see this you are managing it internally also right got it
+2:43:122 hours, 43 minutes, 12 secondsthat's what I want you to believe that's what I want you to believe that state can be used by any guy right langraph is doing a heavy lifting for you Right?
+2:43:212 hours, 43 minutes, 21 secondsLangraph is doing the heavy lifting for you. Right? But here not not here. Here I'm defining the function how to route from this node. I'm defining that function clearly here. See this? Got it.
+2:43:332 hours, 43 minutes, 33 secondsOkay.
+2:43:342 hours, 43 minutes, 34 secondsBut but in the even node function are we not replacing the result? Uh S because if it is not appending the result it is
+2:43:412 hours, 43 minutes, 41 secondsonly replacing it in this when it was a string when our state may the result. Even now, even now
+2:43:482 hours, 43 minutes, 48 secondsif you look at the even node method, you even node method. No, now it is not replacing. Now first,
+2:43:562 hours, 43 minutes, 56 secondsfirst you went to check number, this result came right, receive number in output, it's fine. But if you look at the method definition, uh scroll up a
+2:44:052 hours, 44 minutes, 5 secondslittle please. Uh here it's in the return statement, the result is being set as the number is even. So I came to
+2:44:122 hours, 44 minutes, 12 secondseven node. It is not appending the array, right? It won't. That's what I'm telling. This is the behavior of reducer. Yeah.
+2:44:212 hours, 44 minutes, 21 secondsLangraph sir. Yeah. Yeah. Yeah. Vijay. Yes. Vijay,
+2:44:242 hours, 44 minutes, 24 secondsyou're right. This is the behavior of reducer. You don't have to append. Langraph will append. Okay.
+2:44:322 hours, 44 minutes, 32 secondsYou just return it in the right format. All right. Got it. Okay.
+2:44:372 hours, 44 minutes, 37 secondsYes. You need to only return it in the right format. Langraph will do the appending. I have given langraph a function here. Now add underscore
+2:44:442 hours, 44 minutes, 44 secondsmessages it use it and append it. Got it? Okay. Okay. You never do appending part. Okay.
+2:44:522 hours, 44 minutes, 52 secondsSuppose in the state I don't I have two keys but one of them one of my node is uh having another key as a return. So
+2:45:002 hours, 45 minuteswhat will happen there? Means it will add another if if a node is returning some other key it will break down. Okay.
+2:45:072 hours, 45 minutes, 7 secondsSo it will not append that key append mean it will not uh put that key into that dictionary. No, no, no. Okay, it will not. Let's try. Let's try. If you
+2:45:162 hours, 45 minutes, 16 secondsasking me, let's try because it's not part of my state,
+2:45:192 hours, 45 minutes, 19 secondsright? It's the parameter is not part of my state. So, probably it'll error out. Let's try this. Check number like this.
+2:45:282 hours, 45 minutes, 28 secondsLet's see if it does it or not. I'm not sure even I forgot.
+2:45:372 hours, 45 minutes, 37 secondsLet's try.
+2:45:392 hours, 45 minutes, 39 secondsI don't see it anywhere. See result is coming but it's not definitely not returning that. So it's definitely not getting added to this state. See this
+2:45:462 hours, 45 minutes, 46 secondswhatever it is returning now here message also I was returning right. So that is nowhere. Is it anywhere? Can you see it?
+2:45:562 hours, 45 minutes, 56 secondsI can't see it.
+2:45:582 hours, 45 minutes, 58 secondsRight. So it is working fine but it is not adding. So what it is doing is it is not adding your message to the state. So we have to initialize that while invoking.
+2:46:072 hours, 46 minutes, 7 secondsYeah. In the in the state you will have to first put that value right it should be part of the my state class only then it happens
+2:46:142 hours, 46 minutes, 14 secondsthen then only it will add okay then it will only it will update this flow is what I want you to just understand the best possible way this is the flow which
+2:46:232 hours, 46 minutes, 23 secondswill help you learn langraph toy playing with lang graph anyone can do understanding what goes inside what
+2:46:312 hours, 46 minutes, 31 secondscomes outside is the real game guys and that is what we have to play with okay that's what we have to always always Understand? Never always question.
+2:46:392 hours, 46 minutes, 39 secondsAlways question if this message state is there why is it not getting appended? Always question what if I pass a string? What if for example the way you are questioning?
+2:46:482 hours, 46 minutes, 48 secondsWhat if I pass a value? What will happen? Always question these things and check your behavior because in AI or any
+2:46:552 hours, 46 minutes, 55 secondsprogramming if you do not know what is coming inside and what is going inside the data structure of what is going inside and what is coming outside you
+2:47:032 hours, 47 minutes, 3 secondswill never be able to control your software. You'll never be able to control your program. Never. I'm telling you very honest always know what has to be sent and what has to be received.
+2:47:152 hours, 47 minutes, 15 secondsHere the takeaway is what you will define it here in the state. Whatever you want to keep every every node will
+2:47:232 hours, 47 minutes, 23 secondsreturn something that will be added to the state. If you have defined a reducer
+2:47:292 hours, 47 minutes, 29 secondshere then whatever the every every every uh state is returning every node is returning that will be appended. If you
+2:47:372 hours, 47 minutes, 37 secondsdon't have a reducer what will happen guys? If you don't have a reducer it will replace it will be replaced. It will be replaced. This is this is all different.
+2:47:472 hours, 47 minutes, 47 secondsThis is all you need to remember. So can we have hypothetically recursive calls to the same node? Hypothetically you can have a lot of recursive calls.
+2:47:562 hours, 47 minutes, 56 secondsIn fact you will have so many coming out of it unless or else it will go into loop.
+2:48:012 hours, 48 minutes, 1 secondThat's what in fact you will have such recursive calls that you will have to set some you know reset right that okay
+2:48:082 hours, 48 minutes, 8 secondsso what I generally do is in the state I keep a counter okay how many times the iteration has been done. So that counter I'll I'll break it. If the counter
+2:48:162 hours, 48 minutes, 16 secondsreaches 10 or 20 or somewhere, I'll break it. Okay. No, I cannot get the answer. Right.
+2:48:202 hours, 48 minutes, 20 secondsAnd you can also chunk the message from the state from the previous one. You're appending
+2:48:282 hours, 48 minutes, 28 secondsto the messages. Take the first 50 characters of that uh previous message. Can we do that?
+2:48:342 hours, 48 minutes, 34 secondsYou can lot of applications where you don't want to retain the humongous uh text.
+2:48:402 hours, 48 minutes, 40 secondsOf course. See of course you will have applications such that you would not want to you know use let's say you have
+2:48:472 hours, 48 minutes, 47 secondsfour different applications right so probably one application he's not interested in what other application said right he only wants the the user message that
+2:48:572 hours, 48 minutes, 57 secondscame to the the let's say the receptionist right the the the first LLM and whatever he's reverting that is why
+2:49:042 hours, 49 minutes, 4 secondsyou will have to create views right that's that's where you will have to create views or put some condition in the text message if they reach this literal
+2:49:132 hours, 49 minutes, 13 secondsstring then you cut it off that message and also so this kind of things we will have to kind of build it it's very complicated
+2:49:212 hours, 49 minutes, 21 secondsto be honest it's it's a big game from here right to be honest a lot of customizations will happen right but we don't have to worry about customizations
+2:49:282 hours, 49 minutes, 28 secondswe just have to understand the flow what is going inside what is coming outside and what can we tweak right tweaking you
+2:49:362 hours, 49 minutes, 36 secondscan keep doing day in day out that's a matter of practice all all the way right you will fail 10 times then you will tweak and make it better. That is a
+2:49:432 hours, 49 minutes, 43 secondsmatter of practice but uh overall this is how you have to do it.
+2:49:492 hours, 49 minutes, 49 secondsSo that's all today. This is what I wanted to finish. I've shown you variation of states how to maintain state. I've shown you variation of tool calling and how to go to tool calling.
+2:49:592 hours, 49 minutes, 59 secondsNow one homework for you guys which is I'm going to give you some messages some functions
+2:50:112 hours, 50 minutes, 11 secondsI'm just putting it here only you guys refer to it
+2:50:182 hours, 50 minutes, 18 secondsnow I'm going to give you some functions from our last part only and you will
+2:50:262 hours, 50 minutes, 26 secondshave to build up this kind of a graph right the routing the manual routing right you have to do let's see how you do it and then we will kind of solve
+2:50:342 hours, 50 minutes, 34 secondsthis question in the next session let me show you I'm also going to give you a router function right everything most of the things I'm going to give you you have to
+2:50:432 hours, 50 minutes, 43 secondsbring the graph build the graph and run it that's what you have to do okay so I'm giving you all the imports first
+2:50:542 hours, 50 minutes, 54 secondsright let's get all the imports here then let's a state. I'm defining a custom state here.
+2:51:072 hours, 51 minutes, 7 secondsGive one minute. Okay.
+2:51:202 hours, 51 minutes, 20 secondsLook at this. I'm making a custom state.
+2:51:222 hours, 51 minutes, 22 secondsIf the LLM is not here, guys, get the LLM, right?
+2:51:282 hours, 51 minutes, 28 secondsAll that you will have to add of course right so this is a custom state I made my state something right
+2:51:372 hours, 51 minutes, 37 secondsand what I want you to do is is a very good thing this is this will you will enjoy this actually I'm giving you two tools instead of one
+2:51:462 hours, 51 minutes, 46 secondsnow right I'm giving you two tools instead of one and we'll solve it in the next session but I want you to first try this right that's the whole idea Sir, what is the homework?
+2:52:002 hours, 52 minutesI'm giving it to you, right? Okay. Okay.
+2:52:032 hours, 52 minutes, 3 secondsThis I'm giving you two tools. One is add the weather weather and second is add the numbers. Okay. One one is get weather and second is add numbers.
+2:52:112 hours, 52 minutes, 11 secondsRight. So two tools I'm giving you,
+2:52:132 hours, 52 minutes, 13 secondsright? And what you have to do is you have to route right I'll give you the router function also. Okay. just you have to just check that router function
+2:52:222 hours, 52 minutes, 22 secondsassess it and try to understand what the router function is doing and then you just build the graph that is the most important part from whatever we have
+2:52:302 hours, 52 minutes, 30 secondsdone today so I'm going to give you this see this
+2:52:442 hours, 52 minutes, 44 secondsso I'm just defining the llm and then I'm going to define Okay.
+2:52:592 hours, 52 minutes, 59 secondsGive it one minute.
+2:53:042 hours, 53 minutes, 4 secondsCopying this from assignment now. So that's why
+2:53:212 hours, 53 minutes, 21 secondsLLM node I've given you and now I'll be making now I'm going to give you LLM is done
+2:53:312 hours, 53 minutes, 31 secondsI'm going to give you an LLM node also right so you
+2:53:442 hours, 53 minutes, 44 secondsthis thing and then I'm going to give you copying is such a pain from here
+2:53:552 hours, 53 minutes, 55 secondsMicrosoft one Microsoft products I tell you there okay and I'm going to give you
+2:54:042 hours, 54 minutes, 4 secondsrouting function right look at this look at it and this is what will be the definer here the most important look at
+2:54:132 hours, 54 minutes, 13 secondsthis function right it will either give you weather tools or give you math tools or give you end one
+2:54:202 hours, 54 minutes, 20 secondsof the tools it will take you to you have to study this function and then build your graph so basically I'm not
+2:54:292 hours, 54 minutes, 29 secondstelling you anything about the graph you have to build the graph in such a way that in such a way that
+2:54:362 hours, 54 minutes, 36 secondsthis guy this guy you're making your dictionary right you're defining two tools now so if
+2:54:432 hours, 54 minutes, 43 secondssomeone asks a weather information I want you to route it to get weather if someone asks to add to
+2:54:512 hours, 54 minutes, 51 secondsnumber I want you to route it to add numbers for that I've given you the function also the function also is given
+2:54:582 hours, 54 minutes, 58 secondsafter this you have to build the graph and run it right this is something that you have to
+2:55:082 hours, 55 minutes, 8 secondsthis is something that you have to just this is the whole thing this is the whole game actually so I'm just going to save this file for today I think today
+2:55:162 hours, 55 minutes, 16 secondswe have done some scribbling so I'll be sharing it one minute
+2:55:312 hours, 55 minutes, 31 secondstoday's our session Question number nine. Which one is it? Yeah. Nine. Yeah.
+2:55:422 hours, 55 minutes, 42 secondsThis was this is about I think.
+2:55:512 hours, 55 minutes, 51 secondsSo this is my introduction to langraph for you guys, right? I hope you got to learn something new about lang graphs
+2:55:582 hours, 55 minutes, 58 secondsand uh something very usable which we will be using in the upcoming sessions. I'm just going to share this with you.
+2:56:062 hours, 56 minutes, 6 secondsShe already have the
+2:56:242 hours, 56 minutes, 24 secondsAll right.
+2:56:272 hours, 56 minutes, 27 secondsOkay, that's it for today, guys. Now, I hope you enjoyed the session. I hope lang graph is understandable after
+2:56:362 hours, 56 minutes, 36 secondstoday's session. If not, I suggest I recommend go through it one more time and I'm very sure that you will be able to understand lang graph. Okay. From
+2:56:452 hours, 56 minutes, 45 secondsnext session onwards, we will use langraph to different to design different kind of topologies right and I'll give you a very good framework
+2:56:532 hours, 56 minutes, 53 secondswhich you can use to actually um you know design it right.
+2:57:022 hours, 57 minutes, 2 secondsAll right, that's it. Any questions from in future, please ask.
+2:57:052 hours, 57 minutes, 5 secondsSo, I just have a question. Quick question. Can I use define a class?
+2:57:112 hours, 57 minutes, 11 secondsUh, can I use LLM itself? I'll say define me a class of a string, a number or whatever it is, city,
+2:57:222 hours, 57 minutes, 22 secondspopulation. Okay.
+2:57:242 hours, 57 minutes, 24 secondsSo, the LLM can define and give it to me, right?
+2:57:282 hours, 57 minutes, 28 secondsYeah. Yeah, it can of course and then later on you can do the processing on that. Yeah, you can do that. You can do that.
+2:57:372 hours, 57 minutes, 37 secondsPass it to the LLM itself. Definition of class.
+2:57:412 hours, 57 minutes, 41 secondsUh not really because LM does not care about it, right? Why would you want LM to get confused with the class? Okay,
+2:57:472 hours, 57 minutes, 47 secondsLLM is for LLM is for just handling the request and calling your tools actually, right?
+2:57:532 hours, 57 minutes, 53 secondsCalling the tools, understanding the language, the English commands,
+2:57:562 hours, 57 minutes, 56 secondsthe English communication, right? and converting it to some definite you know process that's the process that's what LM is for
+2:58:052 hours, 58 minutes, 5 secondsbut it can also call the LLM like chat GPT or open A and then create the definition right Python code give me a
+2:58:132 hours, 58 minutes, 13 secondsPython code there you can you can create your codes using it right that is fine using chat GPT or something but don't tell LLM your
+2:58:202 hours, 58 minutes, 20 secondsreal LLM to just define the class for you while it is it is trying to solve weather problems right uh on the It's like on the fly on the
+2:58:292 hours, 58 minutes, 29 secondsdynamically can create potentially but that's not the better use of it. Okay,
+2:58:342 hours, 58 minutes, 34 secondsthat won't work. Some things you keep under your control only. Why give it to LL?
+2:58:422 hours, 58 minutes, 42 secondsOkay, so guys go through it. I think uh it's an extensive session for today.
+2:58:472 hours, 58 minutes, 47 secondsTrust me on this. Yes, it is. We have done a quite a lot of things. I would recommend you go through it. Uh this was just trust me, right? I generally go
+2:58:552 hours, 58 minutes, 55 secondsthrough a lot of langraph very basics but since guys you have already done it so I chose to kind of stick to very
+2:59:022 hours, 59 minutes, 2 secondsrelevant content only. Yes please. So one more question general question general question. See
+2:59:102 hours, 59 minutes, 10 secondsearlier we had uh like in finance and etc like you had predictive models where you are predicting the rise and fall of
+2:59:202 hours, 59 minutes, 20 secondsstocks. So there are many algorithms to do that. Even if you are using AI,
+2:59:272 hours, 59 minutes, 27 secondsif it is in the business of predicting,
+2:59:312 hours, 59 minutes, 31 secondsit's as good as the algorithm that you feed it in, right? But it cannot do more than that. So it cannot predict what's going to exactly happen.
+2:59:392 hours, 59 minutes, 39 secondsSo how good is it compared to the earlier pre- AI predictive algorithms?
+2:59:452 hours, 59 minutes, 45 secondsSee even with AI right I'll tell you it's I was reading this survey that AI is
+2:59:522 hours, 59 minutes, 52 secondsmaking losses 90% of the time people who are trading using this LLM chat GBD and all they're making losses 90% of the times
+2:59:592 hours, 59 minutes, 59 secondsright because see I tell you this uh the institutional investors they're very smart right
+3:00:063 hours, 6 secondsso one guy came to me and I was just actually looking for a guy to manage some part of my portfolio just take a look at it and try to do it and very
+3:00:143 hours, 14 secondssmall amount only right so I was not able to find guys to manage that small amount because everyone was like we'll start with 50 lakhs and so on right and
+3:00:223 hours, 22 secondsI think because I think RBI has also mandated it that the minimum portfolio size should be 50 lakhs right so I was looking I met one person and he was
+3:00:293 hours, 29 secondssaying he was showing me his profits he was showing me that in the last month I made 7% profit in the last last month I
+3:00:363 hours, 36 secondsmade 2% profit right and so on so since I have had experience and I have burned my hands into it right and then I got to
+3:00:443 hours, 44 secondsknow that these institutional investors they are so smart that they will flip any strategy that you make right whatever strategy you're making they'll
+3:00:503 hours, 50 secondsflip it because they have money in hand yeah they they have money in hand they have the power to slide the market and jump the market at any point of time you don't
+3:00:583 hours, 58 secondshave that power which with that amount of money so that is the real blockade and they know people are using AI and there are some definite strategies with
+3:01:063 hours, 1 minute, 6 secondsAI so they just pump the money so aggressively that it will hit all the stop- losses and everything and then it will rebound so I told him that one
+3:01:143 hours, 1 minute, 14 secondsthing see I told him that you give me you give me 20 lakhs of check you take 20 lakhs from me give me 2% return every
+3:01:223 hours, 1 minute, 22 secondsmonth right give me two 20 lakhs of check bankable check I will bank it the moment I feel like it you give me 2% of return every
+3:01:303 hours, 1 minute, 30 secondsmonth and he ran away right that very moment oh no no one can guarantee you 2% of return that's what even AI even if has got
+3:01:403 hours, 1 minute, 40 secondsaccess to most of the data points it cannot still predict the future. So in that area that is we cannot use AI that
+3:01:473 hours, 1 minute, 47 secondsmuch. It's as good as the previous pre AAI models.
+3:01:513 hours, 1 minute, 51 secondsThat that's what right AI cannot predict it. So what really works is high frequency trading algorithms right which
+3:01:583 hours, 1 minute, 58 secondswork right what these algorithms are like they work on multiple strategies like scalping right shorting uh in in a
+3:02:073 hours, 2 minutes, 7 secondsparticular scenario what they do is they they play with margins. For example, the margin between BSE and NSE. So they're
+3:02:143 hours, 2 minutes, 14 secondsdesigned in such a way that okay at 3:00 there is a this this much margin between BSE and NSE. So they will put cres of
+3:02:203 hours, 2 minutes, 20 secondsmoney and quickly buy on B and sell on sell on NE right this is the kind of algorithms that are working in market right high frequency
+3:02:293 hours, 2 minutes, 29 secondstrading algorithms right but for that you need high processing GPUs very high systems but you can use AI models to detect
+3:02:383 hours, 2 minutes, 38 secondsthese kind of tradings right yes you can use it but I'm telling you again these keep changing no pattern is
+3:02:453 hours, 2 minutes, 45 secondssustains in the market every pattern changes it will costly also how can you apply AI tool on humongous of transactions
+3:02:533 hours, 2 minutes, 53 secondsand the AI billing will be much more that is a problem see the the problem is that it's not even it's not just going
+3:03:003 hours, 3 minutesby patterns it's going by a lot of sentiment it's going by a lot of NF you know this FIS institutional investors all of them pumping money exploding
+3:03:093 hours, 3 minutes, 9 secondsmoney now if you have some information into so these days that's what stock market is all about if you have some internal information into okay tomorrow
+3:03:173 hours, 3 minutes, 17 secondsthis particular group is going to put money in this particular stock when you also buy that stock. That is possible,
+3:03:233 hours, 3 minutes, 23 secondsright? Or probably if you know that tomorrow Trump is going to tweet so and so, right? Then you he already made that he already made
+3:03:303 hours, 3 minutes, 30 secondsinsider insider trading on Yeah.
+3:03:373 hours, 3 minutes, 37 secondsSo that's how it is, right? AI is definitely not going to not going to do it, right?
+3:03:453 hours, 3 minutes, 45 secondsThank you. Okay.
+3:03:493 hours, 3 minutes, 49 secondsOkay guys, I hope the content was clear guys today. Uh is there any confusion just ask me right? Otherwise I feel I
+3:03:563 hours, 3 minutes, 56 secondsthink we can close for today right and I hope you enjoyed it and we'll continue the same in the upcoming sessions and uh
+3:04:043 hours, 4 minutes, 4 secondsI'm sure you will like find it relevant right because now we will design real agents now that we have some information into how to how
+3:04:143 hours, 4 minutes, 14 secondsnow we will design this is only about agents right this request comes pass it to another LLM that that LLM passes to another LLM this passing the parcel game
+3:04:233 hours, 4 minutes, 23 secondsis all about this agentic AI what they call is and the certain kind of context engineering that goes behind the scenes.
+3:04:293 hours, 4 minutes, 29 secondsWe'll learn all that right in the upcoming sessions. Okay. All right.
+3:04:333 hours, 4 minutes, 33 secondsThat's it. Thank you so much guys. Very interactive audience. I really enjoy taking classes with you to be very honest and um keep this momentum going.
+3:04:413 hours, 4 minutes, 41 secondsJust one request whenever you're coming to the next session just revise everything, right? Just go through everything we we did, right? So that you
+3:04:483 hours, 4 minutes, 48 secondsthe next session becomes more and more relatable. you don't forget things because now things are getting heavier and heavier. It won't be possible for me
+3:04:553 hours, 4 minutes, 55 secondsto cover the entire thing I did in the last session again one more time. So that won't be possible. You understand?
+3:05:023 hours, 5 minutes, 2 secondsI don't ask you to do much if even if you're not able to do much just go through the sessions over the week over the weekend whatever we did just go
+3:05:103 hours, 5 minutes, 10 secondsthrough them one time extensively. That will take you one two hours maximum. Go through it. Take a look what happened there. Take notes your own notes that this is this this this this happened.
+3:05:193 hours, 5 minutes, 19 secondswhat were the key points and finish it.
+3:05:223 hours, 5 minutes, 22 secondsThat approach will at least keep you sailing. What you should do extensively give out 1 hour a day. Every day you give out just one hour. See, I learned
+3:05:303 hours, 5 minutes, 30 secondsthis ji trust me on this by giving one hour of day since the day jennai was launched. That is in 2020 uh 2022
+3:05:383 hours, 5 minutes, 38 secondssomewhere, right? I started only one hour a day. I gave it with a very strict discipline and I learned it to be honest. And today I'm here kind of trying to explain it to you guys.
+3:05:483 hours, 5 minutes, 48 secondsWhatever it is, I'm not perfect yet, but at least you know kind of improving every day, right? So, I did it with one hour a day. I tell you this very
+3:05:563 hours, 5 minutes, 56 secondshonestly, even I would not do it on weekends. Only after the after office from 11 to 12, I would practice for 1 hour. That's it. This is what I did.
+3:06:053 hours, 6 minutes, 5 secondsNothing else. And I actually cracked through everything. Everything I understood, right? At least I have a backbone in my mind. Right? So, if you
+3:06:133 hours, 6 minutes, 13 secondsbuild that kind of backbone, you will be able to do it too, right? That's the whole idea. Okay?
+3:06:193 hours, 6 minutes, 19 secondsThank you. Thank you very much. Thank you guys. Thank you so much. Bye. Bye. Take care. Thank you. Thank you. Bye. Thank you. Thank you so much.
+3:06:273 hours, 6 minutes, 27 secondsThank you, sir. Thank you. Thank you. 

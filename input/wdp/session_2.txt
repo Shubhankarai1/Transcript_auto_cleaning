@@ -1,0 +1,1146 @@
+11:1211 minutes, 12 secondsOkay guys, let's start. So I think we did not meet on last Sunday. Okay,
+11:2011 minutes, 20 secondslet's get started today. uh let me quickly go through whatever we did in the last session and then we'll kind of take it up from there and try to
+11:2911 minutes, 29 secondsunderstand what is it that we're going to do today. All right, let's try to kind of wrap up uh padantic as well as
+11:3711 minutes, 37 secondslet's try to learn basics of langraph today. That's the agenda for today basically.
+11:4311 minutes, 43 secondsBut first we need a recap of what we did in the last session so that we are on track because I know that you know you
+11:5011 minutes, 50 secondsknow it's been long time since last session and uh and you know I know I know you must have forgotten a thing or right so I'll just quickly give you a
+11:5811 minutes, 58 secondsrecap of whatever we did the last session right all right so
+12:0612 minutes, 6 secondsgive me one moment let me just quickly share Yes.
+12:1512 minutes, 15 secondsSo before that actually we have discussed Langra basics on Sunday's class. Okay. Maybe in Sunday's class. Yes. Okay.
+12:2312 minutes, 23 secondsYou have done it already.
+12:2412 minutes, 24 secondsYes. So should not like uh study the same thing again. Okay. Study some different thing. What I I feel my my perspective I'm telling.
+12:3412 minutes, 34 secondsOkay. Sure. Sure. Sure. Then we will we'll try to kind of build on top of that. Okay. Anyway, I mean we will be able to do very less langraph today
+12:4212 minutes, 42 secondsbecause we first have to wrap up pantic today, right? That is the prime agenda.
+12:4712 minutes, 47 secondsSo lang graph if you have done it already, I would suggest uh go through it once. Um uh some langraph I'll do whatever
+12:5612 minutes, 56 secondsleftover time is today I'll do some langraph today. Um then from the next session onwards we'll do proper uh agent development. Right? That's the plan.
+13:0413 minutes, 4 secondsOkay.
+13:0613 minutes, 6 secondsJust like Rag, I'll also give you a very good structure of agent AI development and that will help you kind of do it all. Okay.
+13:1513 minutes, 15 secondsOkay. So, just one minute. Yeah. This is something I need here.
+13:2213 minutes, 22 secondsCan I ask a question regarding the uh so one thing I was doing is whatever you teach us to do in Google collag I'm
+13:3013 minutes, 30 secondstrying to execute the same thing in VS code kind with streaml and kind of executed into not a production level something which can be used and what I
+13:3913 minutes, 39 secondsnoticed was that u it was like it took four times the time and the understanding the file structure understanding everything the debugging
+13:4813 minutes, 48 secondsinstalling packages sometimes you would install extra packages situ we didn't need like even in PyTorch it did everything and I realized it's like a
+13:5613 minutes, 56 secondswhole different ball game uh doing it into uh like uh like a VS code thing where we can push it and others can use
+14:0314 minutes, 3 secondsit and the Google collab thing is it just like a browser anything how we can do it because I messed up the package
+14:1114 minutes, 11 secondsinstallation itself I as to install transformers and in that I started installing all the packages I had to come back delete then file structure but
+14:1914 minutes, 19 secondsoverall took me four times more time in figuring out I mean even in the environment configurations I thought it is like the
+14:2714 minutes, 27 secondsusual V and D we do but I realized that was also different for certain things uh like this is and I got stuck here we I
+14:3514 minutes, 35 secondsdid it everything in 3 hours but that I'm stuck from like four five days to and this is very basic thing I understand so basically yes uh when
+14:4314 minutes, 43 secondsyou will install the packages on your own machine it will take a lot of time Google has these packages very handy and it just installs them. It just basically
+14:5114 minutes, 51 secondscopies them from one location to another location, right? That's what it does behind the scenes. Google, right? It already has them installed. So when you do pip install, Google Collab
+15:0015 minutesunderstands that you want to install this package, it'll just copy that from that location, it it'll just move it to your location, right? So it's a copy paste going on for Google Collab.
+15:0915 minutes, 9 secondsWhereas for these guys, uh when you do it for on your own system, it's a proper installation going on,
+15:1615 minutes, 16 secondsright? So that's why it takes more time uh on your own system besides running the codes also it'll take more time on your system because your system is
+15:2415 minutes, 24 secondsbounded by what 16 GB 32GB max right whereas these Google you know they they
+15:3215 minutes, 32 secondshave 128 GB or more than that actually right so in fact on Google collab when you will try to run it in the night
+15:3915 minutes, 39 secondsyou try it out ra may when you will run it so it will take it will be slower why because a lot of people are awake in the night and using Google Collab, right?
+15:4915 minutes, 49 secondsBut it'll be faster during the day. So that's about Google Collab actually. So and even the file structure, I realized I had to I had to figure out what the
+15:5815 minutes, 58 secondsfile structure I wanted to be for a couple of things.
+16:0116 minutes, 1 secondYeah, that is something that is more project driven, right? So for project driven, yes, you have to define your file structure, you have to design, define your architecture and everything.
+16:0916 minutes, 9 secondsSo yeah, that is quite some work.
+16:1116 minutes, 11 secondsYeah. And also I realized since I want a streamllet interface I had to test do it run the streamly app test it run a test
+16:2016 minutes, 20 secondscome back then implement second thing run a test because I tried doing okay next next next and it became error so I had to redo it again one step implement
+16:2916 minutes, 29 secondstest so how do we will you be teaching us that and like what's the uh yes in the later parts of the course
+16:3716 minutes, 37 secondsI'll be teaching you that after May I will be taking those topics up right
+16:4416 minutes, 44 secondswhere we will be doing all of this right in VS code only right so we will be doing that all of it whatever you're
+16:5116 minutes, 51 secondsjust mentioning so for example function tool calling we'll have a separate file for tool calling in fact I think when we go to agents I'll start that part so
+17:0017 minutesdon't worry about it that'll eventually be covered thank you I was trying out and I got stuck in the middle didn't progress four five days no no it'll we'll do it right and in
+17:0917 minutes, 9 secondsfact we'll also do the deployment part also So we need that anyway. Thank you sir. Thanks sir.
+17:1617 minutes, 16 secondsAll right. So guys this is something uh sorry to interrupt. It's a basic question. So why why can't we avoid
+17:2417 minutes, 24 secondsthese uh local level things like VS code PyCharm and do all the production level deployment using Google Collab in industry because Google Collab is a collab. It's
+17:3217 minutes, 32 secondsit's a practice notebook. It's not a real uh deployment code framework.
+17:3717 minutes, 37 secondsRight? For that you need something like VS code and something like it's just a practice. You can try this thing that thing multiple things out right when I also from the background I know
+17:4517 minutes, 45 secondsit takes a lot of time to cond install and making virtual environment all those things take lot of effort and time and
+17:5217 minutes, 52 secondstrue true yeah but you'll have to install that time right of course why because uh if you don't use that do that you will never be able to deploy your
+18:0018 minutespackage right because you have to have your packages installed in one place right then only you can create a docker out of them and then move them to an
+18:0718 minutes, 7 secondsenvironment right so that's the whole idea Okay. So that time is worth worth it to be honest. Okay.
+18:1518 minutes, 15 secondsYes. Thank you.
+18:1818 minutes, 18 secondsOkay guys, let me just load my notebook smoothly otherwise I'll just lose out on that.
+18:3418 minutes, 34 secondsJust one minute. Okay.
+18:3718 minutes, 37 secondsPantic first there is pantic. So let me pic
+18:4518 minutes, 45 secondsand in l chain right now we're using the python base uh the python version. So would it be possible if we use the
+18:5518 minutes, 55 secondspartly the drag and drop version the lang chain which has uh not lang chain lang flow I guess or l yeah I think lang
+19:0219 minutes, 2 secondsflow where it has the like a visual canvas builder and combine it with this program
+19:0919 minutes, 9 secondsI've never used it to be honest but we'll have to check and see if it can be done I tried a small multi- aent system and
+19:1819 minutes, 18 secondsit was just the logic was like simple at least for me maybe not so technical logic is simple but then the as many
+19:2719 minutes, 27 secondscustomizations are not possible actually right that is the problem right you cannot do your customizations that much it's very much fixed right there
+19:3619 minutes, 36 secondsare packages like any for orchestration and all but the customization is not as good right that is the challenge
+19:4419 minutes, 44 secondsokay so lang flow the visual builder doesn't have as much customizations no no It does not have that many customizations that that many
+19:5219 minutes, 52 secondscustomizations can only be done on a code level, right? Got it. Thank you. Okay.
+20:1120 minutes, 11 secondsfirst load the notebook from the last session
+20:1820 minutes, 18 secondsand then I'll just load the notebook for
+20:2920 minutes, 29 secondsI'm going to share a screen just
+20:3720 minutes, 37 secondsJust one moment. Okay. One thing I forgot.
+21:4621 minutes, 46 secondsLet me stop the ship.
+22:0722 minutes, 7 secondsOkay, just take a look guys. Now this is something uh what we had done. Let's just quickly go through what we had done in the last session then we'll start it.
+22:1522 minutes, 15 secondsSo in the last session right we understood the tool calling right the tool calling and let's just go to the last piece of code which was the most important part.
+22:2322 minutes, 23 secondsSo this is what we had right. We first I first showed you the very example of tool card right how to
+22:3222 minutes, 32 secondsuse a tool card you have to maintain one tool card but then I told you that you can do it all using dock string itself right whatever you have the tool
+22:4022 minutes, 40 secondswhatever tool you have you just mention inside comments what the tool is taking as input what the tool is giving as
+22:4722 minutes, 47 secondsoutput and what the tool is really doing. use this tool whenever a user asks about weather, temperature,
+22:5322 minutes, 53 secondshumidity or whatever, right? So you can do this all inside dock string, right?
+22:5922 minutes, 59 secondsAnd you're basically returning fake weather DB and then whatever it is,
+23:0323 minutes, 3 secondsyou're returning something, right? And if I just take a look at it, you created a turn, you converted it into a tool
+23:1023 minutes, 10 secondsusing what? Add the root tool, add the rate tool decorator, right? You created it into a tool using add decorator,
+23:1823 minutes, 18 secondsright? this thing and it got converted into a tool, right? This got converted into a tool.
+23:2423 minutes, 24 secondsNow, now once you have this, look at this. You were show you were just making a dictionary of all the tools that you
+23:3223 minutes, 32 secondshave available, right? Just keeping them in one place. This is my first dictionary. This is my first tool,
+23:3723 minutes, 37 secondssecond tool, third tool. Whatever number of tools you have available, you just keep them in one place. This is the type of this tool. Structured tool, we
+23:4523 minutes, 45 secondscalling it what? Structured tool. Now look at this.
+23:4923 minutes, 49 secondsThen I showed you the steps. You just have your load your load your OpenAI API whatever
+23:5623 minutes, 56 secondsyou are loading right then ask the query put it inside as a human message whatever the same way right now you need
+24:0324 minutes, 3 secondsto pass it to LLM you need to pass it to LLM and then when you will pass it to LM ask me anything and when you pass something like give me
+24:1124 minutes, 11 secondsthe weather in Delhi then what will LLM do? What will LLM do? LM will give you the tool calls list.
+24:1924 minutes, 19 secondsIt'll give you a list of all the tool calls. See this? See this? If you're making multiple tools, then it'll give you a list of multiple tool costs. That
+24:2724 minutes, 27 secondswe won't see right now. We'll see that with langraph. Okay. It'll give you a list of multiple tool costs. Just look at this. Multiple tool cost.
+24:3624 minutes, 36 secondsAnd then and then once it gives you this list what you will do is what you you will do is you just check okay if it if
+24:4324 minutes, 43 secondsllm has asked me to call a tool you'll take the first tool you'll take the first tool right get the tool name get
+24:5124 minutes, 51 secondsthe tool name from here and then what you do invoke that tool invoke that tool
+24:5624 minutes, 56 secondsright invoke tool call right invoke the tool right when you will invoke the tool right when
+25:0525 minutes, 5 secondsyou will invoke the tool, right? You don't really have to worry about all the arguments that you have to pass or all
+25:1225 minutes, 12 secondsthose things, right? Because because LLM will give you all those things here.
+25:1625 minutes, 16 secondsLook at this. LM is automatically giving you this, right? It is automatically giving you this, right? Just see this AMS.tool, right? Just invoke it, right?
+25:2725 minutes, 27 secondsJust invoke it from here, right? From here, tool call, right? From just invoke the tool, right? Invoke tool_, right?
+25:3525 minutes, 35 secondsAnd once you do this and once you do this so basically what will happen if you invoking it using tool call it will basically pass this whole thing pass
+25:4425 minutes, 44 secondsthis whole thing to your tool and it'll take the arguments automatically and your tool will be called you'll get what you'll append the AI message whatever
+25:5125 minutes, 51 secondsthe AI message that came that is this this particular message and you'll append the tool message that is whatever the output tool is giving right back and
+26:0026 minutesthen you will print the content then you will print the then you will basically kind of invoke the LM with these two messages. With these two messages, you
+26:0826 minutes, 8 secondswill then invoke the LLM with these two messages. This is the whole idea of tool calling that I explained to you in the last session. Right? I hope everyone got
+26:1526 minutes, 15 secondsa chance to go through it and do it. I hope so. Right?
+26:2126 minutes, 21 secondsWhat you need to do? Get the tool call object. Get the tool call object here.
+26:2726 minutes, 27 secondsGet the name of the tool here and just do selected tool.invoke and pass this inside that. This this is standard in nature. This is absolutely standard in
+26:3626 minutes, 36 secondsnature. You don't even have to worry about it. Right.
+26:4026 minutes, 40 secondsOkay. So this was about tool call that we did in the last session. Today we are going to do about uh something called as pyantic which will
+26:4826 minutes, 48 secondsactually help you make this tool calling better and it will also help you in the long run with multiple things like u uh
+26:5626 minutes, 56 secondslcraft you know there also a lot of tool calling will be done. So all these things it will help you right.
+27:0327 minutes, 3 secondsSo I hope when you were doing LAN graphs when you were doing LAN graphs this tool calling must were were you able to understand the tool calling with LAN
+27:1127 minutes, 11 secondsgraphs huh guys did you get I didn't we didn't go that far uh
+27:1827 minutes, 18 secondswe then then you have not even done basics right then your pre-basics okay tooling graph session
+27:2627 minutes, 26 secondspardon me uh sir tool calling was not covered in langraph session it was just a basic session both edges and nodes and one case study.
+27:3527 minutes, 35 secondsUh so we we'll understand calling.
+27:4027 minutes, 40 secondsSo this is something which is very important that's why tool calling is very important that because it lets you kind of understand language. Now today we'll understand we'll start with our session 8 today that is our um pyantic.
+27:5327 minutes, 53 secondsSo the same function if we just take it or maybe just do it normally I just do it. Let me first introduce you to the
+28:0128 minutes, 1 secondpyantic. Pyantic basically is nothing but it's basically a police inspector that actually ensures that whatever
+28:0928 minutes, 9 secondsoutput input that you're giving to the function that is in the right format and whatever the output that LLM is giving
+28:1728 minutes, 17 secondsyou that is also in the right format and I'll just kind of show you how the this thing works. Okay. So give me one minute.
+28:3428 minutes, 34 secondsLet's go through it one by one. First I'll give you a basic introduction to pardante. Okay,
+28:4228 minutes, 42 secondsjust one.
+28:5228 minutes, 52 secondsSo just take a look. What we going to do first is we're going to make the installations. Let's install the essential things.
+29:0229 minutes, 2 secondsSo we are going to install these things.
+29:0729 minutes, 7 secondsWe install lang chain. We're installing lang chain and we're using lang chain open air and
+29:1629 minutes, 16 secondswe are installing pyatic. Three things we are going to install. Just quickly install them everyone then we move forward. Okay,
+29:2629 minutes, 26 secondswe'll install these two things. Okay,
+29:3829 minutes, 38 secondsquickly install the web. Peace.
+29:5329 minutes, 53 secondsThen the standard uh get the keys.
+30:2730 minutes, 27 secondsLet's install them and let's then get the keys in place.
+30:4130 minutes, 41 secondsDo it. Do it, guys. Everyone do it.
+30:4630 minutes, 46 secondsgranted access just do it.
+31:0431 minutes, 4 secondsSo I'm just going to import the essential things that we did right before this. So I'm just going to import them.
+31:1231 minutes, 12 secondsRight? This tool calling is very important specifically the last part. So make sure make sure whatever you're doing I don't care but you need to be
+31:1931 minutes, 19 secondsvery much sure about that you understand this particular piece of code right pick which tool right and get the tool name
+31:2831 minutes, 28 secondsinvoke it with this only that's it nothing else but make sure you understand this otherwise it will be a big mess I'm
+31:3631 minutes, 36 secondstelling you right if you don't understand this it will be a big problem because this will be used everywhere okay now let's Try to do it.
+31:4831 minutes, 48 secondsThis is Let's bring the code now. First, let's go do some imports.
+32:0132 minutes, 1 secondThe essential imports, right?
+32:0632 minutes, 6 secondsUh laptop is just going to close this, I guess.
+32:1232 minutes, 12 secondsLet me close some windows here. Laptop is going.
+32:3432 minutes, 34 secondsSo let's bring it. So let's do the basic imports. See these are the imports.
+32:3832 minutes, 38 secondsLangchain OpenAI chat openai lang chain.tools tools tool and just just the same imports that we did in the last session. Just the same import. Okay,
+32:5032 minutes, 50 secondsthe same imports. Now we need to import one more extra thing. We need to import one more extra thing which is from pantic. We will import a couple of
+32:5932 minutes, 59 secondsthings. Let Let's just let me just show you from Pantic
+33:0933 minutes, 9 secondsimport base model base model and field that's field.
+33:1833 minutes, 18 secondsThese are the two things you need ASAP.
+33:3033 minutes, 30 secondsThese are the two things you need for straight.
+33:4833 minutes, 48 secondsGuys,
+34:0234 minutes, 2 secondsgive me one minute. May take it out.
+34:0334 minutes, 3 secondsJust give me one minute. Right. Just one.
+36:0836 minutes, 8 secondsOkay. Hey, sorry for that. Okay. Yeah,
+36:1036 minutes, 10 secondsMayori, I think you'll have to just restart your kernel and try it again.
+36:1436 minutes, 14 secondsIt's not a problem. This problem should not come with Collab. You just need to restart your runtime. Only three packages need to be installed. Just restart your runtime and just do it
+36:2336 minutes, 23 secondsagain. No, I can see the same error on your collab also. On my collab. See the error. See the first one? Yeah,
+36:3236 minutes, 32 secondsthis one.
+36:3636 minutes, 36 secondsIt's coming. So, no. But this is working fine. It's okay. If the package are imported, that's it. That's fine. Okay.
+36:4336 minutes, 43 secondsOkay. Later on, I mean it will not affect.
+36:4636 minutes, 46 secondsI don't think I don't think so because the packages are import.
+36:5136 minutes, 51 secondsAll right. Thank you. Okay. Okay. So,
+36:5836 minutes, 58 secondsthis one.
+37:0337 minutes, 3 secondsOkay. So, basically now what we're going to do is we're going to just show you I'm just going to show you what exactly Pantic is and what does it really do.
+37:1037 minutes, 10 secondsSo, Pyantic as I told you right it's basically nothing but a law enforcer that it will enforce your data to be in a particular format. Okay.
+37:2237 minutes, 22 secondswith the particular format. So let me just show you a first very simple example of padantic. How you create padantic and all system is extremely slow today. What is wrong with this?
+37:3537 minutes, 35 secondsRight. So let me show you how to kind of use padantic. So once you import this you need to import this part from padantic import base model. Please
+37:4337 minutes, 43 secondseveryone do this. I hope you everyone must have done this by now but please everyone just do it. Okay then I'll explain you what we are doing. Okay.
+37:5237 minutes, 52 secondsNow let's create a let's create a padantic class person this how you create a sorry class
+38:0138 minutes, 1 secondperson right and what you will do is you'll put inside this base model okay what is happening here you don't have to understand if you understand
+38:1038 minutes, 10 secondsobject-oriented programming it is good if you don't understand it's still good you have to you basically it is nothing but this is the superass this is the
+38:1738 minutes, 17 secondssuperass this person is now going to get all the properties of this class. That's it. But you don't have to understand
+38:2538 minutes, 25 secondsthis. This will just understand just basically this that this person is a class that we are creating. This person
+38:3338 minutes, 33 secondsis a class that we are creating. Class is nothing but like a data structure.
+38:3638 minutes, 36 secondsIt's like a data structure. Just understand this. Okay? Something like this. 1 2 3 4. Right? Something like this. Right? 1 2 3 4. Right? This is
+38:4638 minutes, 46 secondsthis is this is also a class. This is a class holding what?
+38:5038 minutes, 50 secondssome integers right similarly a class when you're creating a class it is nothing but holding some data it is used to hold some data right let me show you
+38:5838 minutes, 58 secondsnow what data I wanted to hold I let's say I wanted to hold two things name and I want it to be string
+39:0539 minutes, 5 secondsand I want it to hold age age and I want it to be I want it to be
+39:1339 minutes, 13 secondsinteger right I want it to hold two things right see this this list can hold any number of any number of integers but
+39:2139 minutes, 21 secondsmy list my my data structure can hold only a string and an integer only two things it can hold okay only two things
+39:3039 minutes, 30 secondsit can hold see like this you create a list this is one list for example like this list what you're doing effectively here is you are calling a class you're
+39:3839 minutes, 38 secondscalling a class and then you put whatever you want to put inside list a dot append one right so a a will have
+39:4639 minutes, 46 secondsone right then you do aend two then a will have two right in this
+39:5439 minutes, 54 secondsway you keep on adding elements to list but this is a special type of data structure where you can add only two things one is name other is age got it
+40:0240 minutes, 2 secondsthis is called as a class right this is called as a class okay just just that I wanted to explain you the concept of class now now see this let me put some
+40:1040 minutes, 10 secondsdata inside this class look at this I'm going to put some data inside this class let me show you let me create a person
+40:1740 minutes, 17 secondsis equals to let's take a person right name is equals to I'll just pass both the values right whatever I want to pass
+40:2540 minutes, 25 secondsright whatever let's say Smith and age is equals to 22 right age is equals to 22 now the whole game of this pantic
+40:3440 minutes, 34 secondsthing is that it will enforce that this name is of type string and this age of is of type integer okay
+40:4440 minutes, 44 secondsright look at this Print person what is it? Person it's a pentic class
+40:5240 minutes, 52 secondsand like this person person
+40:5940 minutes, 59 secondsdon't print it just look at it directly what is person it's a it's a pantic this see it's a class which has what name and
+41:0641 minutes, 6 secondsSmith okay understand what is class is nothing but it is used to store data right store data for example this a list
+41:1541 minutes, 15 secondsthis is one instance of this class list inside this I can store data I can create one more instance B I can store data, right? That's what a class is.
+41:2441 minutes, 24 secondsSimilarly, this is one instance of class person. This is one instance. I can create one more class. For example, look at this.
+41:3241 minutes, 32 secondsI can create one more instance. Let me create one more instance. Person two,
+41:3541 minutes, 35 secondsright? Like this person. And you can give whatever you want to give. Name is equals to Rocky and age is equals to 55,
+41:4541 minutes, 45 secondsright? Something like this. Then person two is another class.
+41:4941 minutes, 49 secondsPerson two is another instance of the same class. Person this person was one instance of the class. This class,
+41:5741 minutes, 57 secondsright? Let's let's call it person one for for clarity. Person one.
+42:0342 minutes, 3 secondsPerson one, right? This is one instance of the class, right? This is another instance of the class, right? So it is like two different lists. This is one
+42:1142 minutes, 11 secondslist. This is another list, right? What is the type of that list? The type of this list is this person, right?
+42:1942 minutes, 19 secondsWhat does pyantic do? Pyantic ensures pyic ensures that your data type is in that particular structure only. For
+42:2642 minutes, 26 secondsexample, when you do print person dot now you want to get the name of the person do personname. Okay, this
+42:3542 minutes, 35 secondsyou want to get the age of the person do person one.
+42:4142 minutes, 41 secondsPerson one dot age. Right? Like this you can do it. Smith 22 right.
+42:4742 minutes, 47 secondsThis is how you deal with pyantic class,
+42:5042 minutes, 50 secondsright? This is what pyic class in general means. And pantic class is used to kind of ensure that you are
+42:5742 minutes, 57 secondspassing the data. Whatever data you're passing, you need to it ensures that it is in the right format. That is name should be in the format of string and a
+43:0543 minutes, 5 secondsshould be in the format of integer. That is what this thing ensures. This is what this thing ensures. So let me just kind of show you an example.
+43:2043 minutes, 20 secondsFor example, let's create a another person three like this person
+43:2643 minutes, 26 secondsperson and I'm going to put here name is equals to something like whatever
+43:3443 minutes, 34 secondsstrength and age is equals to I'm going to put it in strings. Look at this.
+43:4343 minutes, 43 secondsIt is automatically converting it into what? Look at this. It is automatically converting it into what? Is automatically converting it into is automatically converting it into.
+43:5443 minutes, 54 secondsRight? This is something which is which the pyantic ensures. Right? This is something. But if you put something like this
+44:0744 minutes, 7 secondssee what happens. What happens now? It was not able to convert it. Right? Look at it. It was not able to convert it. So what happened guys? It gives you a
+44:1444 minutes, 14 secondsvalidation error. It gives you a validation error. So it cannot take just any value. It cannot just take any
+44:2044 minutes, 20 secondsvalue. Right? You need to ensure that you are giving the right value to it.
+44:2644 minutes, 26 secondsYou're giving the right value. Okay? So this is something that paid is used for just to ensure that whenever LLM gives
+44:3544 minutes, 35 secondsyou whenever LLN gives you whatever output it is giving you the LLM right it gives it to you in the right format it
+44:4444 minutes, 44 secondsgives it to you in the right format I would like you guys to try it out just once I'm going to give you just the
+44:5044 minutes, 50 secondsclass and one example I'm just going to give you one just the class for now try to create instances of that class. Yes,
+44:5844 minutes, 58 secondsthat's what that's what that's what it is. Okay, try to create instances of this class and try these things out quickly. Just try it out very quickly,
+45:0745 minutes, 7 secondsright? Please everyone try this out on your own. Just please try this out.
+45:3445 minutes, 34 secondsPlease everyone try it out.
+46:2546 minutes, 25 secondsDone guys. Okay, great. Everyone please do it. Everyone do it quickly. Yeah, my system.
+46:3546 minutes, 35 secondsOkay, then I'll I'll let you create one more class then. Okay. After that, after that, let's create one more class and you try that class there. Okay. Let's just try.
+46:5646 minutes, 56 secondsUh just one question sir. So in the pyantic class, how is it different from a normal Python class? It is it is just reinforcing the data types. Uh
+47:0447 minutes, 4 secondsyeah. Yeah, that's what it will give you error whenever there is a okay and in a normal Python class it will convert on its own means
+47:1447 minutes, 14 secondsyes then you'll have to use try except this
+47:2147 minutes, 21 secondsthat multiple things right yes
+47:3047 minutes, 30 secondsuh thing is wrong with my system I'm not to do copy paste So I've just given you one more class.
+47:4047 minutes, 40 secondsYou try this one also. Here I've used something different.
+47:4747 minutes, 47 secondsLook at this. I've used something different here.
+47:5047 minutes, 50 secondsAnd just take a look at what I've done here. I'm giving a little more description in this case about the field type.
+47:5847 minutes, 58 secondsAnd I'll show you the use of it.
+48:0848 minutes, 8 secondsPlease try this out.
+49:1649 minutes, 16 secondsUh Sam, so could you please share this collab? I just joined.
+49:2249 minutes, 22 secondsYeah, it's already shared. Everyone has access to my entire phone. I just joined. So I can't see the old chats.
+49:3049 minutes, 30 secondsYou don't need chats. You don't have the link. There you go.
+49:5249 minutes, 52 secondsThe system is very Okay,
+50:0250 minutes, 2 secondsthat's great. Okay,
+50:0750 minutes, 7 secondsso just try it out. Now try to pass inputs to it and try to pass inputs such that they are not of the right type.
+50:1450 minutes, 14 secondsJust try to pass them. Okay.
+50:3250 minutes, 32 secondsOkay, this is what there's reason I've given this part. Just take a look. I'll show you.
+50:4150 minutes, 41 secondsOkay, just take a look guys. Something I'm going to show you now. Okay, please just please everyone stop look at here now. Okay, let's say I pass something
+50:4850 minutes, 48 secondslike this here and I pass something like XY instead of name I'm passing some number. Look at this.
+50:5850 minutes, 58 secondsSome number I'm passing here, right?
+51:0051 minutesInstead of the name I'm passing a integer number, right? Look at this.
+51:0451 minutes, 4 secondsLet's try to make this guy. Look at this. Let's try to pass this number. And let's try to make it.
+51:1451 minutes, 14 secondsWhat happens? What happens? It breaks down. What does it say? What does it say?
+51:1951 minutes, 19 secondsOne validation error for person input should be valid string. It should be a string. So, it will not be possible to do it. Okay? It will not be possible to
+51:2751 minutes, 27 secondsdo it. Now, I've sent you one more class. I've sent you one more class which is
+51:3751 minutes, 37 secondslet's let's try to make this class look at this now try to make it
+51:4951 minutes, 49 secondsokay let's try to make this person V2 right P1 is equals to person V2 and we can put data inside this right for
+51:5751 minutes, 57 secondsexample like description is equals to person's name. So description here name is equals to person's name. Let's say
+52:0452 minutes, 4 secondsfor anything Ravi age is equals to his age 27
+52:1252 minutes, 12 secondscity is equals to let's say mobile right and just this P1 dot you can then get anything out of this. So I'm just going
+52:1952 minutes, 19 secondsto show you P1 and this is a pyantic class which is made. This is a pyantic class which is made. Right.
+52:2652 minutes, 26 secondsRight. If you try to change any of these for example if you try to change it to directly like 27 this will be taken care of by LLM it will kind of convert it
+52:3352 minutes, 33 secondsback but if you do this will be taken care of by pinetic it will be converted back right 27 if you do it like this then it will break down and it will give
+52:4152 minutes, 41 secondsyou an error right simple thing right so this is another way to kind of define a pentic class where you also explain the
+52:4952 minutes, 49 secondsfield and give the description of the field right you can also give default value default can be unknown so Someone
+52:5652 minutes, 56 secondshas not given a city. For example, let me try this one out.
+53:0353 minutes, 3 secondsLet's try this one. Let's try this P2. I'm going to show you P2, right? And I'm going to not give any city.
+53:1853 minutes, 18 secondsI'm not going to not give any city. So I'm just going to leave it blank for now and just see what P2 will get gives me
+53:2753 minutes, 27 secondswhat it gives me what unknown. CD is equals to. So this is how this is how pyantic behaves and gives you
+53:3453 minutes, 34 secondsthis information. This is a typical pyantic class that I wanted to show you.
+53:3853 minutes, 38 secondsCan you all try this second one? Did you all try the second one? Just try this out once. Please quickly try this out then we move to the next part. Please
+53:4653 minutes, 46 secondsquickly try this once. What if we don't give any age but we give a city name.
+53:5253 minutes, 52 secondsIf you don't give any age then it will again be a just take a look it will break down right that because you have not given any default argument to age.
+54:0054 minutesSo you have to give default is something something like that okay so basically right if it breaks down LLM will not be
+54:0854 minutes, 8 secondsable to parse your I I'll show you the use of it. Okay for now I'm just giving it okay I'll show you the use of that.
+54:3654 minutes, 36 secondsAll right.
+54:5354 minutes, 53 secondsSo it decides the data type based on the description that we have given for this field. it if the data is not
+55:0255 minutes, 2 secondsyeah because I try to make that city as a code current city code even though I give the description as current city
+55:0855 minutes, 8 secondscode in numeric it still doesn't uh take in numeric that's what that's what it will not take numeric so you have to explain here
+55:1655 minutes, 16 secondsright this let's try one more
+55:2455 minutes, 24 secondslet's try this with llm once right let's let me show you what is the use of this okay So let me show you that.
+55:3355 minutes, 33 secondsLet's make a simple paddantic class first, right? Let's make a simple padantic class. So now I'm putting it here. Llm plus pantic.
+55:4255 minutes, 42 secondsSo just something you got to know about padantic. What does it do? What does it do? It's basically nothing but a class which enforces the data type. So you understand this will be a problem.
+55:5255 minutes, 52 secondsSomeone can send something random to LLM. Someone can send something random to LLM. And what will LLM do? LLM will give it to you back as args. Correct?
+56:0256 minutes, 2 secondsFor example, here humidity is 48, right? Humidity is 48.
+56:0856 minutes, 8 secondsNow, if you get uh so what is the argument here? The argument is city. The argument is city.
+56:1856 minutes, 18 secondsOkay. So, let's say if you ask let's say if you ask this question.
+56:2456 minutes, 24 secondsLet's just bring this code, right? Let me just show you the use of it first of all. So let's just bring the ln here.
+56:3256 minutes, 32 secondsLet's start with step number zero. This was this first step, right? So you have this function use with LLM,
+56:4356 minutes, 43 secondsright? Let's say you're using a very,
+56:4556 minutes, 45 secondsyou know, kind of light LLM or something like that, then it is used otherwise LLM can handle it. Okay, let me show you.
+56:5256 minutes, 52 secondsSo this is your code and then this was the next thing that you need a tool name have a list of dictionary.
+57:0257 minutes, 2 secondsSo I'm just kind of showing you something very interesting. You will see this choose by name
+57:0957 minutes, 9 secondsand bind the LLM right bind the LLM
+57:1657 minutes, 16 secondsto the functions then come ask your response get first response let's take a look at this now
+57:2657 minutes, 26 secondsyou want to ask it right what exactly is whatever you want to ask so let me just show you let's ask something There is a city.
+57:3857 minutes, 38 secondsThere's a city, right?
+57:4057 minutes, 40 secondsI give it this thing, right? I want its weather.
+57:5257 minutes, 52 secondsAlthough it kind of took care of it that it's it's not a valid. Please provide a name of a city and valid location so I can do it. But I'm just kind of showing
+58:0058 minutesyou that okay I have a city in database which is
+58:0858 minutes, 8 secondsright like this give its weather let's enforce it right
+58:1658 minutes, 16 secondsit's not a valid city name it's still kind of sticking to it right somehow it is sticking to it because it's a good it has evolved but this may be a problem
+58:2358 minutes, 23 secondsthat LLM can give it back as arguments LLM can give this this thing back as argument right then it becomes a problem
+58:3158 minutes, 31 secondsfor you then it becomes a problem for you right because this is not a valid argument right that's why parenting is generally used but I mean right now in
+58:3958 minutes, 39 secondsthis case for example LLM is able to handle it right but let's say in the case of age right or something like you have to pass let's say the person's name
+58:4658 minutes, 46 secondsand its age you pass 25 something right mostly LLM will handle it and will give you the arguments in the right format
+58:5358 minutes, 53 secondsonly but just to be sure just to be sure that LLM is forced to give me the right arguments
+59:0059 minuteswe use we use pantic we use pantic generally lm will handle it generally okay okay let's for example uh this is
+59:0859 minutes, 8 secondsnot let's try one more time there is a city
+59:1659 minutes, 16 secondssomething like this and I'm just mentioning yes it's numeric because I'm just kind of forcing it I
+59:2459 minutes, 24 secondshave encoded the city cities
+59:3159 minutes, 31 secondscities so tell me whether of this city why it is ignoring it I'll tell you that also it see the city code
+59:4059 minutes, 40 secondsyou provided is numeric and doesn't correspond to any recognizable city if you couldn't provide a city name identifier I will help you to why it is
+59:4759 minutes, 47 secondsdoing it is why it is doing it is I'll tell you because in this function in this function right you have clearly
+59:5459 minutes, 54 secondsexplained that city is str. If you change it in if you change this to string or integer then it will not do
+1:00:011 hour, 1 secondit. Trust me on this right? Then it will not do it. But since in this function you have changed it to what? City str.
+1:00:071 hour, 7 secondsThat's why it is only taking string city name. Right? That's why it's only taking string city name. Right? All right. So
+1:00:141 hour, 14 secondsthis is the whole idea that LLM kind of abides by that basically because of which it is not accepting your argument.
+1:00:221 hour, 22 secondsIt is still a city. No it's not right.
+1:00:241 hour, 24 secondsThat's why it is not accepting it otherwise but the idea is that just to be sure that our input whatever is going there may be many situations right so
+1:00:331 hour, 33 secondsjust to be sure that the input that is being sent that that LLM is asking us to call that is in the right format we provide this pantic class to LM okay we
+1:00:421 hour, 42 secondsprovide this pantic class to LM just to ensure that whatever input we the LLM gives us whatever arguments what will
+1:00:501 hour, 50 secondsLLM give us LLM give us the tool to call and its arguments If it does not give us right arguments, let's just try to actually show you.
+1:00:591 hour, 59 secondsLet's just remove this part city the name of city weather example daily right or anything. I'm just writing anything at all, right?
+1:01:081 hour, 1 minute, 8 secondsSomething like this just to check. Let's see if it kind of goes by now.
+1:01:141 hour, 1 minute, 14 secondsI bind the tools and let's just try now.
+1:01:181 hour, 1 minute, 18 secondsTell me whether in city
+1:01:251 hour, 1 minute, 25 secondsjust see this happened right and it is giving me the city as the out is giving me the
+1:01:331 hour, 1 minute, 33 secondscity as the output right to call it is giving me these arguments look at this it is giving me these arguments right to call this is the
+1:01:421 hour, 1 minute, 42 secondsproblem that you will face basically right because your tool definition was not as rich right because your tool
+1:01:491 hour, 1 minute, 49 secondsdefinition was not as rich right so you can write it down uh here right probably so this is the problem basically right so just I'll just note it down here for
+1:01:581 hour, 1 minute, 58 secondsyou because the tool definition was not as rich
+1:02:071 hour, 2 minutes, 7 secondsthe LLM considered 77 what is it 4 774 as a state because
+1:02:161 hour, 2 minutes, 16 secondsthe tool definition was not as good. If your tool definition had been good, it would not have done it. Right? And I'll show you how to make it good. Right? Let's try with a simple example. Right?
+1:02:241 hour, 2 minutes, 24 secondsFirst, let's try with a simpler example first.
+1:02:291 hour, 2 minutes, 29 secondsAnyone has any questions so far? Anyone has any questions so far? Do you understand why do you need pyantic?
+1:02:341 hour, 2 minutes, 34 secondsRight? Did you get an idea about why do you need pyantic? Because pyic will be passed to LLM. Pyantic will be passed to LLM and it will ensure that it does not give you any random tool definition.
+1:02:441 hour, 2 minutes, 44 secondsOkay? So, let's give you an example, right? With with pyantic.
+1:02:571 hour, 2 minutes, 57 secondsI think a bank uh related project might be more uh relevant to the pyantic equations.
+1:03:041 hour, 3 minutes, 4 secondsIn all the cases you should always use padantic because you never know what your what someone may ask right so it l
+1:03:121 hour, 3 minutes, 12 secondsmust ensure everything is in the right order right otherwise it should give an error right so that's why when there see sometimes you have only two three things
+1:03:201 hour, 3 minutes, 20 secondsto call here right sometimes you may have hundreds of things arguments to pass so you have to ensure that all the arguments are actually you know
+1:03:271 hour, 3 minutes, 27 secondstightened and told to lm whatsoever right so that is the whole idea
+1:03:371 hour, 3 minutes, 37 secondsLet me show you one thing which is important here in this case.
+1:03:421 hour, 3 minutes, 42 secondsLet's show you this. Okay, this one is good example. So I have a lot of such examples actually by myself. Uh just so let me show you this. So an example with P. So let's say now you do it like this.
+1:03:541 hour, 3 minutes, 54 secondsSo what is this using with ln now just take a look. Same thing I'm taking same thing I'm taking name is
+1:04:021 hour, 4 minutes, 2 secondsstring integer right whatever and pyantic will of course convert your 55
+1:04:081 hour, 4 minutes, 8 secondsto 55 as I as I told you right uh okay then then I'm going to show you5
+1:04:151 hour, 4 minutes, 15 secondswith this okay let's just take this example look at this
+1:04:251 hour, 4 minutes, 25 secondsso let's run this how do you pass it to l first let's Try to understand. Let's just take a look. This will give you a validation error.
+1:04:331 hour, 4 minutes, 33 secondsWhy? Because it's a 55 problem, right?
+1:04:351 hour, 4 minutes, 35 secondsOkay. Now, let's kind of let me just show you how LLM will do this same thing for you, right? So, let's import our LLM, right? Same way.
+1:04:491 hour, 4 minutes, 49 secondsOkay. So, let this error be here because it will remind you that okay, there's a problem. Now, just see this. This is my
+1:04:571 hour, 4 minutes, 57 secondssomething is wrong here. It's not losing
+1:05:281 hour, 5 minutes, 28 secondsthis.
+1:05:361 hour, 5 minutes, 36 secondsRight. So let's just define the llm and then what we going to do is llm is equals to llm dot how do you how do you
+1:05:441 hour, 5 minutes, 44 secondsactually lm tell that there's a pentic class available. Okay you have to tell the llm that there is a pyic class available. Okay, with underscore with
+1:05:521 hour, 5 minutes, 52 secondsunderscore structured underscore output and you give what the
+1:06:001 hour, 6 minutesyou just pass your parentic class. What was it? Person. This person just pass the identic class a name to it. The rest
+1:06:071 hour, 6 minutes, 7 secondsof the things it will do on its own. You don't even have to worry about it. This pyic class will tell LLM I'll show you
+1:06:141 hour, 6 minutes, 14 secondshow it tells LLM, right? This pyic class will tell LLM that that This is how the arguments should look
+1:06:231 hour, 6 minutes, 23 secondslike. This is how the argument should look like. This py class will tell Ly. Let me show you how it tells.
+1:06:321 hour, 6 minutes, 32 secondsI'll show you that. Uh actually the nodes that I have by the side they're working very slow. Uh just a question.
+1:06:411 hour, 6 minutes, 41 secondsYeah. uh this does this uh with structured output take class as input only or class name as class name as
+1:06:491 hour, 6 minutes, 49 secondsinput you don't have to create any object don't worry about that that's what I'm saying you just pass it to lm okay there's this class your lchain will
+1:06:571 hour, 6 minutes, 57 secondsrun the code behind the scenes right for you okay now look at this I'm going to invoke this llm now llm
+1:07:061 hour, 7 minutes, 6 secondsinvoke let's do it my some of my notes are not working I want to show you one more thing invoke extract
+1:07:151 hour, 7 minutes, 15 secondsthe let's say I'm just saying extract the person's details from this sentence
+1:07:231 hour, 7 minutes, 23 secondsjust take a look Smith is is 55
+1:07:301 hour, 7 minutes, 30 secondsjust five years old right Smith is 55 years old just take a look see what What did what did it give you?
+1:07:411 hour, 7 minutes, 41 secondsTell me. Look at this. Did you see what it what happened here, guys? Were you able to see it or not? Tell me.
+1:07:481 hour, 7 minutes, 48 secondsYes.
+1:07:501 hour, 7 minutes, 50 secondsRight. What did it do? It gave you what the name person name Smith's H.
+1:07:571 hour, 7 minutes, 57 secondsWhy? Because I bound the LLM with I bound the LLM with this class.
+1:08:041 hour, 8 minutes, 4 secondsDoes that make sense to everyone? Yes or no? Can you all give me thumbs up? Does that make sense? You're enforcing the LLM that your output should not be fy 555. Your output should be 5555.
+1:08:181 hour, 8 minutes, 18 secondsAll right? Make sense, right? Yes or no?
+1:08:211 hour, 8 minutes, 21 secondsGuys, please tell me everyone. Yes, make sense to everyone. Confusion, any challenge you ask me?
+1:08:321 hour, 8 minutes, 32 secondsOkay, just try it out on your own. Same code, same class, person class, same
+1:08:391 hour, 8 minutes, 39 secondscode, same thing. You just try to write it on your own once. Please try to write it.
+1:08:501 hour, 8 minutes, 50 secondsWhere is temperature zero? This one for now. I'll just put it zero.
+1:08:591 hour, 8 minutes, 59 secondsOkay. In the in the LM definition, you can remove it. You can remove it. Let's remove it. Right.
+1:09:091 hour, 9 minutes, 9 secondsSo here basically LLM just uh saves our effort of uh making new variables and uh uh giving arguments and then printing.
+1:09:171 hour, 9 minutes, 17 secondsSo it does on its own mean if we pass this problem. Yes. Yes. You will use this for function inputs.
+1:09:261 hour, 9 minutes, 26 secondsTo call the function you will need some arguments now that L will give you now in a proper shape and format. That's the whole idea.
+1:09:351 hour, 9 minutes, 35 secondsSo think of pyantic like a form and LLM when you will give it some input related to that form it will basically fill that
+1:09:441 hour, 9 minutes, 44 secondsform for you right that's the whole idea that you need to understand it
+1:10:071 hour, 10 minutes, 7 secondsGot it.
+1:10:251 hour, 10 minutes, 25 secondslet's take it inside result or response or whatever you prefer right result and there's something I'm going to show
+1:10:331 hour, 10 minutes, 33 secondsyou which is very important first you do this then I'm show show you which is very important for your function calling after this Yeah.
+1:11:111 hour, 11 minutes, 11 secondsIn the meantime, let me just kind of show you one more thing. Just you do it.
+1:11:151 hour, 11 minutes, 15 secondsYou do it. I'll just show you one more important
+1:12:011 hour, 12 minutes, 1 secondGot it, guys. Working. Is it working? Yes. Great.
+1:12:291 hour, 12 minutes, 29 secondsthen let's kind of make a class which is a little better. Okay, there's one more thing I just want to kind of show you here. Maybe I'll take this result_dump.
+1:12:391 hour, 12 minutes, 39 secondsWhen you do this, see this? What do you get? What do you get, guys? What do you get? Isn't this arguments?
+1:12:461 hour, 12 minutes, 46 secondsAren't these arguments? Can someone tell me yes or no? The function arguments star ask then we were passing them.
+1:12:541 hour, 12 minutes, 54 secondsIsn't it? Yes.
+1:12:571 hour, 12 minutes, 57 secondsThat's what your arguments of the function will become. This is what will the the arguments of the function. Yes. May tell me.
+1:13:071 hour, 13 minutes, 7 secondsYeah. My uh question is uh can we restrict the string field into the alphabets only? If I put the numbers in
+1:13:151 hour, 13 minutes, 15 secondsa string you can do it. You can do it. Yes, you can do it. Right.
+1:13:201 hour, 13 minutes, 20 secondsHow you should just write person's name containing alphabets only. No specials
+1:13:301 hour, 13 minutes, 30 secondsno numbers. Right? Look at this. And just you make this class. Now you do the same thing. Whatever you are doing here,
+1:13:401 hour, 13 minutes, 40 secondsjust copy the same thing and just look at this
+1:13:481 hour, 13 minutes, 48 secondsLLM. You define your LLM and then your LLM with structured output person. Pass this person that you made here to LLM.
+1:13:551 hour, 13 minutes, 55 secondsAnd then what you do is let's do it.
+1:14:041 hour, 14 minutes, 4 secondsLet's try it out. Result.
+1:14:101 hour, 14 minutes, 10 secondsIt's kind of taking this part only string part out of it. Right. Yeah.
+1:14:141 hour, 14 minutes, 14 secondsIt's only taking the string part out of it. But ideally, it should not take that also. Right. Mhm.
+1:14:201 hour, 14 minutes, 20 secondsRight. So, we can actually have more stricter criteria for this. But since it's a weaker model for mini, I think it's taking only this part out of it.
+1:14:281 hour, 14 minutes, 28 secondsOnly the string part out of it. Anyway,
+1:14:301 hour, 14 minutes, 30 secondsspecial characters and all it is removing it. For example, if I just give my email ID, right?
+1:14:421 hour, 14 minutes, 42 secondsJust take a look.
+1:14:441 hour, 14 minutes, 44 secondsSo, it's just kind of taking my name using the same thing, right? So, it should be a valid name. That's what it is just saying. So, or maybe you can
+1:14:531 hour, 14 minutes, 53 secondsmake it struct stricter by saying that it should be an Indian name. Let's just try, right?
+1:15:021 hour, 15 minutes, 2 secondsAnd if I just give it something like this,
+1:15:061 hour, 15 minutes, 6 secondsit's able to pull it out. Let's try to make it a more stricter like by giving something like this. Let's just see if it is able to do it. Person name it is giving us what? Got it.
+1:15:171 hour, 15 minutes, 17 secondsYeah. Y thank you.
+1:15:211 hour, 15 minutes, 21 secondsSo all these things you can do by using this. This is why this field is used.
+1:15:241 hour, 15 minutes, 24 secondsThis is why this field is used which tells you which is able to tell the NLN that whatever you want to do you can give it in your own words. That is why
+1:15:311 hour, 15 minutes, 31 secondspatenting is great because it is letting you kind of describe your field, what it should be like, what it should not be like, right?
+1:15:401 hour, 15 minutes, 40 secondsOkay. Got it.
+1:15:501 hour, 15 minutes, 50 secondsOkay. When you're passing this, okay, please understand this guys. Okay. Please passing, please understand this.
+1:15:551 hour, 15 minutes, 55 secondsWhat is really being passed to LLM? So LM is able to just bypassing the name of the person just by passing the name of
+1:16:031 hour, 16 minutes, 3 secondsthe person LLM is able to tell follow all the instructions here understand what is being passed to LLM please pay attention here everyone I'll show you
+1:16:111 hour, 16 minutes, 11 secondswhat is being passed to LM I'm not able to copy anything so
+1:16:191 hour, 16 minutes, 19 secondslet's see if I can copy import JSON. Okay. Yeah, I know. Look at
+1:16:301 hour, 16 minutes, 30 secondsthis. I'm just going to show you what is really passed to LM. This is passed to LLM. Look at this properties.
+1:16:371 hour, 16 minutes, 37 secondsThis entire thing is actually passed to LLM as context, right? That you should that you should make sure you should
+1:16:451 hour, 16 minutes, 45 secondsmake sure that it should be an Indian name. Title should be name. The string type should be string. Person's age as a
+1:16:541 hour, 16 minutes, 54 secondsnumber it should be number. Right? So it will automatically convert it into number. H type should be integer. Right?
+1:17:011 hour, 17 minutes, 1 secondSo these are the guidelines behind the scenes. While you're doing this, these guidelines are what is passed. I'm writing here.
+1:17:101 hour, 17 minutes, 10 secondsThese guidelines are passed while you do this.
+1:17:191 hour, 17 minutes, 19 secondsWhat are you doing this thing?
+1:17:231 hour, 17 minutes, 23 secondsRight? Got the idea. This is how LM helps you make sure ensure that you're at your that you're at your kind of just
+1:17:331 hour, 17 minutes, 33 secondstry it out once guys the whole thing just try this whole thing out once with this new function you already have the function I sent it to you as V2 use the
+1:17:421 hour, 17 minutes, 42 secondsfunction put it here try to get some observed values inside it and just see what are the outputs coming just try once please everyone please try once
+1:18:101 hour, 18 minutes, 10 secondsYou can hide it. You can hide it. Don't worry about it. I'll show you how to hide ah from ellips.
+1:18:181 hour, 18 minutes, 18 secondsYou can hide it. I'll have to think about it. I'll tell you that. There are ways to do masking, but I'll tell you how to do masking.
+1:18:401 hour, 18 minutes, 40 secondsUh sir, I want to ask one question.
+1:18:441 hour, 18 minutes, 44 secondsIs there any kind of like risk major risk in passing all the codes to AI
+1:18:511 hour, 18 minutes, 51 secondschatbots uh in terms of codes? uh Python codes.
+1:18:571 hour, 18 minutes, 57 secondsUh yes there are. See your Python codes generally are very proprietary kind of in nature. They are like your own Python codes. So basically you are essentially
+1:19:061 hour, 19 minutes, 6 secondstelling LLM everything every every hardwork that you had done right this is what people did on stack overflow then it it took it all and people are still
+1:19:141 hour, 19 minutes, 14 secondsdoing it. They're copy pasting their codes to LLM and then asking LM to enhance it the codes right it is in a way but we can't help it now. We are
+1:19:221 hour, 19 minutes, 22 secondspast that phase. You cannot help it. But try not to share your company specific data to LLMs. If any of your quotes contain information which is about very
+1:19:301 hour, 19 minutes, 30 secondspeculiar to your company, don't try to share that. Okay. In what?
+1:19:381 hour, 19 minutes, 38 secondsSorry. Continue on sir. No m you can continue sir. Okay.
+1:19:461 hour, 19 minutes, 46 secondsSo what is the solution apart from like these enterprise deals they have? I understand but if someone is like a small business owner or a startup or
+1:19:541 hour, 19 minutes, 54 secondsanything uh what is the solution to make sure like solution is small language models.
+1:20:011 hour, 20 minutes, 1 secondSo you have models which which are deployed on your own pro on your own premise right that is in your own
+1:20:081 hour, 20 minutes, 8 secondsservers in your own GPUs so the data does not go out right so
+1:20:151 hour, 20 minutes, 15 secondsum what about a browser extension or a system level desktop app that tracks every single thing that's uploaded
+1:20:231 hour, 20 minutes, 23 secondsyou can do it you can do it but how far you can definitely do it I mean it's a very good use case
+1:20:321 hour, 20 minutes, 32 secondswhich should be used. I mean it's a very good startup idea actually. I mean the this this is a good white space right now that if you can design a LLM which
+1:20:411 hour, 20 minutes, 41 secondswhich can actually first monitor whatever is being sent to tools like chart GPT and stop or probably kind of
+1:20:511 hour, 20 minutes, 51 secondsmask the data right in real time then it becomes a really good really good use case. We're actually working on that concept.
+1:20:591 hour, 20 minutes, 59 secondsI'm telling you it's very very good but there are like too many loopholes like um so the question comes if then we are reading the data what's the solution
+1:21:081 hour, 21 minutes, 8 secondsthen we need to have our data locally hosted in the company's thing that that that that that SLM should be locally hosted within the company's
+1:21:161 hour, 21 minutes, 16 secondsservers okay so there should be an SLM to monitor the LLM usage the LLM inputs yes there should be an
+1:21:251 hour, 21 minutes, 25 secondsSLM to monitor the LLM inputs so that SLM should be trained on all the company data first, right? So it understands
+1:21:321 hour, 21 minutes, 32 secondswhat is company data, what is not company data, what is a company strategy, what is not a company strategy. Understand? Then it blocks or
+1:21:401 hour, 21 minutes, 40 secondsprobably masks whenever some company information is kind of going out. Right?
+1:21:441 hour, 21 minutes, 44 secondsGot it. That is the whole right. I thought of this. This this has been on my mind but I don't have really the time to build such things. But yeah, if you
+1:21:531 hour, 21 minutes, 53 secondsbuild it, I will definitely help you out and take take advice take advisor equity. Right. So that that that could be good because we are legit
+1:22:011 hour, 22 minutes, 1 secondworking on this. See, the idea was a Chrome extension then a desktop native app that monitors everything was the thing. Exactly.
+1:22:081 hour, 22 minutes, 8 secondsBut again, it might be Hey, can I just email you or something because you're legit working on this?
+1:22:131 hour, 22 minutes, 13 secondsI'm telling I I'll take advisor equity and I'll help you 100%. We are serious and it's not a joke. It's not a joke. I'm telling you I
+1:22:211 hour, 22 minutes, 21 secondscan definitely help you out right with this right wherever it goes so we can definitely actually we have built some kind of some
+1:22:281 hour, 22 minutes, 28 secondssame kind of thing in past actually what we have done right we have we have written some kind of a proxy so whenever
+1:22:361 hour, 22 minutes, 36 secondsyou ask anything to charge it right it will first goes to a proxy yeah it will first hit to the proxy the proxy will determine whether it's some
+1:22:441 hour, 22 minutes, 44 secondskind of a you different GDF GDP different toms are there right that hits that kind of thing It will not allow to
+1:22:511 hour, 22 minutes, 51 secondsask that pass that question to LM charg or anything actually we have built that kind of system
+1:22:591 hour, 22 minutes, 59 secondsis it only charging so it's like a network level let's let's discuss this let's discuss this after session right
+1:23:061 hour, 23 minutes, 6 secondsokay sorry yeah can you please discuss this after session yeah yeah let's all discuss this after yeah I'm in thank you
+1:23:141 hour, 23 minutes, 14 secondssorry again for not taking that side but we'll discuss Sir
+1:23:241 hour, 23 minutes, 24 secondssir uh question here sir we have defined name as a string and in the result
+1:23:311 hour, 23 minutes, 31 secondsllm.in invoke we are saying extract information and if I give name as number
+1:23:391 hour, 23 minutes, 39 secondsuh it is still picking that up as name with the number it is not showing you should not have tweaked this this
+1:23:471 hour, 23 minutes, 47 secondspart no uh even if we have the same string uh Samir I think if you're using a
+1:23:551 hour, 23 minutes, 55 secondsdifferent model right instead of JPT 40 mini if you use JPT 5.4 mini it is
+1:24:031 hour, 24 minutes, 3 secondsnot it's not having the same behavior. I also saw the same issue.
+1:24:071 hour, 24 minutes, 7 secondsCorrect. Correct. Yeah. Because it is showing me name as the number. Yeah.
+1:24:141 hour, 24 minutes, 14 secondsOkay. Let's try this. This
+1:24:341 hour, 24 minutes, 34 secondsperson where is Ravi sir? How is it getting Ravi?
+1:24:411 hour, 24 minutes, 41 secondsSo this is worse than the previous what was the output that I'm seeing. Yeah.
+1:24:501 hour, 24 minutes, 50 secondsOkay. Let me check this llm lm is structure person defined here should be sir I'm using person v2 which is what you gave me.
+1:25:011 hour, 25 minutes, 1 secondAh but I created this from scratch right? Okay.
+1:25:041 hour, 25 minutes, 4 secondsBut uh it should work. It should be an Indian name.
+1:25:101 hour, 25 minutes, 10 secondsIt should be Alid Indian name
+1:25:211 hour, 25 minutes, 21 secondsthe person's details from this.
+1:25:391 hour, 25 minutes, 39 secondsSee it is making it up actually. That's the point. That's why that's what I want to check. So it's kind of uh making this up. So I'll need to mention here.
+1:25:481 hour, 25 minutes, 48 secondsSo do you think we should add validator as a function uh within first give a default name? First give a default value.
+1:26:001 hour, 26 minutesDefault is equals to just write here N. Right. Let's try now.
+1:26:171 hour, 26 minutes, 17 secondsOh god.
+1:26:211 hour, 26 minutes, 21 secondsSo, do you think this will be fixed by using a pyantic validator?
+1:26:251 hour, 26 minutes, 25 secondsYeah, we can fix this. But I'm not moving there. It should ideally not do this.
+1:26:291 hour, 26 minutes, 29 secondsOkay. Yeah. All right. Okay, sir. No, we kind of know beyond our control.
+1:26:351 hour, 26 minutes, 35 secondsYeah. Yeah. Yeah. But but ideally it should take the default value. It should be it should be an Indian name. Let's check the person's details.
+1:26:431 hour, 26 minutes, 43 secondsCan we define the schema enforcement?
+1:26:471 hour, 26 minutes, 47 secondsWe can do validators. That's that will do the schema enforcement. But uh I'm I'm coming to it. I'll come to it.
+1:26:531 hour, 26 minutes, 53 secondsSomehow it should have control here. I mean GBT4 is able to do able to do it. Five nano is kind of hallucinating and making
+1:27:011 hour, 27 minutes, 1 secondthings up right that's strange 5.4 if I try
+1:27:101 hour, 27 minutes, 10 secondsnow it is not giving me anything 5.4 is behaving responsibly 5 5.4-
+1:27:161 hour, 27 minutes, 16 secondsmini and if I try with 40 menu that is working fine only unknown it is giving me and it's giving me 5.4 4 mini if I try.
+1:27:271 hour, 27 minutes, 27 secondsYeah, sir. I'm getting this issue in 4.0 mini only. So 40 mini. Yeah. Yeah. Yeah.
+1:27:341 hour, 27 minutes, 34 seconds40 mini is the working file. The default I've given it. Let me check. Let me check. I I'll come to it. Okay. Let's do it. Anyway, behind the scenes guys, this
+1:27:421 hour, 27 minutes, 42 secondsis what goes behind the scenes. Let's take a look. Default is na. It should be an invalid Indian name. Okay. And uh let's just kind of enforce it a little
+1:27:511 hour, 27 minutes, 51 secondsand should be string only. Don't make up names.
+1:27:591 hour, 27 minutes, 59 secondsLet's try now. It is not giving me anything. And if I just do with
+1:28:061 hour, 28 minutes, 6 seconds40 4.5 what was it? Which one? Five mano.
+1:28:281 hour, 28 minutes, 28 secondsNow it is handling it right. So this is something you need to actually this is how you need to actually handle it. Okay.
+1:28:371 hour, 28 minutes, 37 secondsOkay.
+1:28:391 hour, 28 minutes, 39 secondsHas anyone tried with Gemini? Just let me know if anyone has tried with Gemini.
+1:28:431 hour, 28 minutes, 43 secondsPlease let me know. Anyone who has done the Gemini guys
+1:28:501 hour, 28 minutes, 50 secondsGemini I have tried like this that's why I'm
+1:28:581 hour, 28 minutes, 58 secondsasking but I am so if I'm just giving that uh name should be only inte
+1:29:051 hour, 29 minutes, 5 secondseven though I'm putting a number it is still displaying that number so uh because Gemini is can do this right
+1:29:121 hour, 29 minutes, 12 secondsso we'll we'll we'll introduce Okay, don't worry. Okay,
+1:29:221 hour, 29 minutes, 22 secondsfirst let's try something important which is how to kind of use this with our tool calling, right? Then we'll see this thing.
+1:29:421 hour, 29 minutes, 42 secondsTell me
+1:29:511 hour, 29 minutes, 51 secondsevery time it is giving different output for that. Yes. Yes. We'll fixate it.
+1:29:571 hour, 29 minutes, 57 secondsDon't worry about we'll do it. We'll fix it. Now just try this out. Now just go back to our original tool.
+1:30:041 hour, 30 minutes, 4 secondsRight. Let's go back to our original tool and see how to call that and get outputs from the LL right how to call that and get outputs to from the LL
+1:30:131 hour, 30 minutes, 13 secondsright so you can actually what you can do inside this is guys I'll tell you you can have a list of things that it will accept right so we'll do that
+1:30:201 hour, 30 minutes, 20 secondsenforcement so don't worry about it but let's first try to understand how to use this with our function right with our function right okay now just see just
+1:30:291 hour, 30 minutes, 29 secondsnow just see all right So this is fine.
+1:30:411 hour, 30 minutes, 41 secondsSo just make this function up. Everyone please try this function down. You have the function already, right? So let me just
+1:30:531 hour, 30 minutes, 53 secondsOkay, just make this function up quickly. Make it up. Copy it as it is. Some of my copy is not working somehow.
+1:31:251 hour, 31 minutes, 25 secondsOkay, let's just try this out. See this.
+1:31:291 hour, 31 minutes, 29 secondsSo, what will what will this do? What will Lchain do? You you I told you,
+1:31:331 hour, 31 minutes, 33 secondsright? The tool name is get city weather. The tool description you are able to get directly. Whatever you have sent inside here, you're getting to get the tool description and the arguments.
+1:31:431 hour, 31 minutes, 43 secondsThe arguments are city and the type string. Right? This is just a function definition I've showed you. Right? Just the function definition I've showed you.
+1:31:501 hour, 31 minutes, 50 secondsOkay. They are copy.
+1:32:001 hour, 32 minutesOkay.
+1:32:031 hour, 32 minutes, 3 secondsNow I'm going to show I just want to show you how how this thing works with our
+1:32:171 hour, 32 minutes, 17 secondslet me just take the entire show pieces just take the entire now how does this pideantic enforces it just take a look
+1:32:261 hour, 32 minutes, 26 secondsat this what you're doing is you're just defining same thing you're just defining your tools first right and you're checking you're checking basically
+1:32:341 hour, 32 minutes, 34 secondsyou're checking basically just one minute I think I copied the
+1:32:411 hour, 32 minutes, 41 secondswrong code somehow my copy function is not working that's a big problem
+1:32:581 hour, 32 minutes, 58 secondslet me restart my notes. Just wondered
+1:33:241 hour, 33 minutes, 24 secondsso slow.
+1:33:431 hour, 33 minutes, 43 secondsThis is the last one. We don't need this.
+1:33:501 hour, 33 minutes, 50 secondsGive it one. Give me one minute. Let me restart the application because some of my notes are not accessible.
+1:33:561 hour, 33 minutes, 56 secondsJust
+1:35:561 hour, 35 minutes, 56 secondsLet's finish this and after this I'll restart my system I guess because it's gotten really bad. Okay. Anyway, first let's kind of do this. So first thing uh
+1:36:031 hour, 36 minutes, 3 secondswe need we'll need to create a schema definition for this particular function.
+1:36:071 hour, 36 minutes, 7 secondsSo let's create it first. Okay. So how will you create it? This is your function. Let's create a schema definition for this function. So how will you create it? So you define a
+1:36:151 hour, 36 minutes, 15 secondsclass whatever it's weather right. Let's say you define a weather class
+1:36:201 hour, 36 minutes, 20 secondscapital weather and weather input right and you'll pass what base model
+1:36:281 hour, 36 minutes, 28 secondsinside this right and now can you make the can you make the definition of what input has to go inside weather? Can you
+1:36:371 hour, 36 minutes, 37 secondsmake that definition city? You need to send city right. So make that definition up. Can you quickly make it? Everyone make it. Try it out.
+1:36:471 hour, 36 minutes, 47 secondsJust make it first.
+1:36:491 hour, 36 minutes, 49 secondsCity, right? What is it? String. It has to be string format. And what will you give after this? A a field. Right.
+1:37:001 hour, 37 minutesRight. The name of the city. Right. To check weather for.
+1:37:101 hour, 37 minutes, 10 secondsCorrect. This is what you will do. Simple, isn't it? Simple.
+1:37:161 hour, 37 minutes, 16 secondsNow, now next thing, next thing we'll see if you will just see what is it that pyic is going to tell to your LLM. Just
+1:37:261 hour, 37 minutes, 26 secondstake a look at what pyic is going to tell to your LLM. Look at this.
+1:37:311 hour, 37 minutes, 31 secondsThis is the problem. I'm not able to copy it. Look at this. What pantic is going to tell your LLM? Look at this.
+1:37:401 hour, 37 minutes, 40 secondsThis all this thing is going to be passed to LLM as a context. Right? This thing is going to be passed to LLM as a context. Understand this.
+1:38:021 hour, 38 minutes, 2 secondsAll right. This will be passed to LM as a context. Just define this. Just define this field in the meantime. Let's hope my port gets loaded.
+1:38:191 hour, 38 minutes, 19 secondsJust one minute, guys. Just one minute.
+1:38:331 hour, 38 minutes, 33 secondsIt is taking the name of the city to check whether for into default instead of description. We should be sending it to description, right?
+1:38:431 hour, 38 minutes, 43 secondsYeah, you have to send it to description because it's not in default.
+1:38:501 hour, 38 minutes, 50 secondsDefault way you can give something like NA. If it is not present then it will give NA stuff like that. So you have to give description. Sorry.
+1:39:001 hour, 39 minutesThis will get it is going in default right now. Yes,
+1:39:031 hour, 39 minutes, 3 secondsyou're right. Sorry for that. Just you'll give in description. All right. Just do it. Please make it.
+1:39:231 hour, 39 minutes, 23 secondsNow this is one thing that you have to ensure that just just the one thing that you have to do is what you have to do is look at this please please understand
+1:39:301 hour, 39 minutes, 30 secondsthis okay I'm just going to show you just to make sure that this function that this function is is is
+1:39:401 hour, 39 minutes, 40 secondsalso compliant with your with your uh pyantic class what I'll do is just
+1:39:471 hour, 39 minutes, 47 secondstake a look just take a look and you'll see the benefit of it okay I'll put it here I'll put it And I'll run this first. And what I'm going to do next is inside the tools,
+1:39:571 hour, 39 minutes, 57 secondsinside the tool, right? I'm just going to kind of pass here. I'm just going to pass here as schema
+1:40:061 hour, 40 minutes, 6 secondsis equals to is equals to this one. This guy weather in is equals to weather input. Okay. So you're going to pass
+1:40:141 hour, 40 minutes, 14 secondsthis here itself. This way now your function will become will take the arguments which llm will send as a as a
+1:40:241 hour, 40 minutes, 24 secondspantic class directly and I'll show you that just just do this first define your define your fields above the function
+1:40:311 hour, 40 minutes, 31 secondsand pass that inside the here itself as at the at the rate tools you pass this ar schema is equals to weather just do
+1:40:391 hour, 40 minutes, 39 secondsthis once just do this once
+1:40:501 hour, 40 minutes, 50 secondsJust do this once and run it please. Just do this once
+1:40:581 hour, 40 minutes, 58 secondsguys please everyone do it. So let's run this. Let's run this and let's run this.
+1:41:041 hour, 41 minutes, 4 secondsLook at this. See the tool description has of course the same tool input schema is what now it has changed to this
+1:41:121 hour, 41 minutes, 12 secondsthing. Right? Look at this. The tool input schema has changed. Now the tool input schema has changed. City description. So whatever you gave in
+1:41:201 hour, 41 minutes, 20 secondsLLM, the whatever you gave in LLM that is appended to your normal context in this
+1:41:281 hour, 41 minutes, 28 secondsget city weather. Now you don't have to create your LLM with structured all that. You just need to bind your tool with with this function. Now just check it out.
+1:41:441 hour, 41 minutes, 44 secondsAll right. Earlier what were we doing? Please understand this guys carefully.
+1:41:471 hour, 41 minutes, 47 secondsPlease understand this here. What were we doing here? We were saying llm.width structured llm.idstructured.
+1:41:551 hour, 41 minutes, 55 secondsWe were doing this. Now we don't have to do this. You just need to pass the argument schema directly here and pass
+1:42:031 hour, 42 minutes, 3 secondsthe pyantic class name here itself. Then you just normally bind your tool.
+1:42:091 hour, 42 minutes, 9 secondsNormally bind your tool to LLM. Just do it. Normally bind your tool to LLM.
+1:42:201 hour, 42 minutes, 20 secondsOkay, just try it out.
+1:42:281 hour, 42 minutes, 28 secondsJust bind your tool to I'm going to show you how.
+1:42:401 hour, 42 minutes, 40 secondsSo I'm going to show you how just same way right same way I'm just going to remove this
+1:42:471 hour, 42 minutes, 47 secondssame way lang chain open air chat open from langchain messages human message tool message same thing I'm taking and what I'm doing I'm just making my llm
+1:42:561 hour, 42 minutes, 56 secondsand binding my tools I don't have to bind my llm with the pyantic schema now because I'm just I just have to bind
+1:43:041 hour, 43 minutes, 4 secondsbind it with my tool directly. I just have to bind it with my tool directly.
+1:43:081 hour, 43 minutes, 8 secondsAnd you run this. That's it. Let's comment it out for now because we don't need it. You've already seen it.
+1:43:151 hour, 43 minutes, 15 secondsJust do this much once. Just bind your LM with the tools.
+1:43:191 hour, 43 minutes, 19 secondsJust do it. I'll give you what to import these two things. You get it on your own. Did you understand what did we do guys? Did you understand? What have we
+1:43:271 hour, 43 minutes, 27 secondsdone? Earlier we were binding our LLM with with the pantic schema. Now we have to just bind it with we have to just pass the pentic schema inside the tool
+1:43:361 hour, 43 minutes, 36 secondsand we have to just bind our LLM with the tools. That's it. Got it. Yes. Okay. This one.
+1:43:451 hour, 43 minutes, 45 secondsSo my question is actually can we uh structure the LLM in such a way that uh
+1:43:521 hour, 43 minutes, 52 secondsit can be um schemas can be generated dynamic dynamically.
+1:44:001 hour, 44 minutesThe schemas can be generated dynamically. No, that that isn't right.
+1:44:071 hour, 44 minutes, 7 secondsSee, because if you have a tool available, this is just just this is generally done for tool calling only.
+1:44:131 hour, 44 minutes, 13 secondsNow, if you have a tool available, it is obvious that the inputs to the tool will be fixed. So, your schema will al also be fixed. Isn't it HA?
+1:44:241 hour, 44 minutes, 24 secondsIs it true or not? Tell me.
+1:44:311 hour, 44 minutes, 31 secondsTell me guys my connection was lost identify.
+1:44:361 hour, 44 minutes, 36 secondsSo basically the idea is that if the schema is fixed the tool is also also fixed right?
+1:44:431 hour, 44 minutes, 43 secondsIf the tool is fixed, the input to the tools are fixed or not, you tell me. The input to the tool are fixed, right?
+1:44:521 hour, 44 minutes, 52 secondsThe input to your function is fixed and your schema is also fixed, right? That's the whole idea that you need to understand.
+1:45:081 hour, 45 minutes, 8 secondsAll right.
+1:45:101 hour, 45 minutes, 10 secondsLet's try it out. Just quickly do it.
+1:46:361 hour, 46 minutes, 36 secondsOkay guys, let's try the next thing.
+1:46:481 hour, 46 minutes, 48 secondsOkay, let's try the next thing now. Okay.
+1:46:541 hour, 46 minutes, 54 secondsSo this is done right. So this is how this is how you will basically then everything else remains the same just like the last session only we will do the everything else remains very much
+1:47:011 hour, 47 minutes, 1 secondsame. This will ensure that your LLM kind of gets uh you the right output. So let me just show you what LM gets you.
+1:47:111 hour, 47 minutes, 11 secondsSo let's ask this question.
+1:47:261 hour, 47 minutes, 26 secondsRestart the system after this.
+1:47:291 hour, 47 minutes, 29 secondsThis is fine. So look at this. So what will LLM give you? Look at this. See this same thing it is giving you.
+1:47:371 hour, 47 minutes, 37 secondsBut now LLM has a better definition of your LLM has a better understanding of your arguments. And if you give some
+1:47:441 hour, 47 minutes, 44 secondswrong argument, L LM will convert it into you know the the right kind of argument. Right? So that is the whole idea that this tool calling revolves
+1:47:541 hour, 47 minutes, 54 secondsaround after this step everything else remains the same because these arguments when LLM will give by this time it would have done this part this part dot with
+1:48:031 hour, 48 minutes, 3 secondsstructured and all and it would have given you a pyantic class that pentic class only is converted into arguments later on right that pentic class only is
+1:48:111 hour, 48 minutes, 11 secondsconverted into arguments right just like when we were doing it with person right when we were doing it with person and we were giving some random name or probably
+1:48:191 hour, 48 minutes, 19 secondsan age which is in string type. It was automatically g converting it into what?
+1:48:231 hour, 48 minutes, 23 secondsInteger, right? It was automatically converting converting it into integer.
+1:48:281 hour, 48 minutes, 28 secondsThat part will be handled by LLM directly. All you had to do is just integrate your tool with the function.
+1:48:371 hour, 48 minutes, 37 secondsAll you have to do is integrate your tool with the function. Just try and do up to here. The rest of the part you already have it. So do that part
+1:48:451 hour, 48 minutes, 45 secondsquickly. Quickly that don't do it. Even don't do it that is fine. You need to understand up to here only about ifs
+1:48:521 hour, 48 minutes, 52 secondsonly works right that ifs will always come in right except lang graphs lang graph will handle it without ifs but that ifs will always come in right
+1:49:011 hour, 49 minutes, 1 secondwhatever was there but do up to here guys please do up to here everyone please try on your own up to this point
+1:49:081 hour, 49 minutes, 8 secondsall right yes mayori please please tell me
+1:49:171 hour, 49 minutes, 17 secondsyeah uh can you please explain again from the understand using with tool calling
+1:49:241 hour, 49 minutes, 24 secondsI'll show you so look at this here how are you doing it here you were doing llm is equals to dot with structure right I I'll just make the notes out of it very
+1:49:331 hour, 49 minutes, 33 secondsquickly how were you doing it here you were doing it like this llm with with structure and then you were asking it give me extract the details out of this
+1:49:421 hour, 49 minutes, 42 secondsthe person name and the age that's what you were doing right isn't it yeah y yeah now in this case what you're doing Now
+1:49:491 hour, 49 minutes, 49 secondshere is here you are passing the the the name of your pyic class with the tool itself. Okay you're passing the name of the pentic class with the tool itself.
+1:50:011 hour, 50 minutes, 1 secondNow you don't have to do this with structured and all this all will happen behind the scenes. You just need to bind
+1:50:081 hour, 50 minutes, 8 secondsyour LLM with this tool. Okay. Right behind the scenes what will happen is it will first tell LLM. It will first ask
+1:50:161 hour, 50 minutes, 16 secondsLLM. It will first ask LLM to give the extract the city out of this. Whatever
+1:50:241 hour, 50 minutes, 24 secondswhatever you will give, right? Whatever input you will give, it will first ask LLM to extract the city out of it. Right? So look at this here.
+1:50:321 hour, 50 minutes, 32 secondsYeah.
+1:50:341 hour, 50 minutes, 34 secondsThis this this this is what LLM will give you. Tool input schema. This will be given to LLM along when you're binding the tool. This also will be
+1:50:421 hour, 50 minutes, 42 secondsgiven to LLM. You get it? This also will be given to LLM. And then LLM will first get the city out of it. So when you're doing this get city weather, right?
+1:50:511 hour, 50 minutes, 51 secondsYou're binding it here, right? Then we when you're invoking LLM, you are you binding NLM with pyic again? You tell me. Are you bing binding binding it with pyantic now? No. Right.
+1:51:021 hour, 51 minutes, 2 secondsNo. No. Right. You're just creating it fresh. You're just binding it with tools. You're not binding it with pyantic.
+1:51:081 hour, 51 minutes, 8 secondsRight. Since you're not binding it with pyantic. Why? Because it's already because your tool is already bound with the pyantic. All right. your tool is
+1:51:161 hour, 51 minutes, 16 secondsbound with pyantic. So you don't have to bind your LLM with pyantic. Now now when you're doing this this arguments how do you think these arguments LLM is able to
+1:51:251 hour, 51 minutes, 25 secondsget using the pantic class using the pantic class. Got it? Yeah.
+1:51:321 hour, 51 minutes, 32 secondsGot it. So let's just see I mean for example if we give what is the weather in let's say
+1:51:441 hour, 51 minutes, 44 secondslet's see it seems that this is not a valid city name so it understood right it understood it just did not blindly pass it to you know this thing so that
+1:51:531 hour, 51 minutes, 53 secondsit was understanding weather earlier as well but I'm just kind of mentioning right for example what is the weather in uh
+1:52:011 hour, 52 minutes, 1 secondlet's say Paris let's just say Okay. Now just take a look. I'm just going to give it here.
+1:52:071 hour, 52 minutes, 7 secondsI'm just going to change my parantic class a little like this. Please understand this. Okay.
+1:52:141 hour, 52 minutes, 14 secondsPantic class here. This one. Right. The city should be one of Delhi,
+1:52:241 hour, 52 minutes, 24 secondsMumbai and Kolkata. I'm just kind of taking an example. Okay.
+1:52:341 hour, 52 minutes, 34 secondsget city weather you're passing you're binding the tool and that is already there now just just just see what is the actual output
+1:52:411 hour, 52 minutes, 41 secondsthat comes out of it I can only provide weather information for specific cities in India India Delhi Mumbai how did it
+1:52:491 hour, 52 minutes, 49 secondsget to know because you mentioned it here if you would have not used paidantic right if you would have not used pyantic then it would have asked
+1:52:581 hour, 52 minutes, 58 secondsyou to call the function with whatever you are giving with with Paris right with Paris got it this is the whole idea
+1:53:061 hour, 53 minutes, 6 secondsthat pantic enforces this particular thing right padantic enforces this particular this is something we need to understand
+1:53:131 hour, 53 minutes, 13 secondsall right yeah so basically we already bonded the cities and later on we pass whatever
+1:53:211 hour, 53 minutes, 21 secondsinformation we want that's right that's right okay so guys let's take a 10 to 15 minute break today we'll extend the class to 5:30 way. Uh
+1:53:291 hour, 53 minutes, 29 secondswhy? Because there is a there's a there's a team of you know guys who have to put bed in my room and uh I prefer taking class only from this room only
+1:53:381 hour, 53 minutes, 38 secondsbecause the Wi-Fi is perfect, the setup is perfect and everything. So uh uh so I don't want all the kput going on even if
+1:53:461 hour, 53 minutes, 46 secondsI go to the second room they won't they won't take more than 10 minutes or 15 minutes. So uh let's take the 15minut
+1:53:531 hour, 53 minutes, 53 secondsbreak. I think it's 1551. Let's catch up by 10:05 somewhere. And uh sorry 4:05 somewhere and then we will continue till
+1:54:011 hour, 54 minutes, 1 seconduh 5:30 today. Okay. So stay tuned till 5:30 because I need to finish a couple of things today. Okay.
+1:54:091 hour, 54 minutes, 9 secondsWhen Delhi is given content is empty.
+1:54:111 hour, 54 minutes, 11 secondsYou must have given small Delhi then right. It should have capital Delhi or something like right. You just check it out. It should work right.
+1:54:261 hour, 54 minutes, 26 secondsOkay.
+1:54:291 hour, 54 minutes, 29 secondsAll right. Let's take a break, guys, and and then just regroup and in and 10 minutes. Okay.
+1:54:431 hour, 54 minutes, 43 secondsUh Shivankas, were you on call?
+1:55:131 hour, 55 minutes, 13 secondsR37. Yeah.
+1:55:391 hour, 55 minutes, 39 secondsOkay guys, I was confused. The furniture guys are not here. So I think we can take take a break still. Let's take whatever break we have. Right? And uh
+1:55:471 hour, 55 minutes, 47 secondsthen let's catch up in five 10 minutes or so. Right? So take a break. We'll come back and we'll continue with the I think pyantic is pretty much clear. One
+1:55:551 hour, 55 minutes, 55 secondsmore use case of pyic I want to show you and then we will kind of finish off. Okay.
+1:56:021 hour, 56 minutes, 2 secondsOkay.
+2:09:002 hours, 9 minutesOkay, let's continue now. Let's continue. I hope everyone is here. I hope everyone is here. We have to finish this and we have to kind of see the same
+2:09:072 hours, 9 minutes, 7 secondsthing. We have to try and do the same thing with Langraph today. Okay. So, I hope everyone is here.
+2:09:152 hours, 9 minutes, 15 secondsGive me thumbs up guys. Are you all here? Yes.
+2:09:212 hours, 9 minutes, 21 secondsNow comes your typical part that yeah I'm to giving this or that it's still coming out to be wrong right whatever right so let's try to fix that part also
+2:09:292 hours, 9 minutes, 29 secondsright quickly right for example let's take the person example right and the the earlier example only let's just try to do it
+2:09:402 hours, 9 minutes, 40 secondslet's take this one yeah person this one no this one this one is better
+2:09:482 hours, 9 minutes, 48 secondsthis one right the same example I'm going to take right so this much you understand right this much you'll understand you understand
+2:09:562 hours, 9 minutes, 56 secondsand we'll do we'll do this again oh let's we'll do this again don't worry right just just kind of thinking of the
+2:10:042 hours, 10 minutes, 4 secondsflow okay just take a look now
+2:10:112 hours, 10 minutes, 11 secondslet's do one thing first uh let's quickly take a recap and just kind of note down everything so it does not become confusing okay so let me just go
+2:10:202 hours, 10 minutes, 20 secondsback to the the the start, right?
+2:10:262 hours, 10 minutes, 26 secondsSo I can just, you know, kind of note it all down for you. So I'm just going to Okay, the first part is what is pantic class? Pyantic.
+2:10:382 hours, 10 minutes, 38 secondsWhat is pyantic class? It's a class which is used to enforce
+2:10:452 hours, 10 minutes, 45 secondsenforce the structure of a given object of a given input
+2:10:542 hours, 10 minutes, 54 secondsbasically right whatever input you're given it will actually ensure that you are able to uh maintain its structure. This is the first thing we looked at.
+2:11:032 hours, 11 minutes, 3 secondsLook at this. We tried to see it. We tried to relate it to class. We tried to see this example right? You try to see this one example and we we saw this example where it will break down. Right?
+2:11:162 hours, 11 minutes, 16 secondsIf you give if you give if you give
+2:11:262 hours, 11 minutes, 26 secondsage as string 55.
+2:11:352 hours, 11 minutes, 35 secondsIt will convert it to numeric 55.
+2:11:412 hours, 11 minutes, 41 secondsIf you give age as string,
+2:11:482 hours, 11 minutes, 48 secondsit will give error, right? That's the part, right? It gives you validation error, right? It gives you validation error, right? It'll give you error.
+2:11:562 hours, 11 minutes, 56 secondsOkay? And one more thing which is if you give
+2:12:042 hours, 12 minutes, 4 secondsif you give what is it you're giving here person name as numeric
+2:12:122 hours, 12 minutes, 12 secondsthen what will happen it will give error will give error. So this is the whole idea that you need to understand and remember right see here's the error that
+2:12:192 hours, 12 minutes, 19 secondsI've shown you. Okay. Now let's introduce the field now.
+2:12:292 hours, 12 minutes, 29 secondsfield is used to give custom instructions
+2:12:362 hours, 12 minutes, 36 secondsinstructions for a given input. Right? For for any given input,
+2:12:412 hours, 12 minutes, 41 secondsfor example, name field can be used to give custom instructions. Right?
+2:12:482 hours, 12 minutes, 48 secondsRight. Field can be used to give custom instructions with your we did this. Okay. We understood this
+2:12:552 hours, 12 minutes, 55 secondspart, right? Then how to use it with LLMs? How to use it with LLMs, right?
+2:13:022 hours, 13 minutes, 2 secondsHow to use it with LMS. So we use that function. This was fine.
+2:13:092 hours, 13 minutes, 9 secondsThis was the the old function. This was the old function only. So I'll not go to it. How do you because this is because
+2:13:182 hours, 13 minutes, 18 secondsOkay, this is fine. Let's come here. Pantic class.
+2:13:282 hours, 13 minutes, 28 secondsThis is pantic class
+2:13:342 hours, 13 minutes, 34 secondsis bound to LLM, right? To get the LLM output in desired format.
+2:13:442 hours, 13 minutes, 44 secondsLook at this. Identic class is bound to LLMs. Look at this here. What what are we doing?
+2:13:512 hours, 13 minutes, 51 secondsSleeve this come here this one look at this dot with structured person right extend the
+2:13:592 hours, 13 minutes, 59 secondsperson's details on this Smith is 55 years old and so on 55 years old so this was taken care of by LLM that it
+2:14:072 hours, 14 minutes, 7 secondskind of returned you a pantic object it kind of returned you a pyantic object directly right it kind of returned you a
+2:14:142 hours, 14 minutes, 14 secondspantic object and when you do model dump it kind of gives you a dictionary kind of so this is how llm is bound bound to
+2:14:222 hours, 14 minutes, 22 secondspantic right then I showed you this example where we were facing challenge we'll try to resolve this challenge right let's try
+2:14:302 hours, 14 minutes, 30 secondsto resolve it here itself that will be better I think than kind of going down there right then some people were facing some
+2:14:382 hours, 14 minutes, 38 secondschallenges here that it should be a valid Indian name or whatever it is for example if I say here description
+2:14:482 hours, 14 minutes, 48 secondsperson's name should be a valid string that
+2:14:552 hours, 14 minutes, 55 secondslooks like name right and let's now explore this let's now explore this okay what exactly is happening you see this
+2:15:032 hours, 15 minutes, 3 secondsso what are we going to do is I'm going to use GB5 nano only and I'm going to just give this and let's see what is it really giving right
+2:15:192 hours, 15 minutes, 19 secondsSee it is now giving me unknown right. But let's try something like GPT.
+2:15:252 hours, 15 minutes, 25 secondsWhat was the one which was breaking down? 5.4. Yeah. 5.4 mini. 5.4 mini.
+2:15:332 hours, 15 minutes, 33 secondsYeah. Let's try. It's kind of giving us right. So let's try to see how to fix this.
+2:15:392 hours, 15 minutes, 39 secondsRight. Let's try to see how to fix this here. It's already here.
+2:15:472 hours, 15 minutes, 47 secondsEven after using pyantic llm is giving
+2:15:552 hours, 15 minutes, 55 secondsnumeric as out as input right it should have rejected it
+2:16:052 hours, 16 minutes, 5 secondslet's try how to reject let's make there are multiple options which are available to
+2:16:122 hours, 16 minutes, 12 secondsyou first is you kind of have um something like this can be used.
+2:16:242 hours, 16 minutes, 24 secondsWhat else can be used? I mean there's a validator option is there validate. I think there's something called as pattern which can be used actually just
+2:16:322 hours, 16 minutes, 32 secondsI think I'll just Google the pattern for this. Just one minute. Okay. I'll just Google the pattern for name right should
+2:16:382 hours, 16 minutes, 38 secondsbe string right. So battle trials.
+2:16:502 hours, 16 minutes, 50 secondsSo what you can do inside this is use this. I'll show you. So inside this only I'll show you how to handle this. So
+2:16:582 hours, 16 minutes, 58 secondswhat you're going to do is this is a pattern that you can use.
+2:17:012 hours, 17 minutes, 1 secondThis is the pattern doesn't get complete.
+2:17:092 hours, 17 minutes, 9 secondsThis is a pattern that you can use. Look at this. So I'll show you how to pass this pattern. Okay. So you use this use this uh same class.
+2:17:182 hours, 17 minutes, 18 secondsLook at it. So let me copy the exact code as it is. Let me just paste it here. Please pay attention to this.
+2:17:242 hours, 17 minutes, 24 secondsOkay. Now what you do is inside this you're giving default description all the things. You can also give other fields like other fields like I'll show
+2:17:332 hours, 17 minutes, 33 secondsyou. There are many fields like this min length. So a name should not be 20
+2:17:422 hours, 17 minutes, 42 secondsor 30 characters long, right? So minimum length of the name should be at least what three four three characters at least. I've not seen two character name,
+2:17:492 hours, 17 minutes, 49 secondsright? Should be three characters. Max length be what? 30, right? So actually you don't have to,
+2:18:002 hours, 18 minutesright? Max length should be 30. Now there is something called as pattern.
+2:18:042 hours, 18 minutes, 4 secondsYou'll just kind of copy this pattern as it is and paste it here.
+2:18:092 hours, 18 minutes, 9 secondsThis will help you I think big time. I'm not sure the pattern is right but this is a regular expression pattern right?
+2:18:142 hours, 18 minutes, 14 secondsSo probably what you can do is you can ask Gemini to kind of make a regular expression pattern for you to check a
+2:18:212 hours, 18 minutes, 21 secondsvalid name. Let's just see give a regular expression
+2:18:302 hours, 18 minutes, 30 secondspattern to make a val for a valid name in Python. Right? Let's just see if it
+2:18:382 hours, 18 minutes, 38 secondscan give us a regular expression pattern. We'll enforce that pattern. So I think validator will not work in this case. Pattern will work.
+2:18:502 hours, 18 minutes, 50 secondsOkay.
+2:18:542 hours, 18 minutes, 54 secondsLet's use this same me again something like that. This is what is the
+2:19:012 hours, 19 minutes, 1 secondpattern. So now it will ensure that this particular pattern is followed whatsoever. Right. So now just let's try now. Okay. Let's try now. Let's see if it handles this or not.
+2:19:132 hours, 19 minutes, 13 secondsYou get a comma. That's it.
+2:19:182 hours, 19 minutes, 18 secondsNow it is giving me. that is yeah so using this pattern right you whatever thing it you are giving inside here for example if you're giving phone number
+2:19:262 hours, 19 minutes, 26 secondsand you mention the phone number the pattern so you can ask them to kind of you know then LM will give an error right for example LLM in this case is
+2:19:332 hours, 19 minutes, 33 secondsgiving what it's giving me unknown in this case it's giving me what unknown right try it out try this thing out this
+2:19:422 hours, 19 minutes, 42 secondspattern and same thing same code you copy and try this pattern I'm going to give you this pattern as it min length, max length. You can you can
+2:19:512 hours, 19 minutes, 51 secondstry for example if I even if I try like something like a
+2:19:582 hours, 19 minutes, 58 secondssomething like let's try now it should also give
+2:20:082 hours, 20 minutes, 8 secondsunknown in this case because okay it's giving me some 5 six 7 but the number should not be there. How
+2:20:152 hours, 20 minutes, 15 secondscome it is taking number? That's again a problem.
+2:20:232 hours, 20 minutes, 23 secondsHas numbers as well, right? Should not have numbers, right?
+2:20:372 hours, 20 minutes, 37 secondsLet's try this.
+2:21:032 hours, 21 minutes, 3 secondsstrictly letter or underscore. And what is it doing here?
+2:21:212 hours, 21 minutes, 21 secondsYou think number one expression should be tried? What?
+2:21:272 hours, 21 minutes, 27 secondsLine one be numbers and special characters.
+2:21:402 hours, 21 minutes, 40 secondsMaybe we should use human name because name can be for any object. So that's why it's getting uh yes but that you cannot ensure
+2:21:492 hours, 21 minutes, 49 secondswithout LLM support right so that is very hard actually
+2:21:582 hours, 21 minutes, 58 secondslet's try this one
+2:22:122 hours, 22 minutes, 12 secondsstill getting the ease out still getting this Okay. So something like that, right? Okay.
+2:22:182 hours, 22 minutes, 18 secondsUh so this can we just add some prompt and make a chain?
+2:22:262 hours, 22 minutes, 26 secondsWe can do it. I I'll introduce you to We can do it actually. I'll I'll introduce you.
+2:22:362 hours, 22 minutes, 36 secondsAll right.
+2:22:392 hours, 22 minutes, 39 secondsJust try this out guys. Please everyone try this out at least right so we are on the same page.
+2:23:122 hours, 23 minutes, 12 secondsWe'll club it all with the chain, right?
+2:23:142 hours, 23 minutes, 14 secondsI'm I'm intentionally not bringing chain here. The reason is because we we going to move to Langra. Okay.
+2:23:282 hours, 23 minutes, 28 secondsDone.
+2:24:132 hours, 24 minutes, 13 secondsOkay. Now, there's one more way to do it, right? There's one more way to do it and that I'm going to explain you. You can actually create your own custom functions which are known as validators.
+2:24:232 hours, 24 minutes, 23 secondsOkay. Which are known as validators.
+2:24:252 hours, 24 minutes, 25 secondsOkay? What I'm going to do is I'm going to just show you a piece of code, right?
+2:24:292 hours, 24 minutes, 29 secondsand you will understand with that okay that will help you understand that what is it what all are the possibilities
+2:24:372 hours, 24 minutes, 37 secondsthat you can do right what all are the possibilities that you can do so I'm just going to kind of going to
+2:24:442 hours, 24 minutes, 44 secondsso let's make it uh Okay,
+2:24:592 hours, 24 minutes, 59 secondsjust one minute. Okay, I just need to find that code because there is one more way
+2:25:102 hours, 25 minutes, 10 secondsto do it. I'll show you that. I showed you. I'm not able to find its code exactly, but there's a way to kind of create a validator and define an LLM inside that validator. I'll show you that first. You try this pattern again,
+2:25:202 hours, 25 minutes, 20 secondsright?
+2:25:352 hours, 25 minutes, 35 secondsDo I do it in the meantime? I'll just find a code for that.
+2:26:242 hours, 26 minutes, 24 secondsLet's move on. Let's move on guys. Yes.
+2:26:262 hours, 26 minutes, 26 secondsNow I'm going to show you. So these are some of the ways in which you can control this. One more way I will show you which is using validator. You can have a custom function which will do
+2:26:342 hours, 26 minutes, 34 secondseverything on your behalf. But I'll show you how to do it with LLMs also. So that thing I'll show you. But for now I just wanted to show you this thing. So okay.
+2:26:422 hours, 26 minutes, 42 secondsSo this is to ensure that you have additional checks while you're giving the number. So this will ensure that
+2:26:512 hours, 26 minutes, 51 secondsit's fine. Okay. Now let's just do the same thing.
+2:26:552 hours, 26 minutes, 55 secondsProbably here also you can do the same thing. So let me show you how you can do the same thing here also.
+2:27:042 hours, 27 minutes, 4 secondsAnyway the more important thing is I want to just talk about basically what have we done here. Okay, that is using the tool calling, right? Using it with
+2:27:132 hours, 27 minutes, 13 secondstool calling. How have we used it with tool calling? We have just passed our we just passing our class. We're passing our class to what?
+2:27:232 hours, 27 minutes, 23 secondsTo the tool here tool decorator itself.
+2:27:262 hours, 27 minutes, 26 secondsNow your you don't have to separately bind your LLM with the padantic class.
+2:27:302 hours, 27 minutes, 30 secondsNow you can directly just bind your Now you can just directly bind your tool with the padent class and then as usual just pass the tool to the pyic class.
+2:27:422 hours, 27 minutes, 42 secondsBind the tool with the pentic class and do everything else as it is. Right?
+2:27:462 hours, 27 minutes, 46 secondsEverything else forget about anything else. Everything else will be handled on its own. You just need to kind of bind your input class to the parentic class.
+2:27:552 hours, 27 minutes, 55 secondsThat's it. Okay. That is all. Nothing else. Okay, just make sure you do this. Okay,
+2:28:112 hours, 28 minutes, 11 secondssir. Sorry, I didn't get you. Could you please repeat that once again? Pardon me?
+2:28:162 hours, 28 minutes, 16 secondsI didn't get you. Could you please repeat that once again?
+2:28:192 hours, 28 minutes, 19 secondsI've already explained this. This is just revising me revising all the things that I did before the break.
+2:28:242 hours, 28 minutes, 24 secondsUh, no, no. Whatever you mentioned it earlier, right? Um before this I missed it out uh to hear it out.
+2:28:312 hours, 28 minutes, 31 secondsWhy did you miss out to hear it? Three times I've repeated it. No no I'm not asking you to explain it.
+2:28:372 hours, 28 minutes, 37 secondsWhatever that you projected the statement right right now I missed that one. So just for asking you.
+2:28:432 hours, 28 minutes, 43 secondsSo I just said that earlier you were binding your pantic class to LLM here. Look at this.
+2:28:502 hours, 28 minutes, 50 secondsYou're binding your pyantic class to LLM. Isn't it? You binding your pyantic class to LLM. Now in this case you don't have to bind your pyic class to LLM
+2:28:592 hours, 28 minutes, 59 secondsbecause you have a function with that function only you just integrate your pyentic class like this. Now you bind
+2:29:052 hours, 29 minutes, 5 secondsyour tool with llm the way you do it normally right lm.bind binders tool set it will also bind the pyantic class to
+2:29:142 hours, 29 minutes, 14 secondslm and it will ensure that the output the the input it generates is as per the pantic class that's it right
+2:29:212 hours, 29 minutes, 21 secondsthat's what I okay
+2:29:292 hours, 29 minutes, 29 secondsnow let me show you one more variation of this because it's important so I'm just going to introduce you to validator just kind of talk about it.
+2:29:422 hours, 29 minutes, 42 secondsOkay, just want Okay,
+2:29:552 hours, 29 minutes, 55 secondsI'm just going to get the validator documentation. Just give me one moment.
+2:30:422 hours, 30 minutes, 42 secondsI don't know what has gone wrong with my notes app actually today, right? It's not loading the right way the way it should. So that's why I'm kind of facing
+2:30:502 hours, 30 minutes, 50 secondsa little issue getting you the codes and all.
+2:30:592 hours, 30 minutes, 59 secondsLet me reload it.
+2:31:102 hours, 31 minutes, 10 secondsActually there's a option to pass a function
+2:31:232 hours, 31 minutes, 23 secondsinside this as well right just like we did this pattern thing there's another option to pass a function inside the class itself that function does all the
+2:31:302 hours, 31 minutes, 30 secondsheavy lifting on your behalf and I just wanted to show you that only let me just find
+2:31:582 hours, 31 minutes, 58 secondsHe's still looking.
+2:32:102 hours, 32 minutes, 10 secondsThen one more part is left in panting only. I first want to show you this field validator. Yeah, this is better.
+2:32:172 hours, 32 minutes, 17 secondsSo I'll show you the field validator first. I have to create in the format I have to actually check.
+2:32:262 hours, 32 minutes, 26 secondsOkay, just take a look how to create the field validator. So how you create it is first of all you write is field validator
+2:32:352 hours, 32 minutes, 35 secondsfield field validator and you'll pass the whichever item you need to validate.
+2:32:392 hours, 32 minutes, 39 secondsYou want to validate the city in this case right you want to let's say validate the city you want to ensure that you want to ensure that the city
+2:32:462 hours, 32 minutes, 46 secondsthat you having the city that you're having should be should be should not be numeric let's say should not be numeric whatever you want to validate you can
+2:32:542 hours, 32 minutes, 54 secondsactually validate inside this. So let me just show you how to do it. Then you'll write add the rate class method
+2:33:022 hours, 33 minutes, 2 secondsright and then you'll define a function which will do the uh validation on your behalf. Okay, which will do the validation on your behalf. How to define
+2:33:092 hours, 33 minutes, 9 secondsthat function? Let me show you. def validate city right def validate city and then
+2:33:192 hours, 33 minutes, 19 secondsyou just pass something called as cls and then you pass then you pass v which is string right that means cls is
+2:33:272 hours, 33 minutes, 27 secondsnothing but it's just an idea to it just gives you the current class and the string that you need that the city
+2:33:352 hours, 33 minutes, 35 secondsbasically it will ref cler this and this will refer to this that's why we are passing it like this. Now please understand this very carefully. Okay,
+2:33:432 hours, 33 minutes, 43 secondsplease understand it. First thing what you'll do is v equals to
+2:33:512 hours, 33 minutes, 51 secondsso v this this city will now come here inside this right. V dot strip
+2:33:582 hours, 33 minutes, 58 secondsdot let's say title something like this right and let's say
+2:34:042 hours, 34 minutes, 4 secondsyou want to do something simple like something simple like city must be one of these cities
+2:34:162 hours, 34 minutes, 16 secondslet's say one of these cities right something very simple I'm trying to show Delhi, Mumbai, Kolkata.
+2:34:282 hours, 34 minutes, 28 secondsRight? So what you'll do is what you'll do is you'll check your custom logic that
+2:34:352 hours, 34 minutes, 35 secondsif B in supported cities.
+2:34:412 hours, 34 minutes, 41 secondsIf it is in one of the supported cities then you will basically
+2:34:482 hours, 34 minutes, 48 secondsreturn v else you'll return you'll return a value error or something
+2:34:562 hours, 34 minutes, 56 secondslike this right and you'll say city 1 be city must be
+2:35:022 hours, 35 minutes, 2 secondsone of you put a f string here of and you put here supported
+2:35:102 hours, 35 minutes, 10 seconds_ cities right so this is the whole idea so what what you're doing is we did it we want cities to be one of these so
+2:35:192 hours, 35 minutes, 19 secondswhat we are doing is we can create a custom function inside this like this just just this format you have to pass your cls you have to pass your vstr v
+2:35:272 hours, 35 minutes, 27 secondsmeans whatever you want to pass here this thing right this thing will get passed here okay and then you check whatever you want to check right
+2:35:352 hours, 35 minutes, 35 secondswhatever check you want to put you can just put it directly and just get it back like this is something that you need to kind of use uh mostly right uh
+2:35:452 hours, 35 minutes, 45 secondswhat is field validator I'll have to import it I guess so I think from pyantic only it can be
+2:35:522 hours, 35 minutes, 52 secondsimported so just from pantic import
+2:36:022 hours, 36 minutes, 2 secondsI think it will work just try this out once yourself just try to make this once yourself and Just call this
+2:36:112 hours, 36 minutes, 11 secondsuse this pantic class this time this new pyantic class this time and then try to pass it something like agra jur
+2:36:192 hours, 36 minutes, 19 secondssomething like that then you will see what is the difference just try this on your own words please just try this once use this identic class this new pentic
+2:36:272 hours, 36 minutes, 27 secondsclass and then what you do is to the same function to the same function this function right
+2:36:342 hours, 36 minutes, 34 secondshere you pass this pentic class let it be same right and then you pass try to pass something like Agra, Japur,
+2:36:392 hours, 36 minutes, 39 secondswhatever, right? Whatever. Just try this out. Then you'll see here right what is the weather in Paris
+2:36:472 hours, 36 minutes, 47 secondsinstead of ask ask this what what is the weather in Agra then you will see uh what exactly is happening right just
+2:36:552 hours, 36 minutes, 55 secondsjust take a look yeah so we can use this validator for name
+2:37:022 hours, 37 minutes, 2 secondsalso like previously we are getting error when we put uh numbers so can can we use this validator for name also
+2:37:102 hours, 37 minutes, 10 secondsyou can valid use this kind of validator for anything. It's basically you want to make a custom logic come when will I
+2:37:172 hours, 37 minutes, 17 secondsactually uh give or when will I return error. Got it?
+2:37:222 hours, 37 minutes, 22 secondsYeah. Because we got error when we put the number in name string. So there you will get error. Why? Because we set the pattern there. No. Right.
+2:37:312 hours, 37 minutes, 31 secondsThat's why you'll get error. Right?
+2:37:332 hours, 37 minutes, 33 secondsBecause we have mentioned a pattern. It it will follow exactly that pattern. If the number comes in, it will not accept it. Okay. Okay. But earlier it was accepted right?
+2:37:422 hours, 37 minutes, 42 secondsYeah. Yeah. Yeah. Early it was accepted. In some cases it works. Now you do this.
+2:38:392 hours, 38 minutes, 39 secondsOkay. So guys, this this is used to create a valid you know kind of any any any check you can do. For example this pattern check you could have also made
+2:38:482 hours, 38 minutes, 48 secondsit here. You could have made the pattern check here also. Right?
+2:38:522 hours, 38 minutes, 52 secondsSo anything right now you try this and you try to run this and with this you pass it inside the tools schema here and
+2:39:002 hours, 39 minutesthen you pass it inside the just take a look this is not important this is important right bind it with llm and now you try to see this what is the weather
+2:39:082 hours, 39 minutes, 8 secondsin Agra look at this so we'll do the same thing right it will basically tool cause if you just take a look take a look it's giving city agra
+2:39:172 hours, 39 minutes, 17 secondstype is tool oh my god then okay this is fine but I need to Get error right.
+2:39:262 hours, 39 minutes, 26 secondsHave I done everything correctly? Valid city. City city is fine.
+2:39:332 hours, 39 minutes, 33 secondsTitle just for it was working just fine here.
+2:39:462 hours, 39 minutes, 46 secondsDo it again.
+2:39:502 hours, 39 minutes, 50 secondsCheck for t string str
+2:40:022 hours, 40 minutes, 2 secondsshould not happen ideally. So as it is giving me city as a g content is query.
+2:40:112 hours, 40 minutes, 11 secondsWhat the hell? I'm making it a city.
+2:40:202 hours, 40 minutes, 20 secondsSomething I'm doing wrong. Let me check.
+2:41:112 hours, 41 minutes, 11 secondsvery strange. Anyway, just try it. Let's see what is the issue here. Let's try to understand the city in just let's take a look at
+2:41:192 hours, 41 minutes, 19 secondsthe definition one more time. If we in supported cities supported cities
+2:41:282 hours, 41 minutes, 28 secondsby let's do one thing
+2:41:352 hours, 41 minutes, 35 secondscheck a field valator. So let's use the set
+2:41:432 hours, 41 minutes, 43 secondsactually
+2:41:532 hours, 41 minutes, 53 secondsvery bad
+2:42:022 hours, 42 minutes, 2 secondsvalidator city validator
+2:42:152 hours, 42 minutes, 15 secondsJust checking that I don't need to pass the validator.
+2:42:442 hours, 42 minutes, 44 secondsTry simply once.
+2:42:532 hours, 42 minutes, 53 secondsLet's try it simply like this.
+2:43:032 hours, 43 minutes, 3 secondsSo now it is giving me correctly. CD1 must be one of this.
+2:43:092 hours, 43 minutes, 9 secondsThen I'm passing ask schema is weather input. Am I writing it right?
+2:43:172 hours, 43 minutes, 17 secondsMust be one of it is giving me here. It must be one of which is fine.
+2:43:242 hours, 43 minutes, 24 secondsLet's try here message.
+2:43:352 hours, 43 minutes, 35 secondsSomething is getting missed somewhere because it cannot give it like this. See it is it is kind of stopping it here.
+2:43:422 hours, 43 minutes, 42 secondsIt is giving us a value error here. City must be one of Kolkata area. Somehow it is not working here.
+2:43:512 hours, 43 minutes, 51 secondsLet's try another model. Let's say I try.
+2:44:012 hours, 44 minutes, 1 secondOkay, let me try this. What's the order of execution?
+2:44:052 hours, 44 minutes, 5 secondsUh does it go to the validator first and then uh execute the tool?
+2:44:112 hours, 44 minutes, 11 secondsNo, the tool itself will use whatever is inside validator to validate this particular field called city, right? It will use this to validate this city,
+2:44:202 hours, 44 minutes, 20 secondsright? So we don't even have to do anything.
+2:44:232 hours, 44 minutes, 23 secondsI'm just checking if there's anything maybe we are just contradicting because in the validator we are saying that it has to only support Delhi, Mumbai and
+2:44:322 hours, 44 minutes, 32 secondsKolkata. Whereas in the uh tool we are giving a different description. Is that why I'm just thinking aloud? A
+2:44:412 hours, 44 minutes, 41 secondsnow check whether for like L by
+2:44:532 hours, 44 minutes, 53 secondsthat should not be the case for example when I'm giving it here I'm getting the right output but somehow LM is not
+2:44:592 hours, 44 minutes, 59 secondshandling it I'll have to check why okay check here
+2:45:072 hours, 45 minutes, 7 secondsit's very absurd here human message okay I'm taking this content then I invoke it with messages fine I get content
+2:45:182 hours, 45 minutes, 18 secondstool called just giving me without it giving me was
+2:45:372 hours, 45 minutes, 37 secondssomething I'm missing somewhere I feel is fine. Let's get rid of this temperature thing.
+2:46:122 hours, 46 minutes, 12 secondsI don't know. Seriously, this is the very strange. This should not have happened ideally because it should ideally handle this because we have
+2:46:202 hours, 46 minutes, 20 secondsexplicitly passed it the validator I don't think validator is
+2:46:292 hours, 46 minutes, 29 secondsI'm using for mini I just pinged you a response when I asked for Switzerland it gave me that you know I have only
+2:46:372 hours, 46 minutes, 37 secondsspecific cities available in my context something like that let's try with Paris why is it not
+2:46:442 hours, 46 minutes, 44 secondsworking for Agra that's my point I can help you but I only certain city support cities that's fine but uh
+2:47:002 hours, 47 minutesbut Agra could be handling a is not able to handle it's clearly giving me a blend out there
+2:47:102 hours, 47 minutes, 10 secondsfor me for it's like storing the last result so if I check for Delhi and then Agra it says di in place of
+2:47:172 hours, 47 minutes, 17 secondsAgra if I say Mumbai and then Agra it stores Mumbai in place of Agra but I'm using everything I've used 5.4
+2:47:262 hours, 47 minutes, 26 secondsfour mini also I've used others also very strange for me it's the same thing as Rakkesh
+2:47:332 hours, 47 minutes, 33 secondsmentioned like uh I'm getting Hyderabad I asked for Hyderabad previously and now it's coming back again as Hyderabad only
+2:47:402 hours, 47 minutes, 40 secondswhen I asked it for other city h
+2:47:472 hours, 47 minutes, 47 secondsthen you must not be defining your LM or something you must have to define it again some some structural gap must be This is fine.
+2:48:022 hours, 48 minutes, 2 secondsI think a is not set in returns.
+2:48:112 hours, 48 minutes, 11 secondsIf it is not in return in that means the validator function is not even running. That's what I'm
+2:48:192 hours, 48 minutes, 19 secondsthinking. This this means that only right validator function run. Yeah, it's it's bypassing validator and going to LLM.
+2:48:282 hours, 48 minutes, 28 secondsThat's what it's actually not.
+2:48:372 hours, 48 minutes, 37 secondsLet's do it the other way around. If B not in but how's it possible that validator is
+2:48:452 hours, 48 minutes, 45 secondsnot running? Field valator we defined correctly
+2:48:522 hours, 48 minutes, 52 secondsis fine. Okay. Then return this part as return B. We don't need an else here.
+2:49:062 hours, 49 minutes, 6 secondsThis is running just fine here. Somehow it's not running fine here.
+2:49:142 hours, 49 minutes, 14 secondsWeather input. So maybe it is using the old weather input only. So, what I'm going to do is I'm going to restart the current bus.
+2:49:252 hours, 49 minutes, 25 secondsLet's see if that works. Okay,
+2:49:322 hours, 49 minutes, 32 secondsI'm going to run this again. I need to define my L.
+2:49:402 hours, 49 minutes, 40 secondsSo just this
+2:49:502 hours, 49 minutes, 50 secondsbecause I feel that it is using the cached value only the the function that may be one of the reasons so let's try
+2:49:572 hours, 49 minutes, 57 secondsnow better input
+2:50:072 hours, 50 minutes, 7 secondslet's try this let's try This this is running fine.
+2:50:112 hours, 50 minutes, 11 secondsCity must be one of this. Right. Let's try to blend it now. And do this now.
+2:50:202 hours, 50 minutes, 20 secondsRight. Still working the same. Very strange.
+2:50:322 hours, 50 minutes, 32 secondsOkay. I I'll check this. I'll check this. Why is it Why is it really bypassing this damn thing? Right. Anyway,
+2:50:402 hours, 50 minutes, 40 secondsI'll check this how to kind of get it on track. Somehow, somehow it is bypassing the error which is coming out of the pantic.
+2:50:482 hours, 50 minutes, 48 secondsIt should not, but it is in this particular case, right? Uh it is using GPG mini.
+2:50:542 hours, 50 minutes, 54 secondsIf I use Huh? Wait a minute. Why is it GPD 5.4 mini?
+2:51:102 hours, 51 minutes, 10 secondsSuch is the message it
+2:51:182 hours, 51 minutes, 18 secondsproblem is how come it can give to call giving content response content
+2:51:272 hours, 51 minutes, 27 secondsmessage dot content content coming out content is coming out to nothing it's just asking for the tool call but tool called it is giving the tool call with
+2:51:352 hours, 51 minutes, 35 secondsargument is a so for many seems to work for me same situation
+2:51:432 hours, 51 minutes, 43 secondsno it's correctly saying that I can't find the weather for agra it is not
+2:51:512 hours, 51 minutes, 51 secondsin this case someone temperature located very strange.
+2:52:042 hours, 52 minutes, 4 secondsAnyway, there's one very important thing that I want to show you first before moving to this which is much more important than this is uh we can handle
+2:52:122 hours, 52 minutes, 12 secondsthis of course but uh I'll see how to handle this. I'll find a way around this. There must be something
+2:52:192 hours, 52 minutes, 19 secondsthere must be blocking it. Okay, I think it's Do you feel it is too much for today? Anyone? Are you tired? Just tell me.
+2:52:302 hours, 52 minutes, 30 secondsOh, we can continue sir.
+2:52:312 hours, 52 minutes, 31 secondsYou can continue. Everyone tell me guys can you continue or you want to continue tomorrow?
+2:52:382 hours, 52 minutes, 38 secondsIt is an engaging session sir. So we can continue. Okay. Great.
+2:52:442 hours, 52 minutes, 44 secondsOkay. Now let's do one thing. Now this something very important another use case of pyantic which I want to kind of show you which is
+2:52:532 hours, 52 minutes, 53 secondswhich is let's take quickly right. I'm just kind of going to do it and you can then try it out.
+2:52:592 hours, 52 minutes, 59 secondsThe other use case of pyantic is that when you're designing some sort of application, right? Let's say you're designing some sort of application,
+2:53:062 hours, 53 minutes, 6 secondsright? Sometimes you would want the LLM output to be let's say a JSON or probably you know to be a XML something
+2:53:152 hours, 53 minutes, 15 secondslike that, right? That means you want LLM to give you an output in a particular format and not like okay let me answer this like this. You don't want
+2:53:232 hours, 53 minutes, 23 secondsit like that because when you will be designing real real world applications,
+2:53:272 hours, 53 minutes, 27 secondsyou would want the LLM outputs to be in a very very specific format. Okay? To be in a very very specific format.
+2:53:362 hours, 53 minutes, 36 secondsCorrect? Let's see how to do that. AB what were we using it for? We were using it only for to get LLM output of function arguments in a specific format.
+2:53:462 hours, 53 minutes, 46 secondsBut but that is just one part of it.
+2:53:492 hours, 53 minutes, 49 secondsThat is just one part of it. What if we want LLM outputs to be in a very very specific format, right? Then we use then
+2:53:572 hours, 53 minutes, 57 secondswe use this particular thing called as u paddantic only but in a different way.
+2:54:042 hours, 54 minutes, 4 secondsSo I'm going to show you that with the entire process of this function calling and we are going to get the output of a city in the format of a dictionary.
+2:54:142 hours, 54 minutes, 14 secondsOkay, we'll get the output of city in the format of a dictionary. Let's see how to do that.
+2:54:222 hours, 54 minutes, 22 secondsRight? This was for pyic for function format for function arguments. Whatever we studied was pyantic for function arguments. Right? Today now we will
+2:54:302 hours, 54 minutes, 30 secondsstudy pyantic for output format. Let's take a look how to do it. So I'm going to give you the code. Right?
+2:54:452 hours, 54 minutes, 45 secondsSo let's bring the code here.
+2:55:142 hours, 55 minutes, 14 secondsSo see this this is our normal function.
+2:55:152 hours, 55 minutes, 15 secondsI've just trimmed it down a little to make it easier for you. Right? And I'm I'm just fetch the weather condition for a specified city. I'm just avoiding all
+2:55:232 hours, 55 minutes, 23 secondsthe descriptions because I'm using a pyantic class. So I'm avoiding all the what goes as input, what comes as output. I'm avoiding that for now. Okay.
+2:55:312 hours, 55 minutes, 31 secondsBesides, I'm going to have a very customized output this time. So I'm avoiding everything. I've just kind of toned it down a little. Right? So let's just try to first define this. Right?
+2:55:382 hours, 55 minutes, 38 secondsI'll give you entire code. But first see what is happening. Right? Then what would you do? You will first define you have a weather input already. Let's say
+2:55:462 hours, 55 minutes, 46 secondswe use the weather input. We don't use the weather input. But I just want to show you for the output this time. So let's use it for output.
+2:55:582 hours, 55 minutes, 58 secondsWho's this one? Let's use the same one.
+2:56:062 hours, 56 minutes, 6 secondsSo this is your this is your outright. Then what we're doing is stick.
+2:56:192 hours, 56 minutes, 19 secondsNow we going to design a pyantic class.
+2:56:222 hours, 56 minutes, 22 secondsI'm really sick of this. Yeah, this is not getting copied. I don't know why the clipboard is really some some messed up today.
+2:56:362 hours, 56 minutes, 36 secondsIt's breaking the flow actually, you know, because clipboard is messing up. So, it's breaking my flow.
+2:56:432 hours, 56 minutes, 43 secondsOkay, so this is the output that I'm generating. Look at this. What am I going to get the as the output from this function, right? Look at this city. Look at this city, temperature,
+2:56:562 hours, 56 minutes, 56 secondshumidity, and whatever it is you're getting here.
+2:57:002 hours, 57 minutesThe same thing can be also used to get a specific kind of output from the array.
+2:57:052 hours, 57 minutes, 5 secondsWe've already seen it with the person class. If you remember, we've already seen it with person, right? Now, we will use it. Look at this. How? Please take a look.
+2:57:172 hours, 57 minutes, 17 secondsSo, copying becomes pink.
+2:57:222 hours, 57 minutes, 22 secondsI had known I would have put it in your in my Jupyter notebook fully earlier.
+2:57:262 hours, 57 minutes, 26 secondsIt's a very big thing. Okay. Now, now just see what we are going to do first.
+2:57:312 hours, 57 minutes, 31 secondsWhat we going to do is we're going to get same thing. We're just going to define
+2:57:412 hours, 57 minutes, 41 secondsour LLM. Let's see this. We going to defi we're going to define our LLM right like
+2:57:502 hours, 57 minutes, 50 secondsthis right and then we going to just bind the tools which is get city with right and just define the tool names look at this define the tool names right
+2:57:592 hours, 57 minutes, 59 secondsdefine the tool names whatever we did before that only we are doing right so let me run this now take a look something very
+2:58:072 hours, 58 minutes, 7 secondsinteresting is there after this right I'm going to create one more wrapper
+2:58:162 hours, 58 minutes, 16 secondsI'm going to get create one more wrapper which will give me the output in my desired format and I want to show you
+2:58:232 hours, 58 minutes, 23 secondsthat
+2:58:512 hours, 58 minutes, 51 secondsRight.
+2:58:532 hours, 58 minutes, 53 secondsLet's try otherwise some issue is there.
+2:59:002 hours, 59 minutesSee that's what happens right. So basically what I'm doing is
+2:59:082 hours, 59 minutes, 8 secondsI'm creating one more LLM here and I'm binding it with my feather output. See this I'm taking one more LM here and I'm
+2:59:162 hours, 59 minutes, 16 secondsbinding it with LLM output. So basically basically whatever my normal LLM will give as output I will put it inside this
+2:59:252 hours, 59 minutes, 25 secondsLLM and get the output in a structured format. All right. whatever my normal LLM will give as output. I'll put that
+2:59:332 hours, 59 minutes, 33 secondsoutput inside this LLM and make get it all in a structured format. Right? Let me show you how.
+2:59:432 hours, 59 minutes, 43 secondsSo, I'm going to use the same loop. Same loop that we used earlier. Same loop. Exactly same loop. I'm going to use it.
+2:59:502 hours, 59 minutes, 50 secondsOh, it's big. How would I copy it? I don't know.
+3:00:023 hours, 2 secondsJust one minute.
+3:00:473 hours, 47 secondsI keep it all in in my one note basically right where I keep every session whatever I do I keep them all in one note today I don't know Microsoft's
+3:00:543 hours, 54 secondsone note is doing what stupidity that it is not working look at this I'm just kind of showing it so I've created one more LM which is structured LLM and just
+3:01:023 hours, 1 minute, 2 secondstake a look at this code and you will understand everything right please understand This first of all you're giving the input you're passing the input to llm. Now what will llm do?
+3:01:093 hours, 1 minute, 9 secondsalgorithm will actually use your function tool calling right if you bound it if you have not bounded it's still fine right let me just check weather
+3:01:173 hours, 1 minute, 17 secondswhich is fine you have bounded with weather input right so llm will just whatever you ask it out of that input it
+3:01:253 hours, 1 minute, 25 secondswill take all the arguments and it will give it to what the tool look at this same thing I'm doing selected tool and look at this tool output that I'm giving
+3:01:333 hours, 1 minute, 33 secondsto tool message and then that message I'm appending to what to lm AI message and tool message and then what I'm
+3:01:403 hours, 1 minute, 40 secondsseeing dude see what I'm doing now after that what am I doing look at this I'm not giving it to the original LLM if you
+3:01:483 hours, 1 minute, 48 secondsremember from the last session if you remember from the last session I was binding the AI message and the tool output and giving it back to LLM
+3:01:563 hours, 1 minute, 56 secondsremember that look at this here I was binding my look at this AI message and I was just
+3:02:053 hours, 2 minutes, 5 secondsgiving it back to LL normal LL right in this case I'm going to give it to my new LLM that I created which is the
+3:02:113 hours, 2 minutes, 11 secondsstructured LLM. That LLM what will happen is that LLM will basically will basically give me the output in my
+3:02:193 hours, 2 minutes, 19 secondsdesired format and I'm going to show you that format. Okay, look at this. Ask it what is the weather in Delhi?
+3:02:293 hours, 2 minutes, 29 secondsRight? Let's say look at this. It is going to give me the
+3:02:373 hours, 2 minutes, 37 secondsoutput in this format. See this city Delhi temperature 34 humidity 48 this this is
+3:02:473 hours, 2 minutes, 47 secondsalso how the pantic classes are used okay this is also how the padantic classes are used they are actually used
+3:02:553 hours, 2 minutes, 55 secondsthey're actually used to they're actually used to create or get an output in this in this format so the first LLM
+3:03:033 hours, 3 minutes, 3 secondsyou will use the first LLM where you binding the tools first LLM you will bind the tools with second LLM you will
+3:03:103 hours, 3 minutes, 10 secondsuse to get your custom output right see anyway whatever the tool output was coming you would have given it to LLM
+3:03:173 hours, 3 minutes, 17 secondsisn't it guys the tool output whatever was coming look at this here now this this code the tool output comes out of here correct you would anyway give it to
+3:03:263 hours, 3 minutes, 26 secondsLLM look at this here isn't it instead of giving it to the normal LLM or your own LM you give it to a different LM
+3:03:333 hours, 3 minutes, 33 secondswhich is structured LLM which is the LLM which which you have bound with this weather output base model class. Now
+3:03:413 hours, 3 minutes, 41 secondsyour output will be in your desired format. See this I've shown three formats you can you will actually get it in inside you will actually get it in
+3:03:503 hours, 3 minutes, 50 secondspyantic object format. You can then convert it to dictionary or you can also convert it to JSON right which is I have shown here. Model dump will convert it
+3:03:583 hours, 3 minutes, 58 secondsto dictionary and uh JSON.dumps will convert it to JSON. Right? This is something that you need to know. These
+3:04:053 hours, 4 minutes, 5 secondsare the two effective use cases of padantic. The first is what it is used to give it is used so that LLM gives the
+3:04:133 hours, 4 minutes, 13 secondsright input to the for the function calling. So the LLM gives the right input for the function calling and
+3:04:203 hours, 4 minutes, 20 secondssecond is what if you want your LLM output to be in a specific format mostly we use dictionary formats only. We use
+3:04:283 hours, 4 minutes, 28 secondsdictionary formats mostly. If you want your LM outputs to be in a dictionary format or something like that, you use this, right? I hope that kind of clears
+3:04:383 hours, 4 minutes, 38 secondsuh this whole thing, right? Any challenge, anything that you're not getting, please ask me. But this is all about pyantic. We have covered pyantic
+3:04:463 hours, 4 minutes, 46 secondsin very very extensively. I don't think we need to understand anything more than that. This particular thing that is the next part this part this part will come
+3:04:553 hours, 4 minutes, 55 secondsin very handy when we develop agents because when we have multiple agents we don't want the format output format to
+3:05:033 hours, 5 minutes, 3 secondsbe in string right one agent will communicate with another agent by passing the output as
+3:05:103 hours, 5 minutes, 10 secondsdictionary or probably as JSON right that's why this will come in very very handy in the in the next part of the session right which is agentic which is
+3:05:183 hours, 5 minutes, 18 secondswhere we starting in the next session So we'll start building agent from tomorrow. I'll I'll show you uh how to
+3:05:263 hours, 5 minutes, 26 secondsdo the same thing. So now the important thing is this thing you're doing using if and else right. If LLM asked you to
+3:05:333 hours, 5 minutes, 33 secondscall a tool, you're calling the tool. If LLM did not ask you to call a tool, then you're directly giving the LLM output,
+3:05:393 hours, 5 minutes, 39 secondsright? Isn't it? If LLM asked you to call a tool, you're calling the tool. If LLM did not ask you to call the tool,
+3:05:473 hours, 5 minutes, 47 secondsthen you're giving the final output, right? you're giving the final output,
+3:05:503 hours, 5 minutes, 50 secondsright? The the whole idea is very simple. The whole idea is very simple.
+3:05:553 hours, 5 minutes, 55 secondsSame thing. We will now when we go to agents, when we go to agents, we skip this if else block. We skip this if else block. It's done directly without ifs.
+3:06:063 hours, 6 minutes, 6 secondsOkay, it is done directly without ifs,
+3:06:093 hours, 6 minutes, 9 secondswhich is what we are going to start in the next session, which is what we will to take a look at, right? How to do this effectively. All right, I hope that
+3:06:173 hours, 6 minutes, 17 secondsmakes sense, guys. I know it's a little programmatically it's a little little little tacky but if you'll just run through the codes properly in detail you
+3:06:263 hours, 6 minutes, 26 secondswill get the gist of it. You'll get everything about it right? Is that clear guys?
+3:06:333 hours, 6 minutes, 33 secondsYes. Tell me just one.
+3:06:493 hours, 6 minutes, 49 secondsSo guys, yes, I totally believe the codes are a little tacky for Pantic because this binding there, what binding where. But go through it one more time.
+3:06:593 hours, 6 minutes, 59 secondsGo through it one more time and I'm pretty sure you will be able to understand. To summarize it all, to summarize it all, you need to understand two things. One, how to use padantic?
+3:07:093 hours, 7 minutes, 9 secondsHow to use padantic so that LLM gives the right arguments to
+3:07:163 hours, 7 minutes, 16 secondsa function? How to use pyantic so that LLM gives right output to a function?
+3:07:223 hours, 7 minutes, 22 secondsAnd second, how to use padantic so that you get output as per your format from
+3:07:303 hours, 7 minutes, 30 secondsLLM. Okay, please note it down guys if you are noting it. First use case I'm just kind of put it here. Going to put it here itself.
+3:07:423 hours, 7 minutes, 42 secondsTwo use cases
+3:07:523 hours, 7 minutes, 52 secondsof panting. What are the what is the first one? The first one is how to how to
+3:08:003 hours, 8 minutesmake LLM give right arguments for a function.
+3:08:103 hours, 8 minutes, 10 secondsAnd second is how to make LLM give output in your desired format.
+3:08:173 hours, 8 minutes, 17 secondsCan be any format. It can be any format.
+3:08:193 hours, 8 minutes, 19 secondsYou just need to define that format inside a parentic class. You just need to define that format into a parenting class and you know it I don't know in
+3:08:273 hours, 8 minutes, 27 secondscase you don't know it any any dictionary anything which is a which is a dictionary or a JSON that can also be converted into XML. So you can also get
+3:08:353 hours, 8 minutes, 35 secondsXML outputs then right you can then also get XML outputs. This is the thing that we need to always remember. Okay this is the thing that we need to always remember. Okay I hope that was helpful.
+3:08:473 hours, 8 minutes, 47 secondsJust let me know if there's any challenge. Um Samir one question um
+3:08:553 hours, 8 minutes, 55 secondsif this is if Pantic is solving the problem uh then how you know how is it
+3:09:013 hours, 9 minutes, 1 seconddifferent from an MCP right see when you will actually build an MCP that's when you will need pantic to
+3:09:103 hours, 9 minutes, 10 secondsensure enforce uh the MCP or your your tools basically
+3:09:173 hours, 9 minutes, 17 secondsright so you will bind all those tools with pantic right you got it whatever that's how we can get a right format you
+3:09:253 hours, 9 minutes, 25 secondsknow for calling or right out format yes yes yes and and one last question on the same
+3:09:323 hours, 9 minutes, 32 secondslines like for any application can I build an MCP server like I'm doing something in in my professional uh you
+3:09:403 hours, 9 minutes, 40 secondsknow journey and I have a web app uh can I build an MCP for that web app
+3:09:483 hours, 9 minutes, 48 secondsuh can build let's see ideally you can build MCP for anything but build MCP for the those things which you want where you want crossplatform integration for
+3:09:573 hours, 9 minutes, 57 secondsexample you're working in one company there is another team sitting in another location now you want both of you guys to use the same tool so you host it
+3:10:063 hours, 10 minutes, 6 secondsonline so everyone can use it for example Zomato for Zomato it makes sense to make an MCP which can be used by chat GPT or any LLM or any any any of anyone
+3:10:153 hours, 10 minutes, 15 secondsfor that matter who wants to integrate Zomato in their application. So tomorrow if you're building an application you can use Zomato's MCP and then place
+3:10:233 hours, 10 minutes, 23 secondsorder with them directly. That all makes sense for you because Zomato is it's a crossplatform use case. But why would
+3:10:303 hours, 10 minutes, 30 secondsyou want to build MCP? It's a if it's a personal application if your functions are not generic in nature and they are going to be used by only you right then
+3:10:383 hours, 10 minutes, 38 secondsyou know don't need MCP host them rather host them on the same server as your Python program and that will save you some time also right isn't it? because
+3:10:463 hours, 10 minutes, 46 secondsMCP is on another another server. Now when you're calling MCP then what will happen is some there is still if something is on another server then
+3:10:533 hours, 10 minutes, 53 secondsthere will be some time overhead now so yeah let me explain my use case uh if everyone else is fine uh I explained
+3:11:013 hours, 11 minutes, 1 secondthis earlier uh so here is how we are trying to achieve uh Samir this is you know we started the project recently so
+3:11:103 hours, 11 minutes, 10 secondsthe goal is I work for a bank so let's say a customer asks for a change in his like
+3:11:193 hours, 11 minutes, 19 secondslet's say physical address. Okay. Now our bank is a slightly traditional bank
+3:11:273 hours, 11 minutes, 27 secondswhere there is a human touch always. So they actually either call up to the relationship manager or drop an email
+3:11:363 hours, 11 minutes, 36 secondsdirectly like today you see every bank right ICICI IDFC you always get a mail ID of the relationship manager and the
+3:11:433 hours, 11 minutes, 43 secondsname. So in the similar manner they'll drop an email saying that guys like my address has been changed. Now that email
+3:11:513 hours, 11 minutes, 51 secondscan be straightforward or it can be a conversational email. Okay, first I'll drop saying that guys my address is changed. can you please help me what
+3:12:003 hours, 12 minutesdocuments I need to submit and then it it builds a conversation of 10 or 15 different emails and then uh there's a
+3:12:073 hours, 12 minutes, 7 secondscontext coming out of that email saying that okay this is the address and he's asking for an address change. Now
+3:12:143 hours, 12 minutes, 14 secondsaddress change is just one example. Now my bank has probably 2,000 different combinations that any customer can ask
+3:12:223 hours, 12 minutes, 22 secondsfor. Okay. So the use case that we are trying to solve is now once I have an email I will be feeding that email to a
+3:12:313 hours, 12 minutes, 31 secondsclassification agent the traditional ML classifier plus LLM which will give me output in a standard format because uh
+3:12:403 hours, 12 minutes, 40 secondsall I want to understand from that output is what is the request that he is making
+3:12:483 hours, 12 minutes, 48 secondsand then I'll do some more uh things right like because being banks we are always uh in the mercy of regulators. So we do some authentication,
+3:12:563 hours, 12 minutes, 56 secondsauthorization, blah blah blah blah everything else. And once I have a final outcome and I got the confirmation now
+3:13:043 hours, 13 minutes, 4 secondsmy next thing is based on the request I need to call different SOS because KYC is done on a different SO onboarding is
+3:13:133 hours, 13 minutes, 13 secondsdone on a different SO and for accounts it's completely different SOS that I need to look for
+3:13:213 hours, 13 minutes, 21 secondsand each request I might need to call one or more SOS the more frequent SOS is KYC definitely
+3:13:303 hours, 13 minutes, 30 secondsKYC and onboarding are like frequent SOS. Everything else is like based on what request is asking is doing. So my
+3:13:373 hours, 13 minutes, 37 secondsquestion is predominantly where if I need to call a KYC SO which is which is going to change every month. So I want
+3:13:463 hours, 13 minutes, 46 secondsmy like I was about to ask them it's not uh I know we have not discussed further yet. I was about to ask them like can
+3:13:533 hours, 13 minutes, 53 secondsyou give me or can we build an MCP so that it is not going to fail always because if you if you look at my use
+3:14:003 hours, 14 minutescase right address change all I need is I need to find the right client and create a life cycle saying that guys
+3:14:083 hours, 14 minutes, 8 secondslike the old address needs to be updated. So probably build an automation agent saying that okay once you hit this
+3:14:153 hours, 14 minutes, 15 secondsAPI or once you give them uh you know the SO you either call an API or whatever is possible way if there's a
+3:14:243 hours, 14 minutes, 24 secondsproper UI and all then I'm not willing to build an MCP but you know one of my application is a pure API based uh you
+3:14:323 hours, 14 minutes, 32 secondsknow web app so I can I was thinking like probably build an MCP and then uh from there I can simply include a JSON.
+3:14:413 hours, 14 minutes, 41 secondsSee, you can build if you have a function or a tool which can be reused by someone else as well. Right in another application as well,
+3:14:513 hours, 14 minutes, 51 secondsright? Got it. Okay.
+3:14:553 hours, 14 minutes, 55 secondsIf your tool will not be ever used by anyone else, then you don't need an MCP. As simple as that, right? Okay.
+3:15:013 hours, 15 minutes, 1 secondRight. So, don't worry about MCP. You just need MCP only and only when that tool has to be reused across three four LLM applications. Right. For example,
+3:15:093 hours, 15 minutes, 9 secondsform filling for example right today you are making an MCP right for form filling where which will take basically user
+3:15:173 hours, 15 minutes, 17 secondsdetails and fill the form for you right let's say this is this is this is the tool now the same tool can also be used by someone else as well right which is who
+3:15:253 hours, 15 minutes, 25 secondsis also taking user details the same kind of details and is filling the form right now you can host this kind of function as an MCP this is five minutes five
+3:15:333 hours, 15 minutes, 33 secondsokay you can use this kind of function as MCP and then uh you can just you know kind So that multiple applications of yours
+3:15:423 hours, 15 minutes, 42 secondscan use the same tool. So when a tool can be used by more than one L then you need MCP otherwise what's the need.
+3:15:493 hours, 15 minutes, 49 secondsOkay. Got it. I understand. Thank you. Thank you. Thank you.
+3:15:573 hours, 15 minutes, 57 secondsOkay guys, anything else? My furniture guys are here. If there's anything else just tell me otherwise we'll close.
+3:16:043 hours, 16 minutes, 4 secondsWe'll catch up tomorrow. Tomorrow uh where we'll continue the same thing. Uh tomorrow we'll start with agents. So the story line is using using tool calling.
+3:16:143 hours, 16 minutes, 14 secondsUnderstand the story line very clearly.
+3:16:153 hours, 16 minutes, 15 secondsOkay. Using the tool calling. Tool calling first thing. Second thing.
+3:16:193 hours, 16 minutes, 19 secondsSecond thing when you're using tool calling you're doing a lot of ifs.
+3:16:243 hours, 16 minutes, 24 secondsAdditionally we did what? Pantic. Two use cases of pantic. Now since we are using if else with tool calling. Since we are doing if else with tool calling to avoid the if else.
+3:16:373 hours, 16 minutes, 37 secondsOkay. Okay. Yes, I should raise. Yes,
+3:16:393 hours, 16 minutes, 39 secondsyou're right. You're right. I'm so sorry. Yes. Yes. Yes. I should raise my bad.
+3:16:473 hours, 16 minutes, 47 secondsOkay. Yes. I should raise the error. Right. Right.
+3:16:563 hours, 16 minutes, 56 secondsReturn the value. That's the problem. Come again.
+3:17:143 hours, 17 minutes, 14 secondsLet's try that out.
+3:17:173 hours, 17 minutes, 17 secondsSo now it is giving the error, right? It should ideally give the error, not something like this. Okay, let's try this out. It was returning the error actually.
+3:17:283 hours, 17 minutes, 28 secondsNow see this and let's try now.
+3:17:403 hours, 17 minutes, 40 secondsI'll check it out. I'll check it out.
+3:17:443 hours, 17 minutes, 44 secondsBut if you run it the other way around uh like you catch the tool call from this response and then you invoke it manually right at the bottom
+3:17:523 hours, 17 minutes, 52 secondsthen it will happen. It should that invoking it all ideally is done internally. Somehow that is getting skipped. I'll look at it. Correct. Correct. So there there it is working.
+3:18:003 hours, 18 minutesThere the field validator gets called.
+3:18:033 hours, 18 minutes, 3 secondsIf you ask for Agra, it gives you the response correctly.
+3:18:063 hours, 18 minutes, 6 secondsYeah. Yeah. If you'll do it manually, it will work. But somehow it should be done internally only because that's the benefit of language. Right. Okay guys,
+3:18:133 hours, 18 minutes, 13 secondsI'll I'll take a I'll take your leave for today. We'll catch up tomorrow.
+3:18:173 hours, 18 minutes, 17 secondsRemember the story line. Go through the things that we have discussed. So tomorrow does we need agents? Because to avoid the if else statements that we are making, we need agents. Okay.
+3:18:283 hours, 18 minutes, 28 secondsAll right guys, I think that'll be all for today. I hope you enjoyed a little t tacky quotes. I understand guys. A little tacky but don't get lost inside
+3:18:363 hours, 18 minutes, 36 secondsthe course. Try to understand it as a block. What is really happening? Okay.
+3:18:413 hours, 18 minutes, 41 secondsSo I suggest go through the codes one more time. If you have any challenges uh tomorrow's session we will just handle
+3:18:483 hours, 18 minutes, 48 secondsuh your doubts. Okay. Uh in the end in the end of course. Okay. So that's Thank you guys. Thank you. Thank you. Bye-bye. Thank you.
+3:18:553 hours, 18 minutes, 55 secondsThank you. Bye. Thank you. Thank you, sir.

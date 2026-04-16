@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+import hashlib
+import json
 import logging
 import re
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 import requests
 
@@ -11,6 +13,7 @@ import requests
 SESSION_FILE_PATTERN = re.compile(r"^session_(\d+)\.txt$", re.IGNORECASE)
 MODULE_DIR_PATTERN = re.compile(r"^[a-z0-9_]+$", re.IGNORECASE)
 SENTENCE_SPLIT_PATTERN = re.compile(r"(?<=[.!?])\s+")
+SESSION_SECTION_PATTERN = re.compile(r"(?m)^### Session (\d+)\n\n")
 
 
 def setup_logging() -> None:
@@ -47,6 +50,98 @@ def extract_session_number(filename: str) -> int:
             f"Invalid file name '{filename}'. Expected format: session_<number>.txt"
         )
     return int(match.group(1))
+
+
+def compute_text_hash(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def get_session_hash_path(
+    session_output_dir: Path,
+    module_name: str,
+    session_number: int,
+) -> Path:
+    module_key = normalize_module_name(module_name)
+    module_session_dir = session_output_dir / module_key
+    module_session_dir.mkdir(parents=True, exist_ok=True)
+    return module_session_dir / f"session_{session_number}_cache.json"
+
+
+def load_session_hash(
+    session_output_dir: Path,
+    module_name: str,
+    session_number: int,
+) -> Optional[Dict[str, str]]:
+    hash_path = get_session_hash_path(
+        session_output_dir,
+        module_name,
+        session_number,
+    )
+    if not hash_path.exists():
+        return None
+
+    try:
+        return json.loads(hash_path.read_text(encoding="utf-8"))
+    except ValueError:
+        return None
+
+
+def save_session_hash(
+    session_output_dir: Path,
+    module_name: str,
+    session_number: int,
+    source_hash: str,
+) -> Path:
+    hash_path = get_session_hash_path(
+        session_output_dir,
+        module_name,
+        session_number,
+    )
+    hash_path.write_text(
+        json.dumps({"source_hash": source_hash}, indent=2),
+        encoding="utf-8",
+    )
+    logging.info("Saved session cache metadata: %s", hash_path)
+    return hash_path
+
+
+def load_cached_session_output(
+    session_output_dir: Path,
+    module_name: str,
+    session_number: int,
+    transcript_text: str,
+    transcript_path: str | None = None,
+) -> str | None:
+    session_path = get_session_output_path(
+        session_output_dir,
+        module_name,
+        session_number,
+    )
+    if not session_path.exists():
+        return None
+
+    current_hash = compute_text_hash(transcript_text)
+    metadata = load_session_hash(
+        session_output_dir,
+        module_name,
+        session_number,
+    )
+
+    if metadata and metadata.get("source_hash") == current_hash:
+        return session_path.read_text(encoding="utf-8").strip()
+
+    if metadata is None and transcript_path is not None:
+        transcript_mtime = Path(transcript_path).stat().st_mtime
+        if session_path.stat().st_mtime >= transcript_mtime:
+            save_session_hash(
+                session_output_dir,
+                module_name,
+                session_number,
+                current_hash,
+            )
+            return session_path.read_text(encoding="utf-8").strip()
+
+    return None
 
 
 def load_files(input_dir: Path) -> List[Dict[str, str | int]]:
@@ -152,8 +247,11 @@ def save_chunk(
     module_key = normalize_module_name(module_name)
     module_chunks_dir = chunks_dir / module_key
     module_chunks_dir.mkdir(parents=True, exist_ok=True)
-    file_path = module_chunks_dir / f"session_{session_number}chunk-{chunk_number}.txt"
-    header = f"{format_module_name(module_key)} Session {session_number} - Chunk {chunk_number}\n\n"
+    file_path = (
+        module_chunks_dir
+        / f"{module_key}_session_{session_number}chunk-{chunk_number}.txt"
+    )
+    header = f"Session {session_number} - Chunk {chunk_number}\n\n"
     file_path.write_text(f"{header}{chunk_text.strip()}\n", encoding="utf-8")
     logging.info("Saved chunk file: %s", file_path)
     return file_path
@@ -217,7 +315,11 @@ def load_session_output(
     module_name: str,
     session_number: int,
 ) -> str | None:
-    session_path = get_session_output_path(session_output_dir, module_name, session_number)
+    session_path = get_session_output_path(
+        session_output_dir,
+        module_name,
+        session_number,
+    )
     if not session_path.exists():
         return None
     return session_path.read_text(encoding="utf-8").strip()
@@ -228,11 +330,63 @@ def save_session_output(
     module_name: str,
     session_number: int,
     content: str,
+    source_text: str | None = None,
 ) -> Path:
     session_path = get_session_output_path(session_output_dir, module_name, session_number)
     session_path.write_text(content.strip() + "\n", encoding="utf-8")
     logging.info("Saved session output: %s", session_path)
+
+    if source_text is not None:
+        source_hash = compute_text_hash(source_text)
+        save_session_hash(session_output_dir, module_name, session_number, source_hash)
+
     return session_path
+
+
+def bootstrap_module_session_cache(output_dir: Path, session_output_dir: Path) -> int:
+    restored = 0
+    separator = "\n\n---\n\n"
+
+    for final_path in sorted(output_dir.glob("*_final_cleaned.txt")):
+        module_name = normalize_module_name(
+            final_path.name[: -len("_final_cleaned.txt")]
+        )
+        module_session_dir = session_output_dir / module_name
+        existing_cache_files = list(module_session_dir.glob("session_*_cleaned.txt"))
+        if existing_cache_files:
+            continue
+
+        content = final_path.read_text(encoding="utf-8").strip()
+        if not content:
+            continue
+
+        matches = list(SESSION_SECTION_PATTERN.finditer(content))
+        if not matches:
+            continue
+
+        for index, match in enumerate(matches):
+            session_number = int(match.group(1))
+            start = match.end()
+            end = matches[index + 1].start() if index + 1 < len(matches) else len(content)
+            session_body = content[start:end]
+            if session_body.endswith(separator):
+                session_body = session_body[: -len(separator)]
+
+            session_body = session_body.strip()
+            if not session_body:
+                continue
+
+            save_session_output(
+                session_output_dir,
+                module_name,
+                session_number,
+                session_body,
+            )
+            restored += 1
+
+    if restored:
+        logging.info("Bootstrapped %s session cache files from module outputs.", restored)
+    return restored
 
 
 def merge_module_output(cleaned_sessions: Dict[int, str]) -> str:

@@ -1,0 +1,749 @@
+10:1410 minutes, 14 secondsHey guys, I'm just starting in two 2 3 minutes. Just just give me two three minutes.
+14:1714 minutes, 17 secondsOkay guys, let's get started. Uh,
+14:2114 minutes, 21 secondstoday we will wrap up uh most part of the rag whatever is left. The quotes today are going to be a little ferocious to be honest. So do not get scared.
+14:3214 minutes, 32 secondsRight. And uh and also I'm a little low on energy. I got a stomach infection. I don't know early in the morning. So So I'm a little low on energy and there was
+14:4114 minutes, 41 secondsa class before that as well. So my energy is a little little low but but let's try to kind of make the best out of it and let's try to code it out. So today you will be needing three
+14:4914 minutes, 49 secondsnotebooks in total. So kind of make a new folder on the session. On today's session you will be needing total three notebooks. We will be kind of implementing three different concepts
+14:5714 minutes, 57 secondsbut mostly we will be copying whatever we have already done the same set of steps only we will be tweaking and all and that's how we'll be going about it.
+15:0515 minutes, 5 secondsSo let me just kind of walk you through what we have done already and what is it that we are going to cover today. Okay.
+15:1115 minutes, 11 secondsSo let's just quickly go through it. Let me just I kind of share my screen. Just one minute.
+15:4115 minutes, 41 secondsNow let's kind of talk about whatever we had done in the last session. So in the last session if you remember we learned about of course before that we had
+15:4815 minutes, 48 secondsfixated on some steps of upserting and some steps of some steps of retrieval right some five steps six steps we had
+15:5615 minutes, 56 secondsseen there some six seven steps we have seen in retrieval within those steps we did two three things the last time which
+16:0316 minutes, 3 secondswas first of all on the upserting side I showed you I showed you how you can actually upsert with metadata Right?
+16:1416 minutes, 14 secondsThat is one thing we did. What else did we do on the upsetting side, guys?
+16:1716 minutes, 17 secondsAnyone remembers? What else did we do on the upserting side?
+16:2516 minutes, 25 secondsURLs. Am I am I am I audible? Yes. Yes. URLs.
+16:3416 minutes, 34 secondsURLs. Yes. Metadata URLs. Asserting uh uh filters, keywords. This is what we had seen in the last session. Right.
+16:4416 minutes, 44 secondsThis is what we had seen in the last session if you if you remember. Right.
+16:4716 minutes, 47 secondsRight. How to upsert the better quality of the code, better quality of your data. Then we looked at one very important thing that you guys are
+16:5416 minutes, 54 secondsmissing on out on. We explored what chunking
+17:0217 minutes, 2 secondswe explored what chunking. We looked at two strategies of chunking. One was what? Semantic chunking. Another was the splitter. the lang chain text splitter
+17:0917 minutes, 9 secondsthat we kind of explored in the last session.
+17:1217 minutes, 12 secondsSentence chunking pardon pardon. Yeah, context semantic chunk.
+17:1717 minutes, 17 secondsYeah, context based chunking that is semantic chunking. Right. So these all things we looked at in the last session.
+17:2217 minutes, 22 secondsThen then we moved to the next part of our code which was the retrieval and inside the retrieval part
+17:3017 minutes, 30 secondswe looked at we looked at what the query expansion right query expansion
+17:3717 minutes, 37 secondsthe the metadata filtering that is prefiltering basically we looked at pre-filtering
+17:4617 minutes, 46 secondsprefiltering is what we looked at in the last session I don't think we were go we had gone past this this is what we had done in the last session. Today we are
+17:5417 minutes, 54 secondsgoing to kind of go a little next level and we will look at proper multi-query expansion today. Right?
+18:0118 minutes, 1 secondWe'll look at proper multiquery expansion today and uh there are a couple of things I don't just give me one minute. Okay.
+18:1318 minutes, 13 secondsSo we look at first side first thing we look at is the multi-query expansion. We try to expand our query. So three different variations I have for you
+18:2118 minutes, 21 secondstoday. One is we'll see how to expand your query. How to kind of create multiple queries and using those queries
+18:2718 minutes, 27 secondshow can you actually make your rag how can you actually make your rag. So one is multi-query expansion. Second part that I want to show you is maintaining
+18:3618 minutes, 36 secondshistory. We'll start with history actually. So three things are on agenda today. Three things are on agenda today and I I really want to complete it even
+18:4318 minutes, 43 secondsif it goes to 6:00. Okay? Because otherwise we'll not be able to complete the syllabus because tomorrow then again some part we'll have to start with
+18:5018 minutes, 50 secondspantic actually. So we have to start our agents journey from tomorrow onwards. So to tomorrow we'll do pyantic and uh rag is still one thing is left which I'll
+18:5818 minutes, 58 secondsshow you tomorrow which is sparse embeddings right to today I'm sure we'll not be able to do it but tomorrow we'll have to do it right then three four I think three four sessions we'll need for
+19:0619 minutes, 6 secondsagent agentic AI as well right so it takes some time right then we will I think will I think come or someone else
+19:1419 minutes, 14 secondswill come and take up the rest of the classes and then we'll meet again when we meet again that's where I will kind of you know take it up from proper
+19:2119 minutes, 21 secondsprojects perspective so what I'll do is I'll basically give you some projects ideas that you can work on. Probably give you some data as well. You try to
+19:2919 minutes, 29 secondsbuild your rags, you try to build different things. Then using the same projects what we'll do is we'll try to kind of extend them to how it is done in industry right using corrective rag
+19:3719 minutes, 37 secondsadaptive rag. I wanted to cover corrective rag and adaptive rag right now. But for that we'll have to cover metrics. So I was going through the syllabus metrics is in the later half of
+19:4619 minutes, 46 secondsyour sessions that is when I will come again and teach you right. So that is where we will start with that. Okay.
+19:5119 minutes, 51 secondsOkay. So I think uh this we had done in the last session and today what we're going to do is I just walk walk you through it. First thing we're going to
+19:5919 minutes, 59 secondsdo is today the first thing that we're going to do is history. So you know history you have
+20:0820 minutes, 8 secondsbeen maintaining it you know how to maintain it. The same concept we'll just kind of put it with rack. Same concept nothing fancy nothing changes right? Same concept we just put it. Okay.
+20:1720 minutes, 17 secondsSecond thing, second thing, second thing we'll have is second thing we'll have is uh
+20:2420 minutes, 24 secondsuh the query multi-quy expansion right the query editing part on the query editing part we'll kind of explore multiquery expansion today and I'll tell
+20:3320 minutes, 33 secondsyou how hide works you can try hide also but I'll mostly show you multi-query expansion today and third thing is and the third thing
+20:4120 minutes, 41 secondsis reanking this is a very very important concept concept and I have a very good example for you where you will be able
+20:5020 minutes, 50 secondsto find out how to how to actually control everything right and that's that's that will introduce you to the next part of the rag which is adaptive
+20:5720 minutes, 57 secondsra corrected which we'll cover in the later okay so with this in mind guys let us get started right everyone please load one of your jupyter notebooks uh if you
+21:0621 minutes, 6 secondshave an older jupyter notebook I would recommend I would recommend just copy it as it is or probably I can also give you code but the last Jupyter notebook
+21:1421 minutes, 14 secondswhatever you used you can also copy that I would propose you copy that as it is.
+21:1821 minutes, 18 secondsWe have to make some changes only in the code that those changes we will we will directly make. Collab right? Yeah. Collab. Collab.
+21:2621 minutes, 26 secondsOkay.
+21:2721 minutes, 27 secondsSo just copy it in this folder. This collab copy that collab in this folder. Okay.
+21:3621 minutes, 36 secondsSorry.
+21:5021 minutes, 50 secondsI already have it copied. So I won't
+22:0922 minutes, 9 secondsmake a new folder, new sheet, and I'm just going to copy it.
+22:1422 minutes, 14 secondsSo codes, as I said, are going to be a little fierce today, right? To be honest, right, because it cannot stay easy, but but we'll try to make it as understandable as possible.
+22:3422 minutes, 34 secondsI'll share my screen with you guys.
+22:5422 minutes, 54 secondsRight. So this is my this is my notebook. Are you all able to see it?
+22:5822 minutes, 58 secondsThis is my notebook. So I'm going to go one by one only. Let's go through the steps again. If you copied it, it's fine. Otherwise, you can just we'll just go at it one by one the way we go about
+23:0523 minutes, 5 secondsit. So the first part that's we'll just repeat the exact same steps. So guys,
+23:1123 minutes, 11 secondsI'm not going to go deep into the exact same steps again, but we'll try to kind of you know understand whatever we have to change change, right? That we'll try
+23:1823 minutes, 18 secondsto look at. Okay. So let's go. Um this is let's call it session six
+23:2623 minutes, 26 secondsadvanced final final final I'm giving because it's not a advanced rag
+23:3623 minutes, 36 secondshistory here we are going to cover history okay we're going to cover history right for this I also request you to kind of just open your session or
+23:4623 minutes, 46 secondshistory so you are able to relate between the two because it's very very simple and very easy in nature. So this is the most easiest part that you will
+23:5323 minutes, 53 secondsbe doing today, right? That is maintaining a history because it's important because your rags is nothing without history. You have to have history then only rag makes sense otherwise.
+24:0324 minutes, 3 secondsRight?
+24:0924 minutes, 9 secondsSo if you remember in your history while vala session if you remember in your history while
+24:1824 minutes, 18 secondssession we used this part right we used two three different things to maintain the history. What were those different things? First thing is first thing is
+24:2624 minutes, 26 secondsyour message placeholder your chat prompt template your message placeholder inmemory chat message history and
+24:3324 minutes, 33 secondsrunnable message with history. These are the things if you remember we used in our in our history everyone remembers
+24:4024 minutes, 40 secondsthis right right these are the things that we used while making the history see this runnable with message history where
+24:4824 minutes, 48 secondswe'll wrap a chain around the history right and then then you have inmemory chat message history then there is chat
+24:5624 minutes, 56 secondsprompt template and message placeholder messages placeholder these are the things we used for the history if any everyone remembers we'll not go through
+25:0325 minutes, 3 secondsit again so just open this notebook by side if you can because that will kind of give you an idea. Now we'll start
+25:1025 minutes, 10 secondswith the rag history. Same six set of steps we'll be copying. Same six set of steps we'll be copying and then we'll go about it. Okay. So let's just kind of
+25:1825 minutes, 18 secondscopy it one by one just of course the first things pip install
+25:2625 minutes, 26 secondsjust install everything right just install whatever you need to
+25:3725 minutes, 37 secondsright install the necessary packages let's install them
+25:4625 minutes, 46 secondsthen you need the necessary modules in place.
+25:5325 minutes, 53 secondsSo I'm going to give you cell by set so if you can actually get it but just understand the code very well. Okay,
+26:0626 minutes, 6 secondsI'm just going to import the necessary modules.
+26:1326 minutes, 13 secondsThen get the keys, right? Get the keys in place, right? all the keys in place.
+26:1626 minutes, 16 secondsSo you must be able to get these also right. Let it run. Let it run.
+26:4226 minutes, 42 secondsI've seen you a lot of shown you a lot of variations. All right. By today you will be like expert in drag if you followed if you followed everything correctly right
+26:5126 minutes, 51 secondsnow let's get to the to the step number one you can create your step number one
+27:0327 minutes, 3 secondsit'll ask for the access I'm giving it all the accesses define your LM get your LM ready so
+27:1327 minutes, 13 secondslet's just get LM ready. I think everyone has this code. If you're using charged or open AI, I would suggest use
+27:2027 minutes, 20 secondsthat. Even my key is also about to be expired. I'll also need a new key perfs. Let's check.
+27:3427 minutes, 34 secondsOkay. And then so what is the step two? Tell me guys,
+27:4227 minutes, 42 secondswhat is the step two?
+27:4427 minutes, 44 secondsthe standard steps here. These are the standard steps. So let them let's get them in place.
+27:5227 minutes, 52 secondsAccess your pine code index and the embedding. Right? This is the pine code index and the embedding models. Let's just kind of get it. So I'm going one by
+28:0028 minutesone only. Right? After this I'll start copying the notebooks. Right? Because we don't have to kind of do it again and again. Right? So this is the next part the code.
+28:1428 minutes, 14 secondsThere you go. So I've just accessed the pine code. This is very much straightforward. You don't have to do anything, right? It's very straightforward, isn't it?
+28:2528 minutes, 25 secondsThis much all we have done, right? We have all done this. Now let's kind of move to the next part. Everything is straightforward only, right? Let's just go to the next part.
+28:3428 minutes, 34 secondsStep number three is just editing the query.
+28:4328 minutes, 43 secondsStep number three which is editing the query right and now we go to the next step which was basically earlier it was basically just very simple I think we'll
+28:5228 minutes, 52 secondskeep it very simple only right
+29:0629 minutes, 6 secondsthis is fine then query I think we need
+29:1629 minutes, 16 secondsjust give me one minute okay check that that's fine editing the query right so basically what we doing is if you
+29:2429 minutes, 24 secondsremember we did this in the last session we were editing the query to kind of get more keywords for searching the keywords right we are going to kind of copy the
+29:3329 minutes, 33 secondssame thing here see this this is the prompt that We use expand this query for retrieval. Add a
+29:4029 minutes, 40 secondsfew useful similar keywords return only one short expanded query. So just to get the metadata filtering the pre-filtering
+29:4729 minutes, 47 secondswe were using this remember we were using this to do prefiltering from this we would get keywords. Look at this.
+29:5329 minutes, 53 secondsWe're getting the keywords. We return the keywords, right? That's what we do, right?
+30:0930 minutes, 9 secondsvery same very much same right very much same nothing changes right everything is same change I will tell you where the change will happen right
+30:1830 minutes, 18 secondsso this is our step number three let's go to step number four I'm doing it a little fast so I can cover up
+30:3430 minutes, 34 secondsTip number four is always retrieval. Now let's try the retrieval. Right?
+30:4030 minutes, 40 secondsLet's try see the same function I'm going to use. Earlier we used to have this boring function. Now in the last session we changed our function to what the metadata filtering retrieval. Right?
+30:5130 minutes, 51 secondsWe did retrieval with metadata filtering. This is what enabled your metadata filtering. That is if you have a list of keywords then you will call
+31:0031 minutesthis otherwise you will just call this without this metadata filtering. Right?
+31:0431 minutes, 4 secondsSo we did it with metadata filtering if you remember in the last session. Right?
+31:1231 minutes, 12 secondsLet me share this with you.
+31:1431 minutes, 14 secondsAll this we have done guys. That's why I'm not paying stress to it. We've done it all in the last session. I hope everyone tried it.
+31:2631 minutes, 26 secondsNow comes the part which you'll have to change but no now comes the next part which is your context building right context building which is also I'm going
+31:3531 minutes, 35 secondsto keep it the same context building and then you're going
+31:4631 minutes, 46 secondsto have the next part let's just bring it same only I'm keeping for simplicity I'm keeping up to 1200 characters. I'm just
+31:5431 minutes, 54 secondstaking the 1200 characters for context building. But you can also add links everywhere.
+32:0032 minutesEverything you have to add here will be okay.
+32:0632 minutes, 6 secondsThen this comes the part where you'll have to change. So if you remember to maintain the history to maintain the history, you change the chat prompt
+32:1432 minutes, 14 secondstemplate. And this is the part which is prompt rendering and augmentation. This is the part we know where you define
+32:2232 minutes, 22 secondsyour prompt. Now we will define our prompt. The standard we I'm very tired today. Not tired but
+32:3132 minutes, 31 secondsyou know I got some infection crazy infection in the mornings paining like hell in my upper diaphragm. I don't know. Okay.
+32:4232 minutes, 42 secondsSo let's get the prompt in place. Right. Let's get the prompt thing in place.
+32:4632 minutes, 46 secondsLet's make a function this time to make our prompt. Right? Normally we do it uh whichever way. Now I'm going to kind of
+32:5432 minutes, 54 secondsgive you a function which will make your prompt. And let's just kind of let me just bring it directly and let me show you what that function looks like. Look
+33:0033 minutesat this first. This is your function right? I'm just defining a function make chat prompt. Right? This function will
+33:0833 minutes, 8 secondsmake the chat prompt. And I have imported everything. Just see this the four things that I need for history.
+33:1533 minutes, 15 secondschat prompt template messages placeholder inmemory chat message history and runnable with message history. Look at this and I have put a message placeholder of history here.
+33:2533 minutes, 25 secondsLook at this. I have put a messages placeholder of history here already. See this message placeholder variable name
+33:3433 minutes, 34 secondsis history. Right? See this I've already put a message placeholder of history.
+33:3833 minutes, 38 secondsAnd then I'm giving the human this is where the human query will come. So this is your system query. This is your system query. You are a financial analyst. Your job is to give ground analysis only using the context below.
+33:4833 minutes, 48 secondsHere I'll be injecting my sources that is the rag sources right I'll be putting them here and and and
+33:5733 minutes, 57 secondsbasically this is where I'll be just I'll just be kind of putting my history whatever happened in the past I'll be putting that here and putting that all
+34:0434 minutes, 4 secondsright and this is the query the human query will come up here. Right. Right.
+34:0934 minutes, 9 secondsEveryone remembers this. I hope you do remember this. Right.
+34:1334 minutes, 13 secondsOne request Samir can you just quickly glance through steps three, four, five and five and six. I have done it but I just want to check if mine is right.
+34:2234 minutes, 22 secondsJust glance it.
+34:2334 minutes, 23 secondsUm editing the query. I gave you the code for query editing. This expansion is same as the last session only.
+34:3234 minutes, 32 secondsRetrieval retrieving the docs using metadata filtering. I showed you how to do metadata filtering, right? And then context building.
+34:4034 minutes, 40 secondsContext building is very much similar.
+34:4134 minutes, 41 secondsUh we like we are using the 1200 first 1200 characters only for the context. All right.
+34:4934 minutes, 49 secondsThank you.
+34:5434 minutes, 54 secondsNow prompt rendering and augmentation. This is the most important part. So this is the most important part. So we are
+35:0135 minutes, 1 secondbasically making our prompt. How would you make your prompt in the last few sessions? You just take a look at the last session. How did you make your prompt and compare it to this prompt?
+35:1035 minutes, 10 secondsSee what has changed. Just take a look at Just do this exercise quickly. Just do this exercise quickly. You make your prompt once. Just take a look at the
+35:1735 minutes, 17 secondsstep number six. Step number six from the last session versus this session. Just take a look and see the difference.
+35:2535 minutes, 25 secondsJust just do it once. Just do it once.
+35:2935 minutes, 29 secondsIf you don't if you don't mind the context building step, can you uh paste that code?
+35:3435 minutes, 34 secondsYeah. Yeah, of course. That one was like not done.
+35:4035 minutes, 40 secondsI did not paste it or what?
+35:4435 minutes, 44 secondsNo, I take it out. Okay. Now guys, my request to you is my request to you is just
+35:5135 minutes, 51 secondsquickly just quickly go through the last session step number six and versus this session step number six.
+36:0036 minutesJust go through it and just observe what has changed. Just take a look at it.
+36:0436 minutes, 4 secondsWhen you look at it then you will get to know. Just look at it once.
+36:1236 minutes, 12 secondsQuickly look at it.
+36:1836 minutes, 18 secondsJust take a look and tell me what do you think has changed.
+36:2236 minutes, 22 secondsDo this exercise once then you'll get to know that what is it that we are doing.
+36:5036 minutes, 50 secondsDone guys. Done.
+36:5236 minutes, 52 secondsYeah, I think we added the placeholder for history and human uh query.
+37:0137 minutes, 1 secondCorrect. Correct. Correct.
+37:0437 minutes, 4 secondsEveryone take a look at it. Just take a look at it.
+37:2037 minutes, 20 secondsOkay. Also keep your session number two which is the history we made that also open so you can refer to it again and again. Right.
+37:3237 minutes, 32 secondsOkay.
+37:3537 minutes, 35 secondsSo now we'll move forward. Okay. Now we'll move forward. Now take a look at this. So you have this and you can just run it. But we need one more thing. If
+37:4337 minutes, 43 secondsyou remember from the last time we did history, right? If you remember from the last time we did history, we need a function. Remember we need a function which kind of maintains your history,
+37:5337 minutes, 53 secondsright? We need a function because because if you look at it here,
+37:5837 minutes, 58 secondsif you look at it here, it go right. When you run runnable with
+38:0738 minutes, 7 secondsmessage history, it needs a function which will give your chain the history,
+38:1238 minutes, 12 secondsthe access to the history. And we were defining our function like this. If you remember this, right?
+38:2138 minutes, 21 secondsThis is how we were defining the function. Remember this, we were creating a session store dictionary,
+38:2638 minutes, 26 secondsright? Inside that what was coming? What was coming? Whatever whatever is coming like am human message, AM is human message that is going to come here
+38:3338 minutes, 33 secondsinside this, right? So look at this look at it inside this the yeah inside this for every session ID human message or AI
+38:4138 minutes, 41 secondsmessage that combination will keep coming keep coming right this is how we do it so we need this function we need this function as it is we need this
+38:4938 minutes, 49 secondsfunction as it is from session one whatever we did right that only I'm using just as it is right no change as
+38:5538 minutes, 55 secondsit is you need that's it got it as it is you need it right you just bring it as it Got it.
+39:0739 minutes, 7 secondsBring it everyone. Bring it. I won't give it to you. You bring it from the from the session one that I gave it to you. Right. I won't give it to you. Then bring that functionality because that is
+39:1639 minutes, 16 secondsused in where? Runnable with message history. It's used inside where?
+39:1939 minutes, 19 secondsRunnable with m message history. And it uses what? In memory chat message history. This we have done in detail.
+39:2439 minutes, 24 secondsVery much detail we have done it. No need to explain it again.
+39:4339 minutes, 43 secondsOkay, done. Let me know when done.
+39:4839 minutes, 48 secondsGet it from session one. No, get it from session one directly. So, I'm going to run this now.
+40:1440 minutes, 14 secondsTry it out everyone. Please do it.
+40:5140 minutes, 51 secondsdone everyone. Now Shanka has also sent the code. So I will also send the code but you should copy it ideally from your own notebook. So you you know right where it is coming from.
+41:0341 minutes, 3 secondsRight. There you go. So this is in memory chat message history.
+41:2241 minutes, 22 secondsAll right.
+41:2441 minutes, 24 secondsI've run both of them. What I'm going to do now is what I'm going to do now is basically
+41:3441 minutes, 34 secondsthe making the chain right now. I'm going to make the chain the way I have made it already from the last session.
+41:3941 minutes, 39 secondsThe same chain I'm going to make but little changes to it. Right? Let's talk about those changes. But I'm going to make the chain now. Just take a look.
+41:5341 minutes, 53 secondsSame chain only I'm bringing. Just take a look.
+41:5841 minutes, 58 secondsFirst of all, I'm doing start. First time I'm doing start. Then what am I doing? I'm just doing I'm just doing the
+42:0542 minutes, 5 secondsbase chain runnable lambda start. It will get the query. Then you're running your query editing edited query. Get the
+42:1242 minutes, 12 secondsfilter keywords. Then you get the results that is retrieve the docs. Then you're basically doing building the context. Then you're doing making the chat prompt,
+42:2342 minutes, 23 secondsright? which you are doing here and then you are doing this uh last part which is assigning that is
+42:3142 minutes, 31 secondsrunnable lambda with answer right getting the answer right ln invoke lm invoke answer right same almost same set
+42:3942 minutes, 39 secondsof steps I'm just taking right and then I'm going to pick the answer I'm just going to pick the answer right that's what I'm doing simple steps
+42:4842 minutes, 48 secondsthat I've taken just try to do it let me send you this code I guess that would be So, a little low low on energy today,
+42:5742 minutes, 57 secondsguys, but but it's okay. I think we'll we'll catch up. Okay, just do it.
+43:0943 minutes, 9 secondsNow, I'm going to go back to the session number one, right? And I'm going to show you some specific property of of this runnable with message history.
+43:2043 minutes, 20 secondsOkay.
+43:2943 minutes, 29 secondsAnd now look at this in memory chat message stream. Where did it go?
+43:3843 minutes, 38 secondsRunnable with message stream. Whenever you're calling the chain, just look at this. You're basically always calling it with what? A dictionary, right? You're
+43:4743 minutes, 47 secondscalling the chain with a dictionary. So runnable with message history will run with what? Like this. It will run like
+43:5443 minutes, 54 secondsthis. Got it? It will run like this. So let me show you how to invoke this particular chain. That is a difference.
+44:0044 minutesThere is a difference. You were earlier passing just the text. But if you're using runnable with message history, you will have to pass your text like this
+44:0844 minutes, 8 secondsactually. Right. Let's just see. Let's just see. This is a base chain that is great. You need to wrap this chain with what? Runnable with message history.
+44:1644 minutes, 16 secondsIsn't it? You need to wrap this chain with running with message collab. Okay.
+44:2244 minutes, 22 secondsSo I'll just share it and share. I'll share. Don't worry.
+44:4044 minutes, 40 secondsOkay. First let me do this. Okay. So you just wrap it. Wrap this chain that you've created. You will wrap it with what? Runnable with message history.
+44:4744 minutes, 47 secondsThen only the history will be maintained. Right? So let's wrap it.
+44:4944 minutes, 49 secondsLet's wrap it. Let me show you how to wrap it. Same way only you will wrap it. Right? Same way the way you did
+44:5644 minutes, 56 secondsit here. The way you do it here in the session one.
+45:0245 minutes, 2 secondsSame way you'll do it. Yeah. This is right. We'll pass your chain.
+45:1345 minutes, 13 secondsWe'll pass the function which is giving you the history and we'll pass the input message key. What is the input message key and what is the history message key
+45:2045 minutes, 20 secondswhatever it is right let's do it look at this look at this runnable with message history base chain get session history
+45:2945 minutes, 29 secondswhich is our function input message key in this case is query and history message key is basically history because of this property you need to pass your
+45:3745 minutes, 37 secondsquery like a dictionary you need to pass your query like a dictionary to this thing okay so let's just kind of make it first
+45:4645 minutes, 46 secondsRight. So I'm also going to give it to you.
+45:5645 minutes, 56 secondsVery good. Right now your chain is ready now. Your chain is ready now. Now you need to just call
+46:0346 minutes, 3 secondsthis chain. You need to just call this chain. Right.
+46:0746 minutes, 7 secondsRight. First let's kind of get up to here. Let's just see if everyone is comfortable up to this point. Right.
+46:1446 minutes, 14 secondsLet's just see if everyone is comfortable up to this point. Right?
+46:2046 minutes, 20 secondsLet me know if you're comfortable up to this point. Can you all give me thumbs up if you are good up to this point?
+46:5246 minutes, 52 secondsSo it is taking the base chain history and adding sorry it is taking the um base chain and then adding the history.
+47:0147 minutes, 1 secondThat's how we do it normally. Okay, that's why we also do it all the time,
+47:0547 minutes, 5 secondsright? This session also we did this only, right? We made a chain and then we made a chain with memory seals.
+47:2847 minutes, 28 secondsAre we good, guys?
+47:4947 minutes, 49 secondsSo the chain is ready. Now we just call the chain.
+47:5447 minutes, 54 secondsWe just call the chain. How do you call the chain?
+47:5947 minutes, 59 secondsSame way, right? But inside this inside this you will be passing the query as a dictionary. That's what I'm telling you
+48:0648 minutes, 6 secondsis different. Here you will be passing your query as a dictionary. Okay. Here you will be passing your query as a dictionary. That is the difference.
+48:1448 minutes, 14 secondsEarlier you were not doing this. You were just passing the string directly.
+48:1748 minutes, 17 secondsRight? Look at the last code. Look at the last code. You will see that you were passing it directly. Here you will have to pass it like a dictionary because the input message key is query.
+48:2648 minutes, 26 secondsThat's why we have to pass it as a query. Right? That's why. Right. Okay, now let's kind of run this.
+48:4248 minutes, 42 secondsLet's print our
+48:5448 minutes, 54 secondsparticular documents needed for a loan against property. Right. It is not telling us some some response that is given which is fine right which is fine
+49:0249 minutes, 2 secondsbut the idea is that we able to get the answer we are able to maintain the history let's run it again actually let's run a response two now
+49:2349 minutes, 23 secondsLet's say saying which loan did I ask for just
+49:3149 minutes, 31 secondsto check if it is maintaining the history or not.
+49:3649 minutes, 36 secondsLet's check loan against property. So it's basically maintaining the history. Got it? So that
+49:4449 minutes, 44 secondsis what is happening here, right? That's what is happening. So in this way you will be able to maintain the history. It will in this way you will be able to maintain the history.
+49:5549 minutes, 55 secondsCorrect.
+49:5749 minutes, 57 secondsSo let me give you this code to call this.
+50:1150 minutes, 11 secondsNow try this.
+50:1950 minutes, 19 secondsI don't
+50:3550 minutes, 35 secondsvery same everything is same just the just the prompt you have changed that's it just this you have changed and one more change I'm going to show you now
+50:4350 minutes, 43 secondsright so we'll talk about that also right but everything remains same just that you have changed the step number step number Six. Step number six where
+50:5250 minutes, 52 secondswe have made a prompt using a chat prompt template right from messages.
+50:5650 minutes, 56 secondsYou're making the prompt and then you're putting a placeholder inside this which is a history placeholder. The key becomes what? History. And then you're
+51:0451 minutes, 4 secondsbasically kind of giving the human query, right?
+51:1551 minutes, 15 secondsEverything is same guys. Everything is same. just that we have wrapped the same thing up with our message
+51:2251 minutes, 22 secondsin memory chat message tree. Okay, in memory chat message tree. Okay,
+51:2851 minutes, 28 secondslet's run it all then I'll move forward to the next part. Right, we have some time. We have 3 hours one hour even we give to each of the parts then also
+51:3551 minutes, 35 secondswe'll be able to do it. So let's run this first. Everyone let's make sure that everyone is able to kind of run this and able to maintain history. So you check your history is maintained.
+51:4451 minutes, 44 secondsEveryone please check your history is maintained then we'll move forward. Please try.
+52:0252 minutes, 2 secondsPlease try guys. I'm relaxing a little in the meantime. You try.
+52:0952 minutes, 9 secondsI need to conserve my energy today otherwise it'll be gone.
+52:3652 minutes, 36 secondsSir, if you're not feeling well, why don't you take a break today? You can record the session and we can Let's finish this. No, that's why
+52:4552 minutes, 45 secondsI'm relaxing only today. I'm relaxing only. See, all the heavy lifting, all the heavy lifting we have done, right? Up until the last session, right? Today, it's time for you to do heavy lifting.
+52:5352 minutes, 53 secondsI'll relax, right?
+52:5652 minutes, 56 secondsYeah, you would be able to You don't have to like It's all about work life balance. Sorry, I'm in HR, so that matters to me a lot.
+53:0453 minutes, 4 secondsI don't believe in the concept of work life balance to be honest.
+53:0853 minutes, 8 secondsYou have to take is itself horrifying. Pardon me.
+53:1753 minutes, 17 secondsI say the statement is very horrifying.
+53:1953 minutes, 19 secondsDon't believe in in the concept of work life balance. I I don't believe in the statement very much. I don't I don't
+53:2653 minutes, 26 secondsreally believe in the con of work life balance because see this see that's I mean you tell me how can I believe in
+53:3353 minutes, 33 secondsthe see if I were to believe in the concept of work life balance I would not come here what would I do then I'll just
+53:4053 minutes, 40 secondshave my regular job come back home and watch TV right with family and sleep right that's work life balance right
+53:4853 minutes, 48 secondsbut break needed needed sir I need I take long breaks man I the kind of breaks I take I go on trips with
+53:5553 minutes, 55 secondsfamily I I take massive breaks when the time comes to it but I don't take everyday breaks I take breaks say 3 months four months and then I take a big
+54:0454 minutes, 4 secondsbreak it's a one one week I'm gone so um every year I mean we are always traveling every year to some good
+54:1154 minutes, 11 secondsdestination that we do all the time right and that what that's what motivates me to kind of keep going right to kind of keep doing this right
+54:2054 minutes, 20 secondsotherwise uh where do you get the motivation from of So that's what it is.
+54:2554 minutes, 25 secondsFood and work life is also like your health also comes first.
+54:2954 minutes, 29 secondsYeah. Health I maintain. So that's why I take a very good diet. You're not feeling well.
+54:3454 minutes, 34 secondsToday I got food poisoning actually. I don't know what happened right although I was rat and all. So and still I got
+54:4054 minutes, 40 secondsfood poisoning. I don't know how we need to maintain history of that.
+54:4754 minutes, 47 secondsYes. Yes. We need to check the history of that.
+54:5054 minutes, 50 secondsSo yeah actually so I I take very rich diet. I I also work out quite some just to make sure that my body does not give
+54:5854 minutes, 58 secondsaway. So I do that. Sleep is an issue still. So I'm I'm working on that a little just to try to kind of get enough sleep. That's that is something I'm I I'm working on.
+55:0855 minutes, 8 secondsBut rest is good. I think I like I like my schedule to be honest.
+55:2055 minutes, 20 secondsIs everyone good? Can you post me a thumbs up in the chat if you are able to do it? If all the history is working for everyone, just put me a thumbs up in the chat.
+55:3455 minutes, 34 secondsThe chat, can you put it so I can count how many people are doing done it or not?
+55:4055 minutes, 40 secondsUm so when we talk about history here we're talking about the history in the same session right? Yeah. Yeah. In the same session, right?
+55:4955 minutes, 49 secondsUm what how much does it take? Like for example, we usually limit it to like five chats or sometimes 10 or is there
+55:5755 minutes, 57 secondsany limit like that? Because everyone is avoiding messages after a particular time, right? Everyone, right?
+56:0356 minutes, 3 secondsIncluding chat, GBD, Gemini, everyone they forget after a particular point.
+56:0656 minutes, 6 secondsYou can set your own limit, right? You can set a limit of by tokens. You try to set your limit. Let's say you set a limit of let's say 5,000 words, right?
+56:1556 minutes, 15 secondsSo you history up to 5,000 words will be maintained and beyond that uh
+56:2256 minutes, 22 secondsuh beyond that basically you can just keep a summary of of the whatever the conversation was there right uh do we do it based on tokens or do we
+56:3156 minutes, 31 secondscalculate it because I have seen sometimes people do it based on the number of back and forth Q&A Q&A and they say okay the last five back and
+56:3956 minutes, 39 secondsforths is important yes yes that also people do it that also people do it yes anything you can you do it bases anything actually right
+56:4756 minutes, 47 secondswhatever fits your scenario that depends on that right okay so for a customer do we is it like
+56:5456 minutes, 54 secondsfor a customer support chatbot we do it differently compared to let's say a customer support chatbot you cannot you keep it very minimal right let the
+57:0357 minutes, 3 secondscustomer ask again he has come see it's all about whether you are pitching or he's coming right so if he's coming you try to keep it what last five
+57:1157 minutes, 11 secondsconversations is enough if he has to ask some question let him ask again let Start let the loop start. But if you are pitching, you're very much interested in
+57:1957 minutes, 19 secondswhat the customer is saying or what customer said miles ago, then you need to maintain a richer history. Let's say you are working as a sales agent. You
+57:2757 minutes, 27 secondshave a chatbot which is a acting as a sales agent, then you need to be very careful about the history, right?
+57:3457 minutes, 34 secondsOkay, got it. Um, in this last thing, what about like if we do sales agents,
+57:4157 minutes, 41 secondswe also maintain previous chat history,
+57:4357 minutes, 43 secondsright? Uh how does I mean is that also considered history and maintained in rags that is always
+57:5257 minutes, 52 secondsmaintained in rags. So you can create a separate rag for such chat histories.
+57:5657 minutes, 56 secondsRight. That is mostly for preference to understand user preference. Right. Right.
+58:0158 minutes, 1 secondOkay. So there are two rags. One for database if we require another conversation. One for conversation. Yes. Okay. Thank you.
+58:1058 minutes, 10 secondsOkay. Okay. Now let's move to the next part. Everyone is done, right? So, give me one minute guys. One minute. I need to just kind of load my second notebook so I have it in place.
+58:5858 minutes, 58 secondsSo now let's get to the next one. So guys, what you do is what you do is I'll tell you make a copy of the same note. Okay, make a copy of the same notebook.
+59:0659 minutes, 6 secondsRight? That'll be great. And inside this notebook only we'll make some changes and I'll show you plug and play also like that. Okay? So coming here, right?
+59:1359 minutes, 13 secondsThis is session six, right? I'll call it first part final. I'll call it first part. I I'm
+59:1959 minutes, 19 secondsgoing to put I right first part right
+59:2759 minutes, 27 secondsthat's first part so I'm going to come here so this is our first part I'm going to make a copy of this same thing I'll
+59:3559 minutes, 35 secondscall call it the second part which is our which is our multi expansion we'll understand in this and then what is yeah okay make a copy Okay.
+59:4959 minutes, 49 secondsSo it'll create a copy for you.
+59:5459 minutes, 54 secondsCopy of section session six final. You can just rename it to second part
+1:00:021 hour, 2 secondsadvanced history. History what we'll do is query editing. We'll practice query editing. So I'm just putting query there.
+1:00:121 hour, 12 secondsThis is our second part. Right. This is our second part. Okay. And I'll just remove this copy of and all. So rename it and just kind of remove this session six final two only.
+1:00:241 hour, 24 secondsThis session six final two. Okay. Just do it guys quickly. Let me know when done.
+1:00:321 hour, 32 secondsSome changes we are going to just make in the code. Right. And then we'll be done.
+1:00:531 hour, 53 secondsGet your get your notebook ready quickly. Right.
+1:01:001 hour, 1 minuteThis is going to have some heavy codes to be honest. I should I would not lie.
+1:01:031 hour, 1 minute, 3 secondsSome heavy codes are coming. But you will know where to plug them in, right? That's what is important.
+1:01:181 hour, 1 minute, 18 secondsRight.
+1:01:401 hour, 1 minute, 40 secondsOne thing I wanted to show you which is let's do it.
+1:01:481 hour, 1 minute, 48 secondsOne thing I want to show you actually which is see guys now the thing is in this in this one in the first notebook only that we did in this one now see
+1:01:561 hour, 1 minute, 56 secondsthis start was just kind of putting our query inside a dictionary right so you're already putting it inside a
+1:02:041 hour, 2 minutes, 4 secondsdictionary see this so you don't need this start actually so I'm going to comment it out right instead of this I'm
+1:02:111 hour, 2 minutes, 11 secondsgoing to kind of use I'm going to use instead of this I'm going to use runnable
+1:02:171 hour, 2 minutes, 17 secondspass through which is nothing but that when you when you don't have anything whatever comes you're just kind of passing it through and you have to kind
+1:02:261 hour, 2 minutes, 26 secondsof get the code for runnable pass through I'll just kind of give you there is
+1:02:351 hour, 2 minutes, 35 secondsso change your chain like this guys change your chain like this from langchain_coreunnables
+1:02:431 hour, 2 minutes, 43 secondsimport runnable pass through and instead of start you you put this runnable pass through what it is doing is see you're
+1:02:511 hour, 2 minutes, 51 secondsunnecessarily wrapping your query inside inside a dictionary now because I'm automatically I'm already giving it as a
+1:03:001 hour, 3 minutesdictionary see I'm already giving it as a dictionary right so instead use runnable pass through which will take it as it is and pass it down the chain
+1:03:081 hour, 3 minutes, 8 secondsright pass it down the chain that's it right it will start maintaining a dictionary right that's it nothing else run
+1:03:171 hour, 3 minutes, 17 secondsThis will run fine. This will also run fine. And this will also run fine. I'm not running it because I have very limited tokens left. So you can just try it out and run it once. Please run it
+1:03:251 hour, 3 minutes, 25 secondsonce. Just change this with runnable pass through. Change it and let me know when done. Just quickly change this first.
+1:04:061 hour, 4 minutes, 6 secondsjust do it right.
+1:04:291 hour, 4 minutes, 29 secondsDone. Done. Let's do it, guys. Everyone do it.
+1:04:481 hour, 4 minutes, 48 secondsWe are doing this for query part, right? We're doing this for query part. Yes.
+1:04:531 hour, 4 minutes, 53 secondsYes. Now we are avoiding the start function that we had right that's
+1:05:021 hour, 5 minutes, 2 secondskindly explain uh once again uh where what changes we have to do. You have to remove this runnable lambda start
+1:05:091 hour, 5 minutes, 9 secondsfunction you had. You remove that. You don't need the start function. So you remove I've removed the start function.
+1:05:151 hour, 5 minutes, 15 secondsInstead of that I've just put runnable pass through. First you'll have to import the runnable pass through lines. Okay,
+1:05:211 hour, 5 minutes, 21 secondslet's try.
+1:05:431 hour, 5 minutes, 43 secondsSo one small hiccup here. Uh if I change my key in between do I have run it from beginning like everything?
+1:05:531 hour, 5 minutes, 53 secondsYes, I think. Yes, of course. You'll have to invoke your run your LLM again.
+1:05:561 hour, 5 minutes, 56 secondsI think just the LM again will do just LLM or a part you do it again.
+1:06:001 hour, 6 minutesIt seems some issue with my key. I'm using separate key. Still the issue prevails. It says Yeah, you'll have to just just kind of run your LM again.
+1:06:091 hour, 6 minutes, 9 secondsThen it is as it is. Then the rest is as it is.
+1:07:151 hour, 7 minutes, 15 secondsAll right, got it.
+1:07:181 hour, 7 minutes, 18 secondsNow guys, now let's talk about the next part which is kind of very very important and let's just talk about it first. There's some theory around it and then we'll kind of go to the practical
+1:07:261 hour, 7 minutes, 26 secondspart. Okay, please pay attention to this. Okay, and I'll I'll just directly bring in a function. So I won't be I won't be going too deep into the function but let me explain to you the
+1:07:331 hour, 7 minutes, 33 secondsconcept behind that function. So let me explain to you just please pay attention everyone. Please everyone here okay I want all of you to be here okay so now
+1:07:411 hour, 7 minutes, 41 secondslet's say look at this now what we're going to do is what we're going to do is we're going to practice multi-query expansion and it's a very powerful
+1:07:481 hour, 7 minutes, 48 secondstechnique which is used to kind of get various variations of your query and it eventually helps you get a get better
+1:07:561 hour, 7 minutes, 56 secondsdocuments or more accurate documents okay that is multi-query expansion right you can write it multi-query expansion right so let me write it Okay.
+1:08:181 hour, 8 minutes, 18 secondsMulti-
+1:08:211 hour, 8 minutes, 21 secondsquery expansion.
+1:08:281 hour, 8 minutes, 28 secondsThis is a query editing technique. This is a query editing technique. So a query that comes to you,
+1:08:361 hour, 8 minutes, 36 secondsyou will use your NLM to make three queries out of it. Q1, Q2, Q3, right?
+1:08:421 hour, 8 minutes, 42 secondsSame variations from the same query variations we'll make, right? In different different ways, right? We'll see to it, right? Then once you've made
+1:08:501 hour, 8 minutes, 50 secondsthree variations out of the query, her variation, we'll do our rag.
+1:08:561 hour, 8 minutes, 56 secondsHer variation, we'll do our rag.
+1:09:031 hour, 9 minutes, 3 secondsUnderstand this very carefully. Right now what we really want is her variation say we'll get some documents. We'll get some documents just
+1:09:121 hour, 9 minutes, 12 secondsto keep it simple. Just to keep it simple, right? Let's say in our first turn you get document P, H and T. Look,
+1:09:201 hour, 9 minutes, 20 secondsjust take a look at this. You get document P which was at rank one. that is the highest score was of document P,
+1:09:281 hour, 9 minutes, 28 secondsdocument H and document T. Just please pay attention to this. Let's just say with the first query, right? With the
+1:09:371 hour, 9 minutes, 37 secondssecond query you get doctor let's say first query so we get PH and L that will be better
+1:09:441 hour, 9 minutes, 44 secondsL right with the second query you get document HPT let's say
+1:09:541 hour, 9 minutes, 54 secondsH document P and document T look at this very carefully you understand this very very carefully this is important right
+1:10:011 hour, 10 minutes, 1 secondand from the third query let's say from the third query you get document PTH let's just say you get PTH
+1:10:141 hour, 10 minutes, 14 secondsright now your task is finding out the top
+1:10:211 hour, 10 minutes, 21 secondsdocuments using this which documents will you keep in your final retrieval see three queries give three different
+1:10:281 hour, 10 minutes, 28 secondsdocuments let's say I have to keep only three documents or two documents if I have to keep or three documents I have to keep whichever number Right?
+1:10:361 hour, 10 minutes, 36 secondsWhich of these documents will I select as the top three documents?
+1:10:421 hour, 10 minutes, 42 secondsWhich of these three documents I will select as the top three documents? How I select it is I calculate for each of the
+1:10:511 hour, 10 minutes, 51 secondsdocument using an algorithm or using a equation. I select something. Okay? I select something. I I kind of find
+1:10:591 hour, 10 minutes, 59 secondssomething. Let's find that something for document P. Look at this. Please pay attention. Let's find that something for document P. Look at this. How will I
+1:11:071 hour, 11 minutes, 7 secondsfind this? How will I find this? First of all, I'll define a random number K.
+1:11:121 hour, 11 minutes, 12 secondsGenerally, we keep it as large as 60. We keep it generally as large as 60, right? We keep it in that 60, 100, 120, something like that. We keep it K. Okay.
+1:11:211 hour, 11 minutes, 21 secondsHow you do it? How you do it?
+1:11:241 hour, 11 minutes, 24 secondsYou find the position of document P. You tell me what is the position of document P here? You tell me. Tell me guys what is it?
+1:11:351 hour, 11 minutes, 35 secondsIt's zero document P position it's one right position is one. So you'll write 1 upon
+1:11:411 hour, 11 minutes, 41 seconds1 60 + 1 the position of document P in the first document the P in the in the
+1:11:481 hour, 11 minutes, 48 secondsfirst retriever. Okay is position is tell me two.
+1:11:551 hour, 11 minutes, 55 secondsSo you'll write now 1 upon 60 + 2. Look at this I'm writing here two. Okay.
+1:12:031 hour, 12 minutes, 3 secondsposition third value may you tell me 1 1 upon 60 + 1 right
+1:12:101 hour, 12 minutes, 10 seconds1 upon 60 + 1 right you'll get a score out of it right similarly you will calculate the score of each of the document let's say you do it for
+1:12:181 hour, 12 minutes, 18 secondsdocument H also right this is some advanced level I'm
+1:12:271 hour, 12 minutes, 27 secondstelling you document H she will tell me what is the first one by 62 plus 1x 61 1 plus what is the third one?
+1:12:371 hour, 12 minutes, 37 seconds63 1 by 63 right
+1:12:451 hour, 12 minutes, 45 secondsthen document which what is the next one document HP T what about T you tell me
+1:12:551 hour, 12 minutes, 55 secondsbut what about T look at the T and tell me one upon first of all what is zero so it will be nothing you cannot get anything from here T is not here right
+1:13:041 hour, 13 minutes, 4 secondswhat about from this what will come one upon tell 63 63 63 right plus plus
+1:13:131 hour, 13 minutes, 13 seconds62 What will you do for the next one? No.
+1:13:181 hour, 13 minutes, 18 secondsTell me 62 62 62 right? 1 upon 62. But see the
+1:13:251 hour, 13 minutes, 25 secondsfirst document it was not coming. It was not coming from the first document. So what you'll do is you'll give it a very large number. Since t is not there in
+1:13:321 hour, 13 minutes, 32 secondsthe first document you'll give it a very large number. very large number because it's not there. So you penalize it. You penalize it. You did not even come in the first document. So you give it a
+1:13:411 hour, 13 minutes, 41 secondsvery large one upon one upon 60 plus a large number. Some large number, right?
+1:13:471 hour, 13 minutes, 47 secondsLook at this. Similarly do for document L. So document L will also get what?
+1:13:531 hour, 13 minutes, 53 secondsFrom the first document you will get what? 1 upon 63 plus 1 upon 60 plus large number plus one upon 60 plus large number because it is in none of them.
+1:14:021 hour, 14 minutes, 2 secondsRight? It is in none of them. Right? Now you tell me guys, you tell me which of your documents using this logic, which
+1:14:091 hour, 14 minutes, 9 secondsof your documents will get the lowest score? You tell me now which of the documents will get the highest score. Tell me highest score.
+1:14:201 hour, 14 minutes, 20 secondsTell me nator.
+1:14:301 hour, 14 minutes, 30 secondsSorry. Yes. denominator denominator the one who has smaller denominator will have higher score yes or no
+1:14:381 hour, 14 minutes, 38 secondseveryone agrees yes according to this which one has the smallest denominator document
+1:14:461 hour, 14 minutes, 46 secondsP will have the smallest denominator large number you're adding anyway yet here also you're adding large large numbers
+1:14:541 hour, 14 minutes, 54 secondsright document P will have the smallest denominator Right? Why did it get the smallest
+1:15:021 hour, 15 minutes, 2 secondsdenominator? Look at it and tell me. Why did it get the smallest denominator? Tell me.
+1:15:111 hour, 15 minutes, 11 secondsBecause it was coming at first position in more than one document. That is why.
+1:15:171 hour, 15 minutes, 17 secondsIsn't it? Do you agree to it? Everyone agrees to this? Yes. Yes.
+1:15:211 hour, 15 minutes, 21 secondsGot a smaller denominator because it came at what? Earlier positions.
+1:15:271 hour, 15 minutes, 27 secondsIs that clear? Is that clear? So which if you had to ch if you had to choose the top three documents using these
+1:15:351 hour, 15 minutes, 35 secondscalculations what will be your first document tell me P then what will be your second document H
+1:15:431 hour, 15 minutes, 43 secondsthen third document because there are two large numbers then then it will come to so if you have
+1:15:511 hour, 15 minutes, 51 secondsto just pick three documents which three documents you will pick these this three doc you will ignore isn't It isn't it guys?
+1:16:011 hour, 16 minutes, 1 secondThe same thing happens when we run multiple queries. You get a large number of documents across the board.
+1:16:091 hour, 16 minutes, 9 secondsYou get a large number of documents. For one query you get one do one set of documents. For second query you get second set of documents. For third query you get third set of documents. You use
+1:16:171 hour, 16 minutes, 17 secondsthis algorithm to shortlist it down to your fixed number of documents. Is that clear? Let me take questions first. Okay.
+1:16:251 hour, 16 minutes, 25 secondsSamuda.
+1:16:271 hour, 16 minutes, 27 secondsUh can you please once again explain why document L is shortlisted at the end means what document L is uh
+1:16:351 hour, 16 minutes, 35 secondsL is not shortlisted. It is not shortlisted. No.
+1:16:371 hour, 16 minutes, 37 secondsOkay. It is not shortlisted. Right. So not short list. Yeah.
+1:16:411 hour, 16 minutes, 41 secondsOkay. Document T is one and what is T has only one large number here. Right. One large number. Right. Correct.
+1:16:501 hour, 16 minutes, 50 secondsBut document L has two large numbers. So it's denominator not okay in that case document tell is
+1:16:591 hour, 16 minutes, 59 secondsnot shortlisted and uh and which one is shortlisted all the above three in this case or yes document P is shortlisted that is
+1:17:051 hour, 17 minutes, 5 secondscoming at the first position okay that's how you do the short listing guys that is how you do the short listing
+1:17:131 hour, 17 minutes, 13 secondsokay yeah Rajam uh so is this contextual reanking or is it something in that flavor sir
+1:17:211 hour, 17 minutes, 21 secondsthe contextual ranking the the rag retrieval ranking we are getting for each from each query we are getting the rag we are running rag right and we
+1:17:291 hour, 17 minutes, 29 secondsgetting some documents chunks basically chunks we getting some chunks these are chunks not exactly documents chunks right we just trying to kind of find out okay
+1:17:371 hour, 17 minutes, 37 secondsquery same to let's say we get some 50 chunks in total right in my final output I want to keep only 10 right
+1:17:451 hour, 17 minutes, 45 secondswhich 10 will I keep then I use this algorithm right so could we also could we also uh you kind
+1:17:531 hour, 17 minutes, 53 secondskind of uh can you come again? Yeah.
+1:17:551 hour, 17 minutes, 55 secondsBring some other algorithm instead of similarity.
+1:17:571 hour, 17 minutes, 57 secondsI think I missed your voice. Can you come again?
+1:18:011 hour, 18 minutes, 1 secondYeah. Yeah. So could we also bring some other measurement algorithm like this metric is still similarity, right? Can we get some other distance algorithm or L2 distance?
+1:18:091 hour, 18 minutes, 9 secondsYou can use it. You can use it. You can you can design your own algorithm to short list. But this is one of the standard algorithms that I'm telling you. It's called as reverse.
+1:18:201 hour, 18 minutes, 20 secondsIt's RRF. And what is it? It's it's it's reciprocal rank fusion. It's called as reciprocal rank fusion. You can note it down. It's RF. The algorithm is RRF.
+1:18:291 hour, 18 minutes, 29 secondsIt's called as reciprocal rank fusion. I need some water. Just one minute. Okay.
+1:18:361 hour, 18 minutes, 36 secondsSo tell me guys. Yeah. So sir, what is the value of K is equal to 60? Is it a predefined or is it an ass?
+1:18:441 hour, 18 minutes, 44 secondsYou can you can choose anything. See, you keep K same for everyone, right?
+1:18:471 hour, 18 minutes, 47 secondsThen automatically it's just a scaling factor. Nothing else. just kind of give a scale right.
+1:18:551 hour, 18 minutes, 55 secondsYeah, I had the same question as Santo asked you that K is not the fix right.
+1:19:011 hour, 19 minutes, 1 secondIt's not rais it's just a scaling value scores you can choose right you can two three whatever you
+1:19:101 hour, 19 minutes, 10 secondsI have one more question that uh you define the documents like p right so uh how do we uh place uh the document as
+1:19:191 hour, 19 minutes, 19 secondsper the cosine similarity or how yeah as per the cosine similarity right the cosign the scores that are coming the dot product of cosine similarity whatever you're using
+1:19:271 hour, 19 minutes, 27 secondsokay yeah thank you uh sir The numerator indicates the number of occurrences right. So for the
+1:19:351 hour, 19 minutes, 35 secondsdocument L the number of occurrences are zero. So it should be 0 by 60 plus number
+1:19:421 hour, 19 minutes, 42 secondsthe numerator is not number of occurrences the numerator is not number of it's just one upon okay that's reciprocal you're taking right
+1:19:511 hour, 19 minutes, 51 secondsnumerator is not number of occurrences it's just one upon this is the rank rank of document P.
+1:20:011 hour, 20 minutes, 1 secondOkay. Thank you.
+1:20:021 hour, 20 minutes, 2 secondsThis is rank of document P in the second one. Second retrieval. Okay.
+1:20:071 hour, 20 minutes, 7 secondsThis is also rank of document P in the third retrieval. Got it.
+1:20:101 hour, 20 minutes, 10 secondsYeah. I got it guys. Okay.
+1:20:121 hour, 20 minutes, 12 secondsSo, RF is fusion, right? It is reciprocal rank fusion. Okay. Got it. Thank you.
+1:20:211 hour, 20 minutes, 21 secondsOkay. So, this is how this algorithm guys works. This is how this algorithm works, right? And we'll now go ahead and try to implement this algorithm. And now
+1:20:291 hour, 20 minutes, 29 secondswe will shortlist our documents using this multi-query expansion that we will first make three different queries. And from those three different queries we
+1:20:381 hour, 20 minutes, 38 secondswill make one set of documents using reciprocal rank fusion. That's our challenge number two for today. Okay,
+1:20:461 hour, 20 minutes, 46 secondslet's quickly do it. Let me know when ready. Have you copied the notebook as it is guys? Have you copied it?
+1:20:561 hour, 20 minutes, 56 secondsYes.
+1:20:571 hour, 20 minutes, 57 secondsSo I'll come to this one. the copied notebook. This is my copied notebook.
+1:21:001 hour, 21 minutesSee everything else is same. Everything is same. So I think we will have most of the things in place. Just going to run it.
+1:21:341 hour, 21 minutes, 34 secondsLet's run this installation. That's the problem with you know this Jupyter this collab.
+1:21:441 hour, 21 minutes, 44 secondsAnd then let's run this. Run this.
+1:22:071 hour, 22 minutes, 7 secondsNow please pay attention guys because this is important because this is where we'll do some plug and play. So you kind of pay attention how we are going to do it. Okay.
+1:22:221 hour, 22 minutes, 22 secondsand access. Access.
+1:22:391 hour, 22 minutes, 39 secondsThen get your LM ready. Everyone please get your LLM ready. Run up to this part.
+1:22:441 hour, 22 minutes, 44 secondsAccess your same way. Same way. Access your pine cone index and embedding all.
+1:22:471 hour, 22 minutes, 47 secondsThis step remains the same. This step remains the same.
+1:22:571 hour, 22 minutes, 57 secondsEditing the query. Editing the query.
+1:22:591 hour, 22 minutes, 59 secondsThis is where you'll have to make your changes. This is where you'll have to make your changes. The step number three. Let's take a look at what are the changes we are going to make. Okay.
+1:23:071 hour, 23 minutes, 7 secondsLet's bring it from here.
+1:23:111 hour, 23 minutes, 11 secondsRight. So, I'm going to bring a bigger little bigger code. First of all, I'm going to bring a code for retrieval.
+1:23:171 hour, 23 minutes, 17 secondsRight. Just even editing the query. Look at this. Just take a look. Same that is same one, right? Making the keyword out
+1:23:241 hour, 23 minutes, 24 secondsof it that I'm keeping it as it is. This is what I'm doing actually. Just take a look. Just take a look. Generate multi-queries. Instead of edit query,
+1:23:321 hour, 23 minutes, 32 secondsnow my function is generate multi-queries.
+1:23:351 hour, 23 minutes, 35 secondsLook at the prompt. You are helping with retrieval for a financial chatbot.
+1:23:401 hour, 23 minutes, 40 secondsGenerate n. N will be your number that you will pass, right? Short alternative search queries for the user query below.
+1:23:471 hour, 23 minutes, 47 secondsKeep them close in meaning. make them useful for document retrieval. return only the queries one per line do not number them all the things I've given
+1:23:551 hour, 23 minutes, 55 secondsand this will what it will do is it will basically give you all the queries and then what you'll do is you'll split them by slash n that is enter right new line
+1:24:051 hour, 24 minutes, 5 secondsand you will get all the queries as a list and you are basically going to return return a list you're basically going to return a list of all the
+1:24:141 hour, 24 minutes, 14 secondsqueries and you can pass your own end and if you want to pass it you can just try it out I would suggest you try it out once Once let me just kind of give
+1:24:211 hour, 24 minutes, 21 secondsyou how. First let me give you this function as it is and then I will ask you guys to try it out on your own.
+1:24:341 hour, 24 minutes, 34 secondsThis code I've given and let's run this function. The function is generate multi-queries. Let's run it proper.
+1:24:431 hour, 24 minutes, 43 secondsRight? Generate multiqueries and here you pass whatever your query is. Let's say
+1:24:491 hour, 24 minutes, 49 secondshow do I get a home loan let's just say right and the number of variations of that query that you need
+1:24:571 hour, 24 minutes, 57 secondsn is equals to say five variations you need right so run it and see if you're able to kind of get it right just try it
+1:25:061 hour, 25 minutes, 6 secondsout I'm not running it because I have very
+1:25:141 hour, 25 minutes, 14 secondslimited tokens I don't want my tokens to just go away. So, I'm just kind of saving him. So, you run it. Do you run it and see
+1:25:381 hour, 25 minutes, 38 secondsI'm sitting fra that will make me better. Okay, let's try.
+1:26:051 hour, 26 minutes, 5 secondsPlease try and run this and let me know if you're able to get multiple queries for your yourself.
+1:26:141 hour, 26 minutes, 14 secondsYes, working. Everyone please tell me.
+1:26:161 hour, 26 minutes, 16 secondsSo this is the one change that you had to make. Next change where do you have to make? You tell me. I showed you.
+1:26:211 hour, 26 minutes, 21 secondsWhere do you have to make the next change? Now you're getting multiple queries.
+1:26:271 hour, 26 minutes, 27 secondsWhich is the next thing you need to accommodate as those multiple queries? Tell me which step.
+1:26:411 hour, 26 minutes, 41 secondsTell me guys which step. Look for it and tell me step retrieval. Right?
+1:26:491 hour, 26 minutes, 49 secondsIsn't it the retrieval? You will do four retrievalss and then you need to combine them down, right? And I'm going to give you a very messy function today, right?
+1:26:591 hour, 26 minutes, 59 secondsYou just try to see the function and then just try to do it. Okay? I'm going to give you a messy function. First of all, you change your step number three to this. If everyone has changed it,
+1:27:081 hour, 27 minutes, 8 secondsplease let me know if we are done.
+1:27:091 hour, 27 minutes, 9 secondsRight? Please let me know if you're done. Step number three,
+1:27:181 hour, 27 minutes, 18 secondsdo it. Step number three, change it to this. All the code of step number three,
+1:27:231 hour, 27 minutes, 23 secondschange it to this. Then I'll talk about the next function.
+1:27:381 hour, 27 minutes, 38 secondsOkay. Done.
+1:27:441 hour, 27 minutes, 44 secondsNow let's come to step number four which we have to actually change. There's quite some change inside it, right?
+1:27:491 hour, 27 minutes, 49 secondsquite some change. Let's just kind of do it.
+1:27:561 hour, 27 minutes, 56 secondsStep four is retrieval. This was your original step. I'm going to just comment it out. I'm going to comment it out and I'm going to add the new step here. Wait in this one. It's it's a long code. So,
+1:28:071 hour, 28 minutes, 7 secondsplease bear with me a little. So, let me just kind of put it like this. It's not long that long to be honest. But yeah,
+1:28:141 hour, 28 minutes, 14 secondssome long look at this. I have just kind of done nothing. What I'm doing is retrieve being the docs. This is my main function
+1:28:231 hour, 28 minutes, 23 secondsretrieve docs multi right this this function will receive all the queries all the queries that you have and then
+1:28:311 hour, 28 minutes, 31 secondsone by one for all the queries it will retrieve the docs it'll retrieve the docs here you are getting the docs basically right there's there's this function retrieve doc single you see
+1:28:391 hour, 28 minutes, 39 secondsthis retrieve doc single you are actually retrieving it just the way I told you same way id score rank text
+1:28:471 hour, 28 minutes, 47 secondsright that's it you're retrieving them you're finding their rank you're retrieving them right you're retrieving them and then and then once it has
+1:28:541 hour, 28 minutes, 54 secondsretrieved it this is the guy who is doing just what I showed you just what I showed you this is the guy who is doing it here that's it this is all the
+1:29:041 hour, 29 minutes, 4 secondsfunction it's not that heavy a function simple only let me give you this set of functions go through it run it and check
+1:29:121 hour, 29 minutes, 12 secondsif you're able to do it first run it manually first run it manually guys that's important First run it manually.
+1:29:271 hour, 29 minutes, 27 secondsFirst run it manually. Can you run it manually?
+1:29:311 hour, 29 minutes, 31 secondsThat is this is the function you need to run. Retrieve docs multi. You pass the queries you got from here. Guys, you have to do this on your own. Let's say you get the queries from here.
+1:29:421 hour, 29 minutes, 42 secondsYou pass the queries that you got from here, right? Define a token top per query,
+1:29:511 hour, 29 minutes, 51 secondsright? And then final top, right? That you want. Let's do it. Every query top,
+1:29:571 hour, 29 minutes, 57 secondshow many top do you need from each query? Then final list, how do you how do how many documents you need, right?
+1:30:041 hour, 30 minutes, 4 secondsYou define these or maybe keep it as it is. Just call this with your queries that you had there, right?
+1:30:171 hour, 30 minutes, 17 secondsYou do it. You do it and then you see yourself that you get the final final Samir.
+1:30:281 hour, 30 minutes, 28 secondsUh can you show me the generate multiquery code? I'm little behind.
+1:30:381 hour, 30 minutes, 38 secondsThis is the one right?
+1:30:401 hour, 30 minutes, 40 secondsjust send it to actually I run this but I got one error
+1:30:501 hour, 30 minutes, 50 secondsthat name error it says name is not defined which is not defined generate multiqueries is not defined
+1:31:001 hour, 31 minutesjust just I've sent you sent it to you again something is wrong basically here
+1:31:061 hour, 31 minutes, 6 secondsgenerate multiqueries You just try to run it here.
+1:31:151 hour, 31 minutes, 15 secondsSomething looks that you may not have the right function name or something or probably you're not having the right indentation. So make sure your
+1:31:231 hour, 31 minutes, 23 secondsindentation is also correct that you make sure. Okay, I'll uh run it.
+1:31:281 hour, 31 minutes, 28 secondsJust check just check once otherwise I'll I'll take care of it. Yeah, thank you.
+1:31:331 hour, 31 minutes, 33 secondsShanker is getting these. So let's just use this. Okay. So for example,
+1:31:371 hour, 31 minutes, 37 secondsShubanker got this, right? Queries. So I'm not running it. I'm just using Shubanker's queries. Let's get it here.
+1:31:431 hour, 31 minutes, 43 secondsThese are my queries. Let's say look at this.
+1:31:521 hour, 31 minutes, 52 secondsThis is my queries, right? And what I'm going to do is I'm going to one by one try all the queries out with my function retrieve doc single. First I'm going to run this function. Just take a look.
+1:32:041 hour, 32 minutes, 4 secondsIs anyone else operating on my notebook or what? Don't operate on my notebook. Okay,
+1:32:111 hour, 32 minutes, 11 secondslet's run this function first. Okay,
+1:32:141 hour, 32 minutes, 14 secondsretrie do of single and I'm going to pass one of the queries inside this just query zero. Let's just do it. Oh, it's not defined. Let me run this then. Let's do it. Queries is not defined. Okay,
+1:32:251 hour, 32 minutes, 25 secondsthen we need to define the queries here. Right. Even I am getting the same error.
+1:32:301 hour, 32 minutes, 30 secondsSo queries is not defined. queries you will have to run it here. No, this you will have to run this part generate
+1:32:381 hour, 32 minutes, 38 secondsqueries then only you'll get the queries.
+1:32:411 hour, 32 minutes, 41 secondsSo I'm running one of the query that is query zero with retrieve doc single and why is it not working
+1:32:501 hour, 32 minutes, 50 secondsquery text and top case five only should see what this so everyone is kind
+1:32:591 hour, 32 minutes, 59 secondsof giving me five five5 docs right look at this but when I run this one when I run this one
+1:33:071 hour, 33 minutes, 7 secondsyeah I got it thank you retrieve blocks multi-queries right look at this I'll get the fi final list of my
+1:33:161 hour, 33 minutes, 16 secondsfinal list of my chunks final list of my chunks see this this is my final list of chunks every query gave me multiple
+1:33:221 hour, 33 minutes, 22 secondschunks but when I run this one I get my final list of chunks right using what that fusion method that I showed you
+1:33:291 hour, 33 minutes, 29 secondsright that's fine as that's fine you now need to run this using this queries you need
+1:33:361 hour, 33 minutes, 36 secondsto run this retrie mult multi need to run this now try running this and see if you're able to get the documents
+1:33:591 hour, 33 minutes, 59 secondsand that's it. There's nothing else.
+1:34:011 hour, 34 minutes, 1 secondThese are the changes that you have to make to be able to run multi-query expansion. These are the only changes that you have to make. Okay.
+1:34:091 hour, 34 minutes, 9 secondsSend that code here. This I have already sent. No, this one.
+1:34:211 hour, 34 minutes, 21 secondsIs that clear guys? Is it plug and play or not? You only tell. You only tell me.
+1:34:251 hour, 34 minutes, 25 secondsIsn't it plugand play? Right. You have your exact set of steps. Whatever you want to change, you are changing. Just make sure that you are updating it in
+1:34:331 hour, 34 minutes, 33 secondsthe chain and you are making sure make sure that you customize your retrieval function such that it accommodates a list because earlier retrieval function
+1:34:411 hour, 34 minutes, 41 secondswas getting what a text right retrieve documents the query text now you're actually having retrieval a list so just
+1:34:501 hour, 34 minutes, 50 secondscustomize your function like that that's it just plug and play nothing else you can ask charg also to do this but you need to be the architect of your own
+1:34:581 hour, 34 minutes, 58 secondspipeline have your steps clearly defined tell him clearly I want my input always to be in this format and output always
+1:35:051 hour, 35 minutes, 5 secondsto be in that format that's how we do it okay I'm also doing it like this only chat GP only of course nowadays I cannot
+1:35:131 hour, 35 minutes, 13 secondsafford because so many things I'm looking after right I cannot do all the things in one place right I cannot be coding from scratch I use Gemini and
+1:35:211 hour, 35 minutes, 21 secondscharg what what's the big deal about okay
+1:35:291 hour, 35 minutes, 29 secondsthis is your multiquery it talks is done. Right now let's go to the last part which is build context. You keep it as it is.
+1:35:371 hour, 35 minutes, 37 secondsPrompt rendering you do just as it is.
+1:35:391 hour, 35 minutes, 39 secondsJust change your chain now. You just need to change your chain now. Right.
+1:35:431 hour, 35 minutes, 43 secondsI'll just change the chain. I'll just change the chain.
+1:35:471 hour, 35 minutes, 47 secondsJust need to change your chain now directly. Can you come down? Just come down. Change the change. Chain now. You tell me. Can you try and change change
+1:35:551 hour, 35 minutes, 55 secondsthe chain? Can you just try and change the change? Change the chain. Right. Can you do it? Just try once. I want you to
+1:36:031 hour, 36 minutes, 3 secondsjust try. Just see this. It's already giving you error two places which are not running. Instead of edit query, what is your function? You tell. You only
+1:36:101 hour, 36 minutes, 10 secondstell me. What is the function instead of edit query bad?
+1:36:241 hour, 36 minutes, 24 secondsTry doing it. Just try. Just try. Once you you can fail, it's okay. But try change the function names is all here
+1:36:311 hour, 36 minutes, 31 secondsguys that's it and whatever the functions are used with right whatever they need to call the function you need
+1:36:381 hour, 36 minutes, 38 secondsto give that thing also
+1:37:031 hour, 37 minutes, 3 secondsTry try it out. Just call the functions that you've defined down in the chain.
+1:37:071 hour, 37 minutes, 7 secondsJust try try out
+1:38:091 hour, 38 minutes, 9 secondsany progress any success just anyone who was able to do it it's simple
+1:38:181 hour, 38 minutes, 18 secondsjust see how those functions are called you just use the names only directly to
+1:38:331 hour, 38 minutes, 33 secondsDone. Great. Great. Shula has done it.
+1:38:371 hour, 38 minutes, 37 secondsGreat. Stor has done it. Please everyone try it.
+1:38:501 hour, 38 minutes, 50 secondsGrade after grade.
+1:39:121 hour, 39 minutes, 12 secondsJust do it, guys. Do it. I'll just get myself some water. Just do it. Just do it. Also get a med. I guess I need a med after the session. I'll take a sleep.
+1:39:291 hour, 39 minutes, 29 secondsI
+1:41:271 hour, 41 minutes, 27 secondsOkay. So let's just take a look at what we have to change, right? What we have to see edit query. What is our new function? You only tell me what is the new function guys that we have in place.
+1:41:381 hour, 41 minutes, 38 secondsMultiqueries. Multiqueries.
+1:41:431 hour, 41 minutes, 43 secondsthe query query query here generate generate multiqueries and you're passing what int is equals to whatever number of
+1:41:501 hour, 41 minutes, 50 secondsmulti-queries that you need. So let's just do it here comma come
+1:41:561 hour, 41 minutes, 56 secondshere instead of this you pass this of course you will give d query comma n is
+1:42:041 hour, 42 minutes, 4 secondsequals to what will you give whatever you want let's say I want five five queries let me generate okay five queries okay works okay this is done now
+1:42:131 hour, 42 minutes, 13 secondswhat is the next thing you need to do this is will be as it is the retrieve docs the retrieve docs is what you need to change but the retrieve docs What is it that you have? You tell me.
+1:42:231 hour, 42 minutes, 23 secondsRetrieve blocks multi. Look at this here. Come up here.
+1:42:321 hour, 42 minutes, 32 secondsRetrieve blocks multi is what you have right. So come here.
+1:42:391 hour, 42 minutes, 39 secondsOkay. What all do you need to pass inside it? Just take a look at it yourself.
+1:42:451 hour, 42 minutes, 45 secondsYou need to pass the queries that is which are queries that is coming from the last one and you need to pass the top k per query final top k okay so
+1:42:541 hour, 42 minutes, 54 secondslet's just kind of do it just see this a there's a global dictionary which is being maintained while this is running
+1:43:011 hour, 43 minutes, 1 secondright every output is coming inside dd is the dictionary d is that dictionary look at this output of this is what multi-query output I'll call it queries
+1:43:111 hour, 43 minutes, 11 secondsthis time I'll call it what queries is fine.
+1:43:251 hour, 43 minutes, 25 secondsLet's call it queries. Okay, then just wait. Sorry, not this one. Not this one. This one. Edit query.
+1:43:371 hour, 43 minutes, 37 secondsOkay. Queries. You basically will get generate multiquery. You'll get a lot of queries right
+1:43:451 hour, 43 minutes, 45 secondsand those queries you will pass inside make keywords to you can just give edited query only just let's check let's
+1:43:521 hour, 43 minutes, 52 secondscheck otherwise we'll be confused let's check here here come here
+1:44:021 hour, 44 minutes, 2 secondswe are getting basically a list of queries we are not getting any edited query I think we are not even using it so we can actually remove it the make
+1:44:101 hour, 44 minutes, 10 secondskeyword part right actually let us remove it retrieval maybe I guess let's
+1:44:161 hour, 44 minutes, 16 secondsjust check use building context no it is not getting used so let's remove it so you can remove this part the filter
+1:44:251 hour, 44 minutes, 25 secondskeywords right because it's not being used right because we using that only you can keep it if you want to keep it but then you don't have an edited query
+1:44:341 hour, 44 minutes, 34 secondsyou need an edited query that you don't have so I just pass this to this
+1:44:411 hour, 44 minutes, 41 secondsI'm thinking just give me one minute so this you'll get retrieval queries retrieval queries you will give to
+1:44:501 hour, 44 minutes, 50 secondsretrieve docs multi you don't need it actually you will have to remove this right for now let's remove this right we can keep it we there's a way then you will need one more function basically to
+1:44:581 hour, 44 minutes, 58 secondsget a uh you know synonym while query but we have removed that for now right so you just kind of get it in queries
+1:45:051 hour, 45 minutes, 5 secondsand this is about retrieve docs multi here you need to find Send queries. Q U E R I E S. You need to
+1:45:131 hour, 45 minutes, 13 secondssend queries, right? And filter keywords.
+1:45:171 hour, 45 minutes, 17 secondsWhat was the what are the what were the parameters of this retrieve doc multi? Tell me. Let's take a look.
+1:45:281 hour, 45 minutes, 28 secondsMultiqueries top K per query and final top.
+1:45:461 hour, 45 minutes, 46 secondsWe will use this direct right then. Okay. Then we need to do build context. So build context.
+1:45:561 hour, 45 minutes, 56 secondsSee build context needs the results. Results. Build cont.
+1:46:041 hour, 46 minutes, 4 secondsThen we need make prompt. We are making it from the original query that was coming. We not making the prompt from all of the queries, right? So we making it from the original query only.
+1:46:141 hour, 46 minutes, 14 secondsPlugging the sources here. The sources that you will be getting in this and history here. I think this will be done
+1:46:231 hour, 46 minutes, 23 secondsright now. You can run it directly. You can now run it. This will be I think your final answer. Let's try to run all the codes then only we'll be sure.
+1:46:351 hour, 46 minutes, 35 secondsAnd this build context prompt rendering and generation.
+1:46:401 hour, 46 minutes, 40 secondsMake the prompt same prompt with history. And then you're kind of making this. Let's make
+1:46:471 hour, 46 minutes, 47 secondsthis. Let's check. Let's try make the final chain and let's say what
+1:46:541 hour, 46 minutes, 54 secondsdocuments are needed for loan against property.
+1:47:021 hour, 47 minutes, 2 secondsSomething is wrong. An ashable type dict something we have definitely done wrong.
+1:47:071 hour, 47 minutes, 7 secondsWhat documents are? So where is it getting wrong? Let's try to understand the
+1:47:151 hour, 47 minutes, 15 secondswhen I run my query I'm not getting any outputs like though I check my database is connected there are documents in that
+1:47:221 hour, 47 minutes, 22 secondswhen I run the query I'm not getting any out. You are not getting the ra out output. Yeah, possible. We'll check. We'll check.
+1:47:311 hour, 47 minutes, 31 secondsWe'll check. Let's take a look. How come you're not getting any rag output? You must be getting I'm also getting see this.
+1:47:391 hour, 47 minutes, 39 secondsSee this? I'm just kind of passing the queries inside this retrieve docs multi,
+1:47:441 hour, 47 minutes, 44 secondsright? You just make sure your functions and everything is right. Um, can you please paste your function?
+1:47:501 hour, 47 minutes, 50 secondsI guess that maybe I typed wrong or something. Please paste that.
+1:47:551 hour, 47 minutes, 55 secondsUm I was also getting an empty list as response. Empty response. Yeah,
+1:48:011 hour, 48 minutes, 1 secondresponse is not possible actually do single sorry doc.
+1:48:081 hour, 48 minutes, 8 secondsLet's try retrieve doc single try with query zero.
+1:48:131 hour, 48 minutes, 13 secondsYou try this one then you will see my
+1:48:221 hour, 48 minutes, 22 secondsOkay, got it. Just try it for one then we'll see.
+1:48:331 hour, 48 minutes, 33 secondsOkay. Now let's go and do this retrie drops mult. This is okay.
+1:48:391 hour, 48 minutes, 39 secondsThis is same. Okay. So where are we goofing up? Let's try to figure that out. Okay. It's good learning.
+1:48:461 hour, 48 minutes, 46 secondsHere you are passing it. Fine. You're getting all the queries here.
+1:48:531 hour, 48 minutes, 53 secondspassing all the queries inside here an actual type list is the problem actually.
+1:49:001 hour, 49 minutesSo you need to put what? Runnable pass through and we need to of course import the
+1:49:101 hour, 49 minutes, 10 secondsrunnable pass through in the next last one.
+1:49:161 hour, 49 minutes, 16 secondsIt break this is this will I think do the trick.
+1:49:361 hour, 49 minutes, 36 secondsRight. Okay. Now let's check check the respon. Print response one.
+1:49:421 hour, 49 minutes, 42 secondsThis follow is not defined. Okay. Have not response one.
+1:49:481 hour, 49 minutes, 48 secondsYeah. Hello there to help you against borrowers document, property documents,
+1:49:531 hour, 49 minutes, 53 secondsbusiness documents, everything it has given very clear. Can you see this? This is the important part that I wanted to show you with multi- rank and next
+1:50:021 hour, 50 minutes, 2 secondsexample when I show you the the real difference will come right.
+1:50:061 hour, 50 minutes, 6 secondsWhat documents are needed for loan against property? See this the way it was able to pull all the documents
+1:50:141 hour, 50 minutes, 14 secondsand also give us all the things. It was really nice. Let's try the same question here.
+1:50:201 hour, 50 minutes, 20 secondsSo let's see if it is working here. What documents are uses for loan against property? I think I remember that.
+1:50:321 hour, 50 minutes, 32 secondsSee this the information I have validates of the complete property details to avoid it but it doesn't list specific documents required for a loan against property.
+1:50:421 hour, 50 minutes, 42 secondsSee it is denying it completely deny it's denying it on a face that I cannot tell you the document but here it is able to give lots.
+1:50:511 hour, 50 minutes, 51 secondsDo you see the difference that is coming? Because we just improved our strategy of retrieval, right? We used
+1:51:001 hour, 51 minutesmulti-query expansion because of which we are getting more documents from broad areas.
+1:51:081 hour, 51 minutes, 8 secondsThis is very important to understand guys.
+1:51:121 hour, 51 minutes, 12 secondsMulti-query expansion gives you a broad set set of documents. It is it works for well for precision. It's a sorry recall.
+1:51:211 hour, 51 minutes, 21 secondsIt works for recall. I think it'll give you a lot of good candid candidates.
+1:51:271 hour, 51 minutes, 27 secondsRight. Right. So everyone please run this. Let me know if it is running. If you have any challenge, you take
+1:51:381 hour, 51 minutes, 38 secondslet me give you the chain if you want it. The rest rest remains same. This chain only is what has to be edited. But guys try to edit the chain yourself.
+1:51:491 hour, 51 minutes, 49 secondsfunctions if you're sticking to the same format input same output
+1:51:571 hour, 51 minutes, 57 secondsor you know any cloud you will be able to write most of the codes but chain you have to know you must know chain what is
+1:52:041 hour, 52 minutes, 4 secondscoming from where to where architecture that is your architecture you should know what is flowing from where to
+1:52:121 hour, 52 minutes, 12 secondstake a pause here guys let me know if you have anything uh on this part then we We will go to the next part. I think we will finish the next part directly
+1:52:201 hour, 52 minutes, 20 secondsafter this and then we'll close the session for today. I'll also take a rest.
+1:52:241 hour, 52 minutes, 24 secondsSo we won't take any break as such. We will directly move to the next part.
+1:52:271 hour, 52 minutes, 27 secondsMaybe we will be done there. Okay guys,
+1:52:311 hour, 52 minutes, 31 secondseveryone please run this and let let me know if it is running for for you and you are able to run this query specifically.
+1:52:391 hour, 52 minutes, 39 secondsWhat documents are needed for low properties? Run this query and see if you are able to get it here. Then run the same query in the last one we
+1:52:461 hour, 52 minutes, 46 secondscreated. Run. Are you getting the same documents? Just compare and tell me
+1:52:591 hour, 52 minutes, 59 secondsthis is what happens when you do a good retrieval. Okay, that's what I want to.
+1:53:041 hour, 53 minutes, 4 secondsSo I'm getting the same output but the format is different slightly.
+1:53:151 hour, 53 minutes, 15 secondsWe have not fixed any format. So it is coming up randomly format. So we can also fix a format. So then the format means
+1:53:241 hour, 53 minutes, 24 secondsokay but I don't see business documents registration other
+1:53:301 hour, 53 minutes, 30 secondsmaybe maybe it is not given in depth that much depth but still you're able to get all the documents that's a big deal right? Okay.
+1:53:381 hour, 53 minutes, 38 secondsSo, sir, are you using open AI? Yes, I'm using OpenAI. Yeah.
+1:53:421 hour, 53 minutes, 42 secondsYeah. Yeah. I have the same uh it's it's slightly giving different than what you see on the screen. So, it is because of the LLM. Okay. Understood. Thank you.
+1:53:501 hour, 53 minutes, 50 secondsShanka, what is I don't have enough information to tell you. Okay. You're getting this really shanker. You did not run it even with multiquery expansion.
+1:54:041 hour, 54 minutes, 4 secondsDid you run multiquery expansion the right right away or you're running from the last last notebook only you're talking about
+1:54:141 hour, 54 minutes, 14 secondsokay very very strange actually just try to run your this thing manually
+1:54:221 hour, 54 minutes, 22 secondsonce that's why I'm saying just try to run this part manually once
+1:54:301 hour, 54 minutes, 30 secondsokay while pasting I hadn't even copied I pasted the wrong See maybe maybe you missed out a step or two
+1:54:361 hour, 54 minutes, 36 secondsI guess that's oh god
+1:54:441 hour, 54 minutes, 44 secondsI got this response uh in uh history one that we run right I got this response in the that one only
+1:54:521 hour, 54 minutes, 52 secondsokay okay that's great so history you got the response right yeah then in history one I got in the multi multiquery you got the response
+1:55:001 hour, 55 minutesright Yeah.
+1:55:051 hour, 55 minutes, 5 secondsNow run the final step. Now run the final step.
+1:55:091 hour, 55 minutes, 9 secondsJust see if you're able to run the final step.
+1:55:271 hour, 55 minutes, 27 secondsThe last part for today is now after this reanking. We'll focus on reanking and some theory. I'll kind of walk you through it so you are aware of how to handle what kind of situations.
+1:55:431 hour, 55 minutes, 43 secondsBut I want everyone to run this first.
+1:55:451 hour, 55 minutes, 45 secondsPlease everyone make sure that you are able to run this then we move forward.
+1:56:121 hour, 56 minutes, 12 secondsRight back, guys.
+1:58:201 hour, 58 minutes, 20 secondsOkay.
+1:58:221 hour, 58 minutes, 22 secondsOkay. So guys here I'll tell you basically here in this folder only
+1:58:301 hour, 58 minutes, 30 secondsI'm going to share the the last notebook also with in the practice you'll find this section 63
+1:58:371 hour, 58 minutes, 37 secondsright this one I suggest you go through it once you just go through it I'm I'm kind of really feeling unwell because see the bigger problem is not pain the
+1:58:461 hour, 58 minutes, 46 secondsbigger problem is that because of the pain I've not even been able to you know eat since morning So that is a bigger problem. So I think I should kind of go
+1:58:551 hour, 58 minutes, 55 secondsand get some meds and you know probably hope that I get better tomorrow. So here you will find this notebook which is
+1:59:031 hour, 59 minutes, 3 secondsbasically session three the the third part which I wanted to discuss which is called as reanking. It's a very important part again reanking which
+1:59:101 hour, 59 minutes, 10 secondsworks on precision when narrowing down or narrowing down to a particular set of documents. Right? you go through it.
+1:59:191 hour, 59 minutes, 19 secondsJust like we have our transformer uh that is our encoder that we are using to generate
+1:59:281 hour, 59 minutes, 28 secondsembeddings. There is another model used here which is called as which is called as cross encoder which is called as
+1:59:351 hour, 59 minutes, 35 secondscross encoder right so just go through it just try to see it then we'll catch up in the next session hopefully tomorrow right we catch up right yeah
+1:59:431 hour, 59 minutes, 43 secondsI'll share the entire session six folder that one here oh god
+1:59:551 hour, 59 minutes, 55 secondslink and share it Yes. And I'll get some rest for myself today, right? And let's hope I get
+2:00:022 hours, 2 secondsbetter tomorrow. Otherwise, I I'll inform future guys about whatever it happens. So, I'm going to just save it.
+2:00:092 hours, 9 secondsUh I'll just share this also with you so
+2:00:172 hours, 17 secondsyou have the idea about the review this rank. So, it's our session number six, right?
+2:00:372 hours, 37 secondsThanks.
+2:00:512 hours, 51 secondsSo this is basically when more than uh uh documents get the same rank like I
+2:00:582 hours, 58 secondswas asking in some one of the earlier sessions you do a re-ranking amongst those.
+2:01:022 hours, 1 minute, 2 secondsYeah. Yeah. We do a rerank. We do a reank. Okay. This is not this is multiquy expansion, right? Okay.
+2:01:092 hours, 1 minute, 9 secondsReranking is once you have retrieve after multiquy expansion you shortlisted your documents right now you check again how relevant are
+2:01:162 hours, 1 minute, 16 secondsthey to your original query. Right? And then you re rerank those. Let's say you shortlist some 10 documents. Right? Right. And then you react.
+2:01:252 hours, 1 minute, 25 secondsThen you will use some K equals to Yeah. Yeah. Yeah. Instead of 60, you will put some other. Yeah. Yeah. Yeah.
+2:01:342 hours, 1 minute, 34 secondsYeah. After all, Jenny's right. I need some for life.
+2:01:382 hours, 1 minute, 38 secondsI was about to tell you. See, I was telling you in the beginning only.
+2:01:422 hours, 1 minute, 42 secondsThat's what that's what today. I don't know. I mean, I last night I've slept at 12:00. Pretty good preparing your sessions and the other sessions.
+2:01:522 hours, 1 minute, 52 secondsMorning. I wake up. It was very bad, you know, playing in the pain in the diaphragm. It happens to me whenever the weather changes. It kind of happens to
+2:01:592 hours, 1 minute, 59 secondsme, but I don't know. It was pretty bad today. And I know it gets really bad.
+2:02:032 hours, 2 minutes, 3 secondsI've spent sleepless night because of the pain. Sometimes I get this infection.
+2:02:082 hours, 2 minutes, 8 secondsBut it's not hot. It's it was in fact it was in fact very cold yesterday, right?
+2:02:122 hours, 2 minutes, 12 secondsUm what was the temperature like? Temperature was around 20°C yesterday.
+2:02:192 hours, 2 minutes, 19 secondsOkay. So that's summer for us, right?
+2:02:222 hours, 2 minutes, 22 secondsThat's also summer but but but the thing is uh it was relatively colder right because because of the rain and everything. Yeah.
+2:02:282 hours, 2 minutes, 28 secondsBut it's a 20° summer for us. We are really happy if we see like even single digit at this time. Ah okay. Okay.
+2:02:362 hours, 2 minutes, 36 secondsOkay. Where where are where are you based out of?
+2:02:392 hours, 2 minutes, 39 secondsSo I'm based in uh Toronto. So we we have kind of gone through minus30 minus 40 this year. Some places in Ontario
+2:02:472 hours, 2 minutes, 47 secondstouched minus 50. So I think now we are kind of going to 10 12. So we getting there.
+2:02:552 hours, 2 minutes, 55 secondsThat's that's really you know harsh I would say.
+2:02:592 hours, 2 minutes, 59 secondsThis time this time we had a very harsh winter though.
+2:03:022 hours, 3 minutes, 2 secondsYeah. Yeah. That's what but the timings are also you know kind of very awkward for you isn't it?
+2:03:112 hours, 3 minutes, 11 secondsYeah. I mean it was 3:30 now the clocks changed uh couple of weeks ago. So now it's 4:30 a.m.
+2:03:192 hours, 3 minutes, 19 secondsOkay. That's what good time to wake up, huh? Brahma Murat.
+2:03:262 hours, 3 minutes, 26 secondsNice. This is our session. I just copy paste it uh the the notebook this PDM with you. Okay. So you guys have all the resources, you have all the folders.
+2:03:352 hours, 3 minutes, 35 secondsJust go through them one by one right from the day one. That is from the day where we started with where we started with the history and try to relate it
+2:03:442 hours, 3 minutes, 44 secondsall. Today what we have done is we looked at history. We have also looked at how to do multi-query expansion which is one of the very important ways to expand your horizon. Next we'll look at
+2:03:532 hours, 3 minutes, 53 secondsreanking in the next session. Right? And uh from there on once we do that right we will just kind of in the next session
+2:04:022 hours, 4 minutes, 2 secondsitself I'll quickly do reanking. Won't waste a lot of time on that. You can just go through go through the code anyway today. Then we will just I'll just explain the concept of sparse
+2:04:092 hours, 4 minutes, 9 secondsembeddings which is an important concept in this. And then we will also finish pant pantic. So next class I want to finish sparse images and pyantic primarily which is very very important.
+2:04:202 hours, 4 minutes, 20 secondsOnly once we finish pyantic we are ready to move to um the next part which is which is agentic. Yeah the agentic. Now
+2:04:292 hours, 4 minutes, 29 secondssame things whatever we did here with rag. Now rag is just just going to be a part and now we'll just move to the agentic framework. So we I think we'll
+2:04:372 hours, 4 minutes, 37 secondstake four more sessions from here to cover it up. Right. I hope I get well soon in fact.
+2:04:422 hours, 4 minutes, 42 secondsRight. I don't like being sick sick either. Okay. Anyway, so let's let's let's just kind of catch up uh tomorrow maybe. Right. Let's just see how how my
+2:04:512 hours, 4 minutes, 51 secondshealth goes. I'll take a call according to that and then let's catch up tomorrow and and kind of wrap it up. Okay. Thank you. Get some rest.
+2:05:002 hours, 5 minutesGet well. Yeah. Yeah. Thank you so much. Thank you so much. Bye-bye. Take care. Take care. Bye. Bye. Thanks, sir.
+2:05:072 hours, 5 minutes, 7 secondsThank you. Thank you everyone.

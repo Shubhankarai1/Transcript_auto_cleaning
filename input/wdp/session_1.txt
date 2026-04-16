@@ -1,0 +1,953 @@
+4:444 minutes, 44 secondsHello sir, how are you? Hello. Hi. How are you? Hello.
+4:524 minutes, 52 secondsThank you. Good to know.
+5:235 minutes, 23 secondsHello sir. Good afternoon. Good to see you back.
+5:285 minutes, 28 secondsHello. Good afternoon. Good to see you all too. Nice to be back again. Yep. Indeed. Indeed.
+5:365 minutes, 36 secondsWe'll wait for a few more minutes. Let other people join. We'll start it. Sure. Thank you.
+7:207 minutes, 20 secondsUh just one uh clarifying question. Uh has the idea of lang graph been covered earlier in any session by anybody? Lang graph?
+7:307 minutes, 30 secondsNo. Okay. Thank you sir. Good morning.
+7:357 minutes, 35 secondsHi Krishi. Yeah it's supposed to start today. Okay. Okay. Yeah it was supposed to start today.
+7:427 minutes, 42 secondsYeah I will cover that. I just wanted to ask to confirm because I don't want to be repeating something which has already been done. So yeah, I'll be covering starting with lambda today.
+7:527 minutes, 52 secondsSure. We'll just wait for two more minutes.
+7:587 minutes, 58 secondsWe'll start
+8:588 minutes, 58 secondsHello Kushal sir while we are waiting for others can I just bring up a question here just so that yes yes yes absolutely absolutely
+9:069 minutes, 6 secondssir we were continuing with agentic AI and today was supposed to be a session on pantentic so is that changed I'm
+9:149 minutes, 14 secondsno no no no it is it is agentic only so that the terms may change what we are going to discuss today is also agent only sort of a more elaborate way of
+9:239 minutes, 23 secondsdealing with agents. So basically when you work with agents there are many different frameworks for implementing agents. Uh today we are
+9:319 minutes, 31 secondsgoing to discuss Lang graph which is one of those frameworks. Okay sir. Okay.
+9:359 minutes, 35 secondsSo it's a very powerful framework. I mean it's not just one framework. It is actually uh as of today I would say the framework for implementing intelligent agents. So yeah.
+9:469 minutes, 46 secondsOkay. Great. No just clarifying so that I make my own notes. So no no no good question. Good question.
+9:509 minutes, 50 secondsIt's always to be sure that confused. So yeah also if you have any clarification any question you want to ask please go ahead.
+9:599 minutes, 59 secondsYes. So is pyic also means similar thing as langraph or it is something else because even I heard that term its to be covered in today's session.
+10:0710 minutes, 7 secondsPyantic is a different package kind of so I mean you can do a lot of things with that. Today we are not going to teach pyic. We are going to focus on langra.
+10:1610 minutes, 16 secondsOh because we have only 2 hours. So I want that 2 hours to be utilized for one proper thing. So we'll be covering Langra today.
+10:2410 minutes, 24 secondsOkay. Thank you sir.
+10:2610 minutes, 26 secondsOkay. Okay. So it's almost time. Let's start. Let me share my screen.
+10:3310 minutes, 33 secondsOkay. So can you please confirm if you can see my screen? Yes, we can.
+10:3910 minutes, 39 secondsYes. Okay. Great. Thank you. So I'm going to share the collab notebook with you after I do the explanation because otherwise uh you know if you get busy
+10:4810 minutes, 48 secondswith running the notebook you may miss out on what I am talking about. So you do not have to type anything. Don't worry about typing. I will share the notebook with you. But I want to first
+10:5710 minutes, 57 secondsexplain the concept because it is somewhat uh complicated. I mean it is not like something very difficult but
+11:0411 minutes, 4 secondsyou have to get it right. I mean it is it is more complicated than the simple AI stuff which you have done so far. So
+11:1211 minutes, 12 secondsas I mentioned in response to the question by Santos that uh what we are going to discuss today is lang graph which is one of the frameworks for
+11:2111 minutes, 21 secondsimplementing AI agents. Uh it is not the only framework for sure. There are many frameworks available. Uh but this is I
+11:2911 minutes, 29 secondswould say like the most awesome framework currently in the market. uh like there is crew AI and other things but langraph is really great because of
+11:3711 minutes, 37 secondsone single reason that this gives you full control you know so so before getting into that let me just start with
+11:4511 minutes, 45 secondsthe simple AI thing which you have used so far I guess which is that you have this client which can be a laptop phone
+11:5411 minutes, 54 secondswhatever you send a request to some API service so we have been using open router in our sessions or you may have
+12:0212 minutes, 2 secondsused OpenAI cloud in some other sessions or for your own uh personal projects. So there is a API service which is
+12:0912 minutes, 9 secondsbasically a you know web service. You send a API request to that API service.
+12:1412 minutes, 14 secondsThat API service makes a request to a server.
+12:1812 minutes, 18 secondsThat server does whatever processing it has to do. Sends the response back to the API service and the API uh service
+12:2512 minutes, 25 secondsuh sends the response back to your client. So the response may be image, text whatever but it is some response.
+12:3312 minutes, 33 secondsSo almost all the web services including all the AI based web services they all operate in this framework. You have a
+12:4212 minutes, 42 secondsclient you send a request uh you get the request you get a response and you display to the user in some way that you
+12:4812 minutes, 48 secondswant. So how is the agentic world different from the regular AI world?
+12:5612 minutes, 56 secondsThat is the first thing that we need to understand and the answer is that as all of you may
+13:0313 minutes, 3 secondsknow but just for the sake of clarity the answer is that the regular API service does not have intelligence in
+13:1313 minutes, 13 secondsit. You send an API request the server will process as they want as per your
+13:1913 minutes, 19 secondsrequest using standard algorithms do the processing send it back to you. There is no intelligence over here which means
+13:2813 minutes, 28 secondsthat the API service does not make any intelligent decision for you. All the
+13:3513 minutes, 35 secondsdecision making is done at the client side and all that the API service and the server does is process your request
+13:4313 minutes, 43 secondsand send you back the response. When we move to agents, we move to the state of intelligent decision making using
+13:5213 minutes, 52 secondscomputers. One simple example, let's say you have a company chatbot. You have deployed a chatbot on your company
+13:5813 minutes, 58 secondswebsite and some person comes and asks uh you know some question.
+14:0514 minutes, 5 secondsNow the first and the most simple example of an AI agent which you can deploy is is to first check whether the
+14:1414 minutes, 14 secondsquestion is even relevant to your company's product and services or not.
+14:2014 minutes, 20 secondsIf it is not relevant, you immediately tell it that boss, this question is not not relevant, so I'm not going to answer
+14:2614 minutes, 26 secondsit. If it is relevant, then you send that question to the required Q&A API
+14:3314 minutes, 33 secondsservice and get the answer and display it to the user. So this is a very simple
+14:4014 minutes, 40 secondsintelligence uh uh uh mechanism which you can add into your company's chatbot and instead of answering every single
+14:4814 minutes, 48 secondsquestion you first check whether the question is relevant or not. So that is when you move from a simple API based
+14:5714 minutes, 57 secondsQ&A to a intelligencebased Q&A. Now when we move to intelligence-based Q&A which
+15:0415 minutes, 4 secondsare basically what agents are all about there are two ways of handling that the two ways are that in one way
+15:1415 minutes, 14 secondseverything is handled by AI autonomously what that means is that you give AI the complete picture that this is what I
+15:2315 minutes, 23 secondswant to achieve and you completely leave it to AI to decide how it wants to proceed and what it wants to do That is
+15:3115 minutes, 31 secondsthe framework uh that is the idea which is adopted by frameworks like crew AI.
+15:3615 minutes, 36 secondsSo crew AI is one of the agentic frameworks and that is fully automated.
+15:4115 minutes, 41 secondsThere is no uh you know not much of any manual control over there. So you describe the entire situation to crew AI
+15:5015 minutes, 50 secondsand it does whatever it does intelligently automatically. Now while that might sound amazing, that might
+15:5715 minutes, 57 secondssound very uh nice because okay fine I just explain everything to AI and AI does the job but the thing is that AI is
+16:0616 minutes, 6 secondsfar from perfect. Not just today but even after 2 years I don't think AI will become so advanced that you can
+16:1316 minutes, 13 secondscompletely hand over your company's logic to AI because if it makes a mistake anywhere the repercussions could be in millions and billions if you are a
+16:2116 minutes, 21 secondsbig company. So to counter that the solution that we are going to discuss today is a different approach called
+16:2916 minutes, 29 secondslangraph. So langraph is a uh framework for implementing AI agents but it gives you 100%
+16:4116 minutes, 41 secondscontrol over the flow of logic over the flow of decision making that control is what differentiates langraph from some other frameworks.
+16:5416 minutes, 54 secondsOkay. So,
+16:5716 minutes, 57 secondshow is Lang graph different and how does Lang graph implement that? So, we are going to take a simple example of a male sorting butler. I'm sure all of you
+17:0617 minutes, 6 secondswould have seen Dark Knight if not today Sunday. So, do watch Dark Knight. It's an amazing movie. One of the best movies
+17:1317 minutes, 13 secondsmade ever in the world according to many people's opinions including mine. Uh so in that there is Batman whose actual I
+17:2217 minutes, 22 secondsmean the the real life name is Bruce Wayne and he has a butler and butler
+17:2917 minutes, 29 secondswhat the butler is not just somebody who makes food for him but he also you know is basically his secretary. So all the
+17:3717 minutes, 37 secondsemails which come to Bruce Wayne's email account will be read by the butler and the butler will do the sorting and if the email is spam he will send the email
+17:4617 minutes, 46 secondsto the spam folder. Uh if the email is good then he will draft a response and show it to Bruce Wayne before uh hitting
+17:5417 minutes, 54 secondsthe send button. So we are going to implement this using langraph today. I will explain lang graph using this simple example and then we will take a
+18:0318 minutes, 3 secondsyou know a more complicated real life example and discuss how to implement that using lang graph.
+18:1018 minutes, 10 secondsSo when we say that agents are about intelligent decision making
+18:1918 minutes, 19 secondsdecision making is usually represented using a flowchart and flowchart is basically a graph. So please understand
+18:2718 minutes, 27 secondsthis transition. So what did we say? AI normal AI that you have used earlier is a simple API call to some uh uh some AI
+18:3618 minutes, 36 secondsservice where you send your prompt your data whatever and you get a response.
+18:4118 minutes, 41 secondsFrom that we move to an intelligent system but instead of using crew AI we are going to use LN graph which is going to give you full control over how that
+18:5018 minutes, 50 secondsintelligence is being processed. So when we say that if you have full control which means that you have to design the
+18:5918 minutes, 59 secondsflow of decision making and when you design the flow of decision making you basically are constructing a graph. Now
+19:0719 minutes, 7 secondswhen I say graph I know for some people it may be little it may sound complicated because graphs are complicated. Uh but we are today not
+19:1419 minutes, 14 secondsgoing to get into all the complications of graphs. We are going to keep it very very simple. So when I say graph all
+19:2119 minutes, 21 secondsthat you need to keep in mind is that a graph is basically a collection of nodes and edges. Full stop. We do not have to
+19:3019 minutes, 30 secondsget into any other complicated situation with graph. You know for those who have studied graphs you know there are cyclic graphs asyclic graphs and lot of things
+19:3919 minutes, 39 secondsare there but we don't have to get into all of that. So as you can see in this picture right in front of you, we have a graph and basically what we have are
+19:4819 minutes, 48 secondsnodes which are these blue circles that you see in front of them and there are these edges which are these arrows right
+19:5719 minutes, 57 secondseach node and please remember each node of the graph represents a state of the
+20:0620 minutes, 6 secondssystem and so what do I mean? So when I'm at this node, when I'm in this node,
+20:1320 minutes, 13 secondsat what state am I? I am basically at a state where Alfred who is the butler for for Mr. Bruce Wayne, he opens the letter
+20:2220 minutes, 22 secondsand he classifies the uh letter as spam or ham. Ham means normal, right? So this
+20:3020 minutes, 30 secondsis the node at which that happens enough. If the letter is normal, if it is ham, the functionality moves towards
+20:3820 minutes, 38 secondsthis direction. H. If it is spam, it moves towards this direction. So if it is spam, then it is simple. You just,
+20:4520 minutes, 45 secondsyou know, throw away the spam. Either send it to a trash bin or you send it to some account or some folder where you
+20:5220 minutes, 52 secondswill then do manual review if required and then you end finish. But if it is not spam, if it is normal, if it is a
+20:5920 minutes, 59 secondsham email, then you move to this node where now Alfred drafts a response and
+21:0621 minutes, 6 secondsthen Bruce will validates the response and the email is finally sent. Sush question.
+21:1721 minutes, 17 secondsUh you are on mute if you are talking. Yes, this process remains encrypted.
+21:2421 minutes, 24 secondsuh encrypted means uh means no third party or even uh a Gmail can't read it.
+21:3221 minutes, 32 secondsPlease your voice is a bit not very clear. One second please.
+21:3621 minutes, 36 secondsSo uh encrypted means like our messages in WhatsApp are encrypted. Third party can't access the private data.
+21:4421 minutes, 44 secondsUh no no so we are not worried about all that right now. We are just implementing an agentic system. Now how you add privacy into that and all that is a
+21:5121 minutes, 51 secondsdifferent question. We are not worried about that. So right now all that we are worried about is we have some data which is coming to us. How do we process that
+21:5921 minutes, 59 secondsusing an intelligent mechanism that is all that we are worried about. Okay. Okay. Yes.
+22:0622 minutes, 6 secondsSir you made one statement decision making is represented using a workflow and then workflow is something I missed the second part.
+22:1322 minutes, 13 secondsRight. Right. Right. So basically when you when you say decision making decision making is always represented using flowcharts.
+22:2222 minutes, 22 secondsOkay. And a flowchart is basically a graph right. So when I say let's say that you know let's say I want to start a new company and I have to make
+22:2922 minutes, 29 secondsdecision what does that mean? What that means is that I have to think what are the different situations that may arise
+22:3722 minutes, 37 secondsand what will be the potential outcome in that particular situation. That is basically what decision making is all about.
+22:4422 minutes, 44 secondsOkay. Thank you. So, so let's say you know scenario one I may get $1 million as a seed seed money from somebody that
+22:5222 minutes, 52 secondswill lead to decision A. I may not get any money. Everybody may say your idea is bas so please don't waste my time. So I don't have any money but I still
+23:0023 minutesbelieve in it. So I will I may still you know spend my own money to build that thing. That is let's say option B. Then there may be some other option maybe.
+23:0823 minutes, 8 secondsThen let's say if I choose option A which is that I get the money and I register a company and do that. Then the next question is will I be able to hire
+23:1623 minutes, 16 secondspeople using the money that I have and maybe I will be maybe I will not not will be. So at every point in the system
+23:2423 minutes, 24 secondsyou have three four five options uh uh scenarios which may happen and each scenario will leave lead to a certain
+23:3323 minutes, 33 secondsstate of the system. Right? When you come to that state then another decision has to be taken which will again depend on what scenarios are available. Right?
+23:4323 minutes, 43 secondsSo decision- making is never a linear thing. It is always a uh you know you have options and you take decisions based on that and decision making. So
+23:5223 minutes, 52 secondswhen you design a system when you are making decisions a lot of thing happens on the head and you don't have to write down all of this. But when you want to
+23:5923 minutes, 59 secondsdesign a system to take decisions on your behalf, there are two options as I mentioned. Either you can just explain
+24:0624 minutes, 6 secondsthe situation and leave the system to decide as it wants, which is what true AI does. But that has issues because uh
+24:1424 minutes, 14 secondsAI is not so dependable that you can just explain the situation and let it work on its own. So a better approach is
+24:2224 minutes, 22 secondsto design the workflow yourself and then use AI at appropriate points to take decisions using the data available.
+24:3224 minutes, 32 secondsSanto make sense? Yeah sure got it. Thank you sir.
+24:3524 minutes, 35 secondsOkay welcome sir. So when you say state of the system
+24:4224 minutes, 42 secondssay at this point after start when Alfred is opening the letter and looking at it at a decision making point does
+24:5024 minutes, 50 secondsthat include the entire system the mail system uh the state of the system what do you mean by that? Yeah, that's a very
+24:5724 minutes, 57 secondsvery good question. Give me 2 minutes. I will explain that to you because uh state is a very important concept in langraph. Very very important. So I will
+25:0625 minutes, 6 secondsI will define the state precisely. We will do that in 2 minutes.
+25:0925 minutes, 9 secondsSure. So I'll get but thanks for asking this. Thanks for recognizing that as a important concept. I we will get to it. Yeah.
+25:1825 minutes, 18 secondsRight. So, so right now what we need to understand is we are designing the system to take decisions in a systematic
+25:2625 minutes, 26 secondsmanner so that we are not uh you know surprised by some random things which AI may start doing. So whenever you design
+25:3425 minutes, 34 secondsan AI agentic system based on this langraph idea the first and the most important thing is to design this graph
+25:4225 minutes, 42 secondsand that is what we are going to spend time on today. later on. First I will show you how lang graph works. Then we will take a real life problem and we'll
+25:4925 minutes, 49 secondsspend some time in designing this graph because designing the graph is the most important part of designing an AI
+25:5625 minutes, 56 secondsagentic system enough. So this is a simple example. We will take something more complicated but I took something simple so that it is easier for you to
+26:0426 minutes, 4 secondsunderstand the framework. Okay. So you start from here. Alfred gets the email.
+26:1026 minutes, 10 secondsAlfred classifies it as ham or spam. If it's spam, it goes here. End of story.
+26:1526 minutes, 15 secondsIf it is ham, which is normal, then Alfred drafts a a response. Bruce Swin validates it and then end of story.
+26:2426 minutes, 24 secondsNow, state of the system is something important which we will discuss. What you need to understand over here is that
+26:3026 minutes, 30 secondswhen you design a system using LAN graph, there are three things which you need to design. One is the state which I'm going to explain. The other thing is
+26:4026 minutes, 40 secondsfunction. So at each node if you notice there is a function which is being carried out there is some task which has
+26:4726 minutes, 47 secondsbeen done. So at this node what is happening? Alfred is classifying. So this is the node where classification happens. This node what is happening?
+26:5626 minutes, 56 secondsAlfred is throwing away the email into the spam folder. So there is this function of throw into spam which happens over here.
+27:0427 minutes, 4 secondsAlfred is drafting a email. So this function is drafting the email.
+27:1027 minutes, 10 secondsBruce win is validating the email. So this function is being carried out here and finally you end up. So lang graph three things are a part of lang graph.
+27:1927 minutes, 19 secondsOne is the state of the system which I have not yet defined. Please give me 2 minutes. I will define that. Second are the set of functions which you have. So
+27:2827 minutes, 28 secondscurrently we have three four different functions. So you need to define those three four different functions. The third thing is transition logic. The
+27:3727 minutes, 37 secondsthird thing is that is what you have to define is the transition logic. What is the transition logic? So here the transition logic is only at one node
+27:4627 minutes, 46 secondswhich is this node where we are classifying the email into spam or ham.
+27:5127 minutes, 51 secondsIf it is ham you transition to this path. If it is spam you transition to this path. So this is a very simple example. You can do more complicated
+27:5827 minutes, 58 secondsthings with it. But this is the basic building block of any AI agent system.
+28:0428 minutes, 4 secondsstate of the system, functions at each node separately and the transaction logic. Once these three things are
+28:1228 minutes, 12 secondsdefined, you are all set to implement it using LRA. Yes. So, can there will be multiple nodes?
+28:2028 minutes, 20 secondsNodes.
+28:2328 minutes, 23 secondsThis is one node. This is one node. So each of these blue circles is one node.
+28:2628 minutes, 26 secondsEach separate node in terms of decision making.
+28:3028 minutes, 30 secondsHuh? So at each node so decision making so currently we have only one node where decision making is happening but you can
+28:3828 minutes, 38 secondshave as many nodes as you want where decision making happens. So right now we have taken only one node just for the sake of simplicity so that you can
+28:4528 minutes, 45 secondsunderstand more easily but you can have any number of nodes where decision making is happening. No no restrict restrictions at all.
+28:5328 minutes, 53 secondsOkay Samuda. Yes.
+28:5628 minutes, 56 secondsYes sir. So as here Alfred means classifies the letters as spam and ham is a uh in a real AI agent if some
+29:0429 minutes, 4 secondsmistake happens if it's a spam letter and it is sent in the ham ham workflow and with the reverse is there any way to
+29:1129 minutes, 11 secondshandle that situation in this means in this flow. Yeah, that's a very very good question and that's a very good question
+29:1729 minutes, 17 secondsbecause AI will always make mistakes enough. So the the the probability of making a mistake will be low systems
+29:2529 minutes, 25 secondshave become good enough to handle that but it is never foolproof enough. So what you need to do are two things. One
+29:3329 minutes, 33 secondsis along with using AI to decide whether it's a ham or spam, you need to implement some other checks and some
+29:4229 minutes, 42 secondsother algos also. And right now we are not going to do that because we don't want to make it complicated. But if you want to implement this in real life then
+29:5129 minutes, 51 secondsyour spam checker should not just be AIdriven. It should be AI plus other things. Like for example, you can say
+29:5829 minutes, 58 secondsthat if an email has come from somebody in my contact list, that is always ham that is never spam. And so there are
+30:0630 minutes, 6 secondsother checks which you can implement to take to to keep track of that. And finally, if it is something very very
+30:1330 minutes, 13 secondscritical for your company, then you will have to add a human in the loop thing also where a human sort of just manually verifies it quickly to check.
+30:2330 minutes, 23 secondsOkay. Thank you, sir. And for example in the spam thing what you can do is let's say this is the uh thing you are doing let's say for your company's top
+30:3230 minutes, 32 secondsexecutives then what you can do is that let's say your company's CEO doesn't have to read all the emails so if something is classified as spam that
+30:4030 minutes, 40 secondsdoesn't go to the CEO but maybe some junior level employee can quickly go through the all the spam emails and check if there is something important
+30:4730 minutes, 47 secondswhich needs to be moved to ham you know so that way you are saving time of your senior employees that way. Uh yes, only the spam needs to be manually entered.
+30:5530 minutes, 55 secondsRight. Right. Right. Okay.
+30:5730 minutes, 57 secondsRight. Okay. Any other questions on this before we move on? No. Okay. Great.
+31:0531 minutes, 5 secondsOkay. So now we come to the coding part. As I said, please do not write anything.
+31:0931 minutes, 9 secondsNo need to write. I will share the notebook with you. I I'm not doing it right now because first I want to explain the concept. It is slightly complicated. So I want you to pay full
+31:1831 minutes, 18 secondsfocus on what I'm saying. That's why I'm not sharing the notebook with you. First I will explain then I will share the notebook so that you can run it and check uh what's going on. So what we are
+31:2731 minutes, 27 secondsdoing is we are uh we are importing installing lang chain package which we are going to use. These two packages are
+31:3531 minutes, 35 secondsnot required. It is just there. So this example is basically taken from hugging face. I have made some changes for
+31:4231 minutes, 42 secondsbetter explanation but the core idea is taken from hugging face whose link is you know there over here.
+31:5031 minutes, 50 secondsSo what are we doing? So first I'm setting up my open router API thing. So API key is there in this API key env
+31:5931 minutes, 59 secondsfile which I will upload over here and so let me let me also upload that
+32:2232 minutes, 22 secondsI've uploaded my API_key key env file with you. This env file has the API key inside it. And it's not good to add the
+32:3032 minutes, 30 secondsAPI key directly in the notebook because if you share your notebook with somebody then your API key also gets shared. So never ever add API key directly anywhere
+32:3932 minutes, 39 secondsin your code. Always use a ENV file uh ENV file for that. So here I'm just adding my API key inv file and this is
+32:4632 minutes, 46 secondsmy open router normal thing. I'm using this free model which is provided by Nvidia for for doing our work.
+32:5532 minutes, 55 secondsOkay. So now Sridhar asked a very good question. What is a state? So here I am defining the state for my this
+33:0433 minutes, 4 secondsparticular problem. So this state is basically a class. Uh if you haven't studied class in your in your Python
+33:1333 minutes, 13 secondscourse don't have to worry about it. You can think of it like a dictionary. You know so think of it like a dictionary. Although class is not a dictionary,
+33:1933 minutes, 19 secondsclass is something much more complicated. But for now, we can think of it like a dictionary.
+33:2533 minutes, 25 secondsSo what are the keys in my dictionary in my class? Email which is the original email which I got. Is spam is a binary
+33:3433 minutes, 34 secondsthing that's why the type is bool. Uh is spam is either true or false which
+33:4233 minutes, 42 secondsdesignates whether my email is spam or not. Spam reason contain the reason why did I mark it as spam. Email category is I can categorize my email in more ways.
+33:5433 minutes, 54 secondsFor example, if my inbox has many folders I may have let's say you know operations, HR, uh finance, uh
+34:0334 minutes, 3 secondstechnology, I may have different folders in which I keep my email. So I can have a email category and my agentic AI
+34:1034 minutes, 10 secondssystem can try to automatically categorize my emails into different stuff. Email draft is the draft response
+34:1734 minutes, 17 secondswhich the AI had generated which I uh which I can manually review before hitting the send button. Messages is
+34:2434 minutes, 24 secondsused to keep track of the history of uh the messages in the entire lang chain uh
+34:3034 minutes, 30 secondslang graph uh uh uh system. So as my uh model as my decision passes through
+34:3834 minutes, 38 secondsdifferent nodes of my graph uh there are different messages which I append to this messages list to keep track of the
+34:4634 minutes, 46 secondsdecision making which happened in the whole process because I want memory.
+34:5034 minutes, 50 secondsEvery AI system needs to have memory of the decision-m process. If I have arrived at point B, I have to know how
+34:5934 minutes, 59 secondsdid I arrive there. If I have come through steps A, B, C, D, E and then come finally to F, I have to keep track of what happened at A, what happened at
+35:0835 minutes, 8 secondsB, what happened at C. So that if something is going wrong at F, I can go back and check what decisions were taken
+35:1535 minutes, 15 secondsat each point. And that is what messages helps me doing. You know, so this email state is basically the state of the
+35:2335 minutes, 23 secondssystem. And as I move from one node to the other, this email state gets updated
+35:3135 minutes, 31 secondsso that I know where I currently stand with all the information which is required to understand what has happened
+35:3835 minutes, 38 secondsso far and what is the current state of decision making enough. So when I start initially
+35:4735 minutes, 47 secondsthe only thing which I will have is my email because the email is the only thing which I have rest everything will be blank and as I move from one node to
+35:5535 minutes, 55 secondsthe other all the other things will start getting populated with as and when I take decisions in my system.
+36:0436 minutes, 4 secondsDoes that make sense and others?
+36:0836 minutes, 8 secondsOh yes, only one thing just imagine that for a huge number of users so it is
+36:1536 minutes, 15 secondsmultiplied by the number of uh states uh so it remembers all the states of all the No no no no no this is per user
+36:2336 minutes, 23 secondsper user per user for each for each user for each going through from start to end for one
+36:3136 minutes, 31 secondsuser this will have one state for other users you will make a copy of this in state. Yeah. So for the Google email for
+36:3836 minutes, 38 secondsexample for a user when he logs in so it keeps for that user it keeps track of the messages.
+36:4636 minutes, 46 secondsYes. Right. Right. Definitely.
+36:5336 minutes, 53 secondsIn a class uh can we also include web hooks?
+36:5936 minutes, 59 secondsUh no no no let's not let's not go there. So this is just a simple you know class. We don't want to make it complicated right now.
+37:0837 minutes, 8 secondsYes. And so can we say it's kind of a memory manager for the graph?
+37:1537 minutes, 15 secondsYes. Yes. Absolutely. This is a memory manager for graph. Absolutely. Yes. Okay. Thank you. Yes. Welcome.
+37:2137 minutes, 21 secondsOkay. Okay. So now we have defined the state of a system. So I told you in the in the beginning that there are three
+37:2837 minutes, 28 secondsthings which are important to design any AI agent system using this land graph idea. One is the state of the system
+37:3637 minutes, 36 secondswhich keeps evolving as we pass through the graph. Second is the nodes. Nodes are functions. So at each node some
+37:4437 minutes, 44 secondsfunction gets executed. We need to define the function. After that finally we will define the transition system. So now we have defined a state and now we
+37:5237 minutes, 52 secondsare going to define the functions. So this first function is uh simple. It is just for printing and at at each state I
+38:0238 minutes, 2 secondswant to print so that I know what's happening in the state. So this function is just for printing in a proper JSON format. Nothing nothing more than that.
+38:1038 minutes, 10 secondsThe second function which I'm defining is read email. So what this function does is nothing. So my state is my
+38:1738 minutes, 17 secondsbasically my email state and email uh key within my email state is basically a dictionary of the email. So all that
+38:2638 minutes, 26 secondsthis read email does is that it uh it defines my it just reads my email and prints it on the interface. It does not
+38:3438 minutes, 34 secondsdo anything. Now the main the the first and the most important thing perhaps in this whole thing is this decision making part of whether an email is spam or ham.
+38:4738 minutes, 47 secondsThis is being done by this function and which I have highlighted. So what is this doing? This function is classify
+38:5438 minutes, 54 secondsemail. So this will take what? This will take email state as input. Now notice every single function in our definition
+39:0339 minutes, 3 secondsis taking the same input which is state of the system. We are not changing the input for any any function. Whatever any
+39:1239 minutes, 12 secondsfunction requires will have to be defined within email state. You know some function may use email, some
+39:1839 minutes, 18 secondsfunction may use something else. But we do not change the input of any function. Everything that a function may need,
+39:2539 minutes, 25 secondseverything has to be a part of this email state definition. And so now for example in my read email, in my read
+39:3339 minutes, 33 secondsemail, I'm only using email. I'm not using anything else. But still, I'm passing the state fully because that is how it is designed.
+39:4139 minutes, 41 secondsClassify email. What does it do? It also uses email. So it takes the state from that state. It extracts the email key.
+39:4839 minutes, 48 secondsIt stores in email. Now what it does it does the classification using AI. Now this is of course a very simplistic implementation. Any real life
+39:5739 minutes, 57 secondsimplementation will use many things apart from AI but I mean the idea is not to get into all those complication but just see how to implement a a trick
+40:0640 minutes, 6 secondssystem using this. So what it is doing so it is giving this prompt as Alfred the butler of Mr. vein and it secret identity Batman analyze this email and
+40:1540 minutes, 15 secondsdetermine if it is spam or legit legimate and it whether it should be brought to Mr. veins attention and this is the email which it is saying so email
+40:2440 minutes, 24 secondsis also a dictionary it has three keys sender subject and body so it is passing all that information to my system you
+40:3240 minutes, 32 secondsknow uh and what it has to do determine if this email is spam answer with spam or ham if it's legitimate only return
+40:4040 minutes, 40 secondsthe answer and nothing else and this is the answer so this is a prompt which I'm giving along with the data I'm getting the response over here I'm printing the
+40:4840 minutes, 48 secondsresponse I am I am now uh uh finding out whether it is spam or not. So this is becoming true or false. And then this
+40:5740 minutes, 57 secondswhen this becomes true or false I am now passing that information in is spam. So what is it is spam doing? If my response
+41:0641 minutes, 6 secondsfrom my AI is spam then is spam will become true. If uh the output is not
+41:1341 minutes, 13 secondsspam then is spam will become false. and and now my new state is going to store
+41:2041 minutes, 20 secondsthat information which has been decided in this line. So now my new state has
+41:2741 minutes, 27 secondstwo entries. One is is spam which is true or false and then I also have new messages. New messages has what? New
+41:3441 minutes, 34 secondsmessages is whatever was there in my messages earlier in my state. So this
+41:4141 minutes, 41 secondsline is basically the message key of my state uh class which will get that
+41:4841 minutes, 48 secondsprevious information. Into that I am going to add two more information. What is the information I'm adding? I'm
+41:5641 minutes, 56 secondsadding a dictionary which is saying ro user content prompt which means the prompt which I passed into my system as
+42:0342 minutes, 3 secondsa user and I am also storing the response which I got back from the AI which is my role of assistant you know
+42:1242 minutes, 12 secondsso what did I do I took the email I passed it into my AI I got the response then I found this variable is spam true
+42:1942 minutes, 19 secondsor false depending on whether it was spam or not I then appended these new messages to my messages and I'm passing
+42:2742 minutes, 27 secondsall of that to my new state and my new state is being returned from my function.
+42:3442 minutes, 34 secondsDo you follow any questions on this?
+42:3842 minutes, 38 secondsOkay. Now, please notice something interesting.
+42:4342 minutes, 43 secondsOkay. I'll come to the interesting part later on. Let me first just define this.
+42:4642 minutes, 46 secondsSo, this I have defined the function classify email. Let's look at the next function. The next function is handle
+42:5442 minutes, 54 secondsspam. Okay, what does the handle spam do? The handle spam.
+43:0043 minutesThe handle spam function basically does not do anything much. All that it does is that it just uh you know it uh it
+43:0843 minutes, 8 secondskind of just reads and uh you know does something. We will see how this handle spam thing is defined later on. Uh then the next function that I define is
+43:1743 minutes, 17 secondsdrafting response. So what the drafting response function does it takes the email and it is draft draft a brief professional response that Mr. May Wayne
+43:2543 minutes, 25 secondscan review and personalize before sending. So this is my prompt which I have for drafting the response. I'm sending the prompt to my AI and like earlier I am updating my new messages.
+43:3843 minutes, 38 secondsUh I'm appending it to my existing messages. Similarly prompt and response I'm appending. And now my new state is
+43:4543 minutes, 45 secondsthis which is email draft uh which was my uh response and messages is new messages which is getting updated over
+43:5343 minutes, 53 secondshere and I'm passing this new state back to the place where I had called this function. Finally notify Mr. Vin. So I
+44:0144 minutes, 1 secondneed to inform Mr. Vin. So I'm just printing this thing to inform Mr. Vin that your email has been generated. Now please review that and uh do whatever you want to do uh with that and know.
+44:1444 minutes, 14 secondsNow this is the most important part because this is where the decision making is happening. So what is this doing? This is a route email function.
+44:2144 minutes, 21 secondsWhat it takes? State again all my functions take state as input. Now my state has a key called is spam. It can
+44:2844 minutes, 28 secondsbe true or false. So if my state is spam is true then I will return spam. If it
+44:3644 minutes, 36 secondsis false, I will return legitimate. And this is what will help me in making the decisions. So now what we have done, we
+44:4444 minutes, 44 secondshave first defined the state and now we have defined all the functions which are required for my state to for my node
+44:5144 minutes, 51 secondsgraph work. And now finally I will define the logic based on that based on which my routing will be done. Any
+44:5944 minutes, 59 secondsquestions so far in the function definition?
+45:0445 minutes, 4 secondsOkay. All right. So now this is the same graph which I had shown you earlier. No change just I'm pasting the same thing here just for the sake of clarity.
+45:1345 minutes, 13 secondsMayori question.
+45:1445 minutes, 14 secondsYeah. In the decision making node whether it is spam or ham it uh based on the text analysis right?
+45:2245 minutes, 22 secondsYes. Yes. Yes.
+45:2445 minutes, 24 secondsSo how does the system analyze whether it is? So presently I'm doing it just using a simple AI prompt but this is
+45:3245 minutes, 32 secondsjust for the sake of simplicity for today's session. In reality it is done using a very complicated NLP algorithm.
+45:3945 minutes, 39 secondsI don't want to get into that because that will make it very complicated. But yeah but yeah in a real life system you will do it. It'll be a
+45:4945 minutes, 49 secondssorry it'll be a much more complicated function which does this spam him ham decision. Right now we are just using a simple prompt to do that.
+45:5945 minutes, 59 secondsOkay. But sometime you know the ham mails also go into the spam folder.
+46:0346 minutes, 3 secondsYes. Yes. Yes. Yes. So all those complications are there but the objective today was just to show you how how to build a langraph system using
+46:1246 minutes, 12 secondsdecision-m graph. So but yeah when you when you make this into a real life deployment all those complications will have to be will have to be handled. Yes.
+46:2346 minutes, 23 secondsOkay. Thank you. Okay, welcome.
+46:2646 minutes, 26 secondsOkay, so now let's see how do we design the actual graph. So first we need to add all my functions to my node. You
+46:3546 minutes, 35 secondsknow, so what nodes do I have? I have a read email node which will just read email. So every node is associated with
+46:4346 minutes, 43 secondsa function as I said. So we have a read email node which is associated with a read email function. Then I have a classify email node which is this node.
+46:5346 minutes, 53 secondsSo my read email is the start node.
+46:5546 minutes, 55 secondsClassify email is this node. So that is what classifies email. Then I have a handles handle spam uh you know node
+47:0447 minutes, 4 secondswhich is which is basically here you know there's one more node over here. So that is my that is this is basically a router to be more uh to be more precise.
+47:1347 minutes, 13 secondsSo first I will read email then I will classify the email. I will find out the class then I will give it to handle spam. Then I will
+47:2247 minutes, 22 secondsuh sorry handle spam is this node. This is the node which handles the uh the spam email. Then I have a drafting response node which is my this node
+47:3147 minutes, 31 secondswhich will draft my response. And then finally I have a notify Mr. Vin node which will notify uh Mr. V. So I have
+47:3947 minutes, 39 secondsnow defined my nodes of my system. Now the final piece of the puzzle is the routing logic. How do I define my
+47:4847 minutes, 48 secondsrouting logic? So let's look at that. So first I have a email graph as over here.
+47:5347 minutes, 53 secondsSo I initialize the email graph as a state graph from email state class and these are my uh indep individual nodes which I added. Now I'm adding my logic.
+48:0448 minutes, 4 secondsSo add add so start note means what will be the first node where I will enter my system
+48:1248 minutes, 12 secondsand that is my read email node. So this is the name of the node from where I will do my starting and read email I have defined over here. This is read
+48:2148 minutes, 21 secondsemail which is tied up with the read email function. These names don't have to be the same. I'm just using it for now but they can be different. You know
+48:3048 minutes, 30 secondsthe next thing what does it happen after start email I which is my read email I go to classify email you know. So this is basically designing defining a edge.
+48:4148 minutes, 41 secondsSo this was adding a node. This is now adding a edge. H these are different functions. Add node add edge. So after
+48:5148 minutes, 51 secondsread email I go to classify email. First read email then to classify email. And next is my most important piece of the
+49:0049 minutespuzzle which is the classify email thing. So this is what basically is the
+49:0849 minutes, 8 secondsplace where decision making is happening.
+49:1149 minutes, 11 secondsSo what do I do? I have a add conditional edges over here. You know please note you there is add edge but
+49:1949 minutes, 19 secondshere I have add conditional edges. So why is conditional edges? Because which edge it takes depends on the
+49:2749 minutes, 27 secondsoutput of this node. H. So how am I defining that? I am saying from classify
+49:3449 minutes, 34 secondsemail if my uh if my output was spam then you go to
+49:4149 minutes, 41 secondsthe handle spam node. If my output was legitimate you go to the drafting
+49:4749 minutes, 47 secondsresponse node and this is how I define where my system will go to after classify email. So I take the output of
+49:5549 minutes, 55 secondsclassify email I send it to route email and the route email output as I showed you is either spam or legitimate you
+50:0450 minutes, 4 secondsknow. So now if my output is spam it will go to the handle spam node. If my
+50:1050 minutes, 10 secondsoutput is legitimate it will go to the drafting response node. Now I I need to
+50:1850 minutes, 18 secondsmore add more edges. If I am at handle spam then I need to go to end next. So if I am at handle spam next I will go to
+50:2650 minutes, 26 secondsend. If I am at drafting response next I will go to notify Mr. Vin. After notify Mr. Vin I will end my pipeline. So this
+50:3550 minutes, 35 secondswhat I have what have I done the graph which I had shown you over here pictorially I have implemented that
+50:4250 minutes, 42 secondsusing the LAN graph uh syntax. First I identified all the nodes. I identified each node with the
+50:5250 minutes, 52 secondscorresponding functions. After doing that, I have added all the edges. Most of them are simple edges. But this is a
+51:0051 minutesdecision making edge, which is the heart of land graph that if my output is spam,
+51:0751 minutes, 7 secondsyou go to the handle spam node. If my output is legitimate, you go to the drafting response node. Any questions on this?
+51:2351 minutes, 23 secondsSo edge is the one which connects the nodes. Is that right?
+51:2851 minutes, 28 secondsYes. Yes. Yes. Yes. So these blue circles are the nodes and these black arrows are the edges which are connecting the nodes. Yes.
+51:3551 minutes, 35 secondsYes. Thank you.
+51:3951 minutes, 39 secondsHere we are doing sequentially the edges in a sequential way. This point is not sequential.
+51:4651 minutes, 46 secondsNot sequential. It is branching out. It is branching out.
+51:4951 minutes, 49 secondsWhereas can we have maybe in the complicated cases you may have that you can have multiple nodes where it is uh going going on in parallel.
+51:5951 minutes, 59 secondsYes. Yes. Yes. So so all that you have to define in your in your Yeah.
+52:0352 minutes, 3 secondsIn this thing basically nodes parting.
+52:0652 minutes, 6 secondsYeah. So, so however you want the process processing to happen be it serial be parallel be in some other more complicated thing all of that you have
+52:1552 minutes, 15 secondsto define your graph structure according to that.
+52:1952 minutes, 19 secondsSo if it has multiple starts you will simply define the nodes as functions here. So, so start will be the same but start will be single point.
+52:2952 minutes, 29 secondsStart will be single point but later on you can do branching and do file processing and all of all of that you can.
+52:3652 minutes, 36 secondsOkay.
+52:3952 minutes, 39 secondsUm sir uh on the uh conditional address you had uh classify email as the start point and the end point you're looking at the output of the route email is it?
+52:5052 minutes, 50 secondsYes. Yes. So basically I first read the email I then classify the email. So what the classify email will do is classify email will update my is spam field.
+53:0153 minutes, 1 secondRight? Right.
+53:0253 minutes, 2 secondsSo my is spam field is boolean true or false. So if my email is spam
+53:0953 minutes, 9 secondsthe is spam will thing will become true otherwise it will be false. Now I take that output and I use the route email function.
+53:1953 minutes, 19 secondsSo what the route email function will do this will take is spam field. If it is true, it will output spam. If it is false, it will output legitimate.
+53:2853 minutes, 28 secondsSo this configuration would automatically ensure that this method is being called with output of the classify. Yes. Yes. Yes. Absolutely.
+53:3853 minutes, 38 secondsIt doesn't matter if I have multiple parameters as my uh input.
+53:4253 minutes, 42 secondsYou can have as many parameters. Uh so as I mentioned, every function will take only one input which is the state. So if
+53:5053 minutes, 50 secondsyou want multiple parameters, you have to define all of that in your state definition. So this is like the most important piece in the definition over here.
+53:5953 minutes, 59 secondsOkay. Okay. And I can also have um a complicated uh uh graph wherein I can call another graph inside this one. Is that possible?
+54:1154 minutes, 11 secondsSo you don't call another graph inside.
+54:1354 minutes, 13 secondsYou have a single graph but the structure can be more complicated.
+54:1854 minutes, 18 secondsOkay. Now if I have to have a modular design and if I have them as multiple graphs uh multiple graphs I mean you cannot
+54:2654 minutes, 26 secondsseparate the graph as such. I mean the graph has to be the same but you can have different modules like for example you know I have defined all
+54:3454 minutes, 34 secondsthese different functions over here m so you can have like different groups of functions kind of okay but it's all part of one single graph basically. Okay. Thank you.
+54:4554 minutes, 45 secondsSo it is one graph within that you can have different subset of functions which are doing different things. Okay. Got it.
+54:5354 minutes, 53 secondsOkay. Shashank. Can we visualize these graphs anyway?
+54:5854 minutes, 58 secondsYeah. This is the graph which No. I mean like uh yeah yeah yeah. I will I will show you. I'll show. Yes. Okay.
+55:0555 minutes, 5 secondsYes. So now we have constructed the graph as Shashan rightly asked how do we visualize that? Visualization is important because you may think that you
+55:1455 minutes, 14 secondshave implemented what you wanted to implement but maybe you implemented something else. You may have made a mistake. So there is this uh function.
+55:2255 minutes, 22 secondsSo after define the graph what you do is you compile the graph. You save the compile thing in compile graph and after that you can actually display what you
+55:3055 minutes, 30 secondshave made not what you want to wanted to make. So this is compile graph get graph and this draws the graph. So as you can
+55:4055 minutes, 40 secondssee you start from here then you go to read email you go to classify email then if the email is spam you go to handle
+55:4755 minutes, 47 secondsspam if it is legitimate you go to drafting response then notify and then end this is what you have actually implemented
+55:5555 minutes, 55 secondsand as you can see this is matching with what you had actually wanted to implement at the beginning
+56:0256 minutes, 2 secondsokay any questions now I Uh I have one question. Um
+56:1156 minutes, 11 secondsI joined late sir in case if I missed something I like uh probably my question doesn't make any sense. But basically how I'm understanding this is uh it is
+56:2056 minutes, 20 secondsmore like we are trying to design a workflow for achieving uh uh an outcome. Yes.
+56:2756 minutes, 27 secondsOf a trigger.
+56:2856 minutes, 28 secondsAbsolutely. Absolutely. Yes. Yes. in a in one of our old classes um I don't recall some madam has explained about
+56:3756 minutes, 37 secondsyou know we can design the workflow using a flow wise and we can have the branching techniques everything a a kind
+56:4456 minutes, 44 secondsof similar approach was also uh explained so I'm still thinking these both are aligned it's just that it's your own way of how you can design the
+56:5356 minutes, 53 secondsworkflow of uh workflow orchestration of that agent yeah so I I cannot comment on the other thing because I don't know in what
+57:0157 minutes, 1 secondcontext she may have said it but yeah we are basically designing our workflow as I mentioned at the beginning that when we talk of AI agents there are two ways
+57:1057 minutes, 10 secondsin which AI agents can be implemented one is fully uh upon the AI so you describe the problem uh which is a crew
+57:1957 minutes, 19 secondsAI approach you describe the problem and completely leave it to AI to decide what it wants to do you have no control after
+57:2657 minutes, 26 secondsyou have started the AI to do the task so that is one approach approach which is not uh which is easier to implement
+57:3357 minutes, 33 secondsbut not so good from a practical perspective because AI can get into all kinds of uh you know bad decision-m
+57:4157 minutes, 41 secondsloops. So a better approach from a practical perspective is to design the workflow yourself and use AI at
+57:4857 minutes, 48 secondsappropriate nodes to take specific decisions rather than giving the whole workflow to the AI to decide. You use AI
+57:5657 minutes, 56 secondsat specific nodes to take decisions and that workflow design can be implemented easily using the langraph framework.
+58:0558 minutes, 5 secondsThat is what we are discussing.
+58:0758 minutes, 7 secondsSo I was about to ask about that one only. So this is a static design where with the if then else and all functions
+58:1558 minutes, 15 secondswe are designing the logic but there is no AI but better system there is there is AI know. So whether to
+58:2358 minutes, 23 secondsgo to ham path or spam path that is this decision is taken by AI.
+58:2858 minutes, 28 secondsUh by which uh so here classification email is being done by AI right?
+58:3358 minutes, 33 secondsAh that's so if my if my email is so I mean I could have taken a more complicated thing but then understanding that would have become so for that I'm taking the simple thing.
+58:4358 minutes, 43 secondsSo this point AI is taking a decision about which path to take I'm not deciding that. So that's what by using a
+58:5258 minutes, 52 secondsAI for decision making it may access some LLM and all and based on the words in the logic inputs it is getting
+59:0159 minutes, 1 secondthen dynamically it should decide then it will be different it will be new system as per huh so so that basically this route
+59:1059 minutes, 10 secondsemail system can be updated to be made fully AI right so right now here I have implemented if
+59:1759 minutes, 17 secondselse over here but This also can be made fully AI.
+59:2159 minutes, 21 secondsYeah. So it is a simplified version to explain better explain.
+59:2459 minutes, 24 secondsYes. Yes. Yes. So I'm just using a simplified version to better explain langraph. But every single node in this lang graph can be AI.
+59:3359 minutes, 33 secondsCan be AI.
+59:3459 minutes, 34 secondsBut it is it is not advisable because AI will make mistakes as lot of you are pointing out right.
+59:4159 minutes, 41 secondsSo the best approach is a mixture of if else and AI.
+59:4559 minutes, 45 secondsYeah. static design logic and also mixture of yes and uh I'll just take another minute sir
+59:5359 minutes, 53 secondshere uh because this is exactly what we are trying to implement in our uh you know one of our professional projects so
+1:00:011 hour, 1 secondto give a background to everyone um I'm working on a bank like basically uh
+1:00:081 hour, 8 secondsI'm working for a bank so the bank gets an email from the customer saying that like let's say my address has been
+1:00:161 hour, 16 secondschanged and that email can be a straight email for you or that email can be a conversational email because it's not
+1:00:241 hour, 24 secondsindividual accounts that we are handling it's a entity account that I'm handling so uh you won't get straight email conversations and that it will be a
+1:00:331 hour, 33 secondsconversational email always like you will have probably 10 email back and forth and then you have a you have to
+1:00:401 hour, 40 secondsextract the entire content to understand and evaluate what is the essence of that email. So that is the first thing that we are trying to do. Uh
+1:00:491 hour, 49 secondsbasically we are doing an email classification agent where the input is coming from a server side mailbox and
+1:00:571 hour, 57 secondsthat will be fed into the email classifier and the email classifier will classify it saying that it's an address
+1:01:041 hour, 1 minute, 4 secondschange. It's an basically an activity will come out. One of them is address change uh which we are trying to implement as part of the first
+1:01:121 hour, 1 minute, 12 secondsimplementation. So once the intent is defined then that intent is basically passed to another orchestration agent.
+1:01:211 hour, 1 minute, 21 secondsNow what this orchestration agent will do is we have internal procedures like like everyone you will always uh end up
+1:01:281 hour, 1 minute, 28 secondssaying that there is a standard ops like standard operational procedures you always refer. Now that is fed into the orchestration agent like and it is
+1:01:371 hour, 1 minute, 37 secondsprobably having around 1100 documentations on okay if you get XY Z activity what is that that you need to
+1:01:441 hour, 1 minute, 44 secondsdo so all these are fed into the orchestration agent along with the classifier output then we are using again another LLM and AI to understand
+1:01:531 hour, 1 minute, 53 secondsokay now this is the intent of the classifier and this is what you have as a rag in your pipeline now you tell me
+1:02:011 hour, 2 minutes, 1 secondwhat is the output with a confidence score on what is the action that users might do. So this is what we are trying to implement
+1:02:101 hour, 2 minutes, 10 secondsas part of this year's OKRs for us. Um and and that's it.
+1:02:171 hour, 2 minutes, 17 secondsVery nice. Very nice. Good to know. Okay.
+1:02:261 hour, 2 minutes, 26 secondsSo uh so we have now implemented the node and the and the and the and the edges and now we have the full graph in front of us as I mentioned in response
+1:02:351 hour, 2 minutes, 35 secondsto Sida's question that the nodes and edges that we have are using AI and you can increase the use of AI anywhere as you like. There is no restriction. The
+1:02:441 hour, 2 minutes, 44 secondssame framework can be made fully using AI fully using FLS or something in between as per your requirements. The
+1:02:521 hour, 2 minutes, 52 secondsideal thing is use both. If you use only AI then you know chances are that your
+1:02:591 hour, 2 minutes, 59 secondsresults will get corrupted because of some wrong thing that AI decided. If you use only ifels then you are being very
+1:03:071 hour, 3 minutes, 7 secondslimited you are not using the power of AI. So the best thing to do is to use the power of both where AI is useful use
+1:03:141 hour, 3 minutes, 14 secondsAI. What can be done using if else you do using so the best thing is to so the most important part of this design is to
+1:03:231 hour, 3 minutes, 23 secondsmake this graph basically this is the most difficult part once this graph has been made rest is just implementation which even AI can do for you but
+1:03:321 hour, 3 minutes, 32 secondsdesigning this graph is where your intelligence and your understanding and your domain expertise you know will really uh you know play an important role. Yes.
+1:03:431 hour, 3 minutes, 43 secondsSir uh as per compile part I want to ask my question that can we compile the full code at once at one as at once glance or
+1:03:521 hour, 3 minutes, 52 secondscan we compile uh the only class uh and uh we are not compiling the code we compiling a graph Python Python you
+1:04:021 hour, 4 minutes, 2 secondsdon't compile it's interpreted language so there's no compilation of the program itself we just compiling the graph that's all after the graph has been defined you
+1:04:101 hour, 4 minutes, 10 secondsneed to compile that put put it in one entity called email compile graph which we'll be using for our decision making.
+1:04:191 hour, 4 minutes, 19 secondsThank you.
+1:04:201 hour, 4 minutes, 20 secondsOkay. So now let's just take two simple examples. So I have a legitimate email you know from you which is sent by
+1:04:281 hour, 4 minutes, 28 secondsJoker. If you have seen the movie you would know that that is the main antagonist in the movie. Uh and now you need to process the email using our
+1:04:371 hour, 4 minutes, 37 secondscompile graph. So you do compile graph.invoke and this is the state of the system at the beginning which you
+1:04:431 hour, 4 minutes, 43 secondsare passing into your uh thing. So email is my legitimate legitimate email.
+1:04:491 hour, 4 minutes, 49 secondsEverything else is none because processing has not started. And when you process it you will see that slowly all the categories will start getting updated.
+1:04:581 hour, 4 minutes, 58 secondsSo first I'm entering my read node. So I have just read read the email. Nothing is
+1:05:061 hour, 5 minutes, 6 secondsgetting populated. Now I am uh you know processing uh the email. Uh you know nothing is updated. Next is my classify
+1:05:151 hour, 5 minutes, 15 secondsemail. So now I did classify. This was my initial email state nothing was there over here. AI response was ham. And now
+1:05:231 hour, 5 minutes, 23 secondsyou see my is spam field got updated with false and my messages also got updated with the user prompt and my
+1:05:321 hour, 5 minutes, 32 secondsoutput from the assistant. H so why I'm showing you all this? so that you know how the state gets updated as my processing goes on. Now because this was
+1:05:411 hour, 5 minutes, 41 secondsham my email uh the graph moved into the drafting response uh state. So now I'm
+1:05:471 hour, 5 minutes, 47 secondsdrafting my response. So entering my email draft is null. It did the processing and now my email draft field
+1:05:551 hour, 5 minutes, 55 secondsgot populated with the with the data you know. So as as you can see as my system goes from one node to the other my state
+1:06:041 hour, 6 minutes, 4 secondskeeps getting updated and all the new thing which is happening is getting appended to my uh to my state
+1:06:121 hour, 6 minutes, 12 secondsyou know and when I notify Mr. V. So I have notified him and then you do whatever you want to do.
+1:06:191 hour, 6 minutes, 19 secondsNow I have another email which is looks like a spam email which is let's say some from crypto bro or whatever. Uh
+1:06:261 hour, 6 minutes, 26 secondsthen I have my initially like earlier everything else is none only my email is is spam email and now the spam same
+1:06:341 hour, 6 minutes, 34 secondsprocessing happens. So then I have I go to my classify email node this is my start node nothing over here. Then my AI
+1:06:431 hour, 6 minutes, 43 secondsresponse is spam. So now you can see that my is spam thing got uh uh you know updated and my messages did not get
+1:06:511 hour, 6 minutes, 51 secondsupdated perhaps because it was spam so I didn't care about it. then I will just handle spam and I will just throw it into the garbage and nothing else to do.
+1:06:591 hour, 6 minutes, 59 secondsOkay. So I'm now going to share this notebook with you and I will give you 10 minutes to run this notebook and go
+1:07:061 hour, 7 minutes, 6 secondsthrough it and ask me questions. Uh after that we will move on.
+1:07:261 hour, 7 minutes, 26 secondsOkay, it's in your chat box in the zoom chat box. If you see, I've shared a notebook. Uh, right now it is 3:02. So,
+1:07:331 hour, 7 minutes, 33 secondsat 3112, I'm here only. I'm not going anywhere. I'm here. So, take 10 minutes quickly go through the notebook, run it,
+1:07:411 hour, 7 minutes, 41 secondsand see if you get any errors or if you have any questions. Uh, uh, once you're done, then let me know. Then at 312 we
+1:07:481 hour, 7 minutes, 48 secondswill we will proceed with the next set of
+1:09:141 hour, 9 minutes, 14 secondsI have shared the same link again. In case you did not you missed out the previous
+1:09:201 hour, 9 minutes, 20 secondsmessage, you can use the
+1:11:201 hour, 11 minutes, 20 secondsYes sir. Sorry sir, but there is name error. Let me share you the code.
+1:11:301 hour, 11 minutes, 30 secondsJust screenshot. Yes,
+1:11:331 hour, 11 minutes, 33 secondschat. You can just send a screenshot
+1:11:491 hour, 11 minutes, 49 secondsas if it's collab.
+1:12:051 hour, 12 minutes, 5 secondsCompile graph is not defined. Did you run the whole thing from the starting? Yes sir.
+1:12:121 hour, 12 minutes, 12 secondsComped maybe possible.
+1:12:221 hour, 12 minutes, 22 secondsLet me check.
+1:12:371 hour, 12 minutes, 37 secondsAnd you'll have to provide your API key that's also required.
+1:12:441 hour, 12 minutes, 44 secondsUh you need to I don't know uh you need to upload your API key also if I don't know if you have missed doing that. Yes,
+1:12:501 hour, 12 minutes, 50 secondsI'm getting API key error in the that's ah so the API key has to be uploaded.
+1:12:571 hour, 12 minutes, 57 secondsOkay. So you said to upload in a environment and call it from there means how to do it actually we uh be uploading the theme secret.
+1:13:041 hour, 13 minutes, 4 secondsSo so for now don't worry about the environment thing. You can do that later. Right now all that you can do very simply is you can take your API key
+1:13:121 hour, 13 minutes, 12 secondsand you put it over here. So you just uh you use this use this line.
+1:13:211 hour, 13 minutes, 21 secondsOkay. Okay. I will for now just do this later on you can use the environment. So here I've explained how to use the environment
+1:13:281 hour, 13 minutes, 28 secondsfile also. You can do that now or you can do that later. If you want to do it quickly you can directly put the key over here. Okay. Okay.
+1:14:131 hour, 14 minutes, 13 secondsUh Jenny, have you set the API key properly?
+1:14:171 hour, 14 minutes, 17 secondsSam Buddha, I think you also need to set the API key properly. Oh yes, I set it. I'm trying. I'm trying. Yeah. Okay. Okay.
+1:16:241 hour, 16 minutes, 24 secondsanybody who is over can you please type in the chat box done or something so that I know that at least some people are able to run Okay.
+1:16:491 hour, 16 minutes, 49 secondsCan you explain what we need to save in files again? Uh one second please. What we need to save in files?
+1:16:581 hour, 16 minutes, 58 secondsUh nothing to save. Right now just run this and check if it's working for you.
+1:17:041 hour, 17 minutes, 4 secondsI'm getting this same error which Samuta got. The API key client option must be set either by passing API key.
+1:17:111 hour, 17 minutes, 11 secondsYes, I'm I'm hardcoding API key now but it is giving some uh invalid decimal is present uh at the end something like
+1:17:191 hour, 17 minutes, 19 secondsthis again. H so your API key is not proper. You need to set the API key properly.
+1:17:381 hour, 17 minutes, 38 secondsMaybe one of you could also share your screen and show me what's going on. Oh, okay. I can share the screen.
+1:17:451 hour, 17 minutes, 45 secondsOkay. Okay. I have stopped sharing.
+1:17:521 hour, 17 minutes, 52 secondsIn the meantime, sir, I get an authentication error. Is it because of my API key? Yes. Yes. API key issue.
+1:18:001 hour, 18 minutesUh so you are putting the API key from open router or somewhere else. Uh is my screen visible?
+1:18:081 hour, 18 minutes, 8 secondsYes. Yes. Yes.
+1:18:091 hour, 18 minutes, 9 secondsUh actually I am putting the API key which was shared from uh uh future ends. This API key.
+1:18:151 hour, 18 minutes, 15 secondsNo no this is a this is open API key. So here the format will be different. So this function which I've given is for open router API key.
+1:18:241 hour, 18 minutes, 24 secondsOkay. Uh in our earlier session we had one generated open router API key now. Sorry I was I don't think so session.
+1:18:341 hour, 18 minutes, 34 secondsOkay. Let me just share my quickly.
+1:18:381 hour, 18 minutes, 38 secondsWell I have my own API key but still I'm facing this.
+1:18:411 hour, 18 minutes, 41 secondsUh no no your own API key is from open router or somewhere else? From open AI.
+1:18:461 hour, 18 minutes, 46 secondsUh no no that is a different uh okay I didn't know that future has given you open AI key. I would have. So there are
+1:18:541 hour, 18 minutes, 54 secondstwo options right now. So one is you can replace this function with open AI function that is that is one option. The other option is you go to open router.
+1:19:081 hour, 19 minutes, 8 secondsI hope you can see the website. You login using Google and I just lo login using Google.
+1:19:151 hour, 19 minutes, 15 secondsGo to Yeah. Go to settings personal. Go to
+1:19:231 hour, 19 minutes, 23 secondssettings. You will have this API key section over here. And from here you can create a new API key and get the API key.
+1:19:311 hour, 19 minutes, 31 secondsOkay. Okay. Same like we create the Germany and Google. Yes. Yes. Yes. Yes. Yes.
+1:19:361 hour, 19 minutes, 36 secondsI think I have not created the keys in environment that's why taking it somewhere.
+1:19:421 hour, 19 minutes, 42 secondsOkay. Could be. Let me share the I have shared the website also.
+1:19:491 hour, 19 minutes, 49 secondsYeah. Share the open router website with you. You can go to this website and get the API key from there for free.
+1:19:561 hour, 19 minutes, 56 secondsOr if you want to use your own open AI key as I mentioned you can you just have to change this function. This function is meant for open router. You can
+1:20:041 hour, 20 minutes, 4 secondsreplace this function and it will also work your issue also because of the API key.
+1:20:161 hour, 20 minutes, 16 secondsI think you are using the open AI key and that's why it's not working. You need to use the open router key.
+1:20:231 hour, 20 minutes, 23 secondsSo just get a new key from open router and then this will work. And what we can name open a API key.
+1:20:331 hour, 20 minutes, 33 secondsYeah, it doesn't matter. Name doesn't matter. You can give whatever name you want. Doesn't matter.
+1:20:401 hour, 20 minutes, 40 secondsAnd then here you can just you can remove these two things. You can just for doing it quickly and then put API
+1:20:471 hour, 20 minutes, 47 secondskey is equal to whatever key you have you put over that's all and then you're done.
+1:20:571 hour, 20 minutes, 57 secondsUh we have to comment out the load environment section also right sir. Yes yes yes yes.
+1:21:031 hour, 21 minutes, 3 secondsSo I'm getting a authentication error 401. Are you using openi?
+1:21:091 hour, 21 minutes, 9 secondsYeah I'm using openai. Yeah please don't use that please. As I said,
+1:21:121 hour, 21 minutes, 12 secondsif you use that, you will have to update this function, which I've done. Aa, do you want to share your screen?
+1:21:201 hour, 21 minutes, 20 secondsUh, yeah, I can do that right away.
+1:21:331 hour, 21 minutes, 33 secondsYeah. Are you able to see my screen here? Uh, yeah.
+1:21:381 hour, 21 minutes, 38 secondsUh, wait. No, show me the open AI function.
+1:21:481 hour, 21 minutes, 48 secondsEven with open router key, the error is same.
+1:21:541 hour, 21 minutes, 54 secondsYes, same. From here, uh Santo, where have you defined the where is your open AAI key actually?
+1:22:011 hour, 22 minutes, 1 secondHere.
+1:22:061 hour, 22 minutes, 6 secondsOkay. Okay. And where is the function where you're using the key to get a response?
+1:22:151 hour, 22 minutes, 15 secondsThat function is not there. Okay.
+1:22:181 hour, 22 minutes, 18 secondsUh so so you need a function. If you're using the op key, you need the function over there which is which will use that API key. Okay. Okay. Okay. Okay. Okay. All right.
+1:22:261 hour, 22 minutes, 26 secondsOkay. Thank you. Okay. Welcome. Uh anybody tried? Okay. Diva finally works. Finally. Great.
+1:22:351 hour, 22 minutes, 35 secondsOpen router even uh I'm getting the same error. Can you please share your screen? Yes. Yes, sure. Share it.
+1:22:491 hour, 22 minutes, 49 secondsYeah, I'm sharing it.
+1:22:521 hour, 22 minutes, 52 secondsSo, this is the uh open router key I have created.
+1:22:561 hour, 22 minutes, 56 secondsOkay. Now, go to the collab. I have uh copied this and here is the collab. Uh
+1:23:041 hour, 23 minutes, 4 secondsokay. You know the the API key open go up. Yeah.
+1:23:111 hour, 23 minutes, 11 secondsNo. Where is the key? Put it in quotes. There has to be quotes. Okay.
+1:23:181 hour, 23 minutes, 18 secondsShallin also done. Very good. Congratulations. Okay. Now run this.
+1:23:261 hour, 23 minutes, 26 secondsOkay. Work now. Thank you. Fantastic. Fantastic. Thank you. Thank you.
+1:23:401 hour, 23 minutes, 40 secondsOkay, great. Diva and Shahin are done. Vijay done. Very good. Thank you. Fantastic. Can I share my screen?
+1:23:471 hour, 23 minutes, 47 secondsUh-huh. Please. Please. Yes. If you can see.
+1:23:561 hour, 23 minutes, 56 secondsYeah. I have defined this uh open router key. Uh no, your your name is different from the
+1:24:041 hour, 24 minutes, 4 secondskey name. Now I would suggest just paste it over here for simplicity. Let's make it simple. Just paste in the API key equal to within quotes. Let's be done
+1:24:121 hour, 24 minutes, 12 secondswith it. You can set up the environment thing later on.
+1:24:191 hour, 24 minutes, 19 secondsSo, so you can comment out both those lines. Load up
+1:24:351 hour, 24 minutes, 35 secondsand now API key error is resolved and here I'm getting none type object is not subscriber subscriptible.
+1:24:441 hour, 24 minutes, 44 secondsOkay, that debugging we'll have to do. Let's look at that later on. Okay,
+1:24:531 hour, 24 minutes, 53 secondswe just copy that and put it over there and it'll work. Go back to your collab.
+1:25:031 hour, 25 minutes, 3 secondsThen you don't do anything. Don't do anything.
+1:25:071 hour, 25 minutes, 7 secondsPlease see load environment load environment API comment on both those lines
+1:25:151 hour, 25 minutes, 15 secondsload environment that and the next line
+1:25:211 hour, 25 minutes, 21 secondsno m load environment API key envi key env yes yes here
+1:25:301 hour, 25 minutes, 30 secondsuh comment both those lines here I need to paste no no comment both those lines comment
+1:25:381 hour, 25 minutes, 38 secondscomment remove those related or commented I will uh remove that and then
+1:25:461 hour, 25 minutes, 46 secondsuh API key all of you please pay attention the same thing everybody has to do equal to
+1:25:551 hour, 25 minutes, 55 secondsequal to quotation no no no quotes don't type okay sorry quotation now paste the API Okay,
+1:26:061 hour, 26 minutes, 6 secondsthat's all. Everybody please do this. Everybody please do this. It will work. Okay. Okay. Thank you. Now this will work.
+1:26:171 hour, 26 minutes, 17 secondsOkay. Okay. Others may be having some issues but let's look at that a little later. Uh you can remove your screen. I would like to share mine.
+1:26:261 hour, 26 minutes, 26 secondsOkay. Thank you. Okay.
+1:26:311 hour, 26 minutes, 31 secondsOkay. So I have a few questions based on what we just discussed. Let's look at that and then we will move on to
+1:26:381 hour, 26 minutes, 38 secondsactually working on our new problem. So the first question is that if you notice the functions we defined functions for
+1:26:461 hour, 26 minutes, 46 secondseach node. Now in that function if you notice we are not updating the state variable anywhere. What we did in the
+1:26:551 hour, 26 minutes, 55 secondsfunction is we created a new variable called new state. You know all of you have the code. Please go to the
+1:27:031 hour, 27 minutes, 3 secondsfunctions and notice that in the functions we are not updating the state variable anywhere. We got the state
+1:27:111 hour, 27 minutes, 11 secondsvariable as a input to my function. We did some processing and we created a new state variable and we are returning that. So how is the state variable getting updated? Any idea?
+1:27:241 hour, 27 minutes, 24 secondsWhat is your guess? I have not told this to you. I'm asking you to guess. How do you think is the state variable getting updated when I'm not updating it
+1:27:311 hour, 27 minutes, 31 secondsanywhere myself and we know the state is getting updated because when I'm printing it I'm getting the new state information but actually
+1:27:401 hour, 27 minutes, 40 secondsI'm not updating it anywhere I think when it sorry
+1:27:471 hour, 27 minutes, 47 secondswhen you're calling the function somewhere there it is updating it so so lang graph is doing that on its own on its own
+1:27:541 hour, 27 minutes, 54 secondsso I do not have to update the state function when I'm returning the state function lang by itself knows that the state has to get updated.
+1:28:031 hour, 28 minutes, 3 secondsUh returning the state function means when the function is being called no when the function is being called I'm passing it the state function then it is
+1:28:111 hour, 28 minutes, 11 secondsdoing some processing and it is returning new state.
+1:28:141 hour, 28 minutes, 14 secondsAh at the time returning when I'm returning new state langraph knows that I need to use this information to update the original state variable.
+1:28:231 hour, 28 minutes, 23 secondsGot it.
+1:28:241 hour, 28 minutes, 24 secondsSo langraph lang graph is doing it. Yeah lang graph is doing that for me. So when I pass the new state, I do not have to return the entire state every time. All
+1:28:331 hour, 28 minutes, 33 secondsthat I need to return is the part which needs to get updated.
+1:28:371 hour, 28 minutes, 37 secondsIf I return an empty dictionary, that means nothing has to be updated. Okay.
+1:28:421 hour, 28 minutes, 42 secondsIf I return new state with some new stuff, my old state will get updated.
+1:28:471 hour, 28 minutes, 47 secondsOkay, please remember that. These are again like typical questions you may get in interviews or whatever in case you appear for some.
+1:28:551 hour, 28 minutes, 55 secondsNext question. when you when we add the nodes uh the state uh we specify the uh
+1:29:031 hour, 29 minutes, 3 secondssorry when we add the edges right we specify the names for the edges so is that used as a state or when it
+1:29:101 hour, 29 minutes, 10 secondstraverses that edge no no no state state node edge these are three different things no relation with each other
+1:29:191 hour, 29 minutes, 19 secondsI see so what is a state is defines my system as a whole my system as a role is
+1:29:261 hour, 29 minutes, 26 secondsdefined by some parameters. What are those parameters? Email is spam,
+1:29:321 hour, 29 minutes, 32 secondsmessages, draft email. Those are the parameters which define my entire system. Like I have a car. My car can be
+1:29:411 hour, 29 minutes, 41 secondsswitch on, switch off. It's it's its petrol tank can have 5 liter petrol, 10 liter petrol. So all these variables
+1:29:501 hour, 29 minutes, 50 secondsdefine the state of my car. Is my engine hot? Is my engine cold? Right? So state
+1:29:561 hour, 29 minutes, 56 secondsis what defines my system right now. As my system evolves, the state keeps changing.
+1:30:051 hour, 30 minutes, 5 secondsMake sense? Yeah. Okay.
+1:30:081 hour, 30 minutes, 8 secondsAnd node is a point in my graph where I am presently located in my entire decision graph.
+1:30:161 hour, 30 minutes, 16 secondsYes. Yeah.
+1:30:171 hour, 30 minutes, 17 secondsEdge is going from one node to the other. So edge is what connects one node to the other. Yeah. So when I move from
+1:30:251 hour, 30 minutes, 25 secondsone node to the other, my entire system state will change. Right.
+1:30:321 hour, 30 minutes, 32 secondsRight. So state is whole system. State has nothing to do with node. State is for the whole system. As I move from one
+1:30:411 hour, 30 minutes, 41 secondsnode to the other, how do I move? By traversing through the edges. If two nodes are connected by an edge, I can go
+1:30:491 hour, 30 minutes, 49 secondsfrom one node to the other. If they are not connected, I cannot go.
+1:30:561 hour, 30 minutes, 56 secondsSir, so uh sir, I have a question. What?
+1:31:041 hour, 31 minutes, 4 secondsYeah. So the email state class, all the variables in the email state class that we have should be updated every time when we change from node to node.
+1:31:121 hour, 31 minutes, 12 secondsUh ideally yes, sometimes you may not want to change that is also okay. But ideally when you go from one node to the other, your state should change. Yes.
+1:31:201 hour, 31 minutes, 20 secondsOkay. But here the lang graph is maintaining the state. So it's keep updating uh every time. We don't have to manage it all.
+1:31:271 hour, 31 minutes, 27 secondsYou don't have to manually do it. But whatever field you need to change, you have to pass it in the new state variable. Okay.
+1:31:351 hour, 31 minutes, 35 secondsAnd so when the function is ending, it is returning new state. New state has only the fields which has to get updated.
+1:31:431 hour, 31 minutes, 43 secondsOkay. So the pre previous variables that are there in the email state class will remain as unless we change it.
+1:31:491 hour, 31 minutes, 49 secondsExactly. Exactly. The previous variables in the state class will remain as it is.
+1:31:531 hour, 31 minutes, 53 secondsOnly the new state variables will get updated by langraph automatically. Okay. And also it is a oneway traversal.
+1:32:001 hour, 32 minutesRight? So here we are there is a decision node and it's if it is a ham it's going to the top branch. If it is
+1:32:081 hour, 32 minutes, 8 secondsnot it is going to the spam branch right side. So it's uh one way. So can we can we so this is a this is a simple implementation which I showed you just
+1:32:161 hour, 32 minutes, 16 secondsfor easy understanding. You can add a loop in this also. Okay. Yeah.
+1:32:211 hour, 32 minutes, 21 secondsYeah, you can. So, so the basic basic idea which I have uh explained today is what you need to build any amount of complexity that you require.
+1:32:331 hour, 32 minutes, 33 secondsOkay.
+1:32:331 hour, 32 minutes, 33 secondsSo, what I have given you is the basic building block. I have given you the Lego blocks. Now, whether you want to make it to build a 20story building or a sprawling bungalow or astrapi bhavan,
+1:32:441 hour, 32 minutes, 44 secondsthat is completely up to you.
+1:32:471 hour, 32 minutes, 47 secondsOkay. But what I can guarantee is that whatever you need to build I have given you the tools for that. Got it. Thank you.
+1:32:551 hour, 32 minutes, 55 secondsOkay. Welcome Shr.
+1:32:561 hour, 32 minutes, 56 secondsYou already you already explained maybe we as in we can build we can build the complexity but we are supposed to handle exceptions.
+1:33:061 hour, 33 minutes, 6 secondsSo exceptions also get handled using the same nodes only.
+1:33:091 hour, 33 minutes, 9 secondsNodes only you write a function and you so whatever you want to handle you add a note for that. add a function and add a function. So
+1:33:181 hour, 33 minutes, 18 secondsexactly. Okay. Uh yes.
+1:33:241 hour, 33 minutes, 24 secondsSo the transition uh the langraph does like you know the from the nodes to based on the edges that you define the traversal happens with the langraph.
+1:33:361 hour, 33 minutes, 36 secondsYes. Yes. So so so in crew AI you do not have to design the graph. Crew AI will decide how it wants to traverse. So if
+1:33:431 hour, 33 minutes, 43 secondsyou want a fully autonomous agent which does all the planning and thinking for you use crowi but if you want to have more control on
+1:33:521 hour, 33 minutes, 52 secondsthe system if you want to decide how the traversal happens use lang.
+1:33:591 hour, 33 minutes, 59 secondsSo both are AI agents in one place AI decides everything in one in the other place you decide the flow and you decide
+1:34:061 hour, 34 minutes, 6 secondshow much power AI has. You have full control now. Okay. Okay.
+1:34:161 hour, 34 minutes, 16 secondsOkay. Next question.
+1:34:181 hour, 34 minutes, 18 secondsSir, one question. The so we use lang chain also and now
+1:34:241 hour, 34 minutes, 24 secondslangraph. So could you just tell us what what lang chain cannot do and uh what can be done in langraph.
+1:34:331 hour, 34 minutes, 33 secondsRight. Right. Very good question and the answer is in the name itself. So lang chain lang graph. Lang chain is a chain.
+1:34:421 hour, 34 minutes, 42 secondsIt is a simple linear execution. There is no bifurcation. There is no looping.
+1:34:471 hour, 34 minutes, 47 secondsThere is nothing. You go from Delhi to Nagur to Vijayada to Bangalore to Chennai. One straight line over.
+1:34:561 hour, 34 minutes, 56 secondsLang graph gives you option. Let's say from Delhi you came to Jaipur. In Jaipur you decide whether you want to go to
+1:35:041 hour, 35 minutes, 4 secondsIndor or Ahmedabad. Then you come to Ahmedabad. based on your transaction you decide whether you want to go to Bombay or uh Nagpur or whatever you know. So
+1:35:131 hour, 35 minutes, 13 secondslang chain simple linear chain point A point B point C point D and till the end lang graph is a graph it can have
+1:35:201 hour, 35 minutes, 20 secondsbranches it can have different nodes it can have loops cycles all those complexities make sense yeah sir thank you
+1:35:291 hour, 35 minutes, 29 secondsokay welcome okay next question so in the edge definitions if you look at all the definitions of the edges which we
+1:35:361 hour, 35 minutes, 36 secondsgave all the function names are I have written in quotes but this uh but there was this route email which I have not
+1:35:441 hour, 35 minutes, 44 secondswritten in quotes. Anybody knows why is that so? Again take a guess. I'm asking questions which have not explicitly
+1:35:511 hour, 35 minutes, 51 secondsexplained but I want to see whether you are able to guess or not. So why do you think route email was not in quotes but
+1:36:001 hour, 36 minutesall the other function names were in quotes? It was not a node.
+1:36:051 hour, 36 minutes, 5 secondsVery good DA. Very good. So route walla thing was not a node. It was a decision making point. That's why it is not in
+1:36:131 hour, 36 minutes, 13 secondsquotes and there I'm writing the function and the other things which are in quotes are actually not function names they are node names which are in
+1:36:201 hour, 36 minutes, 20 secondsports and those node names were exactly same as the function name. So it appears as if they are function names but they are actually node names. So where you
+1:36:281 hour, 36 minutes, 28 secondshave a function you give the function name and where you have a node name that is a string. So that has to be in quotes. Very good.
+1:36:371 hour, 36 minutes, 37 secondsNext question is you know we all want to use LLMs for everything and right now also we are using LLMs and what we are
+1:36:451 hour, 36 minutes, 45 secondsdoing is if our output is spam we are going to one direction if it is ham we are going to another direction but it is
+1:36:531 hour, 36 minutes, 53 secondspossible and it does happen even with the most advanced L&Ms is that sometimes we told it to output only ham or spam
+1:37:011 hour, 37 minutes, 1 secondnothing else but sometimes it may hallucinate and may output something How do we handle that? We have to have exception somewhere.
+1:37:101 hour, 37 minutes, 10 secondsVery good. That's exactly what Sridar also asked earlier. You need to have proper exception handling. Any good piece of code, no matter with AI agents
+1:37:181 hour, 37 minutes, 18 secondsor not, you have to have proper exception handling. You have to incorporate that in your code if you are building it for production.
+1:37:271 hour, 37 minutes, 27 secondsNext question. Uh we have not used email category anywhere or have we used and if we have to use what will you do?
+1:37:361 hour, 37 minutes, 36 secondsIf you look at the state description, there is a field called email category.
+1:37:411 hour, 37 minutes, 41 secondsBut in none of the function have I described it. So if you have to describe it, how will you do?
+1:37:481 hour, 37 minutes, 48 secondsWhere will you add that? How will you add that?
+1:37:511 hour, 37 minutes, 51 secondsLike uh folders in your email when you want if it is not spam,
+1:37:561 hour, 37 minutes, 56 secondsyou want to categorize the emails and route the emails to that folder, then you define this.
+1:38:021 hour, 38 minutes, 2 secondsVery good. So how will you change your current graph to incorporate this?
+1:38:061 hour, 38 minutes, 6 secondsUh you have to write that function for that node email category. For which node?
+1:38:131 hour, 38 minutes, 13 secondsWe don't have ah yeah we have to add a node.
+1:38:151 hour, 38 minutes, 15 secondsWe have to add a node. Very good. So you have to add a node for categorizing emails. Currently it is not there. And
+1:38:221 hour, 38 minutes, 22 secondsif you add a uh if you add a node for doing that then you have to add a different branching thing also. Hannah.
+1:38:301 hour, 38 minutes, 30 secondsSo let me just come back to that for a minute.
+1:38:341 hour, 38 minutes, 34 secondsSo it is better after the spam decision if it is spam and ham then later on you put the add the code.
+1:38:401 hour, 38 minutes, 40 secondsExactly. So if it decide the spam thing. Yeah. Exactly. So this part remains as it is.
+1:38:451 hour, 38 minutes, 45 secondsIf it is ham over here instead of drafting the email first you will categorize the email. And know you will categorize the email over here and then
+1:38:541 hour, 38 minutes, 54 secondsyou will do the drafting and then your graph becomes more complicated because just moving this to the right and adding
+1:39:021 hour, 39 minutes, 2 secondsa node here is not enough because depending on the category your drafting style will change. If let's say in the
+1:39:111 hour, 39 minutes, 11 secondscategory node you find out that this email is a friendly email from a personal friend the drafting tone will
+1:39:191 hour, 39 minutes, 19 secondsbe different. So your prompt which you use in your drafting email that will become different. If it is an email
+1:39:261 hour, 39 minutes, 26 secondslet's say from your immediate uh you know some person maybe you don't even draft a response. If it is an email
+1:39:331 hour, 39 minutes, 33 secondslet's say from a company who is trying to sell you some new equipment you don't even have to draft a response. then you
+1:39:401 hour, 39 minutes, 40 secondsroute it to the respective department that you know let's say if it is some new interviewing software some new AI
+1:39:471 hour, 39 minutes, 47 secondsinterview software came up and they want to sell it to your company so you don't respond to the email you forward the email to your HR that hey take a look at
+1:39:551 hour, 39 minutes, 55 secondsthis and if it is good then let let us discuss and see what what happens you know so this is a to-do for you later on you know make this graph more
+1:40:041 hour, 40 minutes, 4 secondscomplicated add the email category node and add more branches is to uh figure
+1:40:101 hour, 40 minutes, 10 secondsout how to handle that email depending on the category. Right? So I'm writing this in the in the chat to do for later on.
+1:40:271 hour, 40 minutes, 27 secondsadd a node for
+1:40:331 hour, 40 minutes, 33 secondsemail category decision and additional branches to handle each category differently.
+1:40:441 hour, 40 minutes, 44 secondsAnd know so now you see when you do that the complexity of your graph and your branch and everything will immediately
+1:40:521 hour, 40 minutes, 52 secondsuh you know increase but the still the same thing can be used the same building blocks can be used but it will become uh you know lot more lot more complicated.
+1:41:041 hour, 41 minutes, 4 secondsOkay.
+1:41:071 hour, 41 minutes, 7 secondsNext question. So right now we are doing uh you know this graph navigation uh but
+1:41:151 hour, 41 minutes, 15 secondsthere was a point where uh there was a point where I mentioned that after the drafting I need to show it to Mr. Whale
+1:41:221 hour, 41 minutes, 22 secondsto uh decide whether the draft is fine or not and then end but right now I'm not actually you know pausing anywhere.
+1:41:301 hour, 41 minutes, 30 secondsI'm directly going to the end. So so how do you think we can handle this?
+1:41:341 hour, 41 minutes, 34 secondsYou have to route it to the draft and then wait human in the loop.
+1:41:391 hour, 41 minutes, 39 secondsHuh. Exactly. So you need to incor incorporate a human in the loop function over here. So langraph has a capability also. So in the function you have to add
+1:41:481 hour, 41 minutes, 48 secondsa point where you wait for the human response. Right? So in a function you can add functionality to wait for human response before proceeding further.
+1:41:571 hour, 41 minutes, 57 secondsBut how long can it wait? Sir, I had that very important question several times. It will be your decision. You you are the one who designed the system. You tell it how long it has to wait.
+1:42:061 hour, 42 minutes, 6 secondsHe may take Mr. Bruce may take one day or he might be fighting a crime somewhere else. He will back later.
+1:42:141 hour, 42 minutes, 14 secondsThat is that is that is your decision. So if you think that 3 days is enough, if Mr. Vin does not respond by 3 days,
+1:42:211 hour, 42 minutes, 21 secondsyou send it to his secretary that you now decide and do whatever. That kind of pre-built logic. Yeah. Huh.
+1:42:271 hour, 42 minutes, 27 secondsSo that's a design decision that you as the designer have to take and implement.
+1:42:311 hour, 42 minutes, 31 secondsBut the system won't hang like like the flow will not be hampered. The you are the designer.
+1:42:381 hour, 42 minutes, 38 secondsOkay. Yeah. We have to the full control is in your hand. That is what the benefit of langraph is. No, you are the designer.
+1:42:441 hour, 42 minutes, 44 secondsSo you can decide however you want to implement this thing. No restrictions at all. Uh question rajam.
+1:42:541 hour, 42 minutes, 54 secondsUh yes sir. uh so this uh the way that we are executing right now is more uh
+1:43:001 hour, 43 minutesyou know we are doing it uh as a step by step so I'm just want to ask in the human in the loop kind of scenario is
+1:43:081 hour, 43 minutes, 8 secondsthat something that will be a chat agent that will probably execute this based on a trigger or can I just have a backend process where emails come because this
+1:43:161 hour, 43 minutes, 16 secondsis more like a backend process emails come you look at a spam or a ham and then you process it you again push it to inbox and all that now there the question of waiting for 3
+1:43:251 hour, 43 minutes, 25 secondsdays or 2 days uh you need to have some persistence of this email somewhere with a status to say yes it has been looked or not right
+1:43:331 hour, 43 minutes, 33 secondsyes yes yes so that's again a very very good question and langraph gives you all that ability to do all of that so the benefit
+1:43:411 hour, 43 minutes, 41 secondswhy are we using the messages field in my state it is precisely for what you mentioned that the response may come 3
+1:43:481 hour, 43 minutes, 48 secondsdays later and if I do not store my messages I will not remember what's going on in my system Right. Got it.
+1:43:551 hour, 43 minutes, 55 secondsSo, so the benefit of langraph, again I'm emphasizing on this, the benefit of langraph over other crew AI like models is that langraph gives you full 100%
+1:44:081 hour, 44 minutes, 8 secondscontrol on how you want to design your workflow.
+1:44:121 hour, 44 minutes, 12 secondsIf you want the response to come through a chat box, you can do that. If you want the response to come through some backend process, you can do that. If you
+1:44:221 hour, 44 minutes, 22 secondswant something else to trigger your decision, you can do that. It gives you full control. Why is that? Because every
+1:44:281 hour, 44 minutes, 28 secondsnode is basically a function and you can decide when the function stops, when the function proceeds and what happens at which point, you know,
+1:44:381 hour, 44 minutes, 38 secondsso you are free to design it as you want. No restrictions at all.
+1:44:441 hour, 44 minutes, 44 secondsSanto sir just to follow up on that point about you know lang graph versus crewi how does the google agent development
+1:44:511 hour, 44 minutes, 51 secondskit ADK compare in this and what are your thoughts on that? I have not used ADK you know personally. Uh so I will
+1:45:001 hour, 45 minutesnot be able to because I use Landra for my my work. Uh but uh but I would believe that it also gives you full
+1:45:071 hour, 45 minutes, 7 secondsflexibility to design uh the system but I have not I have not used it so far to be able to comment properly. Langraph is
+1:45:141 hour, 45 minutes, 14 secondsthe sort of the standard which most people most people use actually. Yeah. Sure. Thank you. Okay.
+1:45:231 hour, 45 minutes, 23 secondsSo is there any way in the langraph right to wait for any external event to happen then only I will start this kind of activities.
+1:45:311 hour, 45 minutes, 31 secondsYes. Yes. So please remember your langraph node is a function right the flexibility that you have in
+1:45:401 hour, 45 minutes, 40 secondsexecuting a function you have that in langraph.
+1:45:451 hour, 45 minutes, 45 secondsSo whatever capabilities you want lang graph to have you design your graph accordingly and you write your functions accordingly. So in your function you can
+1:45:541 hour, 45 minutes, 54 secondsmake let's say a call to an API and you can say you do not proceed till that API has returned a response and then it will
+1:46:021 hour, 46 minutes, 2 secondswait right so if you want the system to wait for 3 days there are two ways of doing
+1:46:091 hour, 46 minutes, 9 secondsthat one is you keep the system awake because anytime in the 3 days the response can come that is one way the other way which is a better way is that
+1:46:181 hour, 46 minutes, 18 secondslet's say your system has reached a particular state you store the state in in some in some database. Then when let's say a response is triggered, you
+1:46:261 hour, 46 minutes, 26 secondsagain awaken the system using the stored state from your database and you proceed from there.
+1:46:331 hour, 46 minutes, 33 secondsRight?
+1:46:351 hour, 46 minutes, 35 secondsOkay. So what I'm trying to emphasize upon is that lang graph is giving you a graph which you design. Lang graphs each
+1:46:431 hour, 46 minutes, 43 secondsnode is a function which you design. So whatever capabilities you need can be incorporated in the functions or in the graph as required. no restrictions at all.
+1:46:531 hour, 46 minutes, 53 secondsSo are there any instances where it may become slow because you're waiting for 3 days or whatever it is it won't impact.
+1:47:011 hour, 47 minutes, 1 secondSee those things are design decision.
+1:47:031 hour, 47 minutes, 3 secondsNothing to design decisions and uh okay it's going to wait like that. Okay.
+1:47:081 hour, 47 minutes, 8 secondsHuh? So if you want it to wait it will wait. If you don't want it's a design decision that depends on your use case and you know other things. So true. True. Okay. Thanks.
+1:47:191 hour, 47 minutes, 19 secondsOkay. Last and final question that you know as Shar also mentioned earlier that this looks like a simple if else implementation. So why use Langra? Why
+1:47:281 hour, 47 minutes, 28 secondsnot just do a simple if else thing and be done with it? Uh why do we have to use langraph and all that complication node edge and all all of that thing? Why
+1:47:371 hour, 47 minutes, 37 secondsnot use just an if else thing and be done with it? What's your thought on that?
+1:47:431 hour, 47 minutes, 43 secondsTroubleshooting is better. Yeah, dynamic decision making uh using AI instead of static decision making.
+1:47:531 hour, 47 minutes, 53 secondsNo, that is fine. But that also you can do you see in in langraph also any any node can be AI decision. No decision
+1:48:011 hour, 48 minutes, 1 secondbut that also the decision you can implement the graph using if else also right so depending on the output of the AI you will decide whether to go to this branch or that branch.
+1:48:101 hour, 48 minutes, 10 secondsThat can be done using if else. If else yeah so it provides inbuilt features like the
+1:48:171 hour, 48 minutes, 17 secondsstates langraph itself takes care likewise memory we can store it and other things exactly exactly so lang graph is also
+1:48:251 hour, 48 minutes, 25 secondsbuilt upon if else and for loops only because that is what computing is all about what langraph gives you is a
+1:48:321 hour, 48 minutes, 32 secondsefficient way of handling all of that if you had to write all of that code yourself
+1:48:391 hour, 48 minutes, 39 secondswill become very bloated you know so what language gives you is a very simple framework to handle all of that
+1:48:471 hour, 48 minutes, 47 secondsconditions, reasoning, state management and all of that in a very very simple and an organized manner. You know in the
+1:48:541 hour, 48 minutes, 54 secondsback end langraph is also just if nothing else but langraph does a lot of abstraction and gives you a very simple way of handling all that.
+1:49:051 hour, 49 minutes, 5 secondsOkay.
+1:49:071 hour, 49 minutes, 7 secondsOkay. So we actually don't have so much time to work on a new problem but uh the session is still 4 p.m. today. So I will
+1:49:141 hour, 49 minutes, 14 secondsstill share the problem and we will uh discuss it for 15 minutes. So this is the problem that we have to solve. Now
+1:49:211 hour, 49 minutes, 21 secondsthis is a real life uh problem. So let's say you're working in a bank as somebody mentioned I'm sure there are more people
+1:49:281 hour, 49 minutes, 28 secondshere who working in a bank. So I'm sure they'll be able to relate to this.
+1:49:311 hour, 49 minutes, 31 secondsOthers will also uh you know understand it's not something very complicated. So let's say you're working in the IT department of a bank. Let's say you are
+1:49:381 hour, 49 minutes, 38 secondsthe head of IT and your VP of bank operations sends you this email and the email reads it's on your screen. Uh you
+1:49:461 hour, 49 minutes, 46 secondsknow that our customer service and fraud teams are overwhelmed. Uh we have thousands of transactions happening every hour. Sometime the network slice
+1:49:551 hour, 49 minutes, 55 secondsdrops and transactions fail. Sometimes people are spending huge amounts of money on new devices. Sometimes it's just normal activity. There's too many
+1:50:031 hour, 50 minutes, 3 secondsthings happening and it's very difficult to keep uh to keep track of all that manually. So what the VP wants to do is
+1:50:101 hour, 50 minutes, 10 secondsI want you to build an AI system that just looks at our transaction data,
+1:50:141 hour, 50 minutes, 14 secondsfigures out what the story is for our users and sends a summarized report to the right department so that they know
+1:50:221 hour, 50 minutes, 22 secondswhat to focus on today. Yeah. So let's say earlier you were a small bank and you're your you had a bank operations
+1:50:291 hour, 50 minutes, 29 secondsteam which used to do that that manually analyze the transactions and uh send it to the relevant department for analysis
+1:50:371 hour, 50 minutes, 37 secondsbut now that the number of transactions has grown up so much that it has become almost impossible to keep track of it
+1:50:441 hour, 50 minutes, 44 secondsmanually and you could hire more people to do that but then it will become very expensive because people are expensive.
+1:50:521 hour, 50 minutes, 52 secondsSo what your VP wants you to do is to design an AI agentic system which can handle this automatically and then
+1:50:591 hour, 50 minutes, 59 secondsdirect the and send appropriate messages to the relevant department for manual screening or whatever. So the challenge
+1:51:071 hour, 51 minutes, 7 secondsfirst challenge implementation part we will see later. First challenge is to design a graph for this decision making
+1:51:151 hour, 51 minutes, 15 secondsand identify what functions will be carried out at each node and third whether that function will be done using
+1:51:231 hour, 51 minutes, 23 secondsAI or using normal NLP or some other if else kind of thing you know so please design the graph and share a screenshot
+1:51:321 hour, 51 minutes, 32 secondson the chat you know we will then have a discussion on this but you have 5 minutes I know it's not a long time but let's try to do it quickly whatever
+1:51:401 hour, 51 minutes, 40 secondswhatever we can uh you can do the implementation later on but let's try to make the graph today in 5 minutes I know
+1:51:461 hour, 51 minutes, 46 secondsso make a graph where you design the system to do this task where you design
+1:51:531 hour, 51 minutes, 53 secondsthe graph and at each node write whether it is to be done using AI or to be done using uh if the and you can you can use
+1:52:021 hour, 52 minutes, 2 secondsa pen and paper draw the graph on pen and paper and using your phone you can just click a picture and share on uh the chat so that we can take a look.
+1:52:371 hour, 52 minutes, 37 secondsLet me also share this in the chat so that you can keep it for later on.
+1:52:561 hour, 52 minutes, 56 secondsOkay.
+1:53:201 hour, 53 minutes, 20 secondsSo can you share the all three points?
+1:53:251 hour, 53 minutes, 25 secondsH yeah, let me just type that too.
+1:54:091 hour, 54 minutes, 9 secondsYeah, I have shared the points also in the chat. So, please design the graph for this project. Identify the function to be carried out at each node and for
+1:54:181 hour, 54 minutes, 18 secondseach function identify whether it is to be done using AI or nonAI approaches. So this is your task and you have 5 minutes
+1:54:421 hour, 54 minutes, 42 secondssir when you say transaction this is numerical data or how does numerical data numerical data yes so
+1:54:491 hour, 54 minutes, 49 secondsI've shared the data with you actually in the notebook if You see uh if you go to the bottom of the notebook I have shared this DIY data with you.
+1:54:591 hour, 54 minutes, 59 secondsSo if you click over here this is actually back transaction data.
+1:55:041 hour, 55 minutes, 4 secondsOkay. And uh so this uh just one minute. Sure.
+1:55:111 hour, 55 minutes, 11 secondsUh yeah so this data is there. It has sender ID, amount, transaction type and all that. You can use this data to build your system.
+1:55:231 hour, 55 minutes, 23 secondsSo since you're saying there is a need for us to all of that one minute there is noise from somewhere I don't have can
+1:55:301 hour, 55 minutes, 30 secondsyou can mute please hello yes
+1:55:371 hour, 55 minutes, 37 secondsyeah sir huh yes yeah so sir the the need for IT fraud
+1:55:461 hour, 55 minutes, 46 secondsand general support is basically what's being talked about now the definition of fraud is Is it something like an ML model that you need to think through or is it like a
+1:55:541 hour, 55 minutes, 54 secondsNo, no, no, no, no, no, no. Presently we don't have to sort of think that right now just identify that this node will identify whether it is fraud or not.
+1:56:041 hour, 56 minutes, 4 secondsOkay.
+1:56:051 hour, 56 minutes, 5 secondsAnd how it will identify don't worry about that right now. Okay. Fine. Okay.
+1:56:311 hour, 56 minutes, 31 secondsSir, will you accept AI generated response to this?
+1:56:381 hour, 56 minutes, 38 secondsI I mean generating an AI response is good but I would like you to improvise on that yourself and then that's fine.
+1:56:461 hour, 56 minutes, 46 secondsYeah.
+1:56:471 hour, 56 minutes, 47 secondsSo using AI for initial ideas is definitely okay. Nothing nothing wrong with that. Yeah.
+1:56:561 hour, 56 minutes, 56 secondsFor example, this problem was also generated using AI, but then I sort of edited that to make it more interesting.
+1:57:021 hour, 57 minutes, 2 secondsBut yeah, so using AI is absolutely okay. But yeah, as long as our input is also going into that
+1:58:521 hour, 58 minutes, 52 secondsSir, I've tried to put that graph in the chat box. Okay, let me take a look.
+1:59:001 hour, 59 minutesIt's in the other direction, but yeah. Oh, why is it not open? Yeah.
+1:59:071 hour, 59 minutes, 7 secondsUh, so this is like we need to make it more complicated. This is very simplistic.
+1:59:131 hour, 59 minutes, 13 secondsSo, so basically your each so basically this detect type of uh yeah if detect type of detect type of transaction happen.
+1:59:231 hour, 59 minutes, 23 secondsHuh. So that is where the that is where the branching and all that has to be designed. That is where the meat is. So before that and after that is easy part.
+1:59:321 hour, 59 minutes, 32 secondsThat is where you need to expand that into a into a section. So that that part needs to have more nodes and uh you know stuff. What logic will you put?
+1:59:431 hour, 59 minutes, 43 secondsSure.
+2:00:032 hours, 3 secondsUh, HTML file share. Could you please set an image? That will be easier.
+2:00:542 hours, 54 secondsOkay, we are at 355. 5 minutes more.
+2:01:202 hours, 1 minute, 20 secondsCan you please check mine? Uh, have you shared? Okay. Yeah. Okay. One minute.
+2:01:302 hours, 1 minute, 30 secondsUh, so Mayori the same feedback as I gave for Rajaram. This identify primary issue that thing has to be made more
+2:01:382 hours, 1 minute, 38 secondselaborate. That is where the real thinking has to be done more. Okay.
+2:01:452 hours, 1 minute, 45 secondsSo break that into more nodes and more branches kind of that how will you identify issue and what will you analyze sort of stuff like that.
+2:02:262 hours, 2 minutes, 26 secondsSo the data classification part all of you need to think more on that. How will you do that decision that which where does it go to? How will you decide that part? You have to think more.
+2:03:012 hours, 3 minutes, 1 secondUh yeah so the decision the decide story part has to be made more
+2:03:082 hours, 3 minutes, 8 secondssure yeah I have to make break it down fraud and general support. Got it. Yes. Yes.
+2:03:192 hours, 3 minutes, 19 secondsUh so do I need to uh put the teams also like department fraud team and support team like that?
+2:03:282 hours, 3 minutes, 28 secondsYeah that will come at the end. That is the easy part.
+2:03:312 hours, 3 minutes, 31 secondsThe part where you you need to think is how to decide which department to send it to again as I said you don't have to think of the full detail algo but the
+2:03:402 hours, 3 minutes, 40 secondsworkflow in some more detail basically the routing sort of mechanism. Okay.
+2:03:522 hours, 3 minutes, 52 secondsSir could you please explain what needs to be done for this master part? I was running the code.
+2:03:592 hours, 3 minutes, 59 secondsUh one minute let me share. Nice. So here so is this problem statement clear to you?
+2:04:072 hours, 4 minutes, 7 secondsYes.
+2:04:082 hours, 4 minutes, 8 secondsSo so now there are three ways of handling this. I would say one way is the classical way
+2:04:172 hours, 4 minutes, 17 secondsby which banks have been doing this earlier which is a purely statistical approach. Second approach is a fully
+2:04:242 hours, 4 minutes, 24 secondsautomated approach where you take one day's data bank data you write a
+2:04:312 hours, 4 minutes, 31 secondselaborate prompt you give it to a crew AI like system which will do all the agentic reasoning planning analysis
+2:04:392 hours, 4 minutes, 39 secondseverything for you. uh both those approaches are problematic because in the first approach there is no AI so
+2:04:472 hours, 4 minutes, 47 secondscapabilities are very limited. Second approach you are using AI but there is over dependence on AI and secondly if
+2:04:542 hours, 4 minutes, 54 secondsyou feed all your data to pro AI uh your bank will become bankrupt in 2 days because the amount of API cost will just
+2:05:022 hours, 5 minutes, 2 secondsblow up. So the best approach the most practical approach is to combine the two
+2:05:092 hours, 5 minutes, 9 secondsis to use the power of AI but along with the power of traditional methods and the way to do it is through langraph. So why
+2:05:172 hours, 5 minutes, 17 secondslangraph? Because langraph gives you a mechanism to design the entire workflow yourself like you would do in the preAI
+2:05:262 hours, 5 minutes, 26 secondsera but with the added advantage that individual nodes of your workflow can
+2:05:332 hours, 5 minutes, 33 secondsnow be executed using AI you know so of course designing this whole system will take several months it's a very
+2:05:402 hours, 5 minutes, 40 secondscomplicated project I'm not expecting anybody to do that right now but what you are expected to do is to design the workflow flow right now details of each
+2:05:492 hours, 5 minutes, 49 secondsfunction can be figured out that let's say your one node is to decide decide whether it's a fraud or not now how you decide that what ML model you built and
+2:05:592 hours, 5 minutes, 59 secondsso on that can be done later on but right now at least what you can decide is okay now I need a node over here which will do fraud fraud detection I
+2:06:082 hours, 6 minutes, 8 secondsneed a node over here which will do some some general support thing because my transaction has failed for example let
+2:06:152 hours, 6 minutes, 15 secondsme show you the data so This data link is there in the collab in the collab notebook which I've shared at the bottom there is this notebook over here. So if
+2:06:242 hours, 6 minutes, 24 secondsyou open there is this data over here and if you look at this column failed success transaction status column there is failed success failed success over
+2:06:322 hours, 6 minutes, 32 secondshere you know. So one simple note which you can add is check if the uh transaction status is failed. If the
+2:06:412 hours, 6 minutes, 41 secondstransaction status is failed you do a simple statistical calculation. what percentage of your uh transaction status
+2:06:502 hours, 6 minutes, 50 secondshas failed and what is the percentage cost of the transaction status which has failed. Now those transactions can be
+2:06:572 hours, 6 minutes, 57 secondsimmediately routed to your uh IT support team because those are failed transaction. So they need to look at their server that why did this
+2:07:062 hours, 7 minutes, 6 secondstransactions fail. If the percentage of failed transactions is high let's say more than 5% 10%. Then you also need to
+2:07:142 hours, 7 minutes, 14 secondsreport this to your CEO because then there is a massive problem which is happening. If it is below 1% it is a normal routine thing IT department can
+2:07:222 hours, 7 minutes, 22 secondshandle it but if it is let's say more than 5% then your CTO or some other senior person also needs to you know get involved into that. So another branch
+2:07:302 hours, 7 minutes, 30 secondswill get added over there. So similarly you need to add uh you know branches and nodes and all that to sort of figure out
+2:07:382 hours, 7 minutes, 38 secondsthis entire decision process you know now in that you will have a node saying decide whether there's a fraud or not now of course designing the actual fraud
+2:07:462 hours, 7 minutes, 46 secondsthing takes time as I said you don't have to design the whole fraud thing but at least you can figure out that okay now at this node I need to decide
+2:07:552 hours, 7 minutes, 55 secondswhether this particular transaction is a fraud or not right okay so we don't need to design like we
+2:08:022 hours, 8 minutes, 2 secondsdon't need to read this data whole data and then process and identify the percentage of failure and success. No, no, no. You have to do that eventually.
+2:08:102 hours, 8 minutes, 10 secondsNot right now. Eventually, you can do that. Right now, you just need to design the graph. Full stop. Okay. Good. Thanks.
+2:08:182 hours, 8 minutes, 18 secondsOkay. Sir, sorry to interrupt Santo. Um,
+2:08:212 hours, 8 minutes, 21 secondssorry. Can I request you to look at some basic thought process? I put it in the chat. I typed it in the word. So, you'll
+2:08:282 hours, 8 minutes, 28 secondssee uh message image with text. Yeah. Yeah. Yeah. Yeah. Yeah. Yeah.
+2:08:362 hours, 8 minutes, 36 secondsOkay. Okay. 1 minute data aggregation, pre-processing, story classification,
+2:08:432 hours, 8 minutes, 43 secondsAI analyze patterns, features.
+2:08:472 hours, 8 minutes, 47 secondsSo, so this is as I said this is a very expensive idea because uh if you send your entire bank transaction data to AI,
+2:08:552 hours, 8 minutes, 55 secondsthe API cost will become very very high.
+2:08:582 hours, 8 minutes, 58 secondsSo AI comes at a much later stage. You never send your entire data to AI. You will your company will go bankrupt completely.
+2:09:072 hours, 9 minutes, 7 secondsOkay.
+2:09:082 hours, 9 minutes, 8 secondsAnd so this so so your AI comes only for specific rows which require AI for
+2:09:152 hours, 9 minutes, 15 secondsanalysis. Every other row is processed using statistics and you know stuff like that.
+2:09:222 hours, 9 minutes, 22 secondsSo first we can use the analytics tool from the for the transaction report analytics tool. Huh? So there I would
+2:09:302 hours, 9 minutes, 30 secondslike you to specify what analytics you want to do at which it will simply go through the transaction status and find
+2:09:382 hours, 9 minutes, 38 secondsget the report and then later on we have to categorize.
+2:09:412 hours, 9 minutes, 41 secondsUhhuh. But but but uh in your node definition do not just say create a reports be specific. What do you want
+2:09:492 hours, 9 minutes, 49 secondsfrom here? Do you want percentage of transaction? Okay.
+2:09:542 hours, 9 minutes, 54 secondsAnd do you want percentage of fraud transaction? Now how you will find percentage of fraud? Don't worry about that. That later on we can details. Yeah,
+2:10:022 hours, 10 minutes, 2 secondsyou need details. Huh? When you say report, what do you mean? Okay.
+2:10:072 hours, 10 minutes, 7 secondsI want I want percentage of transaction above one lakh. You know I want to know was there one person who made let's say
+2:10:172 hours, 10 minutes, 17 secondstotal transaction more than 1 cr in one week,
+2:10:202 hours, 10 minutes, 20 secondsyou know. So be very specific what information you are requiring from the analysis and depending on the output
+2:10:282 hours, 10 minutes, 28 secondswhat branch will your langraph take but who is deciding if it is a fraud or if it is a say that is a function
+2:10:372 hours, 10 minutes, 37 secondsfunction later on you will write the function don't worry about that okay details you are the architect of the system then you will hand it over to
+2:10:442 hours, 10 minutes, 44 secondssome your juniors to implement it you are designing the whole system that this is how my system should function Now individual functions can be written
+2:10:532 hours, 10 minutes, 53 secondsby anybody that is even AI can you know generate that but human input is required in design a
+2:11:022 hours, 11 minutes, 2 secondssystem AI can do that you can take help of AI but AI will not do a very good job of it sure so thanks for the feedback I just want
+2:11:102 hours, 11 minutes, 10 secondsto follow up on this um so the file data that you have given us is that good enough to kind of work on this project
+2:11:182 hours, 11 minutes, 18 secondsbecause I don't know because Are you going to take our next session next Saturday?
+2:11:232 hours, 11 minutes, 23 secondsNo, I as of right. So how do we follow up on this?
+2:11:252 hours, 11 minutes, 25 secondsSo what really are the next steps and expectations?
+2:11:272 hours, 11 minutes, 27 secondsYou have my email. There is no formal expectation. You have my email. I will type again in the chat. So if you really want to work on this project, I am
+2:11:352 hours, 11 minutes, 35 secondsavailable. You can send me an email with your your uh your design. I am happy to take a look and give you feedback. like
+2:11:432 hours, 11 minutes, 43 secondsbe after my last session some of you sent me the YouTube thing and some of some of you guys are actually working on
+2:11:502 hours, 11 minutes, 50 secondsmake it into a full project and we are interacting over email so for this also same thing it's not a formal project that you have to do as a part of your
+2:11:582 hours, 11 minutes, 58 secondscourse but if you're interested in working on this I'm available to help you out definitely okay so obviously you know there are other parameters to be considered as
+2:12:072 hours, 12 minutes, 7 secondspart of the discussion or the design right so do I have a follow-up session with you or kind If I work with this assumption, present a workflow design
+2:12:152 hours, 12 minutes, 15 secondswith you and then have that conversation. Huh?
+2:12:182 hours, 12 minutes, 18 secondsI would suggest you share a workflow over email. Okay.
+2:12:212 hours, 12 minutes, 21 secondsAnd you share the workflow over email and let's try to finalize that and then once we arrive at some interesting thing then we can I'm available to meet once
+2:12:302 hours, 12 minutes, 30 secondsuh you know we have sufficient uh you know meet that we have to discuss. We can schedule a session separately and we can discuss.
+2:12:362 hours, 12 minutes, 36 secondsOkay. Certainly. Personally I would like to pick it up and do that as a project. Lovely. I'm happy to help out. Definitely. Okay. Great. Thank you.
+2:12:422 hours, 12 minutes, 42 secondsI have shared my email over chat. Please feel free to send me your design and we can interact over there as the play. Okay. Thank you. Okay.
+2:12:502 hours, 12 minutes, 50 secondsSir, what what will be the next session sir? I mean next week. Next session. I'm sorry. I have no idea.
+2:12:562 hours, 12 minutes, 56 secondsI am not involved in that. I was just asked to take this session to introduce Langraph. Next session. I don't know.
+2:13:032 hours, 13 minutes, 3 secondsUh yes sir. Actually one question. One quick question. You said there is some difference between the div route email function and other functions. Some
+2:13:112 hours, 13 minutes, 11 secondsquotes are there actually I missed that one.
+2:13:132 hours, 13 minutes, 13 secondsNo no no no the the functions are the same. If you look at the langraph add edge walla section.
+2:13:202 hours, 13 minutes, 20 secondsSo there I've written other names in quotes only this route wall name I wrote without port.
+2:13:262 hours, 13 minutes, 26 secondsOkay. What was the reason for that? I actually the reason is that the other things are actually node names. They are not functions and that is why they are in quotes because they are names of nodes.
+2:13:372 hours, 13 minutes, 37 secondsBut this route wall thing is actually a function. So it is just there without the quotes.
+2:13:412 hours, 13 minutes, 41 secondsOkay. Can I share my screen for one minute? Just just one minute.
+2:13:442 hours, 13 minutes, 44 secondsOkay. Sure. Sure. So shoot uh kindly check my flowchart also. I
+2:13:512 hours, 13 minutes, 51 secondsjust uh haven't uh classified transaction but we can use if else if
+2:13:582 hours, 13 minutes, 58 secondsperiod rate is more than five or 10% and if also we get some complaint on any transaction then it can be transferred
+2:14:052 hours, 14 minutes, 5 secondsto fraud and handled by human. If uh so I am looking at your thing now. So what I would request you to add is more
+2:14:142 hours, 14 minutes, 14 secondsdetails. So let's say when you are saying classify transaction flaw legitimate that is fine that you cannot add details. I understand because that
+2:14:212 hours, 14 minutes, 21 secondsis difficult but there are more things which you can do which can be which can be sent to other departments to take a look into. For example, as I mentioned
+2:14:302 hours, 14 minutes, 30 secondsthat there may be a lot of failed transactions which are which are happening.
+2:14:332 hours, 14 minutes, 33 secondsThey are not fraud but they are failing because of some IT issue. So all the all of that can be routed to the IT department.
+2:14:402 hours, 14 minutes, 40 secondsSo two things if if it is failing more and fraud thing is uh might be coming up. So it has to be handled by a human I suppose.
+2:14:492 hours, 14 minutes, 49 secondsHuh. Exactly. Exactly. Exactly. So so all that logic has to be added to your uh to your table.
+2:14:552 hours, 14 minutes, 55 secondsAnd one more thing is we can also uh include the transactions which has received complaints from the so that it can be trans. Absolutely.
+2:15:062 hours, 15 minutes, 6 secondsAbsolutely. So all of that has to be specified in separate nodes and address in your logic. Yeah. Yes. Yes. I got it. I got it. Yeah.
+2:15:142 hours, 15 minutes, 14 secondsOkay. Yes. Okay.
+2:15:192 hours, 15 minutes, 19 secondsUh sir as per the specific niche of uh the following project. uh what should be
+2:15:262 hours, 15 minutes, 26 secondsthe specific criteria for which we we can actually make it uh can you provide us the specific niche of the project?
+2:15:352 hours, 15 minutes, 35 secondsThat's a very good question and the answer is that that does not have an answer because this is a real life project which does not have a clear uh
+2:15:442 hours, 15 minutes, 44 secondsrequirement. So generally company high level pay people give you a requirement that this is what we need to solve and
+2:15:512 hours, 15 minutes, 51 secondsso now now it is your thinking your understanding of the problem based on which you will design a solution. We do
+2:15:592 hours, 15 minutes, 59 secondsnot have an objective criteria to decide whether your solution is good or not and that is how all real life problems are.
+2:16:082 hours, 16 minutes, 8 secondsschool or college we knew this is five marks this is 10 marks this is 15 marks in real life fortunately or unfortunately that does not exist so so
+2:16:172 hours, 16 minutes, 17 secondsyou have to design something talk to your uh people in the company take feedback from them redesign and it's an
+2:16:242 hours, 16 minutes, 24 secondsendless process which goes on so so I cannot give you a criteria based on which one can decide whether it is good or not you can send me your design by
+2:16:332 hours, 16 minutes, 33 secondsemail I can give you feedback that's the best I can do and that is true for any real project not just real life project same thing apply over there.
+2:16:422 hours, 16 minutes, 42 secondsThank you sir. Okay. Okay. Any other questions?
+2:16:492 hours, 16 minutes, 49 secondsUh yes sir I have just typed my question in the chat means uh graph add after starting go to read
+2:16:592 hours, 16 minutes, 59 secondsin the above section roy is not in quotes as it is not a node. No, no, that is not the reason. The reason is that
+2:17:062 hours, 17 minutes, 6 secondsthe route email thing I'm writing the actual function name over here node name. If you look at the collab
+2:17:132 hours, 17 minutes, 13 secondsnotebook, I have defined a node names just before this cell and there if you see all the node names are in ports you know.
+2:17:232 hours, 17 minutes, 23 secondsOkay. Okay. Yes. In the node name route is not there. Okay. Node names are there. Yes. Right.
+2:17:292 hours, 17 minutes, 29 secondsSo these are there because they are node name. They are not functions over here. Okay, thank you.
+2:17:352 hours, 17 minutes, 35 secondsBut is it a general good practice uh to have a function to uh for all the conditional edges to determine which uh edge that it should take?
+2:17:452 hours, 17 minutes, 45 secondsGenerally yes. Yes, you have to have that. So every every node will be associated with a function. That is a requirement mandatory.
+2:17:552 hours, 17 minutes, 55 secondsYeah. Okay. Any other questions?
+2:18:012 hours, 18 minutes, 1 secondUh here we are talking about a function right attach it to a node. It can be a tool also.
+2:18:072 hours, 18 minutes, 7 secondsTool is a function. A tool is also a function.
+2:18:102 hours, 18 minutes, 10 secondsI mean underneath that we'll have a function.
+2:18:122 hours, 18 minutes, 12 secondsHuh? So it is a function. Now now inside the function you can make an API call.
+2:18:182 hours, 18 minutes, 18 secondsYou can use some other thing. You can use AI whatever you do. But from a coding perspective it is a function.
+2:18:252 hours, 18 minutes, 25 secondsOkay. And the specific implementation you can use whatever you want to use within the function but from a coding perspective from the langraph
+2:18:332 hours, 18 minutes, 33 secondsperspective every node is a function which takes the state as a input does some processing and updates the state that is what the node is doing.
+2:18:432 hours, 18 minutes, 43 secondsOkay. Uh reason for asking about the tool is like the llm decides right which tool to be called.
+2:18:492 hours, 18 minutes, 49 secondsSo that also has to be done within the function itself. Okay.
+2:18:532 hours, 18 minutes, 53 secondsYeah. So in the function there will be whatever AI logic or if else logic whatever you want to do that will be within the function definition. So the
+2:19:022 hours, 19 minutes, 2 secondsso the so the uh so the carrier is the function within the carrier you put whatever you want to put that is your choice.
+2:19:112 hours, 19 minutes, 11 secondsOkay. Thank you.
+2:19:122 hours, 19 minutes, 12 secondsOkay. Okay. All right. It was it was again great to interact with all of you again. I don't know when I will get this opportunity but I've shared my email
+2:19:202 hours, 19 minutes, 20 secondswith you. So any of you want to work on this problem or the YouTube thing or anything else which I have shared, please feel free to drop me an email.
+2:19:282 hours, 19 minutes, 28 secondsI'll be more than happy to help you in developing that into a production ready system. Thank you. Okay. Wonderful. Thank you very much, sir.
+2:19:362 hours, 19 minutes, 36 secondsThank you. Take care. Bye-bye. Take care. Bye. Bye. Thank you. Anger.

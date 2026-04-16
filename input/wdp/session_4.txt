@@ -1,0 +1,1312 @@
+11:2411 minutes, 24 secondsOkay guys, I think I think we can start. Hi all. Hi everyone. Is everyone here? Please let me know. Yes.
+11:3211 minutes, 32 secondsOkay. Okay. So let's first let's first quickly discuss what have we achieved so far and what is remaining from a
+11:3911 minutes, 39 secondscurricular perspective and then we will go forward and see what everything that is yet to be done right so I I've kind
+11:4711 minutes, 47 secondsof not gone exactly in the order of your curriculum topics I've just kind of done it in a more sequential order of
+11:5511 minutes, 55 secondslearning perspective right so let's just look at your you know let's start with the session number your module number
+12:0312 minutes, 3 secondssix say and what all was there? What all is covered? What all still is left to be covered? Okay. So if you look at your
+12:0912 minutes, 9 secondsmodule yeah fine.
+12:1812 minutes, 18 secondsSo let's look at your module six first.
+12:2812 minutes, 28 secondsModule six. Right now if you look at the topics of your
+12:3312 minutes, 33 secondsmodule six right uh if you just see here this was this this was not with me but I
+12:4212 minutes, 42 secondshad to kind of cover up on module six right okay now see this your module six topics were the understanding the
+12:5112 minutes, 51 secondsvarious topologies of multi-agent systems and evaluation agent systems now if you remember when I came in I told you that these topologies we'll
+12:5812 minutes, 58 secondsunderstand later on these topologies we'll start covering now okay so this is to be done now right multi-agent
+13:0613 minutes, 6 secondstopologies what exactly is how to align different different agents I think we discussed a part of it in the last session but today we will be cover today
+13:1313 minutes, 13 secondstomorrow tomorrow I think it will go to tomorrow tomorrow we will cover in much more details we have after today's session we have two more sessions to go where we will discuss this only the
+13:2113 minutes, 21 secondsmulti- aent topologies the state sharing and etc right so this is what will be covered going forward Right. So module
+13:2913 minutes, 29 secondssix I kind of pushed it to later on because first I wanted to explain you clearly the context engineering part the
+13:3613 minutes, 36 secondspart of the rags. Right. And then the building simpler agents. Right. Okay.
+13:4213 minutes, 42 secondsThen then if you move to the part where we have your module where where I
+13:4913 minutes, 49 secondscame in was from your module. I think it was module 8 or what?
+13:5813 minutes, 58 secondsseven module seven which was the contextual reasoning for multi-agent systems right now it does not make sense to cover contextual reasoning for
+14:0614 minutes, 6 secondsmulti-agent systems because if we don't know what is context engineering in the first place we we can't cover this right so with the module 7 I covered if you
+14:1514 minutes, 15 secondsjust take a look at your syllabus I covered the context engineering part primarily from a perspective of rack
+14:2314 minutes, 23 secondsright everything two things we covered here history and rack two things we covered here history and rag right and we understood how to build a successful
+14:3114 minutes, 31 secondsrag in place and everything right now still in this also in this also I would say some part is left which is multi-
+14:4014 minutes, 40 secondsaent whatever context engineering p from a perspective of multi-agent system is there that is left and will be covered
+14:4714 minutes, 47 secondsnow okay then you come to module 8 look at the module 8 once okay look at the module 8 multi- aent planning in workflow design.
+14:5814 minutes, 58 secondsThis is something we are doing as of now. In the last session, we did it. We will do it uh in the next session today as well. Right? This is something we
+15:0615 minutes, 6 secondswill be doing now. Okay? Don't call let's not call it multi-agent planning. It's basically normally agent planning.
+15:1215 minutes, 12 secondsRight? So, we will be doing it today as well as I think in tomorrow's session we will go to multi-agent systems proper.
+15:1815 minutes, 18 secondsThen everything related to multi-agent systems from here will also be covered.
+15:2215 minutes, 22 secondsRight? This is what we have done. And then uh in the module 9 is is nothing and module 9 is also if you take a look
+15:2915 minutes, 29 secondsat module 9 look at this introduction to workflow designs in multi multi- aent systems this also this also we will be covering and if you look at the second
+15:3815 minutes, 38 secondspart of the module 9 second part the LCAL the design first principles right all this we have covered right all this
+15:4515 minutes, 45 secondswe have covered chain design principles and everything we have already covered this part everything basically related
+15:5215 minutes, 52 secondsto your multi- aent systems is what left and that we will be covering from here on right so in the next uh today's
+16:0016 minutessession uh tomorrow's session and the in the next Sunday session we will cover everything related to the multi- aent systems right so if you just kind of go
+16:0716 minutes, 7 secondsthrough your syllabus whatever is there apart from multi- aent systems we have covered we need to cover only the things
+16:1516 minutes, 15 secondsrelated to multi-agent systems right that's what we will be doing one thing I'm leaving out in this whole thing is
+16:2216 minutes, 22 secondsmonitoring part because I think you have done some part of landsmith. I will be doing it when I will come back which is
+16:2916 minutes, 29 secondswith I'll tell you in the module 11 right in the module 11
+16:3616 minutes, 36 secondswhich is the real world integrations real world uh tools for agentic AI right this is where I will
+16:4416 minutes, 44 secondsintroduce you to proper APIs I'll introduce you to proper databases
+16:5116 minutes, 51 secondsknowledge bases knowledge graphs and monitoring this is where I will Just also introduce you to metrics. One part
+16:5916 minutes, 59 secondsis left which is metrics. Right? So two things we will be doing here. some real world scenarios we will be practicing and then we will also be looking at
+17:0817 minutes, 8 secondsmetrics and we'll try to see the theory of how does it work when it goes to the real time scenarios that is how does it work when you when you kind of deploy
+17:1617 minutes, 16 secondsyour applications in production right that's what we will be doing right which will be the final right okay let me check what else is there I
+17:2517 minutes, 25 secondsthink then I think your this thing will come with uh 23rd May and all okay this is the plan as of now basically Um if
+17:3417 minutes, 34 secondsyou just take a look at your syllabus whatever we have done we are now going to just do everything from a perspect two perspectives one is your multi- aent
+17:4217 minutes, 42 secondssystems and the second is the type of flows which are there which is your part inside the module 9 which is your uh
+17:5117 minutes, 51 secondslinear branching feedback based all this this these two things we are going to do all this is a part of multi-agent system only so we I'll be doing it all with a
+18:0018 minutesmulti-agent system however if you feel that anything from the from the syllabus is not covered. Right?
+18:0918 minutes, 9 secondsSo you can let me know that if you feel if you're feeling like that okay this part is not covered from this particular module or that particular module from my
+18:1618 minutes, 16 secondsmodules right per se right from module six to this part. So you can just kind of uh bring it to my notice. I'll try to kind of uh
+18:2318 minutes, 23 secondsso where is a human in the loop covered in the next that will that will be covered with multi
+18:3218 minutes, 32 secondsright anyone has any question regarding any topic pertaining to uh
+18:4018 minutes, 40 secondsthis so this is how I go about it guys this is how I go about it I generally see if you look at your topics they are about multi- aent systems right I mean I
+18:4918 minutes, 49 secondsdon't know is the screen shared or not maybe not let me just share I think with you just wondered so if you just look at your topic they are all about multi-
+18:5818 minutes, 58 secondsaent system but you tell me how do we go to multi- aent systems if we don't know how to create history if we don't know how to create rags how how if we don't
+19:0519 minutes, 5 secondsknow how to create so that's how I went about it I first explained how to create your context how to create rags and then how to create agents in the first place
+19:1419 minutes, 14 secondsusing functions calling tool calling right and then we are now at multi- aent systems which is where we will understand these two three things one is
+19:2119 minutes, 21 secondsWhat the multi- aent system with normal first of all multi today to we'll be doing the workflow optimization part
+19:2819 minutes, 28 secondsonly right we'll try to handle states better and everything then tomorrow we'll do multi- aent systems and in the last session which is there which is
+19:3619 minutes, 36 secondsleft we'll understand this feedback loops right multiple types of iterations that go on okay color please tell me
+19:4619 minutes, 46 secondsso are you going to cover the different agentic memory system like epocetic memory the semantic memory of but when I come back I mean when I come
+19:5419 minutes, 54 secondsback the next time which is I think from let me check when when am I coming back let me check
+20:0220 minutes, 2 secondsright then this is there then this is the part okay so this is that I'll cover from 9th of May right 9th of May and on right we will have
+20:1020 minutes, 10 secondsnot right now not not right now not right now because that is there only you see now in the in the module if you see right in integration with real world tools right
+20:1920 minutes, 19 secondsCRM product catalogs data databases all this is there only right okay leveraging memory system short-term long-term right everything is there only
+20:2720 minutes, 27 secondsright and then there is scaling and optimization real time so all this monitoring and all then I'll explain right let me share my screen I guess
+20:3320 minutes, 33 secondsthat will be better just one minute S I'll just take your
+20:4220 minutes, 42 secondsdoubt up let me just share my screen then you can just pinpoint directly there is anything yeah this
+20:5220 minutes, 52 secondsCan you see the screen? Yes. Is it visible? Yes.
+20:5620 minutes, 56 secondsYes. Okay. Now tell me galab you understand basically what is it that we are going to do right? Then this one the
+21:0221 minutes, 2 secondsmultiple types of multi- aent system longterm memory short-term memory. Yes. Yeah. Topologies we'll cover tomorrow. Right.
+21:1021 minutes, 10 secondsOkay. All this we will understand there.
+21:1221 minutes, 12 secondsAnd this automation and orchestration this this is where I'll kind of cover uh one thing one very important part which
+21:1821 minutes, 18 secondsis your uh ra C and everything right which is also by the way very very important. So I think we have some how
+21:2621 minutes, 26 secondsmany sessions? Let me check. After this we will have uh this four sessions right? We'll have
+21:3421 minutes, 34 secondssome four sessions. So let's see how many sessions it takes and then we will do it. And then look at this here. This is where I'll be covering the metrics
+21:4121 minutes, 41 secondsand monitoring. Look at this here. Then I'm I think in between you will have some sessions with Rajat and then I think I'll come here again right and
+21:4921 minutes, 49 secondswhich is where I'll start with monitoring enterprise integration. This is where I will take up the final part
+21:5521 minutes, 55 secondswhich is your deployment right CI/CD pipelines and everything right this is where I'll take up that part right this is where I'll take up that part this
+22:0322 minutes, 3 secondspart right so while during these sessions we will kind of try to deploy the application into production right that will be the idea that that that's
+22:1122 minutes, 11 secondshow it's going to look like okay so if you have any confusion you can ask please tell me uh su sir
+22:1922 minutes, 19 secondssir can I share my screen so that I I'm referring to what I want to show here. Is that okay? Sure. Sure.
+22:3022 minutes, 30 secondsGo on. Sh.
+22:3422 minutes, 34 secondsOkay. Sir, are you able to see my screen here? Uh, just one minute. Now I can see it. Yes.
+22:4222 minutes, 42 secondsOkay. So, sir, this is the PDF version of curriculum we have which was sent recently, right? Mhm. Mhm. Okay. If I understood this correctly,
+22:5022 minutes, 50 secondswhat I heard you say is that this module 6 agent topologies is perhaps something you're planning to cover now. Is that Yes. Yes. Yes.
+22:5822 minutes, 58 secondsOkay. This you covered, right? Yes.
+23:0023 minutesSo with module 7 multi- aent system, you said we've covered this part, right? Context engineering.
+23:0623 minutes, 6 secondsYes. Yes. This part is what we covered there. If you remember, we covered the FIS pine cone is what we covered, right? The retrieval and everything we covered,
+23:1423 minutes, 14 secondsright?
+23:1523 minutes, 15 secondsCorrect. Correct. Correct. So does that mean these three modules one two and four they are still to be done or yes these we will everything related to
+23:2423 minutes, 24 secondsmulti- aent will be done now because we we did not know multi-agents back then right what exactly is a multi-agent we first had to understand what exactly is
+23:3223 minutes, 32 secondsmemory that is rag and everything right and then we had to understand what exactly is an agent in the first place which is what is tool calling what is
+23:3923 minutes, 39 secondsexactly pantic etc right yeah okay because if you look at the dates it says this is past the date so I'm little confused here because if I then move
+23:4723 minutes, 47 secondsfurther here it says only four sessions uh extra right so this is where the whole confusion is for me and I kind of
+23:5523 minutes, 55 secondstry to get that see I'll tell you I'll tell you what what see even though it looks like the sessions are very extensive but see if
+24:0124 minutes, 1 secondyou just kind of go up go up now here if you just take a look the most of the part was taken up by the rags where did
+24:1024 minutes, 10 secondsit go this module 7 module 7 come to module 7 here yes so if if you look at it here. The most of the part was taken
+24:1724 minutes, 17 secondsup by this part. This one here. This is where this is where we had to spend the most of your of our time. Right? Now, if
+24:2424 minutes, 24 secondsyou look at it, this is one session here. This is the second one here.
+24:2724 minutes, 27 secondsPassing context between the agents. Look at this. Passing context between the agents and uh the workflows of multi-
+24:3424 minutes, 34 secondsaent systems. It's all a part of one game only, right? We don't need a separate session for these things.
+24:3924 minutes, 39 secondsWherever I needed extra see we cannot just stick to exactly one session is for this to we go for one session for that
+24:4624 minutes, 46 secondsno I get that yeah no only thing is my my only request to you sir is you know
+24:5424 minutes, 54 secondsmaybe every time you start a session if you can just call out saying you know this is the module you're covering today then yeah yeah I
+25:0125 minutes, 1 secondbut I rather I rather created it because see what happened is when I came in you guys had some challenges with uh
+25:0925 minutes, 9 secondsbasic lang chain, basic basic uh history, even history was not covered, function calling was not covered. Right?
+25:1725 minutes, 17 secondsSo ideally what should have happened is to be very honest that this should have already been covered.
+25:2225 minutes, 22 secondsCorrect. Correct. Yeah. Then that is where multi- aent will start when only you know and rag was not covered which was big
+25:2925 minutes, 29 secondsdeal right yeah so we had to first cover those but okay I'll take care of this I will I will try to highlight whatever parts I'm
+25:3625 minutes, 36 secondscovering and how much time will each part take right that correct that'll help so then what about module 8 is that done or you think it's
+25:4625 minutes, 46 secondsstill to be done see module 8 may the half the part we will be doing right now I with this only this module calculate a agent
+25:5425 minutes, 54 secondscoordination and task delegation and mult and the topology is more or less the same thing only. Okay. Right. But
+26:0226 minutes, 2 secondshalf the part for example here if you see this part incorporating rag components for shared contextual commemory that means if you want to
+26:0926 minutes, 9 secondsintegrate rag with your agentic systems and all this this we will be doing on when we come back later on right with the knowledge graphs because see this
+26:1726 minutes, 17 secondsthis is overlapping with the with the the later part see this databases knowledge graphs you will find if you go
+26:2426 minutes, 24 secondsdown if you go down here in this part simulating integrating real world tools if you will see if you'll In the real
+26:3226 minutes, 32 secondsworld to see this here you will see that it is in it is overlapping. See this this one uh the databases and all somewhere it was there. Uh go down go
+26:4026 minutes, 40 secondsdown. Yeah. See this here databases data sets. Yeah.
+26:4626 minutes, 46 secondsYeah. Databases and all. Right. So basically this this part is overlapping.
+26:4926 minutes, 49 secondsSo we will not cover it here. We'll cover it here only. Right. So that's the whole idea.
+26:5426 minutes, 54 secondsOkay. Okay. So my only request you know if you can just tell me you know what module and what topic you're covering then because see all working professionals at least you know coming
+27:0327 minutes, 3 secondsback on a week time I get lost. So I would just request that sir have your flow very clear right very
+27:1127 minutes, 11 secondsvery clear first thing is you should know I'll just kind of tell you a very simple flow right everything and that flow you maintain right since this is an
+27:1827 minutes, 18 secondsIIT module so it is I designed as per IIT curriculum all right so you're getting that right but have a very very
+27:2527 minutes, 25 secondsclear module have a very clear mindset first thing you need to understand is API calling okay
+27:3327 minutes, 33 secondshave this clear mindset stop sharing sir You are probably sharing something. Oh, sorry. My bad. Have this clear mindset in your mind. Whichever way you learn, you learn it.
+27:4127 minutes, 41 secondsRight. See, the point is I just kind of highlight it. Okay. The point is why this sounds confusing
+27:5127 minutes, 51 secondsconfusing is because this is an IIT module. So, it is as per their curriculum. Correct? But we have to go in a specific order only, right? We are
+27:5927 minutes, 59 secondsnot in college semester we will get and then semester we will study these things. Right? That's not how it is, right? Correct. We have to study in a particular order.
+28:0728 minutes, 7 secondsWhy? Because we are starting from scratch. Correct. Correct. Just one minute. Okay. Now,
+28:1328 minutes, 13 secondsjust understand you need to have this flow in mind whenever you're learning any more any GI course. Okay. First thing is API calling. Know how to call
+28:2328 minutes, 23 secondsthe API in the best possible way. Second thing is API calling with LAN. Correct?
+28:3028 minutes, 30 secondsWe should have this in mind, right? launching.
+28:3428 minutes, 34 secondsThe third thing you should have in mind is The third thing you should have in mind is the LCAL, right? LCAL of LAN chain, right? The the the flow that we
+28:4228 minutes, 42 secondscreate, right? Fourth thing we should know is the conversation history.
+28:5328 minutes, 53 secondsCorrect? And fifth thing we should know is
+29:0029 minutesyour tool calling right with padantic.
+29:1029 minutes, 10 secondsCorrect. This is the first part that you should always have in your idea. This is your first part.
+29:1629 minutes, 16 secondsRight? Now these parts are actually scattered over in your course. Right?
+29:2029 minutes, 20 secondsSome place some thing is covered other place other thing is covered but we have if we don't go in this order now so it will always be very very confusing.
+29:2729 minutes, 27 secondsSecond thing you need to know is the second part which is there is always about first thing is you need to know vector databases
+29:3729 minutes, 37 secondsright. Second thing you need to know is um rags
+29:4529 minutes, 45 secondsright different types of vector databases rags then you should know know rag optimization techniques.
+29:5229 minutes, 52 secondsNow if you if you remember we have done a lot of rag optimization techniques right if you just go through your
+30:0230 minutes, 2 secondseverything that we have learned about racks you will see a lot of optimization techniques on upserting part as well as on the retrieval part right the second thing you should know the third thing
+30:1030 minutes, 10 secondsyou should know is on the agent front on the agent AI front here you should know first your lang
+30:1730 minutes, 17 secondsgraph very very well right the state management ment which is your AI workflow design. What these guys
+30:2530 minutes, 25 secondsare calling as AI workflow and all these things that is state management basically
+30:3530 minutes, 35 secondscorrect. Third thing you should know is your this is state management. Then there is your uh context engineering inside this.
+30:4830 minutes, 48 secondsNo, before this I think what will come is your workflows your actually topologies with multi- aent systems right
+30:5630 minutes, 56 secondstopologies with multi- aent systems if there are multiple agents how will right you cover inside this all kind of you
+31:0331 minutes, 3 secondsknow parallel calling the consecutive calling everything comes inside topologies only everything is a part of topologies right topology is different
+31:1331 minutes, 13 secondsand par execution etc etc and in fact the human in the loop also comes inside this object Right? So this also will come inside this topologies only. So
+31:2031 minutes, 20 secondsunderstand your topologies very very well. That is in what order you can call your agents that is topologies. Nothing else is topologies. Right?
+31:2931 minutes, 29 secondsAll the architecture the hubspok architecture the planner critic reviewer architecture reviewer publisher architecture multiple architectures which exist all of them come inside
+31:3931 minutes, 39 secondstopology. Right. Right. And the fourth thing is then once you understand topologies
+31:4631 minutes, 46 secondsthe fourth important thing is um the views right this is this topic I have custom
+31:5431 minutes, 54 secondscreated right does not exist in a standard books or everywhere why because it's very important to what agent must show see what the views are very very
+32:0232 minutes, 2 secondsimportant right so I I I give this a separate topic views right and then finally you should know you should know the Best practices,
+32:1432 minutes, 14 secondsright?
+32:1532 minutes, 15 secondsGenerally any agent course should cover everything about this, right? If anything is left, then your agent course is not complete, right? These are the
+32:2432 minutes, 24 secondscore most important topics. There are many topics you can study. Other topics can be like this. For example,
+32:3332 minutes, 33 secondscan you please show the first part again sir? Yeah. Just once. Yeah.
+32:4432 minutes, 44 secondsThank you. Show the second part. Yeah. Yeah. Sure. Sure.
+32:5132 minutes, 51 secondsRight. Inside rag optimization many techniques come guys right you know right all the techniques prefiltering
+32:5832 minutes, 58 secondsyou can share this document in the chat if possible please. Yeah, I I'll share it. I'll share this document. Right.
+33:0433 minutes, 4 secondsJust let me cover it. Right. I'll share this. Right. Pre-filtering, post filtering. Correct.
+33:1233 minutes, 12 secondsRanking, multi-query expansion.
+33:2033 minutes, 20 secondsThen there is what one upserting. So what is the chunking? Hide. All of that comes inside this. Huh? Hide.
+33:2833 minutes, 28 secondsHide. Right. All these things come inside, right? inside this rag optimization techniques. Very cool. Actually one part is left.
+33:3533 minutes, 35 secondsOne part is left inside top after topologies. One thing is which is left after before best practices. One thing will come is your database integrations
+33:4333 minutes, 43 secondswith agents integrating different different types of databases right for example integrating
+33:5133 minutes, 51 secondsa knowledge graph integrating a rag integrating a normal database multiple things right this we'll have one session for this right and then your best
+33:5933 minutes, 59 secondspractices that what you should follow some some theory basically this much is very very important that you should know right then after this before other
+34:0734 minutes, 7 secondstopics comes one last thing which is monitoring For this you should know lansmith.
+34:1734 minutes, 17 secondsThis is must have landsmith. Then you should know metrics. Your metrics. What are your metrics? Right? What are the best metrics which are available? Right?
+34:2634 minutes, 26 secondsBlue rogue, right? Meteor all these metrics. Precision at K, recall at K, all the metrics which are available,
+34:3334 minutes, 33 secondsright? So these two things you should know, right? And lastly, lastly you should know one very important topic is rag architectures.
+34:4334 minutes, 43 secondsOnly when you understand these matrices then only you can design a rag architecture. Basically you can design a rag which has a proper architecture in
+34:5134 minutes, 51 secondsplace. Right? Then there are many types of architectures inside rags which are crag
+35:0035 minutesor is it adapt adaptive rag ad rag something like this.
+35:0635 minutes, 6 secondsright corrective rag multiple things are there right so some architectures we'll study right we'll study some of the architecture I'll show you how to design
+35:1435 minutes, 14 secondsthem right so some rag architectures are also important so this this actually completes your entire agent AI course then comes your other topics is about
+35:2235 minutes, 22 secondsyou can have other topics like MCP tune right etc etc those those are
+35:3135 minutes, 31 secondsoptional topics right the MCP is important but not that important to be honest. Right. Then finally comes your deployment part.
+35:3935 minutes, 39 secondsUm is monitoring and eval the same thing?
+35:4335 minutes, 43 secondsMonitoring and evals running evals are they?
+35:4635 minutes, 46 secondsThe same thing. Yes. That will come inside. Evals will come inside monitoring. Langmith. Okay. Yes. Yes. Yes.
+35:5435 minutes, 54 secondsOkay. Evals is basically inside this met right. There are multiple frameworks.
+35:5935 minutes, 59 secondsRaas evals right. Then comes the deployment where you should know what API building then you should know what
+36:0636 minutes, 6 secondsum CI/CD pipelines docker docker first docker and containerization
+36:1636 minutes, 16 secondsthen CI/CD right then VM deployment
+36:2336 minutes, 23 secondshow to deploy it on VM right then these things is what you should will you be covering the docker and all
+36:3136 minutes, 31 secondsthose things that this part I will be covering up to this part and with cloud run okay awesome thank you right this part I'll be covering right
+36:3936 minutes, 39 secondswill we be also to that adding user management like how which user comes and that separate databases or everything is
+36:4636 minutes, 46 secondsassumed for a single user here for now though we can use a single user only but see that's not your job to be
+36:5236 minutes, 52 secondshonest that's it's job right okay got it right okay so just Make sure of that right I'll
+37:0137 minutes, 1 secondsend you this document by the time we finish the session right so these are important things guys so whenever you're getting any syllabus you relate it to this right that I should know all these
+37:0937 minutes, 9 secondsthings right I should know all these things right now inside this they have designed it like an IT curriculum you
+37:1637 minutes, 16 secondssee the the standard uh uh syllabus we used to have back in college right that that's how it is
+37:2437 minutes, 24 secondsdesigned this particular course is designed right this ITM provak right so what happens is some topics they have
+37:3237 minutes, 32 secondscovered. So what they have done is they're also not wrong. What they are doing is for some topics what you're seeing multi- aent systems and etc are
+37:4037 minutes, 40 secondscoming early on there they are actually introducing to you to theory only okay of these topics and then down the line
+37:4737 minutes, 47 secondsthey are doing the practical part right so those topics are coming again coming again right but when I when we started
+37:5537 minutes, 55 secondswe did not have time to separate out the theory and do the pract and the practical so we had to kind of do it all together right so this is how we should approach our our course Right.
+38:0538 minutes, 5 secondsAnd if you just go through it,
+38:0738 minutes, 7 secondseverything will fall under these four topics only. Yes. And sir,
+38:1238 minutes, 12 secondsno thank you. I think this is very helpful. Uh thank you. I appreciate that. Uh maybe at the end of the session today, I have some questions regarding the project you have given. So perhaps we'll pick it up at the end of it.
+38:2238 minutes, 22 secondsSure, sure, sure. Right. Right. Thank you.
+38:2538 minutes, 25 secondsI'll give you more projects by the time we end this. We'll give sure. No, let us first finish what you've given, sir. Yeah. Yeah. Sure. Sure. Sure. Thank you.
+38:3238 minutes, 32 secondsOkay. Now let us start today's session right this this was supposed to be addressed right so don't get swayed away
+38:4038 minutes, 40 secondsby fancy terminologies here the problem here is that only there a lot of fancy terminologies here right right this this
+38:4738 minutes, 47 secondspart is fine right this part this part is fine right but from here the fancy terminologies are there a lot of them uh we have improved for the upcoming
+38:5538 minutes, 55 secondsbatches but these terminologies actually just complete confused a little okay how is that happening how is this happening We
+39:0339 minutes, 3 secondsneed to look at a broader picture right inside that there are lot of things right which can be done right so we have to look at the broader picture okay
+39:1239 minutes, 12 secondsthat's the whole idea okay now let us kind of go to the next part
+39:2339 minutes, 23 secondsadvanced context engineering so for example here advanced context
+39:3039 minutes, 30 secondsengineering is also there and then they have kind of put the deployment. Look at this. So this is a problem. This is actually jumbled up. If you see here,
+39:3939 minutes, 39 secondsthis is actually CI/CD is coming here.
+39:4439 minutes, 44 secondsAll the CI/CD and optimization then again they're going to advance context engineering. So that's how it is. But we'll try to do it in in an ordered way
+39:5139 minutes, 51 secondssuch that we'll try to first cover the context engineering in it detail and then we will kind of directly go to the CI/CD part and that's how it will be.
+39:5939 minutes, 59 secondsOkay. Anyway,
+40:0240 minutes, 2 secondstoday today we'll kind of do whatever we did in the last session. We'll do a higher version of that, a better version of that and you will enjoy today's
+40:0940 minutes, 9 secondssession. Why? Because a lot of practical parts for you for today's session just to make you understand the workflows better. Right? That's the whole idea. By
+40:1840 minutes, 18 secondsthe time we end today's session, I would introduce you to the multi-agent systems and why and when to use multi-agent systems because the choice of using
+40:2640 minutes, 26 secondsmulti-agent systems is the most important thing in the industry.
+40:3140 minutes, 31 secondsSometimes you may need multi- aent systems, sometimes you may don't need a multi- aent system. So don't unnecessarily create a multi- aent system for the sake of creating a multi
+40:3940 minutes, 39 secondsmulti- aent system. So we'll try to understand those practices that we need to kind of do. Okay, let's start with today's session. So let me just go ahead
+40:4740 minutes, 47 secondsand make a new document here. Just give me one minute.
+40:5740 minutes, 57 secondsSession 10 10 I've put here lang graphs continue. See I'm giving some names but you understand what is it that I'm covering. I'll just talk about it as
+41:0541 minutes, 5 secondswell. So today's workflow optimization is what we are covering today. Okay.
+41:1041 minutes, 10 secondsAnd I'll just kind of make a new Google collab.
+41:1441 minutes, 14 secondsI'll call it session 10 final. So you always refer to the final sheet only.
+41:3541 minutes, 35 secondsSorry sir, are you writing something or just give me one minute. I'm just sending it. Yeah. Yeah. Okay. Hang on.
+41:5041 minutes, 50 secondsThere you go.
+42:0142 minutes, 1 secondOkay, I think this is fine. We can now start. Okay.
+42:0842 minutes, 8 secondsSo let's kind of quickly take a recap of the last session and uh then we kind of will do it. So just to give you a recap,
+42:1642 minutes, 16 secondsI would rather give you some questions than going to the older notebook. But please a very humble request to all of you that please go through all the all
+42:2342 minutes, 23 secondsthe notebooks once before coming to the session otherwise it will be very painful for you. I'm telling very obviously okay. So give me one moment.
+42:3142 minutes, 31 secondsSo today I'll also be putting in some a lot of theory here. What I've done today is I've just kind of added a lot of the theory as well. So
+42:4042 minutes, 40 secondsI'll just be putting some theory as well. Just let me just put it here. So just take a look. Uhuh. Uhuh.
+42:5242 minutes, 52 secondsOkay. This is our second part of the LAN graph, right? That we have done.
+42:5642 minutes, 56 secondsRevision state tools and business workflows is what we are going to understand, right? The idea is just take a look, right? Generally we looked at a
+43:0343 minutes, 3 secondsgraph starts from start and end right and we looked at the nodes we looked at the edges we looked at how to pass from
+43:1043 minutes, 10 secondsone node to another tool etc we looked at the idea of conditional edges we are going to revise the same ideas but with
+43:1943 minutes, 19 secondsbetter examples right so we'll try to understand why do you need state how can
+43:2643 minutes, 26 secondsyou actually design a state more much more better right how can you make a custom state etc etc right let's take a
+43:3443 minutes, 34 secondslook at with some real life examples not real life as such but still better examples right first things first let me just I'll give
+43:4243 minutes, 42 secondsyou this notebook so no need to write it all this just install your essentials
+43:5543 minutes, 55 secondsjust install your essentials first right I'm using I'm going to be using open AI so I hope everyone is using that in case you're using Gemini you're welcome but
+44:0344 minutes, 3 secondsin the from the older codes take your Gemini code okay so just do the installations and then we get started
+44:0944 minutes, 9 secondsjust do the installations quickly and then we're going to bring the user
+44:1844 minutes, 18 secondsdata
+44:3244 minutes, 32 secondsSo it's today's going to be aggressive practicing practice of whatever we did in the last session right because we need to kind of be very very comfortable
+44:4044 minutes, 40 secondswith state and workflows that is how control is flowing between one node to
+44:4744 minutes, 47 secondsanother node auto function okay please install quickly and I'll
+44:5544 minutes, 55 secondsI'll give you this also so you just get set it up very quickly.
+45:0145 minutes, 1 secondThere you go. And I'm going to give this the grant access to open your IP.
+45:2145 minutes, 21 secondsNow I'm just going to put here the most important things that I've been importing. You know this this is for the state, right? Remember we were using this in state. I'll be taking it out.
+45:3145 minutes, 31 secondsThis was also used in state type dict right then from langraph we are importing what the state graph the start
+45:3845 minutes, 38 secondsthe end and the messages state right we'll be talking about this now right and then this this lets you create a graph this lets you create a state isn't
+45:4745 minutes, 47 secondsit this is used to add the messages this is used to add new messages right we have done all this if you remember we have done all this we don't have to add
+45:5645 minutes, 56 secondsthe messages manually this function takes care of it right then we imported tool nodes tools conditions, right? That the one we used in the last session and so on, right?
+46:0646 minutes, 6 secondsSo, I'm going to import all the necessary modules in one place. I'm going to share it with you.
+46:3046 minutes, 30 secondsSo I'm now thinking of making my notebooks like this. So I'm trying to incorporate whatever theory there is inside here. So you guys when you're
+46:3846 minutes, 38 secondsscrolling through the notebook you get a better idea. So I've tried to kind of improve it. Do let me know if it feels better after you read it. Not today
+46:4746 minutes, 47 secondsbut after you read it and then you tell me. So basically then now we looking at it is made up of this. Right.
+46:5646 minutes, 56 secondsRight. And I've just kind of given it about it. Now what we are going to do today right just just a recap right we're going to understand we going to
+47:0547 minutes, 5 secondsunderstand what should live inside a look at this I'm just putting it here
+47:1247 minutes, 12 secondswe're going to understand what should live inside a state what all can live inside a state see this abandon whatever
+47:2047 minutes, 20 secondsstate we created we created very very simple state messages right something some some very simple things we were storing inside the stage
+47:2847 minutes, 28 secondsBut anything that we will try to look at what all can be
+47:3547 minutes, 35 secondsstored inside it state right for example we'll take a look at understand ideas of IT service agent for example right an IT
+47:4447 minutes, 44 secondsservice agent will store things like what look at this issue type urgency right all these kind of fields it will
+47:5347 minutes, 53 secondsstore tracking status final reply retry I count all this we can store inside the
+48:0048 minutesstage state right correct some things certain things will be there
+48:0748 minutes, 7 secondswhich do need not be put inside states they should be temporarily inside
+48:1448 minutes, 14 secondsa node right right one time calculations for example I've given some examples so I'm I'm going to be covering these examples
+48:2248 minutes, 22 secondstoday right and then what should be passed to the tool right? what does the tool need and everything.
+48:2948 minutes, 29 secondsSo I'm going to cover this and let me just show you how to actually cover this will be better understood with an example only right. So let me just kind of bring the example from here.
+48:4248 minutes, 42 secondsSo my god I've put a lot of theory actually. Okay too much theory but still good theory. I just kind of went through it pretty much.
+48:5248 minutes, 52 secondsLook at this what state is and what it is not. What exactly is state and what it is not? Try
+49:0049 minutesto understand this better. A state is definitely it is not the prompt. Right. Right. It is basically shared runtime context.
+49:1049 minutes, 10 secondsRight. It's basically a shared notepad which is just passed along the all the all the parts. Right. If there is one agent, it will be given to one agent. If
+49:1949 minutes, 19 secondsthere are multiple agents, multiple agents will access the same state,
+49:2249 minutes, 22 secondsright? Evolving information, whatever new information is coming, right? With it, with tools, with messages, whatever that will be put inside states, right?
+49:3049 minutes, 30 secondsI've already covered this, but just for the sake of you, you can read this through and just you will understand right what should be the type of field
+49:3849 minutes, 38 secondsnames. Don't don't use this type of field X data, right? Have clear field names, right? Clear field names, right?
+49:4449 minutes, 44 secondsSo, this is the idea of state. And now I'll look at a use case, right? Let's look at a use case that we will try to
+49:5249 minutes, 52 secondsdo. Now take a look at this. This is a use case that we try to build. We start this very
+50:0050 minutessimple workflow. My VPN is not connected and I need access to before today's client call. We want the graph to do
+50:0850 minutes, 8 secondsfour things. Look at this. Read the complaint. Classify the issue. Detect the urgency. Draft a reply. These are
+50:1650 minutes, 16 secondsthe these are the basic things right that we want the LLM to do to raise a ticket basically it ticket raising is
+50:2450 minutes, 24 secondswhat we it helpless ticket assistant is what we are trying to build right we don't need a long conversation
+50:3150 minutes, 31 secondshistory we don't need long tools we don't need LLMs and all right we don't need all this right why don't we need LLM
+50:4150 minutes, 41 secondsit has to find out like uh log that uh initial complaint right? Mhm. Mhm.
+50:4950 minutes, 49 secondsSo history. Uhhuh.
+50:5250 minutes, 52 secondsSo we are Yeah. Yes. For for classification you need, right? You need classific.
+51:0051 minutesOkay. We'll see this now. We'll see this. Let's kind of look at the example, right? For example.
+51:0751 minutes, 7 secondsSo how will you design it? Let's try to design it. Let's try to we we we can try to design it on our own also. Right.
+51:1351 minutes, 13 secondsFirst thing is look open your note last notebook on the side. Open your last notebook on the side. You tell me what
+51:2051 minutes, 20 secondswill your what will your state look like? Can you just design the state? Open the last notebook. That's
+51:2751 minutes, 27 secondswhy I'm saying open the last notebook and show me how will you how will you design the state.
+51:3651 minutes, 36 secondsJust do it. First design the state guys.
+51:3951 minutes, 39 secondsToday is mostly practice to make you very much aware of state flows Breathing
+52:1052 minutes, 10 secondsfirst design your state and give me in the chat what is the state. Let's see who resigns. Let's just try to normal.
+52:1952 minutes, 19 secondsPardon me.
+52:2252 minutes, 22 secondsThe last session. Last session. Open the last session.
+52:3152 minutes, 31 secondsLet me also design it.
+53:3353 minutes, 33 secondsDo it. Do it.
+53:4853 minutes, 48 secondsanyone just first make the state I just want you to make the state that's it
+54:0054 minutesuh it should be issue category subcategory urgency in the state and based on the urgency uh I need to find a reply from the LLM.
+54:1254 minutes, 12 secondsYeah. Yeah. Perhaps something like that. Yes.
+55:2755 minutes, 27 secondsdone. I think this someone has done it.
+55:2955 minutes, 29 secondsYeah, this is correct. Everyone please do it. Yeah, everyone do it please.
+56:0156 minutes, 1 secondYeah, come on guys. We can do it. It's very simple. Just the state. What is the problem with state?
+56:3756 minutes, 37 secondsGuys, this is something we need to understand very very well. How the state will be designed, what will be passed inside the state, right? What will be
+56:4556 minutes, 45 secondsdone, right? Everything we need to understand very very well.
+57:0057 minutesTry it out. Try it out. We'll give I'll give you many such exercises like this. Right ab just the state.
+58:0158 minutes, 1 secondOne more minute. One more minute. We stop then. One more minute, guys. Come on. Let's make the state then we move forward. Now,
+58:1058 minutes, 10 secondsthat's the point.
+59:0959 minutes, 9 secondsLet's start. Let's start. Okay, enough.
+59:1159 minutes, 11 secondsLet's Let's do it. See, simple state you can make. It's very simple, right? What what will be the best idea to make a ST state?
+59:2059 minutes, 20 secondsI'm just going to kind of copy my state directly. Get it? It's very simple here.
+59:2559 minutes, 25 secondsThis was the most simple of all have done it, which is great. Some some people have also made the graph which is even better right classify issue detect
+59:3459 minutes, 34 secondsurgency draft reply very nice that's that's actually a good graph but I'm going to do it with a one agent only for now okay look at this user message issue
+59:4259 minutes, 42 secondstype urgency needs tool str
+59:5059 minutes, 50 secondswhat we did we used what the last time anyone remembers let me just copy it here
+59:5759 minutes, 57 secondslist We used a what? List right here. We are using what? A string. Why? Why? Why is it that?
+1:00:041 hour, 4 secondsBecause we don't need to store any history. Do we need to store any history? We just need to draft a reply and send it back. Isn't it? We just need to draft a reply and send it back.
+1:00:131 hour, 13 secondsThat's what we need. We don't need any history. We just need what? User message. Then we need to kind of give this user message to a function which will classify it into one of the issues,
+1:00:251 hour, 25 secondsright? and urgency and decide if it needs any tool or not. Right? Needs any tool or not. Right? The context of the
+1:00:331 hour, 33 secondstool and the reply text something like this I've given right. But you need basically you need this thing these three things only four things only. But
+1:00:401 hour, 40 secondsI just put all these things also that if the any tool is needed external tool is needed to tell us that yes whatever tool is needed right something like that
+1:00:491 hour, 49 secondsright I'm just kind of giving right for now but you don't need it per se right but I'm going to explain it with this with this right so let me show you now
+1:00:581 hour, 58 secondslet me show you now just one minute okay someone has done it pretty well
+1:01:061 hour, 1 minute, 6 secondsnow what I'm going to do is please pay attention Okay,
+1:01:111 hour, 1 minute, 11 secondsI'm going to define an LLM, right? I'm going to define an LLM first. I'm going to define my LLM. Whatever LLM you want,
+1:01:171 hour, 1 minute, 17 secondsyou can use, right? So, let's use and define an LLM, right? See, this is this is the second thing. So, you define your state, you define your LLM, right? This
+1:01:241 hour, 1 minute, 24 secondsis you define your LM. So, please import your LLM quickly, guys. Please import your LM quickly.
+1:01:321 hour, 1 minute, 32 secondsImporter element
+1:02:011 hour, 2 minutes, 1 secondreally important. LM guys. Now, now see this. Now, what is the next thing we need? Just imagine just imagine once,
+1:02:081 hour, 2 minutes, 8 secondsokay? Imagine that you will be needing, you will be needing what? You need a basically a
+1:02:151 hour, 2 minutes, 15 secondsfunction, right? Which will classify your ticket. Basically, that's what you need a function that will classify your ticket. First of all, your output should
+1:02:241 hour, 2 minutes, 24 secondscome to an LLM. that LLM should be able to call the function something like that
+1:02:301 hour, 2 minutes, 30 secondsideally or probably it should be able to call something else whatever it is I I am just kind of thinking aloud your
+1:02:371 hour, 2 minutes, 37 secondsoutput should come to whom an LLM and LLM should be able to lm should be able to
+1:02:451 hour, 2 minutes, 45 secondsgive it to a function which will classify it as one of them right which will classify it as
+1:02:531 hour, 2 minutes, 53 secondsone of the tickets right one of the tickets right so what I'm going to do is I'm going to create an LLM which will do the classification right I'm just going
+1:03:011 hour, 3 minutes, 1 secondto create an LLM which will do the classification so let's take a look please take a look okay so I'm going to please pay attention I'm going to create an LLM let me copy paste the LLM
+1:03:101 hour, 3 minutes, 10 secondsdirectly right let me copy paste that LLM directly so I'm just how do you make an LLM in this you make it using what a function isn't it see this I'm just
+1:03:201 hour, 3 minutes, 20 secondsgoing to make an LM see You need to put your message inside
+1:03:271 hour, 3 minutes, 27 secondsthis. You will put your message inside this. That message will be received. You write it here. Right? That message will be received by what? An LLM.
+1:03:371 hour, 3 minutes, 37 secondsThis is the LLM. You are classifying it help desk complaint right VPN access all these things. Authentication issue
+1:03:451 hour, 3 minutes, 45 secondshardware issue otherwise there's urgency. Hi, if there is any time pressure etc etc needs tool yes if you
+1:03:521 hour, 3 minutes, 52 secondsneed external help status information or policy info before replying something like that I'm just kind of putting it
+1:03:581 hour, 3 minutes, 58 secondshere you don't really need it okay now understand and then you're giving it what the message from the state so when
+1:04:061 hour, 4 minutes, 6 secondsyou will be calling your graph you will pass your you'll pass your message now that's what I'm doing I'm just appending the message here and then it will return
+1:04:141 hour, 4 minutes, 14 secondswhat it will return what it will return issue type it will return what urgency urgency it
+1:04:211 hour, 4 minutes, 21 secondswill return what this thing that is what it will it will return now the question comes is the question comes
+1:04:291 hour, 4 minutes, 29 secondsis how will you return in a very very specific format because llm to will return what text only isn't it what will
+1:04:381 hour, 4 minutes, 38 secondslm return guys tell me just take a look let me just show you yes and output.
+1:04:471 hour, 4 minutes, 47 secondsLet us let me show you right return
+1:04:541 hour, 4 minutes, 54 secondsresult dot response, right? That's that's result content,
+1:05:021 hour, 5 minutes, 2 secondsright? That's all you do. Let's just see this is your llm. Let's say you give it some state. Okay, let's just say you
+1:05:101 hour, 5 minutes, 10 secondscall it state. Let's just make a state now.
+1:05:151 hour, 5 minutes, 15 secondsLet's just say you say messages is equals to help desk,
+1:05:301 hour, 5 minutes, 30 secondsright? And we pass uh uh uh uh let's just copy it from here, I guess.
+1:05:411 hour, 5 minutes, 41 secondsSo, we need to invoke it.
+1:05:451 hour, 5 minutes, 45 secondsJust one minute. Okay, I need to kind of call this state here messages.
+1:06:011 hour, 6 minutes, 1 secondLet me instead call the state.
+1:06:101 hour, 6 minutes, 10 secondsWe're just going to put our state.
+1:06:211 hour, 6 minutes, 21 secondsWhere is it? What is the first one?
+1:06:241 hour, 6 minutes, 24 secondsUser message. I'm just going to put a user message to it. Anything like
+1:06:311 hour, 6 minutes, 31 secondsI need help with my laptop urgently. Right. just going to take it
+1:06:401 hour, 6 minutes, 40 secondshere and then I'm going to pass to this the state right so I'm going to pass classify ticket I'm going to call
+1:06:481 hour, 6 minutes, 48 secondsclassify ticket with state take a look category hardware issue urgency high
+1:06:591 hour, 6 minutes, 59 secondsneeds tools no right so it is returning me this right it is returning me this how do I structure this output I told
+1:07:061 hour, 7 minutes, 6 secondsyou guys the output that LLM will give How do you structure it? Can someone tell me? Pantic.
+1:07:131 hour, 7 minutes, 13 secondsPantic. So you'll create what? A pyantic class to structure it. What will that pyantic class look like? Let me help you create it. Let me help you create it
+1:07:201 hour, 7 minutes, 20 secondsbecause I have the codes ready because we don't have so much time to create the code. So I'm going to be going a little fast, right? Look at this. This is the
+1:07:291 hour, 7 minutes, 29 secondsclass that you will have. Look at this here.
+1:07:341 hour, 7 minutes, 34 secondsSee reporting what? Base model. I think I need to import the base model. Here's the base model.
+1:07:421 hour, 7 minutes, 42 secondsCan you paste these functions? Yeah, I'll paste everything first.
+1:07:451 hour, 7 minutes, 45 secondsUnderstand first understand the flow and then paste everything. Understood? Okay. Right. Please understand this guys. Now,
+1:07:501 hour, 7 minutes, 50 secondswhat is this issue type? Literally, you can have only one of these issues. Authentication issue, hardware issue,
+1:07:561 hour, 7 minutes, 56 secondsgeneral IT issue. All the issues which are there, you list them down here. You list them down here. Right? Urgency
+1:08:061 hour, 8 minutes, 6 secondswhat whatever urgency you can have right look at this needs tool yes or no right if the external information is needed
+1:08:131 hour, 8 minutes, 13 secondsright so this is how you create a paidantic class and then what you do is I told you
+1:08:201 hour, 8 minutes, 20 secondsI guess remember what did I tell tell you make a new LLM which is let's just make the same llm dot
+1:08:271 hour, 8 minutes, 27 secondswhat what do you do what do you do to kind of tell lm that this is the output that you have to follow fine to with with
+1:08:361 hour, 8 minutes, 36 secondsstructured with output structured with structured output with structured output right
+1:08:451 hour, 8 minutes, 45 secondswhat I have done is I've created this LLM called as classifier so I'm sparing my llm apart this is my classifier classifier is equals to now this becomes
+1:08:551 hour, 8 minutes, 55 secondsmy new llm classifier so instead of doing this I'll do what classifier info right here now you take a look at your
+1:09:021 hour, 9 minutes, 2 secondsoutput just take a look at your output Let's take a look.
+1:09:161 hour, 9 minutes, 16 secondsClassic object has no attribute content.
+1:09:181 hour, 9 minutes, 18 secondsSo that will not be there. So you need to just return the result only.
+1:09:291 hour, 9 minutes, 29 secondsSee what is what is coming out guys.
+1:09:311 hour, 9 minutes, 31 secondshardware issue urgency high now it's a proper output that is coming out right from this output you can take what
+1:09:381 hour, 9 minutes, 38 secondshardware issue you can take this this this so instead of that I I was actually returning it in an organized way here that was the whole idea that I was
+1:09:461 hour, 9 minutes, 46 secondsfollowing now if you do this do this and do this you get the proper output like okay it's
+1:09:551 hour, 9 minutes, 55 secondsreturning here so I need to re this you get the proper for output.
+1:10:081 hour, 10 minutes, 8 secondsSee this? Now you get the output in the form of a in the form of a dictionary.
+1:10:121 hour, 10 minutes, 12 secondsGot it? First thing I want you to do is this. Design the classify ticket LLM.
+1:10:181 hour, 10 minutes, 18 secondsFirst things first. First things first have you have your this thing ready,
+1:10:251 hour, 10 minutes, 25 secondsright? Your LLM is ready, right? So first thing you have this function design design function right just have this function then understand what it is
+1:10:341 hour, 10 minutes, 34 secondsreturning please understand what is it returning right what is it returning then you have
+1:10:411 hour, 10 minutes, 41 secondsthis function which is the pantic class have the pyic class in place so pyantic class will ensure that
+1:10:501 hour, 10 minutes, 50 secondsyou get always the output in a particular format right you always get the output in a particular format all right please do
+1:10:571 hour, 10 minutes, 57 secondsEveryone do it and then try it out like this. This is your next exercise. Try it out like this. Try it out with a single state. Try out with a single state guys.
+1:11:101 hour, 11 minutes, 10 secondsPlease do this. This is the second thing we need to do this.
+1:12:221 hour, 12 minutes, 22 secondsThis needs tool is a little confusing. If you want you can remove it also.
+1:12:251 hour, 12 minutes, 25 secondsRight? Needs tool when it will return it in the form of
+1:12:321 hour, 12 minutes, 32 secondsdictionary. Where will this output go and get added? Can someone tell me?
+1:12:391 hour, 12 minutes, 39 secondsCan someone tell me the message is to the state state? Yeah to the state correct because it's
+1:12:461 hour, 12 minutes, 46 secondsreturning that's why that's why if you return something in the form of dictionary it will get added to the actual output right
+1:12:541 hour, 12 minutes, 54 secondsI'm going to put it all in one cell only so you know it guys please just try this out I've given you all the codes but you you need to try this out let me know
+1:13:021 hour, 13 minutes, 2 secondswhen done let me know when done I'll move forward
+1:13:151 hour, 13 minutes, 15 secondsSo your output comes and what did what did you do? What did you do when your output came in? What did you do? You
+1:13:231 hour, 13 minutes, 23 secondsbasically tried to find out whether the output is whether the output is
+1:13:311 hour, 13 minutes, 31 secondswhat the output came. You basically try to find out you basically classified the output. Once you have classified the
+1:13:391 hour, 13 minutes, 39 secondsoutput, who will you give it to? Who will you give it to? Tell me next thing.
+1:13:481 hour, 13 minutes, 48 secondsUh to the LLM to the LLM to reply. Isn't it to reply? Correct. Now let's create one
+1:13:551 hour, 13 minutes, 55 secondsmore LM which is going to be your reply LM.
+1:14:001 hour, 14 minutesLook at this. Let's just kind of let's just have a reply. Okay, just take a look.
+1:14:141 hour, 14 minutes, 14 secondsDraft let's just make a new one which is draft reply. Look at this.
+1:14:281 hour, 14 minutes, 28 secondsThere you go. Look at this. I'm now creating one more node which is the draft reply. Look at this. This is the node which is which will draft the reply. See what I'm doing? I'm just
+1:14:361 hour, 14 minutes, 36 secondspassing the state to it. See one LLM what did it do? Whatever it found it added to the state. Was it sending it to
+1:14:441 hour, 14 minutes, 44 secondsnext LM? No, it is only adding it to the state and then it will call the next LLM. Look at this. Correct. Draft reply.
+1:14:531 hour, 14 minutes, 53 secondsYou're an ID help desk assistant. I short professional user may this this and this. Right.
+1:14:591 hour, 14 minutes, 59 secondsJust reply him. That's what you have to do. Right.
+1:15:091 hour, 15 minutes, 9 secondsRight. That that's what we have to do. You just need to draft a reply. Right. Just need to draft a reply. Okay.
+1:15:151 hour, 15 minutes, 15 secondsLet's try let's try what it does.
+1:15:201 hour, 15 minutes, 20 secondsDraft reply. I'm just kind of creating it. You also use it as it is.
+1:15:271 hour, 15 minutes, 27 secondsIt's going to be a heavy session I tell you guys why because we need to practice a lot of these things. Now I have tried to mix pyantic with LLMs. Why is it
+1:15:341 hour, 15 minutes, 34 secondsused? Because LLM will be because LLM will be giving an output. You need that output in a dictionary format to put
+1:15:421 hour, 15 minutes, 42 secondsthat output in the state. Isn't it? Thus you need pant. Thus you need pant. Right now have this one this one. This one.
+1:15:511 hour, 15 minutes, 51 secondsRight. Let's see if you can do this.
+1:16:131 hour, 16 minutes, 13 secondsright now we will build the graph. Now we will build the graph. You tell me how do we build the graph? First thing, what do we need? Builder is equals to what?
+1:16:231 hour, 16 minutes, 23 secondsTell me.
+1:16:251 hour, 16 minutes, 25 secondsState graph state graph what will I pass inside this help desk state isn't it
+1:16:351 hour, 16 minutes, 35 secondsright the class your state class right this is what you will pass
+1:16:421 hour, 16 minutes, 42 secondscorrect then what is the next thing you will do guys tell me what is the next thing you will do notes add notes
+1:16:501 hour, 16 minutes, 50 secondsadd the note which note will you add first Guys, you tell me which node will you add first? Classify ticket. Classify it.
+1:17:011 hour, 17 minutes, 1 secondTicket, right? Done. Next. Again, what you'll do? Second thing you tell me. You only tell me. Draft reply.
+1:17:091 hour, 17 minutes, 9 secondsDraft reply. We'll have to add another node. See, I'm adding two nodes now. Two LLMs are coming. Two LLMs are coming or not? Right. What is What is the next node?
+1:17:221 hour, 17 minutes, 22 secondsLet's call it classify ticket only. We have to give it a name also. Right. Right. What is the next one? Next node.
+1:17:311 hour, 17 minutes, 31 secondsTell me what should be the name of it? Draft reply.
+1:17:431 hour, 17 minutes, 43 secondsDraft reply. Do we have any functions tools in this case? You tell me. Do we have any tools in this case? Yes or no? No.
+1:17:511 hour, 17 minutes, 51 secondsNo. We don't have any tools. So we don't have to worry about any. So what do we do to need to do now? Start adding the edges or not? First edge where will you add?
+1:17:591 hour, 17 minutes, 59 secondsStart start to classify.
+1:18:071 hour, 18 minutes, 7 secondsClassify ticket. Right. Second edge where will you add? Draft reply. Classify ticket to draft reply.
+1:18:161 hour, 18 minutes, 16 secondsThis one should be two draft reply. Is that correct or not?
+1:18:301 hour, 18 minutes, 30 secondsYes.
+1:18:321 hour, 18 minutes, 32 secondsNow, what is the last stage that you will add? Draft reply to end.
+1:18:361 hour, 18 minutes, 36 secondsDraft reply to end. But it has to go back to show the message from reply.
+1:18:451 hour, 18 minutes, 45 secondsIt just has to add end only, right? It cannot it does not have to go back. No dotted. Simple workflow. Simple.
+1:18:521 hour, 18 minutes, 52 secondsThat's it. There's no option, no condition, right? Then what is the last thing?
+1:19:001 hour, 19 minutesTell me. graph,
+1:19:081 hour, 19 minutes, 8 secondsright? And look at your graph.
+1:19:161 hour, 19 minutes, 16 secondsThen you just look at your graph.
+1:19:251 hour, 19 minutes, 25 secondsSimple graph. Someone had already classified. Ankit had I think already done this, right? Same thing. End. And what is the last thing? Tell me what
+1:19:341 hour, 19 minutes, 34 secondswhat do we do now? After this anyone remembers how would we do it? How how
+1:19:411 hour, 19 minutes, 41 secondsare we calling the graphical invoke? No,
+1:19:471 hour, 19 minutes, 47 secondswe don't invoke the we were doing invoke. are doing it in a particular way that we need
+1:19:571 hour, 19 minutes, 57 secondswe had that for loop now this full flow.
+1:20:091 hour, 20 minutes, 9 secondsOkay, let just see this fine.
+1:20:181 hour, 20 minutes, 18 secondsSee this? This is how we do it, right?
+1:20:191 hour, 20 minutes, 19 secondsInput ask me that is what's your complaint,
+1:20:271 hour, 20 minutes, 27 secondsright? Messages, right? Human message query full flow. Let's take a look. This is not invoke. Messages is human. So, in
+1:20:361 hour, 20 minutes, 36 secondsmessages is not what we have to send. We have to send what guys in this case.
+1:20:381 hour, 20 minutes, 38 secondsTell me user message is it isn't it?
+1:20:451 hour, 20 minutes, 45 secondsAm I right or not? Yes. Yeah, that's the pantic.
+1:20:521 hour, 20 minutes, 52 secondsSo what's your complaint? I need to connect to VPN in 1 hour as my
+1:21:011 hour, 21 minutes, 1 secondmeeting begins in 9 years.
+1:21:091 hour, 21 minutes, 9 secondsSee this?
+1:21:121 hour, 21 minutes, 12 secondsI need to connect to VPN. Uh uh uh uh uh uh uh uh. What happened there?
+1:21:191 hour, 21 minutes, 19 secondsMessage I print message.
+1:21:221 hour, 21 minutes, 22 secondsfile message user message it's kind of so it's not maintaining any history actually that's why it's not maintaining any history that's why so you need to
+1:21:291 hour, 21 minutes, 29 secondsjust just do graphin in fact actually you'll be able to see it using this only see
+1:21:371 hour, 21 minutes, 37 secondsthank you for reaching out please ensure that you have uh VPN credentials ready and try 30 minutes before the meeting if you encounter any issues let us meet
+1:21:461 hour, 21 minutes, 46 secondsurgency it has raised to it has raised and all things just some reply we are kind of making we are not doing anything as of now but I wanted to show you a
+1:21:531 hour, 21 minutes, 53 secondsflow direct flow right this is the thing that I wanted to show right this is not useful here this is not useful here
+1:22:001 hour, 22 minutesright not need it right so now I want you to try this I want you to not look at my code and build the same graph is
+1:22:081 hour, 22 minutes, 8 secondsthere any any any function you need from me just let me know but I want you to build the exact same graph on your own and invoke it and do it and see if it is
+1:22:171 hour, 22 minutes, 17 secondsgetting changed just one uh clarification in this uh draft reply
+1:22:241 hour, 22 minutes, 24 secondsuh there is a line tool text is equal to state get tool text but we are not using any we are not using it I've just put it right if any tool needs to be called
+1:22:331 hour, 22 minutes, 33 secondsthat's just put it there some additional things I've shown that you can use that's all you don't need anything like tools because if the tool needs to be
+1:22:411 hour, 22 minutes, 41 secondscalled it will be there anyway
+1:23:151 hour, 23 minutes, 15 secondsunderstand this is how we have to kind of address this thing.
+1:23:191 hour, 23 minutes, 19 secondsSo it's a sequential flow if you just see right. There's no two way. It's a very very sequential flow if you think about it.
+1:23:351 hour, 23 minutes, 35 secondsDo it. Then we move to the next part.
+1:24:231 hour, 24 minutes, 23 secondsNow I'm going to do second example.
+1:24:241 hour, 24 minutes, 24 secondsRight. Quickly I'm going to go to second example. You do it. You do this first. Do this.
+1:24:321 hour, 24 minutes, 32 secondsThen we'll I I'll move to this one. Right.
+1:24:501 hour, 24 minutes, 50 secondsfor this. I'm giving you a
+1:25:391 hour, 25 minutes, 39 secondsNow this one I want you to design on your own. This is a simple example only.
+1:25:421 hour, 25 minutes, 42 secondsSo I want you to design it very much on your own.
+1:26:081 hour, 26 minutes, 8 secondsDo it. Do it. Let's do the last one. Done, guys. Done.
+1:26:121 hour, 26 minutes, 12 secondsLet's shall we move forward
+1:26:241 hour, 26 minutes, 24 secondsin this. If you remember from the last session, the ones who have practiced the last session, you will be able to do it.
+1:26:291 hour, 26 minutes, 29 secondsYou don't have to define, let me just put it. What I'm doing is I'm giving you a tool.
+1:26:371 hour, 26 minutes, 37 secondsYou need to design an LLM which uses this tool which uses this tool
+1:26:461 hour, 26 minutes, 46 secondsto answer all employee questions to answer all employee questions. But leave related questions. It should call this particular tool right.
+1:26:581 hour, 26 minutes, 58 secondsIt should call this particular tool right for any kind of relief related question. Earn leave, sick leave, casual leave. It should call this particular
+1:27:061 hour, 27 minutes, 6 secondsthat is the whole idea. Now you don't have to make a manual state in this case. You have to make the last time if you remember we understood a state.
+1:27:171 hour, 27 minutes, 17 secondsWhat was that? Anyone remembers that state? Well, you don't need to have a manual state. Who remember that? Tell me to message messages state.
+1:27:271 hour, 27 minutes, 27 secondsYes.
+1:27:291 hour, 27 minutes, 29 secondsRight. Last session I did what messages state where you don't need a state separately.
+1:27:421 hour, 27 minutes, 42 secondsThis this one right messages state right where you don't need a state separately. You can just use this
+1:27:501 hour, 27 minutes, 50 secondsmessages state to keep all your messages. Whenever you have to keep only just conversation.
+1:27:571 hour, 27 minutes, 57 secondsWhenever you have to keep only and only conversation, you can use what messages state. Right? Try doing it by relating
+1:28:061 hour, 28 minutes, 6 secondswith the last session. It is here in the last session. Look at this. Here it was in the last session.
+1:28:121 hour, 28 minutes, 12 secondsRight? Now I'll tell you step by step what to do. Please understand. Right? The tool you must have defined by now. Right? Tool must be defined by now.
+1:28:181 hour, 28 minutes, 18 secondsFirst thing is create an LLM function.
+1:28:221 hour, 28 minutes, 22 secondsCreate an LLM function and give me the function of LM. Everyone has to do this. Create an LLM function.
+1:28:381 hour, 28 minutes, 38 secondsCreate an LLM function which will answer questions normally. But if the if
+1:28:471 hour, 28 minutes, 47 secondsit is about leave policy then it will call this too. So create an LM function.
+1:28:521 hour, 28 minutes, 52 secondsFirst of all what will you do? LLM is equals to just define your LLM first of course. Right? So define your LM.
+1:28:581 hour, 28 minutes, 58 secondsDo it. Do it. Do it. Everyone do it.
+1:29:071 hour, 29 minutes, 7 secondsI'm just defining the right define the what you need to do guys just
+1:29:151 hour, 29 minutes, 15 secondstell me one thing let's not make a function let's just try to understand how you do it normally just think about it you'll design a prompt isn't it what
+1:29:231 hour, 29 minutes, 23 secondswill the prompt probably imagine you are an HR assistant
+1:29:331 hour, 29 minutes, 33 secondsanswer HR related queries is correct and then we'll see if the tool
+1:29:421 hour, 29 minutes, 42 secondsis needed or not. Right? I think what we can do is okay in top this is fine this is something okay I think this we can do
+1:29:501 hour, 29 minutes, 50 secondsright then what you'll do this becomes your system message right so
+1:29:581 hour, 29 minutes, 58 secondshow do you do it messages is equals to system message you'll pass what wrong
+1:30:071 hour, 30 minutes, 7 secondsand then what you'll pass human message and pass what some query right and you'll get the query is wrong here.
+1:30:181 hour, 30 minutes, 18 secondsEnter the query.
+1:30:221 hour, 30 minutes, 22 secondsEnter the query. It's something like this. Some kind of right. This becomes your messages, right? Isn't it? This becomes your messages. Now, what you'll do? You tell me.
+1:30:331 hour, 30 minutes, 33 secondsWhat will you do? Normal LM as a normal LM. What will you do? You tell me that.
+1:30:541 hour, 30 minutes, 54 secondsTell me tell me just do it. Uh we have to bind the tool with llm. Yes.
+1:31:001 hour, 31 minutesAnd then the pass the messages. Yes. Do it. Do it. Do it first normally.
+1:31:061 hour, 31 minutes, 6 secondsNormally you do it. Then we will try to convert it into a function. A tell me something. Tell me something.
+1:31:161 hour, 31 minutes, 16 secondsWill you have this human message in if if this was to a function to be a function?
+1:31:241 hour, 31 minutes, 24 secondsThink about it.
+1:31:261 hour, 31 minutes, 26 secondsFirst let let's do what? llm.bind tools. Tools with what?
+1:31:351 hour, 31 minutes, 35 secondsPass the list of tools. Isn't it?
+1:31:401 hour, 31 minutes, 40 secondsWhat are the what is the tool in this case?
+1:31:441 hour, 31 minutes, 44 secondsGet leave policy. Right? So you create an LM with this. Right? Please pay attention. Please pay attention here.
+1:31:481 hour, 31 minutes, 48 secondsRight? Then using this you create your function. Right? What is
+1:31:551 hour, 31 minutes, 55 secondsit? HR_h help desk some function I'm creating right.
+1:32:001 hour, 32 minutesWhat will you pass inside this function guys? Because this function is going to be your node. What will you pass inside this function? Can you tell me? State
+1:32:091 hour, 32 minutes, 9 secondslist of messages from state state of what messages state of type what messages state you don't need a
+1:32:171 hour, 32 minutes, 17 secondsstate when you are only talking about messages when it is only about messages you don't need a state is that clear
+1:32:261 hour, 32 minutes, 26 secondstell me you don't need a state when you only need messages correct you don't need a state when you when you only have
+1:32:341 hour, 32 minutes, 34 secondsto pass around the messages you don't need a state or Yeah, because there are no variables only messages.
+1:32:401 hour, 32 minutes, 40 secondsNo variables, right? So you don't need you just pass it at like state messages,
+1:32:441 hour, 32 minutes, 44 secondsright? Instead of human query, what will you pass? Can someone tell me
+1:32:501 hour, 32 minutes, 50 secondstell me state what response the messages messages by default it's messages there, right?
+1:33:001 hour, 33 minutesThe key is messages there. This we did in the last session, right?
+1:33:041 hour, 33 minutes, 4 secondsCorrect. And then you will pass this to whom? Llm. So let's just invoke the LM directly here.
+1:33:131 hour, 33 minutes, 13 secondsThat's what you do. LM we will invoke, right?
+1:33:191 hour, 33 minutes, 19 secondsAnd what will you return? What will you return?
+1:33:241 hour, 33 minutes, 24 secondsReturning means what you will add it back to state. So what will you have to do? You need a what? Dictionary. And what will you add to it? Messages and whatever the response that is coming.
+1:33:421 hour, 33 minutes, 42 secondsThis is what we will do. This will be your Let's try to call it, right? Let's try to call it.
+1:33:491 hour, 33 minutes, 49 secondsOkay, let me do it. Let's create a state first. Messages state. Let's create a state.
+1:33:571 hour, 33 minutes, 57 secondsRight. Inside this, I'm going to add a message. Messages.
+1:34:061 hour, 34 minutes, 6 secondsis equals to.
+1:34:141 hour, 34 minutes, 14 secondsHelp me understand.
+1:34:271 hour, 34 minutes, 27 secondsOkay. help me understand the casual leave policies. Right? This is what you need to do. Please understand
+1:34:361 hour, 34 minutes, 36 secondsthis very carefully. Okay? And then what you'll do, you'll call this function,
+1:34:401 hour, 34 minutes, 40 secondsisn't it? HR head. Look at this. HR head. Pass it with what? Right? Call it with state. And let's see what is the
+1:34:471 hour, 34 minutes, 47 secondsoutput that you get here. Let's say you have a query.
+1:34:511 hour, 34 minutes, 51 secondsI think we should have had the query here, not here. So, let me just stop it for now. This should not be here.
+1:35:001 hour, 35 minutesThis should be here. This should be here.
+1:35:091 hour, 35 minutes, 9 secondsOkay. Damn. So that's the problem that is happening. Okay. Anyway,
+1:35:171 hour, 35 minutes, 17 secondsand instead of this you will just pass query Let me see this.
+1:35:321 hour, 35 minutes, 32 secondsHelp me understand the leave policy. See,
+1:35:381 hour, 35 minutes, 38 secondsI not removed it from here and not run it again. Actually,
+1:35:471 hour, 35 minutes, 47 secondslet's try now.
+1:35:581 hour, 35 minutes, 58 secondsSo see this now you get this out right you get this basically out right but we did not need this we needed something
+1:36:061 hour, 36 minutes, 6 secondsdifferent what is it giving us it's giving us tool call also so you're getting basically an AI messages output
+1:36:141 hour, 36 minutes, 14 secondsyou're basically getting an AI messages output which is fine which is fine okay which is fine but we need what what do we need to do? You tell me. We need to
+1:36:221 hour, 36 minutes, 22 secondscall the tool if the LLM is asking us to call the tool. Isn't it? We need to call the tool if the LLM is asking us to call
+1:36:291 hour, 36 minutes, 29 secondsthe tool. Otherwise, what do we need to do? You tell me. Otherwise, what do we need to do? Tell me.
+1:36:371 hour, 36 minutes, 37 secondsHuh? Go to end, isn't it? Printer. Is it? Tell me guys.
+1:36:451 hour, 36 minutes, 45 secondsYes or no? Yeah.
+1:36:481 hour, 36 minutes, 48 secondsYeah, that's what it is. Right. First you design this LLM first. You design this LLM and you design this part. Just test your LLM first. First you design the LM and test it.
+1:36:591 hour, 36 minutes, 59 secondsThen we'll check if it needs to call and everything that we'll do that.
+1:37:311 hour, 37 minutes, 31 secondsyou know paste the tool get lip policy. Yeah. Yeah. Let me just get past it. This one this I have already pasted it.
+1:37:391 hour, 37 minutes, 39 secondsLet me paste it again. First you design guys. This is how you should why I'm doing this. You must be thinking why I'm doing this. I'm doing this so you
+1:37:471 hour, 37 minutes, 47 secondsunderstand how to go about designing your NLM. Right? First you design node by node. Test every node. You design
+1:37:551 hour, 37 minutes, 55 secondsnode by node and test every node with some sample data. Test I'll show you to generate richer sampling sample data also. Don't worry about it. First thing
+1:38:041 hour, 38 minutes, 4 secondsyou need to do is test every node and you know kind of test it with sample data. Correct? Once you're sure about your node then you go forward. Okay.
+1:38:461 hour, 38 minutes, 46 secondsI said guys you tell me now I'll just show you now how to build the graph here right is this done let me just give you this then we'll try to build the graph
+1:38:541 hour, 38 minutes, 54 secondstogether let's try to build the graph together because this thing you will design able to be you will be able to design one way or the other right
+1:39:031 hour, 39 minutes, 3 secondsso what are we doing here guys this these are all the options I want you to be very very aware all the workflows I want you to be very very aware of what the first thing is first thing is what
+1:39:121 hour, 39 minutes, 12 secondswe can use messages state. We can use what messages state directly because there are only messages. We only want messages. So messages state is a
+1:39:201 hour, 39 minutes, 20 secondsbuilt-in state. You use that there is no any variable. There's no variable. So we are not using any other thing. We're using message messages state only.
+1:39:271 hour, 39 minutes, 27 secondsThat's it. Right now what we going to do is I'm going to comment this out.
+1:39:321 hour, 39 minutes, 32 secondsAnd what I'm going to do is I'm going to now build the graph. I'm going to now build the graph. Look at this. How will I build the graph? Please understand very carefully. First thing,
+1:39:421 hour, 39 minutes, 42 secondstell me what will I do to build the graph? Can someone tell me mother? What is the first thing I will do?
+1:39:501 hour, 39 minutes, 50 secondsState graph.
+1:39:521 hour, 39 minutes, 52 secondsThe state graph. See guys, I'm making you do the same things again and again so you understand. Okay, please understand. And what will you pass inside this messages?
+1:40:021 hour, 40 minutes, 2 secondsCorrect. That's correct. Then what you do the next thing? Builder.add node. Which node will you add guys? You tell me.
+1:40:131 hour, 40 minutes, 13 secondsTell me which node. Help desk.
+1:40:171 hour, 40 minutes, 17 secondsHR HR help desk. Help desk. Next thing what you'll do?
+1:40:241 hour, 40 minutes, 24 secondsYou'll add edge. Now builder dot add edge. From where to where?
+1:40:331 hour, 40 minutes, 33 secondsStart to HR.
+1:40:341 hour, 40 minutes, 34 secondsStart to HR. start to HR help desk and I'm going to call it
+1:40:431 hour, 40 minutes, 43 secondsHR_h help desk.
+1:40:471 hour, 40 minutes, 47 secondsThis is the second thing third. Then what is after HR help desk? What will you do? Now you tell me you have a tool also. So don't forget that tool.
+1:41:001 hour, 41 minutesWe need the tool call also there.
+1:41:031 hour, 41 minutes, 3 secondsYeah. So how do you connect to the tool guys? Tool node. Tool node.
+1:41:101 hour, 41 minutes, 10 secondsTool node. But how will you connect to it? Add conditional edge.
+1:41:151 hour, 41 minutes, 15 secondsAdd conditional edge. Edges. Then what will you pass?
+1:41:221 hour, 41 minutes, 22 secondsHelp desk comma what?
+1:41:261 hour, 41 minutes, 26 secondsTo condition router function here. You can directly use what? Tools condition. Isn't it guys?
+1:41:341 hour, 41 minutes, 34 secondsYes.
+1:41:351 hour, 41 minutes, 35 secondsRight. We learned this in the last session. Two things, two ways to call to call tools. We looked at multiple variations of
+1:41:421 hour, 41 minutes, 42 secondsmessages. We also looked at multiple variations of tools. That's what we doing practicing. Now look at this. What what is the next thing you will do?
+1:41:521 hour, 41 minutes, 52 secondsTell me. Addition.
+1:41:581 hour, 41 minutes, 58 secondsCondition from HR head to where? HR press to end. End.
+1:42:041 hour, 42 minutes, 4 secondsWhat will you do? Builder dot compile.
+1:42:211 hour, 42 minutes, 21 secondsAnd then
+1:42:321 hour, 42 minutes, 32 secondsAnd let's go ahead and disc just am I doing something wrong? Check.
+1:42:441 hour, 42 minutes, 44 secondsOh, sorry. One thing I've not done is one thing I've not done is I've not added a tool node. Isn't it?
+1:42:541 hour, 42 minutes, 54 secondsI've not added a tool node, guys. Isn't it? How you add a tool node?
+1:43:071 hour, 43 minutes, 7 secondsTell me how do you add a tool node? Call tool node.
+1:43:111 hour, 43 minutes, 11 secondsTool node of tool node. And what will you pass inside this?
+1:43:181 hour, 43 minutes, 18 secondsWhat is it?
+1:43:221 hour, 43 minutes, 22 secondsThis is fine. And then I need to use the tools anywhere.
+1:43:291 hour, 43 minutes, 29 secondsBut do we need to have to add conditional edges statement? Pardon me.
+1:43:371 hour, 43 minutes, 37 secondsSo the add conditional edges uh for end. Do we need it or it will be? No,
+1:43:421 hour, 43 minutes, 42 secondsof course we need conditional edges. Now I'll show you the graph then you'll understand. One last note is left. Add edge from where to where? Tell me.
+1:43:511 hour, 43 minutes, 51 secondsSomething is left. Tell me from tools to HR_us.
+1:44:031 hour, 44 minutes, 3 secondsNow you see I kind of try. This is where it add to get policy. The two node are not defined or what?
+1:44:151 hour, 44 minutes, 15 secondsGet leave policy. This is fine. This looks good. Get leave. Oh, sorry. This is the one.
+1:44:281 hour, 44 minutes, 28 secondsOkay. Add condition. HRM disk. I not run this disk.
+1:44:401 hour, 44 minutes, 40 secondsJust one minute. Where did my HR head go at? It was right here. Did I? I think I missed it.
+1:44:511 hour, 44 minutes, 51 secondsYeah, this is not a conditional edge,
+1:44:531 hour, 44 minutes, 53 secondsright? HR is directly to end. This is not a conditional edge. So what? Pardon me.
+1:44:591 hour, 44 minutes, 59 secondsSo the the the line where it is showing an error, right? That's not a conditional edge.
+1:45:051 hour, 45 minutes, 5 secondsIt is going to end, right? So sir, it's a direct just add.
+1:45:141 hour, 45 minutes, 14 secondsNo, it will be conditional edge only.
+1:45:171 hour, 45 minutes, 17 secondsBecause you tell me why because from HR help desk you can either go it can either go to tool or end
+1:45:251 hour, 45 minutes, 25 secondstool or you can go to end. So that is the whole idea right.
+1:45:301 hour, 45 minutes, 30 secondsSo let's just check where is it breaking down. Let's just see if it is working. This much is working.
+1:45:341 hour, 45 minutes, 34 secondsBut in the session 9 when we see it for a similar condition it uh it is just added the second line.
+1:45:461 hour, 45 minutes, 46 secondsOkay. So you're saying that it uh was just add edge. Yeah.
+1:45:521 hour, 45 minutes, 52 secondsBut that's not possible because you have a conditional edge from HR to tools condition. How can you have an edge?
+1:46:001 hour, 46 minutesmistake. Oh, it's wrong.
+1:46:061 hour, 46 minutes, 6 secondsNow it is working. Yes, that's I think it's correct. So basically since you're using this tools condition.
+1:46:131 hour, 46 minutes, 13 secondsSo you can go to tools condition. From tools condition you have to come back or you can go to end. So add edge to end is
+1:46:211 hour, 46 minutes, 21 secondsnot conditional. But I think in the last session we did a conditional edge also to end right somehow. I remember.
+1:46:281 hour, 46 minutes, 28 secondsAnyway, let's see now. What will you pass to this graph? Tell me guys, what will you pass to this graph? Let's now take that part out.
+1:46:411 hour, 46 minutes, 41 secondsWhat is this thing? Right.
+1:46:471 hour, 46 minutes, 47 secondsSo, this ask me anything and the message is you will send the human query and I think ask me anything. So, let's pass it. Tell
+1:46:561 hour, 46 minutes, 56 secondsme about casual leave policy something like this
+1:47:041 hour, 47 minutes, 4 secondsfailed. So I think it has failed. Three validation errors human error.
+1:47:121 hour, 47 minutes, 12 secondsSo so so it is kind of not going through task man policy. If I just do graph
+1:47:201 hour, 47 minutes, 20 secondsremove query which is fine input should be a for string. Okay, it's
+1:47:281 hour, 47 minutes, 28 secondsactually returning the response. So that is the problem. So I need to return the string actually.
+1:47:411 hour, 47 minutes, 41 secondsLet me check this. So I think I I'm returning the wrong thing from the
+1:47:481 hour, 47 minutes, 48 secondstopic exactly policy found and messages and response.
+1:48:021 hour, 48 minutes, 2 secondsSo what I'm going to do is think probably must be here.
+1:48:121 hour, 48 minutes, 12 secondsresponse system message
+1:48:251 hour, 48 minutes, 25 secondsor human message. This is the correct invoking the ll getting the return as messages response.
+1:48:331 hour, 48 minutes, 33 secondsSo you're getting basically the response of the message. So this is coming as output. Let me understand the leave policy. So let's say this it is not calling any tool getly policy.
+1:48:451 hour, 48 minutes, 45 secondsIt is calling policy in J. So this is what this calling actually now. Why is it not picking it up? That's what I'm thinking. Response.
+1:48:571 hour, 48 minutes, 57 secondsHello. Yes. Yes. Okay.
+1:49:071 hour, 49 minutes, 7 secondsSo just thinking aloud guys. So what exactly is it that we're doing wrong? That's what I'm trying to understand.
+1:49:151 hour, 49 minutes, 15 secondsSo it is returning this response.
+1:49:191 hour, 49 minutes, 19 secondsWe're getting the tool cause leave policy in general. That is fine.
+1:49:241 hour, 49 minutes, 24 secondsAnd when we are doing it here something is breaking down as info
+1:49:351 hour, 49 minutes, 35 secondsshould be a valid string type string with the val human message where it break
+1:49:441 hour, 49 minutes, 44 secondsdown after come here message content.
+1:49:541 hour, 49 minutes, 54 secondssomething.
+1:50:061 hour, 50 minutes, 6 secondsSystem message. System message prompt customer message. This should work.
+1:50:301 hour, 50 minutes, 30 secondsbreaking down inside content is this content. How is this? How's this passed
+1:50:411 hour, 50 minutes, 41 secondsas content? Input value is human message.
+1:50:461 hour, 50 minutes, 46 secondsLet me check last session save in the last session in the beginning, right?
+1:51:021 hour, 51 minutes, 2 secondsstate messages messages response. This is what we were doing in the last session. Response is this and you're just passing the message to it. We're
+1:51:101 hour, 51 minutes, 10 secondsnot passing the system message to the Okay.
+1:51:191 hour, 51 minutes, 19 secondsSo, you are not passing the system message here. And if I take a look at here,
+1:51:261 hour, 51 minutes, 26 secondslet's check you are passing.
+1:51:311 hour, 51 minutes, 31 secondsSo this is the biggest problem guys that what goes inside what goes outside what comes outside always a problem. So let's just try to understand where is it where that we going to going wrong.
+1:51:411 hour, 51 minutes, 41 secondsgraph.invoke messages human message query which is fine. Let's come here now.
+1:51:511 hour, 51 minutes, 51 secondsmessage. Okay. Something message.
+1:52:051 hour, 52 minutes, 5 secondsSo basically state messages message.
+1:52:151 hour, 52 minutes, 15 secondsI believe it should work here. Let's just see check.
+1:52:281 hour, 52 minutes, 28 secondsMaybe it's breaking down because of the state messages.
+1:52:311 hour, 52 minutes, 31 secondsSo I should kind of do one thing which is just I think the problem lies here.
+1:52:491 hour, 52 minutes, 49 secondsThis thing.
+1:53:031 hour, 53 minutes, 3 secondsLet's try now.
+1:53:151 hour, 53 minutes, 15 secondsIt's kind of off. Let's see if it works.
+1:53:251 hour, 53 minutes, 25 secondsChat prompt template a dub
+1:53:321 hour, 53 minutes, 32 secondswar error. It has not come but state message. Let's do one thing. Let's remove the human message also.
+1:53:521 hour, 53 minutes, 52 secondsWe are doing something wrong. I know it.
+1:53:541 hour, 53 minutes, 54 secondsI got it. I got it. We need to actually design system message using chat prompt template. No, that's the problem. Let's remove this for now. Let's remove this for now. State messages. Let's remove
+1:54:031 hour, 54 minutes, 3 secondsthis for now. just message state messages and uh pass state message directly inside. You don't need this.
+1:54:271 hour, 54 minutes, 27 secondsSo we have to be very careful about whatever is going on, whatever you're sending inside the LLM, right? It does not take any list or I was sending it
+1:54:361 hour, 54 minutes, 36 secondslike a list which was the mistake I was doing. Look at this. Tell me about leave policy. What did it say? AI message. The message to was what? AI message. So what did it do? What did it say?
+1:54:471 hour, 54 minutes, 47 secondsWhatever it had to call the content was none. Then idea was what? You have to call the function get leave policy with
+1:54:551 hour, 54 minutes, 55 secondsthese arguments, right? With these arguments is what you needed to call.
+1:54:581 hour, 54 minutes, 58 secondsThen what is the next thing you did? The tool message. The tool message. No exact policies topics like casually, sick leave, ear leave, right? Name get leave policy, right? This is something, right?
+1:55:091 hour, 55 minutes, 9 secondsAM said the policy can vary depending on the type of leave and so on, right? So if we try now,
+1:55:181 hour, 55 minutes, 18 secondstell me about casual leave. Let's just see.
+1:55:261 hour, 55 minutes, 26 secondsSo I think it's pretty much working now,
+1:55:291 hour, 55 minutes, 29 secondsright? So the idea problem was the problem that we were facing was the way we were calling our LLM this guy here
+1:55:391 hour, 55 minutes, 39 secondsthis guy this this one right so the way we are passing this so this this was the actual problem that that was happening so you need to use chat prompt template
+1:55:471 hour, 55 minutes, 47 secondsand the problem will be resolved if you want to give an additional prompt it can be resolved using chat prompt template but for the now for now this is just for the sake of simplicity I've done it like
+1:55:551 hour, 55 minutes, 55 secondsthis only right so you can use this instead of that. Okay. Now, I would want you guys I would want you guys to kind
+1:56:031 hour, 56 minutes, 3 secondsof just just take a look at this. Let me also just try this.
+1:56:131 hour, 56 minutes, 13 secondsLook at this. So, it's basically nothing but an AI message that you're storing,
+1:56:171 hour, 56 minutes, 17 secondsright? You're just storing an AI message, right? That's it. Nothing else.
+1:56:211 hour, 56 minutes, 21 secondsFrom that AI message, Langraph is taking care of everything else that okay, if there is a tool call, it will call the tool and so on, right? That's all it is.
+1:56:291 hour, 56 minutes, 29 secondsJust try and do this guys. Please try and do this. Correct.
+1:56:461 hour, 56 minutes, 46 secondsTry and do this once then we move to the next part of the problem. Two more problems we'll do and then that will clarify almost everything that that is there.
+1:56:561 hour, 56 minutes, 56 secondsOuch.
+1:57:011 hour, 57 minutes, 1 secondSo this type of problems we can face often but if you use chat prom template I think you can resolve it very easily
+1:57:091 hour, 57 minutes, 9 secondsjust combine your state messages with chat prom template that's it
+1:57:211 hour, 57 minutes, 21 secondsbecause I was using the lamb chase system message now that's why the problem was Better use chat pro.
+1:58:071 hour, 58 minutes, 7 secondsGet now I'm going to give you after this one
+1:58:191 hour, 58 minutes, 19 secondsmore good question and that we will try build. Okay.
+1:58:311 hour, 58 minutes, 31 secondsSo, combination of this and the last one. That's what we'll try to do here. Let me know when you are ready.
+1:58:521 hour, 58 minutes, 52 secondsThis is the next question guys.
+1:58:551 hour, 58 minutes, 55 secondsOrder support workflow with messages plus business fields. You need messages as well as business fields. Now, right
+1:59:031 hour, 59 minutes, 3 secondsfor example, some sometimes a customer may ask this thing.
+1:59:081 hour, 59 minutes, 8 secondsImagine system needs to keep both the chat messages, the business variables also. So you need to keep your chat messages and also you need to keep your
+1:59:151 hour, 59 minutes, 15 secondswhat the business variables like order ID, shipment stats, front end and eligibility all these things also you need to do right for this I'm going to
+1:59:241 hour, 59 minutes, 24 secondsgive you two tools and I want I'll give you then some 15 minutes 15 minutes yes right right we'll continue till 5:30
+1:59:321 hour, 59 minutes, 32 secondstoday 15 minutes right and in those 15 minutes you'll have to design your agent right let's see how you do it Okay,
+1:59:431 hour, 59 minutes, 43 secondsmost important thing is what guys what goes inside what comes outside right everything is very easy I'm going to give you two two two functions which
+1:59:511 hour, 59 minutes, 51 secondswill be your like tools right
+2:00:012 hours, 1 secondokay let me give you two tools right this
+2:00:122 hours, 12 secondsthe two tools I'm going to give you.
+2:00:412 hours, 41 secondsLook at this.
+2:00:442 hours, 44 secondsSo there are two tools that I have kind of given. First tool is look at the look at the tools yourself. Right? Look at the tools yourself. First tool is let me bring them here.
+2:00:582 hours, 58 secondsFirst tool is you have to first of all convert them into tools. First fetch tracking update. And the second tool is
+2:01:052 hours, 1 minute, 5 secondsevaluate refund eligibility
+2:01:212 hours, 1 minute, 21 secondsevaluate refund L. So there are two tools that I have given you right. If you want them I can give them to you again.
+2:01:292 hours, 1 minute, 29 secondsI think I've already given you right.
+2:01:312 hours, 1 minute, 31 secondsThese are the two tools which are available to you. So whenever some customer will say something like my order is this this this delayed or something like it order support state.
+2:01:402 hours, 1 minute, 40 secondsOkay state I I'll I'll bring the state.
+2:01:432 hours, 1 minute, 43 secondsThis is not the tool. This is not a tool. This is basically
+2:01:502 hours, 1 minute, 50 secondslet me think just one minute. Okay state state.
+2:01:592 hours, 1 minute, 59 secondsSo let me just redo the tools because I'm just going to turn it. So let me just give me one minute. What is the full state status?
+2:02:082 hours, 2 minutes, 8 secondsSo just say okay status pass status here.
+2:02:242 hours, 2 minutes, 24 secondsis not right.
+2:02:302 hours, 2 minutes, 30 secondsSo this is will give you this thing.
+2:02:372 hours, 2 minutes, 37 secondsLet me just add it to a little because I'll have to kind of customize it for you.
+2:02:432 hours, 2 minutes, 43 secondsStatus status content instead of this.
+2:02:532 hours, 2 minutes, 53 secondsOkay, this is the first function which is available where you'll have to fetch the status of the order.
+2:03:052 hours, 3 minutes, 5 secondsAll right. And the second function which will be available is here which will give you the status. Once you receive the status, you'll have to check if this if it is eligible for a return or not.
+2:03:312 hours, 3 minutes, 31 secondsI think this is good. So these are your functions.
+2:03:372 hours, 3 minutes, 37 secondsYou need to convert these functions into tools. Give them dock strings. Give them proper dock strings. Convert them to tools. Right?
+2:03:492 hours, 3 minutes, 49 secondsconvert them to tools, bind them with LLMs and in what order would you call your LLMs and what will you do? You just
+2:03:562 hours, 3 minutes, 56 secondsjust try and see what will you be doing with that. Just just see this right.
+2:04:072 hours, 4 minutes, 7 secondsSo can you scroll a little bit up like you want to see the core ask?
+2:04:122 hours, 4 minutes, 12 secondsSo yeah, so customer says my order has not arrived. Now when system needs to keep both the chat messages the business
+2:04:192 hours, 4 minutes, 19 secondsvariables like order ID, shipment ID and refund eligibility. If we keep messages,
+2:04:242 hours, 4 minutes, 24 secondsbusiness fields become buried inside text. We only keep business field. We lose conversation continuity. The idea is it is trying to show you that we cannot keep everything inside the
+2:04:322 hours, 4 minutes, 32 secondsmessages. So basically we need a state where you keep messages. whatever the customer is typing, order status,
+2:04:402 hours, 4 minutes, 40 secondsorder ID, it's shipment status that you will find using one of these tools, right? And the refund eligibility,
+2:04:472 hours, 4 minutes, 47 secondsright? So, you need to find these things. Can you just try? Thank Thank you.
+2:05:072 hours, 5 minutes, 7 secondsTry this out. After this we'll go to the next part which is counter early stopping. Right? That is more important. That's also very important actually.
+2:05:362 hours, 5 minutes, 36 secondsOkay. Something went wrong. But anyway,
+2:05:402 hours, 5 minutes, 40 secondsdo it guys. Do it. Try it out. First create the state. Let's let's see everyone's state.
+2:05:562 hours, 5 minutes, 56 secondsLet's take a look at everyone's state.
+2:06:012 hours, 6 minutes, 1 secondThis is very important. I'm telling you these iterations are the most important things. Without this you will not be able to design your agents, multi-
+2:06:082 hours, 6 minutes, 8 secondsaents, whatever you're doing.
+2:06:122 hours, 6 minutes, 12 secondsOrder any shipment. There's one more should be there.
+2:07:362 hours, 7 minutes, 36 secondsif you want you can use two LM nodes also in this case you can use two LM nodes otherwise it
+2:07:442 hours, 7 minutes, 44 secondscan be done with one LM I'll show you both the implementations Okay.
+2:08:252 hours, 8 minutes, 25 secondsThis is very important guys. We need to understand these flows. These are the workflows.
+2:08:312 hours, 8 minutes, 31 secondsShe said that is correct but we need more fields.
+2:08:432 hours, 8 minutes, 43 secondsFor example, I think Dya's state is correct. Shas, your earlier state was okay, but you need Diva, the problem is
+2:08:512 hours, 8 minutes, 51 secondsthat you are not tracking messages. What if the chat happens? We need something for chatting as well. No, Diva.
+2:09:042 hours, 9 minutes, 4 secondsYes. Yes. adding it.
+2:10:482 hours, 10 minutes, 48 secondsGive me five more minutes guys then I'll do it. Okay. But try that will open the mind. That will open your mind.
+2:11:132 hours, 11 minutes, 13 secondsAfter this we'll try one more example which is for counter early stopping. Then we will directly move to multi- aent systems from tomorrow.
+2:11:222 hours, 11 minutes, 22 secondsBut without this no multi- aent system can ever happen.
+2:13:202 hours, 13 minutes, 20 secondsJust try guys. Just try. I know it's a little little confusing. It's a little lengthy also to be honest. But I want you to just give it a shot and attempt
+2:13:282 hours, 13 minutes, 28 secondsand try to think in those directions. So you are able to do it. Otherwise if I'll be designing it then I will have a different perspective. You may have a
+2:13:362 hours, 13 minutes, 36 secondsdifferent perspective. So I just want to you to have a perspective that is more important that I'll do this, I'll do that should have that thing. This thing
+2:13:462 hours, 13 minutes, 46 secondsI'm going to show you with router function because it becomes because it's very important to understand router function also. So I'll show you with router function. Okay. But if you have
+2:13:542 hours, 13 minutes, 54 secondsother ways to do it for example using tool conditions or something like that you can use that.
+2:14:052 hours, 14 minutes, 5 secondsWhen you're using tool condition, you are not creating any tool node.
+2:14:082 hours, 14 minutes, 8 secondsOtherwise, you'll have to create a tool node. Right? That's the whole idea we saw in the last
+2:14:372 hours, 14 minutes, 37 secondsOne more minute. I'll do it then. Okay.
+2:15:022 hours, 15 minutes, 2 secondsOkay guys, let me do it otherwise it will take more time. Just please understand, please understand very carefully. Okay, what is it that we want to do? Look at the question first.
+2:15:162 hours, 15 minutes, 16 secondsWhat's that or not?
+2:15:202 hours, 15 minutes, 20 secondsLook at the question first. So you have these two functions. Using these functions you have to design you have to design a
+2:15:262 hours, 15 minutes, 26 secondsagent which will take some order ID or something. There's a message it will take basically from that it will fetch order ID everything right
+2:15:362 hours, 15 minutes, 36 secondsand then based on that the agent will reply to it right it will first check the order ID from the database this is like a sample database small database
+2:15:442 hours, 15 minutes, 44 secondsI've created you may be pulling a SQL database in real time or something like that right this is a delayed this is the eligibility
+2:15:522 hours, 15 minutes, 52 secondscondition Imagine swiggy swiggy the order is canled then refund generate refund something like this I have just created okay something like this I have
+2:16:002 hours, 16 minutesjust created. Okay. Now, please pay pay attention. Okay. Using these two functions, first of all, first of all,
+2:16:082 hours, 16 minutes, 8 secondsif you just understand what you really need to do is you need a first thing you need a is a please
+2:16:142 hours, 16 minutes, 14 secondsunderstand this like you need a node, right? You need a
+2:16:232 hours, 16 minutes, 23 secondsuh let's say whatever u the status node the status function node which will be an LLM node. Understand this very
+2:16:312 hours, 16 minutes, 31 secondscarefully. You need a status node will be which will be an LLM node. Correct?
+2:16:392 hours, 16 minutes, 39 secondsYou need a status node which will be an LLM node. Your query will come to this node.
+2:16:462 hours, 16 minutes, 46 secondsCorrect? Your query will come to this node. This node will have access to the tools. This node will have access to the tools.
+2:16:552 hours, 16 minutes, 55 secondsSo you will have a you will have a tool node for that. Isn't it? You will have what? A tool node for that. Look at this.
+2:17:042 hours, 17 minutes, 4 secondsSo you will have a tool node here. See this is a tool node. Correct?
+2:17:102 hours, 17 minutes, 10 secondsSo this guy can call a call a tool node basically to get its output. It can call, right? It's not it does does not necessarily have to call it but it can call a tool node. Look at this.
+2:17:222 hours, 17 minutes, 22 secondsIt can call a tool node, right?
+2:17:272 hours, 17 minutes, 27 secondsThe tool node is doing what? It is basically calling the tools. It is basically calling the tools file, right?
+2:17:322 hours, 17 minutes, 32 secondsLet's look at it. How did we call the tools in the last session? Let's take a look at it using the router function. If you remember, we called the tools in the last session, right? Let's check it out.
+2:17:472 hours, 17 minutes, 47 secondsUh let's come down. We created the tool node and everything. This is the part where we did it. Look at this. Right? So if you will just refer to these codes,
+2:17:542 hours, 17 minutes, 54 secondshalf of your job will anyway be done.
+2:17:562 hours, 17 minutes, 56 secondsRight? Trust me on this. Right? So I'll just show you this is what we did. And uh router
+2:18:042 hours, 18 minutes, 4 secondsfunction we created a variation of state. This is fine. This is fine. Tool calling variation. This is fine. Check number my state.
+2:18:142 hours, 18 minutes, 14 secondsEven node somewhere we created a route. This was a router function. Let us see this is a router function that we had created in the last session. Right?
+2:18:242 hours, 18 minutes, 24 secondsSomething very similar we are going to do here also. Something very very similar that we want to is what is what we want to basically do here also. Okay.
+2:18:332 hours, 18 minutes, 33 secondsThe first thing you need is to create this status node, right? The the one which will tell you the order status and everything. So let's first thing we need
+2:18:402 hours, 18 minutes, 40 secondsto do is actually kind of create your functions properly as tools. Okay, first thing you need to kind of create your functions as tools. So let me first
+2:18:482 hours, 18 minutes, 48 secondsimport all the all the important packages first. Let me just bring them and I'm going to show you this is a very unique kind of design. That's why I want you to pay attention to it. Okay,
+2:19:012 hours, 19 minutes, 1 secondfirst import everything. Look at this. I've imported all the things, right?
+2:19:062 hours, 19 minutes, 6 secondsMost of the packages that I've been using so far, right? Next thing I'm going to create them into tools right look at this
+2:19:152 hours, 19 minutes, 15 secondssee I'm just creating them tools order ID you will get inside this and you will get our shipment status you will get simple tools I have created right every
+2:19:232 hours, 19 minutes, 23 secondsdetail of the of the tool I have given here see good good tools same thing nothing I have done I've just created those functions into tools right
+2:19:322 hours, 19 minutes, 32 secondsnow understand very carefully what will you do next this is a very important design because last time router was very small. This time it will be a bigger router. So I I want to show you this.
+2:19:422 hours, 19 minutes, 42 secondsOkay,
+2:19:452 hours, 19 minutes, 45 secondslook at this again. The router was very very small last time. Look at this. The router was very very small last time.
+2:19:522 hours, 19 minutes, 52 secondsThis time it will be a larger router and you will have to have a a lot of things will be done inside this router. Okay. So let's do it.
+2:20:022 hours, 20 minutes, 2 secondsCome in. Now you have created your tools. Right.
+2:20:072 hours, 20 minutes, 7 secondsThird thing that you need to do is please pay attention to this. Okay, this is the tools creation is done.
+2:20:172 hours, 20 minutes, 17 secondsNow we need to just bring our LLM. Now we need to just bring our LM. Just take a look. Let me just kind of bring it directly.
+2:20:262 hours, 20 minutes, 26 secondsSo what I'm doing is I'm defining my tools here. I'm defining my tools here. Tools by name. Tool name for tool.
+2:20:322 hours, 20 minutes, 32 secondsThat's it. Nothing. So here I'm just creating the tool names and nothing else. I'm binding the tools here with LLM. Look at this. I'm just binding the
+2:20:402 hours, 20 minutes, 40 secondstool here with LM. That's what I'm doing. Right? That's what I'm doing. I'm just binding the tool with LLM. All right. Simple enough.
+2:20:482 hours, 20 minutes, 48 secondsLet's run it. Right. What is this tools by name? Just take a look. I've just created a custom dictionary here which is nothing but the name of the tools.
+2:20:572 hours, 20 minutes, 57 secondsThen this tool.
+2:20:592 hours, 20 minutes, 59 secondsRight? This is the name of the tools I have created. Right? Same thing. If you remember in earlier tool calling I used to do this right you used to create the
+2:21:062 hours, 21 minutes, 6 secondsname of the tools have a dictionary of tools right to be able to call them when the time comes right so that's what I'm doing here right that's what I'm doing
+2:21:132 hours, 21 minutes, 13 secondshere right okay now you have this tools and you have this thing now you have bound your LLM with tools now what is
+2:21:222 hours, 21 minutes, 22 secondsthe next thing you tell me now what should I do from here you tell me tell me first you do this much first you
+2:21:302 hours, 21 minutes, 30 secondsdo this much then we will move forward First you do this much get these
+2:21:372 hours, 21 minutes, 37 secondseveryone do this much first so you have everything in place right so we can try things out together right
+2:21:522 hours, 21 minutes, 52 secondsall the imports right Just a minute.
+2:22:052 hours, 22 minutes, 5 secondsThe tool creation
+2:22:182 hours, 22 minutes, 18 secondstool creation is done and just kind of get your elements right. Just do it.
+2:22:282 hours, 22 minutes, 28 secondsJust do it. Try it out.
+2:23:312 hours, 23 minutes, 31 secondsDo it. Do it. Do it, guys. Do it.
+2:24:212 hours, 24 minutes, 21 secondsthen done now what I'm going to after this after I have created this right I have my LLM right now I'll
+2:24:292 hours, 24 minutes, 29 secondscreate my node isn't it the first node I will create then right isn't it this
+2:24:402 hours, 24 minutes, 40 secondsright so let me create my node I'm directly bringing the code right I have the code so I'm directly bringing it so look at let me show you the node look at
+2:24:472 hours, 24 minutes, 47 secondsthis so I've just created it called it I just called it assistant right and this is the system you're order assistant you are working inside a workflow that keeps
+2:24:552 hours, 24 minutes, 55 secondschat messages business fields I'm just kind of mentioning everything current business fields are this this this I'm just giving it all the fields rules if
+2:25:032 hours, 25 minutes, 3 secondsthe shipments ment status is empty call fetch backtracking update if the shipment status is available whatever I'm just kind of giving it everything
+2:25:112 hours, 25 minutes, 11 secondsbased on that keep the final response short and support right so just kind of giving it a prompt and what am I doing I'm just invoking it
+2:25:212 hours, 25 minutes, 21 secondswith the system prompt plus the state message right that's it same thing I'm doing system prompt plus state message
+2:25:282 hours, 25 minutes, 28 secondsI'm combining and just invoking my l that's it right let's test this Let's first test this part. Right. So let's
+2:25:362 hours, 25 minutes, 36 secondsfirst test it. I have not created a state yet. Yeah. Yeah.
+2:25:402 hours, 25 minutes, 40 secondsI have not created a state. Yeah. So that's a problem. Right. So I need to create a state. So let's have a state.
+2:25:482 hours, 25 minutes, 48 secondsSo I'm creating creating a a state here.
+2:25:512 hours, 25 minutes, 51 secondsIt is order state. This is the order state, right? So I've created a state here,
+2:25:572 hours, 25 minutes, 57 secondsright? which will have messages order ID, shipment status and refund eligibility, right? Refund eligibility,
+2:26:042 hours, 26 minutes, 4 secondsright? So this is what I'm doing. This is what I'm right.
+2:26:092 hours, 26 minutes, 9 secondsSo this is your order state and this is your LLM node. Quickly create them and then we will do some things together. Just create them quickly.
+2:26:192 hours, 26 minutes, 19 secondsNow I want you to test it at least. Please test it yourself. Test at least.
+2:26:242 hours, 26 minutes, 24 secondsRight? Please test it yourself. The way I test my nodes, you also test it. That is important. Then you will understand what is going inside, what is coming outside.
+2:26:342 hours, 26 minutes, 34 secondsPlease try and test it.
+2:27:092 hours, 27 minutes, 9 secondsTry it out.
+2:27:142 hours, 27 minutes, 14 secondsPlease test this at least because I want you to see right what exactly is going in, what is coming out.
+2:27:542 hours, 27 minutes, 54 secondsAnyone
+2:28:102 hours, 28 minutes, 10 secondshas any challenge, please tell me. But test it. I want you to test it. Make a state. I've been making states for so long. You make a state yourself and then
+2:28:192 hours, 28 minutes, 19 secondspass the state to it. Just try.
+2:28:572 hours, 28 minutes, 57 secondsDid you try it? Anyone tried it? Can you someone send me code? Whatever you try.
+2:29:052 hours, 29 minutes, 5 secondsYeah. State is equals to what? Order state. And what will you pass first? You call this, right? So now you'd have a state in place. Look at this. You have a state. Now inside state, you pass what?
+2:29:162 hours, 29 minutes, 16 secondsMessages.
+2:29:182 hours, 29 minutes, 18 secondsMessages is equals to whatever you want to pass. Let's say you want to pass uh I need my refund
+2:29:282 hours, 29 minutes, 28 secondsfor my order, right? Let's say let's say I'm passing this, right? One one test.
+2:29:332 hours, 29 minutes, 33 secondsSo that's why that's what I'm doing it intentionally just to check it, right?
+2:29:382 hours, 29 minutes, 38 secondsJust see this. Now what do you do? Call this always design like this state messages. Pass it. Right? Look at this.
+2:29:462 hours, 29 minutes, 46 secondsI think we can only pass state only inside the state. Let's try.
+2:29:582 hours, 29 minutes, 58 secondsIt's state and problem is that can only concatenate this enable this responses system content
+2:30:082 hours, 30 minutes, 8 secondssystem progress state messages. Why is this always breaking down yet?
+2:30:142 hours, 30 minutes, 14 secondsNot as your state. So you're passing states messages one minute. Uh state messages will give you this system.
+2:30:332 hours, 30 minutes, 33 secondsState messages is a list of messages. So I need to pass it inside a list. Actually that's the problem.
+2:30:392 hours, 30 minutes, 39 secondsPass it as human message.
+2:30:442 hours, 30 minutes, 44 secondsRight. This is the problem. like not it should just cross it like this maybe
+2:30:532 hours, 30 minutes, 53 secondsthen see a lot of ruckus in this area I'm telling you it'll work
+2:31:022 hours, 31 minutes, 2 secondsnow see this is give me give me this AI message output right it gave me this AI message output is it asking me to call a tool you tell me is it asking me to call
+2:31:092 hours, 31 minutes, 9 secondsa tool look at it and tell me look at the response and tell me everyone May I have your order ID to check the
+2:31:172 hours, 31 minutes, 17 secondsstatus? Look at this. May I have your order ID? That's what it is saying,
+2:31:202 hours, 31 minutes, 20 secondsisn't it? That's what it is saying. Now you will enter enter your order ID.
+2:31:242 hours, 31 minutes, 24 secondsLet's just try one more variation of this. Let's just try one more. Always try like this. Design your node and then try two three variations of it. For example, now you try this,
+2:31:382 hours, 31 minutes, 38 secondsright? Like put this AI message AI message.
+2:31:502 hours, 31 minutes, 50 secondsMay I have your order ID? I'm just kind of making it up and then kind of I'm just giving it now.
+2:31:582 hours, 31 minutes, 58 secondsYes, it is. Whatever it is, I'm just kind of let's use one of the order ids from here.
+2:32:092 hours, 32 minutes, 9 secondsSo, you need to test such variations, right? And let's see what exactly comes.
+2:32:162 hours, 32 minutes, 16 secondsSo this this is what comes. Look at your state after this. Look at your state after this.
+2:32:222 hours, 32 minutes, 22 secondsSee, I need my order AI content. Yes, it is this. This is your state right now.
+2:32:262 hours, 32 minutes, 26 secondsThis is your state right now. So you sent a you sent this order ID. It asked you to call a function. Look at this.
+2:32:332 hours, 32 minutes, 33 secondsFetch tracking update. Now it's on you to call this function. Now it is on you to call this function. Is that clear or not guys? Are you able to run this?
+2:32:422 hours, 32 minutes, 42 secondsPlease tell me yes or no. At least respond please tell me. Yeah. Is it clear the
+2:32:502 hours, 32 minutes, 50 secondsflow is becoming clear or not? This workflow is what we have to understand guys to be able to be smooth. Right?
+2:32:582 hours, 32 minutes, 58 secondsWhat is going inside? What is coming outside? How are we dealing with it?
+2:33:012 hours, 33 minutes, 1 secondThat's now comes the important part. So this is the testing is done. Right? Now we'll go to the next part. What is the next part guys? You tell me what should
+2:33:092 hours, 33 minutes, 9 secondsbe the next part according to you. Let's start building the graph. What do you say? And then whatever we'll need, we'll put that. What do you say? Isn't it? Yeah.
+2:33:162 hours, 33 minutes, 16 secondsYes. So, let's build the graph. So, what is the first thing you will do? Builder.
+2:33:222 hours, 33 minutes, 22 secondsThis goes to what? State graph. And what will you pass inside this? Audit, right?
+2:33:282 hours, 33 minutes, 28 secondsBuilder dot add node. Which node will you add guys first?
+2:33:342 hours, 33 minutes, 34 secondsAssistant or assistant.
+2:33:392 hours, 33 minutes, 39 secondsAssistant node you add node is added. Next thing what you'll do? Tell me both both the tools.
+2:33:522 hours, 33 minutes, 52 secondsYou need to make a tool load. Isn't it? How do you make a tool load guys?
+2:33:582 hours, 33 minutes, 58 secondsMother conditional edge. That will come later.
+2:34:042 hours, 34 minutes, 4 secondsConditional edgeto will come later. What is the first thing you need is a tool node, right? So you need to create a tool node. But I think a tool I think
+2:34:132 hours, 34 minutes, 13 secondsyou need do that. So let's have a tool node. But have we defined the tools anywhere? That's the important part.
+2:34:212 hours, 34 minutes, 21 secondsSo let's first define a tool node, right? So tools is equals to tool node.
+2:34:282 hours, 34 minutes, 28 secondsWhich tools will you pass? Tell me.
+2:34:342 hours, 34 minutes, 34 secondsUm there's two of them right this one best tracking update and
+2:34:422 hours, 34 minutes, 42 secondsevaluate refund eligibility right you will pass these two tools right let's pass them inside the tool node now your tool node is also created
+2:34:502 hours, 34 minutes, 50 secondsright this is how you create a tool node you can create multiple tool nodes also guys trust me on this you can create multiple tool nodes also look at this
+2:34:592 hours, 34 minutes, 59 secondstools so a tool node is created like this a tool node is created Okay. Once the tool node is created, what will you do? Now tell me what is the next thing you'll do?
+2:35:112 hours, 35 minutes, 11 secondsBoth of them. Add the tool. Add how how will we add?
+2:35:192 hours, 35 minutes, 19 secondsUh builder dot builder dot add node. Add node. Which node? Tools.
+2:35:272 hours, 35 minutes, 27 secondsTools comma tools. Right. Is that correct? Tool node. Sorry. Or you can call it what? Whatever it is. Let's call
+2:35:342 hours, 35 minutes, 34 secondsit tool node. So that will be better than this. This is better. Right? The tool node is also added. Now you tell me what to do next.
+2:35:452 hours, 35 minutes, 45 secondsConditional edges. First thing is started. Right? Start.
+2:35:512 hours, 35 minutes, 51 secondsFrom where to where? Start to where? Tell me. Assistant.
+2:35:562 hours, 35 minutes, 56 secondsAssistant. Now you need to from assistant dot add what conditional edges from where tools from assistant to tool
+2:36:042 hours, 36 minutes, 4 secondsassistant tool how do you add a tool tool node condition
+2:36:122 hours, 36 minutes, 12 secondswhat is the for what is it used tool condition right tools condition is what you use
+2:36:202 hours, 36 minutes, 20 secondsfor that right then finally what do you do next tell me
+2:36:342 hours, 36 minutes, 34 secondsbuilder dot add edge from where tools
+2:36:412 hours, 36 minutes, 41 secondstools to assistant is it that's it I think we are
+2:36:472 hours, 36 minutes, 47 secondsdone I think this also sent this right done graphal end you it will automatically be added from on the main node. Okay,
+2:37:022 hours, 37 minutes, 2 secondslet's see this found unknown function node. Okay, let it break down.
+2:37:122 hours, 37 minutes, 12 secondsCompile function node. Okay, something I'm writing wrong or what? Just take a look. State graph assistant assistant
+2:37:202 hours, 37 minutes, 20 secondsevaluate tool node I've created like this. Okay. Tools tool node edge from start to this is the problem.
+2:37:322 hours, 37 minutes, 32 secondsSo assistant to end is required right?
+2:37:352 hours, 37 minutes, 35 secondsThat is optional. You can have it. It will automatically be added. Right? So this is a graph now. This is a graph
+2:37:432 hours, 37 minutes, 43 secondsnow. Now what do we do? You tell me. Now let's call the graph the same way.
+2:38:042 hours, 38 minutes, 4 secondsThe result is called to auto ask me anything
+2:38:172 hours, 38 minutes, 17 secondsright messages.com here work.
+2:38:232 hours, 38 minutes, 23 secondsI need to get my refund. Let's just say I'm just writing this. Let's see how does it give it. So what is coming now? This is
+2:38:322 hours, 38 minutes, 32 secondscoming now. See this? This is coming now. So you can put it inside a while loop and everything. I need to get my may I have your order to check the eligibility for me? Right. Then you can
+2:38:402 hours, 38 minutes, 40 secondskind of keep invoking the graph again and again. But let's ask a proper question. Let's just do that.
+2:38:472 hours, 38 minutes, 47 secondsI need to get refund for my order ID. Let's just take one of them.
+2:39:062 hours, 39 minutes, 6 secondsLet's try and get the shipment status is not
+2:39:142 hours, 39 minutes, 14 secondsavailable yet. I will check the latest tracking update first.
+2:39:182 hours, 39 minutes, 18 secondsSomething is doing okay. Delayed in transit. Then tool message is coming.
+2:39:222 hours, 39 minutes, 22 secondsDelayed in transit. That's what is happening. Correct. Then AI message is coming again.
+2:39:282 hours, 39 minutes, 28 secondsThis is content nothing. Tool message coming. Is it ref is it eligible for this? Yes. Then finally your order is
+2:39:362 hours, 39 minutes, 36 secondscurrently deleted. You are eligible for refund. Please let us know if you like to proceed with the process. So in this way you kind of go about like right.
+2:39:452 hours, 39 minutes, 45 secondsThis tool condition is very easy to kind of attach your LLMs to the tools, right?
+2:39:502 hours, 39 minutes, 50 secondsIt's very very simple, right? But I still want you to know router. I I still want you to know how to use a router in such a case. We did router in the last time, but I want to know here also,
+2:40:012 hours, 40 minutes, 1 secondright? So I'm going to show you a router. How does it how will it work?
+2:40:042 hours, 40 minutes, 4 secondsLook at this. I'm just going to bring it directly. It's very simple. It's a function where you pass the state and it gives you either the tools or the end,
+2:40:132 hours, 40 minutes, 13 secondsright? It'll give you either the tools list or the end. Right? So it's this is a router. See this what does it what
+2:40:212 hours, 40 minutes, 21 secondsdoes the router do? Router looks at the last message in the chain in the state.
+2:40:262 hours, 40 minutes, 26 secondsWhatever messages are there it looks at the last message. If the last message is a tool call it will return tools. That's it. The rest langraph will handle right
+2:40:352 hours, 40 minutes, 35 secondsthe last message if it is tool calls it will return tools. Tools is what? Tools is what? I think tools is your um this
+2:40:422 hours, 40 minutes, 42 secondsthing tools this is tools right this is tools
+2:40:482 hours, 40 minutes, 48 secondsright the tool node right that you added tools so it is asking you to call the tool node that's what it is doing the
+2:40:562 hours, 40 minutes, 56 secondslangraph will handle which tool to call how to call everything it will do it right you don't have to worry about it this router is generally used so instead
+2:41:042 hours, 41 minutes, 4 secondsof tools condition you put what router generally this is very handy when you have multiple set of tools for one LLM,
+2:41:112 hours, 41 minutes, 11 secondsone set of tool, another LM, another set of tools and so on. It comes in very handy in such situations. Right. Right.
+2:41:192 hours, 41 minutes, 19 secondsNow guys, I have given you a flow. I have also given you up to here. I want you to at least build the graph. Build the graph yourself once. How how much time do we have? We have some time,
+2:41:312 hours, 41 minutes, 31 secondsright? I want you we can do one more scenario, right? I want you to build a graph yourself. this part just build it yourself and just test it out yourself
+2:41:402 hours, 41 minutes, 40 secondsthis I think you can do this I think you can do very easily because I've given you everything see it was very simple right you guys were struck for no reason
+2:41:472 hours, 41 minutes, 47 secondsjust see this you have to create this state right you have to create this assistant right which will get
+2:41:542 hours, 41 minutes, 54 secondseverything right and that's it nothing else you have to isn't it
+2:42:012 hours, 42 minutes, 1 secondthis is all you need to understand right this is all you need to understand that how to create it right give it access to what this is where your views will come
+2:42:102 hours, 42 minutes, 10 secondsimportant and I will explain that that what does it what is it supposed to see I'll explain that later on in the next session of course but right now you need
+2:42:172 hours, 42 minutes, 17 secondsto understand what is it that you need to do look at this what did I do very simple glo code only
+2:42:242 hours, 42 minutes, 24 secondssame code only I'm building same nothing changed just the prompt change nothing has changed right and I built the graph
+2:42:312 hours, 42 minutes, 31 secondsalmost the same way right almost the same What you need to understand is what is going inside, what is coming outside.
+2:42:372 hours, 42 minutes, 37 secondsThat's it. Every guy has to return what a a dictionary. A dictionary has to be returned by every person, right? So it
+2:42:462 hours, 42 minutes, 46 secondsgets appended to the state. Now can you just try this one out?
+2:42:532 hours, 42 minutes, 53 secondsCan you just build this graph yourself once so you understand at least how to build the graph? Please do it yourself once and then we'll I'll give you two
+2:43:002 hours, 43 minutesthree minutes for this and then we'll go to the next and last scenario for today.
+2:43:042 hours, 43 minutes, 4 secondsSorry, no breaks today because we had to cover a lot of scenarios. It's about scenario once we'll do we'll be good. Okay,
+2:43:112 hours, 43 minutes, 11 secondsjust do it. I'll I'll I'll take uh I'll take get myself some water. Okay, please do it in the meantime.
+2:47:542 hours, 47 minutes, 54 secondsOkay. Can you try it? Were you able to do it, guys? Yeah.
+2:48:012 hours, 48 minutes, 1 secondYes. Okay, great.
+2:48:052 hours, 48 minutes, 5 secondsI feel I feel you must be must be burned out by now. Is it? Let me know if that is the case.
+2:48:192 hours, 48 minutes, 19 secondsBut guys, the thing is see some some things they are easy to strike and easy to understand and easy to learn, right?
+2:48:262 hours, 48 minutes, 26 secondsThey you can just get get to know them in one shot. But some things they take a little bit of
+2:48:342 hours, 48 minutes, 34 secondsrepetition when you repeat it multiple times then you kind of see a pattern and then you learn those things. This is one of those things. So you have to do it uh
+2:48:432 hours, 48 minutes, 43 seconds10 times with different different scenarios then only you can do it the right possible way to be honest right
+2:48:512 hours, 48 minutes, 51 secondsand Omega please tell me I can't hear you and Omega can you go
+2:49:022 hours, 49 minutes, 2 secondsagain can anyone else Hear Anamika. I cannot hear her.
+2:49:152 hours, 49 minutes, 15 secondsWe cannot.
+2:49:172 hours, 49 minutes, 17 secondsNo. Yeah. You can post your chat problem in the chat if that's the case. Okay.
+2:49:232 hours, 49 minutes, 23 secondsLet me take on some doubts guys. Anyone has any doubt in this? Anyone is facing any challenge in this? See, I'm telling you very honestly these sessions are
+2:49:312 hours, 49 minutes, 31 secondsvery very uh
+2:49:382 hours, 49 minutes, 38 secondsyou can put it you can anam you can put it right that's what I'm saying instead of tools condition you can also sometimes put router but router and
+2:49:462 hours, 49 minutes, 46 secondstools conditions are doing the same thing in this case sometimes you may need custom conditions that's when you will you will replace it with router
+2:49:542 hours, 49 minutes, 54 secondsright tools condition is fine what you And the router should always return the
+2:50:012 hours, 50 minutes, 1 secondexact node names. Is it the node names? That's what the thing is. And in this case, in this case,
+2:50:072 hours, 50 minutes, 7 secondsrouter returns the tools condition is nothing but this router only actually. Okay. Yeah. Tools condition is this default router.
+2:50:152 hours, 50 minutes, 15 secondsBut if you have many nodes and sometimes you want to return one node name,
+2:50:192 hours, 50 minutes, 19 secondsanother node name, right? Something like that. Or you have many multiple tool nodes, correct? then you really need the custom router like this right that's
+2:50:282 hours, 50 minutes, 28 secondswhat the idea is right so that's the whole idea yes she
+2:50:352 hours, 50 minutes, 35 secondsyeah based on here it is a mixture of messages and and tool calls right yes yes
+2:50:422 hours, 50 minutes, 42 secondsso can be based on a output from the message uh search for a string and based
+2:50:512 hours, 50 minutes, 51 secondson that history of the messages you call a tool.
+2:50:572 hours, 50 minutes, 57 secondsThat's what is happening actually. But we are not searching for a string if you think about it. Yeah. Yeah.
+2:51:022 hours, 51 minutes, 2 secondsThe LLM LLM lang chain gives you in its body that tool call is required when required with these these arguments. If
+2:51:092 hours, 51 minutes, 9 secondsyou must have seen when we bind LLM with tools then it in the body itself it gives you tool calls.
+2:51:152 hours, 51 minutes, 15 secondsSo we don't have to get it out of the messages state messages also.
+2:51:202 hours, 51 minutes, 20 secondsIt is by default available in the body itself.
+2:51:222 hours, 51 minutes, 22 secondsOkay. So it will sense it in the LLM's body and then yeah it will so if you remember from the
+2:51:302 hours, 51 minutes, 30 secondslast session where we did function calling that's what happened right we were getting it out of the LLM body only right okay
+2:51:372 hours, 51 minutes, 37 secondsthat's the whole idea right so langraph does it for you this time you don't have to do it langraph
+2:51:452 hours, 51 minutes, 45 secondstakes it out of the llm body the arguments are the tool called tool name and it just passes it and it calls it right that's what happens right
+2:51:522 hours, 51 minutes, 52 secondsif there is ambiguity Like if there are two more than two occurrences but it will result to the same uh two
+2:52:002 hours, 52 minutessee you will never have a function with two two functions with the same name right you cannot have
+2:52:072 hours, 52 minutes, 7 secondsno we cannot have we cannot have yeah got it guys I'm thinking I'll pause
+2:52:162 hours, 52 minutes, 16 secondsbecause it's about I have to cover the early stopping part right which is also very important so I'll pause here and
+2:52:232 hours, 52 minutes, 23 secondssee if you have any doubts and we can do the early stopping in the next session and multi-agent systems also we will start we'll go with multi- aent systems
+2:52:312 hours, 52 minutes, 31 secondsalso in this way only guys that we'll solve two three types of scenarios right of multi- aent systems uh and then we
+2:52:392 hours, 52 minutes, 39 secondswill theoretically discuss all the sort of multi- aent systems architectures and topologies that can exist right that's what we are going to do in the next
+2:52:472 hours, 52 minutes, 47 secondssession yes she's s recently Lord has uh announced a big
+2:52:542 hours, 52 minutes, 54 secondsthing, right? Like the v vulnerabilities security. Okay. Was not releasing. What is it about? Okay.
+2:53:022 hours, 53 minutes, 2 secondsPardon me again.
+2:53:042 hours, 53 minutes, 4 secondsUh Claude said their recent mythos mythos. Okay.
+2:53:092 hours, 53 minutes, 9 secondsThey were not releasing it because it was they found it to be needs to be tested way ahead. Okay. Okay. Okay.
+2:53:182 hours, 53 minutes, 18 secondsfinding security vulner vulnerabilities.
+2:53:222 hours, 53 minutes, 22 secondsYes. Yes. Yes. Yes. Yes. More than the speed of a human can find.
+2:53:262 hours, 53 minutes, 26 secondsWhat they have done is basically when let's say you have a code in place,
+2:53:302 hours, 53 minutes, 30 secondsright? So there this so what they have done is it's basically it figures out every breaking point, every lose point of a code that can be exploited.
+2:53:402 hours, 53 minutes, 40 secondsCorrect.
+2:53:412 hours, 53 minutes, 41 secondsSo ideally it is it can be a good use case for security perspective that you can strengthen your code but what will
+2:53:492 hours, 53 minutes, 49 secondshappen is eventually hackers if they get a hold of the code. Yeah. Yeah.
+2:53:552 hours, 53 minutes, 55 secondsYeah. Yeah. That's why they were not releasing it. So that's what it possibility of getting negative usage for that particular product is much more than their positive.
+2:54:042 hours, 54 minutes, 4 secondsThat's what that's that's what that's the problem. Ethical hacking learning ethic when someone is learning ethical hacking is do you think someone
+2:54:122 hours, 54 minutes, 12 secondsuses ethical hacking for only ethical purposes right no right so completely unethical you don't right of course
+2:54:202 hours, 54 minutes, 20 secondsso right so that's the whole thing right so if you get a gun license I mean that's that's what it is right like yeah
+2:54:282 hours, 54 minutes, 28 secondsso that's the whole idea okay so now from here uh we will have two more sessions right both the sessions we
+2:54:352 hours, 54 minutes, 35 secondswill dedicate to mult multi-agent systems uh both of them correct and uh everything around multi-agent
+2:54:432 hours, 54 minutes, 43 secondssystems which is a part of your syllabus we will be covering in those two sessions all right the idea is going to be very simple to design simple codes of
+2:54:522 hours, 54 minutes, 52 secondsmulti- aent systems right not to confuse anyone not to kind of go very fancy but try to theoretically as well as somewhat
+2:55:002 hours, 55 minutespractically cover all the all the possibilities which are existing Right?
+2:55:062 hours, 55 minutes, 6 secondsBecause multi-agent systems can get very very very complicated. Right? I'll try to kind of show you a proper
+2:55:142 hours, 55 minutes, 14 secondsarchitecture proper architecture to design multi- aent systems. Right? But that said that said it's not going to be
+2:55:222 hours, 55 minutes, 22 secondsvery very easy but we'll have a backbone just like we had a backbone today. So I wanted to discuss first today's backbone architecture that we have to always follow. Simple architecture.
+2:55:342 hours, 55 minutes, 34 secondsDefine your tools very very well with proper where did it go? Yeah, here sorry.
+2:55:412 hours, 55 minutes, 41 secondsWith proper dock string whatever you're creating just what is it returning? What is it? What are you sending etc et with a proper dock string define your tools.
+2:55:512 hours, 55 minutes, 51 secondsSimple. That is the first number one step.
+2:55:552 hours, 55 minutes, 55 secondsSecond step is second step is bind your tools with the LLM. Of course, bind this is not required. I I used it but it's
+2:56:032 hours, 56 minutes, 3 secondsnot used. Leave it. Bind your tools with LLM. Of course, see this bind your tools with L. This is number two's step. You
+2:56:102 hours, 56 minutes, 10 secondshave to follow exact these steps. In case the need is there, maybe you may need to bind the tool LLM with the
+2:56:172 hours, 56 minutes, 17 secondspyantic classes. Well, like we did, I've shown you one example that's why already, right? So, bind the tools with LLM. Third thing, create your state.
+2:56:262 hours, 56 minutes, 26 secondsCreate your state. Correct? create a state. Fourth thing, create your LLM node.
+2:56:342 hours, 56 minutes, 34 secondsCreate your LLM node. Correct? And test it. And test it. All all LLM nodes should be tested. That means all agentic nodes should be tested. Without testing,
+2:56:462 hours, 56 minutes, 46 secondsyou cannot create an LLM node. I'll show you how to test in a multi- aent framework. Tomorrow
+2:56:532 hours, 56 minutes, 53 secondswe'll take use of chart GPD and everything to test to make test cases for us. they will we will put our state into it and we will give it ask it to
+2:57:022 hours, 57 minutes, 2 secondskind of create the state in such a way that it's an extensive test case you should have 10 to 12 test cases
+2:57:092 hours, 57 minutes, 9 secondsideally for your LLM all right very important to test your LLM lm nodes right fourth is what make your LLM node
+2:57:182 hours, 57 minutes, 18 secondsand test it fifth is fifth is create a router right in case no router exists you need just
+2:57:262 hours, 57 minutes, 26 secondstool condition Right? You need just two permission and then you build your graph. That's it. This is the exact steps you have to follow. Just like rag,
+2:57:362 hours, 57 minutes, 36 secondsI'm giving you these steps. So I'm going to note them down here. You tell me what is the first one guys?
+2:57:442 hours, 57 minutes, 44 secondsWhat is the first one? Create your tools with dock string. Correct. First thing.
+2:57:522 hours, 57 minutes, 52 secondsSecond one. Define bind your bind with the LLM.
+2:57:572 hours, 57 minutes, 57 secondsBind your LLM with tools tools. Third thing is define your state tools.
+2:58:042 hours, 58 minutes, 4 secondsBind your LM with tools or or pideantic that I think will come down in the line.
+2:58:112 hours, 58 minutes, 11 secondsOkay.
+2:58:142 hours, 58 minutes, 14 secondsDefine your state. Then fourth will come is what is the fourth guys? Tell me.
+2:58:202 hours, 58 minutes, 20 secondsMake your LM node. LM node and test it. That's important. Use charg for testing it.
+2:58:272 hours, 58 minutes, 27 secondsI'll show you how to use it. I'll show you uh to do that. Okay. Make your LM node and test it. This is one more thing. Fifth thing, what is the fifth
+2:58:342 hours, 58 minutes, 34 secondsthing guys? Tell me log your router.
+2:58:412 hours, 58 minutes, 41 secondsThen sixth thing is build your langu.
+2:58:462 hours, 58 minutes, 46 secondsAnd here is where you need may need to uh bind your LLM with pyantic class. You may need because if you want a specific
+2:58:542 hours, 58 minutes, 54 secondskind of output from LLM like we needed in one of the you you check it out one of the architectures some of have shown that
+2:59:012 hours, 59 minutes, 1 secondbind LLM with what withantic pantic
+2:59:082 hours, 59 minutes, 8 secondsthese are the only steps for normal agentic workflow. If you're if you're building a normal agentic AI workflow
+2:59:162 hours, 59 minutes, 16 secondswhich is just one agent, this is the exact flow you have to follow every single time.
+2:59:242 hours, 59 minutes, 24 secondsOkay?
+2:59:252 hours, 59 minutes, 25 secondsInstead of router, you may use tools directly. Right? This exact six steps
+2:59:322 hours, 59 minutes, 32 secondswill help you design your graph very efficiently. But provided that you know what goes inside what comes outside that
+2:59:402 hours, 59 minutes, 40 secondsyou should know. If you don't know that you're done that's why I've spent so much time on just one thing the state
+2:59:482 hours, 59 minutes, 48 secondswhat exactly state what is when something is returned by a node in the form of dictionary it is appended to the
+2:59:552 hours, 59 minutes, 55 secondsstate or it is replaced inside the state I've covered every single thing very detailed that is why
+3:00:033 hours, 3 secondsbecause you should know your data structures very very well what is going inside what is coming outside and follow these six steps as it is I can assure
+3:00:123 hours, 12 secondsyou you will be building your normal agents to like very very easily trust me on this. So that is the something like a global variables sir.
+3:00:233 hours, 23 secondsState is state is like a class which is like global variables which are sharing like a global variable temporary ones are the temporary local variables to the node.
+3:00:343 hours, 34 secondsBut when you need a structure not just simple order ID or something like that but if you have an array of data to be
+3:00:423 hours, 42 secondshandled in RD in relational systems you use tables. But how will you use that here? What do we use it for that?
+3:00:503 hours, 50 secondsSame thing. I mean the way you are building your messages. Let's say for some part you can keep it. But if it's a like large large data then you cannot keep it but for some part you will use
+3:00:593 hours, 59 secondsthis list messages. No that you have list messages. So that's a table of message. But how about order ids and those data that order data
+3:01:073 hours, 1 minute, 7 secondsthat data we will get from my SQL when we'll do it now when when we meet again I will integrate databases. Same thing
+3:01:143 hours, 1 minute, 14 secondsabove created custom data then I'll host that uh my SQL on an API.
+3:01:203 hours, 1 minute, 20 secondsOkay. So it will go for the data and fetch it and then uh retrieve it and put it this function would be calling the API
+3:01:293 hours, 1 minute, 29 secondsthen that's the whole idea.
+3:01:323 hours, 1 minute, 32 secondsSo we'll connect it as MCP tool right kind of not exactly MCP. So basically you will have one API not MCP. MCP is a
+3:01:403 hours, 1 minute, 40 secondsfunction full-fledged function which calls API. Correct.
+3:01:443 hours, 1 minute, 44 secondsWhat you will have is a API an API and this function will be using that API basically. So you will just pass your
+3:01:523 hours, 1 minute, 52 secondsorder ID to that API and you'll get all the details like this only. So imagine this is an API. Yeah,
+3:01:593 hours, 1 minute, 59 secondsthis part this part tracking DB look at this this part is inside database. This part is inside of a database right? So
+3:02:083 hours, 2 minutes, 8 secondsinstead of above used dummy only so I've done it like this only but ideally you this whole thing will be given to you by
+3:02:153 hours, 2 minutes, 15 secondsanother API another function another API basically right visually giving you all this right so that's how it works basically right abid I've just shown you
+3:02:233 hours, 2 minutes, 23 secondscustom so that's why it's working like this see all the databases like Oracle and
+3:02:303 hours, 2 minutes, 30 secondseven my SQL they should be opening up so that the APIs can access their data uh
+3:02:383 hours, 2 minutes, 38 secondswill there be any future restrictions like for the AI systems uh accessing that uh
+3:02:453 hours, 2 minutes, 45 secondssee I mean APIs are provided then if you think about it AI systems are not accessing uh the database it is your
+3:02:543 hours, 2 minutes, 54 secondsPython code which is accessing the database right so you need to just have a user ID login and password and you can easily just log
+3:03:033 hours, 3 minutes, 3 secondsinto the database and pull the data lm has no role to play correct in this it is only thing LLM is doing is it is telling you that call this particular
+3:03:123 hours, 3 minutes, 12 secondsfunction right there's nothing as LLM is doing isn't it it's your own Python program which is accessing the the
+3:03:203 hours, 3 minutes, 20 secondsdatabase right so that's that's the whole idea got it
+3:03:343 hours, 3 minutes, 34 secondsokay I think she has has struck in one one position only like this. Okay.
+3:03:423 hours, 3 minutes, 42 secondsOkay.
+3:03:443 hours, 3 minutes, 44 secondsOkay. I think that looks um about Yes. So sir please sir can I bring up the project assignment discussion here at this?
+3:03:543 hours, 3 minutes, 54 secondsAh sure sure. Yeah. Time for Yeah. Yeah. No sir. Thank you. We got the project files. Uh so you want us to just upload it. Uh I mean what do you
+3:04:033 hours, 4 minutes, 3 secondswant the Python files? what is the expected output format and what are the expectations I think see Ankit gave me a streamlit API to test
+3:04:113 hours, 4 minutes, 11 secondsokay right so if you want you can build something like that or what you can probably do is have a discussion with me after the class that this is what I have
+3:04:193 hours, 4 minutes, 19 secondsdone have I done it right or not in this way right we can have a discussion right so per day let's say we have
+3:04:273 hours, 4 minutes, 27 secondsfive people each discussion for example right or we can ask these guys to keep a separate session on just discussion of project Right? That would be the best
+3:04:353 hours, 4 minutes, 35 secondsway. If you upload it, I won't be able to honestly check the codes. Right? To be very honest, humanly honest.
+3:04:413 hours, 4 minutes, 41 secondsSo that that can also be done. So we can ask these guys to have one give one session only for project discussion.
+3:04:473 hours, 4 minutes, 47 secondsThat can also be done. So something like this we can plan. I would Okay. So for what is the best way for us to give it to you for your review because there are
+3:04:563 hours, 4 minutes, 56 secondsI'm sure 40 50 people on this call and I'm sure each one would want to showcase their project, right? So how do we handle I understand.
+3:05:043 hours, 5 minutes, 4 secondsUm the only way is to have a group discussion to be honest right uh I think that's the best possible way I think
+3:05:123 hours, 5 minutes, 12 secondspeer reviews and group discussion is the best thing that you can uh go for okay right first I would say the first layer
+3:05:203 hours, 5 minutes, 20 secondsis you discuss within uh groups that is amongst yourself right make groups people who have similar implementations
+3:05:283 hours, 5 minutes, 28 secondsyou make a group out of yourself for example there just an idea that how I do it with batches is like this only.
+3:05:353 hours, 5 minutes, 35 secondsFirst thing is you have a peer discussion. So have a call within yourself only. So I'll ask these guys to arrange a call for your internal discussions whenever you are all ready.
+3:05:433 hours, 5 minutes, 43 secondsCorrect. At least 30 people should be ready. Right. Right.
+3:05:463 hours, 5 minutes, 46 secondsHave a have an internal discussion and see who all have implemented very similarly. So present it to yourself and see who have a very similar
+3:05:543 hours, 5 minutes, 54 secondsimplementation. For example, some people may have used hide,
+3:05:583 hours, 5 minutes, 58 secondssome people may have used uh MQE. So group group like group by the implementations right correct then what
+3:06:063 hours, 6 minutes, 6 secondsI'll do is then we can have a call or probably after the session also we can just sit and see there will be four or five broader implementations people
+3:06:143 hours, 6 minutes, 14 secondswould have done right we can look at all the four five strategies not the code per se we will just look at the strategies okay that first group it has
+3:06:223 hours, 6 minutes, 22 secondsdone this this this set of steps second group it has done this this this this set of steps right and we can discuss further on what can be done extra Right.
+3:06:313 hours, 6 minutes, 31 secondsSo I propose that's that would be the right way to kind of go about it.
+3:06:343 hours, 6 minutes, 34 secondsInstead of having everyone's code and reviewing everyone's code because we are going to have more projects after this agent multi- aent systems I'm going to give you a project on multi-
+3:06:443 hours, 6 minutes, 44 secondsaent systems classification right then we when we come again we will combine rack knowledge graphs every everything with multi- aent systems then
+3:06:523 hours, 6 minutes, 52 secondsyou will have one project on multi- aent systems with rag correct so then finally when we deploy everything one one project for metrics
+3:07:013 hours, 7 minutes, 1 secondimproving your uh processes with metrics and all then finally when we deploy I'll give you one project for deployment so five projects I myself I'm going to give
+3:07:103 hours, 7 minutes, 10 secondsI'm not sure about other instructors but five projects I'm going to give you right to be honest for trying this was one project was rag by the time
+3:07:173 hours, 7 minutes, 17 secondsI end multi- aent systems I'll give you one more project correct for trying out multi- aent systems so the best thing is
+3:07:243 hours, 7 minutes, 24 secondsuh yeah yeah yeah ankit I could not look at it but and I was trying ankit so it was not working somehow the API I'll try
+3:07:323 hours, 7 minutes, 32 secondsit today So in this way let's go about it right try to see um by discussing amongst
+3:07:413 hours, 7 minutes, 41 secondsyourselves you can discuss okay this could have also been done in this way and that would have been really beneficial right I'm I'm very sure I mean people in here are very very smart
+3:07:493 hours, 7 minutes, 49 secondsand very very good to be very honest so having a very very good intellectual discussions amongst yourself would be
+3:07:553 hours, 7 minutes, 55 secondsthe best thing and then finally group that discussion up into three four parts that one group implemented this one group implemented this, some people
+3:08:043 hours, 8 minutes, 4 secondsimplemented this and some people implemented this. Right? Then I will also pitch in that okay this is how I did it in my company this is how I did
+3:08:113 hours, 8 minutes, 11 secondsit or this is also what you could have done that that that would be the best way I would say what do you guys think all of you tell me if there's something
+3:08:203 hours, 8 minutes, 20 secondsthat you would like to add on to this right or you can deploy it and show me
+3:08:293 hours, 8 minutes, 29 secondsright the final product that also is uh doable but that deployment not everyone has the idea of deployment as of now so I'm not telling that but at least we
+3:08:383 hours, 8 minutes, 38 secondsshould have something in place but since you guys have idea about grad and streamllet you can try with grad stream to deploy the app and can show you that
+3:08:463 hours, 8 minutes, 46 secondsright yeah that's all that's all you can do that but see again streamllet say you will deploy it so I'll not get to know what exactly did you do behind the
+3:08:543 hours, 8 minutes, 54 secondsscenes correct right what implement what techniques you did you use what were the challenges you faced those are the things I want to
+3:09:023 hours, 9 minutes, 2 secondsdiscuss with you guys to be honest right so because that is Right.
+3:09:093 hours, 9 minutes, 9 secondsI'll speak to go to the I'll speak to these guys future guys right and see what is it that can be done to to kind
+3:09:163 hours, 9 minutes, 16 secondsof have a discussion around this right I think that would be best but have a call amongst yourself let's say a two-hour call amongst yourselves
+3:09:243 hours, 9 minutes, 24 secondsand discuss this once internally I would I would just propose that okay uh because that would actually give you a lot of lot of clarity I can assure you
+3:09:333 hours, 9 minutes, 33 secondsof that no better networking than than this right so that's all right yeah someone already do doing in the
+3:09:403 hours, 9 minutes, 40 secondsWhatsApp group who already cracked it completed the project.
+3:09:463 hours, 9 minutes, 46 secondsSo I would say better have a discussion on call. Let everyone let someone monitor it. Let someone uh supervise it.
+3:09:523 hours, 9 minutes, 52 secondsAny one of you and then kind of have it round by round. Okay. This is what I have done.
+3:09:583 hours, 9 minutes, 58 secondsUh let AI take notes, right? And uh then summarize those notes with AI again,
+3:10:043 hours, 10 minutes, 4 secondsright? For example, I think people are using transcriber in this chat, right?
+3:10:083 hours, 10 minutes, 8 secondsSo have a transcriber. That transcriber will summarize will put everything in one place. give that all the transcript step by step to AI charge video or
+3:10:163 hours, 10 minutes, 16 secondssomething have a summary that someone discussed this some people did this people did that summary I will take a look at correct and then I will discuss
+3:10:253 hours, 10 minutes, 25 secondswith you guys group by group correct that can be a great idea so let's
+3:10:333 hours, 10 minutes, 33 secondsleverage AI on this what you do is I'll tell you very much step by step have a call amongst yourself let AI transcriber come in and transcribe everything
+3:10:423 hours, 10 minutes, 42 secondsgive that to AI with a prompt that classify the discussion into four to five groups of strategies people have
+3:10:503 hours, 10 minutes, 50 secondstried right with those six steps that I gave you of upserting and uh retrieval
+3:10:583 hours, 10 minutes, 58 secondsright what are the strategies from these six steps people have tried classify into four to five groups then we can have a discussion on top of that right
+3:11:083 hours, 11 minutes, 8 secondssomething like that I would propose okay So once we start developing all the agents can the agents be reused if
+3:11:163 hours, 11 minutes, 16 secondspeople in a company if they're trying to like just like libraries in other softares and all how can they reuse instead of
+3:11:243 hours, 11 minutes, 24 secondsreinventing the wheel this is a very good question the idea is API agents can be deployed on APIs right so
+3:11:323 hours, 11 minutes, 32 secondsfor let's say you are using an agent which does something right and another marketing team also needs a similar functionality right Yeah but a small
+3:11:403 hours, 11 minutes, 40 secondschange but in a real world it will be a small change.
+3:11:443 hours, 11 minutes, 44 secondsYeah. Yeah. So you deploy your agent as an API and then whatever system that they are designing they can call your
+3:11:523 hours, 11 minutes, 52 secondsagent via an API API with a small change on top of it. Okay.
+3:11:563 hours, 11 minutes, 56 secondsWith a small if the change is there then they will have to design your themselves right. If there is any change in the code but if let's say there is change only in prompt
+3:12:043 hours, 12 minutes, 4 secondssmall thing uh that can be done or later let's say there is change only in something else then that is that can
+3:12:113 hours, 12 minutes, 11 secondsthat can be easily happen okay
+3:12:183 hours, 12 minutes, 18 secondsso uh actually can we train a agents suppose some of the agent initially they are doing bad things and giving bad
+3:12:273 hours, 12 minutes, 27 secondsreply so based on that right so can Can you train the agent to do in near?
+3:12:333 hours, 12 minutes, 33 secondsThe answer is answer is rags only. Uh because you will have to store initial conversations and make a rag out of it,
+3:12:403 hours, 12 minutes, 40 secondsright? And every time then a chat happens, show AI that this is how you responded last time and it was bad. Give it all the things, right? This was the
+3:12:493 hours, 12 minutes, 49 secondsresponse you gave last time and it was bad. So improve it. And then I think that that is one of the ways to improve the agent over the time, right? But if
+3:12:583 hours, 12 minutes, 58 secondsyou want to actually improve it then retraining is the way to do it. There's no not asking about the retraining bit.
+3:13:043 hours, 13 minutes, 4 secondsYeah. So only rag is the option. Is there any other options?
+3:13:083 hours, 13 minutes, 8 secondsKnowledge graphs is also one of the options you can use. Knowledge graphs to kind of store uh let's say person right a person is there. Think of all the
+3:13:163 hours, 13 minutes, 16 secondsattributes of the person. Let's say person uh think of the attributes that he likes in terms of conversation. So let's say I'm conver having a
+3:13:243 hours, 13 minutes, 24 secondsconversation with you and I don't like it when you use let's say let's say slangs I don't like it when you use slangs let's just say so you can store
+3:13:323 hours, 13 minutes, 32 secondsthis about me in a knowledge graph Samir conversation will be the edge will be the node so there will be two nodes
+3:13:413 hours, 13 minutes, 41 secondsuh let me just so there will be one node of Samir for for example me and then you will have inside my graph one node of conversation and what is it that I don't
+3:13:493 hours, 13 minutes, 49 secondslike right that what is it for example I don't like slangs Right? So you can just put dislike slants. So this edge will be
+3:13:573 hours, 13 minutes, 57 secondsmaintained basically. Right? So this this is how uh you will then present this knowledge graph to um uh the the
+3:14:063 hours, 14 minutes, 6 secondsagent or the LLM and whenever the conversation is happening you will just give that particular node and edge and then that will know that I don't have to
+3:14:153 hours, 14 minutes, 15 secondsuse slacks for example right so these are the two ways to kind of personalize things in are you going to cover knowledge graphs also
+3:14:233 hours, 14 minutes, 23 secondsknowledge graphs somewhat I will cover yes not in detail but somewhat yes I will cover right primarily to RA cover in some databases calling databases
+3:14:313 hours, 14 minutes, 31 secondswe'll cover but knowledge apps I'll also cover somewhat not in very much detail right do you have any any tutorial or anything
+3:14:393 hours, 14 minutes, 39 secondson so that I can go over I'll give you an idea when we do it right don't worry about it right you will then know okay what to
+3:14:463 hours, 14 minutes, 46 secondsokay sure thank you Jenny yeah thank you sir sir I just wanted to share some uh learning and something
+3:14:533 hours, 14 minutes, 53 secondsthat was was quite fascinating for me I tried to build uh insight generating agent with copilot studios as that's the
+3:15:013 hours, 15 minutes, 1 secondorganizational approved tool and initially I was giving all the prompts I uploaded the knowledge document this is
+3:15:083 hours, 15 minutes, 8 secondsthe logic behind the insights this is where you kind of compare the matrix what not and then initially it was
+3:15:163 hours, 15 minutes, 16 secondsgiving me the response and as and on I continued to use it actually started quering me like do you want me to do this next step do and it started giving
+3:15:243 hours, 15 minutes, 24 secondsme better answers which I found very much fascinating at some point I thought is it a magic or not? Why? Because it started quering me and how is that
+3:15:333 hours, 15 minutes, 33 secondspossible like because it was just giving all the prompts. So I just wanted was curious also that that was it learning on its own and then started quering me
+3:15:413 hours, 15 minutes, 41 secondsbecause were you giving it rag of conversations?
+3:15:443 hours, 15 minutes, 44 secondsNo. So I built the prompts. I used the copilot studio. I uploaded my knowledge documents uh like the way I wanted the
+3:15:523 hours, 15 minutes, 52 secondsinterpretation to be done, the language needed to be and the formatting of the gener like Okay. Okay. Okay.
+3:15:583 hours, 15 minutes, 58 secondsThen I uploaded my summarized files because I every chat I used in the session for the test session I use
+3:16:053 hours, 16 minutes, 5 secondssummarized. I started with actually line by line data but it took forever. Then I realized that I should be using all kind of summaries like summaries by area by market like the way we are distributed.
+3:16:173 hours, 16 minutes, 17 secondsSo then I started uploading the summaries and then I built a prompt one like a instruction prompt and then one within the chat I was giving a detailed
+3:16:253 hours, 16 minutes, 25 secondsinstruction. this is what I'm trying to achieve.
+3:16:283 hours, 16 minutes, 28 secondsIt started doing its job. Initially I saw the results were okay but as and on I continued to use the results were getting better and better and then at
+3:16:373 hours, 16 minutes, 37 secondsone point I uploaded like a business matrix file and I asked it like can you see any correlation like anything that's
+3:16:463 hours, 16 minutes, 46 secondsthere is a pattern coming up and I couldn't believe no human could kind of come up with this pattern. It came up with that pattern. Okay,
+3:16:543 hours, 16 minutes, 54 secondsthat was like something very much fascinating for me because I just I just asked a very simple question. Do you see
+3:17:013 hours, 17 minutes, 1 secondany pattern or any correlation between the business? Okay. Versus the people matrix.
+3:17:083 hours, 17 minutes, 8 secondsAll right. All right. And this was your normal uh this co-pilot studio. Yes. I generally do all this manually,
+3:17:153 hours, 17 minutes, 15 secondsbut this time I just got the license, so I was just curious to see if it works.
+3:17:193 hours, 17 minutes, 19 secondsAnd you uploaded everything that you had past conversations with uh with charge or what where where from what did you upload exactly? That's what I'm interested in.
+3:17:263 hours, 17 minutes, 26 secondsSo I uploaded my knowledge articles means I the way I wanted the interpretation what the risk flag would look like you give me the you know the
+3:17:343 hours, 17 minutes, 34 secondsthe top 10 districts or the top 10 stores the bottom 10 everything I wanted like the way I want generally do the
+3:17:413 hours, 17 minutes, 41 secondsanalysis at my end. I did that and I uploaded like a knowledge document the way I want to identify the risk flags.
+3:17:493 hours, 17 minutes, 49 secondsThen I uploaded all initially I uploaded my actually my data files but it it was taking too much time. So then I realized
+3:17:573 hours, 17 minutes, 57 secondsthat I need to summarize and then I within the test session I used to upload my data files and during the conversation when I felt okay this is
+3:18:053 hours, 18 minutes, 5 secondsgood enough I uploaded one business matrix file and I asked that from all the insights about that you generated
+3:18:133 hours, 18 minutes, 13 secondsand now you leverage this business matrix and see if you can find something and it did an amazing job. So that was
+3:18:203 hours, 18 minutes, 20 secondssomething I wanted to share and I was just just like it was an aha moment for me.
+3:18:273 hours, 18 minutes, 27 secondsYeah. I mean see if you give it a lot of context then it does a very good job.
+3:18:313 hours, 18 minutes, 31 secondsFor example when I am creating when I used to create your session files. So I also used to do it a very very similar way. I used to give it the old session
+3:18:393 hours, 18 minutes, 39 secondsfiles. Correct. And then I used to make it write the code in such a way that it kind of the code evolves right slowly
+3:18:483 hours, 18 minutes, 48 secondsand gradually. Yes. Right? So that it is understandable. Of course, there's a lot of human effort as well in that. But still AI helping me. So it's like saving
+3:18:573 hours, 18 minutes, 57 secondssaving me what hours of time otherwise imagine these course if I would have been preparing myself, right? Then two three days to I need for lecture
+3:19:053 hours, 19 minutes, 5 secondspreparation only. Isn't it that is true like it took me five to seven days to build this one insight?
+3:19:143 hours, 19 minutes, 14 secondsWhich I wanted because now I know that every quarter I have to do the same job.
+3:19:183 hours, 19 minutes, 18 secondsThis is going to help me every quarter to kind of or whenever there is an ad hoc ask I can just upload the latest data files right
+3:19:263 hours, 19 minutes, 26 secondsand start working with it right right so are you doing this in a single session are you seeing the improved
+3:19:343 hours, 19 minutes, 34 secondsanswer across multiple session also you are seeing the same no no this was just a test version and in the single session so it did time out
+3:19:423 hours, 19 minutes, 42 secondsto be honest like when my when my knowledge document became very complicated or when I uh uploaded the prompt very complic complicated prompt
+3:19:503 hours, 19 minutes, 50 secondswhen I was trying to do more and more it timed out. So then I started breaking my questions initially that okay you know
+3:19:573 hours, 19 minutes, 57 secondswhat first you find this risk at the country level then you find the risk at this now you see what are my top and the bottom risk levels then I started
+3:20:053 hours, 20 minutes, 5 secondsbreaking then it learned and then I was able to simplify the prompt and then put it all together in the newer session it
+3:20:123 hours, 20 minutes, 12 secondsworked well but more complicated if I tried to do it timed out
+3:20:203 hours, 20 minutes, 20 secondsand I used chat GPD to build prompt like I use another AI to build the prompts like make it more data analysis for example children.
+3:20:293 hours, 20 minutes, 29 secondsYeah.
+3:20:303 hours, 20 minutes, 30 secondsYeah. For data analysis what I do is I generally kind of you know kind of tell exactly what my scenario is and give it
+3:20:363 hours, 20 minutes, 36 secondsprompts like imagine you are a Mckenzie consultant and this that and you have to not answer the with average answers. You don't have to give average answers.
+3:20:443 hours, 20 minutes, 44 secondsAlways give answers from the lower bounds of your probability etc etc. this kind of prompts I give it and then I finally kind of ask it for codes. I
+3:20:533 hours, 20 minutes, 53 secondsdon't really kind of give it all the data. So I give it the metadata and then uh use get the codes from it and do a quick analysis aggregate the data and
+3:21:023 hours, 21 minutes, 2 secondsthat aggregated data I put it into AI right instead of putting yeah that's what I did first I tried to put like a line by line at the store
+3:21:093 hours, 21 minutes, 9 secondslevel but it didn't worked. So then I aggregated it outside built seven to eight summaries then I uploaded it did a pretty fast job. was
+3:21:183 hours, 21 minutes, 18 secondsable to navigate through multiple files and relate that it's this area this like the way we are set up it's this market specifically and when
+3:21:263 hours, 21 minutes, 26 secondsit did the cross correlations it was not I was I tried to build the clustering I said can you find similar stores or similar district which are having the
+3:21:353 hours, 21 minutes, 35 secondssame issue it took it timed out like maybe that's not the right way to do it I might need to just do a cluster analysis outside
+3:21:423 hours, 21 minutes, 42 secondsbut just wanted to share this and you know wanted to get a little bit of your insight too like you know how would you tackle this kind of projects
+3:21:503 hours, 21 minutes, 50 secondsthat that's that's what I do basically I mean data analysis I think it's very good at data analysis but if you give it aggregated datas and not the entire data
+3:21:583 hours, 21 minutes, 58 secondsif you're giving it entire data then it cannot read entire data of course there's a limit to it right for example if you're giving a 10 lakh
+3:22:063 hours, 22 minutes, 6 secondsrows file how will it read 10 lakh rows file it what the best it can do it is it can run quotes on your 10 lakh rows and
+3:22:123 hours, 22 minutes, 12 secondsaggregate the data into a form which it understands right so better do that right get quotes from it which aggregate the data into a particular form and give
+3:22:213 hours, 22 minutes, 21 secondsit that data I think that's much better approach to be honest yeah I built a data bricks pipeline as well so that I can just summarize
+3:22:293 hours, 22 minutes, 29 secondseverything and then feed into this one try to automate as much as possible right like what could be done in like yeah that that's exactly the right way to do
+3:22:373 hours, 22 minutes, 37 secondsit yeah thank you so much thank you okay guys anyone has any question uh or
+3:22:453 hours, 22 minutes, 45 secondsshall we drop off catch up tomorrow and start multi- aent systems tomorrow itself. uh because that is very very
+3:22:523 hours, 22 minutes, 52 secondsimportant and from there I think u I think you will you'll get the heck of it to be honest right then you'll understand everything okay now I need a
+3:23:013 hours, 23 minutes, 1 secondfunction which will be a rag function right simple enough right function you don't care right you need a rag function
+3:23:093 hours, 23 minutes, 9 secondsyou can have anything long long functions rag six steps that I told you you can run them all inside the function
+3:23:163 hours, 23 minutes, 16 secondsright all the all all the all uh uh retrieval right everything you can do
+3:23:233 hours, 23 minutes, 23 secondsinside that function so that's how you should think of it okay Mayori yeah Samir uh the project uh you had
+3:23:313 hours, 23 minutes, 31 secondsgiven to us uh we need to use collab for this and yeah um
+3:23:393 hours, 23 minutes, 39 secondsso I think that's a challenge for now use collab right inside collab only grad can be integrated just ask charg to
+3:23:483 hours, 23 minutes, 48 secondscreate a grad interface for you for now but uh going forward we'll have to do it in Visual Studio that I'll also
+3:23:563 hours, 23 minutes, 56 secondsyeah we'll have to do it there actually and we need to yeah okay and uh we need to deploy also
+3:24:053 hours, 24 minutes, 5 secondsif you can deploy streamllet well and good but you don't have to deploy as such even if you're able to build a very simple interface like with input and all
+3:24:133 hours, 24 minutes, 13 secondsI'm I'm good with it all right yeah another function which I
+3:24:203 hours, 24 minutes, 20 secondsSir May know what you planned in project may know that uh uh I missed some some minutes sir. So can you please help me?
+3:24:293 hours, 24 minutes, 29 secondsYeah plan. So the plan is I think some people will tell you on the group anyway the plan is very simple that you discuss amongst yourself how did you approach
+3:24:373 hours, 24 minutes, 37 secondsthe project and everything right and have a quick discussion and then summarize the discussion into four five parts that these are the different different approaches that we all have
+3:24:453 hours, 24 minutes, 45 secondstried combinely and then I'll discuss those approaches and see what is the best approach if someone has tried let's say extraordinary approaches I'll
+3:24:533 hours, 24 minutes, 53 secondsdiscuss those approaches as well so we'll go in that order right so that's the whole idea Okay.
+3:25:013 hours, 25 minutes, 1 secondOkay sir. Uh s one one doubt. So will crew AI also
+3:25:083 hours, 25 minutes, 8 secondswork the same way internally? Will it use this? have to cover crew AI actually it's more of a conversational kind of it's like more like a group chat
+3:25:163 hours, 25 minutes, 16 secondsactually crew AI then this right everyone is kind of chatting and all that's that's how crew AI works multiple
+3:25:243 hours, 25 minutes, 24 secondsagents you put them in a chat and then they're chatting and just kind of saying you do it I do it you do it I do it that's the kind of chat crew AI creates
+3:25:323 hours, 25 minutes, 32 secondsI want to cover it but in this round I won't be able to cover it let's first do langraph end to end then in the next
+3:25:393 hours, 25 minutes, 39 secondstime I think we will cover this partic See next time. Yeah, we'll have to just there won't be any states uh just like
+3:25:473 hours, 25 minutes, 47 secondshow we we have it in langraph. Um is it like uh it's a little different actually than that. It's it's like a group chat like I said, right?
+3:25:563 hours, 25 minutes, 56 secondsLang graph is different. It's like message appending, right? It's like a group chat. Multiple people are telling multiple things. So that's how it is, right?
+3:26:043 hours, 26 minutes, 4 secondsOkay. So got it. Yeah. Thank you. All right, Ankit, you saying something?
+3:26:153 hours, 26 minutes, 15 secondsYes sir. Actually uh I made project as uh like prompting usually and u I
+3:26:233 hours, 26 minutes, 23 secondsactually prompted that uh prepare me a project as per the guidelines.
+3:26:293 hours, 26 minutes, 29 secondsOkay. and uh then create a zip file for me and uh he actually created a zip file
+3:26:373 hours, 26 minutes, 37 secondsfor me and then I use another AI agent for it and then go there as the same pro
+3:26:443 hours, 26 minutes, 44 secondsimprovise it and do the same for it and then again go to the another agent and then it actually does the same but you
+3:26:543 hours, 26 minutes, 54 secondsunderstand versatile it may be good I'm not denying it. But
+3:27:003 hours, 27 minutesthe problem is when you go to production with this approach, it will not work.
+3:27:083 hours, 27 minutes, 8 secondsUnderstand? Yes.
+3:27:103 hours, 27 minutes, 10 secondsSo create it yourself. Don't let AI do all the job. Got it. Yes, sir. Yeah. Yeah. That's what you should do.
+3:27:193 hours, 27 minutes, 19 secondsSo actually I also incorporate those points which you teach in the lessons and um those points actually came out of very refined result.
+3:27:313 hours, 27 minutes, 31 secondsThat's a very uh like a very good thing I think very exciting thing for me sir.
+3:27:393 hours, 27 minutes, 39 secondsYeah, but but try to not do it using AI.
+3:27:423 hours, 27 minutes, 42 secondsLet AI help you. Don't don't you you are helping AI, right? In this case, let AI help you. No.
+3:27:503 hours, 27 minutes, 50 secondsYes, sir. Thank you. Can I say something on a light note? Yeah. Yes.
+3:27:573 hours, 27 minutes, 57 secondsYou called your AI to be he. You have to be very careful when you you will gender bias your tools.
+3:28:063 hours, 28 minutes, 6 secondsDefinitely.
+3:28:063 hours, 28 minutes, 6 secondsYeah. I will tomorrow if AI becomes sentient then if if somehow it recognizes itself as
+3:28:163 hours, 28 minutes, 16 secondsher she her they always say it I it
+3:28:223 hours, 28 minutes, 22 secondsneutral yeah they say this my point is tomorrow if you have to cut out like you can't say he you can't say
+3:28:303 hours, 28 minutes, 30 secondsshe like my point is that if tomorrow AI becomes live that comes to life right
+3:28:383 hours, 28 minutes, 38 secondsand then right AGI and then AI recognizes itself as a as a she her right then it will take
+3:28:473 hours, 28 minutes, 47 secondscare of Hankit very well you are the one who was calling me he all this while
+3:28:553 hours, 28 minutes, 55 secondsright and Jenny Jenny is going to have an edge there
+3:29:013 hours, 29 minutes, 1 secondin the favorite list right so Take care.
+3:29:073 hours, 29 minutes, 7 secondsHe's going to hate me. I've been correcting him on like few things now. No ma'am. Definitely not ma'am.
+3:29:143 hours, 29 minutes, 14 secondsOkay guys. Okay. Thank you so much. Uh good session. Practice this whatever we did today.
+3:29:223 hours, 29 minutes, 22 secondsJust practice it once without practice. I'm telling you very honestly.
+3:29:273 hours, 29 minutes, 27 secondsUh right.
+3:29:323 hours, 29 minutes, 32 secondsand uh then let's kind of uh take up in the next session. Okay. Okay. Thank you Sam. Thank you very much. Thank you sir.
+3:29:403 hours, 29 minutes, 40 secondsThank you very much. Thank you. Thank you.
+

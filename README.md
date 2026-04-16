@@ -125,5 +125,6 @@ Each module output contains only that module's sessions:
 
 - No content is mixed between modules.
 - Each module gets exactly one standalone final output file.
-- On rerun, only sessions without an existing file in `output/sessions/<module>/` are processed.
-- If you want to reprocess a session, delete its matching file from `output/sessions/<module>/` and run the script again.
+- On rerun, sessions are reprocessed only when their source transcript has changed.
+- The pipeline stores a source hash in `output/sessions/<module>/session_<n>_cache.json` and compares it to the current transcript.
+- If you want to force reprocess a session, delete its matching cleaned output file or the corresponding cache metadata file and rerun the script.
