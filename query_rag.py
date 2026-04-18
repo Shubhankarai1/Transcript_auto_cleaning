@@ -1,5 +1,6 @@
 import os
 import logging
+import re
 from typing import List, Dict
 
 from dotenv import load_dotenv
@@ -25,6 +26,7 @@ if not index_name:
 index = pinecone_client.Index(index_name)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+CHUNK_ID_PATTERN = re.compile(r"_chunk_(\d+)", re.IGNORECASE)
 
 
 def expand_query(user_query: str) -> List[str]:
@@ -95,30 +97,74 @@ def deduplicate_chunks(matches: List[Dict]) -> List[Dict]:
     return unique_matches
 
 
-def build_context(chunks: List[Dict]) -> str:
-    """Join top chunks into a single context string."""
+def extract_chunk_number(match: Dict) -> int | None:
+    metadata = match.get("metadata", {})
+    chunk_value = metadata.get("chunk")
+    if chunk_value is not None:
+        try:
+            return int(chunk_value)
+        except (TypeError, ValueError):
+            pass
+
+    match_id = str(match.get("id", ""))
+    chunk_match = CHUNK_ID_PATTERN.search(match_id)
+    if chunk_match:
+        return int(chunk_match.group(1))
+
+    return None
+
+
+def build_source_entry(match: Dict, index_position: int) -> Dict:
+    metadata = match.get("metadata", {})
+    module = metadata.get("module", "unknown")
+    session = metadata.get("session", "unknown")
+    chunk_num = extract_chunk_number(match)
+
+    return {
+        "id": match.get("id"),
+        "score": match.get("score"),
+        "module": module,
+        "session": session,
+        "chunk": chunk_num,
+        "text": metadata.get("text", ""),
+        "citation": f"{str(module).upper()}-S{session}-C{chunk_num if chunk_num is not None else index_position}",
+    }
+
+
+def build_context(sources: List[Dict]) -> str:
+    """Join top chunks into a single context string with citation labels."""
     context_parts = []
-    for i, chunk in enumerate(chunks[:5], 1):
-        metadata = chunk.get("metadata", {})
-        module = metadata.get("module", "unknown")
-        session = metadata.get("session", "unknown")
-        chunk_num = metadata.get("chunk", "unknown")
-        text = metadata.get("text", "")
-        
-        header = f"[{module.upper()} - Session {session} - Chunk {chunk_num}]"
-        context_parts.append(f"{header}\n{text}")
-    
+    for source in sources:
+        text = source.get("text", "")
+        if not text:
+            continue
+        context_parts.append(f"[{source['citation']}]\n{text}")
+
     return "\n\n".join(context_parts)
 
 
 def answer_with_context(user_query: str, context: str) -> str:
     """Call OpenAI LLM with context to answer the query."""
-    system_prompt = "Answer ONLY from the provided context. Be comprehensive and include ALL relevant points. Do not miss important details. If not found, say 'Not found in context..'"
-    
-    user_message = f"""Context:
+    system_prompt = "You are an expert teacher."
+
+    user_message = f"""Use the retrieved context to answer the question in a detailed and structured way.
+
+Rules:
+- Explain concepts step-by-step
+- Use examples where possible
+- Expand ideas clearly (not just summary)
+- Minimum 150-300 words
+- If multiple chunks are retrieved, combine them into a single explanation
+- Cite factual statements inline using the source labels from the context, for example [CMS-S3-C84]
+- Include citations throughout the answer, not only at the end
+- End with a short line starting with "Sources used:" and list the unique citations you relied on
+- If the context does not contain the answer, say that clearly
+
+Context:
 {context}
 
-Question: {user_query}"""
+Question:
+{user_query}"""
 
     try:
         response = openai_client.chat.completions.create(
@@ -173,7 +219,11 @@ def main():
     print()
 
     # Build context
-    context = build_context(unique_matches)
+    source_entries = [
+        build_source_entry(match, index_position)
+        for index_position, match in enumerate(unique_matches[:TOP_K], start=1)
+    ]
+    context = build_context(source_entries)
     if not context:
         print("No valid context found")
         return
@@ -185,6 +235,12 @@ def main():
     print("FINAL ANSWER:")
     print(f"{'='*60}")
     print(answer)
+    print("\nRetrieved Sources:")
+    for source in source_entries:
+        print(
+            f"- {source['citation']} | module={source['module']} | "
+            f"session={source['session']} | chunk={source['chunk']}"
+        )
     print(f"{'='*60}\n")
 
 

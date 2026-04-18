@@ -63,7 +63,7 @@ def fetch_sessions(module: str) -> list[int]:
     return []
 
 
-def send_chat_request(payload: dict[str, Any]) -> str:
+def send_chat_request(payload: dict[str, Any]) -> dict[str, Any]:
     response = requests.post(
         f"{API_BASE_URL}/chat",
         json=payload,
@@ -75,9 +75,31 @@ def send_chat_request(payload: dict[str, Any]) -> str:
     if isinstance(data, dict):
         answer = data.get("answer") or data.get("response") or data.get("message")
         if isinstance(answer, str) and answer.strip():
-            return answer
+            sources = data.get("sources", [])
+            if not isinstance(sources, list):
+                sources = []
+            return {
+                "answer": answer,
+                "sources": sources,
+            }
 
     raise ValueError("The API response did not include an answer field.")
+
+
+def format_sources_markdown(sources: list[dict[str, Any]]) -> str:
+    if not sources:
+        return ""
+
+    lines = ["Sources retrieved:"]
+    for source in sources:
+        citation = source.get("citation") or "UNKNOWN"
+        module = source.get("module") or "unknown"
+        session = source.get("session")
+        chunk = source.get("chunk")
+        lines.append(
+            f"- `{citation}` | module `{module}` | session `{session}` | chunk `{chunk}`"
+        )
+    return "\n".join(lines)
 
 
 def ensure_history(scope_key: str) -> list[dict[str, str]]:
@@ -334,8 +356,13 @@ def main() -> None:
     try:
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
-                answer = send_chat_request(payload)
-                st.markdown(answer)
+                response_data = send_chat_request(payload)
+                answer = response_data["answer"]
+                sources_markdown = format_sources_markdown(response_data["sources"])
+                rendered_answer = answer
+                if sources_markdown:
+                    rendered_answer = f"{answer}\n\n{sources_markdown}"
+                st.markdown(rendered_answer)
                 st.write("")
     except requests.RequestException as exc:
         error_message = f"Request failed: {exc}"
@@ -352,7 +379,7 @@ def main() -> None:
         render_disclaimer()
         return
 
-    messages.append({"role": "assistant", "content": answer})
+    messages.append({"role": "assistant", "content": rendered_answer})
     render_disclaimer()
 
 

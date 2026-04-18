@@ -1,6 +1,6 @@
-from typing import Any, Optional
-
 import os
+import re
+from typing import Any, Optional
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Query
@@ -28,6 +28,8 @@ MODULE_SESSIONS = {
     "map": [2, 3],
     "wdp": [1, 2, 3, 4, 5],
 }
+
+CHUNK_ID_PATTERN = re.compile(r"_chunk_(\d+)", re.IGNORECASE)
 
 
 # Request schema
@@ -91,12 +93,53 @@ def build_filter(req: ChatRequest) -> Optional[dict[str, Any]]:
     }
 
 
-def build_context(matches: list[dict[str, Any]]) -> str:
-    return "\n\n".join(
-        match.get("metadata", {}).get("text", "")
-        for match in matches
-        if match.get("metadata", {}).get("text")
-    )
+def extract_chunk_number(match: dict[str, Any]) -> Optional[int]:
+    metadata = match.get("metadata", {})
+    chunk_value = metadata.get("chunk")
+    if chunk_value is not None:
+        try:
+            return int(chunk_value)
+        except (TypeError, ValueError):
+            pass
+
+    match_id = str(match.get("id", ""))
+    chunk_match = CHUNK_ID_PATTERN.search(match_id)
+    if chunk_match:
+        return int(chunk_match.group(1))
+
+    return None
+
+
+def build_source_entry(match: dict[str, Any], index_position: int) -> dict[str, Any]:
+    metadata = match.get("metadata", {})
+    module = metadata.get("module")
+    session = metadata.get("session")
+    chunk = extract_chunk_number(match)
+
+    module_label = str(module).upper() if module else "UNKNOWN"
+    session_label = str(session) if session is not None else "?"
+    chunk_label = str(chunk) if chunk is not None else str(index_position)
+    citation = f"{module_label}-S{session_label}-C{chunk_label}"
+
+    return {
+        "id": match.get("id"),
+        "score": match.get("score"),
+        "text": metadata.get("text", ""),
+        "module": module,
+        "session": session,
+        "chunk": chunk,
+        "citation": citation,
+    }
+
+
+def build_context(sources: list[dict[str, Any]]) -> str:
+    context_parts: list[str] = []
+    for source in sources:
+        text = source.get("text", "")
+        if not text:
+            continue
+        context_parts.append(f"[{source['citation']}]\n{text}")
+    return "\n\n".join(context_parts)
 
 
 @app.post("/chat")
@@ -182,8 +225,13 @@ Rewritten: "Explain the importance of context management in AI systems and agent
                 "sources": [],
             }
 
+        source_entries = [
+            build_source_entry(match, index_position)
+            for index_position, match in enumerate(filtered_matches, start=1)
+        ]
+
         # 4. Extract context
-        context = build_context(filtered_matches)
+        context = build_context(source_entries)
 
         # 5. Generate answer
         response = openai_client.chat.completions.create(
@@ -191,19 +239,30 @@ Rewritten: "Explain the importance of context management in AI systems and agent
             messages=[
                 {
                     "role": "system",
-                    "content": """
-You are an AI assistant answering questions using only the provided context.
-
-Rules:
-- If the context is empty, clearly say the answer is not available in the selected scope.
-- If the context contains relevant information, answer using that context only.
-- Summarize clearly and avoid copying blindly.
-- Do not hallucinate or invent facts not present in the context.
-""".strip(),
+                    "content": "You are an expert teacher.",
                 },
                 {
                     "role": "user",
-                    "content": f"Context:\n{context}\n\nQuestion:\n{req.question}",
+                    "content": f"""
+Use the retrieved context to answer the question in a detailed and structured way.
+
+Rules:
+- Explain concepts step-by-step
+- Use examples where possible
+- Expand ideas clearly (not just summary)
+- Minimum 150-300 words
+- If multiple chunks are retrieved, combine them into a single explanation
+- Cite factual statements inline using the source labels from the context, for example [CMS-S3-C84]
+- Include citations throughout the answer, not only at the end
+- End with a short line starting with "Sources used:" and list the unique citations you relied on
+- If the context does not contain the answer, say that clearly
+
+Context:
+{context}
+
+Question:
+{req.question}
+""".strip(),
                 },
             ],
         )
@@ -214,13 +273,5 @@ Rules:
 
     return {
         "answer": response.choices[0].message.content,
-        "sources": [
-            {
-                "score": match.get("score"),
-                "text": match.get("metadata", {}).get("text", ""),
-                "module": match.get("metadata", {}).get("module"),
-                "session": match.get("metadata", {}).get("session"),
-            }
-            for match in filtered_matches
-        ],
+        "sources": source_entries,
     }

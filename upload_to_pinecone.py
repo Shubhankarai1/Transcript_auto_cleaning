@@ -1,5 +1,5 @@
-import os
 import logging
+import os
 import re
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -43,20 +43,28 @@ def load_chunks(base_dir: Path) -> List[Dict]:
                 try:
                     content = chunk_file.read_text(encoding="utf-8").strip()
                     if content:
-                        chunks.append({
-                            "path": chunk_file,
-                            "module": module,
-                            "filename": chunk_file.name,
-                            "content": content
-                        })
+                        chunks.append(
+                            {
+                                "path": chunk_file,
+                                "module": module,
+                                "filename": chunk_file.name,
+                                "content": content,
+                            }
+                        )
                 except Exception as e:
                     logging.error(f"Failed to read {chunk_file}: {e}")
     return chunks
 
 
 def extract_session_from_filename(filename: str) -> Optional[int]:
-    """Extract session number from filename (e.g. cms_session_1_chunk_5.txt → 1)."""
     match = re.search(r"_session_(\d+)_", filename)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def extract_chunk_from_filename(filename: str) -> Optional[int]:
+    match = re.search(r"_chunk_(\d+)\.txt$", filename, re.IGNORECASE)
     if match:
         return int(match.group(1))
     return None
@@ -72,7 +80,7 @@ def extract_chunk_text(content: str) -> str:
         if i >= 4 and line.strip() == "":
             text_start = i + 1
             break
-    
+
     return "\n".join(lines[text_start:]).strip()
 
 
@@ -97,14 +105,18 @@ def main():
     failed_files = []
 
     for chunk in chunks:
-        # Extract session from filename
         session = extract_session_from_filename(chunk["filename"])
         if session is None:
             logging.error(f"Could not extract session from {chunk['filename']}")
             failed_files.append(str(chunk["path"]))
             continue
 
-        # Extract text content
+        chunk_number = extract_chunk_from_filename(chunk["filename"])
+        if chunk_number is None:
+            logging.error(f"Could not extract chunk number from {chunk['filename']}")
+            failed_files.append(str(chunk["path"]))
+            continue
+
         text_content = extract_chunk_text(chunk["content"])
         if not text_content:
             logging.warning(f"Empty text content in {chunk['filename']}")
@@ -112,23 +124,22 @@ def main():
             continue
 
         try:
-            # Create embedding
             embedding = create_embedding(text_content)
-            
-            # Create metadata with only module, session, text
+
+            # Include chunk metadata so downstream answers can cite exact provenance.
             metadata = {
                 "module": chunk["module"],
                 "session": session,
-                "text": text_content
+                "chunk": chunk_number,
+                "text": text_content,
             }
             print(metadata)
-            
-            # Create vector
+
             unique_id = f"{chunk['module']}_{session}_{chunk['filename']}"
             vector = {
                 "id": unique_id,
                 "values": embedding,
-                "metadata": metadata
+                "metadata": metadata,
             }
             vectors.append(vector)
         except Exception as e:
@@ -147,7 +158,6 @@ def main():
         index.upsert(vectors=vectors)
         print("Upload complete\n")
         logging.info(f"Successfully uploaded {len(vectors)} vectors to Pinecone")
-        # Verify
         stats = index.describe_index_stats()
         logging.info(f"Index stats: {stats}")
     except Exception as e:
