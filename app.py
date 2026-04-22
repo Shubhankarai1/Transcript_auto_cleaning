@@ -6,7 +6,7 @@ import requests
 import streamlit as st
 
 
-API_BASE_URL = "http://localhost:8000"
+API_BASE_URL = "https://iitm-curriculem-intelligence-layer.onrender.com"
 REQUEST_TIMEOUT = 60
 PAGE_TITLE = "IITM - Curriculum RAG Pipeline"
 MODULE_LABELS = {
