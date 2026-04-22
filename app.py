@@ -188,20 +188,42 @@ def render_header() -> None:
         st.markdown(
             """
             <div class='hero-description'>
-                This is an AI-powered RAG (Retrieval-Augmented Generation) system built on top of the curriculum, enabling you to interact with course content through natural language.
+                This AI-powered RAG (Retrieval-Augmented Generation) system is built on selected advanced modules, enabling you to interact with highly focused learning content through natural language.
             </div>
             <div class='hero-description'>
-                Specific modules and sessions from the program are embedded into the system, allowing you to:
+                The system currently includes structured knowledge from:
+            </div>
+            <div class='hero-description'>
+                <strong>Module 7: Contextual Reasoning for Multi-Agent Systems</strong><br>
+                (Sessions 1, 2, 3, and 4)<br><br>
+                <strong>Module 8: Multi-Agent Planning &amp; Workflow Design</strong><br>
+                (Sessions 2 and 3)<br><br>
+                <strong>Module 9: Workflow Design &amp; Optimization</strong><br>
+                (Sessions 1, 2, 3, 4, and 5)
             </div>
             """,
             unsafe_allow_html=True,
         )
         st.markdown(
             """
-            - Chat across the entire curriculum for broader understanding
-            - Focus on a specific module and session for precise, context-aware answers
+            With this setup, you can:
+
+            - Explore deep concepts specifically within advanced agentic system design
+            - Ask questions across multiple sessions for connected understanding
+            - Drill down into individual sessions for precise, context-aware answers
+            - Understand how reasoning, planning, and workflows integrate in multi-agent systems
             """
         )
+        st.markdown(
+            """
+            <div class='hero-footer'>
+                The system retrieves relevant insights from these sessions and generates grounded, context-rich responses, helping you grasp complex concepts, resolve doubts, and navigate advanced topics more effectively.
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        st.markdown("---")
+        return
         st.markdown(
             """
             <div class='hero-footer'>
