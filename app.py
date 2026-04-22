@@ -222,6 +222,7 @@ def render_header() -> None:
             """,
             unsafe_allow_html=True,
         )
+        st.caption("For best results, ask one question at a time. Multi-turn memory will be deployed soon")
         st.markdown("---")
         return
         st.markdown(
