@@ -8,7 +8,7 @@ import streamlit as st
 
 API_BASE_URL = "https://iitm-curriculem-intelligence-layer.onrender.com"
 REQUEST_TIMEOUT = 60
-PAGE_TITLE = "IITM - Curriculum Intellligence Layer"
+PAGE_TITLE = "IITM Curriculum – AI Mentor (Prototype)"
 MODULE_LABELS = {
     "cms": "Contextual Reasoning for Multi-Agent Systems",
     "map": "Multi-Agent Planning & Workflow Design",
@@ -188,41 +188,43 @@ def render_header() -> None:
         st.markdown(
             """
             <div class='hero-description'>
-                This AI-powered RAG (Retrieval-Augmented Generation) system is built on selected advanced modules, enabling you to interact with highly focused learning content through natural language.
+                This is an AI-powered RAG-based mentor built on selected advanced modules, designed to guide you through complex concepts using natural language interaction.
             </div>
             <div class='hero-description'>
-                The system currently includes structured knowledge from:
+                Knowledge Base Includes:
             </div>
             <div class='hero-description'>
                 <strong>Module 7: Contextual Reasoning for Multi-Agent Systems</strong><br>
-                (Sessions 1, 2, 3, and 4)<br><br>
+                (Sessions 1, 2, 3, 4)<br><br>
                 <strong>Module 8: Multi-Agent Planning &amp; Workflow Design</strong><br>
-                (Sessions 2 and 3)<br><br>
+                (Sessions 2, 3)<br><br>
                 <strong>Module 9: Workflow Design &amp; Optimization</strong><br>
-                (Sessions 1, 2, 3, 4, and 5)
+                (Sessions 1, 2, 3, 4, 5)
             </div>
             """,
             unsafe_allow_html=True,
         )
         st.markdown(
             """
-            With this setup, you can:
+            What this AI Mentor helps you do:
 
-            - Explore deep concepts specifically within advanced agentic system design
-            - Ask questions across multiple sessions for connected understanding
-            - Drill down into individual sessions for precise, context-aware answers
-            - Understand how reasoning, planning, and workflows integrate in multi-agent systems
+            - Ask questions and clarify doubts instantly
+            - Pull up exactly what was taught in a specific session-even down to the exact point in the lecture
+            - Understand advanced agentic system design with guided explanations
+            - Connect concepts across multiple sessions seamlessly
+            - Dive deep into specific sessions for precise, context-aware clarity
+            - Learn how reasoning, planning, and workflows come together in multi-agent systems
             """
         )
         st.markdown(
             """
             <div class='hero-footer'>
-                The system retrieves relevant insights from these sessions and generates grounded, context-rich responses, helping you grasp complex concepts, resolve doubts, and navigate advanced topics more effectively.
+                The mentor retrieves relevant insights from these sessions and delivers grounded, context-rich responses-helping you grasp complex topics, revisit explanations, and accelerate learning.
             </div>
             """,
             unsafe_allow_html=True,
         )
-        st.caption("For best results, ask one question at a time. Multi-turn memory will be deployed soon")
+        st.caption("Note: Ask one question at a time for best results. Multi-turn memory is coming soon.")
         st.markdown("---")
         return
         st.markdown(
