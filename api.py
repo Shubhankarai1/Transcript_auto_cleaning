@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Query
 from openai import OpenAI
 from pinecone import Pinecone
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 # Load environment variables
@@ -30,14 +30,22 @@ MODULE_SESSIONS = {
 }
 
 CHUNK_ID_PATTERN = re.compile(r"_chunk_(\d+)", re.IGNORECASE)
+MAX_HISTORY_MESSAGES = 10
+SYSTEM_MESSAGE = {"role": "system", "content": "You are a helpful AI assistant"}
 
 
 # Request schema
+class ChatMessage(BaseModel):
+    role: str
+    content: str
+
+
 class ChatRequest(BaseModel):
     question: str
     mode: str
     module: Optional[str] = None
     session: Optional[int] = None
+    chat_history: list[ChatMessage] = Field(default_factory=list)
 
 
 # Basic health endpoint
@@ -142,22 +150,43 @@ def build_context(sources: list[dict[str, Any]]) -> str:
     return "\n\n".join(context_parts)
 
 
+def normalize_chat_history(chat_history: list[ChatMessage]) -> list[dict[str, str]]:
+    normalized_history: list[dict[str, str]] = []
+    for message in chat_history:
+        role = message.role.strip().lower()
+        content = message.content.strip()
+        if role not in {"user", "assistant"} or not content:
+            continue
+        normalized_history.append({"role": role, "content": content})
+    return normalized_history[-MAX_HISTORY_MESSAGES:]
+
+
+def ensure_latest_user_message(
+    chat_history: list[dict[str, str]], question: str
+) -> list[dict[str, str]]:
+    if chat_history and chat_history[-1]["role"] == "user" and chat_history[-1]["content"] == question:
+        return chat_history
+    return [*chat_history, {"role": "user", "content": question}][-MAX_HISTORY_MESSAGES:]
+
+
 @app.post("/chat")
 def chat(req: ChatRequest) -> dict[str, Any]:
-    if not req.question.strip():
+    question = req.question.strip()
+    if not question:
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
 
     pinecone_filter = build_filter(req)
+    chat_history = ensure_latest_user_message(normalize_chat_history(req.chat_history), question)
 
     try:
         # 1. Rewrite the user query for retrieval
-        rewrite_response = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {
-                    "role": "system",
-                    "content": """
+        rewrite_messages = [
+            {
+                "role": "system",
+                "content": """
 You are a query rewriting assistant for a RAG system.
+
+Use the recent conversation to understand the latest user message.
 
 Your job:
 - Convert vague or short queries into specific, detailed queries
@@ -167,29 +196,19 @@ Your job:
 Rules:
 - Keep original intent
 - Do not answer the question
-- Only rewrite the query
-- Make it more detailed and retrieval-friendly
-
-Examples:
-User: "tell me more about that"
-Rewritten: "Explain in detail the concept of context management in AI systems"
-
-User: "what is this"
-Rewritten: "Explain the concept of context management in agentic systems"
-
-User: "importance of context"
-Rewritten: "Explain the importance of context management in AI systems and agentic architectures"
+- Only rewrite the latest user question
+- Return only the rewritten query
 """.strip(),
-                },
-                {
-                    "role": "user",
-                    "content": req.question,
-                },
-            ],
+            },
+            *chat_history,
+        ]
+        rewrite_response = openai_client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=rewrite_messages,
         )
-        rewritten_query = rewrite_response.choices[0].message.content or req.question
+        rewritten_query = rewrite_response.choices[0].message.content or question
 
-        print("Original:", req.question)
+        print("Original:", question)
         print("Rewritten:", rewritten_query)
 
         # 2. Embed rewritten query
@@ -234,24 +253,18 @@ Rewritten: "Explain the importance of context management in AI systems and agent
         context = build_context(source_entries)
 
         # 5. Generate answer
-        response = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are an expert teacher.",
-                },
-                {
-                    "role": "user",
-                    "content": f"""
-Use the retrieved context to answer the question in a detailed and structured way.
+        messages = [
+            SYSTEM_MESSAGE,
+            {
+                "role": "system",
+                "content": f"""
+Use the retrieved context to answer the latest user question in a detailed and structured way.
 
 Rules:
 - Explain concepts step-by-step
 - Use examples where possible
-- Expand ideas clearly (not just summary)
-- Minimum 150-300 words
-- If multiple chunks are retrieved, combine them into a single explanation
+- Expand ideas clearly instead of only summarizing
+- Keep the answer grounded in the retrieved context
 - Cite factual statements inline using the source labels from the context, for example [CMS-S3-C84]
 - Include citations throughout the answer, not only at the end
 - End with a short line starting with "Sources used:" and list the unique citations you relied on
@@ -259,12 +272,13 @@ Rules:
 
 Context:
 {context}
-
-Question:
-{req.question}
 """.strip(),
-                },
-            ],
+            },
+            *chat_history,
+        ]
+        response = openai_client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=messages,
         )
     except HTTPException:
         raise

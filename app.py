@@ -8,6 +8,7 @@ import streamlit as st
 
 API_BASE_URL = "https://iitm-curriculem-intelligence-layer.onrender.com"
 REQUEST_TIMEOUT = 60
+MAX_HISTORY_MESSAGES = 10
 PAGE_TITLE = "IITM Curriculum – AI Mentor (Prototype)"
 MODULE_LABELS = {
     "cms": "Contextual Reasoning for Multi-Agent Systems",
@@ -17,8 +18,10 @@ MODULE_LABELS = {
 
 
 def init_state() -> None:
-    if "chat_histories" not in st.session_state:
-        st.session_state.chat_histories = {}
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = []
+    if "chat_scope_key" not in st.session_state:
+        st.session_state.chat_scope_key = None
 
 
 def build_scope_key(mode: str, module: str | None = None, session: int | None = None) -> str:
@@ -102,11 +105,15 @@ def format_sources_markdown(sources: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
+def trim_chat_history(chat_history: list[dict[str, str]]) -> list[dict[str, str]]:
+    return chat_history[-MAX_HISTORY_MESSAGES:]
+
+
 def ensure_history(scope_key: str) -> list[dict[str, str]]:
-    histories = st.session_state.chat_histories
-    if scope_key not in histories:
-        histories[scope_key] = []
-    return histories[scope_key]
+    if st.session_state.chat_scope_key != scope_key:
+        st.session_state.chat_scope_key = scope_key
+        st.session_state.chat_history = []
+    return st.session_state.chat_history
 
 
 def render_styles() -> None:
@@ -224,7 +231,7 @@ def render_header() -> None:
             """,
             unsafe_allow_html=True,
         )
-        st.caption("Note: Ask one question at a time for best results. Multi-turn memory is coming soon.")
+        st.caption("Note: Ask one question at a time for best results. The chatbot remembers the last 5 exchanges.")
         st.markdown("---")
         return
         st.markdown(
@@ -287,11 +294,18 @@ def render_sidebar() -> tuple[str, str | None, int | None]:
         return "filtered", selected_module, int(selected_session)
 
 
-def build_payload(question: str, mode: str, module: str | None, session: int | None) -> dict[str, Any]:
+def build_payload(
+    question: str,
+    mode: str,
+    module: str | None,
+    session: int | None,
+    chat_history: list[dict[str, str]],
+) -> dict[str, Any]:
     if mode == "global":
         return {
             "question": question,
             "mode": "global",
+            "chat_history": chat_history,
         }
 
     return {
@@ -299,6 +313,7 @@ def build_payload(question: str, mode: str, module: str | None, session: int | N
         "mode": "filtered",
         "module": module,
         "session": session,
+        "chat_history": chat_history,
     }
 
 
@@ -366,11 +381,13 @@ def main() -> None:
         return
 
     messages.append({"role": "user", "content": prompt})
+    st.session_state.chat_history = trim_chat_history(messages)
+    messages = st.session_state.chat_history
     with st.chat_message("user"):
         st.markdown(prompt)
         st.write("")
 
-    payload = build_payload(prompt, mode, module, session)
+    payload = build_payload(prompt, mode, module, session, messages)
 
     try:
         with st.chat_message("assistant"):
@@ -388,6 +405,7 @@ def main() -> None:
         with st.chat_message("assistant"):
             st.error(error_message)
         messages.append({"role": "assistant", "content": error_message})
+        st.session_state.chat_history = trim_chat_history(messages)
         render_disclaimer()
         return
     except ValueError as exc:
@@ -395,10 +413,12 @@ def main() -> None:
         with st.chat_message("assistant"):
             st.error(error_message)
         messages.append({"role": "assistant", "content": error_message})
+        st.session_state.chat_history = trim_chat_history(messages)
         render_disclaimer()
         return
 
     messages.append({"role": "assistant", "content": rendered_answer})
+    st.session_state.chat_history = trim_chat_history(messages)
     render_disclaimer()
 
 
