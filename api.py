@@ -1,3 +1,4 @@
+import logging
 import os
 import re
 from typing import Any, Optional
@@ -7,6 +8,8 @@ from fastapi import FastAPI, HTTPException, Query
 from openai import OpenAI
 from pinecone import Pinecone
 from pydantic import BaseModel, Field
+from reranker import rerank
+from retrieval_utils import combine_filters, detect_filters
 
 
 # Load environment variables
@@ -14,6 +17,7 @@ load_dotenv()
 
 
 app = FastAPI()
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
 # Init clients
@@ -32,6 +36,8 @@ MODULE_SESSIONS = {
 CHUNK_ID_PATTERN = re.compile(r"_chunk_(\d+)", re.IGNORECASE)
 MAX_HISTORY_MESSAGES = 10
 SYSTEM_MESSAGE = {"role": "system", "content": "You are a helpful AI assistant"}
+RETRIEVAL_TOP_K = 25
+RERANK_TOP_K = 5
 
 
 # Request schema
@@ -169,6 +175,36 @@ def ensure_latest_user_message(
     return [*chat_history, {"role": "user", "content": question}][-MAX_HISTORY_MESSAGES:]
 
 
+def retrieve_context(
+    user_query: str,
+    query_embedding: list[float],
+    base_filter: dict[str, Any] | None = None,
+) -> list[dict[str, Any]]:
+    detected_filters = detect_filters(user_query)
+    final_filter = combine_filters(base_filter, detected_filters)
+
+    print(f"Applied filters: {final_filter or 'none'}")
+    logging.info("Applied filters: %s", final_filter)
+
+    query_kwargs: dict[str, Any] = {
+        "vector": query_embedding,
+        "top_k": RETRIEVAL_TOP_K,
+        "include_metadata": True,
+    }
+    if final_filter is not None:
+        query_kwargs["filter"] = final_filter
+
+    results = index.query(**query_kwargs)
+    matches = sorted(
+        results.get("matches", []),
+        key=lambda match: match.get("score", 0),
+        reverse=True,
+    )
+    logging.info("Retrieved %s candidates before reranking", len(matches))
+
+    return rerank(user_query, matches, top_k=RERANK_TOP_K)
+
+
 @app.post("/chat")
 def chat(req: ChatRequest) -> dict[str, Any]:
     question = req.question.strip()
@@ -217,28 +253,14 @@ Rules:
             input=rewritten_query,
         ).data[0].embedding
 
-        # 3. Query Pinecone with or without filter
-        query_kwargs: dict[str, Any] = {
-            "vector": embedding,
-            "top_k": 15,
-            "include_metadata": True,
-        }
-        if pinecone_filter is not None:
-            query_kwargs["filter"] = pinecone_filter
-
-        results = index.query(**query_kwargs)
-        matches = sorted(
-            results.get("matches", []),
-            key=lambda match: match.get("score", 0),
-            reverse=True,
+        # 3. Retrieve with metadata pre-filtering, then rerank the candidates.
+        reranked_matches = retrieve_context(
+            user_query=question,
+            query_embedding=embedding,
+            base_filter=pinecone_filter,
         )
 
-        for match in matches:
-            print("Score:", match.get("score"))
-
-        filtered_matches = matches[:5]
-
-        if not filtered_matches:
+        if not reranked_matches:
             return {
                 "answer": "Not in module.",
                 "sources": [],
@@ -246,7 +268,7 @@ Rules:
 
         source_entries = [
             build_source_entry(match, index_position)
-            for index_position, match in enumerate(filtered_matches, start=1)
+            for index_position, match in enumerate(reranked_matches, start=1)
         ]
 
         # 4. Extract context

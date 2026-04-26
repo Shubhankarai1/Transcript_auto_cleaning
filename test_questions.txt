@@ -1,0 +1,75 @@
+Test Questions for Retrieval Evaluation
+Source basis: cleaned output documents in `output/` and `output/sessions/`
+
+GENERAL QUESTIONS
+1. Across the course outputs, why is context or history described as a critical backbone for chatbot and agentic AI systems?
+2. How do the cleaned documents explain the role of Pinecone or vector databases in a RAG workflow?
+3. What recurring difference is drawn between simple API-based systems and agentic or intelligent systems?
+4. Which frameworks or tools are mentioned most often across the outputs, and what role does each one play?
+5. How are nodes, state, transition logic, and workflows used to explain agent behavior in the cleaned sessions?
+6. What steps are repeatedly emphasized for building a retrieval pipeline from query input to final answer generation?
+7. How do the sessions describe the relationship between query expansion, document retrieval, and reranking?
+8. Why does the instructor eventually push students from Google Colab toward local tools like VS Code or PyCharm?
+9. What future topics or advanced areas are repeatedly mentioned across the outputs but deferred to later sessions?
+10. What kinds of real-world use cases are used across the modules to explain agentic AI, tool calling, or workflow design?
+
+MODULE: CMS
+
+Session 1
+1. What background does the lecturer give about his experience in data science, machine learning, and agentic AI?
+2. What final deliverable is described for the course in the first CMS session?
+3. Which major topics are introduced as part of understanding context in the agentic RAG system?
+
+Session 2
+1. What gaps from the previous session does the instructor want to fix while improving history maintenance with LangChain tools?
+2. What is Pinecone introduced for in this session, and what setup step is students asked to complete for it?
+3. Why does the instructor recommend using placeholders while building chains repeatedly in LangChain?
+
+Session 3
+1. How does the session explain the meaning of RAG or indexes and the idea of upserting data into them?
+2. What steps are discussed for setting up Pinecone API access and mounting Google Drive for data work?
+3. How are students told to organize Colab files and session folders inside the repository?
+
+Session 4
+1. What are the six organized steps the instructor refers to for pulling relevant documents from a vector database pipeline?
+2. Why are API keys like Google or Pinecone keys added to the environment instead of being passed directly each time?
+3. How does the instructor explain getting the LLM ready and accessing the Pinecone index during retrieval?
+
+MODULE: MAP
+
+Session 2
+1. What is the purpose of multi-query expansion in the MAP retrieval session?
+2. Which components are listed for maintaining chat history in the RAG workflow?
+3. How are query editing, metadata filtering, context building, and prompt rendering connected in this session?
+
+Session 3
+1. According to this session, what prerequisites are most important before starting LangGraph and multi-agent planning?
+2. What are the major stages of the query pipeline that lead to document reranking with a cross-encoder?
+3. Why does the session say the cross-encoder reranks documents using the original query instead of the expanded queries?
+
+MODULE: WDP
+
+Session 1
+1. What differences between Google Colab and VS Code are highlighted for AI development and package setup?
+2. Why does the instructor say local tools such as VS Code or PyCharm are necessary for testing, deployment, or Docker-based work?
+3. How is Pydantic explained in the context of tool calling and validating input-output formats?
+
+Session 2
+1. Why is LangGraph described as more powerful or more controllable than simpler AI approaches?
+2. How does the Alfred and Bruce email workflow explain spam filtering, drafting, validation, and privacy?
+3. What three core components of a LangGraph-style agent system are described in this session?
+
+Session 3
+1. How does the instructor explain LangGraph as a framework for handling tool calls among an LLM and multiple tools?
+2. What project roadmap is mentioned for agentic AI, context engineering, and metrics in this session?
+3. How does the query-routing example with financial and insurance LLMs illustrate specialized nodes in a larger system?
+
+Session 4
+1. What remaining curriculum areas are outlined for multi-agent systems, context engineering, planning, and real-world integrations?
+2. What confusion about module ordering and coverage does the instructor clarify in this session?
+3. Why is API calling described as a crucial concept within the larger GI course structure?
+
+Session 5
+1. What three main nodes are used in the customer complaint workflow, and what does each node do?
+2. How is the Direct Agent Module presented as a simplification over manually handling LLM graph nodes and if-else logic?
+3. What guidance is given about what the intake agent should see when a reviewer agent is part of the workflow?

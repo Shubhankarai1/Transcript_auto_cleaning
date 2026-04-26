@@ -6,6 +6,8 @@ from typing import List, Dict
 from dotenv import load_dotenv
 from openai import OpenAI
 from pinecone import Pinecone
+from reranker import rerank
+from retrieval_utils import combine_filters, detect_filters
 
 # Load environment variables
 load_dotenv()
@@ -14,6 +16,7 @@ load_dotenv()
 EMBEDDING_MODEL = "text-embedding-3-small"
 LLM_MODEL = "gpt-4o-mini"
 TOP_K = 5
+RETRIEVAL_TOP_K = 25
 
 # Initialize clients
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -61,17 +64,21 @@ def create_embedding(text: str) -> List[float]:
         raise
 
 
-def retrieve_from_pinecone(queries: List[str]) -> List[Dict]:
+def retrieve_from_pinecone(queries: List[str], metadata_filter: Dict | None = None) -> List[Dict]:
     """Query Pinecone with multiple queries and collect results."""
     all_matches = []
     for query in queries:
         try:
             embedding = create_embedding(query)
-            results = index.query(
-                vector=embedding,
-                top_k=8,
-                include_metadata=True,
-            )
+            query_kwargs = {
+                "vector": embedding,
+                "top_k": RETRIEVAL_TOP_K,
+                "include_metadata": True,
+            }
+            if metadata_filter is not None:
+                query_kwargs["filter"] = metadata_filter
+
+            results = index.query(**query_kwargs)
             for match in results.get("matches", []):
                 all_matches.append(
                     {
@@ -83,6 +90,29 @@ def retrieve_from_pinecone(queries: List[str]) -> List[Dict]:
         except Exception as e:
             logging.error(f"Failed to query Pinecone: {e}")
     return all_matches
+
+
+def retrieve_context(query: str, expanded_queries: List[str]) -> List[Dict]:
+    detected_filters = detect_filters(query)
+    final_filter = combine_filters(None, detected_filters)
+
+    print(f"Applied filters: {final_filter or 'none'}")
+    logging.info("Applied filters: %s", final_filter)
+
+    matches = retrieve_from_pinecone(expanded_queries, metadata_filter=final_filter)
+    logging.info(f"Retrieved {len(matches)} total matches before deduplication")
+
+    unique_matches = deduplicate_chunks(matches)
+    print(f"Unique chunks retrieved: {len(unique_matches)}")
+    logging.info(f"Retained {len(unique_matches)} unique matches before reranking")
+
+    candidate_matches = sorted(
+        unique_matches,
+        key=lambda match: match.get("score", 0),
+        reverse=True,
+    )[:RETRIEVAL_TOP_K]
+
+    return rerank(query, candidate_matches, top_k=TOP_K)
 
 
 def deduplicate_chunks(matches: List[Dict]) -> List[Dict]:
@@ -205,23 +235,20 @@ def main():
     all_queries = [user_query] + expanded_queries
     logging.info(f"Searching with {len(all_queries)} queries")
 
-    # Retrieve from Pinecone
-    matches = retrieve_from_pinecone(all_queries)
-    logging.info(f"Retrieved {len(matches)} total matches")
+    # Retrieve, pre-filter, and rerank
+    reranked_matches = retrieve_context(user_query, all_queries)
+    logging.info(f"Retrieved {len(reranked_matches)} reranked matches")
 
-    if not matches:
+    if not reranked_matches:
         print("No results found in Pinecone")
         return
 
-    # Deduplicate
-    unique_matches = deduplicate_chunks(matches)
-    print(f"Unique chunks retrieved: {len(unique_matches)}")
     print()
 
     # Build context
     source_entries = [
         build_source_entry(match, index_position)
-        for index_position, match in enumerate(unique_matches[:TOP_K], start=1)
+        for index_position, match in enumerate(reranked_matches, start=1)
     ]
     context = build_context(source_entries)
     if not context:
