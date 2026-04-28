@@ -14,18 +14,20 @@ from retrieval_utils import combine_filters, detect_filters
 # Load environment variables
 load_dotenv()
 
-
+# FastAPI app
 app = FastAPI()
+
+# Logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
 # Init clients
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-index = pc.Index("iitm-modules-rag")  # your index name
+index = pc.Index("iitm-modules-rag")
 
 
-# Simple module/session mapping used by the UI selectors
+# Config
 MODULE_SESSIONS = {
     "cms": [1, 2, 3, 4],
     "map": [2, 3],
@@ -39,7 +41,8 @@ RETRIEVAL_TOP_K = 25
 FINAL_TOP_K = 5
 
 
-# Request schema
+# -------------------- SCHEMAS --------------------
+
 class ChatMessage(BaseModel):
     role: str
     content: str
@@ -54,86 +57,65 @@ class ChatRequest(BaseModel):
     chat_history: list[ChatMessage] = Field(default_factory=list)
 
 
-# Basic health endpoint
+# -------------------- HEALTH --------------------
+
 @app.get("/")
-def root() -> dict[str, str]:
+def root():
     return {"status": "API running"}
 
 
-# List available modules
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
+
+
+# -------------------- META --------------------
+
 @app.get("/modules")
-def get_modules() -> list[str]:
+def get_modules():
     return sorted(MODULE_SESSIONS.keys())
 
 
-# List sessions for a specific module
 @app.get("/sessions")
-def get_sessions(module: str = Query(..., description="Module name")) -> list[int]:
+def get_sessions(module: str = Query(...)):
     sessions = MODULE_SESSIONS.get(module)
     if sessions is None:
         raise HTTPException(status_code=404, detail=f"Unknown module: {module}")
     return sessions
 
 
+# -------------------- HELPERS --------------------
+
 def build_filter(req: ChatRequest) -> Optional[dict[str, Any]]:
     if req.mode == "global":
         return None
 
     if req.mode != "filtered":
-        raise HTTPException(
-            status_code=400,
-            detail="Invalid mode. Use 'global' or 'filtered'.",
-        )
+        raise HTTPException(status_code=400, detail="Invalid mode")
 
     if not req.module or req.session is None:
-        raise HTTPException(
-            status_code=400,
-            detail="Filtered mode requires both module and session.",
-        )
+        raise HTTPException(status_code=400, detail="Module + session required")
 
-    allowed_sessions = MODULE_SESSIONS.get(req.module)
-    if allowed_sessions is None:
-        raise HTTPException(status_code=404, detail=f"Unknown module: {req.module}")
-
-    if req.session not in allowed_sessions:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Invalid session {req.session} for module '{req.module}'.",
-        )
-
-    return {
-        "module": req.module,
-        "session": req.session,
-    }
+    return {"module": req.module, "session": req.session}
 
 
 def extract_chunk_number(match: dict[str, Any]) -> Optional[int]:
     metadata = match.get("metadata", {})
-    chunk_value = metadata.get("chunk")
-    if chunk_value is not None:
-        try:
-            return int(chunk_value)
-        except (TypeError, ValueError):
-            pass
+    if metadata.get("chunk"):
+        return int(metadata["chunk"])
 
     match_id = str(match.get("id", ""))
-    chunk_match = CHUNK_ID_PATTERN.search(match_id)
-    if chunk_match:
-        return int(chunk_match.group(1))
-
-    return None
+    m = CHUNK_ID_PATTERN.search(match_id)
+    return int(m.group(1)) if m else None
 
 
-def build_source_entry(match: dict[str, Any], index_position: int) -> dict[str, Any]:
+def build_source_entry(match: dict[str, Any], index_position: int):
     metadata = match.get("metadata", {})
     module = metadata.get("module")
     session = metadata.get("session")
     chunk = extract_chunk_number(match)
 
-    module_label = str(module).upper() if module else "UNKNOWN"
-    session_label = str(session) if session is not None else "?"
-    chunk_label = str(chunk) if chunk is not None else str(index_position)
-    citation = f"{module_label}-S{session_label}-C{chunk_label}"
+    citation = f"{str(module).upper()}-S{session}-C{chunk or index_position}"
 
     return {
         "id": match.get("id"),
@@ -146,175 +128,79 @@ def build_source_entry(match: dict[str, Any], index_position: int) -> dict[str, 
     }
 
 
-def build_context(sources: list[dict[str, Any]]) -> str:
-    context_parts: list[str] = []
-    for source in sources:
-        text = source.get("text", "")
-        if not text:
-            continue
-        context_parts.append(f"[{source['citation']}]\n{text}")
-    return "\n\n".join(context_parts)
-
-
-def normalize_chat_history(chat_history: list[ChatMessage]) -> list[dict[str, str]]:
-    normalized_history: list[dict[str, str]] = []
-    for message in chat_history:
-        role = message.role.strip().lower()
-        content = message.content.strip()
-        if role not in {"user", "assistant"} or not content:
-            continue
-        normalized_history.append({"role": role, "content": content})
-    return normalized_history[-MAX_HISTORY_MESSAGES:]
-
-
-def ensure_latest_user_message(
-    chat_history: list[dict[str, str]], question: str
-) -> list[dict[str, str]]:
-    if chat_history and chat_history[-1]["role"] == "user" and chat_history[-1]["content"] == question:
-        return chat_history
-    return [*chat_history, {"role": "user", "content": question}][-MAX_HISTORY_MESSAGES:]
-
-
-def retrieve_context(
-    user_query: str,
-    query_embedding: list[float],
-    base_filter: dict[str, Any] | None = None,
-) -> list[dict[str, Any]]:
-    detected_filters = detect_filters(user_query)
-    final_filter = combine_filters(base_filter, detected_filters)
-
-    print(f"Applied filters: {final_filter or 'none'}")
-    logging.info("Applied filters: %s", final_filter)
-
-    query_kwargs: dict[str, Any] = {
-        "vector": query_embedding,
-        "top_k": RETRIEVAL_TOP_K,
-        "include_metadata": True,
-    }
-    if final_filter is not None:
-        query_kwargs["filter"] = final_filter
-
-    results = index.query(**query_kwargs)
-    matches = sorted(
-        results.get("matches", []),
-        key=lambda match: match.get("score", 0),
-        reverse=True,
+def build_context(sources):
+    return "\n\n".join(
+        f"[{s['citation']}]\n{s['text']}" for s in sources if s.get("text")
     )
-    logging.info("Retrieved %s candidates from Pinecone", len(matches))
 
+
+def normalize_chat_history(chat_history):
+    return [
+        {"role": m.role, "content": m.content}
+        for m in chat_history
+        if m.role in {"user", "assistant"} and m.content
+    ][-MAX_HISTORY_MESSAGES:]
+
+
+def retrieve_context(query, embedding, base_filter):
+    filters = combine_filters(base_filter, detect_filters(query))
+
+    results = index.query(
+        vector=embedding,
+        top_k=RETRIEVAL_TOP_K,
+        include_metadata=True,
+        filter=filters if filters else None,
+    )
+
+    matches = sorted(results.get("matches", []), key=lambda x: x["score"], reverse=True)
     return matches[:FINAL_TOP_K]
 
 
+# -------------------- MAIN CHAT --------------------
+
 @app.post("/chat")
-def chat(req: ChatRequest) -> dict[str, Any]:
-    print("Request received")
+def chat(req: ChatRequest):
 
     question = (req.question or req.query or "").strip()
     if not question:
-        raise HTTPException(status_code=400, detail="Question cannot be empty.")
-
-    pinecone_filter = build_filter(req)
-    chat_history = ensure_latest_user_message(normalize_chat_history(req.chat_history), question)
+        raise HTTPException(status_code=400, detail="Empty question")
 
     try:
-        # 1. Rewrite the user query for retrieval
-        rewrite_messages = [
-            {
-                "role": "system",
-                "content": """
-You are a query rewriting assistant for a RAG system.
-
-Use the recent conversation to understand the latest user message.
-
-Your job:
-- Convert vague or short queries into specific, detailed queries
-- Add missing context if implied
-- Make it optimized for semantic search
-
-Rules:
-- Keep original intent
-- Do not answer the question
-- Only rewrite the latest user question
-- Return only the rewritten query
-""".strip(),
-            },
-            *chat_history,
-        ]
-        rewrite_response = openai_client.chat.completions.create(
+        # Rewrite
+        rewrite = openai_client.chat.completions.create(
             model="gpt-4o-mini",
-            messages=rewrite_messages,
+            messages=[{"role": "user", "content": question}],
         )
-        rewritten_query = rewrite_response.choices[0].message.content or question
+        rewritten = rewrite.choices[0].message.content or question
 
-        print("Original:", question)
-        print("Rewritten:", rewritten_query)
-
-        # 2. Embed rewritten query
+        # Embed
         embedding = openai_client.embeddings.create(
             model="text-embedding-3-small",
-            input=rewritten_query,
+            input=rewritten,
         ).data[0].embedding
 
-        # 3. Retrieve with metadata pre-filtering and keep the top Pinecone matches.
-        print("Before retrieval")
-        docs = retrieve_context(
-            user_query=question,
-            query_embedding=embedding,
-            base_filter=pinecone_filter,
-        )
-        print(f"After retrieval | docs count: {len(docs)}")
+        # Retrieve
+        docs = retrieve_context(rewritten, embedding, build_filter(req))
 
         if not docs:
-            return {
-                "answer": "Not in module.",
-                "sources": [],
-            }
+            return {"answer": "Not in module.", "sources": []}
 
-        source_entries = [
-            build_source_entry(match, index_position)
-            for index_position, match in enumerate(docs, start=1)
-        ]
+        sources = [build_source_entry(d, i) for i, d in enumerate(docs, 1)]
+        context = build_context(sources)
 
-        # 4. Extract context
-        context = build_context(source_entries)
-
-        # 5. Generate answer
-        messages = [
-            SYSTEM_MESSAGE,
-            {
-                "role": "system",
-                "content": f"""
-Use the retrieved context to answer the latest user question in a detailed and structured way.
-
-Rules:
-- Explain concepts step-by-step
-- Use examples where possible
-- Expand ideas clearly instead of only summarizing
-- Keep the answer grounded in the retrieved context
-- Cite factual statements inline using the source labels from the context, for example [CMS-S3-C84]
-- Include citations throughout the answer, not only at the end
-- End with a short line starting with "Sources used:" and list the unique citations you relied on
-- If the context does not contain the answer, say that clearly
-
-Context:
-{context}
-""".strip(),
-            },
-            *chat_history,
-        ]
-        print("Before OpenAI call")
+        # Answer
         response = openai_client.chat.completions.create(
             model="gpt-4o-mini",
-            messages=messages,
+            messages=[
+                {"role": "system", "content": f"Answer using:\n{context}"},
+                {"role": "user", "content": question},
+            ],
         )
-        print("After OpenAI call")
-    except HTTPException:
-        raise
-    except Exception as exc:
-        print(f"ERROR: {str(exc)}")
-        raise HTTPException(status_code=500, detail=f"Chat request failed: {exc}") from exc
 
-    return {
-        "answer": response.choices[0].message.content,
-        "sources": source_entries,
-    }
+        return {
+            "answer": response.choices[0].message.content,
+            "sources": sources,
+        }
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
