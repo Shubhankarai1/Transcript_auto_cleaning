@@ -13,7 +13,7 @@ GENERAL QUESTIONS
 9. What future topics or advanced areas are repeatedly mentioned across the outputs but deferred to later sessions?
 10. What kinds of real-world use cases are used across the modules to explain agentic AI, tool calling, or workflow design?
 
-MODULE: CMS
+MODULE 7: CMS ( )
 
 Session 1
 1. What background does the lecturer give about his experience in data science, machine learning, and agentic AI?
@@ -35,7 +35,7 @@ Session 4
 2. Why are API keys like Google or Pinecone keys added to the environment instead of being passed directly each time?
 3. How does the instructor explain getting the LLM ready and accessing the Pinecone index during retrieval?
 
-MODULE: MAP
+MODULE 8: MAP
 
 Session 2
 1. What is the purpose of multi-query expansion in the MAP retrieval session?
@@ -47,7 +47,7 @@ Session 3
 2. What are the major stages of the query pipeline that lead to document reranking with a cross-encoder?
 3. Why does the session say the cross-encoder reranks documents using the original query instead of the expanded queries?
 
-MODULE: WDP
+MODULE 9: WDP
 
 Session 1
 1. What differences between Google Colab and VS Code are highlighted for AI development and package setup?
