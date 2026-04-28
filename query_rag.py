@@ -6,7 +6,6 @@ from typing import List, Dict
 from dotenv import load_dotenv
 from openai import OpenAI
 from pinecone import Pinecone
-from reranker import rerank
 from retrieval_utils import combine_filters, detect_filters
 
 # Load environment variables
@@ -104,7 +103,7 @@ def retrieve_context(query: str, expanded_queries: List[str]) -> List[Dict]:
 
     unique_matches = deduplicate_chunks(matches)
     print(f"Unique chunks retrieved: {len(unique_matches)}")
-    logging.info(f"Retained {len(unique_matches)} unique matches before reranking")
+    logging.info(f"Retained {len(unique_matches)} unique matches")
 
     candidate_matches = sorted(
         unique_matches,
@@ -112,7 +111,7 @@ def retrieve_context(query: str, expanded_queries: List[str]) -> List[Dict]:
         reverse=True,
     )[:RETRIEVAL_TOP_K]
 
-    return rerank(query, candidate_matches, top_k=TOP_K)
+    return candidate_matches[:TOP_K]
 
 
 def deduplicate_chunks(matches: List[Dict]) -> List[Dict]:
@@ -235,11 +234,11 @@ def main():
     all_queries = [user_query] + expanded_queries
     logging.info(f"Searching with {len(all_queries)} queries")
 
-    # Retrieve, pre-filter, and rerank
-    reranked_matches = retrieve_context(user_query, all_queries)
-    logging.info(f"Retrieved {len(reranked_matches)} reranked matches")
+    # Retrieve, pre-filter, deduplicate, and keep the highest-scoring Pinecone matches.
+    final_matches = retrieve_context(user_query, all_queries)
+    logging.info(f"Retrieved {len(final_matches)} final matches")
 
-    if not reranked_matches:
+    if not final_matches:
         print("No results found in Pinecone")
         return
 
@@ -248,7 +247,7 @@ def main():
     # Build context
     source_entries = [
         build_source_entry(match, index_position)
-        for index_position, match in enumerate(reranked_matches, start=1)
+        for index_position, match in enumerate(final_matches, start=1)
     ]
     context = build_context(source_entries)
     if not context:

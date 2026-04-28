@@ -6,7 +6,8 @@ import requests
 import streamlit as st
 
 
-API_BASE_URL = "https://iitm-curriculem-intelligence-layer.onrender.com"
+BASE_URL = "https://iitm-curriculum-intelligence-layer.onrender.com"
+API_BASE_URL = BASE_URL
 REQUEST_TIMEOUT = 60
 MAX_HISTORY_MESSAGES = 10
 PAGE_TITLE = "IITM Curriculum – AI Mentor (Prototype)"

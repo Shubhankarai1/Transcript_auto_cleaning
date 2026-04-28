@@ -8,7 +8,6 @@ from fastapi import FastAPI, HTTPException, Query
 from openai import OpenAI
 from pinecone import Pinecone
 from pydantic import BaseModel, Field
-from reranker import rerank
 from retrieval_utils import combine_filters, detect_filters
 
 
@@ -37,7 +36,7 @@ CHUNK_ID_PATTERN = re.compile(r"_chunk_(\d+)", re.IGNORECASE)
 MAX_HISTORY_MESSAGES = 10
 SYSTEM_MESSAGE = {"role": "system", "content": "You are a helpful AI assistant"}
 RETRIEVAL_TOP_K = 25
-RERANK_TOP_K = 5
+FINAL_TOP_K = 5
 
 
 # Request schema
@@ -200,13 +199,15 @@ def retrieve_context(
         key=lambda match: match.get("score", 0),
         reverse=True,
     )
-    logging.info("Retrieved %s candidates before reranking", len(matches))
+    logging.info("Retrieved %s candidates from Pinecone", len(matches))
 
-    return rerank(user_query, matches, top_k=RERANK_TOP_K)
+    return matches[:FINAL_TOP_K]
 
 
 @app.post("/chat")
 def chat(req: ChatRequest) -> dict[str, Any]:
+    print("Request received")
+
     question = req.question.strip()
     if not question:
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
@@ -253,14 +254,16 @@ Rules:
             input=rewritten_query,
         ).data[0].embedding
 
-        # 3. Retrieve with metadata pre-filtering, then rerank the candidates.
-        reranked_matches = retrieve_context(
+        # 3. Retrieve with metadata pre-filtering and keep the top Pinecone matches.
+        print("Before retrieval")
+        docs = retrieve_context(
             user_query=question,
             query_embedding=embedding,
             base_filter=pinecone_filter,
         )
+        print(f"After retrieval | docs count: {len(docs)}")
 
-        if not reranked_matches:
+        if not docs:
             return {
                 "answer": "Not in module.",
                 "sources": [],
@@ -268,7 +271,7 @@ Rules:
 
         source_entries = [
             build_source_entry(match, index_position)
-            for index_position, match in enumerate(reranked_matches, start=1)
+            for index_position, match in enumerate(docs, start=1)
         ]
 
         # 4. Extract context
@@ -298,13 +301,16 @@ Context:
             },
             *chat_history,
         ]
+        print("Before OpenAI call")
         response = openai_client.chat.completions.create(
             model="gpt-4o-mini",
             messages=messages,
         )
+        print("After OpenAI call")
     except HTTPException:
         raise
     except Exception as exc:
+        print(f"ERROR: {str(exc)}")
         raise HTTPException(status_code=500, detail=f"Chat request failed: {exc}") from exc
 
     return {
