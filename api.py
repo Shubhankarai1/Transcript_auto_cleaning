@@ -46,8 +46,9 @@ class ChatMessage(BaseModel):
 
 
 class ChatRequest(BaseModel):
-    question: str
-    mode: str
+    question: Optional[str] = None
+    query: Optional[str] = None
+    mode: str = "global"
     module: Optional[str] = None
     session: Optional[int] = None
     chat_history: list[ChatMessage] = Field(default_factory=list)
@@ -55,7 +56,7 @@ class ChatRequest(BaseModel):
 
 # Basic health endpoint
 @app.get("/")
-def home() -> dict[str, str]:
+def root() -> dict[str, str]:
     return {"status": "API running"}
 
 
@@ -208,7 +209,7 @@ def retrieve_context(
 def chat(req: ChatRequest) -> dict[str, Any]:
     print("Request received")
 
-    question = req.question.strip()
+    question = (req.question or req.query or "").strip()
     if not question:
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
 

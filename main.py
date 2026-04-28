@@ -7,6 +7,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
+from api import app
 from utils import (
     bootstrap_module_session_cache,
     clean_chunk,
