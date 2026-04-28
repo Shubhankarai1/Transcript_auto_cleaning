@@ -73,9 +73,18 @@ def send_chat_request(payload: dict[str, Any]) -> dict[str, Any]:
         json=payload,
         timeout=REQUEST_TIMEOUT,
     )
+    st.write("API response status:", response.status_code)
+
+    try:
+        data = response.json()
+    except ValueError as exc:
+        st.write("API response text:", response.text)
+        response.raise_for_status()
+        raise ValueError("The API response was not valid JSON.") from exc
+
+    st.json(data)
     response.raise_for_status()
 
-    data = response.json()
     if isinstance(data, dict):
         answer = data.get("answer") or data.get("response") or data.get("message")
         if isinstance(answer, str) and answer.strip():
@@ -305,12 +314,14 @@ def build_payload(
     if mode == "global":
         return {
             "question": question,
+            "query": question,
             "mode": "global",
             "chat_history": chat_history,
         }
 
     return {
         "question": question,
+        "query": question,
         "mode": "filtered",
         "module": module,
         "session": session,
