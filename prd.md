@@ -1,272 +1,369 @@
-# PRD: Transcript Auto Cleaning + Structuring Pipeline (Session-Aware, RAG Ready)
+# PRD: IITM Curriculum Intelligence Layer
 
-## 🎯 Objective
+## Objective
 
-Build a Python tool that:
+Build and maintain a lightweight RAG application that lets users ask questions over IITM curriculum lecture transcripts.
 
-1. Takes raw lecture transcripts (per session)
-2. Automatically splits them into chunks
-3. Labels each chunk with session-aware naming
-4. Cleans and structures each chunk using an LLM
-5. Merges outputs into a final clean document
-6. Outputs a file ready for upload into AnythingLLM
+The system has two major parts:
 
----
+1. A transcript processing pipeline that converts raw lecture transcripts into structured, RAG-ready chunks.
+2. A FastAPI + Pinecone + OpenAI backend, with a Streamlit frontend, that retrieves relevant chunks and generates grounded answers with citations.
 
-## 📥 Input
+## Current Status
 
-* Format: `.txt`
-* One transcript per session
-* Example:
+The project has evolved from a transcript-cleaning utility into a deployable curriculum Q&A system.
 
-  * crms_session_1.txt
-  * crms_session_2.txt
+Implemented:
 
----
+- Session-aware transcript cleaning and chunking.
+- RAG chunk generation under `rag_chunks/`.
+- Pinecone upload workflow.
+- FastAPI backend in `api.py`.
+- Streamlit frontend in `app.py`.
+- Render-compatible API routing.
+- Lightweight deployment dependencies without `sentence-transformers` or PyTorch.
+- OpenAI-based reranking layer after Pinecone retrieval.
+- Source citations in generated answers.
+- Debug logging around retrieval, reranking, and OpenAI calls.
 
-## 📤 Output
+## Users
 
-### 1. Chunk Files
+- Students reviewing IITM course content.
+- Instructors or mentors answering curriculum-specific questions.
+- Developers debugging retrieval quality and deployment behavior.
 
-Each chunk MUST follow this naming format:
+## Core User Flow
 
-crms_session_<session_number>chunk-<chunk_number>.txt
+1. User opens the Streamlit app.
+2. User selects either:
+   - Global search across all content.
+   - Filtered search by module and session.
+3. Frontend sends a `POST /chat` request to the FastAPI backend.
+4. Backend rewrites the query for retrieval.
+5. Backend embeds the rewritten query with OpenAI embeddings.
+6. Backend retrieves high-recall candidate chunks from Pinecone.
+7. Backend reranks candidates using OpenAI.
+8. Backend selects the best grounded chunks.
+9. Backend generates an answer using only the selected context.
+10. Frontend displays the answer and source citations.
 
-Example:
+## Backend API Requirements
 
-* crms_session_1chunk-1.txt
-* crms_session_1chunk-2.txt
-* crms_session_2chunk-1.txt
+### FastAPI App
 
----
+The backend must initialize FastAPI normally:
 
-### 2. Final Cleaned Output
+```python
+from fastapi import FastAPI
 
-* File: `final_cleaned.txt`
-* Structured format:
+app = FastAPI()
+```
 
-### Session 1
+Docs must remain enabled by default. Do not set `docs_url=None`.
 
-#### Topic: [Topic Name]
+### Required Routes
 
-Explanation:
-...
+The backend must expose:
 
-Key Points:
+- `GET /`
+- `GET /health`
+- `GET /modules`
+- `GET /sessions?module={module}`
+- `POST /chat`
 
-* ...
-* ...
+### Root Route
 
-Student Doubts:
-Q:
-A:
+`GET /` must return:
 
----
+```json
+{"status": "API running"}
+```
 
----
+### Health Route
 
-## ⚙️ Functional Requirements
+`GET /health` must return:
 
-### 1. File Loader
+```json
+{"status": "healthy"}
+```
 
-* Read all `.txt` files from `/input`
-* Each file represents ONE session
+### Chat Route
 
----
+`POST /chat` must support the frontend payload:
 
-### 2. Session Identification
+```json
+{
+  "question": "What is prompt engineering?",
+  "mode": "global",
+  "module": null,
+  "session": null,
+  "chat_history": []
+}
+```
 
-* Extract session number from filename
-  Example:
+It must also support a simple testing payload:
 
-* crms_session_1.txt → session = 1
+```json
+{
+  "query": "What is prompt engineering?"
+}
+```
 
----
+The response must include:
 
-### 3. Chunking Module
+```json
+{
+  "answer": "...",
+  "sources": []
+}
+```
 
-* Split transcript into chunks:
+## Frontend Requirements
 
-  * Size: ~1200 words
-* Ensure:
+The Streamlit frontend lives in `app.py`.
 
-  * No mid-sentence splits (optional improvement)
-* Output:
+It must call:
 
-  * List of chunks per session
+```python
+BASE_URL = "https://iitm-curriculum-intelligence-layer.onrender.com"
+API_BASE_URL = BASE_URL
+```
 
----
+Frontend API calls:
 
-### 4. Chunk Naming Logic
+- `GET {API_BASE_URL}/modules`
+- `GET {API_BASE_URL}/sessions`
+- `POST {API_BASE_URL}/chat`
 
-Each chunk MUST be saved as:
+The frontend must preserve recent chat history and reset history when the user changes scope.
 
-crms_session_<session_number>chunk-<chunk_index>.txt
+## RAG Retrieval Requirements
 
-Where:
+### Stage 1: Vector Retrieval
 
-* session_number = extracted from file
-* chunk_index = incremental (1, 2, 3…)
+Use Pinecone for high-recall retrieval.
 
----
+Requirements:
 
-### 5. Cleaning + Structuring (Core AI Module)
+- Keep Pinecone retrieval logic unchanged.
+- Keep OpenAI embedding model unchanged.
+- Retrieve `RETRIEVAL_TOP_K = 25` candidate chunks.
+- Include metadata in Pinecone results.
+- Apply module/session filters when requested.
 
-Use LLM (OpenAI API)
+### Stage 2: OpenAI Reranking
 
-Prompt:
+After retrieval, rerank the 25 candidate chunks using OpenAI.
 
-"You are cleaning a lecture transcript.
+Function:
+
+```python
+def rerank_documents(query: str, docs: list[dict]) -> list[dict]:
+    ...
+```
+
+Requirements:
+
+- Use `gpt-4o-mini`.
+- Score each document from `0` to `1`.
+- Use only the first 500 characters of each chunk for scoring.
+- Sort by rerank score descending.
+- Remove documents with score below `0.6`.
+- Return the top 5 documents.
+- If reranking fails, return the original `docs[:5]`.
+- Never crash the API due to reranking failure.
+
+Reranking prompt:
+
+```text
+You are a strict relevance scorer.
+
+Given a query and a document, score how relevant the document is to answering the query.
 
 Rules:
 
-* Remove filler words and noise
-* Keep only meaningful teaching content
-* Separate teacher explanation and student doubts
-* Organize into structured format
+Score between 0 and 1
+1 = directly answers the query
+0 = completely irrelevant
+Be strict: partial matches should be <= 0.5
+Do NOT explain
+Output ONLY a number
+```
 
-Output format:
+## Answer Generation Requirements
 
-### Topic:
+The answer generation step must use only the selected reranked chunks.
 
-Explanation:
-Key Points:
-Student Doubts:
+System prompt requirements:
 
-Transcript:
-{chunk}"
+```text
+Use ONLY the provided context.
 
----
+Rules:
 
-### 6. Processing Loop
+If answer is not clearly in context -> say 'Not in module'
+Do NOT guess
+Do NOT use prior knowledge
+Cite sources inline
+Be precise and structured
+```
 
-For each session:
+The answer must include inline citations such as:
 
-* Split into chunks
-* For each chunk:
+```text
+[CMS-S3-C84]
+```
 
-  * Save raw chunk file (with session naming)
-  * Send to LLM
-  * Store cleaned output
+If the selected context does not clearly answer the question, the answer must be:
 
----
+```text
+Not in module
+```
 
-### 7. Merge Module
+## Debug Logging Requirements
 
-* Combine cleaned outputs in this order:
+The backend should print simple deployment-friendly debug logs:
 
-  * Session-wise
-  * Chunk order preserved
+- Request received.
+- Retrieved docs count.
+- Reranked scores.
+- Final selected docs.
+- Before OpenAI call.
+- After OpenAI call.
+- Error details for caught exceptions.
 
-Structure:
+These logs are intended to identify whether slowdowns occur during retrieval, reranking, or generation.
 
-### Session 1
+## Transcript Processing Requirements
 
-[All cleaned chunks]
+Raw transcripts are stored under:
 
-### Session 2
+```text
+input/{module}/session_{session_number}.txt
+```
 
-[All cleaned chunks]
+Supported modules currently include:
 
----
+- `cms`
+- `map`
+- `wdp`
 
-### 8. Final Refinement Pass (Optional)
+The transcript pipeline must:
 
-Prompt:
+- Load module/session transcript files.
+- Split transcript text into manageable chunks.
+- Clean and structure transcript content with OpenAI.
+- Preserve module and session metadata.
+- Merge cleaned outputs per module.
+- Generate RAG-ready chunks under `rag_chunks/{module}/`.
 
-"Clean this document:
+RAG chunk files should include:
 
-* Remove duplicate topics
-* Merge similar concepts
-* Improve clarity
-* Keep structured format"
+- Module
+- Session
+- Topic
+- Chunk number
+- Cleaned explanatory content
+- Key points
+- Student doubts where available
 
----
+## Pinecone Requirements
 
-### 9. Export Module
+The upload workflow must:
 
-Save:
+- Read generated RAG chunks.
+- Embed chunk text using OpenAI embeddings.
+- Upload vectors to Pinecone.
+- Preserve metadata:
+  - `module`
+  - `session`
+  - `chunk`
+  - `text`
 
-* `/output/final_cleaned.txt`
+The API currently uses the Pinecone index:
 
----
+```python
+iitm-modules-rag
+```
 
-## 🧱 Tech Stack
+## Deployment Requirements
 
-* Python
-* OpenAI API (GPT-4 / GPT-4o-mini)
-* Optional:
+The backend must remain lightweight for Render free-tier deployment.
 
-  * tqdm (progress)
-  * dotenv (API keys)
+Requirements:
 
----
+- Do not include `sentence-transformers`.
+- Do not include PyTorch.
+- Do not load local cross-encoder models.
+- Use OpenAI reranking instead of local reranking.
+- Keep startup lightweight.
+- Ensure the deployed app exposes `GET /`, `GET /docs`, and `POST /chat`.
 
-## 📂 Folder Structure
+If Render is configured as `uvicorn main:app`, `main.py` must expose the FastAPI app imported from `api.py`.
 
-project/
-│
-├── input/
-│   ├── crms_session_1.txt
-│   ├── crms_session_2.txt
-│
-├── chunks/
-│   ├── crms_session_1chunk-1.txt
-│   ├── crms_session_1chunk-2.txt
-│
-├── output/
-│   └── final_cleaned.txt
-│
-├── main.py
-├── utils.py
-└── .env
+Recommended backend start command:
 
----
+```text
+uvicorn api:app --host 0.0.0.0 --port $PORT
+```
 
-## 🚀 Execution Flow
+Compatibility start command:
 
-1. Add session files to `/input`
+```text
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
 
-2. Run:
+## Dependency Requirements
 
-   python main.py
+API dependencies should remain minimal:
 
-3. Script:
+```text
+fastapi
+uvicorn
+requests
+openai
+pinecone
+python-dotenv
+```
 
-   * Detects sessions
-   * Splits into chunks
-   * Names them correctly
-   * Cleans via LLM
-   * Merges output
+General project dependencies may include Streamlit for the frontend:
 
-4. Final file available in `/output`
+```text
+streamlit
+```
 
----
+Avoid heavy ML dependencies unless the deployment target changes.
 
-## 🔥 Success Criteria
+## Success Criteria
 
-* Each chunk clearly labeled by session
-* Output structured and readable
-* Ready for direct upload into AnythingLLM
-* No manual intervention required
+The project is successful when:
 
----
+- `GET /` returns `{"status": "API running"}`.
+- `GET /docs` opens FastAPI docs.
+- `POST /chat` returns an answer and sources.
+- Frontend successfully calls `BASE_URL + "/chat"`.
+- Pinecone retrieval returns 25 candidates before reranking.
+- OpenAI reranking selects more relevant top 5 chunks.
+- Answers cite retrieved sources inline.
+- Unsupported answers return `Not in module`.
+- Render deployment does not hang during dependency installation.
 
-## ⚠️ Notes
+## Out of Scope For Current Version
 
-* Session-based naming is critical for:
+- Local cross-encoder reranking.
+- `sentence-transformers`.
+- PyTorch-based model hosting.
+- User authentication.
+- Admin dashboard.
+- Real-time transcript upload UI.
+- Multi-tenant data isolation.
 
-  * Traceability
-  * Debugging
-  * Context-aware querying
+## Future Enhancements
 
----
-
-## 💡 Future Enhancements
-
-* Multi-threaded chunk processing
-* UI dashboard
-* Direct ingestion into vector DB
-* Speaker detection (Teacher vs Student)
-
----
+- Batch reranking to reduce OpenAI latency.
+- More structured JSON scoring for reranking.
+- Evaluation set for retrieval quality.
+- Automated regression tests for answer grounding.
+- Admin UI for uploading new curriculum material.
+- Observability with request IDs and latency timings.
+- Configurable Pinecone index name through environment variables.

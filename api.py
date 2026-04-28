@@ -1,4 +1,5 @@
 import logging
+import json
 import os
 import re
 from typing import Any, Optional
@@ -162,50 +163,105 @@ def _document_text(doc: dict[str, Any]) -> str:
     return str(doc.get("metadata", {}).get("text", "")).strip()
 
 
-def rerank_documents(query: str, docs: list[dict]) -> list[dict]:
+def _clamp_score(score: Any) -> float:
     try:
-        scored_docs: list[tuple[dict, float]] = []
+        value = float(score)
+    except (TypeError, ValueError):
+        return 0.0
+    return max(0.0, min(1.0, value))
 
-        for doc in docs:
+
+def _parse_rerank_scores(raw_content: str | None, doc_count: int) -> list[float]:
+    if not raw_content:
+        return [0.0] * doc_count
+
+    try:
+        payload = json.loads(raw_content)
+    except json.JSONDecodeError:
+        payload = None
+
+    scores: list[Any]
+    if isinstance(payload, dict) and isinstance(payload.get("scores"), list):
+        scores = payload["scores"]
+    elif isinstance(payload, list):
+        scores = payload
+    else:
+        scores = re.findall(r"(?:0(?:\.\d+)?|1(?:\.0+)?)", raw_content)
+
+    normalized_scores = [_clamp_score(score) for score in scores[:doc_count]]
+    if len(normalized_scores) < doc_count:
+        normalized_scores.extend([0.0] * (doc_count - len(normalized_scores)))
+    return normalized_scores
+
+
+def rerank_documents(query: str, docs: list[dict]) -> list[dict]:
+    if not docs:
+        print("reranked scores", [])
+        print("final selected docs", [])
+        return []
+
+    try:
+        rerank_candidates: list[dict[str, Any]] = []
+        for index, doc in enumerate(docs):
             doc_text = _document_text(doc)[:RERANK_TEXT_LIMIT]
             if not doc_text:
                 continue
+            rerank_candidates.append(
+                {
+                    "index": index,
+                    "id": doc.get("id"),
+                    "text": doc_text,
+                }
+            )
 
-            response = openai_client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": """
+        if not rerank_candidates:
+            print("reranked scores", [])
+            print("final selected docs", [])
+            return []
+
+        documents_for_scoring = "\n\n".join(
+            f"Document {candidate['index']} | id: {candidate['id']}\n{candidate['text']}"
+            for candidate in rerank_candidates
+        )
+
+        response = openai_client.chat.completions.create(
+            model="gpt-4o-mini",
+            response_format={"type": "json_object"},
+            messages=[
+                {
+                    "role": "system",
+                    "content": """
 You are a strict relevance scorer.
 
-Given a query and a document, score how relevant the document is to answering the query.
+Given a query and a list of documents, score how relevant each document is to answering the query.
 
 Rules:
 
-Score between 0 and 1
+Score each document between 0 and 1
 1 = directly answers the query
 0 = completely irrelevant
 Be strict: partial matches should be <= 0.5
 Do NOT explain
-Output ONLY a number
+Output ONLY valid JSON in this exact shape:
+{"scores":[0.0,0.0]}
 """.strip(),
-                    },
-                    {
-                        "role": "user",
-                        "content": f"Query: {query}\nDocument: {doc_text}",
-                    },
-                ],
-            )
+                },
+                {
+                    "role": "user",
+                    "content": f"Query: {query}\n\n{documents_for_scoring}",
+                },
+            ],
+        )
 
-            raw_score = response.choices[0].message.content or "0"
-            try:
-                score = float(raw_score.strip())
-            except ValueError:
-                score = 0.0
+        raw_content = None
+        if response and response.choices:
+            raw_content = response.choices[0].message.content
 
-            score = max(0.0, min(1.0, score))
-            reranked_doc = dict(doc)
+        scores = _parse_rerank_scores(raw_content, len(rerank_candidates))
+        scored_docs: list[tuple[dict, float]] = []
+
+        for candidate, score in zip(rerank_candidates, scores):
+            reranked_doc = dict(docs[candidate["index"]])
             reranked_doc["rerank_score"] = score
             scored_docs.append((reranked_doc, score))
 
