@@ -39,6 +39,8 @@ MAX_HISTORY_MESSAGES = 10
 SYSTEM_MESSAGE = {"role": "system", "content": "You are a helpful AI assistant"}
 RETRIEVAL_TOP_K = 25
 FINAL_TOP_K = 5
+RERANK_TEXT_LIMIT = 500
+RERANK_MIN_SCORE = 0.6
 
 
 # -------------------- SCHEMAS --------------------
@@ -153,7 +155,75 @@ def retrieve_context(query, embedding, base_filter):
     )
 
     matches = sorted(results.get("matches", []), key=lambda x: x["score"], reverse=True)
-    return matches[:FINAL_TOP_K]
+    return matches
+
+
+def _document_text(doc: dict[str, Any]) -> str:
+    return str(doc.get("metadata", {}).get("text", "")).strip()
+
+
+def rerank_documents(query: str, docs: list[dict]) -> list[dict]:
+    try:
+        scored_docs: list[tuple[dict, float]] = []
+
+        for doc in docs:
+            doc_text = _document_text(doc)[:RERANK_TEXT_LIMIT]
+            if not doc_text:
+                continue
+
+            response = openai_client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": """
+You are a strict relevance scorer.
+
+Given a query and a document, score how relevant the document is to answering the query.
+
+Rules:
+
+Score between 0 and 1
+1 = directly answers the query
+0 = completely irrelevant
+Be strict: partial matches should be <= 0.5
+Do NOT explain
+Output ONLY a number
+""".strip(),
+                    },
+                    {
+                        "role": "user",
+                        "content": f"Query: {query}\nDocument: {doc_text}",
+                    },
+                ],
+            )
+
+            raw_score = response.choices[0].message.content or "0"
+            try:
+                score = float(raw_score.strip())
+            except ValueError:
+                score = 0.0
+
+            score = max(0.0, min(1.0, score))
+            reranked_doc = dict(doc)
+            reranked_doc["rerank_score"] = score
+            scored_docs.append((reranked_doc, score))
+
+        scored_docs.sort(key=lambda item: item[1], reverse=True)
+        print(
+            "reranked scores",
+            [{"id": doc.get("id"), "score": score} for doc, score in scored_docs],
+        )
+
+        selected_docs = [
+            doc for doc, score in scored_docs if score >= RERANK_MIN_SCORE
+        ][:FINAL_TOP_K]
+        print("final selected docs", [doc.get("id") for doc in selected_docs])
+
+        return selected_docs
+    except Exception as exc:
+        print(f"Reranking failed: {str(exc)}")
+        return docs[:FINAL_TOP_K]
 
 
 # -------------------- MAIN CHAT --------------------
@@ -181,6 +251,8 @@ def chat(req: ChatRequest):
 
         # Retrieve
         docs = retrieve_context(rewritten, embedding, build_filter(req))
+        print(f"retrieved docs count: {len(docs)}")
+        docs = rerank_documents(question, docs)
 
         if not docs:
             return {"answer": "Not in module.", "sources": []}
@@ -192,7 +264,23 @@ def chat(req: ChatRequest):
         response = openai_client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": f"Answer using:\n{context}"},
+                {
+                    "role": "system",
+                    "content": f"""
+Use ONLY the provided context.
+
+Rules:
+
+If answer is not clearly in context -> say 'Not in module'
+Do NOT guess
+Do NOT use prior knowledge
+Cite sources inline
+Be precise and structured
+
+Context:
+{context}
+""".strip(),
+                },
                 {"role": "user", "content": question},
             ],
         )
