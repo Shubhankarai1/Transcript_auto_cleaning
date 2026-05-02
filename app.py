@@ -73,16 +73,13 @@ def send_chat_request(payload: dict[str, Any]) -> dict[str, Any]:
         json=payload,
         timeout=REQUEST_TIMEOUT,
     )
-    st.write("API response status:", response.status_code)
 
     try:
         data = response.json()
     except ValueError as exc:
-        st.write("API response text:", response.text)
         response.raise_for_status()
         raise ValueError("The API response was not valid JSON.") from exc
 
-    st.json(data)
     response.raise_for_status()
 
     if isinstance(data, dict):
@@ -405,12 +402,13 @@ def main() -> None:
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 response_data = send_chat_request(payload)
-                answer = response_data["answer"]
-                sources_markdown = format_sources_markdown(response_data["sources"])
+                answer = response_data.get("answer", "")
+                sources = response_data.get("sources", [])
                 rendered_answer = answer
-                if sources_markdown:
-                    rendered_answer = f"{answer}\n\n{sources_markdown}"
-                st.markdown(rendered_answer)
+                st.markdown(answer)
+                if sources:
+                    with st.expander("Sources & Debug Info", expanded=False):
+                        st.json(sources)
                 st.write("")
     except requests.RequestException as exc:
         error_message = f"Request failed: {exc}"
