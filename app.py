@@ -110,9 +110,23 @@ def format_sources_markdown(sources: list[dict[str, Any]]) -> str:
         module = source.get("module") or "unknown"
         session = source.get("session")
         chunk = source.get("chunk")
+        score = source.get("score")
+        matched_query = source.get("matched_query")
+        text = str(source.get("text") or "").strip()
+        preview = " ".join(text.split())[:450]
+
+        score_label = f"{float(score):.4f}" if isinstance(score, (int, float)) else "n/a"
         lines.append(
-            f"- `{citation}` | module `{module}` | session `{session}` | chunk `{chunk}`"
+            f"### `{citation}`\n"
+            f"- Module: `{module}`\n"
+            f"- Session: `{session}`\n"
+            f"- Chunk: `{chunk}`\n"
+            f"- Score: `{score_label}`"
         )
+        if matched_query:
+            lines.append(f"- Matched query: {matched_query}")
+        if preview:
+            lines.append(f"- Preview: {preview}{'...' if len(text) > 450 else ''}")
     return "\n".join(lines)
 
 
