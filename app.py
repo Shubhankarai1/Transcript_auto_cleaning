@@ -91,10 +91,14 @@ def send_chat_request(payload: dict[str, Any]) -> dict[str, Any]:
             retrieval_queries = data.get("retrieval_queries", [])
             if not isinstance(retrieval_queries, list):
                 retrieval_queries = []
+            hyde_query = data.get("hyde_query")
+            if not isinstance(hyde_query, str):
+                hyde_query = ""
             return {
                 "answer": answer,
                 "sources": sources,
                 "retrieval_queries": retrieval_queries,
+                "hyde_query": hyde_query,
             }
 
     raise ValueError("The API response did not include an answer field.")
@@ -139,6 +143,13 @@ def format_retrieval_queries_markdown(retrieval_queries: list[Any]) -> str:
     for index, query in enumerate(queries, start=1):
         lines.append(f"{index}. {query}")
     return "\n".join(lines)
+
+
+def format_hyde_markdown(hyde_query: str) -> str:
+    hyde_query = hyde_query.strip()
+    if not hyde_query:
+        return ""
+    return f"HyDE query used:\n\n> {hyde_query}"
 
 
 def trim_chat_history(chat_history: list[dict[str, str]]) -> list[dict[str, str]]:
@@ -434,10 +445,15 @@ def main() -> None:
                 answer = response_data.get("answer", "")
                 sources = response_data.get("sources", [])
                 retrieval_queries = response_data.get("retrieval_queries", [])
+                hyde_query = response_data.get("hyde_query", "")
                 rendered_answer = answer
                 st.markdown(answer)
-                if sources or retrieval_queries:
+                if sources or retrieval_queries or hyde_query:
                     with st.expander("Sources & Debug Info", expanded=False):
+                        hyde_markdown = format_hyde_markdown(hyde_query)
+                        if hyde_markdown:
+                            st.markdown(hyde_markdown)
+                            st.divider()
                         retrieval_queries_markdown = format_retrieval_queries_markdown(
                             retrieval_queries
                         )
@@ -450,6 +466,7 @@ def main() -> None:
                             st.divider()
                         st.json(
                             {
+                                "hyde_query": hyde_query,
                                 "retrieval_queries": retrieval_queries,
                                 "sources": sources,
                             }

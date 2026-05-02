@@ -42,6 +42,7 @@ FINAL_TOP_K = 5
 LLM_MODEL = "gpt-4o-mini"
 EMBEDDING_MODEL = "text-embedding-3-small"
 QUERY_EXPANSION_COUNT = 3
+HYDE_MAX_TOKENS = 180
 
 
 # -------------------- SCHEMAS --------------------
@@ -206,11 +207,40 @@ Current rewritten query:
     return expanded[:QUERY_EXPANSION_COUNT]
 
 
-def build_search_queries(question: str, rewritten: str) -> list[str]:
+def generate_hyde_query(question: str, rewritten: str) -> str:
+    prompt = f"""
+Write a concise hypothetical course-transcript passage that would directly answer the student's question.
+
+Use likely terminology from AI agent workflows, RAG, retrieval, planning, LangChain/LangGraph, Pinecone, reranking, or multi-agent systems only when relevant.
+Do not mention that this is hypothetical. Do not add citations. Keep it under 120 words.
+
+Student question:
+{question}
+
+Rewritten query:
+{rewritten}
+""".strip()
+
+    try:
+        response = openai_client.chat.completions.create(
+            model=LLM_MODEL,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.2,
+            max_tokens=HYDE_MAX_TOKENS,
+        )
+    except Exception:
+        logging.exception("HyDE generation failed; continuing without HyDE")
+        return ""
+
+    return (response.choices[0].message.content or "").strip()
+
+
+def build_search_queries(question: str, rewritten: str) -> tuple[list[str], str]:
+    hyde_query = generate_hyde_query(question, rewritten)
     expanded = expand_query(question, rewritten)
-    queries = unique_queries([question, rewritten, *expanded])
+    queries = unique_queries([question, rewritten, hyde_query, *expanded])
     logging.info("Using %d retrieval queries: %s", len(queries), queries)
-    return queries
+    return queries, hyde_query
 
 
 def create_embeddings(queries: list[str]) -> list[list[float]]:
@@ -285,7 +315,7 @@ def chat(req: ChatRequest):
     try:
         # Rewrite
         rewritten = rewrite_query(question)
-        search_queries = build_search_queries(question, rewritten)
+        search_queries, hyde_query = build_search_queries(question, rewritten)
 
         # Retrieve
         docs = retrieve_context(question, search_queries, build_filter(req))
@@ -358,6 +388,7 @@ Now generate a COMPLETE and DETAILED answer.
             "answer": response.choices[0].message.content,
             "sources": sources,
             "retrieval_queries": search_queries,
+            "hyde_query": hyde_query,
         }
 
     except Exception as e:
