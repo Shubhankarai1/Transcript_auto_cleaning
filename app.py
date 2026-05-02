@@ -88,9 +88,13 @@ def send_chat_request(payload: dict[str, Any]) -> dict[str, Any]:
             sources = data.get("sources", [])
             if not isinstance(sources, list):
                 sources = []
+            retrieval_queries = data.get("retrieval_queries", [])
+            if not isinstance(retrieval_queries, list):
+                retrieval_queries = []
             return {
                 "answer": answer,
                 "sources": sources,
+                "retrieval_queries": retrieval_queries,
             }
 
     raise ValueError("The API response did not include an answer field.")
@@ -109,6 +113,17 @@ def format_sources_markdown(sources: list[dict[str, Any]]) -> str:
         lines.append(
             f"- `{citation}` | module `{module}` | session `{session}` | chunk `{chunk}`"
         )
+    return "\n".join(lines)
+
+
+def format_retrieval_queries_markdown(retrieval_queries: list[Any]) -> str:
+    queries = [str(query).strip() for query in retrieval_queries if str(query).strip()]
+    if not queries:
+        return ""
+
+    lines = ["Retrieval queries used:"]
+    for index, query in enumerate(queries, start=1):
+        lines.append(f"{index}. {query}")
     return "\n".join(lines)
 
 
@@ -404,11 +419,27 @@ def main() -> None:
                 response_data = send_chat_request(payload)
                 answer = response_data.get("answer", "")
                 sources = response_data.get("sources", [])
+                retrieval_queries = response_data.get("retrieval_queries", [])
                 rendered_answer = answer
                 st.markdown(answer)
-                if sources:
+                if sources or retrieval_queries:
                     with st.expander("Sources & Debug Info", expanded=False):
-                        st.json(sources)
+                        retrieval_queries_markdown = format_retrieval_queries_markdown(
+                            retrieval_queries
+                        )
+                        if retrieval_queries_markdown:
+                            st.markdown(retrieval_queries_markdown)
+                            st.divider()
+                        sources_markdown = format_sources_markdown(sources)
+                        if sources_markdown:
+                            st.markdown(sources_markdown)
+                            st.divider()
+                        st.json(
+                            {
+                                "retrieval_queries": retrieval_queries,
+                                "sources": sources,
+                            }
+                        )
                 st.write("")
     except requests.RequestException as exc:
         error_message = f"Request failed: {exc}"

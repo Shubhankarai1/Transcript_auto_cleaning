@@ -39,6 +39,9 @@ MAX_HISTORY_MESSAGES = 10
 SYSTEM_MESSAGE = {"role": "system", "content": "You are a helpful AI assistant"}
 RETRIEVAL_TOP_K = 25
 FINAL_TOP_K = 5
+LLM_MODEL = "gpt-4o-mini"
+EMBEDDING_MODEL = "text-embedding-3-small"
+QUERY_EXPANSION_COUNT = 3
 
 
 # -------------------- SCHEMAS --------------------
@@ -125,6 +128,7 @@ def build_source_entry(match: dict[str, Any], index_position: int):
         "session": session,
         "chunk": chunk,
         "citation": citation,
+        "matched_query": match.get("matched_query"),
     }
 
 
@@ -142,17 +146,130 @@ def normalize_chat_history(chat_history):
     ][-MAX_HISTORY_MESSAGES:]
 
 
-def retrieve_context(query, embedding, base_filter):
-    filters = combine_filters(base_filter, detect_filters(query))
+def parse_query_lines(text: str) -> list[str]:
+    """Parse one-query-per-line LLM output into clean query strings."""
+    queries: list[str] = []
+    for line in text.splitlines():
+        cleaned = re.sub(r"^\s*(?:[-*]|\d+[\).\:-])\s*", "", line).strip()
+        cleaned = cleaned.strip("\"'")
+        if cleaned:
+            queries.append(cleaned)
+    return queries
 
-    results = index.query(
-        vector=embedding,
-        top_k=RETRIEVAL_TOP_K,
-        include_metadata=True,
-        filter=filters if filters else None,
+
+def unique_queries(queries: list[str]) -> list[str]:
+    """Keep query variants in order while removing near-identical duplicates."""
+    seen: set[str] = set()
+    unique: list[str] = []
+    for query in queries:
+        normalized = re.sub(r"\s+", " ", query.strip().lower())
+        if not normalized or normalized in seen:
+            continue
+        seen.add(normalized)
+        unique.append(query.strip())
+    return unique
+
+
+def rewrite_query(question: str) -> str:
+    rewrite = openai_client.chat.completions.create(
+        model=LLM_MODEL,
+        messages=[{"role": "user", "content": question}],
     )
+    return (rewrite.choices[0].message.content or question).strip()
 
-    matches = sorted(results.get("matches", []), key=lambda x: x["score"], reverse=True)
+
+def expand_query(question: str, rewritten: str) -> list[str]:
+    prompt = f"""
+Generate {QUERY_EXPANSION_COUNT} alternate search queries for retrieving relevant course transcript chunks.
+
+Preserve the user's intent. Use different wording and related course terms where useful.
+Return only the alternate queries, one per line. Do not number them.
+
+Original question:
+{question}
+
+Current rewritten query:
+{rewritten}
+""".strip()
+
+    try:
+        response = openai_client.chat.completions.create(
+            model=LLM_MODEL,
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.3,
+        )
+    except Exception:
+        logging.exception("Query expansion failed; falling back to base queries")
+        return []
+
+    expanded = parse_query_lines(response.choices[0].message.content or "")
+    return expanded[:QUERY_EXPANSION_COUNT]
+
+
+def build_search_queries(question: str, rewritten: str) -> list[str]:
+    expanded = expand_query(question, rewritten)
+    queries = unique_queries([question, rewritten, *expanded])
+    logging.info("Using %d retrieval queries: %s", len(queries), queries)
+    return queries
+
+
+def create_embeddings(queries: list[str]) -> list[list[float]]:
+    response = openai_client.embeddings.create(
+        model=EMBEDDING_MODEL,
+        input=queries,
+    )
+    return [item.embedding for item in response.data]
+
+
+def deduplicate_matches(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Deduplicate pooled query results, retaining the highest score per chunk."""
+    best_by_key: dict[str, dict[str, Any]] = {}
+
+    for match in matches:
+        metadata = match.get("metadata", {})
+        key = str(match.get("id") or metadata.get("text") or "")
+        if not key:
+            continue
+
+        existing = best_by_key.get(key)
+        if existing is None or match.get("score", 0) > existing.get("score", 0):
+            best_by_key[key] = match
+
+    return list(best_by_key.values())
+
+
+def retrieve_context(original_query: str, search_queries: list[str], base_filter):
+    filters = combine_filters(base_filter, detect_filters(original_query))
+    embeddings = create_embeddings(search_queries)
+
+    pooled_matches: list[dict[str, Any]] = []
+    for query, embedding in zip(search_queries, embeddings):
+        results = index.query(
+            vector=embedding,
+            top_k=RETRIEVAL_TOP_K,
+            include_metadata=True,
+            filter=filters if filters else None,
+        )
+        for match in results.get("matches", []):
+            pooled_matches.append(
+                {
+                    "id": match.get("id"),
+                    "score": match.get("score"),
+                    "metadata": match.get("metadata", {}),
+                    "matched_query": query,
+                }
+            )
+
+    matches = sorted(
+        deduplicate_matches(pooled_matches),
+        key=lambda x: x["score"],
+        reverse=True,
+    )
+    logging.info(
+        "Retrieved %d pooled matches and retained %d unique matches",
+        len(pooled_matches),
+        len(matches),
+    )
     return matches[:FINAL_TOP_K]
 
 
@@ -167,20 +284,11 @@ def chat(req: ChatRequest):
 
     try:
         # Rewrite
-        rewrite = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[{"role": "user", "content": question}],
-        )
-        rewritten = rewrite.choices[0].message.content or question
-
-        # Embed
-        embedding = openai_client.embeddings.create(
-            model="text-embedding-3-small",
-            input=rewritten,
-        ).data[0].embedding
+        rewritten = rewrite_query(question)
+        search_queries = build_search_queries(question, rewritten)
 
         # Retrieve
-        docs = retrieve_context(rewritten, embedding, build_filter(req))
+        docs = retrieve_context(question, search_queries, build_filter(req))
 
         if not docs:
             return {"answer": "Not in module.", "sources": []}
@@ -240,7 +348,7 @@ Now generate a COMPLETE and DETAILED answer.
 """.strip()
 
         response = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=LLM_MODEL,
             messages=[
                 {"role": "user", "content": answer_prompt},
             ],
@@ -249,6 +357,7 @@ Now generate a COMPLETE and DETAILED answer.
         return {
             "answer": response.choices[0].message.content,
             "sources": sources,
+            "retrieval_queries": search_queries,
         }
 
     except Exception as e:
