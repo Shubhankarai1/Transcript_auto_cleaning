@@ -6,7 +6,7 @@ import requests
 import streamlit as st
 
 
-BASE_URL = "https://iitm-curriculum-intelligence-layer.onrender.com"
+BASE_URL = "https://iitm-curriculem-intelligence-layer.onrender.com"
 API_BASE_URL = BASE_URL
 REQUEST_TIMEOUT = 60
 MAX_HISTORY_MESSAGES = 10
