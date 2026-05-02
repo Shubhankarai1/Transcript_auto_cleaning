@@ -153,7 +153,7 @@ def retrieve_context(query, embedding, base_filter):
     )
 
     matches = sorted(results.get("matches", []), key=lambda x: x["score"], reverse=True)
-    return matches
+    return matches[:FINAL_TOP_K]
 
 
 # -------------------- MAIN CHAT --------------------
@@ -181,8 +181,6 @@ def chat(req: ChatRequest):
 
         # Retrieve
         docs = retrieve_context(rewritten, embedding, build_filter(req))
-        print(f"retrieved docs count: {len(docs)}")
-        docs = docs[:FINAL_TOP_K]
 
         if not docs:
             return {"answer": "Not in module.", "sources": []}
@@ -194,23 +192,7 @@ def chat(req: ChatRequest):
         response = openai_client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
-                {
-                    "role": "system",
-                    "content": f"""
-Use ONLY the provided context.
-
-Rules:
-
-If answer is not clearly in context -> say 'Not in module'
-Do NOT guess
-Do NOT use prior knowledge
-Cite sources inline
-Be precise and structured
-
-Context:
-{context}
-""".strip(),
-                },
+                {"role": "system", "content": f"Answer using:\n{context}"},
                 {"role": "user", "content": question},
             ],
         )
