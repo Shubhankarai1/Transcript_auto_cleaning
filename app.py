@@ -93,15 +93,22 @@ def format_sources_markdown(sources: list[dict[str, Any]]) -> str:
     if not sources:
         return ""
 
-    lines = ["Sources retrieved:"]
+    lines = ["Relevant sources:"]
     for source in sources:
         citation = source.get("citation") or "UNKNOWN"
         module = source.get("module") or "unknown"
         session = source.get("session")
         chunk = source.get("chunk")
-        lines.append(
+        preview_text = " ".join(str(source.get("text", "")).split())
+        if len(preview_text) > 140:
+            preview_text = f"{preview_text[:137].rstrip()}..."
+
+        source_line = (
             f"- `{citation}` | module `{module}` | session `{session}` | chunk `{chunk}`"
         )
+        if preview_text:
+            source_line = f"{source_line} | {preview_text}"
+        lines.append(source_line)
     return "\n".join(lines)
 
 

@@ -139,6 +139,22 @@ def build_context(sources):
     )
 
 
+def trim_sources_for_ui(sources: list[dict[str, Any]], limit: int = 3) -> list[dict[str, Any]]:
+    """Keep only the most useful source fields for the normal chat UI."""
+    trimmed: list[dict[str, Any]] = []
+    for source in sources[:limit]:
+        trimmed.append(
+            {
+                "citation": source.get("citation"),
+                "module": source.get("module"),
+                "session": source.get("session"),
+                "chunk": source.get("chunk"),
+                "text": source.get("text", ""),
+            }
+        )
+    return trimmed
+
+
 def normalize_chat_history(chat_history):
     return [
         {"role": m.role, "content": m.content}
@@ -361,6 +377,9 @@ STRICT INSTRUCTIONS:
 8. Avoid generic short answers.
 9. Avoid robotic formatting.
 10. Write like a human instructor, not a checklist generator.
+11. When you use a factual point from the context, cite it inline using the context labels, for example [MAP-S3-C42].
+12. Use only the most relevant citations. Do not cite every sentence and do not invent citations.
+13. Do not add a separate "Sources", "Courses", or "Debug" section inside the answer.
 
 ---
 
@@ -384,9 +403,11 @@ Now generate a COMPLETE and DETAILED answer.
             ],
         )
 
+        ui_sources = trim_sources_for_ui(sources)
+
         return {
             "answer": response.choices[0].message.content,
-            "sources": sources,
+            "sources": ui_sources,
             "retrieval_queries": search_queries,
             "hyde_query": hyde_query,
         }
