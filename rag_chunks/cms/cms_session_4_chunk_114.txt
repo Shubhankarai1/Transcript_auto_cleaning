@@ -1,0 +1,21 @@
+Module: cms
+Session: 4
+Topic: Document Filtering in Information Retrieval
+Chunk: 114
+
+Explanation:
+The lecture discusses the importance of pre-filtering and post-filtering in document retrieval to improve speed and accuracy. Pre-filtering removes irrelevant documents before searching, reducing the number of documents that need to be searched. Post-filtering removes unnecessary parts from the output using metadata, ensuring important information is not lost. Caching responses is also mentioned as a way to improve speed by storing recently asked questions for quicker response times.
+
+Key Points:
+1. Pre-filtering removes irrelevant documents before searching.
+2. Post-filtering uses metadata to remove unnecessary parts from the output.
+3. Caching responses stores recently asked questions for faster response times.
+
+Student Doubts:
+1. Will pre-filtering and post-filtering increase or decrease latency?
+2. How does streaming work in this process?
+3. Where is the cache response stored?
+4. What size of cache can be expected in an application?
+5. Is caching always necessary, or does it depend on the application?
+
+---

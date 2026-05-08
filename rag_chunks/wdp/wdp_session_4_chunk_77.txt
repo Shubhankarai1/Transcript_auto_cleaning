@@ -1,0 +1,30 @@
+Module: wdp
+Session: 4
+Topic: Learning GI Course Structure
+Chunk: 77
+
+Explanation: The transcript outlines the key points and structure for learning a Graph Intelligence (GI) course. It emphasizes understanding API calling, vector databases, agent AI front, topologies, views, best practices, database integrations, monitoring, and rag architectures.
+
+Key Points:
+1. API Calling (best practices)
+2. API Calling with LAN
+3. Launching (LAN Chain flow creation)
+4. Local Address Book (LCAL)
+5. Conversation History
+6. Tool Calling with Padantic
+7. Vector Databases (various types and optimization techniques)
+8. Agent AI Front (Language, State Management, Workflow Design, Context Engineering)
+9. Topologies with Multi-Agent Systems (order of agent calls, workflows, topology, par execution, human in the loop)
+10. Views (custom topic)
+11. Best Practices (complete agent course requirement)
+12. Database Integrations (various types)
+13. Monitoring (LANSmith, Metrics, Precision at K, Recall at K, Blue Rogue, Meteor)
+14. Rag Architectures (proper rag design and various types including adaptive/corrective rag)
+15. Optional Topics (MCP tune)
+
+Student Doubts:
+- Request to reiterate the first part of the course structure
+- Request to share a document on rag optimization techniques
+- Clarification on the term "adapt" in "adaptive rag" or if it should be "corrective rag" instead.
+
+---

@@ -1,0 +1,20 @@
+Module: map
+Session: 2
+Topic: Retrieve docs multi function explanation
+Chunk: 11
+
+Explanation: The main function discussed is `retrieve_docs_multi`. It takes queries as input and retrieves documents for each query one by one. The key point is that it uses a separate function `retrieve_doc_single` to retrieve each document individually.
+
+Key Points:
+- `retrieve_docs_multi` function retrieves documents for multiple queries.
+- It calls the function `retrieve_doc_single` to get individual documents.
+- Users should run and check the given set of functions first before using the main function.
+
+Student Doubts:
+1. Can the student run it manually?
+2. What is the name of the generate multiqueries function?
+3. Why isn't the queries variable defined?
+4. How to get the final list of chunks for multiple queries?
+5. What are the necessary changes to run multi-query expansion?
+
+---

@@ -1,0 +1,30 @@
+Module: cms
+Session: 3
+Topic: Organizing and Creating Embeddings for Documents
+Chunk: 80
+
+Explanation: The lecture explains how to organize documents and create embeddings using the Transformers library in Python. The organizing process involves grouping documents and choosing a model. The creating embeddings process involves importing the required libraries, specifying the document collection, and running code to generate 384-dimensional embeddings for each document.
+
+Key Points:
+1. Organize documents by grouping them together
+2. Choose a suitable model (e.g., Gemini with 768 dimensions)
+3. Import Transformers library and install it if necessary
+4. Declare the document collection
+5. Run code to generate embeddings for each document (by default, 384-dimensional)
+6. Check the shape of the generated embeddings
+7. Optionally change the embedding dimension size
+8. Ensure using the same model throughout the process
+9. Confirm that commas in declaring documents are optional
+10. Be aware that the entire sentence is embedded in this particular case
+
+Student Doubts:
+1. Could you please share the last step (step 4)?
+2. In cases with many dimensions, do we reduce them?
+3. What about maximum dimensions? Is there a limit to them?
+4. Can we reduce dimensions after choosing the model?
+5. Should we use the same model throughout the process?
+6. Will the entire sentence or only a specific chunk be embedded?
+7. Do we need a comma when declaring documents, and is it optional?
+8. What if the HF token does not exist?
+
+---

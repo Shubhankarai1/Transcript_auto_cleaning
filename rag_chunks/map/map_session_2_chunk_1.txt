@@ -1,0 +1,17 @@
+Module: map
+Session: 2
+Topic: Review and Multi-query Expansion in Rag (Retrieval Augmented Generation)
+Chunk: 1
+
+Explanation: In this lecture, the teacher will review what was covered in the previous session, which included upserting, retrieval, chunking, query expansion, pre-filtering, and metadata filtering. The main focus of today's session will be on multi-query expansion and maintaining history in Rag (Retrieval Augmented Generation).
+
+Key Points:
+1. Multi-query Expansion: Creating multiple queries to improve the quality of data retrieval in Rag.
+2. Query Creation: Learning how to expand a query and using those expanded queries for better data generation.
+3. Maintaining History: Understanding the importance of maintaining history in the context of Rag.
+
+Student Doubts:
+1. What are sparse embeddings? (Answer: Sparse embeddings are a technique used to represent high-dimensional data in a lower dimensional space while preserving most of the original information.)
+2. When will adaptive and corrective rag be covered? (Answer: Adaptive and corrective rag will be covered in later sessions, after the teacher covers metrics.)
+
+---

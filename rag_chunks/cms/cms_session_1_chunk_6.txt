@@ -1,0 +1,18 @@
+Module: cms
+Session: 1
+Topic: Understanding APIs
+Chunk: 6
+
+Explanation: The lecture focuses on understanding the structure and function of APIs (Application Programming Interfaces). The speaker uses the example of ChatGPT to explain how data is sent from a user interface (browser) to an API, processed by a large neural network, and then returned to the user.
+
+Key Points:
+- APIs are used for sending and receiving data between different software applications
+- They act as intermediaries between the user's frontend and the backend server
+- The size of the neural network processing the data can be very large and complex
+- Data is processed one word at a time, with many processes happening behind the scenes
+
+Student Doubts:
+1. How big should a dragon (large neural network) be to cater to users? (Answer provided in the lecture: It depends on the complexity of the task and the number of users)
+2. Is ChatGPT making a lot of money? (Answer not explicitly provided, but the speaker mentions they can see that it is not making a lot of money)
+
+---

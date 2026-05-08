@@ -1,0 +1,20 @@
+Module: cms
+Session: 3
+Topic: Vector Databases
+Chunk: 83
+
+Explanation:
+In a vector database, the data is stored with associated vectors instead of traditional IDs. The real content to be stored is essential, along with a normal ID and a vector ID for each item. Metadata can be added for organization and faster search.
+
+Key Points:
+- Storing data with associated vectors instead of traditional IDs
+- Essential to have the real content, normal ID, and vector ID for each item
+- Metadata can be added for organization and faster search
+
+Student Doubts:
+1. What is the purpose of the score shown in the vector index?
+   - The score is shown in the vector index because there's no query (empty text).
+2. Could you explain the step-by-step process for handling docs and embeddings together?
+   - The process involves creating a structure with IDs, converting each document into embeddings, manually mapping the documents and their corresponding IDs to organize them, and pushing the organized structure into the vector database. Metadata can be added later for further organization.
+
+---

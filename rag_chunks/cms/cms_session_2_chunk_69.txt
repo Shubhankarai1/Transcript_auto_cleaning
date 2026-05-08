@@ -1,0 +1,17 @@
+Module: cms
+Session: 2
+Topic: Creating Pinecone Account and API Keys
+Chunk: 69
+
+Explanation: The professor explained how to create a Pinecone account and obtain API keys. He also mentioned that students should have these ready for future sessions where they will learn about data injection and chunking concepts.
+
+Key Points:
+- Create Pinecone account
+- Generate API keys
+- Be prepared with the API key for future sessions
+
+Student Doubts:
+- Professor asked if anyone needs other APIs like Langchain or Google, and whether they need to share their email box
+- One student inquired about the location of the Google Collab notes shared by the professor.
+
+---

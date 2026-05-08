@@ -1,0 +1,19 @@
+Module: cms
+Session: 1
+Topic: Explanation of AI System Message in Neural Networks
+Chunk: 15
+
+Explanation: The AI system uses a neural network to classify user intent based on the given context. The system message is used to set and maintain the context for the AI, ensuring it provides accurate responses. The AI has a separate model to categorize the user's intent before generating an answer.
+
+Key Points:
+- Neural network classifies text based on user intent
+- System message sets and maintains context for AI
+- AI has a separate model for intent categorization
+- The system message is used internally by AIs to build applications effectively
+
+Student Doubts:
+1. What is the system prompt and its role in AI?
+2. How does the AI automatically segregate into the system prompt?
+3. Can we fix the system message from a developer point of view?
+
+---

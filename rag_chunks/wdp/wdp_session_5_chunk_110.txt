@@ -1,0 +1,22 @@
+Module: wdp
+Session: 5
+Topic: Creating Writer Node and Passing Intech View
+Chunk: 110
+
+Explanation: The lecture explains the creation of a writer node that drafts a reply and populates it, along with populating the view for debugging purposes. The instructor also clarifies that the `intech_view` used should only contain attributes from the state, not the entire state.
+
+Key Points:
+- Write a writer node that drafts a reply and populates it.
+- Populate the view for debugging purposes.
+- Use views to limit the information shown to save on token costs.
+- The `intech_view` should only contain attributes from the state, not the entire state.
+
+Student Doubts:
+1. Can the view have attributes only from the state or can I have some external attributes?
+   - Only from the state because showing unnecessary information increases token costs.
+2. Is it a concept found on the internet?
+   - No, the concept of views is original and not widely discussed online.
+3. What happens if we expand the view to include more items?
+   - If necessary, you can expand the view to include more items. However, this should only be done when required to save on token costs.
+
+---

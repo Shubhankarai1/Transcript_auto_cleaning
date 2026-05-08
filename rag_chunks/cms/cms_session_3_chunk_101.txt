@@ -1,0 +1,20 @@
+Module: cms
+Session: 3
+Topic: Investment in AI and Coding
+Chunk: 101
+
+Explanation: The lecturer discusses the potential of AI in application development, highlighting the need for human intervention at the enterprise level for architecting the code structure. He also warns about the limitations of current AI technology in handling large software projects.
+
+Key Points:
+- AI is highly optimized and receiving significant investment, particularly in its agentic and autonomous applications.
+- However, when it comes to building complex code structures, human intervention is still needed, especially at the enterprise level for architecting the entire code structure.
+- Coding skills are essential for creating human architecture, but there are only a few skill sets that possess these abilities.
+- The lecturer suggests that while we should invest in AI technology, finding the right use cases is crucial.
+
+Student Doubts:
+1. If LLMs who know codex and similar technologies are trying to get into this space, is it not a good investment? (The lecturer explains that while there's talk about autonomous AI, no evidence supports it yet.)
+2. Can codeex or cloud tackle large software end-to-end without bloating and running out of tokens? (The lecturer believes it will struggle with large applications due to the risk of bloating and running out of tokens.)
+3. Is the investment in these AI technologies sustainable, considering the high spending versus profits? (The lecturer acknowledges that the investments are large but suggests finding the right use cases is key.)
+4. Can the lecturer share last week's collab folder? (The lecturer agrees to share the folder and suggests sharing it on LMS instead.)
+
+---

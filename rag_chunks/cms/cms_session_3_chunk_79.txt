@@ -1,0 +1,18 @@
+Module: cms
+Session: 3
+Topic: Explanation of Vectors in Multidimensional Spaces and Cosine Similarity
+Chunk: 79
+
+Explanation: The lecture explains the concept of vectors in multidimensional spaces (up to 384 dimensions) and introduces the concept of cosine similarity as a method for finding the closest vectors. The teacher uses examples to illustrate the creation, manipulation, and comparison of these vectors, emphasizing the importance of organizing documents for analysis.
+
+Key Points:
+- Vectors can exist in multiple dimensions (up to 384).
+- A vector can rotate across its dimensions.
+- Cosine similarity is used to find the closest vectors.
+- The cosine similarity is calculated based on the angle between vectors.
+- Documents need to be organized for analysis.
+
+Student Doubts:
+- Is 384 dimensions a standard or adjustable dimension? (Answer: It can be adjusted based on the model used.)
+
+---

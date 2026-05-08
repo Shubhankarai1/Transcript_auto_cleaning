@@ -1,0 +1,24 @@
+Module: cms
+Session: 3
+Topic: Vector Databases and Chunking
+Chunk: 85
+
+Explanation:
+In vector databases, data should be in a specific format where the important aspect is the vector itself. The format includes an ID field (optional), values field, sparse indexes, and a metadata field. Each representation is a column name that you provide in this dictionary-like structure. Chunking is essential as it changes with every new use case for optimization and code writing.
+
+Key Points:
+- Data should be in a specific format for vector databases.
+- ID field is optional, but the most important aspect is the vector.
+- Sparse indexes and metadata are also part of the structure.
+- Chunking changes with every new use case for optimization.
+
+Student Doubts:
+- How to handle images and tables in vector databases?
+  - Images need a separate database since they require a different treatment and cannot be handled by sentence transformers. Use a multi-model neural network like open AAI or Gemini. Store the path to the image, not the image directly. Keep images in a specific directory.
+  - For tables, parsing needs to be done differently depending on the use case. You'll have to figure out how to ingest the table inside your vector database, making it a different ballgame altogether.
+- Is there a fixed process for pre-processing documents?
+  - No, there isn't a fixed process, but libraries are available that can help pre-process your document. However, these might fail in real-time use cases because real-time data is always unique and challenging to process.
+- What is late chunking, and how does it work with vectors?
+  - Late chunking involves getting contextually richer embeddings when chunking is done later after the embedding process. However, as explained, you cannot chunk vectors whatsoever in this context.
+
+---

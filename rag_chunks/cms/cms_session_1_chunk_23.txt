@@ -1,0 +1,24 @@
+Module: cms
+Session: 1
+Topic: Explanation of Google LLM API and its integrations
+Chunk: 23
+
+Explanation:
+The Google LLM API is not just a single API but a part of a system that integrates multiple APIs. It determines the intent of a question to decide if it needs to call any other API such as news API, Google API, or search API. This API will be studied with functions and tools, and we'll create a miniature version of it ourselves.
+
+Key Points:
+- Google LLM API is part of a system that integrates multiple APIs.
+- The intent of a question determines which other APIs to call (news API, Google API, search API, etc.).
+- We'll study and create a miniature version of this API with provided functions and tools.
+
+Student Doubts:
+1. Can we get multiple responses from the model? If yes, how can we make that happen?
+   - This is part of the rewards model, where the system checks which response is preferred and runs a reinforcement learning loop to train their model. However, this functionality cannot be done with the API; it requires designing on the front-end interface.
+2. What about streaming output library for word-by-word answer?
+   - There's a library called Streaming Output that provides word-by-word output as soon as a word is generated.
+3. How does the chain command break in some cases, and what comes instead?
+   - In some cases where tool calling is necessary, the chain command will break, and langraph will decide where to go.
+4. Can we have a role definer or a role analyzer for an agent multi-agent system?
+   - If the system is unable to respond to a message, it goes to the role analyzer to decide if a specific role is needed or not. However, this cannot be done with lang chain; it's done with lang graphs and agentic development.
+
+---

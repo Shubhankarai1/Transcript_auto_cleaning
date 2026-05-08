@@ -1,0 +1,18 @@
+Module: map
+Session: 3
+Topic: Using Weather API and LLM for user queries
+Chunk: 23
+
+Explanation: The lecture discusses using a weather API and a language model (LLM) to answer user queries about the weather. The teacher explains that if the response from the LLM does not match "weather API", then only should the weather API be called, and the new content will be generated based on the API response.
+
+Key Points:
+- Use Weather API when the LLM's response doesn't match "weather API"
+- Generate new content based on the API response
+- Maintain history for user queries and responses
+
+Student Doubts:
+1. What if the initial prompt needs to be altered?
+2. How to handle prompt injection when using LLM 5.4?
+3. How to make sure the LLM is not ignoring the initial prompt?
+
+---

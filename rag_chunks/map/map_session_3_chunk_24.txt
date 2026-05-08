@@ -1,0 +1,21 @@
+Module: map
+Session: 3
+Topic: Explanation of Prompt Injection and Weather API Function
+Chunk: 24
+
+Explanation: The lecture discusses prompt injection in the context of advanced models used in AI. Prompt injection is a technique where users inject a prompt to make the model ignore previous responses and focus on the new one. The instructor explains that the new model has been designed to be resistant to this technique.
+
+The lecture also introduces the Weather API function, demonstrating how it can be used to provide weather information. The instructor suggests trying out the function with 4.5 or Gemini 2.5 for better results.
+
+Key Points:
+- Prompt Injection: A technique where users inject prompts to make AI models ignore previous responses.
+- New AI Models: More immune to prompt injection.
+- Weather API Function: A tool to provide weather information when prompted.
+
+Student Doubts:
+1. Can the model remember prompts? (Answer: No, LLMs are stateless and cannot remember prompts.)
+2. How does the Weather API work in the context of the AI model? (Answer: The AI model uses the Weather API to provide weather information when prompted.)
+3. Can the model respond without using the Weather API? (Answer: Yes, but it's designed to use the Weather API for weather-related questions.)
+4. How can we make the model only respond with the name of the Weather API and no other text? (Answer: By ensuring the function returns only the name of the Weather API without any additional text.)
+
+---

@@ -1,0 +1,21 @@
+Module: map
+Session: 2
+Topic: Query Editing Technique for Information Retrieval
+Chunk: 8
+
+Explanation:
+The technique involves editing a query into multiple variations and then using an algorithm to rank documents retrieved from each variation. The goal is to find top documents using these rankings. A random number K (often between 60, 100, or 120) is used to calculate scores for each document. Documents not present in the first retrieval are penalized by assigning them a large score.
+
+Key Points:
+- Query editing into multiple variations
+- Ranking documents based on calculated scores
+- Using an algorithm or equation to find top documents
+- Assigning large scores to missing documents (penalty)
+
+Student Doubts:
+1. What is the purpose of using a random number K?
+2. How are the positions of documents determined in each retrieval?
+3. Why are some documents penalized with large scores?
+4. Which document will have the smallest denominator and why?
+
+---

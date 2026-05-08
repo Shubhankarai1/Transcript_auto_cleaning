@@ -1,0 +1,23 @@
+Module: wdp
+Session: 4
+Topic: Explanation and Plan for Multi-Agent Systems
+Chunk: 75
+
+Explanation:
+The focus will be on practicing real-world scenarios, understanding metrics, and applying theory to real-time deployments of applications in production. The plan includes covering multi-agent systems, workflow optimization, state handling, and feedback loops.
+
+Key Points:
+- Real-world scenario practice
+- Metrics understanding
+- Theory application in real-time deployments
+- Multi-agent systems
+- Workflow optimization
+- State handling
+- Feedback loops
+
+Student Doubts:
+1. Will the different agentic memory systems like episodic memory, semantic memory be covered? (Answer: Yes, from May 9th)
+2. Is it possible to share screens during the sessions for better understanding? (Answer: Yes, students can share their screens)
+3. What will be the topics covered in the upcoming four sessions? (Answer: Four sessions: multiple types of multi-agent system, long-term memory, short-term memory, automation and orchestration, monitoring, enterprise integration, deployment using CI/CD pipelines)
+
+---

@@ -1,0 +1,23 @@
+Module: wdp
+Session: 1
+Topic: Edge and State in Langraph
+Chunk: 13
+
+Explanation:
+The lecture discusses the concepts of edge and state in Langraph, an AI agent used for building complex systems. An edge connects one node to another, and moving from one node to another changes the entire system's state. The student doubts cover updating variables in the email state class, handling exceptions, differences between Lang chain and Lang graph, and the purpose of not quoting the "route" function name in edge definitions.
+
+Key Points:
+- Edge connects nodes in Langraph.
+- Moving from one node to another changes the entire system's state.
+- Variables in the email state class should ideally be updated when moving from one node to another, but exceptions may occur.
+- Langraph automatically updates new state variables, while previous variables remain unchanged unless explicitly changed.
+- Langraph allows for one-way traversal and decision nodes based on edge definitions.
+- Langraph provides more control over the system's flow compared to Lang chain, which offers only linear execution without bifurcation or loops.
+
+Student Doubts:
+1. Updating variables in the email state class: The teacher clarified that ideally, all variables should be updated when moving from one node to another, but exceptions may occur.
+2. Handling exceptions: Exceptions are handled using nodes in Langraph by adding functions for specific cases.
+3. Differences between Lang chain and Lang graph: Lang chain is a simple linear execution with no bifurcation or loops, while Lang graph allows for branches, decision nodes, and complexities like loops and cycles.
+4. Purpose of not quoting the "route" function name in edge definitions: The teacher explained that route was not written in quotes because it was not a node but a predefined function in Langraph's library.
+
+---

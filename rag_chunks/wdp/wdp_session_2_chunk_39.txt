@@ -1,0 +1,17 @@
+Module: wdp
+Session: 2
+Topic: Controlling LLM using Tool Calling
+Chunk: 39
+
+Explanation: The lecture discusses controlling LLM (Language Model Library) using a tool called "tool calling". This method allows for easy integration of LLMs with Pydantic classes. Instead of binding the LLM and Pydantic class separately, it enables direct binding of the tool with the Pydantic class.
+
+Key Points:
+- Bind LLM with Pydantic class using a tool instead of individually
+- Pass the tool to the PyIC (Input Class)
+- Everything else is handled automatically
+
+Student Doubts:
+1. The student is not clear about the specific code related to creating a validator and defining an LLM inside that validator.
+2. The student has missed some information about binding the Pydantic class to LLM.
+
+---

@@ -1,0 +1,21 @@
+Module: wdp
+Session: 1
+Topic: Compiling Code in Python
+Chunk: 10
+
+Explanation: The lecture discusses the concept of compiling a graph in Python for processing emails. The graph is used to classify emails as legitimate or spam, and draft responses accordingly. The student is shown two examples of email processing using the compile graph function.
+
+Key Points:
+- Compile graph is an essential function for processing emails
+- The graph keeps getting updated as the system moves from one node to another
+- If an email is classified as spam, it will be thrown into the garbage
+
+Student Doubts:
+1. Name Error
+   - Solution: Share the code and screenshot the error for further assistance
+2. Compile graph not defined
+   - Solution: Check if the entire code has been run from the start
+3. API key error
+   - Solution: Upload the API key in the appropriate place (for now, directly put the key over here; later on, use environment)
+
+---

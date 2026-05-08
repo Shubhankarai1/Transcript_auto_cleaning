@@ -1,0 +1,20 @@
+Module: map
+Session: 3
+Topic: Creating a function for LLM to return tool calls
+Chunk: 34
+
+Explanation:
+The lecture explains how to create a function that binds the LLM (Language Model Manager) with a custom function. The custom function fetches current weather data by city name and returns it. The LLM is bound with the function, and questions are asked in a query format. A dictionary of tools by name is maintained for easy access.
+
+Key Points:
+1. Binding LLM with a custom function
+2. Asking questions using a query format
+3. Maintaining a dictionary of tools by name
+4. Checking if tool call was done by checking messages
+
+Student Doubts:
+1. What is the purpose of the tool call and its return in this context?
+2. How to create and maintain the tools directory?
+3. How to check if the tool call was done exactly?
+
+---

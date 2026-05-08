@@ -1,0 +1,18 @@
+Module: wdp
+Session: 2
+Topic: Using Pyantic for tool definitions
+Chunk: 30
+
+Explanation: The lecture explains the need for Pyantic when working with large language models (LLMs) for tool definitions. Pyantic ensures that the arguments passed to the LLM are in the correct order and validated, preventing errors.
+
+Key Points:
+- Pyantic is used to ensure correct argument ordering and validation for LLMs.
+- The LLM needs to be told about the availability of a pyantic class.
+- Pass the appropriate class (e.g., Person) to Pyantic, which tells the LLM how arguments should look like.
+- Using Pyantic saves time as it runs code behind the scenes and handles complex validations automatically.
+
+Student Doubts:
+- Does Pyantic only accept class names or a structured input object? (Answer: It accepts class names)
+- Can you show an example of how Pyantic works with a sentence to extract specific details? (Answer: Yes, see the example of extracting "Smith's age" from the sentence "Smith is 55 years old.")
+
+---

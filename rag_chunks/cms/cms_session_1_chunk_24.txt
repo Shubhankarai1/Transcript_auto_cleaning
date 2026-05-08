@@ -1,0 +1,17 @@
+Module: cms
+Session: 1
+Topic: Understanding Hubspot Model Operations
+Chunk: 24
+
+Explanation: The Hubspot model operates by receiving a query from the user and assigning it to an agent. This agent decides whether the query needs to be sent to a researcher, writer, or publisher. If necessary, the query may be sent to multiple team members and then reported back to the agent for further evaluation.
+
+Key Points:
+- Query assignment to an agent
+- Decision on sending the query to researchers, writers, or publishers
+- Reporting back to the agent for further evaluation
+
+Student Doubts:
+- How does the system determine if a query needs to be sent to multiple team members?
+- Can the system make changes to the decision based on the report from team members?
+
+---

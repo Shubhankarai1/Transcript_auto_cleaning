@@ -1,0 +1,19 @@
+Module: cms
+Session: 4
+Topic: Using Lambda Functions in Lchain to Access Previous Output
+Chunk: 121
+
+Explanation:
+In this lecture, the professor explains how to use lambda functions in Lchain, a data processing tool, to access previous output. The professor demonstrates by creating a function `build_context` and calling it with a lambda function `lambda d build_context`. They also discuss the need to pass the result from the previous call into the lambda function and explain how the output of one function can be passed to another using the assign feature in Lchain.
+
+Key Points:
+- Use lambda functions in Lchain to access previous output
+- Pass the result from the previous call into the lambda function
+- Use the `assign` feature in Lchain to pass the output of one function to another
+
+Student Doubts:
+- Why are we using assign instead of normal pipes? (Answer: lchain only does one way data flow, whereas assign allows access to previous outputs)
+- Can any output be used with assign? (Answer: Yes, any output can be used with assign)
+- How is function execution sequential in Lchain? (Answer: Function execution is sequential but assign allows access to the output of any previous function)
+
+---

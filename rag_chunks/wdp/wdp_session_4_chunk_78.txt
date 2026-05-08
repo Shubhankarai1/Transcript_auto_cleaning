@@ -1,0 +1,34 @@
+Module: wdp
+Session: 4
+Topic: Explanation of Deployment, CI/CD pipelines, Docker, and Multi-agent systems
+Chunk: 78
+
+Explanation: The lecture covers the deployment process, focusing on API building, CI/CD pipelines, Docker, and containerization. It also discusses the importance of multi-agent systems in the industry and when to use them.
+
+Key Points:
+- Deployment involves understanding API building, CI/CD pipelines, Docker, and containerization.
+- Multi-agent systems are important in the industry, and their usage should be based on necessity, not for unnecessary creation.
+
+Student Doubts:
+1. Is monitoring and evaluation the same thing?
+   - Yes, they will come inside monitoring.
+2. What frameworks does eval belong to?
+   - RaaS evals are mentioned.
+3. Will you cover Docker and other related topics in this part of the course?
+   - Yes, these topics will be covered up to this part.
+4. Will user management like user separation and databases be discussed?
+   - For now, it is assumed for a single user only, but it's not the student's job to be concerned about that.
+5. Will more projects be given at the end of the session?
+   - Yes, more projects will be given.
+6. What are fancy terminologies to watch out for in the course?
+   - The lecturer mentions there are a lot of confusing terms, but they will try to improve this in future batches.
+7. Will multi-agent systems always come after CI/CD and optimization?
+   - Not necessarily; they might be covered in an ordered way, with context engineering first followed by CI/CD.
+8. What is the topic for today's session?
+   - Today's session focuses on workflow optimization.
+9. Will there be a new Google Collab document called "session 10 final"?
+   - Yes, there will be a new Google Collab document called "session 10 final".
+
+Transcript: The lecture explains the deployment part, including API building, CI/CD pipelines, Docker, and containerization. It also discusses multi-agent systems in the industry and their necessity. The lecturer answers student doubts about monitoring and evaluation, frameworks, coverage of topics, user management, projects, confusing terms, topic for today's session, and the new Google Collab document.
+
+---

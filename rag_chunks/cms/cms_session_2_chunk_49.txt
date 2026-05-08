@@ -1,0 +1,22 @@
+Module: cms
+Session: 2
+Topic: Understanding Workflows and Programming for Leadership Roles
+Chunk: 49
+
+Explanation: The instructor clarifies that understanding workflows is more important for team leads than being able to run the code. They also state that for younger individuals, learning programming is necessary but the objective should be clear.
+
+Key Points:
+- Understanding workflows is crucial for team leads
+- Programming knowledge is necessary for a career trajectory but not always required for leadership roles
+- Keeping objectives clear is important to avoid being swayed by others
+
+Student Doubts:
+1. Guys, can you help me do it? Can you just help me do it? Where do I put it? (Related to implementing a system)
+2. This is my list. What is the first appending that I do? Tell me. (Related to programming implementation)
+3. System message. The human message. (Related to understanding system messages and human messages)
+4. Human message content is equals to what? User text. Is it correct? Tell me. (Related to defining human messages)
+5. After the chain gives you something, what should be done? (Related to handling AI responses)
+6. How do you make a prompt? (Related to creating a prompt template)
+7. Please attention when you have the second round of conversation, will you define the parser again? (Related to understanding the need for repetition in programming tasks)
+
+---

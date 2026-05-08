@@ -1,0 +1,17 @@
+Module: cms
+Session: 4
+Topic: Session on Pulling Relevant Documents
+Chunk: 102
+
+Explanation: The instructor explains the agenda for the session, which is building a pipeline to pull the most relevant documents based on a query. This is a continuation from the previous session where they discussed uploading data to Pinecone or any vector database.
+
+Key Points:
+- Understanding a structured pipeline to pull relevant documents
+- Learning six steps to pull documents in an organized fashion
+- Discussion on retrieval part and vector database algorithms for interview preparation
+
+Student Doubts:
+1. Will this session extend what was done last time, or is it a completely new book? (Answer: It's an extension of the last session)
+2. Is having a vector database in place necessary for this session? (Answer: Yes)
+
+---

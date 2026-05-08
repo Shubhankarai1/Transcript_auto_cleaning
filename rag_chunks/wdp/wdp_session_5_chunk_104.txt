@@ -1,0 +1,18 @@
+Module: wdp
+Session: 5
+Topic: Designing a Customer Complaint Addressing Workflow with LLM Nodes
+Chunk: 104
+
+Explanation: The lecture explains the process of designing a customer complaint addressing workflow using Langchain and Langgraph. The workflow consists of three nodes - intake, writer, and reviewer. The intake node takes in queries, passes them to the writer node, which writes and handles everything. The reviewer node gives the final output. Each node can have its own tool nodes for additional functionality, which will be discussed in a later session.
+
+Key Points:
+- Three nodes: intake, writer, and reviewer
+- Intake node summarizes issues and passes queries to the writer node
+- Writer node writes and handles everything
+- Reviewer node gives final output
+- Each node can have its own tool nodes for additional functionality
+
+Student Doubts:
+- None in the provided transcript
+
+---

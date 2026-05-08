@@ -1,0 +1,18 @@
+Module: cms
+Session: 1
+Topic: Creating a Prompt Template and Chaining Lambda Functions
+Chunk: 34
+
+Explanation: The discussion revolves around creating a prompt template for the chatbot and chaining Lambda functions. The user has already appended the message from the user to the context, and now they need to append an AI-generated message to the context.
+
+Key Points:
+- Appending user messages to the context
+- Creating a prompt template
+- Chaining Lambda functions (`chain.invoke`)
+
+Student Doubts:
+- What should be passed as input for `chain.invoke`?
+- How to get the AI message for appending it to the context?
+- Why create an AI message instead of directly printing it without any content?
+
+---

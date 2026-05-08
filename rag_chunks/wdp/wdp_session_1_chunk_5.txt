@@ -1,0 +1,22 @@
+Module: wdp
+Session: 1
+Topic: Designing AI Agent System using Langchain
+Chunk: 5
+
+Explanation: The lecture discusses designing an AI agent system using the Langchain concept. The key components include the state of the system, nodes, and transition system. The state keeps evolving as we pass through the graph. Nodes are functions that get executed at each node. The system also uses a memory manager for the graph to keep track of decisions and messages in the process.
+
+Key Points:
+- State of the system (class similar to dictionary)
+- Nodes as functions
+- Memory Manager for the graph
+- Printing function for JSON output
+- Reading email function
+- Decision making function for identifying spam/ham emails
+
+Student Doubts:
+1. What is a state? (Answer: A class that keeps evolving with information required to understand what has happened so far and the current state of decision-making)
+2. Can we include web hooks? (Answer: Not at this point, to keep things simple)
+3. Is it a memory manager for the graph? (Answer: Yes, absolutely)
+4. Can we say it's kind of a memory manager for the graph? (Answer: Yes)
+
+---

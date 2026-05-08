@@ -1,0 +1,22 @@
+Module: cms
+Session: 1
+Topic: Understanding Rack and Memory Maintenance in GI Systems
+Chunk: 2
+
+Explanation: The lecture covers the understanding of RA and its implementation, data extraction from RA, best practices, and the underlying technology of Rack. It also discusses the concept of functions and tools, specifically pyantic, which ensures the data is in the correct format. After that, the topic shifts to multi-agent systems, focusing on lang graph, state, and topologies.
+
+Key Points:
+1. RA implementation and data extraction
+2. Best practices in the market for RA
+3. Understanding the underlying technology of Rack
+4. Functions and tools, including pyantic
+5. Lang graph, state, and multi-agent systems
+6. Topologies in GI Systems
+
+Student Doubts:
+- Has lang graph been covered from start to end?
+- What is a node, edge, function, or tool inside a lang graph?
+- What is the concept of state in this context?
+- Is there more information about topologies in GI Systems?
+
+---

@@ -1,0 +1,21 @@
+Module: cms
+Session: 1
+Topic: Using Langchain for API Calls
+Chunk: 9
+
+Explanation: The lecture explains the usage of Langchain to call APIs from both OpenAI and Google Generative AI. It discusses the role assignment by the Langchain, the need to check types, and the significance of AI message in context.
+
+Key Points:
+- Langchain can be used for API calls with both OpenAI and Google Generative AI.
+- The Langchain assigns a role based on the question asked.
+- User and system roles are discussed.
+- It's important to check the types of objects when confused.
+
+Student Doubts:
+1. Will OpenAI and Google Generative AI be installed by default? (56:28)
+2. Is it possible to use OpenAI with Gemini? (1:02:28)
+3. Why is the API key causing issues? (1:03:44)
+4. How to send requests through Langchain? (1:03:57)
+5. What are user and system roles in this context? (1:05:05, 1:05:28)
+
+---

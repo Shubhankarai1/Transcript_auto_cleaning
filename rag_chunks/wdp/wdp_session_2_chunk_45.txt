@@ -1,0 +1,29 @@
+Module: wdp
+Session: 2
+Topic: Building an MCP for Cross-platform Integration in Banking Application
+Chunk: 45
+
+Explanation: The discussion revolves around the possibility of building an MCP (Multi-Channel Platform) for a banking application that receives emails from customers with various requests, classifies them, and automates responses based on the type of request. The MCP will call different APIs or SOs (Service Orients) depending on the request, such as KYC, onboarding, and account management.
+
+Key Points:
+- MCP can be built for applications requiring cross-platform integration.
+- Example use case: A banking application where multiple teams need to use the same tools across different locations.
+- Ideally, MCP should be used when there is a need for generic functions that will be used by more than one person or team.
+- Hosting an MCP on another server may result in time overhead due to communication latency.
+- For personal applications with non-generic functions, hosting the application on the same server as the Python program might be more efficient.
+
+Student Doubts:
+1. What is the difference between Pantic and MCP?
+   - Pantic is used to enforce or bind tools in an MCP, ensuring proper format and communication between them.
+
+2. Can an MCP be built for any application?
+   - Ideally, yes, but it's more beneficial when there is a need for cross-platform integration.
+
+3. If the bank's functions are not generic in nature and used only by the bank, is an MCP necessary?
+   - In this case, hosting the application on the same server as the Python program might be more efficient.
+
+4. What is the goal of building an MCP for a banking application?
+   - The primary purpose is to automate responses based on customer requests and call different APIs or SOs depending on the request.
+
+5. Why would you want to build an MCP for a personal application with non-generic functions?
+   - It may not be necessary, as hosting the application on the same server as the Python program could save time. However, if the application needs cross-platform integration in the future, building an MCP could still be beneficial.

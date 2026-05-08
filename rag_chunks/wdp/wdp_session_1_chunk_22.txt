@@ -1,0 +1,22 @@
+Module: wdp
+Session: 1
+Topic: Criteria for Real Life Projects
+Chunk: 22
+
+Explanation: The professor explains that real life projects do not have clear criteria to judge the quality of a solution, unlike school or college projects where marks are given based on solutions. Instead, solutions are designed based on one's understanding of the problem and then improved through feedback from people in the company.
+
+Key Points:
+- Real life projects lack clear criteria for judging solutions
+- Solutions are based on one's understanding of the problem
+- Feedback is important to improve solutions
+- Projects are an endless process of designing, discussing, and redesigning
+
+Student Doubts:
+1. Can you provide a specific niche for the project? (Answer: There is no specific niche for real life projects)
+2. Why isn't "route" in quotes as it is not a node? (Answer: The reason is that the route email thing I'm writing the actual function name over here, not the node name)
+3. Is it a general good practice to have a function for all conditional edges? (Answer: Yes, every node will be associated with a function)
+4. Can we consider tools as functions? (Answer: Yes, tools are also functions)
+5. How is the AI logic decided in the function? (Answer: The AI logic or if-else logic is defined within the function definition)
+6. Who decides which tool to be called? (Answer: That decision is also made within the function itself)
+
+---

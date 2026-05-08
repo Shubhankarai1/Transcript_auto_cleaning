@@ -1,0 +1,16 @@
+Module: wdp
+Session: 3
+Topic: Using Reducers in Langraph
+Chunk: 61
+
+Explanation: Reducers in Python are used to handle the state of a graph by adding all messages and everything to it. The state in the messages library is essentially a reducer class. When we invoke the LLM (Language Model), we pass it a state, which can include human messages, and it returns an output that gets added back as a list to the state. This process continues until the tool processes the state and returns a message.
+
+Key Points:
+- Reducers handle the state of a graph in Langraph
+- The state is essentially a reducer class in the messages library
+- LLM adds human messages and returns an output as a list to the state
+- Tool processes the state and returns a message
+
+Student Doubts:
+- How does LLM return input?
+  - LLM returns input through a messages response, which is a list containing the AI message.

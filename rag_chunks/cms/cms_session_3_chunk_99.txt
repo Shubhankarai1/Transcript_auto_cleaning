@@ -1,0 +1,21 @@
+Module: cms
+Session: 3
+Topic: Data Sharing Regulations for AI Models in India
+Chunk: 99
+
+Explanation: The speaker discusses the strategy used by the Indian government to regulate data sharing with AI models, particularly focusing on American Express as an example. The government's approach is to allow foreign companies to establish themselves in India, exploit the consumer market, and then impose regulations requiring them to keep their data within India and operate their models locally.
+
+Key Points:
+1. Indian government strategy: Allow foreign companies to set up bases in India, exploit the consumer market, and impose data sharing regulations later.
+2. Regulations include data localization (data must be kept in India) and data sovereignty (data cannot be shared outside India).
+3. The Indian government uses this strategy to build a strong dependency on the domestic market, eventually controlling the data and potentially dominating the AI market.
+4. Examples given: American Express and blackberry.
+
+Student Doubts:
+1. What happens if companies take their data to other data centers outside India?
+2. How can India control data if it is not built domestically due to lack of resources and R&D budget?
+3. How will the government ensure compliance with data localization regulations?
+4. Can companies still operate globally if they have to keep their data in India?
+5. What are the potential implications for consumer privacy and competition in the AI market?
+
+---

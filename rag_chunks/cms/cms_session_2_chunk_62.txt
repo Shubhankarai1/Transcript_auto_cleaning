@@ -1,0 +1,22 @@
+Module: cms
+Session: 2
+Topic: Building a Chatbot with Gradio
+Chunk: 62
+
+Explanation: The transcript discusses the steps to build a basic working chatbot using Gradio. It covers defining the Language Model (LLM) and parser, chat prompt template, message history list, building the chain, invoking the chain, and appending messages to the history (optional).
+
+Key Points:
+- Define LLM and Parser
+- Define Chat Prompt Template
+- Initialize Message History List (with or without messages)
+- Build Chain (with or without runnable history)
+- Invoke Chain with User Message
+- Append Messages to the History (Optional)
+
+Student Doubts:
+1. What are the options for initializing the message history list?
+2. When should I use runnable history while building the chain?
+3. Is appending messages to the history required when using runnable with message history?
+4. Why is it recommended to keep the Gradio application's code separate from the graduation code?
+
+---

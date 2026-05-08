@@ -1,0 +1,17 @@
+Module: map
+Session: 2
+Topic: Re-ranking in Information Retrieval
+Chunk: 15
+
+Explanation: In cases where multiple documents have the same rank during information retrieval, a re-ranking process is performed to determine their relevance to the original query. This is done after multi-query expansion has been applied and a shortlist of documents has been selected. The re-ranking process involves using different K values instead of 60.
+
+Key Points:
+- Re-ranking is used when multiple documents have the same rank
+- It is performed after multi-query expansion and document shortlisting
+- Different K values can be used in the re-ranking process
+
+Student Doubts:
+- Is reranking part of multiquy expansion or a separate step? (Answer: It is a separate step)
+- Can the same K value always be used for re-ranking? (Answer: No, different K values can be used)
+
+---

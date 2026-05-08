@@ -1,0 +1,25 @@
+Module: wdp
+Session: 2
+Topic: Risks of Passing Codes to AI and Solutions
+Chunk: 32
+
+Explanation: The lecture discusses the risks associated with passing codes, particularly Python codes, to AI models like Langchain Model (LM). It highlights that these codes can be considered proprietary and sharing company-specific data might lead to potential risks.
+
+Key Points:
+1. Sharing proprietary codes with AI models can expose hard work and intellectual property.
+2. It is advised not to share company-specific data with AI models, especially if it contains unique information about the company.
+3. A possible solution for small businesses or startups is to deploy language models (LLMs) on their own premises using their own servers and GPUs, keeping data within their control.
+4. Developing a system that monitors LLM usage, blocks, or masks data in real-time can be an effective solution.
+5. It was suggested that such a system could start as a Chrome extension and eventually develop into a desktop native app.
+6. The lecturer expressed interest in collaborating on this project, offering advisor equity.
+
+Student Doubts:
+1. Is there a major risk in passing all codes to AI, particularly chatbots and Python codes? (1:18:44 - 1:18:57)
+2. What is the solution for small businesses or startups to ensure their data remains secure when using language models? (1:19:46 - 1:19:54)
+3. Can a system be developed that monitors LLM usage, blocks, or masks data in real-time? (1:20:23 - 1:20:32)
+4. What should be the approach to develop an LLM that can monitor other tools like ChatGPT and mask data in real-time? (1:20:41 - 1:20:51)
+5. If a system is developed to monitor LLM usage, what would be the solution for reading data securely? (1:21:08 - 1:21:16)
+6. What should be the approach to train an SLM on all company data to understand company-specific information and strategies? (1:21:25 - 1:21:32)
+7. Is the lecturer serious about collaborating on building a system to monitor LLM usage, offering advisor equity? (1:22:08 - 1:22:13)
+
+---

@@ -1,0 +1,18 @@
+Module: cms
+Session: 2
+Topic: Introduction to Retrieval in Language Models
+Chunk: 66
+
+Explanation: The discussion is about retrieval in language models (LLM). The process involves augmentation, generation, and retrieval. Augmentation involves pulling out relevant information based on triggers or user prompts. Generation is the output produced by LLM. Retrieval is the process of finding the most relevant information from a database using vector search.
+
+Key Points:
+- Augmentation: Pulling out relevant information based on user prompts
+- Generation: Output produced by LLM
+- Retrieval: Finding the most relevant information from a database using vector search
+
+Student Doubts:
+- What triggers augmentation?
+- How do you build the vector database?
+- What is injection in this context?
+
+---

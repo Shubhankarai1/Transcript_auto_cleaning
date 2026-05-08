@@ -1,0 +1,21 @@
+Module: wdp
+Session: 3
+Topic: Session on Langchain and Agentic AI
+Chunk: 48
+
+Explanation: The session discussed issues with the agraala part in the last session and explained how it's not compatible with lchain. The current session aims to introduce langgraph and complete a significant chunk of agentic AI.
+
+Key Points:
+- Incompatibility between agraala part and lchain
+- Introduction to langgraph
+- Completion of a significant portion of agentic AI
+- Understanding how to operate with agents
+- Exploring context engineering in detail
+- Combining agent, conversational rags, databases, and cache
+- Covering metrics for evaluation
+
+Student Doubts:
+- Communication issues regarding workshop timings
+- Uncertainty about the instructor's availability for upcoming sessions
+
+---

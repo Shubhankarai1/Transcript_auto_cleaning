@@ -1,0 +1,17 @@
+Module: cms
+Session: 2
+Topic: Making Chain Again and Again in Langchain
+Chunk: 43
+
+Explanation: The lecture explains the issue of manually updating the prompt while making chains in Langchain and suggests using placeholders to automatically update the prompt.
+
+Key Points:
+- Manual updating of prompts is time-consuming and prone to errors.
+- Using placeholders can automatically update the prompt.
+- Importing necessary libraries, such as str output parser and OpenAI, is required.
+
+Student Doubts:
+1. The student had trouble importing Google generative AI and needed help reinstalling it.
+2. Another student was experiencing issues with their API key in OpenAI.
+
+---

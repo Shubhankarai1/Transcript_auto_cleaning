@@ -1,0 +1,18 @@
+Module: cms
+Session: 3
+Topic: Processing Documents in Vector Database
+Chunk: 87
+
+Explanation: The instructor explains the process of embedding/upserting documents into a vector database using an example of existing documents in the data directory. He mentions creating up to five vector databases and emphasizes following specific steps (1 and 2) to create a new index with a chosen name, read the documents, and perform the subsequent steps.
+
+Key Points:
+- Create up to five vector databases.
+- Follow steps 1 and 2 to create a new index with a chosen name.
+- Embed/upsert the documents into the vector database.
+- Read documents from the data directory.
+
+Student Doubts:
+- Instructor was asked to repeat about using `os.getcwd()` and creating a new index.
+- Students were unsure about specific steps to follow, requiring clarification.
+
+---

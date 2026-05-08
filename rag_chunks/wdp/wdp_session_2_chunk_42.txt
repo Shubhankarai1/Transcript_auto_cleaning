@@ -1,0 +1,22 @@
+Module: wdp
+Session: 2
+Topic: Fixing an issue with weather API in Python
+Chunk: 42
+
+Explanation: The instructor is trying to fix an issue where the weather API is not giving the expected output in a specific format. He suspects that the function may be using cached values and bypassing errors. He also mentions that there might be something blocking the error.
+
+Key Points:
+- Function may be using cached values
+- Function might be bypassing errors
+- There might be something blocking the error
+- Need to handle the issue and find a way around it
+
+Student Doubts:
+- Why is the function bypassing the error?
+- What is causing the issue with the output format?
+- How to ensure the function uses the latest input instead of cached values?
+- What could be blocking the error from being displayed?
+
+The instructor also mentions that they will continue the session and move on to another use case of Pyantic for handling output format.
+
+---

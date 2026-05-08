@@ -1,0 +1,17 @@
+Module: wdp
+Session: 5
+Topic: Multi-agent Systems (Part 1)
+Chunk: 103
+
+Explanation: The session begins with a welcome and introduces multi-agent systems, stating that they will design three to four types of systems in the following sessions. The basic concepts of multi-agent systems will be covered in two sessions, while advanced concepts will be covered later. Emphasis is placed on coding practice for understanding these systems.
+
+Key Points:
+- Multi-agent systems
+- Basic and advanced concepts
+- Coding practice for understanding
+- Three to four types of multi-agent systems to be designed
+
+Student Doubts:
+- None recorded in the transcript
+
+---

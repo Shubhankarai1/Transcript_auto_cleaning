@@ -1,0 +1,20 @@
+Module: wdp
+Session: 4
+Topic: Designing an Agent Using Two Functions and Router Function
+Chunk: 89
+
+Explanation: The lecture discusses designing an agent that takes order ID, fetches data from a database, checks the eligibility condition, and responds accordingly. The agent uses two functions and a router function to call tools for this purpose.
+
+Key Points:
+- Creating a status node (LLM node) to handle queries
+- Tool nodes are used to call tools files
+- Using the router function to call tools in last session as a reference
+- Import necessary packages and convert functions into tools
+
+Student Doubts:
+- Clarification on the design of the agent and its workings
+- Understanding the role of status node, tool nodes, and router function
+- Need for creating functions as tools
+- Explanation of the unique design for a bigger router compared to the previous one.
+
+---

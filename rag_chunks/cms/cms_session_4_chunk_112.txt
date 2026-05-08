@@ -1,0 +1,21 @@
+Module: cms
+Session: 4
+Topic: Multi-Query Expansion for Vector Retrieval
+Chunk: 112
+
+Explanation: The lecturer explains the concept of multi-query expansion (MQE) for improving vector matching in search engines. This technique involves creating multiple versions of the same query to obtain richer embeddings, resulting in a more generic and enriched vector.
+
+Key Points:
+1. Multi-query expansion (MQE) enhances vector retrieval by generating multiple versions of a single query.
+2. The LLM (Language Model) is used to create various versions of the same query.
+3. All generated queries are passed through an encoder to get richer embeddings.
+4. The average of these richer embeddings serves as the final vector.
+5. This method makes the vector more generic in nature, improving the search results.
+6. HYDE (Hypothetical Document Embeddings) is another technique that involves asking the LLM to answer a question without context and creating its embeddings for richer query embeddings.
+7. The lecture also mentions other ways to enhance the search process, such as synonyms expansion.
+
+Student Doubts:
+1. Can passive voice be included in MQE? (Answer: Yes, it depends on the prompt.)
+2. Can different synonyms be used in MQE? (Answer: Yes, the user can ask for that.)
+
+---

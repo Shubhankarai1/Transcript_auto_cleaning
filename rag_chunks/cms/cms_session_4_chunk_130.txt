@@ -1,0 +1,23 @@
+Module: cms
+Session: 4
+Topic: Sources for Staying Updated on AI Market Trends
+Chunk: 130
+
+Explanation: The speaker discusses various sources he uses to stay updated on AI market trends, including online newsletters, premium subscriptions to financial newspapers, and specific order of reading these publications. He also explains the current pressure on the AI market due to geopolitical issues like the US-Iran conflict and the potential impact on the market.
+
+Key Points:
+- Using online newsletters as a source for staying updated on AI trends
+- Premium subscriptions to financial newspapers such as The Economist, Wall Street Journal, and Mint
+- Reading these publications in a specific order every day
+- AI market currently under pressure due to geopolitical conflicts
+- Being aware of geopolitical news, implications, and funding strategies related to AI startups and companies
+- The potential break in circular funding between Open AI and Nvidia
+- Anticipating the bursting of the AI bubble in the second quarter
+
+Student Doubts:
+1. What is the significance of the AI market being under pressure due to geopolitical conflicts?
+2. Why is the speaker particularly interested in reading Mint, The Economist, and Wall Street Journal in a specific order every day?
+3. What is meant by circular funding and why is it dangerous?
+4. How can one anticipate the bursting of the AI bubble and what could be its potential impact on the market?
+
+---

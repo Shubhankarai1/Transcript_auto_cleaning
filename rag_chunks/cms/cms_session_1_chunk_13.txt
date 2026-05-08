@@ -1,0 +1,21 @@
+Module: cms
+Session: 1
+Topic: Understanding AI and LLM Communication
+Chunk: 13
+
+Explanation: The lecture discusses the basic structure of communication between a human user and an LLM (Large Language Model). It explains that the communication consists of three types of messages: System Message, Human Message, and AI Message (the output from the AI). The key point is to clearly differentiate these messages to ensure the AI understands the user's query.
+
+Key Points:
+- Communication between human and LLM consists of system message, human message, and AI message.
+- System message is given by the user to define the context (identity of the AI).
+- Human message is the user's question or request.
+- AI message is the output from the AI in response to the human message.
+- Proper differentiation of these messages helps the AI understand the user's query better.
+
+Student Doubts:
+1. Can you clarify what a system message is and how it differs from a human message?
+2. In the case where I am designing my own chatbot, how do I define the system message?
+3. Is there a specific format for sending a system message to an LLM?
+4. How does the context change between a user message and a system message?
+
+---

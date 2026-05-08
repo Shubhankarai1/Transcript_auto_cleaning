@@ -1,0 +1,20 @@
+Module: cms
+Session: 3
+Topic: Explanation of Hybrid Indexing and Retrieval
+Chunk: 96
+
+Explanation: The lecture focuses on the difference between Chroma DB and Pine Cone, two vector databases used for text retrieval. The instructor explains how to create indexes in Pine Cone and how it differs from collections in Chroma DB. The importance of understanding the underlying concept of indexing and the unique chunking method are emphasized.
+
+Key Points:
+- Pine Cone is a free, third-party vector database used for text retrieval
+- In Pine Cone, indexes are created to store chunks of data
+- Chroma DB uses collections instead of indexes
+- Hybrid chunking method can be used to pull relevant chunks when one chunk is retrieved
+- The choice between Chroma DB and Pine Cone depends on the specific problem and understanding the application
+
+Student Doubts:
+- Is the concept of collection and index the same in both databases? (Answer: They are similar but not exactly the same)
+- How does hybrid chunking work? (Answer: It retrieves chunks near the one being queried)
+- Does chunking depend on the specific application? (Answer: Yes, it is subject to the application and a close match of vectors is done for text retrieval)
+
+---

@@ -1,0 +1,19 @@
+Module: map
+Session: 3
+Topic: Creating a Tool for City Weather Function using lchain and decorators
+Chunk: 37
+
+Explanation:
+The lecture focuses on creating a tool for the city weather function using lchain and decorators. The teacher explains that students should convert the raw city weather function into a tool decorator, then set up the code as step zero. The teacher emphasizes the importance of understanding the process behind the functions instead of just copying and pasting codes from the internet.
+
+Key Points:
+- Convert city weather function into a tool decorator using lchain
+- Set up the converted code as step zero
+- Importance of understanding the underlying process of functions
+
+Student Doubts:
+1. Is it necessary to convert the city weather function into a tool decorator?
+2. What is the purpose of step zero in this context?
+3. Why is it important to understand the underlying process of functions instead of just copying and pasting codes?
+
+---

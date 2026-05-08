@@ -1,0 +1,19 @@
+Module: wdp
+Session: 3
+Topic: Building a Graph using lgraph
+Chunk: 54
+
+Explanation: The instructor explains how to build a graph using lgraph. They create a node named "hello", add an edge from the start node to "hello", and then another edge from "hello" to end. The graph is built by compiling the graph, which automatically passes the input to "say_hello".
+
+Key Points:
+- Creating nodes in lgraph
+- Adding edges between nodes
+- Compiling a graph to build it
+- Automatic passing of input to nodes
+
+Student Doubts:
+1. Can we have a dynamic class for lgraph? (Not possible)
+2. Can the entire graph have only one state defined? (Yes, but sometimes multiple states are required)
+3. Can we have complex classes or recursive classes in lgraph? (Yes)
+
+---

@@ -1,0 +1,18 @@
+Module: cms
+Session: 2
+Topic: Creating a Chatbot with Exit Condition
+Chunk: 53
+
+Explanation: The lecture covers creating a functional chatbot in a Jupyter notebook that keeps track of history and exits the loop when 'exit' is entered. The exit condition is set as user text equals to 'exit'.
+
+Key Points:
+- Creating a functional chatbot
+- Keeping track of history
+- Exit condition for the loop (user text == 'exit')
+
+Student Doubts:
+1. Why doesn't the chatbot provide real-time information? (Answer: The chatbot needs access to real-time weather information.)
+2. How do I get started with JAI? (Answer: Start by understanding your foundation.)
+3. Why is the loop not exiting when 'exit' is entered? (Answer: Make sure the exit condition is correctly implemented as user text == 'exit'. If it's still not working, check for any errors or inconsistencies in the code.)
+
+---

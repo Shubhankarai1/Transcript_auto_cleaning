@@ -1,0 +1,18 @@
+Module: cms
+Session: 1
+Topic: ChatGPT Context Management and Summarization
+Chunk: 29
+
+Explanation: The lecture discusses how ChatGPT manages context and creates summaries in a chat session. It explains that the system keeps track of recent conversations, up to a certain limit (5000 words, 500 lines, or 5000 lines), creating a system message as it is and summarizing the rest. The system will use the summary for future interactions if the user asks questions related to the previous conversation.
+
+Key Points:
+- ChatGPT keeps track of recent conversations within certain limits
+- System message is kept as it is during summarization
+- Summarized chat is used for future interactions
+
+Student Doubts:
+- Until when will it keep summarizing? (Answer: It continues to summarize as long as new data is added)
+- How does it work with multiple users? (Answer: The underlying system remains the same, but it gets more complicated with multiple users)
+- Why can't you be sure about the actual implementation of charging and why are research papers available on managing context in a chat? (Answer: It's proprietary, but there are multiple methods to manage context in a chat)
+
+---

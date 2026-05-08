@@ -1,0 +1,20 @@
+Module: cms
+Session: 2
+Topic: Sharing and Pacing in Lectures
+Chunk: 70
+
+Explanation: The instructor explains how to share slides during the lecture and discusses adjusting the pace for easier understanding.
+
+Key Points:
+- To share slides, refresh or click on them to update.
+- The Google platform saves and updates the slides automatically.
+- If any student faces issues with the pace, they should inform the instructor who will slow down or space up the content.
+- The lectures will continue building miniature models to aid understanding.
+- Complex topics will be contained within functions for better management.
+- Functions will serve as references during the lectures.
+- The instructor encourages students to ask questions and appreciates their participation.
+
+Student Doubts:
+- None in this transcript.
+
+---

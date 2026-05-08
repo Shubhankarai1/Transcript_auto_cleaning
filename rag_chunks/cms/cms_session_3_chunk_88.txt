@@ -1,0 +1,19 @@
+Module: cms
+Session: 3
+Topic: Reading and Chunking Files
+Chunk: 88
+
+Explanation:
+In this session, the instructor explains how to read files and chunk them for processing. The process involves organizing documents, reading each file, and then looping through all files to read them. To chunk a file, a simple function called `simple_chunker` is created that breaks up the text into smaller pieces of a specific size.
+
+Key Points:
+1. Reading files and organizing documents
+2. Creating a simple function for chunking data
+3. Chunking data by byte sizes (500 in this case)
+
+Student Doubts:
+- What is the purpose of the `simple_chunker` function?
+- How does the function work to break up text into smaller pieces?
+- Why are files being chunked, and what benefits does it offer?
+
+---

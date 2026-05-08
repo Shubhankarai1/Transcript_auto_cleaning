@@ -1,0 +1,18 @@
+Module: cms
+Session: 3
+Topic: Checking and Chunking Data Files
+Chunk: 91
+
+Explanation:
+The instructor explains how to check if the data files are present in the correct directory and demonstrates how to read one file and print its content. The student is having trouble with setting up their data directory correctly. The instructor suggests that the student check their folder for all files and offers to help after class if needed.
+
+Key Points:
+- Check if data files are present in the correct directory
+- Read one file and print its content
+- Set up data directory properly
+
+Student Doubts:
+- Student is having trouble with setting up their data directory correctly (line 2:31:48)
+- The student has uploaded all the files but is not able to access them (line 2:31:58)
+
+---

@@ -1,0 +1,21 @@
+Module: wdp
+Session: 1
+Topic: Designing a Workflow with Langraph for Fraud Detection and IT Support
+Chunk: 20
+
+Explanation: In this lecture, the instructor explains how to design a workflow using Langraph for fraud detection and IT support. The workflow consists of nodes that can be executed using AI, with each node performing specific functions. The design process involves deciding which nodes are needed (e.g., fraud detection, IT support), checking transaction statuses, calculating percentages of failed transactions, and routing failed transactions to the IT support team if the percentage exceeds a certain threshold.
+
+Key Points:
+- Design workflow using Langraph for fraud detection and IT support
+- Decide on nodes required (e.g., fraud detection, IT support)
+- Check transaction statuses
+- Calculate percentages of failed transactions
+- Route failed transactions to the IT support team if the percentage exceeds a certain threshold (e.g., 5%)
+- Report high failure rates to CEO and involve senior personnel if necessary
+
+Student Doubts:
+1. Request for basic thought process and possible analytics techniques (provided in the chat)
+2. Clarification on specifying details in node definition (request for percentage of transaction and percentage of fraud transaction)
+3. Question about report definition (asking for percentage of transactions above one lakh)
+
+---

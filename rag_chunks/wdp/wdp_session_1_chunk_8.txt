@@ -1,0 +1,22 @@
+Module: wdp
+Session: 1
+Topic: Explanation of Graphs in AI Agents
+Chunk: 8
+
+Explanation:
+The lecture explains the concept of graphs in the context of AI agents. The nodes represent functions or processes, and edges connect these functions sequentially or branch out. A graph can have multiple starts but only one start point. The structure can be complex, allowing for parallel processing, and modular design is possible with different groups of functions within a single graph. Visualization of the graph is important to ensure correct implementation.
+
+Key Points:
+- Nodes represent functions or processes in AI agents
+- Edges connect nodes sequentially or branch out
+- Graph can have multiple starts but only one start point
+- Complex structure allows for parallel processing
+- Modular design possible with different groups of functions within a single graph
+- Visualization is important to ensure correct implementation
+
+Student Doubts:
+- Whether it's possible to call another graph inside the current one (Answer: No, it's a single graph but structure can be complex)
+- Separation of graphs is not possible (Answer: Graph has to be the same but different modules or groups of functions can exist within it)
+- If the design is for workflow creation and branching techniques (Answer: Yes, the design is essentially for creating a workflow in AI agents)
+
+---

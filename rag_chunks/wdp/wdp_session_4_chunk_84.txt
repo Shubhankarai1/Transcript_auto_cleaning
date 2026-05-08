@@ -1,0 +1,21 @@
+Module: wdp
+Session: 4
+Topic: Designing a Language Model (LLM) for Employee Question Answering and Leave Policy Management
+Chunk: 84
+
+Explanation:
+The lecture focuses on designing an LLM that can answer employee queries and manage leave policies. The student is asked to design an LLM function that can answer normal questions but also call upon a specific tool for leave-related queries. The student is reminded about the messages state, which allows them to keep only conversations without needing a separate state.
+
+Key Points:
+1. Design an LLM function that answers questions and calls a specific tool for leave-related queries.
+2. Use the messages state to store all messages when you only need to keep conversation.
+3. The LLM should be able to understand HR-related queries as if it were an HR assistant.
+4. Bind the tool with the LLM by passing a list of tools.
+5. In this case, the tool is to get leave policy information.
+6. The function created will serve as the node, and you'll pass a list of messages from the messages state (when only about messages) without needing a separate state.
+
+Student Doubts:
+1. What should be passed inside the HR_help_desk function? The student is asked to pass a list of messages from the messages state.
+2. When do you not need a state? The student is reminded that you don't need a state when you only have messages to pass around, as there are no variables involved.
+
+---

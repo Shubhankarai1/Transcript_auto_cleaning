@@ -1,0 +1,18 @@
+Module: cms
+Session: 3
+Topic: Retrieval Pipeline and Chunking Strategies
+Chunk: 97
+
+Explanation: The discussion revolves around the retrieval pipeline, ranking, reranking, and chunking strategies in information retrieval systems. The professor explains the process of reranking using multiple models and the concept of semantic and hybrid chunking for efficient retrieval.
+
+Key Points:
+- Reranking involves using multiple models to reorder search results.
+- Semantic Chunking keeps related content in one chunk regardless of size, ensuring discussion of a single topic.
+- Hybrid Chunking combines semantic understanding and structure to organize documents.
+- Page Index is an expensive but prevalent algorithm for hybrid chunking.
+
+Student Doubts:
+1. Is it possible to maintain a relationship between chunks in the database? (Answer: Yes, using semantic or hybrid chunking.)
+2. Can we get the relationship of not only individual chunks but also between them? (Answer: No, this is not possible with the current system.)
+
+---

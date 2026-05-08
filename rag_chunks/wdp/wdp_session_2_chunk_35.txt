@@ -1,0 +1,17 @@
+Module: wdp
+Session: 2
+Topic: Binding LLM with Pantic Class directly
+Chunk: 35
+
+Explanation: In this lecture, the instructor explains how to bind the Language Model (LLM) with a Pantic class directly, instead of first creating a structured LLM and then binding it with the Pantic schema. This method allows for direct passing of the Pantic schema inside the tool, eliminating the need for a separate structured LLM.
+
+Key Points:
+1. Pass the argument schema directly to the function.
+2. Bind the Pantic class name directly in the tool.
+3. The input to the tool is fixed due to the fixed nature of the Pantic schema.
+4. This method ensures a better understanding of arguments by the LLM and conversion of wrong arguments into correct ones.
+
+Student Doubts:
+1. Can we structure the LLM dynamically so that schemas can be generated dynamically? (Answer: No, this is done for tool calling only, and the inputs to the tool are fixed due to the fixed Pantic schema.)
+
+---

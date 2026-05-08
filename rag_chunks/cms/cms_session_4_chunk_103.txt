@@ -1,0 +1,16 @@
+Module: cms
+Session: 4
+Topic: Setting up packages for the session
+Chunk: 103
+
+Explanation: The lecturer is ensuring everyone has the necessary packages installed for the session. He mentions OpenAI, Google gen1, and Pinecone API keys, and discusses the need for certain packages like Sus transformer, Runnables, output parser, and Langchain.
+
+Key Points:
+- Install OpenAI, Google gen1, and Pinecone API keys
+- Import necessary packages such as Sus transformer, Runnables, output parser, and Langchain
+
+Student Doubts:
+- The student asks if they can use the session only in Collab (Google Colab) and not Jupyter notebook. The lecturer explains that while they initially mentioned using Jupyter notebook, due to potential setup challenges, they will stick with Google Colab for now. However, they plan to move to Visual Studio Code later for more projects.
+- Another student asks about the last part of the previous session where they were unable to upsert documents. The lecturer confirms that they will need the same documents and mentions that it can be pushed directly (presumably referring to code or data).
+
+---

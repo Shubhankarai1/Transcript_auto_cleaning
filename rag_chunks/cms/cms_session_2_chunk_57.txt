@@ -1,0 +1,19 @@
+Module: cms
+Session: 2
+Topic: Maintaining a Session Store for API Users
+Chunk: 57
+
+Explanation: The lecture explains the creation and usage of a session store to maintain the history of communication between multiple API users and the AI. The session store is a dictionary where each key represents a user's session ID, and the corresponding value is a list containing the sequence of AI messages, human messages, and other interactions specific to that user.
+
+Key Points:
+- Session store maintains the history of communication for multiple API users.
+- Each user has a unique session ID.
+- The session store dictionary contains lists of AI messages, human messages, and other interactions for each user.
+- If a user is new (i.e., their session ID does not exist in the session store), an empty list will be created for them.
+- The function to retrieve a user's history from the session store takes the session ID as input and returns the corresponding list of interactions.
+
+Student Doubts:
+- What if a new user is added, and how does the system handle it? (The lecturer explains that if the session ID is not found in the session store, an empty list will be created for them.)
+- How to invoke the chain with the runnable, message history, and session ID? (The lecturer explains that you should wrap your chain with runnable with message history, pass the input message key, get the session history, and pass a function `getSessionHistory` as well. Also, you need to provide the session ID.)
+
+---

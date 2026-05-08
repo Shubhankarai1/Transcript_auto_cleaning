@@ -1,0 +1,18 @@
+Module: wdp
+Session: 1
+Topic: Updating State Variable in Graph Algorithm
+Chunk: 12
+
+Explanation: The instructor explains that when a function is called with the state variable as an input and a new state is returned, Langraph automatically updates the original state variable without needing explicit updating in the function. The students are encouraged to remember this for potential interview questions.
+
+Key Points:
+- Langraph updates the state variable automatically when new state is returned from a function.
+- The state variable defines the system and its parameters.
+- Nodes represent points in the decision graph where the user is currently located.
+
+Student Doubts:
+1. How is the state variable getting updated when I'm not updating it anywhere myself and we know the state is getting updated because when I'm printing it I'm getting new state information but actually I'm not updating it anywhere? The answer lies in Langraph automatically updating the original state variable when a function returns a new state.
+2. What defines my entire system (state)? Email is spam, messages, draft email. These parameters define the system as a whole.
+3. Node represents a point in the decision graph where the user is currently located.
+
+---

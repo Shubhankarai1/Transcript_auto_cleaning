@@ -1,0 +1,16 @@
+Module: cms
+Session: 2
+Topic: Running and Setting Up Code for a New Method
+Chunk: 44
+
+Explanation: The session starts with the instructor explaining that Samir has joined late and needs to run a specific code shared earlier. The instructor advises Samir to first check if the code runs correctly, and then more codes will be shared. The instructor also mentions that there are additional codes to be discussed later.
+
+Key Points:
+- Run the shared code first to ensure it works correctly.
+- Additional codes will be shared later.
+
+Student Doubts:
+- Samir asks if he needs to run only this code, and the instructor confirms.
+- There is no specific mention of a doubt regarding the API key used. However, there is an issue with the open AI key not being available, which the instructor suggests can be resolved by using either the Gemini API key or Google API key.
+
+---

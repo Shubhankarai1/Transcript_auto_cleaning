@@ -1,0 +1,20 @@
+Module: cms
+Session: 3
+Topic: Creating and Checking Indexes in MongoDB
+Chunk: 77
+
+Explanation: The lecture explains how to create and check indexes in MongoDB using Python and the pymongo library.
+
+Key Points:
+- Copy paste the provided code to create an index
+- The code checks if an index exists, if not it creates one
+- Index name is given as "vector hybrid"
+- Number of dimensions (columns) for the vector conversion is required
+- Metric used for similarity search is cosine similarity
+- Creating an index may take 1 to 2 minutes
+- The created index will be ready once it's done processing
+
+Student Doubts:
+- What happens if we create the index and then link it in the backend? (Answer: The step for creating the index would be skipped, as the index is found to already exist.)
+
+---

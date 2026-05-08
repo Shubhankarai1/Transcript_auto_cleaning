@@ -1,0 +1,18 @@
+Module: wdp
+Session: 4
+Topic: Training Agents to Improve Performance
+Chunk: 99
+
+Explanation: The discussion revolves around training agents (AI models) to improve their performance based on feedback from past conversations. The two methods discussed are RAgs and Knowledge Graphs.
+
+Key Points:
+- RAgs can be used to store initial conversations, compare the responses given by AI with previous bad responses, and encourage improvement in the agent's responses.
+- Retraining is essential for improving the agent over time.
+- Knowledge graphs can be utilized to store attributes of a person, such as preferences or dislikes, and present them to the AI during conversations to personalize interactions.
+
+Student Doubts:
+1. Is there any other option apart from RAgs for training agents? (Answer: Yes, knowledge graphs)
+2. Will you cover knowledge graphs in detail? (Answer: Not in detail but somewhat, yes)
+3. Is the copilot studio a tool that can be used to build an insight-generating agent? (Answer: Yes, it is one of the organizational approved tools)
+
+---

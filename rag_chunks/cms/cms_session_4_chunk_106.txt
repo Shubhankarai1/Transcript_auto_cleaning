@@ -1,0 +1,18 @@
+Module: cms
+Session: 4
+Topic: Customizing Query for Retrieval
+Chunk: 106
+
+Explanation: The lecture explains the process of customizing queries for retrieving relevant documents. It discusses editing the query, creating a function for the customization, and using it in a functional approach.
+
+Key Points:
+- Editing the query is necessary based on user inputs.
+- Creating a function for customizing the query.
+- Working in a functional approach by creating functions and combining them with Lamb.
+- The retrieval process involves creating an embedding of the query (if needed).
+
+Student Doubts:
+- Index name error occurred during the retrieval process.
+- Clarification on whether the dimensions of the vector database should match for every session.
+
+---

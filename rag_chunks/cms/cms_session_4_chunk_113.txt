@@ -1,0 +1,19 @@
+Module: cms
+Session: 4
+Topic: Explanation on Prefiltering and Post Filtering in Retrieval
+Chunk: 113
+
+Explanation:
+The lecturer explains the concepts of prefiltering and post filtering in the retrieval process of a search engine. These techniques help to improve the efficiency and accuracy of the search by removing unnecessary information or irrelevant documents.
+
+Key Points:
+1. Prefiltering is done before the retrieval step where metadata tags are filtered from the vector database, narrowing down the search context.
+2. Post filtering is done after getting all the documents where unnecessary documents are removed using metadata tags. This helps to get relevant documents only.
+3. The lecturer emphasizes that while most developers can perform other steps, the effective implementation of prefiltering and post filtering sets a developer apart.
+4. Chunking, which is the step of asserting the documents, differentiates between a good and bad developer.
+
+Student Doubts:
+1. How to know what metadata tags to remove during prefiltering? (Answer: The system should be able to deduce this)
+2. Can we filter metadata while querying the database? (Answer: Yes, you can filter metadata relevant to the query before the search happens)
+
+---

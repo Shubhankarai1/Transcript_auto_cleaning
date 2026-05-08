@@ -1,0 +1,19 @@
+Module: wdp
+Session: 5
+Topic: Understanding State Updates and Appending in Multi-agent Workflows
+Chunk: 109
+
+Explanation: The lecture discusses how state updates work in a multi-agent system, focusing on the Langra framework. The state is updated with new parameters and then returned. However, when appending messages to a list, it may not work as expected due to overwriting of the entire state.
+
+Key Points:
+ - State update involves updating parameters and returning the state.
+ - Overwriting the state occurs whenever a new answer is given or the node's answer is overwritten to the state.
+ - In case of appending messages to a list, it will work fine only when overwriting is intended.
+
+Student Doubts:
+ - Is there a concept of Top K in the current state definition? (Answer: No, as the state overwrites everything.)
+ - What is being taken by the system in case of recall? (Answer: Only the current message and not the last few messages.)
+ - Can top key parameters be passed when working with two Language Models? (Answer: Yes, but it's not relevant at the moment.)
+ - Is the customer message prepopulated in the state? (Answer: No, it comes with the query invoked to the graph.)
+
+---

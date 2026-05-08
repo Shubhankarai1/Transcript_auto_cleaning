@@ -1,0 +1,24 @@
+Module: wdp
+Session: 5
+Topic: Agentic AI Workflow, Patterns, and Topologies
+Chunk: 117
+
+Explanation: The lecture discusses the concept of agentic AI and its workflow, patterns, and topologies. The workflow involves specialized agents accessing databases to check for duplicate transactions using SQL. The pattern is defined as the organization of control, which can vary from having one agent to multiple teams like data engineering and data science. Topology refers to the communication shape among the entities.
+
+Key Points:
+- Specialized agents access databases to find duplicate transactions using SQL
+- Control organization can be varied (one agent, multiple teams)
+- Communication shape defines topology (who can communicate with whom)
+- Deterministic workflow has a fixed sequence of events (document intake, validation, approval, final output)
+- Dynamic workflow decides at each step whether to apply a policy or not
+- Hybrid workflow combines deterministic and dynamic parts
+
+Student Doubts:
+- Is there always an orchestrator in the example provided?
+  - Yes, the orchestrator is the supervisor.
+- Do we need at least one minimum orchestrator?
+  - Depends on the design but it's often seen in industry.
+- What are the different types of patterns and topologies?
+  - Different types of workflows (deterministic, dynamic, hybrid), patterns (supervisor-agent, etc.), and topologies (communication shapes).
+
+---

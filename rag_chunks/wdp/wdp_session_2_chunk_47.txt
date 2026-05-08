@@ -1,0 +1,18 @@
+Module: wdp
+Session: 2
+Topic: MCP (Multiple Call Point) in Software Development
+Chunk: 47
+
+Explanation: The topic discusses the concept of MCP in software development, which is applicable when a tool or function can be reused across multiple applications. If a tool is not meant to be shared, an MCP is not necessary. The benefits of using MCP are that it allows multiple applications to use the same tool.
+
+Key Points:
+- MCP is used when a tool/function needs to be reused across multiple applications.
+- If a tool will never be used by anyone else, no need for an MCP.
+- Example of MCP usage: A form filling tool that can be used by multiple users.
+- MCP allows for efficiency as the same tool can be used in multiple places.
+
+Student Doubts:
+- When is it necessary to raise an error? (Answer: When there's a problem with returning values)
+- Why does the tool call get skipped when invoked manually? (Answer: To be addressed by the instructor)
+
+---

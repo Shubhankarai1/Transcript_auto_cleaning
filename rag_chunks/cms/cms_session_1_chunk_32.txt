@@ -1,0 +1,20 @@
+Module: cms
+Session: 1
+Topic: Building an LLM Chain for a Chatbot
+Chunk: 32
+
+Explanation: The transcript discusses building an LLM (Language Model Model) chain for a chatbot. The user explains how to create a question, get the LLM, and then call the chain.invoke function with the user input as the key. The context is built by creating a list of system messages, human messages, AI messages, and finally the user input.
+
+Key Points:
+- Creating a question for the chatbot
+- Getting an LLM (Language Model Model)
+- Calling chain.invoke function with user input as the key
+- Building context using a list of system messages, human messages, AI messages, and user input
+
+Student Doubts:
+- What is an LLM in this context?
+- How to create the context for the chatbot?
+- How to get the LLM for the chatbot?
+- What should be passed as the key in chain.invoke function?
+
+---

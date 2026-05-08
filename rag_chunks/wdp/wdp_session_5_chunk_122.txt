@@ -1,0 +1,21 @@
+Module: wdp
+Session: 5
+Topic: Multi-Agent Systems within Multi-Agent Systems
+Chunk: 122
+
+Explanation: In a multi-agent system, there can exist multiple agentic workflows operating within another. This is known as a multi-agent system within a multi-aent system. Each agent has its own state and the number of states depends on the number of agents within the system. If there are many agents, each requires a separate state.
+
+Key Points:
+- Multi-agent systems can have multiple topologies of their own.
+- The existence of a multi-agent framework does not necessitate one topology throughout a pattern; there can be multiple topologies existing within a multi-agent system.
+- In the hub-spoke topology, there is always a supervisor agent who interacts with other agents and receives their work. If two or more agents cannot interact, it is called a hub-spoke topology.
+- A peer-to-peer topology resembles a star topology but allows for bidirectional communication between peers.
+
+Student Doubts:
+1. Why are only two states used? (Because there can be many states depending on the number of agents.)
+2. Is it possible to have another multi-agent inside this system? (Yes, in such a case, another state for that agent would be required.)
+3. Can multiple states or workflows be used in a topology? (Yes, if there are many agents within the topology, multiple states or workflows can be employed to decide interactions between them.)
+4. Is the router topology explained here? (No, but it contains a multi-agent system with multiple agents. The name of the specific topology is not provided in this transcript.)
+5. Can there be looping patterns or workflows within these topologies? (Yes, looping is a pattern and workflow that can be used within these topologies as required.)
+
+---

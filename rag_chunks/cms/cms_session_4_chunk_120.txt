@@ -1,0 +1,20 @@
+Module: cms
+Session: 4
+Topic: Assignable Lambda Function
+Chunk: 120
+
+Explanation: The lecture explains how to use the `assignable` lambda function in a programming context. This function allows you to assign the output of one function as an input to another. However, the inputs shapes should be compatible for different regions and types.
+
+Key Points:
+- Passing the output from one function to another using `assignable` lambda
+- Understanding the compatibility of input shapes across regions and types
+- Calling the next function after assigning output (e.g., `retrieval`)
+
+Student Doubts:
+1. How do I get the query for passing it into the next function?
+2. What all should be passed inside the `retrieve_docs` lambda function?
+3. Where should the edited query be placed in the code?
+4. What is the syntax for assigning output and calling the next function?
+5. How to handle compatibility issues with different input shapes across regions and types?
+
+---

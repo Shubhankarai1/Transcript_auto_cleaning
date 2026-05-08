@@ -1,0 +1,16 @@
+Module: cms
+Session: 2
+Topic: Building a Working Memory
+Chunk: 61
+
+Explanation: The instructor is providing an overview of the steps to build a working memory, emphasizing the importance of staying updated with trending technologies and suggesting resources for learning about them.
+
+Key Points:
+- Building a working memory is the first step towards building a rack (a type of system in machine learning).
+- The process involves having a session store, which will be discussed in detail later.
+- To stay updated on trending technologies, the instructor recommends following Substack, good people on Instagram, Mint, Wall Street Journal, and Reddit.
+
+Student Doubts:
+- None in this transcript.
+
+---

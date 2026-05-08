@@ -1,0 +1,19 @@
+Module: map
+Session: 2
+Topic: Multi-Query Expansion
+Chunk: 14
+
+Explanation: In this lecture, the teacher explains the concept of Multi-Query Expansion which helps in improving the retrieval strategy by providing a broad set of documents for a query. This technique works on recall rather than precision. The students are encouraged to run and edit the given chain.
+
+Key Points:
+1. Multi-query expansion for broader document coverage
+2. Works on recall, improves retrieval strategy
+3. Students are asked to run and edit the given chain
+
+Student Doubts:
+1. Shanka asks if the teacher is using OpenAI and inquires about slight differences in the output.
+2. There's a confusion over running multiquery expansion correctly.
+3. The teacher shares that they are not feeling well due to pain and will not be able to continue the session for the day.
+4. They share the notebook for the next topic, reanking, which is crucial for precision in narrowing down to specific documents.
+
+---

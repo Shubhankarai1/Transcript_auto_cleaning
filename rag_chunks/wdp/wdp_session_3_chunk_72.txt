@@ -1,0 +1,21 @@
+Module: wdp
+Session: 3
+Topic: Limitations of AI in Stock Trading
+Chunk: 72
+
+Explanation: The speaker discusses the limitations of using AI for stock trading due to the institutional investors' ability to manipulate the market and the inability of AI to predict future trends accurately.
+
+Key Points:
+- Institutional investors have the power to manipulate the market, making it difficult for smaller investors to compete.
+- AI cannot guarantee returns and is unable to predict future trends with certainty.
+- High frequency trading algorithms using multiple strategies like scalping and shorting are effective but require high processing GPUs and systems.
+- Applying AI tools to humongous transactions can be costly, and the AI billing can exceed the benefits.
+- The stock market relies heavily on sentiment and internal information, making it challenging for AI to compete with insider trading.
+
+Student Doubts:
+- Can AI detect high frequency trading algorithms? (Yes, but it requires high processing GPUs and systems.)
+- Is it possible for AI to predict future trends with some level of accuracy? (No, as the speaker explains that even AI cannot guarantee returns or accurately predict the future.)
+- Can AI be used for insider trading? (The speaker does not explicitly address this question, but it is important to note that insider trading is illegal and unethical.)
+- How can smaller investors compete with institutional investors in the stock market? (The speaker suggests finding a knowledgeable individual who manages small amounts of money, but it remains a challenge for smaller investors to compete due to institutional investors' power and resources.)
+
+---

@@ -1,0 +1,18 @@
+Module: wdp
+Session: 1
+Topic: Designing an AI System for Bank Transactions
+Chunk: 18
+
+Explanation: The lecture discusses the need for an AI system to manage bank transactions due to their increasing number and complexity. This system will analyze transaction data, identify patterns, and send summarized reports to relevant departments.
+
+Key Points:
+1. The AI system will analyze transaction data and send reports.
+2. The challenge is to design a graph representing the decision-making process of this system.
+3. Each node in the graph will represent a function, with some functions performed by AI and others by traditional NLP or if-else structures.
+4. The goal is to design the graph within 5 minutes for future discussion and implementation.
+
+Student Doubts:
+1. Why use Langra for this task instead of simple if-else statements? (Answer: Troubleshooting is better with dynamic decision making using AI instead of static decision making.)
+2. Can the same functions be implemented using if-else in the graph as well? (Answer: Yes, but Langra provides an efficient way of handling these complexities.)
+
+---

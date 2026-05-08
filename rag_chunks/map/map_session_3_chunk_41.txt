@@ -1,0 +1,23 @@
+Module: map
+Session: 3
+Topic: Understanding API and Function Conversion for LLMs
+Chunk: 41
+
+Explanation:
+In this lecture, the instructor explained how to work with APIs and functions using Langchain. The key points covered include understanding that an API does not have access to real-time data or additional capabilities, so these must be given separately using functions. The instructor demonstrated using if statements, tool cards, and converting functions into tools for easier communication with Langchain.
+
+Key Points:
+1. APIs need separate functions for additional capabilities.
+2. Using if statements, lamb chase, and tool calling.
+3. Creating tool cards to use functions with LLMs.
+4. Converting functions into tools using decorators.
+5. Directly passing the tool name to Langchain.
+6. Langchain converts the function into a tool card for easier query understanding.
+
+Student Doubts:
+1. Why is it necessary to convert functions into tools? (Answer: For easier communication with Langchain)
+2. How does Langchain understand that it's dealing with a tool call? (Answer: Through conversion of the function into a tool card behind the scenes)
+3. What happens if there's an error in converting the function to a tool? (Answer: The user needs to figure out and correct the mistake)
+4. Why is it necessary to append the AI message in the eels part? (Answer: To keep track of the conversation history when calling a tool)
+
+---

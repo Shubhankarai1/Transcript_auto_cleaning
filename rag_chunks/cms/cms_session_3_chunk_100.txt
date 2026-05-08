@@ -1,0 +1,16 @@
+Module: cms
+Session: 3
+Topic: Resolving Issues with File Reading in Python
+Chunk: 100
+
+Explanation: The student is facing an issue while reading files in Python due to the files being placed incorrectly in the data folder. The solution is to add an if statement that checks if a file ends with '.txt' before reading it.
+
+Key Points:
+- Incorrect placement of files causing issues
+- Adding an if statement for conditional file reading
+
+Student Doubts:
+1. The student asks for help in removing the rag introduction.ipinv and rag data.zip from the data folder as they are causing problems while trying to read text files.
+2. The student wants to know how to share links of the courses they are taking.
+
+---

@@ -1,0 +1,17 @@
+Module: map
+Session: 3
+Topic: Calling a Tool by its Name given as a String in Python
+Chunk: 29
+
+Explanation: The lecture discusses how to call a tool using its name provided as a string in Python. It suggests using a partial function to bypass the problem of calling a function with a string argument.
+
+Key Points:
+- Calling a tool with a string name using a partial function from functools
+
+Student Doubts:
+1. What is the problem? The function name is given as a string, but it's expecting as an actual function name.
+2. How to use JSON or globals or locals for calling a function by its name in Python?
+3. Why are lambda and globals not the perfect solution?
+4. How does the partial function work?
+
+---

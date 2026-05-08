@@ -1,0 +1,19 @@
+Module: cms
+Session: 1
+Topic: Understanding System Messages in AI Context
+Chunk: 27
+
+Explanation: The lecture discusses the process of how system messages are generated in an AI context. It explains that when a question is asked, it goes through a system message and human message before reaching Gemini, an AI model, which then provides an AI message as output. This new AI message gets appended to the context box, updating the context for future questions.
+
+Key Points:
+1. Questions go through system and human messages before reaching Gemini.
+2. Gemini generates an AI message based on the question.
+3. The AI message is added to the context box, updating the context for future questions.
+4. The AI model does not demarcate between topics but keeps a history of the context.
+
+Student Doubts:
+1. What will be the format of the next question? (System, human, or AI message)
+2. Will changing the subject append to the previous context?
+3. How does Gemini handle different topics without demarcation?
+
+---

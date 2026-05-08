@@ -1,0 +1,19 @@
+Module: wdp
+Session: 3
+Topic: Explanation of Tool Conditions in Langra
+Chunk: 58
+
+Explanation:
+The lecture explains how to use the Tool Conditions feature in Langra. The teacher demonstrates a conversation where a user requests the weather in Delhi and Langra returns the current temperature. The tool conditions automatically handle if-else statements, allowing the user to focus on defining the tools without worrying about the implementation details.
+
+Key Points:
+1. Tool Conditions handle if-else statements behind the scenes.
+2. They allow users to define tools without worrying about implementation details.
+3. Langra keeps track of messages and appends them to a predefined state called 'messages state.'
+4. Users can create custom states with messages state for more complex applications.
+
+Student Doubts:
+1. How does Langra decide the end point in edges when there are multiple sets of tools?
+   - Understand it from the start: First, a state graph is created with message state as the class. Then an LLM node is added. From the LLM node, a tool node is created, and a conditional edge is defined between the LLM node and the tool node using the tools condition. The tools condition determines which tool node to use based on the user's query. If there are multiple sets of tools, Langra will automatically map them and make connections between the LLM node and the appropriate tool node.
+
+---

@@ -1,0 +1,17 @@
+Module: wdp
+Session: 4
+Topic: Issues with passing system message to the LLM (Language Learning Model)
+Chunk: 87
+
+Explanation:
+The instructor is trying to understand why the system is breaking down when passing a system message to the LLM. The problem lies in the way the LLM is called and the parameters passed to it. The solution proposed is to use the chat prompt template, which will resolve the issue if additional prompts are required.
+
+Key Points:
+- Problem with passing system message to the LLM
+- Solution: Use chat prompt template
+- Avoid sending lists or other unnecessary parameters to the LLM
+
+Student Doubts:
+- None in this transcript
+
+---

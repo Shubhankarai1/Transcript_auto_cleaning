@@ -1,0 +1,16 @@
+Module: wdp
+Session: 3
+Topic: Tools Condition in Langraph
+Chunk: 60
+
+Explanation: The "Tools Condition" in Langraph refers to adding a conditional edge to specific tool nodes. This function is built-in and can be invoked with human messages passed as a list.
+
+Key Points:
+- Conditional edges are added to specific tool nodes
+- Invoke the graph using human messages passed as a list
+- LLM node automatically calls tools based on end node definition
+
+Student Doubts:
+- Samir is facing an issue with adding conditional edges in Google Colab, the AI assistant is correcting him and asking for additional arguments like "tools" and "end". The instructor suggests double-checking the way of adding conditional edges.
+
+---

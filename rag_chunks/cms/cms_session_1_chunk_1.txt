@@ -1,0 +1,16 @@
+Module: cms
+Session: 1
+Topic: Introduction and Overview
+Chunk: 1
+
+Explanation: The lecturer introduces himself and his background in data science and agentic AI. He explains that he will cover the concepts of context and history, and building a chatbot with history maintenance in the upcoming sessions.
+
+Key Points:
+- Samil Bub is a data science manager with 9 years of experience in machine learning and deep learning models.
+- He has been working on agentic AI for the last 2 years to automate customer reachability.
+- The lecturer will cover the concepts of context, history, and building a chatbot that maintains history.
+
+Student Doubts:
+- None in this transcript.
+
+---

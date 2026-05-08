@@ -1,0 +1,17 @@
+Module: cms
+Session: 3
+Topic: Setting up Pinecone API and Mounting a Drive onto Google Drive
+Chunk: 72
+
+Explanation: The session explains how to set up the Pinecone API and mount a drive onto Google Drive for further use in data processing tasks.
+
+Key Points:
+- Generating a Pinecone API key
+- Setting up the Pinecone API in notebook
+- Mounting a Google Drive folder into the current working directory
+
+Student Doubts:
+1. A student missed the last session and is unable to generate the pine cone API key.
+2. Clarification on where to upload the files for the data processing tasks.
+
+---

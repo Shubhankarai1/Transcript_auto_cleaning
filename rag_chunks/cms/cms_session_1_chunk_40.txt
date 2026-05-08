@@ -1,0 +1,18 @@
+Module: cms
+Session: 1
+Topic: Pointer-based Information and Databases
+Chunk: 40
+
+Explanation: The lecture discusses pointer-based information and its use in databases such as RAG (RDF triple store), vector databases, Redis (for caching), knowledge graphs, and states. It also touches upon Google's file store which is similar to RAG and suitable for building small chatbots.
+
+Key Points:
+- Pointer-based information is used to express preferences or dislikes (like emojis) in a knowledge graph.
+- Radius is used for caching the most recent information to avoid wasting tokens on repetitive questions.
+- Four types of databases are important: RAG, vector databases, stable databases like radius, and states.
+- Google's file store can be used to build small chatbots with less effort, but understanding RAG is still necessary.
+
+Student Doubts:
+1. Abi: Can I share my collab for the chatbot project? (Answer: Yes)
+2. Ishan: How does the LLM decide when a topic has finished and predicts the stop token? (Answer: The model uses a stop token to indicate the end of a topic, and it will stop generating whenever the stop token is encountered with the highest probability.)
+
+---

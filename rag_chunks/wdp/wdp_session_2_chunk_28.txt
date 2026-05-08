@@ -1,0 +1,22 @@
+Module: wdp
+Session: 2
+Topic: Explanation of Pyantic Class vs Normal Python Class
+Chunk: 28
+
+Explanation:
+The instructor is explaining the difference between using Pyantic and a normal Python class. Pyantic helps in validating the data types and will give an error when there is a mismatch, whereas in a normal Python class, the user has to use try except to handle such errors. The instructor also explains how to create and use a Pyantic class.
+
+Key Points:
+- Pyantic class for data validation
+- Error handling with Pyantic
+- Difference between Pyantic and normal Python classes
+- Use of description in Pyantic to explain field type
+- Default values can be specified in Pyantic
+
+Student Doubts:
+1. What is the difference between Pyantic class and a normal Python class? (Answer: Pyantic gives error whenever there is a mismatch in data types, while a normal Python class converts data on its own.)
+2. How to handle validation errors in a normal Python class? (Answer: Using try except.)
+3. Why can't the system do copy paste? (Answer: Not provided in the transcript.)
+4. What happens when an invalid input is passed to a Pyantic class? (Answer: It breaks down and gives an error.)
+
+---

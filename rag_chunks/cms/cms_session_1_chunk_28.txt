@@ -1,0 +1,19 @@
+Module: cms
+Session: 1
+Topic: Persistence of Chat History in AI Model
+Chunk: 28
+
+Explanation: The AI model saves the chat history on a local hard drive for each session, which is loaded back into memory when the session is resumed. The model maintains the session ID to save and load the chat history corresponding to the user's ID. The context (chat history) is summarized using lighter models to avoid context bloating that might slow down the system.
+
+Key Points:
+- AI model saves chat history on local hard drive per session
+- Session ID is used for saving and loading chat history
+- Context is summarized to avoid context bloat and improve performance
+
+Student Doubts:
+1. What will happen if the user does not log in?
+2. Will the AI ignore previous context and only consider the final question?
+3. Is context bloating a real problem for long-term use of the model?
+4. How does the transformer model come into play in this scenario?
+
+---

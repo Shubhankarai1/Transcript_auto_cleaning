@@ -1,0 +1,15 @@
+Module: wdp
+Session: 2
+Topic: Introduction to Pantic
+Chunk: 26
+
+Explanation: The lecture explains the use of Pantic, a library that enforces data to be in a specific format. It demonstrates how to import and create a basic Pantic class called 'person'.
+
+Key Points:
+- Importing Pantic from `pantic` package and using `base_model`
+- Creating a class named `person` using the base model for enforcing data format
+
+Student Doubts:
+- None in this transcript
+
+---

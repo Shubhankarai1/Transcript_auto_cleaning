@@ -1,0 +1,22 @@
+Module: cms
+Session: 1
+Topic: Initializing and Defining Prompt for Language Model
+Chunk: 18
+
+Explanation: To initialize a language model, you need to set up the appropriate environment based on whether you're using OpenAI, Gemini, or Langchain. After initialization, create prompts by defining a prompt template that includes both system and user messages.
+
+Key Points:
+1. Initialize your Language Model (LM)
+2. Use OpenAI, Gemini, or Langchain depending on the chosen platform
+3. Define prompt template with system and user messages
+4. Pass necessary parameters for prompt creation
+5. Replace user message with actual input from the user or manually set it
+6. Use Lchain output function for generating responses
+
+Student Doubts:
+1. How do I initialize OpenAI specifically?
+2. What is the difference between a system message and a user message?
+3. Can I separate human message, user message, and system message later on?
+4. Where can I find the Lchain output function?
+
+---

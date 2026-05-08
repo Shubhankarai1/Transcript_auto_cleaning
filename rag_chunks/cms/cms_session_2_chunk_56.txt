@@ -1,0 +1,20 @@
+Module: cms
+Session: 2
+Topic: Runnable with Message History
+Chunk: 56
+
+Explanation: The runnable with message history is used to maintain a list of messages in an application. It wraps a chain of messages into an area where the messages are kept on their own.
+
+Key Points:
+- Runable with message history is a new feature that maintains a list of messages in an app.
+- It works by wrapping a chain of messages inside itself.
+- The chain needs to be upgraded to use runnable with message history.
+- It requires three things: input message key, history messages key, and get session history function.
+- The get session history function is used to provide the history to the LAN (Local Area Network) chain automatically.
+
+Student Doubts:
+- What is our input message key? User input.
+- What is our history messages key? Chat history.
+- How does it remember the history of all the people? By passing a session ID in the get session history function.
+
+---

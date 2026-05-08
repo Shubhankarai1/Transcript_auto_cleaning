@@ -1,0 +1,17 @@
+Module: map
+Session: 3
+Topic: Using get attribute in Python with globals
+Chunk: 30
+
+Explanation: The lecture explains how to use the `getattr()` function in Python with the `globals()` function. It demonstrates passing a function name as a string and calling it using `globals()`.
+
+Key Points:
+- Passing a function name as a string to call a function using `getattr()` and `globals()`
+- `globals()` allows passing the string name directly to call a function
+- This method can bypass the need for defining functions or tools in MCP
+
+Student Doubts:
+- Is this concept obsolete with MCP and tool calling?
+- What is agentic AI?
+
+---

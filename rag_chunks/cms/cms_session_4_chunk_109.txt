@@ -1,0 +1,21 @@
+Module: cms
+Session: 4
+Topic: Context Building for Prompts
+Chunk: 109
+
+Explanation: The lecture discusses creating a context using the responses retrieved from some source. The final text is combined and then shortened to fit within a limit of 1200 characters. Post filtering is also included in this process.
+
+Key Points:
+- Combine all texts from retrievals
+- Limit the text to 1200 characters
+- Post filtering for further reduction
+
+Student Doubts:
+- What will be the input to the function (1:18:31, 1:18:40)
+- What will be the output (1:18:48, 1:19:05, 1:21:39, 1:21:47)
+- Can I use a cheaper model for summary (1:21:16, 1:21:25)
+- What is post filtering (1:22:11, 1:22:20, 1:22:29, 1:22:37)
+- Can I customize the context size and strategy (1:20:24, 1:20:32, 1:20:39, 1:22:53)
+- Embedding links in the context for grounded output (1:23:03, 1:23:10)
+
+---

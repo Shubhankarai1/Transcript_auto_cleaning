@@ -1,0 +1,21 @@
+Module: map
+Session: 3
+Topic: Creating Weather Tool Schema with LLM
+Chunk: 28
+
+Explanation: The lecture explains the creation of a weather tool schema using Large Language Model (LLM) in lchain. The function `get_city_weather` is created and bound to the `weather` schema. To get the weather information for a city, the user needs to describe this function, pass it to LLM lang chain, and then the function becomes available for LLM to call.
+
+Key Points:
+- Creating a new function `get_city_weather`
+- Binding it to the `weather` schema
+- Describing the function using LLM schema
+- Passing the description to LangChain to make the function available for LLM to call
+
+Student Doubts:
+1. Understanding the concept of function calling in LLM and how it works
+2. How to create a function in LLM lang chain
+3. The purpose of using `llmbind` tools while passing the described function
+4. Understanding the response from AI message when a human message is passed, and the meaning of AI message response token usage and provider uh finish reason is tool calls
+5. The process of calling the tool after getting the output from AI message
+
+---

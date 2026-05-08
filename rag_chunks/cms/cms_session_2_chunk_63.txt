@@ -1,0 +1,18 @@
+Module: cms
+Session: 2
+Topic: Building a Chatbot for Loan Inquiry
+Chunk: 63
+
+Explanation: The lecture explains the process of building a chatbot for loan inquiries using RAG (Rapid Application Generator). The chatbot will be designed to answer user queries about products, act as a sales agent, and provide EMI calculators. Additionally, it will help resolve EMI issues by checking account balances.
+
+Key Points:
+- Building a chatbot for loan inquiries using RAG
+- The chatbot will answer user queries about products
+- It will act as a sales agent and provide an EMI calculator
+- It will help resolve EMI issues by checking account balances
+
+Student Doubts:
+- What exactly is RAG? (Answer provided later in the lecture)
+- How can we download the data required for building the RAG system? (Provided as a zipped file link during the lecture)
+
+---

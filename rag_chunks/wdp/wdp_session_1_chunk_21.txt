@@ -1,0 +1,20 @@
+Module: wdp
+Session: 1
+Topic: Introduction to Langraph
+Chunk: 21
+
+Explanation: The lecture provides an introduction to a system called Langraph, explaining its design and how it functions. The instructor discusses the roles of different individuals in creating and implementing this system.
+
+Key Points:
+- Designing the whole system is the task of the architect (individual).
+- AI can generate individual functions but human input is necessary for system design.
+- Students are expected to work on the project, with no formal expectation or course requirement.
+- To proceed with the project, students should share a workflow design over email and receive feedback from the instructor.
+- The instructor is available to help and meet if necessary after discussing over email.
+
+Student Doubts:
+- Clarification about the difference between the route wall function and other functions (answered).
+- Request for permission to share screen for a minute (granted).
+- Suggestion for adding more details in the design, including handling failed transactions and routing them to the IT department (agreed upon).
+
+---

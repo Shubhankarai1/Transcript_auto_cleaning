@@ -1,0 +1,21 @@
+Module: map
+Session: 3
+Topic: Recall and Precision in Target Hitting Problem
+Chunk: 19
+
+Explanation: The lecture explains the concepts of recall and precision in the context of a target hitting problem. It discusses how the number of shots taken affects both recall (the ratio of hit targets to total targets) and precision (the ratio of hit targets to total shots).
+
+Key Points:
+- Precision measures the accuracy of hits out of all shots taken.
+- Recall measures the percentage of total targets that were hit.
+- With a limited number of shots, recall is higher but precision is lower.
+- With an increased number of shots, recall increases and precision decreases.
+- It's essential to balance recall and precision when deciding on the number of queries and documents to pick.
+
+Student Doubts:
+- What is the relationship between the number of shots and recall/precision?
+- How does re-ranking affect recall and precision?
+- How should one choose the top K documents for re-ranking?
+- What is the role of sparse embeddings in this context?
+
+---

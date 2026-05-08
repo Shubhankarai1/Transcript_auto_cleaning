@@ -1,0 +1,24 @@
+Module: map
+Session: 3
+Topic: Using Tool Call in LANC Chain
+Chunk: 35
+
+Explanation: The lecture explains the process of using a tool call in LANC (Lisp-like Agent Communication Language) chain to execute tools and get responses.
+
+Key Points:
+1. Get the tool call from the message.
+2. Identify the function name and arguments from the tool call.
+3. Map the function name to the directory of tools.
+4. Select the tool based on the identified name.
+5. Invoke the selected tool using invoke method.
+6. Pass the tool calls as arguments.
+7. The selected tool will return a tool message with the response.
+8. Append the tool message to messages list.
+9. Print the content of the last appended message.
+
+Student Doubts:
+1. What is the benefit of using tool calls in LANC chain? (Answer: Automatically generates tool messages and takes care of JSON dumps.)
+2. How is the selected tool picked? (Answer: By name, created first by that name in the directory of tools.)
+3. What happens after the tool call returns a response? (Answer: Append the tool message to the messages list and print the content of the last appended message.)
+
+---

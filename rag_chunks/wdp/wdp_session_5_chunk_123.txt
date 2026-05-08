@@ -1,0 +1,18 @@
+Module: wdp
+Session: 5
+Topic: Multi-agent Systems Explanation: The lecture discusses the plan for a session on multi-agent systems. Key Points:
+Chunk: 123
+
+- Three implementations to be done in the next session
+- Making four topologies, one with tools and one without
+- By completing these tasks, understanding of multi-agent systems will be improved
+- Aggressive context engineering remains for future sessions, including integration with conversational rags, knowledge graphs, external databases, and caching
+- The student should revise everything about states, panic, agent nodes, views done in the current session
+
+Student Doubts:
+1. How to know where control is in a multi-agent system workflow? (Answer: By using state)
+2. Do LLM nodes exist in real life or are they used only in theory? (Answer: Yes, LLM nodes can be used in real life, integrated into a node with a rag containing the entire lamb chain)
+3. Can LLM interact with users and kick off agents? (Answer: Yes, this is achieved through a router in place)
+4. Will there be a discussion on other frameworks besides router and hubspok? (Answer: No, only router and hubspok frameworks will be discussed)
+
+---

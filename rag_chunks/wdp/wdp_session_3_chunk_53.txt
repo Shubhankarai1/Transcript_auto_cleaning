@@ -1,0 +1,18 @@
+Module: wdp
+Session: 3
+Topic: Validation of Statements against Cost in LangGraph
+Chunk: 53
+
+Explanation: The student asks about validating statements against cost in LangGraph, a call to LLM (LangChain Model), and context engineering's importance. The teacher explains that LangGraph does not charge for if-else statements and only tokens are involved when answering questions with an LLM. Context engineering is crucial for understanding the context of queries.
+
+Key Points:
+- LangGraph does not charge for if-else statements.
+- Tokens are only involved in answering questions when an LLM is used.
+- Context engineering is important for understanding the context of queries.
+
+Student Doubts:
+1. How does LangGraph differentiate between the first and second time it goes through logic?
+2. How is state maintained to check if a query has been answered before?
+3. What is the process of making and using a state in LangGraph?
+
+---

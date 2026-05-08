@@ -1,0 +1,12 @@
+Module: wdp
+Session: 1
+Topic: Human in the Loop Function
+Chunk: 16
+
+Explanation: To incorporate a human in the loop function, route the output to the draft and then wait for a human decision. The langraph has this capability.
+
+Key Points:
+- Route the output to the draft.
+- Wait for a human decision using the langraph's capability.
+
+---

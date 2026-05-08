@@ -1,0 +1,20 @@
+Module: cms
+Session: 2
+Topic: Creating a Chat History List and Appending User Inputs and AI Responses
+Chunk: 48
+
+Explanation:
+The teacher is explaining how to create a chat history list in Python by appending user inputs and AI responses to the list.
+
+Key Points:
+- Create an empty list for chat history
+- Append user input and AI response to the chat history list
+- Use `append()` function to add elements to the list
+
+Student Doubts:
+- Error with the installation of the OpenAI API
+- Unable to comment on a specific error while invoking code
+- Comma placement issue in code causing an error
+- LLM not getting called, possibly due to issues with prompt template or LLM components.
+
+---

@@ -1,0 +1,29 @@
+Module: wdp
+Session: 5
+Topic: Explaining Fan Architecture and its workflows
+Chunk: 119
+
+Explanation: The Fan Architecture is a method used in machine learning for classification tasks where the same task is distributed among multiple agents to increase accuracy by democratically deciding on the outcome. This architecture includes two types of workflows - Fan Out and Fan In.
+
+In Fan Out, one orchestrator sends out the task to different agents, which then submit their individual results for a democratic decision. On the other hand, Fan In involves multiple agents submitting their outputs to a single agent. This architecture can be used when human minds get confused in making decisions, such as identifying spam emails.
+
+Fan In and Fan Out involve converging or diverging outputs into one. For example, you could use Fan Out for classifying emails as spam or not spam by distributing the task among multiple people and then deciding based on their responses. On the other hand, a deterministic workflow may suffice for complaint handling tasks where only one agent is needed to make decisions.
+
+Key Points:
+- Fan Architecture used in machine learning classification tasks
+- Fan Out and Fan In workflows for distributing tasks among agents
+- Fan Out can be used for decision-making tasks where human minds get confused, such as identifying spam emails
+- Deterministic workflow may suffice for simpler tasks like complaint handling
+- Cost of data and time are factors to consider when choosing the appropriate workflow
+- Langraph or any tool does not currently support parallel processing in Fan Architecture
+
+Student Doubts:
+1. What is the difference between dynamic, branch, and deterministic workflows?
+2. How do multiple agents in Fan Out workflows kick off simultaneously or synchronously?
+3. What tool is used for handling multiple agents in a Fan Out architecture, and what is its name?
+4. In what business cases would Fan Out and Deterministic workflows be appropriate?
+5. How does the cost of data and time factor into choosing the right workflow?
+6. Can you clarify how Fan Out can be used in other surveying tasks apart from email classification?
+7. Is it possible for multiple nodes in Langraph or any tool to execute parts of a job simultaneously?
+
+---

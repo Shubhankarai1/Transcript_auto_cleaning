@@ -1,0 +1,21 @@
+Module: cms
+Session: 2
+Topic: Enhancing History Recording and Understanding External Data with LChain Tools
+Chunk: 41
+
+Explanation:
+In this session, we will level up our process of maintaining a history for LLM by filling the gaps identified in the previous session and introducing new tools provided by lchain. We will use these tools to improve context engineering, understand external data better, and learn about the rag framework, pine cone, and embeddings.
+
+Key Points:
+1. Improving History Recording Process with lchain tools
+2. Understanding External Data and Plugging it into Context
+3. Introduction to Rag Framework
+4. Setting up Pine Cone Account and Obtaining API Key
+5. Brief overview of Embeddings and their approaches inside Pine Cone
+6. Building a pipeline for pushing data into Langchain and retrieving data from it
+
+Student Doubts:
+- Clarification on the differences between embeddings when used in pine cone compared to previous discussions
+- Assistance with setting up pine cone account and obtaining API key
+
+---

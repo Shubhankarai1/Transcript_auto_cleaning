@@ -1,0 +1,17 @@
+Module: cms
+Session: 1
+Topic: Setting up Chat API with Google or OpenAI
+Chunk: 12
+
+Explanation: The lecture explains how to set up the chat API using either Google's generative AI or OpenAI. The instructor shares the code for initializing the language model (LLM) and demonstrates how to provide a system message, query, and mindset to the LLM.
+
+Key Points:
+- Import necessary modules (Google, chat JPT, and roles)
+- Initialize the LLM with the selected API
+- Provide a system message to set the mindset of the LLM
+- Send queries to the LLM after setting the mindset
+
+Student Doubts:
+- Ankit asked if the instructor can share the entire code, to which the instructor promises to provide the notebook containing the code.
+
+---

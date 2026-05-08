@@ -1,0 +1,18 @@
+Module: wdp
+Session: 3
+Topic: Reducer vs Key-Value Dictionary in Pipeline
+Chunk: 68
+
+Explanation: The lecture discusses the difference between using a reducer and a key-value dictionary in a pipeline. When a reducer is used, the result is a list, whereas when a key-value dictionary is used, the value inside the state will be overwritten.
+
+Key Points:
+- Using a reducer results in a list as the output
+- Using a key-value dictionary causes the value inside the state to be overwritten
+- The state object is managed internally by GraphQL (Langraph)
+
+Student Doubts:
+- When a non-dictionary value is returned, it will throw an error
+- The state can be used by any function in the pipeline
+- In the even node function, the result is being replaced instead of appended when using a key-value dictionary
+
+---

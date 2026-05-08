@@ -1,0 +1,19 @@
+Module: wdp
+Session: 3
+Topic: Understanding Lang Graph and Defining Classes
+Chunk: 71
+
+Explanation: The lecture discusses the use of Lang Graph in upcoming sessions and clarifies that LLM (Language Model) can be used to handle requests, understand English commands, and convert them into definite processes. However, LLM is not designed to define classes or manage complex programming tasks like defining Python classes for cities or populations.
+
+Key Points:
+- Lang Graph will be used in upcoming sessions for designing various topologies.
+- LLM is for handling requests, understanding English commands, and converting them into definite processes.
+- LLM can call other tools such as chat GPT or open A to create Python code but should not be used to define classes on the fly.
+
+Student Doubts:
+1. Can I use LLM to define a class of a string, number, city, population, etc?
+   - Answer: No, LLM is not designed for defining classes. It's better to create and manage Python classes manually.
+2. Is it possible to use LLM to predict the rise and fall of stocks as good as pre-AI predictive algorithms?
+   - Answer: The performance of AI in predicting stock market trends depends on the algorithm fed into it. AI cannot predict exact future events, only trends based on historical data. Its performance may not be superior to pre-AI predictive algorithms.
+
+---

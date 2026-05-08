@@ -1,0 +1,19 @@
+Module: cms
+Session: 1
+Topic: Setting up Google API Key for Langchain
+Chunk: 11
+
+Explanation: The tutor is explaining how to set up a Google API key for use with Langchain. This involves going to Google AI Studio, creating an API key, and copying it. The API key is free but has a limit of 20 tries per day.
+
+Key Points:
+1. Go to Google AI Studio (aistudio.google.com/appi keys)
+2. Create an API key and copy it
+3. The API key is free but limited to 20 uses per day
+4. Install `chat-google-generative-ai` using pip: `pip install chat-google-generative-ai`
+
+Student Doubts:
+1. Can the tutor share the code for installation? (Answer: Yes, the tutor will share the code later.)
+2. Is the Google API key free? (Answer: Yes, it's free.)
+3. What is the limit on the number of uses per day for the Google API key? (Answer: There is a limit of 20 uses per day.)
+
+---

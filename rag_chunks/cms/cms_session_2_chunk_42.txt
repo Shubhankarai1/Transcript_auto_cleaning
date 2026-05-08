@@ -1,0 +1,17 @@
+Module: cms
+Session: 2
+Topic: Review of Previous Session's Work and Explanation of Current Agenda
+Chunk: 42
+
+Explanation: The lecture starts with a review of the previous session's work, explaining what was covered and what will be discussed today. The professor also shares the notebook used in the last session and offers to share it again if needed.
+
+Key Points:
+- Review of previous session's work (creation of chat history and prompt template)
+- Discussing challenges in the current framework and potential solutions
+
+Student Doubts:
+- Question about the shared notebook being lost
+- Request for clarification on why they invoke the chain with a blank message
+- Inquiry about potential challenges in the framework
+
+---

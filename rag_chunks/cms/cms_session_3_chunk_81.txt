@@ -1,0 +1,19 @@
+Module: cms
+Session: 3
+Topic: Understanding Sentence Transformer Model
+Chunk: 81
+
+Explanation: The lecture discusses the use of a sentence transformer model that is downloaded from Hugging Face. It's an offline model used for creating embeddings, organizing vectors, and finally organizing documents and embeddings together.
+
+Key Points:
+- Sentence Transformer Model is an offline model from Hugging Face.
+- Used for creating embeddings.
+- The choice between using this model or OpenAI depends on the specific use case and willingness to pay for each embedding generation.
+- Organizing documents and embeddings together is step number five in the process.
+
+Student Doubts:
+- Is the embedding model available in Pine Cone? (No, it's a sentence transformer downloaded from Hugging Face.)
+- For this use case, we use this transformer or anything specific? (It depends on the specific use case and user's preference.)
+- Can anyone create embeddings? (Yes, everyone can create embeddings.)
+
+---

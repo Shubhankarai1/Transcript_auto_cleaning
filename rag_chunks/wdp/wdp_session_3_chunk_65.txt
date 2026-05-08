@@ -1,0 +1,22 @@
+Module: wdp
+Session: 3
+Topic: Tool Calling Variations
+Chunk: 65
+
+Explanation: The lecture explains various ways of tool calling variations and creating custom states in a language called Langraph. The teacher demonstrates using conditions and functions to manipulate the state.
+
+Key Points:
+- Tool Calling Variations
+- Custom States
+- Conditions and Functions
+- State Manipulation
+
+Student Doubts:
+1. What is the pin code of 40000001? (The teacher responds with a weather forecast)
+2. Why can't I find token uses in the language?
+3. Why does the tool not give the Mumbai pin code?
+4. How to convert weather data into city name if needed?
+5. What is the purpose of creating an underscore node?
+6. How to make the input go to a specific node based on conditions (even or odd numbers)?
+
+---

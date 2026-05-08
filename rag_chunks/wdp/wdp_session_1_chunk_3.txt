@@ -1,0 +1,17 @@
+Module: wdp
+Session: 1
+Topic: Explanation of Email Filtering System and Decision Making
+Chunk: 3
+
+Explanation: The lecture explains an email filtering system that automatically classifies emails as spam or ham (normal) and responds accordingly. The system consists of two agents, Alfred and Bruce. If the email is spam, it is discarded. If it's not spam, Alfred drafts a response which Bruce validates before sending. The process remains encrypted to ensure privacy. Decision making is represented using workflows or flowcharts that help in understanding different situations and potential outcomes.
+
+Key Points:
+- Email filtering system with two agents (Alfred and Bruce)
+- Spam emails discarded, normal emails responded
+- Process remains encrypted for privacy
+- Decision making represented by workflow/flowchart
+
+Student Doubts:
+1. What is the state of the system? (Answer given later in the lecture)
+
+---

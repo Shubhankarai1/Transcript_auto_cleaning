@@ -1,0 +1,17 @@
+Module: wdp
+Session: 3
+Topic: Creating Views and Customizing Applications
+Chunk: 70
+
+Explanation: The lecture focuses on creating views and customizations in applications. The instructor explains the need for creating views or putting conditions in text messages based on certain literals, stating that it can be a complicated process with a lot of customizations but not to worry about them as long as the flow is understood.
+
+Key Points:
+- Creating views or putting conditions in text messages
+- Understanding the flow of the application
+- Customizations are important but not the main focus
+- Practice and trial-and-error approach for tweaking and improvement
+
+Student Doubts:
+- None identified in the transcript.
+
+---

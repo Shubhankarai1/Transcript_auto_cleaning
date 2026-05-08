@@ -1,0 +1,19 @@
+Module: map
+Session: 3
+Topic: Rich Comments for Tool Function
+Chunk: 39
+
+Explanation: To create a good tool function, the doc string (comments) should be rich and detailed. The LLM will refer to these comments as we are no longer using external tools.
+
+Key Points:
+- Use rich comments in the doc string of the function.
+- The LLM will refer to the doc string for understanding the function.
+- Make sure the comments are detailed and comprehensive.
+
+Student Doubts:
+1. Why is it important to have rich comments? (Answer: To help the LLM understand the function)
+2. Is the output of query and message tool call condition the same? (Answer: No, they should be different as one is a query response and the other is a tool output)
+3. Why is there an error in the second piece? (Answer: The error needs to be fixed in that block)
+4. How to convert a function into a tool? (Answer: By adding a rate tool decorator function and a detailed doc string)
+
+---

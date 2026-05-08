@@ -1,0 +1,17 @@
+Module: map
+Session: 3
+Topic: Using Langchain for Function Calls
+Chunk: 27
+
+Explanation: The lecture explains how to use Langchain for function calls in a Large Language Model (LLM). The instructor discusses passing arguments and tools manually, creating smaller functions, and binding existing LLMs with tools.
+
+Key Points:
+- Pass arguments and tools manually in LLM
+- Create smaller functions with Langchain
+- Bind existing LLMs with tools in Langchain
+
+Student Doubts:
+- How to pass multiple tools directly as a list instead of passing them one by one?
+- Are there other ways to bind tools without creating smaller functions?
+
+---

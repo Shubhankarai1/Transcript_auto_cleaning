@@ -1,0 +1,25 @@
+Module: wdp
+Session: 2
+Topic: Introduction to Python Classes
+Chunk: 27
+
+Explanation:
+The lecture explains the concept of a Python class as a way to store data. The example provided creates a "Person" class to hold name (string) and age (integer) data, demonstrating how to create instances of the class, add data, and access data from each instance.
+
+Key Points:
+- Python classes are used to store data.
+- A Person class is created to hold name (string) and age (integer).
+- Instances of the class are created with specific data (e.g., Person(name='Smith', age=22)).
+- Data can be accessed within instances using dot notation (e.g., person.name, person.age).
+
+Student Doubts:
+1. How do I create a new class in Python?
+   - To create a new class in Python, use the keyword `class` followed by the name of the class and indent the following code block.
+
+2. What is an instance of a class in Python?
+   - An instance of a class in Python is an object that has data attributes and methods defined by the class. Instances are created using parentheses with optional arguments passed as values for each attribute.
+
+3. How do I access data within an instance of a class in Python?
+   - Data within an instance of a class can be accessed using dot notation, where the name of the attribute is followed by a dot and the name of the instance. For example: `instance_name.attribute_name`.
+
+---

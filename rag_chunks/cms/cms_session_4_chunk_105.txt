@@ -1,0 +1,21 @@
+Module: cms
+Session: 4
+Topic: Getting LLM ready and accessing Pine Cone Index
+Chunk: 105
+
+Explanation:
+The instructor is explaining how to get the LLM (Language Model) ready and access the Pine Cone index. The LLM is needed in many steps, and it should be passed as an argument in the code. The API key for Google generative AI and Pine Cone is required. The instructor also demonstrates how to access the Pine Cone index with the API key and shows the student how to replace the index name if it's different.
+
+Key Points:
+- Get LLM ready (passed as an argument in the code)
+- Use Google API key for generative AI and Pine Cone
+- Access Pine Cone index with the API key
+- Ensure the same model is used throughout
+
+Student Doubts:
+- How to know if the documents are confirmed?
+- Where to see the number of upserted records in Pine Cone?
+- How to load LLM?
+- Error with Google API key definition.
+
+---

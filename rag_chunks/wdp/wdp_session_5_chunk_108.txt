@@ -1,0 +1,18 @@
+Module: wdp
+Session: 5
+Topic: Understanding Pantic Output Type and Intake View
+Chunk: 108
+
+Explanation: The lecture discusses how to understand the output type (pantic) and the intake view in a conversational system. It explains that the output includes issue summary and priority, and the intake view is used for debugging purposes.
+
+Key Points:
+- Output type: Pantic
+- Output contents: Issue summary and priority
+- Intake view: A string or list used for debugging purposes
+
+Student Doubts:
+1. Can I just update the state and return the state instead of returning a dictionary? (Answer: No, because updating the state will not allow new things to be added)
+2. How do I get the issue summary from the output? (Answer: Output.issue_summary)
+3. What is the role of the intake node? (Answer: It provides a short summary and priority level)
+
+---

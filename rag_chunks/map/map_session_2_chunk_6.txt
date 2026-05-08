@@ -1,0 +1,20 @@
+Module: map
+Session: 2
+Topic: Work Life Balance and Health
+Chunk: 6
+
+Explanation: The discussion revolves around the importance of work life balance and maintaining health. The speaker expresses his views on work life balance and shares personal experiences regarding diet, exercise, and sleep. He also addresses student doubts related to chat history maintenance for different scenarios.
+
+Key Points:
+- Work life balance is important but not in a traditional sense (taking breaks when needed)
+- Maintaining a healthy diet, exercising, and ensuring enough sleep are essential
+- Chat history can be maintained based on tokens or the last five conversations depending on the scenario
+- For customer support chatbots, history should be minimal to encourage customers to ask again
+- Sales agents may require richer chat histories to understand user preference
+
+Student Doubts:
+- How much chat history is maintained and what are the limits?
+- Is previous chat history for sales agents also considered and maintained in rags?
+- Are there two separate rags for different types of conversations?
+
+---

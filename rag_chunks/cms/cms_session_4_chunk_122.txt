@@ -1,0 +1,20 @@
+Module: cms
+Session: 4
+Topic: Passing arguments to a Lambda function using Python and invoking it with runnable lambda
+Chunk: 122
+
+Explanation:
+The lecture explains how to pass arguments to a Lambda function in Python and invoke it using runnable lambda. The process involves defining the Lambda function, calling it using runnable lambda, passing arguments inside the function, and creating a chain for further calls.
+
+Key Points:
+1. Define Lambda function with function name.
+2. Inside the Lambda function, access arguments passed to it.
+3. Create a chain for further calls by calling the Lambda function within another function.
+4. Use runnable lambda to invoke the Lambda function.
+
+Student Doubts:
+1. What is the purpose of the prompt and answer variables?
+2. Why is the API key causing an error, and how can it be resolved?
+3. How do you change the default key when invoking the LLM function?
+
+---

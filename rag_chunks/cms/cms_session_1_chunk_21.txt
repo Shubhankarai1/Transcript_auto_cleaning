@@ -1,0 +1,17 @@
+Module: cms
+Session: 1
+Topic: Differences between manual and chain method in Langchain
+Chunk: 21
+
+Explanation: The lecture discusses the differences between manually building functions in Langchain and using the chaining method. The chaining method allows for easier tracking of tokens as they travel through the pipeline, due to Langchain's integration with Langsmith and other tools.
+
+Key Points:
+- Chaining method allows for token tracking in Langchain
+- Manual method requires more effort for error detection and troubleshooting
+- Langchain's integration with Langsmith and other tools enables better tracking of tokens
+
+Student Doubts:
+1. If an exception happens while chaining, will the same type of error be returned as in manual coding?
+2. Are there any potential issues with passing messages between different Python packages in Langchain?
+
+---

@@ -1,0 +1,20 @@
+Module: cms
+Session: 2
+Topic: Introduction to inbuilt str output parser in Langchain
+Chunk: 45
+
+Explanation: The lecture introduces the use of an inbuilt str output parser in Langchain. This parser is used for parsing strings that come out of `ln` and converts them into a proper string format.
+
+Key Points:
+- Using an inbuilt output parser in Langchain instead of writing custom functions to clean text
+- The str output parser is inbuilt within the chain itself
+- Definition of the parser and its usage
+- Invoking the chain using `Chain.invoke()` with user input as message
+- Injecting history into the messages placeholder for the LLM to answer human input using the history
+
+Student Doubts:
+- What will be the name of that message? (User_input)
+- Where will your history come? (After the human input, between system and human input)
+- How do you put it? (Using the messages placeholder and a variable called chat_history)
+
+---

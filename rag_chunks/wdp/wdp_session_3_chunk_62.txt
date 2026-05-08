@@ -1,0 +1,16 @@
+Module: wdp
+Session: 3
+Topic: Defining a Custom State in Langraph
+Chunk: 62
+
+Explanation: To define a custom state in Langraph, we import the `add_messages` function from the `messages` library and give it to Langraph to handle everything. We then define our own state before building the graph. A simple state can be defined, but complex states can be created depending on the situation.
+
+Key Points:
+- Import `add_messages` from `messages` library for handling custom states
+- Define a custom state before building the graph
+- A simple or complex state can be defined based on requirements
+
+Student Doubts:
+- None as the explanation is clear.
+
+---

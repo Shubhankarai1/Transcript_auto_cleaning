@@ -1,0 +1,19 @@
+Module: map
+Session: 2
+Topic: Invoking a Chain with Message History
+Chunk: 5
+
+Explanation: In this session, the instructor explains how to invoke a chain using message history. The student will need to wrap their base chain with `runnable_with_message_history` and pass their query as a dictionary instead of a string directly.
+
+Key Points:
+- Wrap the base chain with `runnable_with_message_history`.
+- Pass the query as a dictionary, not as a string.
+- Use `query` as the input message key and `history` as the history message key.
+
+Student Doubts:
+- What is the difference between passing a query as a dictionary and as a string?
+- How to check if the history is being maintained correctly?
+
+The instructor explains that by passing the query as a dictionary, they can maintain history more effectively since the input message key is `query`. To test if the history is being maintained, students should try running their code and checking their history. The instructor suggests they have enough time to run through this part multiple times if needed.
+
+---

@@ -1,0 +1,20 @@
+Module: map
+Session: 2
+Topic: Modifying Code for Financial Chatbot Retrieval
+Chunk: 10
+
+Explanation: The lecture explains how to modify a given code for a financial chatbot retrieval function, which generates multiple queries and then retrieves relevant documents based on those queries.
+
+Key Points:
+- Generate multiple queries using the `generate_multi_queries` function
+- Modify step number three of the retrieval process
+- Change step number four to a new retrieval process
+
+Student Doubts:
+- How many variations of a query are needed?
+- What is the next change that needs to be made after generating multiple queries?
+- Which step needs to be changed for accommodating multiple queries?
+- Where do I have to make the next change in the code?
+- When changing step number three and four, what should be the new code?
+
+---

@@ -1,0 +1,24 @@
+Module: cms
+Session: 2
+Topic: Retrieval Augmented Generation (RAG)
+Chunk: 65
+
+Explanation: The process of providing context to a language model (LLM) to ensure it provides answers from relevant data sources, also known as grounding.
+
+Key Points:
+- Providing context improves the accuracy and relevance of answers
+- LLMs need to be provided with augmented information for better performance
+- Retrieval of relevant information is necessary before passing it to the LLM
+- The process of retrieving and integrating relevant information is called Retrieval Augmented Generation (RAG)
+
+Student Doubts:
+- Why provide context ourselves when the LLM can guess?
+- Can't we give entire data sources to the LLM?
+- What is the purpose of augmentation in the process?
+
+Answer:
+- Providing context helps ensure that answers come from our specific data sources instead of general guesses by the LLM.
+- We cannot give entire data sources to the LLM because it would be too much information, so we pull out relevant information for better performance.
+- Augmentation refers to the part where relevant information is plugged into the prompt along with historical conversations and the current human message, enhancing the performance of the LLM.
+
+---

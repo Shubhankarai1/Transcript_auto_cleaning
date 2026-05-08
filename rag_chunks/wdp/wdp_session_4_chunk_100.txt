@@ -1,0 +1,20 @@
+Module: wdp
+Session: 4
+Topic: Explanation of Using AI for Data Analysis
+Chunk: 100
+
+Explanation: The speaker explains how they use an AI tool (ChatGPT, presumably) to assist in data analysis tasks. They describe how they initially uploaded their knowledge articles and data files but found that the latter took too long to process. So they started summarizing their data files within the test session, uploading only the summarized versions when needed. They also discussed creating prompts for AI to perform specific tasks and aggregating data outside before uploading it.
+
+Key Points:
+- Uploading knowledge articles and summarized data files to an AI tool for analysis
+- Using specific prompts to guide the AI's analysis
+- Aggregating data outside before uploading it for quicker processing
+
+Student Doubts:
+1. What exactly was uploaded from the past conversations with charge (3:17:19)?
+2. How were the knowledge articles structured, and what did they include?
+3. Can you elaborate on breaking down complex prompts to avoid timeouts?
+4. What specific AI tool was used for data analysis, and how is it leveraged to build prompts (3:20:29)?
+5. How were the summaries created from the data files, and what tools or methods were used for this process?
+
+---

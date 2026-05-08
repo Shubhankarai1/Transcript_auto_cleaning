@@ -1,0 +1,18 @@
+Module: cms
+Session: 2
+Topic: Data Analysis and Databases
+Chunk: 47
+
+Explanation: The lecture is about data analysis and databases. The teacher introduces a concept of using chat history as an example for data analysis. He then asks the students to append user text to the conversation history within a workflow.
+
+Key Points:
+- Data analysis and databases
+- Using chat history for data analysis
+- Appending user text to conversation history
+
+Student Doubts:
+- The student is facing an issue with importing API key in OpenAI. He needs help to fix the error.
+- The student has accidentally shared his V keys with others and now his account is blocked. He wants to know how to resolve this issue.
+- The student needs clarification on using Google Studio's Gemini for creating a key and its usage limits.
+
+---

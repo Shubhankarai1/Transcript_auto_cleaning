@@ -1,0 +1,28 @@
+Module: wdp
+Session: 1
+Topic: Introduction to AI Agents and Langraph
+Chunk: 2
+
+Explanation:
+AI agents are systems designed to perform tasks autonomously. The simplest example of an AI agent is a chatbot that checks the relevance of questions to a company's product or services before answering them, using Q&A APIs if necessary.
+
+Key Points:
+- Simple AI agent checks question relevance before answering
+- If relevant, sends question to Q&A API and displays answer to user
+- Moving from simple API-based Q&A to intelligent-based Q&A
+- Two ways of handling intelligence-based Q&A: autonomous AI or Langraph
+- Autonomous AI (like crew AI) requires no manual control but is not perfect
+- Langraph offers full control over the flow of logic and decision making, differentiating it from other frameworks
+- Langraph example: implementing a male sorting butler using email sorting
+- Decision making represented using a flowchart or graph
+- Langraph processes intelligence, providing full control over the flow of decision making
+- A graph is a collection of nodes and edges, each node representing a state of the system
+
+Student Doubts:
+1. Can you explain more about how Langraph offers full control over decision making?
+2. How can we implement complex real-life examples using Langraph?
+3. What are the complications of graphs that we will get into in the future?
+4. Can you clarify what is meant by "ham" in the email sorting example?
+5. Are there any limitations to implementing AI agents using Langraph?
+
+---

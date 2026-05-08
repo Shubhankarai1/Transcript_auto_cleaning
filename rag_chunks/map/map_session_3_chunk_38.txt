@@ -1,0 +1,21 @@
+Module: map
+Session: 3
+Topic: Tool Calling in LLM
+Chunk: 38
+
+Explanation: The lecturer explains the importance of tool calling in LLMs as it allows an LLM to call multiple tools in various orders and permutations, making it an "agent". He also mentions the basic steps for tool calling: getting the query from the user, passing it as a human message, checking if tool calls were done, and invoking the LM again.
+
+Key Points:
+- Tool calling is essential in LLMs
+- An LLM with tool calling becomes an "agent"
+- The LLM can call multiple tools in specific orders
+- Check if tool calls were done before invoking the LM again
+
+Student Doubts:
+1. What happens after the last part about query input? (Answer: Understanding will follow as the connection between all parts will be clear)
+2. Where is LLM with tools defined? (Answer: It's not specified in the transcript, but it needs to use LM only)
+3. How to check if message tool calls? (Answer: Compare the output with AI message; append messages back and invoke the LM again)
+4. Why are no tool calls detected? (Answer: Check if you're asking questions that require tool calls)
+5. What should be checked when facing issues with tool calls? (Answer: Check if NLMs are bound correctly, if functions using lm as a tool decorator are made properly)
+
+---

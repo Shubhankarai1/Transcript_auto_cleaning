@@ -1,0 +1,18 @@
+Module: wdp
+Session: 2
+Topic: Tool Calling with Pyantic
+Chunk: 25
+
+Explanation: The lecture explains how to use Pyantic for improving tool calling and understanding language better. It covers the installation process of Pyantic, langchain, and Langchain OpenAI, and demonstrates its usage in a step-by-step manner.
+
+Key Points:
+- Tool Calling is important for understanding language.
+- Pyantic is like a police inspector that checks if the input and output formats are correct.
+- The lecture covers installation of Pyantic, Langchain, and Langchain OpenAI.
+- Importing essential things is necessary before using Pyantic.
+
+Student Doubts:
+- Was tool calling covered in the LANgraph session?
+- What does "granted access" mean during the installation process?
+
+---

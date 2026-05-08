@@ -1,0 +1,23 @@
+Module: cms
+Session: 2
+Topic: Real-time System Data Ingestion and Pipeline Creation
+Chunk: 68
+
+Explanation: The lecture discusses the process of ingesting data in a real-time system and creating separate pipelines for injection and querying. It also mentions the importance of pre-filtering and post-filtering, and the dynamic nature of data injection.
+
+Key Points:
+- Data Ingestion (Injection) is an essential part of a real-time system
+- Chunking strategies are hierarchal, sequential, and multiple
+- Injection can be manual or dynamic
+- Querying is a separate piece of code
+- A separate pipeline should be created for data update and management
+- Deployment framework for the pipeline should also be separate
+- Two distinct entities for handling injection and querying
+- Creating an account on Pinecone and having API keys is necessary for further sessions
+
+Student Doubts:
+- The need for agents or pipelines in handling data
+- Whether LLM (Large Language Model) is needed for the injection part
+- The role of Pinecone in the process
+
+---

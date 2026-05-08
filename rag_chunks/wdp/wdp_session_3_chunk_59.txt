@@ -1,0 +1,22 @@
+Module: wdp
+Session: 3
+Topic: Creating Conditional Connections in a Graph between LLM and Tools
+Chunk: 59
+
+Explanation:
+The lecture explains how to create a graph with nodes for LLM (Language Model) and tools. The graph automatically creates connections between the LLM node and tool nodes based on conditions specified in the tool's condition function. This function contains if-else logic that determines which tool to call when the LLM provides the tool's name.
+
+Key Points:
+1. Tool nodes have a condition function for determining which tool to call when the LLM provides its name.
+2. The condition function acts as a wrapper and performs all if-else checks internally.
+3. When invoking the graph, you can pass any data inside the state, such as a list of human messages or a dictionary containing specific information.
+4. The entire state is always returned when the graph is invoked.
+5. It's essential to understand the flow and how the graph processes requests before building it on your own.
+
+Student Doubts:
+1. What does "tools conditions" mean? (Answer: A function in a tool node that contains if-else logic for determining which tool to call when the LLM provides its name.)
+2. Can a tool have multiple functions? (Answer: Yes, a tool node can have multiple functions.)
+3. How to attach different sets of tools for different nodes? (Answer: This will be shown later in the lecture.)
+4. What is "tools condition"? (Answer: A function in a tool node that determines which tool to call when the LLM provides its name.)
+
+---

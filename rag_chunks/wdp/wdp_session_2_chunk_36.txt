@@ -1,0 +1,20 @@
+Module: wdp
+Session: 2
+Topic: Integrating Tool with LLM and Pyantic
+Chunk: 36
+
+Explanation:
+The lecture discusses integrating a tool with the Language Model (LLM) and the Pyantic library for extracting specific details like city weather. The tool is bound with Pyantic, which allows it to understand the context and only returns valid results.
+
+Key Points:
+- Integrate tool with function
+- Bind LLM with tool
+- LLM extracts city from input schema
+- Tool bound with Pyantic enforces specific cities
+
+Student Doubts:
+- Explanation of using the tool calling
+- Understanding how arguments are used to get information using Pyantic class
+- Clarification on why the tool is bound with Pyantic instead of binding LLM with Pyantic again.
+
+---

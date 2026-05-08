@@ -1,0 +1,22 @@
+Module: wdp
+Session: 5
+Topic: Creating a Workflow for an Agent
+Chunk: 112
+
+Explanation: The lecture explains the process of creating a workflow for a third agent in a multi-agent system. The student is guided to test their code, build the workflow, and run it to get results.
+
+Key Points:
+- Test one by one
+- Build the workflow (Intake node, Writer node, Reviewer node, End)
+- Run the graph to get results
+- Handoff pattern is used for passing work from one agent to another
+- Final output can be viewed after reviewing and compiling the graph
+
+Student Doubts:
+- Can important functions be written in notes? (Answer: Yes)
+- What should be the first step in building a state graph? (Answer: State graph)
+- Which node to add first in the builder? (Answer: Intake node)
+- What nodes to add next after the intake node? (Answer: Writer node, Reviewer node, Viewer node)
+- How to run the created graph? (Answer: Pass all the things of state to run it)
+
+---

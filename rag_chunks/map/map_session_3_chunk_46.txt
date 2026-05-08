@@ -1,0 +1,25 @@
+Module: map
+Session: 3
+Topic: Understanding RAG and its usage in LLM
+Chunk: 46
+
+Explanation:
+RAG (Retrieval-Augmented Generation) is a method used to minimize hallucinations in Large Language Models (LLMs). By explicitly telling the LLM to only answer if the answer is present inside the retrieved data, it reduces the chances of generating false information.
+
+Key Points:
+1. RAG minimizes hallucinations in LLMs by using the method of retrieval-augmented generation.
+2. The user tells LLM to use answers present only within the retrieved data.
+3. If an answer is not found within the data, the LLM will state that it's unsure or cannot answer.
+4. Using RAG ensures that the LLM uses only company-provided data, not internet data.
+5. The user must instruct the LLM to be grounded and use only information from the provided documents.
+6. A project on implementing RAG can be undertaken for better understanding.
+7. If there's an error, it could be due to a missing step in converting the function into a tool.
+8. To debug, the user should check which part of the code is causing the issue and fix it accordingly.
+
+Student Doubts:
+1. Did we learn about hallucination avoidance or not? (Answer: No)
+2. What steps are needed to convert a function into a tool?
+3. Will you cover multi-layer decorator platform patterns? (Answer: Not required)
+4. Is the LLM printing correctly? (Answer: Yes)
+5. What part of the code is causing the issue? (Answer: User should check and find out)
+6. Is there a missing step in the code? (Answer: Possibly, as there was an error)

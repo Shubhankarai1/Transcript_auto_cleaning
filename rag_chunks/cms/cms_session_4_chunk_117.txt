@@ -1,0 +1,20 @@
+Module: cms
+Session: 4
+Topic: Executing Prompt Template and Chunking Process
+Chunk: 117
+
+Explanation:
+The lecture explains how to execute a prompt template and the process of chunking in a machine learning model. The speaker discusses passing sources and queries to the prompt template function, checking the output for accuracy, and using a truth set for comparison.
+
+Key Points:
+- Pass sources and queries to the prompt template function
+- Check the output for accuracy
+- Use a truth set for comparison
+- Chunking process is iterative and requires multiple tries for enhancement
+
+Student Doubts:
+- What should be looked at specifically in the output of the prompt template code?
+- How do we know if chunking has happened properly?
+- Where will the output be sent to (LLM or LM)?
+
+---

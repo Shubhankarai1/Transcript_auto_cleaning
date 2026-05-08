@@ -1,0 +1,17 @@
+Module: cms
+Session: 3
+Topic: Creating Dictionary from Chunks of Data Files
+Chunk: 90
+
+Explanation: In this session, we are learning to create a dictionary from chunks of data files for further processing. We will be using a simple chunker to break down each file into smaller chunks, then create a dictionary for each chunk.
+
+Key Points:
+ - Create an empty list of documents (docs)
+ - Iterate over the chunks and append the ID and text from each chunk to their respective positions in the docs list
+ - After creating the dictionary, you can add embeddings for each chunk as the next step
+
+Student Doubts:
+ - The student is having trouble with understanding why we need to give the file name as ID for each document and how to do it.
+ - The student wants to know about the chunk size selection process and its subjectivity based on the application.
+
+---

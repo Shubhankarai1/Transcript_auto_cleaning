@@ -1,0 +1,22 @@
+Module: cms
+Session: 4
+Topic: Converting Query into Vector
+Chunk: 107
+
+Explanation: The lecture discusses converting a user query into a vector using a pre-trained model. It then explains how to find the closest matching vectors and display the results in an organized format.
+
+Key Points:
+1. Convert user query into a vector
+2. Find closest matching vectors
+3. Display results in an organized format
+
+Student Doubts:
+1. Is it necessary to upsert as well in the index? (Answer: No)
+2. How do we do it? (Answer: Model encode, model query text tool list)
+3. What next after getting the response? (Answer: Capture all results in one place)
+4. How many results are there? (Answer: Length of response)
+5. Why is converting to list not working? (Answer: It's a query response type of vector)
+6. What is the ID in the matches? (Answer: Document ID made in the last session)
+7. Is it necessary to give the query text as a list to the model? (Answer: Not specified, but using list for results might be helpful)
+
+---
