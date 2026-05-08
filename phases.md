@@ -1,27 +1,52 @@
-# Project Phases: Course RAG System
+# Project Phases: Current Build Vs Pending Work
 
-This file tracks what is already built and what is still pending for the current RAG app. The original Aegis example used corporate policy documents, but this project uses course/transcript data, so policy-specific fields are intentionally ignored.
+This file reflects the current state of the transcript/course RAG system against the checklist in `project_instructions.md`. It replaces the older stale version that repeated outdated status.
 
-## Phase 1: Ingestion And Chunking
+## Phase 0: Transcript Cleaning Pipeline
 
-### Done
+### Built
 
-- Raw course transcripts are stored module-wise under `input/`.
-- Cleaned and structured chunk files are generated under `rag_chunks/`.
-- Chunks are organized by module and session.
+- Transcript inputs are organized under `input/<module>/session_<n>.txt`.
+- `main.py` processes transcripts module-by-module and session-by-session.
+- Raw transcript chunks are saved under `chunks/<module>/`.
+- Cleaned session outputs are cached under `output/sessions/<module>/`.
+- Final merged module outputs are written under `output/` as `*_final_cleaned.txt`.
+- Session-level cache/hash reuse is implemented, so unchanged transcript sessions are skipped on rerun.
 
 ### Pending
 
-- Add Markdown/header-aware chunking where applicable.
-- Add token-based chunk sizing instead of only file/text based chunking.
+- Add explicit validation/reporting for malformed transcript inputs before processing.
+- Add automated checks for cleaning quality regressions.
+- Add a clearer operator-facing processing summary per run.
+
+## Phase 1: Ingestion Engine And Chunking
+
+### Built
+
+- Cleaned module outputs are re-chunked into RAG-ready files under `rag_chunks/<module>/`.
+- Chunking is structure-aware at the transcript level:
+  - split by `### Session <n>`
+  - split by `### Topic: ...`
+  - then split large topic bodies by paragraph groups
+- Chunk files store lightweight headers:
+  - module
+  - session
+  - topic
+  - chunk number
+
+### Pending
+
+- Add markdown-header-aware chunking beyond the current session/topic patterns.
+- Add token-aware chunk sizing instead of only word/paragraph heuristics.
 - Add 10-15% overlap between sequential chunks.
-- Add stronger table/list preservation if future source data contains tables or structured blocks.
+- Add preservation rules for tables, lists, or other structured blocks if future source material contains them.
+- Add a rerunnable chunk manifest so only changed RAG chunks need regeneration.
 
-## Phase 2: Metadata Extraction
+## Phase 2: Metadata Extraction And Tagging
 
-### Done
+### Built
 
-- Metadata extraction exists in `upload_to_pinecone.py`.
+- `upload_to_pinecone.py` extracts semantic metadata for each chunk using OpenAI.
 - Current metadata includes:
   - `document_id`
   - `module`
@@ -32,132 +57,160 @@ This file tracks what is already built and what is still pending for the current
   - `keywords`
   - `source_type`
   - `difficulty`
-- Chunk text is stored in Pinecone metadata for retrieval and source display.
+- Metadata normalization exists for:
+  - keyword cleanup/deduplication
+  - fallback keyword generation
+  - difficulty normalization
 
 ### Pending
 
-- Add richer course-specific metadata if needed:
-  - course/topic group
-  - concept name
+- Add richer course-specific metadata if it becomes available:
   - session title
-  - instructor/session date if available
-  - prerequisite concept
-- Add metadata validation before upload.
-- Add a way to reprocess only changed chunks.
+  - concept name
+  - instructor
+  - date/version
+  - prerequisite or related concept
+- Add stricter metadata validation and failure reporting before upload.
+- Add partial reprocessing so only changed chunks are re-embedded and re-uploaded.
 
-## Phase 3: Embedding And Vector Store
+## Phase 3: Embeddings And Vector Store
 
-### Done
+### Built
 
-- OpenAI embeddings are used.
-- Pinecone is used as the vector database.
+- OpenAI embeddings are used for both ingestion and retrieval.
+- Pinecone is the active vector store.
 - Batch upsert to Pinecone is implemented.
-- Metadata is uploaded with each vector.
+- Chunk text is stored in metadata for downstream answer generation and source display.
+- Upload logging shows progress across batches and final index stats.
 
 ### Pending
 
-- Consider upgrading from `text-embedding-3-small` to `text-embedding-3-large` for better retrieval quality.
-- Make Pinecone index name configurable everywhere.
-- Add upload logs/report showing how many chunks were inserted per module/session.
+- Unify Pinecone index configuration across the codebase.
+  - `upload_to_pinecone.py` uses `PINECONE_INDEX_NAME`
+  - `api.py` still hardcodes `iitm-modules-rag`
+- Evaluate whether to move from `text-embedding-3-small` to `text-embedding-3-large`.
+- Add safer idempotent sync behavior for updates/deletes in Pinecone.
 
-## Phase 4: Basic Retrieval
+## Phase 4: Retrieval Baseline
 
-### Done
+### Built
 
-- FastAPI backend retrieves chunks from Pinecone.
-- Current backend retrieves top 25 candidates and passes final top 5 chunks.
-- Sources are returned with answer.
-- Global and filtered retrieval modes exist.
+- FastAPI backend is live in `api.py`.
+- The API supports:
+  - global retrieval
+  - filtered retrieval by module and session
+- Retrieval currently:
+  - embeds multiple search queries
+  - queries Pinecone with `top_k = 25`
+  - pools results
+  - deduplicates matches
+  - keeps final top 5 matches for answer generation
+- Source payloads include:
+  - citation
+  - module
+  - session
+  - chunk
+  - score
+  - matched query
 
 ### Pending
 
-- Add better debug logging for retrieved context during testing.
-- Add score visibility only inside debug/source UI.
-- Add automated test questions for retrieval quality.
+- Add stronger retrieval diagnostics for offline evaluation.
+- Add thresholding or weak-match handling before answering.
+- Add automated retrieval-quality checks using fixed benchmark questions.
 
 ## Phase 5: Query Transformation
 
-### Done
+### Built
 
-- A basic query rewrite step exists in `api.py`.
-- Multi-query expansion exists in `query_rag.py`, but it is not yet part of the live API path.
+- Query rewriting is live in `api.py`.
+- Multi-query expansion is live in `api.py`.
+- HyDE generation is live in `api.py`.
+- Retrieval searches across:
+  - original question
+  - rewritten query
+  - HyDE query
+  - alternate expanded queries
+- Query variants are normalized and deduplicated before retrieval.
 
 ### Pending
 
-- Move multi-query expansion into `api.py`.
-- Generate 3-4 alternate query versions.
-- Retrieve for each query variant.
-- Pool and deduplicate results across all query variants.
-- Add HyDE retrieval for vague questions.
+- Tune expansion quality and guard against low-value alternate queries.
+- Measure retrieval lift from each query strategy separately.
+- Add fallback behavior when rewrite/HyDE outputs are poor but retrieval should still proceed cleanly.
 
 ## Phase 6: Metadata Filtering
 
-### Done
+### Built
 
-- Query-based lightweight filter detection exists in `retrieval_utils.py`.
-- Filters currently support module/session/topic-style hints.
-- UI supports filtered mode by module and session.
+- Lightweight query-based filter detection exists in `retrieval_utils.py`.
+- Filter hints currently support:
+  - module hints
+  - session/week hints
+  - a few topic-specific keyword mappings
+- Explicit UI filters and auto-detected query filters are merged together.
 
 ### Pending
 
-- Improve intent detection for course concepts.
-- Add concept/topic pre-filtering where metadata is reliable.
-- Avoid over-filtering when the user asks broad questions.
-- Add fallback to global search when filtered search finds weak/no results.
+- Improve concept/topic intent detection beyond keyword rules.
+- Add more reliable topic-level pre-filtering once metadata quality is proven.
+- Add fallback from filtered retrieval to broader retrieval when filters are too restrictive.
+- Add smarter version/date-aware post-filtering if the content base grows.
 
 ## Phase 7: Reranking
 
-### Done
+### Built
 
-- Broad retrieval top-k is already configured.
-- Reranking concepts exist in the project notes and previous work, but reranking is not active in the current API.
+- Broad candidate retrieval already fetches 25 matches before final selection.
 
 ### Pending
 
-- Add a reranker after Pinecone retrieval.
-- Retrieve top 25 candidates.
-- Rerank against the original user question.
-- Pass only top 5 reranked chunks to the final answer model.
-- Compare results with and without reranking using fixed test questions.
+- Add an actual reranker after Pinecone retrieval.
+- Score candidate chunks against the original user query using a cross-encoder or rerank API.
+- Reorder pooled retrieval results using rerank scores instead of raw vector similarity alone.
+- Compare answer quality before and after reranking on fixed test questions.
 
 ## Phase 8: Answer Generation
 
-### Done
+### Built
 
-- The backend generates answers using retrieved context.
-- The current answer prompt is teaching-style and detailed.
-- Sources are returned separately from the answer.
+- The backend answers questions using retrieved context plus an instructor-style prompt.
+- The API returns the answer with structured source metadata.
+- The prompt encourages:
+  - detailed teaching-style explanations
+  - synthesis across chunks
+  - use of partial context instead of immediate refusal
 
 ### Pending
 
-- Add citation consistency rules.
-- Add handling for partial context without over-refusing.
-- Add answer quality tests for common questions like:
-  - what is LangChain
-  - what is reranking
-  - explain Pinecone retrieval
-  - what is LangGraph
+- Enforce citation behavior in the final answer text instead of only returning sources separately.
+- Add explicit hallucination-control rules for unsupported claims.
+- Add evaluation for answer quality on representative course questions.
+- Add better fallback language than the current generic `Not in module.` response.
 
 ## Phase 9: Frontend UX
 
-### Done
+### Built
 
-- Streamlit chat interface exists.
-- Answer is displayed first.
-- Sources/debug info are hidden inside a closed expander.
-- Raw backend JSON is no longer dumped directly in the chat.
+- Streamlit chat UI exists in `app.py`.
+- Users can switch between:
+  - all-content mode
+  - module+session filtered mode
+- Module and session options are loaded from the API.
+- Chat history is maintained per scope.
+- Answers and source summaries are rendered in the chat UI.
 
 ### Pending
 
-- Improve source formatting inside the expander.
-- Show source citation, module, session, chunk, and score cleanly.
-- Optionally add a short source preview per retrieved chunk.
+- Move source/debug details back into a cleaner collapsed UI instead of appending them directly to the answer.
+- Improve source formatting with score and short previews where useful.
+- Add clearer retrieval/debug view for evaluation without cluttering the normal chat experience.
+- Remove stale UI text and dead code paths in the Streamlit app.
 
 ## Recommended Next Order
 
-1. Add multi-query expansion to the live `api.py` path.
-2. Add result pooling and deduplication.
-3. Add reranking.
-4. Improve course-specific metadata.
-5. Improve chunking with overlap and better structure preservation.
-6. Add test questions and compare retrieval quality after each change.
+1. Implement reranking.
+2. Add filtered-to-global fallback when retrieval is weak.
+3. Improve chunking with overlap and better structural preservation.
+4. Unify Pinecone/index/model configuration across ingestion and API code.
+5. Add retrieval and answer evaluation using fixed benchmark questions.

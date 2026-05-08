@@ -6,8 +6,7 @@ import requests
 import streamlit as st
 
 
-BASE_URL = "https://iitm-curriculem-intelligence-layer.onrender.com"
-API_BASE_URL = BASE_URL
+API_BASE_URL = "https://iitm-curriculem-intelligence-layer.onrender.com"
 REQUEST_TIMEOUT = 60
 MAX_HISTORY_MESSAGES = 10
 PAGE_TITLE = "IITM Curriculum – AI Mentor (Prototype)"
@@ -73,32 +72,18 @@ def send_chat_request(payload: dict[str, Any]) -> dict[str, Any]:
         json=payload,
         timeout=REQUEST_TIMEOUT,
     )
-
-    try:
-        data = response.json()
-    except ValueError as exc:
-        response.raise_for_status()
-        raise ValueError("The API response was not valid JSON.") from exc
-
     response.raise_for_status()
 
+    data = response.json()
     if isinstance(data, dict):
         answer = data.get("answer") or data.get("response") or data.get("message")
         if isinstance(answer, str) and answer.strip():
             sources = data.get("sources", [])
             if not isinstance(sources, list):
                 sources = []
-            retrieval_queries = data.get("retrieval_queries", [])
-            if not isinstance(retrieval_queries, list):
-                retrieval_queries = []
-            hyde_query = data.get("hyde_query")
-            if not isinstance(hyde_query, str):
-                hyde_query = ""
             return {
                 "answer": answer,
                 "sources": sources,
-                "retrieval_queries": retrieval_queries,
-                "hyde_query": hyde_query,
             }
 
     raise ValueError("The API response did not include an answer field.")
@@ -114,42 +99,10 @@ def format_sources_markdown(sources: list[dict[str, Any]]) -> str:
         module = source.get("module") or "unknown"
         session = source.get("session")
         chunk = source.get("chunk")
-        score = source.get("score")
-        matched_query = source.get("matched_query")
-        text = str(source.get("text") or "").strip()
-        preview = " ".join(text.split())[:450]
-
-        score_label = f"{float(score):.4f}" if isinstance(score, (int, float)) else "n/a"
         lines.append(
-            f"### `{citation}`\n"
-            f"- Module: `{module}`\n"
-            f"- Session: `{session}`\n"
-            f"- Chunk: `{chunk}`\n"
-            f"- Score: `{score_label}`"
+            f"- `{citation}` | module `{module}` | session `{session}` | chunk `{chunk}`"
         )
-        if matched_query:
-            lines.append(f"- Matched query: {matched_query}")
-        if preview:
-            lines.append(f"- Preview: {preview}{'...' if len(text) > 450 else ''}")
     return "\n".join(lines)
-
-
-def format_retrieval_queries_markdown(retrieval_queries: list[Any]) -> str:
-    queries = [str(query).strip() for query in retrieval_queries if str(query).strip()]
-    if not queries:
-        return ""
-
-    lines = ["Retrieval queries used:"]
-    for index, query in enumerate(queries, start=1):
-        lines.append(f"{index}. {query}")
-    return "\n".join(lines)
-
-
-def format_hyde_markdown(hyde_query: str) -> str:
-    hyde_query = hyde_query.strip()
-    if not hyde_query:
-        return ""
-    return f"HyDE query used:\n\n> {hyde_query}"
 
 
 def trim_chat_history(chat_history: list[dict[str, str]]) -> list[dict[str, str]]:
@@ -351,14 +304,12 @@ def build_payload(
     if mode == "global":
         return {
             "question": question,
-            "query": question,
             "mode": "global",
             "chat_history": chat_history,
         }
 
     return {
         "question": question,
-        "query": question,
         "mode": "filtered",
         "module": module,
         "session": session,
@@ -442,35 +393,12 @@ def main() -> None:
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
                 response_data = send_chat_request(payload)
-                answer = response_data.get("answer", "")
-                sources = response_data.get("sources", [])
-                retrieval_queries = response_data.get("retrieval_queries", [])
-                hyde_query = response_data.get("hyde_query", "")
+                answer = response_data["answer"]
+                sources_markdown = format_sources_markdown(response_data["sources"])
                 rendered_answer = answer
-                st.markdown(answer)
-                if sources or retrieval_queries or hyde_query:
-                    with st.expander("Sources & Debug Info", expanded=False):
-                        hyde_markdown = format_hyde_markdown(hyde_query)
-                        if hyde_markdown:
-                            st.markdown(hyde_markdown)
-                            st.divider()
-                        retrieval_queries_markdown = format_retrieval_queries_markdown(
-                            retrieval_queries
-                        )
-                        if retrieval_queries_markdown:
-                            st.markdown(retrieval_queries_markdown)
-                            st.divider()
-                        sources_markdown = format_sources_markdown(sources)
-                        if sources_markdown:
-                            st.markdown(sources_markdown)
-                            st.divider()
-                        st.json(
-                            {
-                                "hyde_query": hyde_query,
-                                "retrieval_queries": retrieval_queries,
-                                "sources": sources,
-                            }
-                        )
+                if sources_markdown:
+                    rendered_answer = f"{answer}\n\n{sources_markdown}"
+                st.markdown(rendered_answer)
                 st.write("")
     except requests.RequestException as exc:
         error_message = f"Request failed: {exc}"
