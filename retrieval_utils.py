@@ -6,15 +6,34 @@ from typing import Any
 
 
 TOPIC_FILTER_HINTS: dict[str, dict[str, Any]] = {
-    "multi-query": {"module": "map", "topic": "Multi-Query Expansion"},
-    "multi query": {"module": "map", "topic": "Multi-Query Expansion"},
-    "mqe": {"module": "map", "topic": "Multi-Query Expansion"},
-    "cross encoder": {"module": "map"},
+    "multi-query": {"module": "map", "topic_header": "Multi-Query Expansion"},
+    "multi query": {"module": "map", "topic_header": "Multi-Query Expansion"},
+    "mqe": {"module": "map", "topic_header": "Multi-Query Expansion"},
+    "cross encoder": {"module": "map", "topic_header": "Explanation of Cross Encoder in Retrieval and Reranking"},
     "rerank": {"module": "map"},
     "reranking": {"module": "map"},
     "langflow": {"module": "wdp"},
     "langgraph": {"module": "wdp"},
     "pinecone": {"module": "cms"},
+    "history maintenance": {"module": "cms", "concept_name": "Building a Chatbot with History Maintenance"},
+    "chat history": {"module": "cms"},
+    "tool calling": {"module": "wdp"},
+    "multi-agent": {"module": "wdp"},
+    "multi agent": {"module": "wdp"},
+}
+INSTRUCTOR_HINTS: dict[str, str] = {
+    "samil bub": "Samil Bub",
+}
+CONTENT_TYPE_HINTS: dict[str, dict[str, Any]] = {
+    "student doubts": {"content_type": {"$in": ["student_doubts", "mixed"]}},
+    "student doubt": {"content_type": {"$in": ["student_doubts", "mixed"]}},
+    "doubts asked": {"content_type": {"$in": ["student_doubts", "mixed"]}},
+    "questions asked": {"content_type": {"$in": ["student_doubts", "mixed"]}},
+    "key points": {"content_type": {"$in": ["key_points", "mixed"]}},
+    "main points": {"content_type": {"$in": ["key_points", "mixed"]}},
+    "summary points": {"content_type": {"$in": ["key_points", "mixed"]}},
+    "explain": {"content_type": {"$in": ["explanation", "mixed"]}},
+    "explanation": {"content_type": {"$in": ["explanation", "mixed"]}},
 }
 
 NAMED_MODULE_PATTERN = re.compile(r"\bmodule\s+(cms|map|wdp)\b", re.IGNORECASE)
@@ -51,6 +70,17 @@ def detect_filters(query: str) -> dict[str, Any] | None:
     session_match = SESSION_PATTERN.search(normalized_query)
     if session_match:
         filters["session"] = int(session_match.group(1))
+
+    for instructor_keyword, instructor_name in INSTRUCTOR_HINTS.items():
+        if instructor_keyword in normalized_query:
+            filters.setdefault("instructor", instructor_name)
+            break
+
+    for phrase, content_filters in CONTENT_TYPE_HINTS.items():
+        if phrase in normalized_query:
+            for key, value in content_filters.items():
+                filters.setdefault(key, value)
+            break
 
     for keyword, keyword_filters in TOPIC_FILTER_HINTS.items():
         if keyword in normalized_query:
