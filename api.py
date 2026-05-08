@@ -302,6 +302,76 @@ def deduplicate_matches(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return list(best_by_key.values())
 
 
+def _metadata_matches_filter_value(metadata_value: Any, filter_value: Any) -> bool:
+    if isinstance(filter_value, dict):
+        allowed_values = filter_value.get("$in")
+        if isinstance(allowed_values, list):
+            return metadata_value in allowed_values
+        return False
+    return metadata_value == filter_value
+
+
+def _match_strength(match: dict[str, Any], filters: Optional[dict[str, Any]]) -> int:
+    if not filters:
+        return 0
+
+    metadata = match.get("metadata", {})
+    strength = 0
+    for key, filter_value in filters.items():
+        if _metadata_matches_filter_value(metadata.get(key), filter_value):
+            strength += 1
+    return strength
+
+
+def post_filter_matches(
+    matches: list[dict[str, Any]],
+    filters: Optional[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """
+    Refine the retrieved pool using metadata after broad retrieval.
+
+    This is intentionally conservative: keep exact metadata matches when enough
+    exist, otherwise preserve the broader semantic pool to avoid recall collapse.
+    """
+    if not matches or not filters:
+        return matches
+
+    ranked_with_strength = [
+        (match, _match_strength(match, filters))
+        for match in matches
+    ]
+    max_strength = max((strength for _, strength in ranked_with_strength), default=0)
+    if max_strength <= 0:
+        return matches
+
+    strongest_matches = [match for match, strength in ranked_with_strength if strength == max_strength]
+    if len(strongest_matches) >= FINAL_TOP_K:
+        logging.info(
+            "Post-filtering retained %d strongest matches at metadata strength %d",
+            len(strongest_matches),
+            max_strength,
+        )
+        return strongest_matches
+
+    near_strongest_matches = [
+        match
+        for match, strength in ranked_with_strength
+        if strength >= max_strength - 1
+    ]
+    if len(near_strongest_matches) >= FINAL_TOP_K:
+        logging.info(
+            "Post-filtering retained %d near-strongest matches at metadata strength >= %d",
+            len(near_strongest_matches),
+            max_strength - 1,
+        )
+        return near_strongest_matches
+
+    logging.info(
+        "Post-filtering left too few matches after metadata pruning; keeping broader pool"
+    )
+    return matches
+
+
 def retrieve_context_for_filter(
     original_query: str,
     search_queries: list[str],
@@ -333,12 +403,18 @@ def retrieve_context_for_filter(
         key=lambda x: x["score"],
         reverse=True,
     )
+    post_filtered_matches = sorted(
+        post_filter_matches(matches, filters),
+        key=lambda x: x["score"],
+        reverse=True,
+    )
     logging.info(
-        "Retrieved %d pooled matches and retained %d unique matches",
+        "Retrieved %d pooled matches, retained %d unique matches, and kept %d matches after post-filtering",
         len(pooled_matches),
         len(matches),
+        len(post_filtered_matches),
     )
-    return matches[:FINAL_TOP_K], filters
+    return post_filtered_matches[:FINAL_TOP_K], filters
 
 
 def has_strong_enough_results(matches: list[dict[str, Any]]) -> bool:
