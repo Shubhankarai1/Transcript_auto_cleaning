@@ -84,7 +84,51 @@ def _split_large_paragraph(paragraph: str, max_words: int = 400) -> list[str]:
     return chunks
 
 
-def _split_by_paragraphs(text: str, max_words: int = 400) -> list[str]:
+def _truncate_overlap_words(text: str, overlap_words: int) -> str:
+    """Keep only the trailing overlap segment from a prior chunk."""
+    if overlap_words <= 0:
+        return ""
+
+    words = text.split()
+    if not words:
+        return ""
+
+    return " ".join(words[-overlap_words:]).strip()
+
+
+def _apply_chunk_overlap(chunks: list[str], overlap_words: int) -> list[str]:
+    """Prefix each chunk after the first with trailing words from the prior chunk."""
+    if overlap_words <= 0 or len(chunks) <= 1:
+        return chunks
+
+    overlapped_chunks: list[str] = []
+    previous_chunk = ""
+
+    for index, chunk in enumerate(chunks):
+        current_chunk = chunk.strip()
+        if not current_chunk:
+            continue
+
+        if index == 0:
+            overlapped_chunks.append(current_chunk)
+            previous_chunk = current_chunk
+            continue
+
+        overlap_prefix = _truncate_overlap_words(previous_chunk, overlap_words)
+        if overlap_prefix:
+            current_chunk = f"{overlap_prefix}\n\n{current_chunk}"
+
+        overlapped_chunks.append(current_chunk)
+        previous_chunk = chunk.strip()
+
+    return overlapped_chunks
+
+
+def _split_by_paragraphs(
+    text: str,
+    max_words: int = 400,
+    overlap_ratio: float = 0.125,
+) -> list[str]:
     paragraphs = [p.strip() for p in re.split(r"\n\s*\n+", text) if p.strip()]
     if not paragraphs:
         return [text.strip()] if text.strip() else []
@@ -114,7 +158,8 @@ def _split_by_paragraphs(text: str, max_words: int = 400) -> list[str]:
     if current_chunk:
         result.append("\n\n".join(current_chunk).strip())
 
-    return result
+    overlap_words = max(1, int(max_words * overlap_ratio)) if len(result) > 1 else 0
+    return _apply_chunk_overlap(result, overlap_words)
 
 
 def save_rag_chunk(
