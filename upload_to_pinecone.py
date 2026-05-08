@@ -22,10 +22,18 @@ METADATA_PROMPT_TEMPLATE = """Analyze the following educational chunk and extrac
 
 * Main topic
 * Subtopic
+* Concept name
+* 3-8 concept aliases or related terms
+* Instructor name if clearly present, otherwise "unknown"
+* Content type from this set only: explanation, key_points, student_doubts, mixed
 * 5-10 keywords
 * Difficulty level (beginner/intermediate/advanced)
 
 Return ONLY valid JSON.
+
+Known module: {module_name}
+Known session: {session_id}
+Known topic header: {topic_name}
 
 Chunk:
 {chunk_text}"""
@@ -57,6 +65,7 @@ COMMON_STOPWORDS = {
     "will",
     "with",
 }
+VALID_CONTENT_TYPES = {"explanation", "key_points", "student_doubts", "mixed"}
 
 # Initialize clients
 openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -107,6 +116,7 @@ def load_chunks(base_dir: Path) -> list[dict[str, Any]]:
                     "module_name": module_name,
                     "session_id": session_id,
                     "chunk_index": chunk_index,
+                    "topic_name": extract_topic_from_content(content),
                     "chunk_text": chunk_text,
                 }
             )
@@ -137,6 +147,13 @@ def extract_chunk_text(content: str) -> str:
             text_start = index + 1
             break
     return "\n".join(lines[text_start:]).strip()
+
+
+def extract_topic_from_content(content: str) -> str:
+    match = re.search(r"^Topic:\s*(.+)$", content, re.MULTILINE)
+    if match:
+        return match.group(1).strip()
+    return "Unknown topic"
 
 
 def build_document_id(module_name: str, session_id: int) -> str:
@@ -212,14 +229,74 @@ def _normalize_difficulty(raw_difficulty: Any) -> str:
     return difficulty
 
 
-def extract_metadata(chunk_text: str, session_id: int, module_name: str) -> dict[str, Any]:
+def _normalize_short_text(value: Any, fallback: str) -> str:
+    text = str(value or "").strip()
+    if not text:
+        return fallback
+    return re.sub(r"\s+", " ", text)
+
+
+def _normalize_aliases(raw_aliases: Any, concept_name: str, keywords: list[str]) -> list[str]:
+    if isinstance(raw_aliases, list):
+        aliases = [str(item).strip() for item in raw_aliases if str(item).strip()]
+    elif isinstance(raw_aliases, str):
+        aliases = [item.strip() for item in re.split(r",|\n", raw_aliases) if item.strip()]
+    else:
+        aliases = []
+
+    normalized: list[str] = []
+    seen: set[str] = set()
+    seed_values = [concept_name, *aliases, *keywords[:4]]
+    for alias in seed_values:
+        cleaned = str(alias).strip()
+        lowered = cleaned.lower()
+        if not cleaned or lowered in seen:
+            continue
+        seen.add(lowered)
+        normalized.append(cleaned)
+        if len(normalized) == 8:
+            break
+
+    return normalized
+
+
+def _normalize_content_type(raw_content_type: Any, chunk_text: str) -> str:
+    content_type = str(raw_content_type or "").strip().lower()
+    if content_type in VALID_CONTENT_TYPES:
+        return content_type
+
+    has_explanation = "Explanation:" in chunk_text
+    has_key_points = "Key Points:" in chunk_text
+    has_student_doubts = "Student Doubts:" in chunk_text
+    enabled = sum([has_explanation, has_key_points, has_student_doubts])
+
+    if enabled > 1:
+        return "mixed"
+    if has_student_doubts:
+        return "student_doubts"
+    if has_key_points:
+        return "key_points"
+    return "explanation"
+
+
+def extract_metadata(
+    chunk_text: str,
+    session_id: int,
+    module_name: str,
+    topic_name: str,
+) -> dict[str, Any]:
     """
     Extract semantic metadata for a chunk using OpenAI.
 
     `chunk_id` is assigned in `process_chunk()` because it depends on the
     chunk index from the current chunking pass.
     """
-    prompt = METADATA_PROMPT_TEMPLATE.format(chunk_text=chunk_text)
+    prompt = METADATA_PROMPT_TEMPLATE.format(
+        chunk_text=chunk_text,
+        module_name=module_name,
+        session_id=session_id,
+        topic_name=topic_name,
+    )
     response = openai_client.chat.completions.create(
         model=METADATA_MODEL,
         temperature=0,
@@ -229,7 +306,9 @@ def extract_metadata(chunk_text: str, session_id: int, module_name: str) -> dict
                 "role": "system",
                 "content": (
                     "You extract structured metadata for educational transcript chunks. "
-                    "Return only valid JSON with keys: topic, subtopic, keywords, difficulty."
+                    "Return only valid JSON with keys: "
+                    "topic, subtopic, concept_name, concept_aliases, instructor, "
+                    "content_type, keywords, difficulty."
                 ),
             },
             {"role": "user", "content": prompt},
@@ -239,9 +318,13 @@ def extract_metadata(chunk_text: str, session_id: int, module_name: str) -> dict
     raw_response = response.choices[0].message.content or "{}"
     parsed_metadata = _load_json_object(raw_response)
 
-    topic = str(parsed_metadata.get("topic") or "General topic").strip()
-    subtopic = str(parsed_metadata.get("subtopic") or topic).strip()
+    topic = _normalize_short_text(parsed_metadata.get("topic"), topic_name or "General topic")
+    subtopic = _normalize_short_text(parsed_metadata.get("subtopic"), topic)
     keywords = _normalize_keywords(parsed_metadata.get("keywords"), chunk_text)
+    concept_name = _normalize_short_text(parsed_metadata.get("concept_name"), subtopic)
+    concept_aliases = _normalize_aliases(parsed_metadata.get("concept_aliases"), concept_name, keywords)
+    instructor = _normalize_short_text(parsed_metadata.get("instructor"), "unknown")
+    content_type = _normalize_content_type(parsed_metadata.get("content_type"), chunk_text)
     difficulty = _normalize_difficulty(parsed_metadata.get("difficulty"))
 
     return {
@@ -249,6 +332,12 @@ def extract_metadata(chunk_text: str, session_id: int, module_name: str) -> dict
         "module": module_name,
         "topic": topic,
         "subtopic": subtopic,
+        "topic_header": topic_name,
+        "concept_name": concept_name,
+        "concept_aliases": concept_aliases,
+        "instructor": instructor,
+        "content_type": content_type,
+        "session_label": f"session_{session_id}",
         "session": int(session_id),
         "chunk_id": "",
         "keywords": keywords,
@@ -262,16 +351,19 @@ def process_chunk(
     session_id: int,
     module_name: str,
     chunk_index: int,
+    topic_name: str,
 ) -> dict[str, Any]:
     """Return the structured chunk object expected by the embedding pipeline."""
-    metadata = extract_metadata(chunk_text, session_id, module_name)
+    metadata = extract_metadata(chunk_text, session_id, module_name, topic_name)
     metadata["chunk_id"] = build_chunk_id(module_name, session_id, chunk_index)
 
     logging.info(
-        "Metadata created for %s | topic=%s | subtopic=%s | difficulty=%s | keywords=%s",
+        "Metadata created for %s | topic=%s | concept=%s | instructor=%s | type=%s | difficulty=%s | keywords=%s",
         metadata["chunk_id"],
         metadata["topic"],
-        metadata["subtopic"],
+        metadata["concept_name"],
+        metadata["instructor"],
+        metadata["content_type"],
         metadata["difficulty"],
         ", ".join(metadata["keywords"]),
     )
@@ -342,6 +434,7 @@ def main() -> None:
                     session_id=chunk["session_id"],
                     module_name=chunk["module_name"],
                     chunk_index=chunk["chunk_index"],
+                    topic_name=chunk["topic_name"],
                 )
             )
         except Exception as exc:
