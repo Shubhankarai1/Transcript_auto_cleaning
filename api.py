@@ -103,6 +103,24 @@ def build_filter(req: ChatRequest) -> Optional[dict[str, Any]]:
     return {"module": req.module, "session": req.session}
 
 
+def build_fallback_filters(req: ChatRequest) -> list[tuple[str, Optional[dict[str, Any]]]]:
+    """Return retrieval scopes from narrowest to broadest."""
+    if req.mode == "global":
+        return [("global", None)]
+
+    if req.mode != "filtered":
+        raise HTTPException(status_code=400, detail="Invalid mode")
+
+    if not req.module or req.session is None:
+        raise HTTPException(status_code=400, detail="Module + session required")
+
+    return [
+        ("module_session", {"module": req.module, "session": req.session}),
+        ("module_only", {"module": req.module}),
+        ("global", None),
+    ]
+
+
 def extract_chunk_number(match: dict[str, Any]) -> Optional[int]:
     metadata = match.get("metadata", {})
     if metadata.get("chunk"):
@@ -284,7 +302,11 @@ def deduplicate_matches(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return list(best_by_key.values())
 
 
-def retrieve_context(original_query: str, search_queries: list[str], base_filter):
+def retrieve_context_for_filter(
+    original_query: str,
+    search_queries: list[str],
+    base_filter: Optional[dict[str, Any]],
+):
     filters = combine_filters(base_filter, detect_filters(original_query))
     embeddings = create_embeddings(search_queries)
 
@@ -316,7 +338,47 @@ def retrieve_context(original_query: str, search_queries: list[str], base_filter
         len(pooled_matches),
         len(matches),
     )
-    return matches[:FINAL_TOP_K]
+    return matches[:FINAL_TOP_K], filters
+
+
+def has_strong_enough_results(matches: list[dict[str, Any]]) -> bool:
+    """Decide whether retrieval is good enough to stop widening the search scope."""
+    if not matches:
+        return False
+
+    if len(matches) >= 3:
+        return True
+
+    top_score = float(matches[0].get("score") or 0.0)
+    return top_score >= 0.45
+
+
+def retrieve_context_with_fallback(req: ChatRequest, original_query: str, search_queries: list[str]):
+    fallback_filters = build_fallback_filters(req)
+    last_matches: list[dict[str, Any]] = []
+    last_filters: Optional[dict[str, Any]] = None
+    last_scope = fallback_filters[-1][0]
+
+    for scope_name, base_filter in fallback_filters:
+        matches, applied_filters = retrieve_context_for_filter(
+            original_query,
+            search_queries,
+            base_filter,
+        )
+        logging.info(
+            "Retrieval scope=%s applied_filters=%s returned %d matches",
+            scope_name,
+            applied_filters,
+            len(matches),
+        )
+        last_matches = matches
+        last_filters = applied_filters
+        last_scope = scope_name
+
+        if has_strong_enough_results(matches):
+            return matches, scope_name, applied_filters
+
+    return last_matches, last_scope, last_filters
 
 
 # -------------------- MAIN CHAT --------------------
@@ -334,7 +396,11 @@ def chat(req: ChatRequest):
         search_queries, hyde_query = build_search_queries(question, rewritten)
 
         # Retrieve
-        docs = retrieve_context(question, search_queries, build_filter(req))
+        docs, retrieval_scope, applied_filters = retrieve_context_with_fallback(
+            req,
+            question,
+            search_queries,
+        )
 
         if not docs:
             return {"answer": "Not in module.", "sources": []}
@@ -410,6 +476,8 @@ Now generate a COMPLETE and DETAILED answer.
             "sources": ui_sources,
             "retrieval_queries": search_queries,
             "hyde_query": hyde_query,
+            "retrieval_scope": retrieval_scope,
+            "applied_filters": applied_filters,
         }
 
     except Exception as e:
