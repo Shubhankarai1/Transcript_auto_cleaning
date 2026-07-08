@@ -1,0 +1,420 @@
+# tactiq.io free youtube transcript
+# AWS re:Invent 2025 - Implementing Human-in-the-Loop Controls for Multi-Agent AI Systems (CNS428)
+# https://www.youtube.com/watch/SC3pHo-CycI
+
+00:00:01.710 - Okay.
+00:00:03.000 Hello, everyone.
+00:00:03.930 Thank you for coming to the session,
+00:00:05.550 lighting talk CNS428.
+00:00:08.250 So my name is Dhiraj Mahapatro.
+00:00:10.560 I'm the principal specialistsolutions architect.
+00:00:12.450 I focus on Amazon Bedrock and AgentCore,
+00:00:15.300 and I focus on startup customers.
+00:00:16.710 I've been with AWS for six years,
+00:00:18.270 little bit more than six years.
+00:00:20.130 And this aspect of whatwe're gonna talk about
+00:00:22.410 as human-in-the-loop,
+00:00:24.060 it is applicable to allworkflows, microservices,
+00:00:26.967 and now we are talking about agent systems
+00:00:29.160 and why this is useful.
+00:00:31.200 So just a show of hands,
+00:00:33.510 I asked this question before,
+00:00:34.860 but how many of you're usingagents in production today?
+00:00:39.210 None.
+00:00:40.043 How many of you're using inferencing,
+00:00:41.460 LLM inferencing in production today?
+00:00:43.680 So most of them.
+00:00:44.880 So what I wanted to show is,
+00:00:47.580 how did we evolve from normal assistants
+00:00:50.790 to actually autonomous agents
+00:00:52.920 and why autonomous agentsare important in this era
+00:00:56.070 and where human-in-the-loopis important to implement
+00:00:59.250 and how can you implement HITL
+00:01:02.280 with some of the mechanics,
+00:01:03.840 some of the key takeaways,
+00:01:05.550 and couple of resources thatI find very useful for you.
+00:01:09.450 Okay, so as this progression,
+00:01:12.210 this is a timeline that showed you, like,
+00:01:14.820 how we started with simplegenerative AI assistants
+00:01:18.360 and mostly towards chatbot functionality.
+00:01:21.330 But we slowly evolved over time.
+00:01:24.330 Right now we're talking aboutall the way in the right
+00:01:27.300 where we are talkingabout agentic AI systems.
+00:01:30.720 Agentic AI system doesn't mean
+00:01:32.130 that it has to be front-endedby a chatbot, right?
+00:01:36.210 You can invoke agents asynchronously.
+00:01:38.730 Let's say somethinghappened in your system,
+00:01:41.760 it emitted an event,
+00:01:43.200 and you have an event subscriber
+00:01:45.330 that can go and work withmultiple agents, right?
+00:01:48.270 So agents can work behind the scenes.
+00:01:50.580 It doesn't have to be a customer
+00:01:52.350 sitting on the front on a chatbot.
+00:01:55.260 So that's where we are.
+00:01:57.150 As and when you go right,
+00:01:58.590 you'll see we are focusing
+00:02:01.800 higher degree of human oversight
+00:02:04.470 to low degree of human oversight
+00:02:06.405 when you're moving towardsautonomous systems.
+00:02:08.850 However, there is a conceptof ownership in every aspect.
+00:02:13.350 Like when you build applications
+00:02:16.770 and you have agents in place,
+00:02:19.530 when you run them in production
+00:02:20.790 and something goes wrong,you can't blame an agent.
+00:02:24.150 It's the developer or it's the person
+00:02:25.860 who owns that application hasto take the ownership, right?
+00:02:30.060 So that's where agentic AI
+00:02:32.610 with some degree of human-in-the-loop
+00:02:34.500 is very important to build.
+00:02:36.840 So before we jump into how
+00:02:38.520 and when HITL should be implemented,
+00:02:41.790 I wanted to give you abackground of how we started
+00:02:44.130 with model inferencing,
+00:02:45.900 specifically on AWS andwhere we are right now.
+00:02:49.200 And I will give a clear picture
+00:02:50.550 of why we should thinkabout human-in-the-loop
+00:02:53.100 right from the very beginning
+00:02:54.420 when we build agentic AI systems.
+00:02:57.660 Couple of years ago, if you have to build
+00:02:59.970 or if you have to use a model on AWS,
+00:03:02.610 these are the options you had.
+00:03:03.810 So as a user, you'll come,
+00:03:06.150 you need a compute layer
+00:03:07.740 where you have to run amodel for inferencing,
+00:03:10.080 and some of the optionsfor you were SageMaker.
+00:03:12.540 Today, we have Bedrock.
+00:03:14.940 You can run your model,getting from Hugging Face,
+00:03:17.130 and you can run on ECS, EC2, or EKS.
+00:03:20.490 And then this is simple example
+00:03:22.470 of a ChatGPT if you think about it, right?
+00:03:24.600 You have a model, you can ask questions,
+00:03:27.030 you get answers back, so on and so forth.
+00:03:29.700 Then we evolved into systemswhere you need some context,
+00:03:32.895 some history to maintain,
+00:03:35.280 to be maintained in thatsession or in that discussion
+00:03:38.520 so that you can get better results, right?
+00:03:41.340 That's why we talked abouthaving a persistent store
+00:03:44.580 where you can persistsome of the chat history
+00:03:48.360 and then when the LLM iscoming back with a response,
+00:03:51.420 it can understand the chathistory and provide a response.
+00:03:54.900 Then we evolved our systems
+00:03:56.790 to build contextual responses, right,
+00:04:00.600 with chat history as well.
+00:04:02.490 So now you have a usercalling a level of compute
+00:04:07.320 that talks to your model,
+00:04:08.760 but before talking to your model,
+00:04:10.020 it has to use a vector store
+00:04:12.060 to get additional context foryour organization or anything.
+00:04:15.660 This is simple RAG.
+00:04:17.579 Get the vector embeddings
+00:04:19.140 and augment that embeddings
+00:04:20.760 to the LLM to get a better response.
+00:04:24.360 So this is where we were.
+00:04:26.285 (clears throat) Excuse me.
+00:04:27.360 In this scenario,
+00:04:29.760 all of those contextual datais mostly static in nature.
+00:04:33.270 So I have my organizational standards,
+00:04:35.640 I want to bring myarchitectural standards,
+00:04:38.430 and if I want to use thatas part of a vector store,
+00:04:40.950 these are all static datathat you have to deal with.
+00:04:44.400 But what if you actually want to leverage
+00:04:46.860 the power of LLMs with real-time data?
+00:04:50.670 That's where the discussion around tools
+00:04:54.090 and agents come into picture, right?
+00:04:57.120 In addition to doingRAG or LLM inferencing,
+00:05:00.570 if you have to deal with real-time data,
+00:05:02.520 you have to build somethinglike this with agents
+00:05:05.970 and bunch of tools thatcan go out on your behalf,
+00:05:08.610 call an API, execute a database query,
+00:05:12.240 and get real-time information,
+00:05:14.220 and that information will be augmented
+00:05:16.200 to the context of the lastlanguage model to do some work.
+00:05:20.160 Right?
+00:05:22.110 Now, this evolves
+00:05:24.000 because when you startbuilding agents and tools,
+00:05:27.510 the very next step comes into picture
+00:05:29.520 is how can I secure the setup?
+00:05:31.860 How can I get observability?
+00:05:33.150 Because when you buildAPIs or application,
+00:05:35.070 you need that observability in place.
+00:05:37.080 So with agent and tools,
+00:05:38.820 you'll still need the sameobservability in practice.
+00:05:42.360 So you need some inbound authentication
+00:05:45.030 on who can call the agents,
+00:05:47.280 outbound authentication onwho the agent can call to,
+00:05:51.120 so on and so forth.
+00:05:51.990 And then you needguardrails around Bedrock,
+00:05:54.540 some observability using CloudWatch
+00:05:56.610 or third-party provider,so on and so forth.
+00:05:59.340 This also evolves whenyou think about concepts
+00:06:02.220 like MCP, right?
+00:06:04.620 So we are evolving fromsimple LLM influencing
+00:06:07.560 to how we are building agentstoday with MCP servers.
+00:06:11.190 And if you look at itnow, the big picture,
+00:06:14.340 how you do agents on AWS,it'll look like this,
+00:06:19.290 which will have agentsrunning on a set of compute,
+00:06:22.560 some memory that maintainshistory and long-term memory,
+00:06:26.400 MCP server integrations for external tools
+00:06:29.070 that you want to use,
+00:06:30.600 and also A2A integration.
+00:06:32.550 If you know, A2A is a protocolthat Google came up with
+00:06:36.270 for agent-to-agent communication.
+00:06:38.040 And while they're doingall of these things,
+00:06:40.500 you need observability withCloudWatch or third-party tools.
+00:06:44.730 So, this is one agent.
+00:06:48.930 We're talking aboutcapability of one agent
+00:06:51.210 that talks to multipleMCP servers or tools
+00:06:54.720 or other agents
+00:06:56.010 with some capabilityof memory and identity.
+00:06:59.850 However, when you wantto run in production,
+00:07:02.700 the actual production scenariowill look like this, right?
+00:07:06.330 So you'll have a agent in your purview,
+00:07:09.630 but then multiple agentsin your department,
+00:07:11.790 in your organization,
+00:07:13.200 and then you have tointegrate with external tools,
+00:07:15.330 so on and so forth.
+00:07:16.920 So you can imagine the complexity
+00:07:19.200 that you have to deal with,
+00:07:20.033 the chaos of this whole setup
+00:07:21.960 that you have to deal with, right?
+00:07:24.150 So that's where you haveto figure out, like,
+00:07:26.880 if you build systems,
+00:07:28.560 how and when in which areas that you have
+00:07:30.690 to build human-in-the-loopcapabilities, right?
+00:07:34.650 So you have to find those checkpoints
+00:07:37.260 where human judgment is very necessary,
+00:07:40.080 and if possible, whateverhuman insight that was given
+00:07:44.430 goes back to the AI system
+00:07:46.860 so that it can do abetter judgment next time.
+00:07:49.560 So what are those points?
+00:07:50.730 So (clears throat) excuse me,
+00:07:53.220 think about high-stake decisions points.
+00:07:55.770 So I'll take an example.
+00:07:57.120 Like, if a doctor has to subscribe,
+00:07:59.070 or sorry, prescribe amedicine to a patient,
+00:08:02.940 you need some intervention
+00:08:04.710 and not rely on the entire agentic system
+00:08:07.320 to build a prescriptionfor the agent, right?
+00:08:09.660 The doctor has to providesome capabilities to,
+00:08:13.237 &quot;Okay, this is a goodmedicine I can prescribe.&quot;
+00:08:16.650 Then there will be caseswhere you have to deal
+00:08:19.290 with irreversible actions.
+00:08:21.270 What if money getsdebited from one account
+00:08:24.150 to the other account,which you cannot undo?
+00:08:27.300 What if you completed atransaction which you cannot undo?
+00:08:31.260 This is where those arethe high touchpoints
+00:08:33.750 where human-in-the-loopwill be very influential.
+00:08:38.039 What about regulatory compliance?
+00:08:40.950 There are countries andcompliance standards
+00:08:42.929 where a human oversight is always needed.
+00:08:46.050 So finding out those places in the setup,
+00:08:48.750 you will have to add somecheckpoints where a human can come
+00:08:52.710 and provide a decision to move forward.
+00:08:57.720 Most important part isthe trust building phase.
+00:08:59.700 So let's say if you arestarting new with agentic AI,
+00:09:03.420 it'll be really good
+00:09:04.590 to have human aspect in the entire setup
+00:09:07.710 so that you're buildingtrust with the system.
+00:09:10.770 Once you see that thehuman is actually repeating
+00:09:13.140 the same task
+00:09:14.850 and it has figured outthat the AI or the agent
+00:09:17.490 is actually building whatit is supposed to do,
+00:09:20.460 then you can slowly remove thehuman intervention part out.
+00:09:25.104 So this is the trust building part
+00:09:26.790 is where if you're doinga proof of concept,
+00:09:29.760 if you're starting with agents,
+00:09:31.200 then it'll become very easy to start
+00:09:33.570 with human-in-the-loopand then go from there.
+00:09:36.840 Plus, there'll be some edge cases
+00:09:39.240 and some ambiguity
+00:09:41.310 where you will definitelyneed human-in-the-loop,
+00:09:45.120 wherever it is necessary.
+00:09:47.160 So going back to the big picture,
+00:09:50.190 there will be areas whereyou need human-in-the-loop,
+00:09:53.490 where you're dealing with, let'ssay, MCP server integration
+00:09:56.790 or A2A integration with different agents,
+00:09:59.250 or finally, when you're sending responses
+00:10:01.290 to the customer, right?
+00:10:03.270 You need some oversight to see whether,
+00:10:05.227 &quot;Okay, everything is okay,
+00:10:07.080 now we should be good to sendresponses back to the user
+00:10:10.530 or call it completing a task.&quot;
+00:10:13.470 So what are the,
+00:10:14.940 now that we talked
+00:10:15.960 about where human-in-the-loop is required,
+00:10:18.360 where are the cases wherehuman-in-the-loop can be avoided?
+00:10:21.150 Like let's say you have a case
+00:10:22.380 where you have confidence
+00:10:25.290 in the threshold that you have set.
+00:10:27.420 So let's say the agent cameup with a summary response
+00:10:30.240 and the confidence score is higher.
+00:10:32.880 That's where you can avoidhuman being in the loop.
+00:10:37.050 If you maintain high audit trails
+00:10:39.420 and you go through those matrices
+00:10:41.640 and you know that the agent is doing,
+00:10:43.260 or the multi-agent system,
+00:10:44.280 is doing whatever it is supposed to do,
+00:10:46.350 then you can slowlyremove the human aspect
+00:10:48.600 from the whole setup.
+00:10:51.570 If you build a feedback loop,as I was talking earlier,
+00:10:55.560 if the human can feedit back to the system,
+00:10:57.990 then eventually you will tend
+00:11:00.630 to removing the human aspectfrom the entire setup.
+00:11:03.870 And this will give you a goodprocess to gracefully degrade
+00:11:09.150 when human aspects are notrequired anymore, right?
+00:11:13.770 So what we're talking abouthere is a progressive autonomy.
+00:11:17.820 So you start with thehighest level of control
+00:11:20.100 with humans in the place,
+00:11:21.930 but you slowly progress towardgetting the full autonomy
+00:11:24.570 when you have built a trust in the system
+00:11:26.790 and for your clientsand for your customers.
+00:11:29.550 If you want to buildhuman-in-the-loop aspect,
+00:11:31.770 in the case of MCP,
+00:11:32.603 MCP provides this capabilitycalled elicitations.
+00:11:36.180 If you look at this example,
+00:11:38.010 if the request is whatis the flight status,
+00:11:40.890 then the MCP server will ask a question,
+00:11:43.357 &quot;Gimme a flight number,
+00:11:44.310 then I'll be providing you flight status.&quot;
+00:11:46.830 So this is the core capability of MCP
+00:11:48.630 as the protocol, elicitations.
+00:11:51.030 You can use it.
+00:11:52.590 If you're using step functions
+00:11:54.330 as a service to build workflows,
+00:11:56.610 then step functions has this capability
+00:11:58.320 of wait for callback.
+00:12:00.870 The step functionsworkflow can wait for you
+00:12:03.060 until an approval
+00:12:04.530 or a task token that is sentback with a success message,
+00:12:07.830 and then it'll go.
+00:12:08.663 So this is how it works.
+00:12:10.260 When you ask for a tokento be sent externally,
+00:12:13.500 the token will be sent
+00:12:14.490 through different applicationsor to an approver.
+00:12:17.100 And if the approver says,&quot;Okay, everything looks good.&quot;
+00:12:20.490 Then, the token is sent back
+00:12:23.970 and then the step functions will resume
+00:12:25.830 the workflow execution andit'll go to the next steps.
+00:12:29.580 Now, if you have heardthe keynote earlier,
+00:12:31.470 we talked about durablefunctions in Lambda also, right?
+00:12:36.300 So durable functions will do the same,
+00:12:38.610 similar work what theirfunctions has to provide.
+00:12:43.470 If you're using tools likeLangGraph for your agents,
+00:12:48.060 some of the capabilitiesinclude like this,
+00:12:49.800 you can have a human aspect.
+00:12:52.530 If a response is coming back from an LLM
+00:12:54.720 and the human can approve,
+00:12:56.220 if it approves,
+00:12:57.870 then it goes to node Bor the graph node B or A,
+00:13:02.370 and then it goes to graph node C
+00:13:04.380 if there is a disapproval.
+00:13:07.620 You can change the state behind the scenes
+00:13:09.862 if a human is in place.
+00:13:11.310 So if a human says, &quot;I'm getting an input
+00:13:13.800 which says foo bar,
+00:13:15.030 now I want to change that to baaz,&quot;
+00:13:18.300 and then the next node willget the latest updated value
+00:13:21.960 for the underlying state.
+00:13:24.060 So these are the wayswhere human can intervene
+00:13:27.270 and change the course of action
+00:13:29.550 that the agent was supposed to take.
+00:13:31.590 The last one is a human can intervene
+00:13:33.210 and say whether I want to execute a tool
+00:13:35.370 or I don't want to, or shouldI execute a different tool?
+00:13:38.280 This is in LangGraph.
+00:13:41.400 If you're buildingintelligent communications
+00:13:43.140 with MCP and A2A,
+00:13:45.240 then there are other capabilities.
+00:13:47.070 So if you take about anexample of a travel agent,
+00:13:50.280 here is an example whichI built using API Gateway
+00:13:52.860 and A2A as the protocol,
+00:13:54.480 which is A2A client in a Lambda function,
+00:13:57.240 calls a weather agent,
+00:13:58.680 which is, again, an API Gateway
+00:14:01.620 with A2A server behind the scenes,
+00:14:03.960 and the A2A server sendsa push notification
+00:14:06.330 back to travel agent saying,
+00:14:08.407 &quot;What is the weather right now?&quot;
+00:14:10.380 At this point of time,
+00:14:11.370 I can put some HITL aspect of it,
+00:14:16.500 either using step functionsor other capabilities,
+00:14:19.260 and then I feed back thatinformation to a state
+00:14:21.480 that the Lambda can use,the A2A client can use,
+00:14:24.540 or I can send responsesback directly to the user.
+00:14:28.140 So this is another example.
+00:14:30.600 So now, the other aspect
+00:14:34.350 I talked about is whenhuman-in-the-loop will slowly go away
+00:14:38.130 when you're buildingautonomous systems, right?
+00:14:40.410 So as continuous agent evaluation grows,
+00:14:44.820 you will see the human-in-the-loop aspect
+00:14:46.620 will slowly reduce.
+00:14:48.090 Now, if you have heard the keynote,
+00:14:49.890 we talked about AgentCoreevaluations in preview mode.
+00:14:54.240 So that is, if you'rerunning agents on AgentCore,
+00:14:57.435 then AgentCore evaluation issomething that you can use
+00:15:01.110 to make sure that you get more autonomy
+00:15:03.300 and less human intervention.
+00:15:05.220 So as and when you see theevaluation maturity grows,
+00:15:09.690 the percentage grows in the x-axis,
+00:15:11.970 your human-in-the-loopaspect will grow down.
+00:15:15.750 So overall, what we're talking about
+00:15:18.930 is when you want human oversight,
+00:15:22.830 and you will need it in different places,
+00:15:24.870 that's where you need
+00:15:26.100 those critical decisiongatekeeping capabilities.
+00:15:29.580 That's where you need humans.
+00:15:31.530 If you have workflows that build
+00:15:33.720 and have errors that youhave to recover from,
+00:15:36.660 you can have a human insight
+00:15:38.400 or human present in the place
+00:15:40.050 to provide you some capabilities
+00:15:41.640 to recover from those errors.
+00:15:43.980 You want to build trust and transparency.
+00:15:45.780 I talked about thisprogressive autonomy, right?
+00:15:48.060 You start with human controls,
+00:15:51.030 and as and when you grow and mature
+00:15:52.650 in your agent setup or multi-agent setup,
+00:15:55.170 you can build the trustand the transparency,
+00:15:58.710 plus having those agentevaluations in place will help you.
+00:16:02.340 And then most importantly,gracefully degradation.
+00:16:04.980 So things break in production,
+00:16:07.650 and our CT also mentionedthat in multiple keynotes,
+00:16:11.550 that things will break .
+00:16:13.620 If you have a capability to fall back
+00:16:15.960 and gracefully degrade,
+00:16:17.730 why not have human in the whole setup
+00:16:20.940 so that the trustworthinesswill still be alive
+00:16:24.540 and the human can decide
+00:16:25.710 how to degrade thiswhole setup gracefully.
+00:16:29.250 So, there are some resources here.
+00:16:31.530 The QR code will have all the information.
+00:16:34.140 This is the blog thatI wrote on agentic AI
+00:16:37.380 using AWS serverless.
+00:16:39.630 There are some technical papers,
+00:16:41.160 most importantly the one from Harvard
+00:16:44.340 that talks about thehuman algorithm centaur.
+00:16:47.550 The concept of a centurion system,
+00:16:49.830 which is half human and half horse,
+00:16:52.140 is well mentioned herein this Harvard paper,
+00:16:56.280 so I would encourage you to go read that,
+00:16:58.920 and how eventually we should move
+00:17:00.960 towards building that centaurian system
+00:17:03.480 so that the human and themachines, or the AI agents,
+00:17:06.569 will symbolically work properly together
+00:17:09.599 without hampering each other.
+00:17:12.540 It's a sample application in the end,
+00:17:13.666 in the GitHub that I built
+00:17:15.869 using the Lambda functionsexample that I showed,
+00:17:19.170 a travel agent and weather agent,
+00:17:20.640 which uses A2A client and server.
+00:17:23.040 You can definitely check that out
+00:17:24.780 and add a human-in-the-loop aspect.
+00:17:27.329 So yep, this is thelightning talk for you,
+00:17:31.560 and if you have questions,
+00:17:32.910 we can head down and we can discuss more.
+00:17:35.910 But the resources are here to check out.
+00:17:39.270 There are resources in the QR code.
+00:17:41.700 It also talks about differentsessions that I did earlier
+00:17:44.250 around agentic AI and AWS serverless.
+00:17:46.920 So please check them out.
+00:17:48.540 And with that, thank you,everyone for being here.

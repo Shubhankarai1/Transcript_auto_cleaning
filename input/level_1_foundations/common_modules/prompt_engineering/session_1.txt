@@ -1,0 +1,666 @@
+# tactiq.io free youtube transcript
+# Prompt Engineering with OpenAI's GPT-3 and other LLMs
+# https://www.youtube.com/watch/BP9fi_0XTlw
+
+00:00:00.000 approach engineering is a emerging
+00:00:02.820 discipline within the world of
+00:00:04.620 generative Ai and it describes the art
+00:00:08.340 of writing good intentional prompts that
+00:00:12.960 produce an output from a generative AI
+00:00:15.299 model that we actually want and to a
+00:00:20.279 degree it is an R it's it's very hard to
+00:00:23.460 explain how to create a good product but
+00:00:26.580 to a larger extent there's a very
+00:00:29.580 logical process and way that we can go
+00:00:33.719 into creating problems that can be
+00:00:35.640 described and easily applied to produce
+00:00:39.000 better output from large language models
+00:00:42.540 and of course the generative art tools
+00:00:45.059 as well good prompts are the key to
+00:00:48.120 producing good outputs for these models
+00:00:50.039 using different types of prompts we can
+00:00:52.379 modify the mode or type of task that has
+00:00:55.500 been formed and we can even use prompts
+00:00:58.199 to train models to some degree and the
+00:01:02.879 performance of doing that is actually
+00:01:05.099 surprisingly good now there's a few
+00:01:08.340 things to learn with prompt engineering
+00:01:10.799 and I think one of the best ways to
+00:01:12.540 maybe think about this discipline is to
+00:01:17.100 think of it as a more abstract version
+00:01:19.680 of programming so throughout the last
+00:01:21.840 decades we've seen programming languages
+00:01:24.240 become more and more abstract prompts
+00:01:26.880 for AI models is almost like the next
+00:01:28.860 step it's a super abstract programming
+00:01:31.799 of an AI model and that's exactly how I
+00:01:35.280 want to approach this here I want to
+00:01:36.799 discuss prompts and building good
+00:01:39.479 prompts of different parts of a prompt
+00:01:42.299 and how we apply them to large language
+00:01:44.640 models now when we think of large zones
+00:01:48.180 models there are a lot of different use
+00:01:50.880 cases that they are used for we see
+00:01:53.100 things like creative writing question
+00:01:55.020 answering text summarization a data
+00:01:58.560 extraction like a ton of the completely
+00:02:00.780 different things and with each of these
+00:02:03.659 different tasks we're not actually doing
+00:02:05.579 anything different in terms of the model
+00:02:08.818 the models are all the same for each one
+00:02:10.800 of these tasks the difference is the
+00:02:13.980 prompts themselves now what do these
+00:02:16.620 prompts look like well we can typically
+00:02:19.020 break them apart into a few components
+00:02:21.599 so we have the instructions of a prompt
+00:02:24.180 any external information or we can also
+00:02:28.620 call these contacts quite commonly as
+00:02:30.959 well we would also have the user input
+00:02:33.480 or a query and we can also Prime our
+00:02:37.800 problems with what we call an output
+00:02:39.840 indicator this is usually just a little
+00:02:42.540 word at the end now not all problems
+00:02:44.760 require all of these components but
+00:02:47.280 often a good prompt will use one or more
+00:02:50.040 of them so starting with instructions
+00:02:52.459 instructions tell the model what to do
+00:02:55.200 and this is a very key part of more
+00:02:59.519 instruction base models like opening
+00:03:02.040 eyes text DaVinci 003 and through these
+00:03:05.400 instructions we try to Define what we
+00:03:07.980 would like the model to do and that
+00:03:10.140 means how it should use some inputs and
+00:03:13.140 how it should format outputs and what
+00:03:15.480 you should consider whilst it's going
+00:03:16.920 through that process and we would always
+00:03:19.440 put these instructions at the very top
+00:03:21.420 of our prompt I'll explain a little bit
+00:03:23.640 more about that pretty soon following
+00:03:25.860 this we have our external information or
+00:03:28.440 context and these are additional parts
+00:03:31.680 of information that we feed into the
+00:03:33.900 model via the prompt these can be things
+00:03:37.620 that we manually insert into the prompt
+00:03:39.900 information that we pull in through
+00:03:42.900 long-term memory component affected
+00:03:44.879 database or we get it through other
+00:03:47.580 means like a web search API or a
+00:03:50.580 calculator API something along those
+00:03:52.799 lines following that we have our user
+00:03:55.319 input now that's pretty obvious it's
+00:03:57.299 just the input from a particular user it
+00:04:00.060 depends on what you're doing like if you
+00:04:02.400 have a text summarization use case they
+00:04:04.739 might input a two-page chunk of text and
+00:04:08.580 we might want to summarize that into a
+00:04:10.080 paragraph
+00:04:11.099 or on the other side maybe it's a
+00:04:13.560 question answering tool and in that case
+00:04:15.299 the user might just type in a few words
+00:04:17.519 and question mark and and that is a
+00:04:19.858 question that is a user input so of
+00:04:22.260 course that can vary as well then
+00:04:24.180 finally we have our output indicator
+00:04:26.120 this is essentially the start of what we
+00:04:30.120 would like the model to begin generating
+00:04:32.160 so it is it's kind of like a wave
+00:04:34.740 indicating to the model hey okay now
+00:04:37.199 it's time for you to start you know
+00:04:38.699 writing something and I want you to
+00:04:40.380 start writing something based on this
+00:04:42.600 first little chunk of text so a good
+00:04:46.020 example or very clear example at least
+00:04:48.120 in my view is when you have code
+00:04:50.820 generation model you want to generate
+00:04:52.800 python code you know you give it
+00:04:54.240 instructions to do so then your output
+00:04:56.280 indicator will just be the word import
+00:04:58.740 all in lower case because most Python
+00:05:02.160 scripts will actually begin with the
+00:05:04.800 word import because you're going to be
+00:05:06.240 importing your libraries like import
+00:05:07.680 numpy and so on on the other hand if you
+00:05:12.360 were building like a conversation or
+00:05:14.220 chat Bots this output indicator might be
+00:05:17.400 like the name of the chat bot followed
+00:05:20.160 by a colon is If you're sort of in a
+00:05:22.800 chat log okay so they're the four main
+00:05:26.180 components of a prompt that we're going
+00:05:28.500 to talk about and that we're going to
+00:05:29.759 actually use to construct our problems
+00:05:32.220 throughout this video okay so let's have
+00:05:34.560 a look at an example here we have the
+00:05:37.680 start of our prompt up here this is the
+00:05:40.440 instruction okay so that's right at the
+00:05:42.360 top of the prompt answer the question
+00:05:44.340 based on the context below if the
+00:05:46.380 question cannot be answered using the
+00:05:47.940 information provided answer with I don't
+00:05:50.100 know okay so this is a form of
+00:05:52.100 conservative q a so given a question a
+00:05:56.100 user question we want the model to
+00:05:58.259 answer based only on information that we
+00:06:00.840 can verify okay and that verified
+00:06:03.300 information is something that is our
+00:06:06.560 external information here our context
+00:06:09.120 that is also fed into that want right
+00:06:12.060 and we're saying if that information is
+00:06:14.520 not contained within this context here
+00:06:16.740 or we'll probably usually have a list of
+00:06:18.720 contexts and we need to say I don't know
+00:06:20.580 in this case if the model answers or
+00:06:23.400 makes something up it can lead on to
+00:06:25.319 pretty bad results so we really don't
+00:06:27.479 want it to make anything up because they
+00:06:29.639 they tend to do that pretty often so we
+00:06:32.699 have our instructions we have our
+00:06:34.319 external information or the context then
+00:06:36.300 we have to use a query which is down
+00:06:38.759 here okay so the question which
+00:06:40.680 libraries and model providers offer llms
+00:06:44.240 and then we have that final words that
+00:06:47.160 output indicator so this is like okay
+00:06:49.740 now you can start answering the question
+00:06:52.020 now this is a pretty good prompt it's
+00:06:55.020 clear we have our instructions we have
+00:06:57.419 some more external information we have a
+00:07:00.240 question we have the output indicator at
+00:07:02.580 the end okay so let's have a look at how
+00:07:05.400 we will actually Implement these things
+00:07:07.319 so we're going to work through this
+00:07:09.660 notebook here if you'd like like to
+00:07:11.699 follow along and run the notebook
+00:07:13.500 yourself you can do there'll be a link
+00:07:15.180 in the top of the video right now and
+00:07:16.680 also in the video description
+00:07:18.660 the first thing we need to do is PIP
+00:07:20.580 install the everything AI Library
+00:07:22.020 initially that's the only Library we
+00:07:23.639 need there'll be another one a little
+00:07:24.720 bit later on which I'll explain when we
+00:07:27.419 get to it and we'll come down to the
+00:07:29.699 first code block we see we have this
+00:07:31.319 prompted this is the same one I just
+00:07:33.180 went through so I'm just going to run
+00:07:34.860 that and then initialize my openai
+00:07:39.060 instance using my open eye API key so if
+00:07:43.979 you need this you can get it from here
+00:07:46.800 which is just at this so
+00:07:50.000 beta.openai.com account API Keys which
+00:07:53.280 you can just access you log into your
+00:07:55.259 account you create a new secret key and
+00:07:57.479 then just copy that into the notebook
+00:07:59.340 okay so once you have authenticated with
+00:08:02.400 that we're going to generate from that
+00:08:04.020 problem that we just created okay so all
+00:08:07.259 we do is we go to completion endpoint
+00:08:08.940 create we're using the text DaVinci 003
+00:08:11.759 model it's one of the most recent
+00:08:13.620 instructional models and then we print
+00:08:16.560 out the response which will be in this
+00:08:19.620 path of the the Jason returned now here
+00:08:22.680 you can see that it stops pretty like
+00:08:25.440 suddenly here now the reason for that is
+00:08:27.660 because our Max total length isn't very
+00:08:30.720 long and we'll explain that a little bit
+00:08:32.279 more later on but what we first need to
+00:08:34.500 do is just increase that length right
+00:08:37.440 now and what we're going to do is just
+00:08:39.059 set that to 256 so max tokens equals two
+00:08:45.000 five six okay and let's just see if that
+00:08:48.420 does answer the question which libraries
+00:08:51.120 are modified as offer large language
+00:08:53.220 models and that's exactly right okay so
+00:08:56.580 we have hooking face open Ai and cohere
+00:08:59.880 right and then alternatively if we do
+00:09:02.279 not have the correct information within
+00:09:04.200 the context the model should apply I
+00:09:07.200 don't know because we have this a little
+00:09:09.839 bit here so I'm just going to put in the
+00:09:11.880 context libraries a Place full of boats
+00:09:13.920 and we would actually hopefully assume
+00:09:16.680 that the model is going to put output I
+00:09:18.300 don't know now let me just copy the max
+00:09:21.420 tokens again
+00:09:25.860 put that in here and we see that it
+00:09:27.959 follows that instructions it says I
+00:09:29.519 don't know okay great so that's just a
+00:09:32.279 simple prompt now what's next let's come
+00:09:34.980 down here and what we're going to talk
+00:09:36.899 about is the temperature within our
+00:09:40.860 completion endpoint so we can think of
+00:09:45.000 the temperature parameter as telling us
+00:09:49.560 how random the model can be or how
+00:09:52.260 creative the model can be and it simply
+00:09:54.959 represents the probability of the model
+00:09:58.019 to choose a word that is not actually
+00:10:00.540 the first choice of the model and this
+00:10:03.360 works because when the model is
+00:10:05.459 predicting tokens or words it is
+00:10:09.420 actually assigning a probability
+00:10:10.980 distribution over all possible words or
+00:10:13.980 tokens that it could output so you know
+00:10:16.920 say we have all of these different words
+00:10:18.779 here or tokens I should say and there
+00:10:21.720 are hundreds of thousands of these it's
+00:10:23.760 not six of these but what we're
+00:10:25.440 essentially doing is the model is going
+00:10:27.839 through these and it's kind of assigning
+00:10:29.339 a probability distribution so maybe this
+00:10:31.200 one is a high probability this one's low
+00:10:33.480 again this one's kind of big and this
+00:10:35.459 one up here
+00:10:36.839 is the most likely one right so this is
+00:10:39.300 the probability here
+00:10:42.000 and in this case if we have the
+00:10:43.620 temperature set to zero the word that is
+00:10:46.079 going to be chosen is this one here okay
+00:10:49.019 because there's there's no Randomness in
+00:10:51.600 the model it's just going to always
+00:10:52.920 choose the highest probability token If
+00:10:56.579 instead we turn the temperature up to
+00:10:58.860 one there is a lot more Randomness it
+00:11:01.980 may still choose this token here because
+00:11:04.920 it has a highest probability but it will
+00:11:07.920 also consider this because there's still
+00:11:09.899 a decent probability there okay and to a
+00:11:12.839 lesser extent it will also consider this
+00:11:14.820 but here this token to a lesser degree
+00:11:17.279 this one to a lesser degree this one and
+00:11:19.440 so on right so by increasing the
+00:11:23.220 temperature we increase the the
+00:11:26.640 weighting almost of these other possible
+00:11:30.240 tokens as being the select tokens within
+00:11:33.660 the generation of the model and this
+00:11:36.779 will generally lead to more creative or
+00:11:39.300 kind of random outputs so considering if
+00:11:42.959 we have our conservative
+00:11:45.980 fat-based q a we might actually want to
+00:11:49.980 turn the temperature down okay more
+00:11:52.860 towards the zero because we don't want
+00:11:54.779 the models to make anything up we want
+00:11:56.940 it to be not creative and just factual
+00:12:01.019 whereas if the idea is we want to
+00:12:04.200 produce some creative writing or some
+00:12:07.320 interesting chatbot conversations then
+00:12:10.019 we might turn the temperature up because
+00:12:12.660 it will usually produce something more
+00:12:14.640 entertaining and interesting and to some
+00:12:17.160 degree kind of surprising to see in a
+00:12:19.800 good way so let's take a look at what
+00:12:21.600 that might look like so here we're going
+00:12:23.760 to create a conversation with an amusing
+00:12:26.100 chatbot so again I want to just set the
+00:12:29.640 I need to add in the match tokens here
+00:12:33.839 okay and I'll add that in so we're going
+00:12:36.720 to start and the temperature is going to
+00:12:38.579 be very low so the default is is one
+00:12:41.519 with the opening AI completion endpoint
+00:12:43.860 running status is zero so the following
+00:12:46.860 is a conversation with a friendly chat
+00:12:48.120 about the chatbers responses are amusing
+00:12:50.399 and entertaining now this is like the
+00:12:52.920 instructions okay and then down here we
+00:12:55.740 have the starter conversation we have
+00:12:58.079 the user's input here and then we have
+00:13:00.839 our our next output indicator so let's
+00:13:03.540 run this and we get this so oh just
+00:13:06.000 hanging out and having a good time what
+00:13:07.200 about you you know it's not it's pretty
+00:13:09.240 predictable it's not that interesting
+00:13:10.680 yeah it's definitely not funny it's not
+00:13:13.200 amusing or or insane now let's ruin this
+00:13:15.779 again last time I got a good answer to
+00:13:18.060 this but it doesn't always provide a
+00:13:20.160 good answer so you know we can try
+00:13:22.860 so let me put in the match tokens again
+00:13:25.019 it's a little more interesting hanging
+00:13:27.180 out my electronic friends it's always a
+00:13:29.880 good time a bit better hang out come
+00:13:32.040 templating the meaning of life
+00:13:35.279 okay so a few better answers I don't
+00:13:38.040 think any of these are as good as the
+00:13:39.360 first one I got but they're not bad
+00:13:42.480 and definitely much better than the you
+00:13:45.839 know the first one we have here which is
+00:13:47.820 it's just a bit kind of plain and and
+00:13:49.980 boring so let's move on to what we would
+00:13:55.440 call few shot training for our model now
+00:13:58.920 what we'll often find is that sometimes
+00:14:02.700 these models don't quite get what we are
+00:14:05.760 looking for and we can actually see that
+00:14:08.940 in this example here so the following is
+00:14:11.459 conversation similar thing again AI
+00:14:13.320 assistant
+00:14:14.300 is sarcastic witty producing creative
+00:14:17.100 and funny responses to the users
+00:14:19.079 questions here are some examples and
+00:14:21.600 then in here what we can do is actually
+00:14:23.399 put in some examples but before we do
+00:14:25.800 that I just want to remove that and I
+00:14:28.620 want to show you what we get to begin
+00:14:30.180 with
+00:14:32.579 so let's run this we've turned the
+00:14:35.700 temperature up so it should come up with
+00:14:37.740 something kind of creative to a degree
+00:14:40.019 but we'll see that it's not not
+00:14:42.300 particularly interesting
+00:14:43.800 okay so yeah maybe if you want a serious
+00:14:47.880 answer this is what you're looking for
+00:14:49.139 but I'm I'm not asking for anything
+00:14:50.639 seriously I wanted something sarcastic
+00:14:52.500 witty creative and amusing right so what
+00:14:56.220 if we come down here and we actually add
+00:14:59.760 a few examples to our prompt okay so
+00:15:03.420 this is what we would refer to as few
+00:15:05.940 shop training we're adding a few
+00:15:07.560 essentially training examples into the
+00:15:10.019 prompt so we're going to say okay user
+00:15:12.360 how you ai's just kind of being
+00:15:14.339 sarcastic I can't blame sometimes I
+00:15:16.320 still do the user will ask what times it
+00:15:19.139 and the AI says it's time to get a watch
+00:15:21.060 okay and let's see if we get a a less
+00:15:24.480 serious answer to what is the meaning of
+00:15:26.160 life again let me put in the most tokens
+00:15:29.639 uh the previous answer was pretty good I
+00:15:32.040 don't know if we're going to get a good
+00:15:32.880 one like that again but let's try
+00:15:35.339 okay and
+00:15:37.980 you know we get something we get
+00:15:39.720 something good again as a great
+00:15:42.060 philosopher Shrek once said Fiona
+00:15:43.680 demeaning in life is to find your
+00:15:46.079 passion so kind of useful but also
+00:15:49.079 pretty amusing
+00:15:50.399 so this is a much better response and we
+00:15:55.139 got that by just providing a few
+00:15:57.560 examples beforehand so we did some few
+00:16:01.260 shot training we showed a few training
+00:16:03.839 at samudson model and all of a sudden it
+00:16:06.300 can produce a much better output now
+00:16:09.300 next thing I want to talk about is
+00:16:10.740 adding multiple context or adding a
+00:16:13.260 context in the maybe I think it was the
+00:16:15.959 first example we had a context in there
+00:16:17.760 but we manually wrote that okay we added
+00:16:20.040 that in there in reality what we do is
+00:16:22.860 something slightly different so let's
+00:16:25.139 consider the use case of question
+00:16:26.519 answering question answering we want the
+00:16:29.760 model to be factual we don't want it to
+00:16:32.220 make things up and ideally we would also
+00:16:36.060 like the model to be able to Source
+00:16:38.399 where it's kind of getting this
+00:16:39.839 information from so what we essentially
+00:16:42.360 want here is some form of external
+00:16:44.699 source of information
+00:16:46.040 that we can feed into the model and we
+00:16:49.800 can also used to kind of fact check that
+00:16:52.560 what the model is saying is actually
+00:16:54.079 true or is at least coming from
+00:16:56.579 somewhere that is reliable now when we
+00:17:00.120 are feeding this type of information
+00:17:01.980 into a model via the prompt we would
+00:17:05.520 refer to as Source knowledge and Source
+00:17:08.339 knowledge which my aspect is just any
+00:17:11.339 type of knowledge that is fed into the
+00:17:14.040 model via the prompt and this is kind of
+00:17:18.480 the no I don't want to say the opposite
+00:17:20.459 but this is an alternative to what we
+00:17:22.859 would call parametric knowledge which is
+00:17:25.619 knowledge that the model has learned
+00:17:27.419 during the training process and soars
+00:17:29.820 within the model weights themselves so
+00:17:31.860 that seems like if you ask the model who
+00:17:34.440 is the first man on the moon it's
+00:17:36.299 probably going to be able to say Neil
+00:17:37.860 Armstrong because it's kind of
+00:17:39.120 remembered that from during its training
+00:17:41.220 when it's seen you know tons and tons of
+00:17:43.679 human information and data but if you
+00:17:46.799 ask more specific pointed questions it
+00:17:49.620 can some times make things up or can
+00:17:52.380 provide an answer which is kind of
+00:17:55.080 generic and not actually that useful and
+00:17:57.299 that's where we would like to use this
+00:17:59.760 Source knowledge to feed in more useful
+00:18:02.039 information now in this example we're
+00:18:04.799 just going to feed in a list of dummy
+00:18:07.860 external informations so in reality we'd
+00:18:10.919 probably use like a search engine API or
+00:18:13.980 a long-term memory component rather than
+00:18:16.440 just relying on a list like we're doing
+00:18:18.120 here but for the sake of Simplicity this
+00:18:20.820 is all we're going to do so we have a
+00:18:23.039 few contacts here it's talking about
+00:18:25.740 large language models the latest models
+00:18:27.720 use NLP so on and so on it also talks
+00:18:31.260 about getting your API key from open AI
+00:18:33.720 talks about the open ai's API accessible
+00:18:37.140 via the open AI Library awesome Blitzer
+00:18:39.720 code and down here we also talk about
+00:18:41.760 setting it via the line chain library
+00:18:43.919 now it's going to use all this
+00:18:45.780 information and it's going to use all
+00:18:47.700 that to build a better prompt and create
+00:18:49.740 a better out outputs so what we do is we
+00:18:53.520 have our instructions at the top here as
+00:18:55.740 we did before then we have our external
+00:18:57.960 information our context now for gpt3 in
+00:19:02.580 particular what we recommend is that you
+00:19:05.160 separate your external information or
+00:19:07.380 your context from the rest of the prompt
+00:19:09.559 using like three of these or also you
+00:19:14.340 can use three of these not like that but
+00:19:18.660 like this okay we're gonna stick with
+00:19:22.500 these and then when it comes to the
+00:19:24.720 prompts themselves you also separate
+00:19:26.820 them each one of the unique prompts so
+00:19:29.400 you know we have one here one here and
+00:19:31.679 so on we're separating each one of those
+00:19:33.600 with just two of these characters as
+00:19:36.179 well then we have our question and then
+00:19:39.240 we have our output indicator now let me
+00:19:44.520 actually just copy this
+00:19:46.620 I'm going to put it up here so we can
+00:19:48.240 just see what we're actually building
+00:19:50.460 here
+00:19:52.860 uh oh we need to run this context here
+00:19:55.140 now let's run this again
+00:19:57.120 okay and I need to I need to print it
+00:20:00.480 otherwise it's a mess
+00:20:03.240 Okay cool so it's so kind of messy but
+00:20:06.299 it it works
+00:20:07.980 and also points out to me that I've
+00:20:09.660 missed a little bit so we have the
+00:20:12.900 instructions here and then we have our
+00:20:14.520 separator and then we have our context
+00:20:16.200 now actually here I've got this the
+00:20:20.400 thing to separate them but that's not
+00:20:22.980 exactly what we want we actually want to
+00:20:25.440 have some new line characters in there
+00:20:27.000 as well
+00:20:28.140 so add those
+00:20:34.200 and and to actually do that we're going
+00:20:36.480 to need to separate this bit as well so
+00:20:39.480 put context string
+00:20:42.600 in there and then we also here just put
+00:20:46.860 in the contextreme directly so
+00:20:54.840 come to here and then we get this sort
+00:20:57.299 of nicer format just by the way it will
+00:21:00.000 work even if you don't have this nice
+00:21:01.980 format but we should try and format it
+00:21:05.640 like this
+00:21:06.660 so we have our context and each one of
+00:21:09.360 them is separated okay and then you go
+00:21:12.660 down you have a question and the answer
+00:21:14.640 at the end there that is what we want
+00:21:17.280 I'm going to replace this with the
+00:21:18.480 context string and then if we come down
+00:21:21.840 to here I'm also going to add in our
+00:21:24.120 match tokens
+00:21:28.919 great and let's run that
+00:21:31.500 Okay cool so the question we'll just go
+00:21:34.260 up to the top here answer the question
+00:21:36.120 based on the context below
+00:21:38.059 answer I don't know if it doesn't know
+00:21:40.919 the answer same as before give me two
+00:21:43.500 examples of how to use open ai's gpt3
+00:21:47.700 model using python from start to finish
+00:21:50.100 okay so what we have is two options we
+00:21:54.120 can either use it via open AI or we can
+00:21:56.760 go via line chain both views are correct
+00:21:59.100 now one question here is okay we added
+00:22:02.640 in each context but actually did it need
+00:22:05.039 those can we do this prompt without
+00:22:07.260 context and still get a decent answer we
+00:22:09.780 can try so answer the question and uh we
+00:22:12.840 don't have any context here same
+00:22:14.940 question same output indicator let's run
+00:22:18.299 that oh one thing we all need is the max
+00:22:21.480 tokens again
+00:22:23.580 okay and yeah we get this so using open
+00:22:27.840 aisg T3 model with python to generate
+00:22:30.600 text you know yeah that is true but it's
+00:22:34.380 not it's not very useful and then here
+00:22:37.799 it's saying using Jeep G3 to generate
+00:22:40.679 images which isn't even possible so yeah
+00:22:43.799 not not really what you know not a good
+00:22:45.840 answer essentially
+00:22:47.580 so this is you know where we would see
+00:22:50.760 our certain information that Source
+00:22:53.039 knowledge has actually been pretty
+00:22:54.600 useful now considering how big our
+00:22:58.260 prompts got with those contexts and you
+00:23:01.380 know that wasn't even that much uh
+00:23:03.600 information being fed into I promise how
+00:23:06.360 big is too big like at what point are
+00:23:08.940 pumps too large for us to actually use
+00:23:12.659 the model this is a pretty obviously
+00:23:15.360 important thing because if we go too big
+00:23:17.280 we're going to start throwing errors so
+00:23:19.380 let's begin taking a look at that so for
+00:23:23.340 types of Industry 003 the what we call
+00:23:27.240 the context window which is the maximum
+00:23:31.200 number of tokens that Texas Avengers 003
+00:23:34.380 can handle within both the prompt and
+00:23:38.400 also the completion creation that is
+00:23:42.210 [Music]
+00:23:43.820 4097 tokens okay not words but tokens so
+00:23:48.539 we can set the maximum completion length
+00:23:51.600 of our model as we saw before we're
+00:23:54.720 setting the max tokens we can set that
+00:23:56.520 but that cannot cover the 4097 because
+00:24:00.120 we need to consider the number of tokens
+00:24:02.400 within our prompt as well the only
+00:24:04.919 problem is how do measure the number of
+00:24:07.020 tokens within our problems okay so for
+00:24:09.840 that we need to use open ai's token
+00:24:12.419 tokenizer right so for that you'll need
+00:24:14.940 to pip install tick token taking the LA
+00:24:17.700 prompt and we'll just stick with the the
+00:24:19.440 one where I haven't added in the the new
+00:24:21.480 lines here let's take a look at how we
+00:24:23.580 can actually measure the number of
+00:24:24.659 tokens in there so we need to import
+00:24:27.120 tick token we
+00:24:29.940 create our prompt hopefully better than
+00:24:32.220 using us here we have our encoder name
+00:24:34.679 which I will explain in a moment and
+00:24:37.500 then we have our tokenizer so this is a
+00:24:41.580 token tokenizer which we initialize by
+00:24:45.360 using tip toe and get a coding then we
+00:24:46.919 have that code name and code name is
+00:24:49.080 important for each model here and then
+00:24:50.940 we just tokenize it encode our prompt
+00:24:54.360 check the length of that and we get 412.
+00:24:58.440 so we've even respond into our text
+00:25:01.100 message003 model it's going to use a 412
+00:25:04.320 of our context window tokens okay which
+00:25:08.760 is at 4 000 and 97 that you see here
+00:25:12.360 that leaves us with
+00:25:15.500 3685 tokens for the completion okay for
+00:25:19.559 that so that Max tokens we can set it to
+00:25:21.840 that number but no higher now one
+00:25:25.200 important thing to note here is that not
+00:25:27.720 all open air models use the p50k base
+00:25:31.860 encoder there is this link here which
+00:25:35.820 will take you through to a table of the
+00:25:38.100 different encoders but in short
+00:25:40.980 as I've recorded this video they were
+00:25:42.960 this okay so for most gpt3 models and
+00:25:46.020 also GT2 you're going to be using the
+00:25:48.320 r50k bass or gpt2 encoder for the code
+00:25:52.440 models and the recent instructional
+00:25:54.659 models we use p50k bass and for the
+00:25:58.740 embedding model 1002 we use CL 100K base
+00:26:02.940 so if we now set our maximum tokens to
+00:26:06.960 this and generate let's let's take a
+00:26:10.320 look what we get now one thing you will
+00:26:12.120 know straight away is that the
+00:26:14.700 completion time is is longer it's
+00:26:16.679 because we have more maximum tokens even
+00:26:19.200 if it doesn't fill that entire space
+00:26:20.940 with with tokens the computational time
+00:26:23.520 does take longer now let's see what we
+00:26:27.720 have here
+00:26:28.860 um it's pretty much the same as what we
+00:26:31.980 got before even though we've increased
+00:26:34.200 the number of tokens because it doesn't
+00:26:35.880 need to use all of that space so the
+00:26:38.580 model doesn't now what happens if we
+00:26:42.179 increase Max tokens by one more right so
+00:26:45.419 if we go to you can kind of see already
+00:26:47.520 if we go to
+00:26:50.000 3686 let's run that and we get this
+00:26:53.279 invalid request error that's because
+00:26:55.320 we've exceeded that maximum content
+00:26:57.659 level so we need to just be very
+00:27:01.440 cautious with that and obviously like if
+00:27:05.100 you're using this in a environment where
+00:27:07.799 you might expect the maximum content
+00:27:10.140 length to be exceeded you should
+00:27:12.600 probably consider implementing something
+00:27:15.539 like this check into your pipeline now
+00:27:18.860 that is actually everything for this
+00:27:22.200 video we've just actually been through
+00:27:25.500 Fair few things when it comes to
+00:27:28.140 building better prompts and how to
+00:27:30.600 handle some of the key parameters within
+00:27:33.860 your prompt completion inputs so as I
+00:27:38.760 mentioned prompts are super important
+00:27:40.620 and if you don't get them right your
+00:27:43.620 output is is not going to be is that
+00:27:46.020 great to be honest so it's worth
+00:27:48.600 spending some time just learning more
+00:27:51.179 about proms not just what we've covered
+00:27:53.100 here but you know maybe more and just
+00:27:55.020 especially more than anything
+00:27:57.679 experimenting with your prompts and
+00:28:00.360 considering other things depending on
+00:28:02.220 what you're doing like do you need to be
+00:28:04.620 pulling in more information for your
+00:28:06.419 prompts from external source of
+00:28:07.919 information do you need to be modifying
+00:28:10.620 the temperature are there other
+00:28:11.700 variables in the completion endpoint
+00:28:13.380 that you could do modifying all these
+00:28:15.779 things are pretty important to consider
+00:28:18.840 if you're actually building something
+00:28:20.520 with any real value using large language
+00:28:24.240 models and no other thing to point out
+00:28:26.640 is that this is not specific to GPT 3
+00:28:30.600 models this is if you want to use cohes
+00:28:33.659 generation endpoints or completion
+00:28:36.179 endpoints or you want to use open source
+00:28:39.539 hooking face models like you want to use
+00:28:41.640 bloom or something for completion you
+00:28:44.520 should also consider these Branch
+00:28:47.120 engineering Like rules of thumb or trips
+00:28:51.659 beyond that I think I've covered
+00:28:53.820 everything so that's it for this video I
+00:28:57.120 hope it's been useful and interesting
+00:29:00.179 but for now we'll leave it there so
+00:29:03.059 thank you very much for watching and I
+00:29:05.220 will see you again in the next one bye

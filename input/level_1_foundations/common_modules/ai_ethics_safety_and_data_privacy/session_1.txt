@@ -1,0 +1,184 @@
+# tactiq.io free youtube transcript
+# AI Governance Concepts and Terminology: A Big Guide | AI Literacy Series
+# https://www.youtube.com/watch/NRbmTqRU9rg
+
+00:00:00.000 If you're in charge of managing AIsystems or AI governance, and you want
+00:00:04.407 to learn about the basic concepts andterminology, then this video is for you.
+00:00:08.861 So, I'll explain you some generalAI governance concepts, and then
+00:00:12.509 I'll explain you, what are thekey concepts to understand how AI
+00:00:16.589 works, and finally, I'll presentyou some basic risks for AI systems.
+00:00:21.406 And also show you where you canfind a free course that will teach
+00:00:24.976 you in even more details aboutthese key concepts and terminology.
+00:00:29.005 So, after you watch this video,you'll have a clear idea on what
+00:00:32.275 are these basic concepts upon whichthe AI governance is built upon.
+00:00:37.185 Okay, let's start first withsome general concepts that are
+00:00:40.785 important for AI governance.
+00:00:42.605 So first of all, AI trustworthinessis the ultimate goal that you want to
+00:00:46.644 achieve with applying of AI governance.
+00:00:49.140 And this AI trustworthiness basicallymeans that AI systems actually perform
+00:00:54.101 as expected, that all stakeholdersare actually satisfied and that
+00:00:58.428 they can actually check if these AIsystems are performing as expected.
+00:01:03.150 And sometimes instead of this AItrustworthiness, you could hear that
+00:01:07.015 this overall goal is safe and responsibleand ethical AI, but ultimately
+00:01:12.308 it comes down to the same thing.
+00:01:13.967 Okay, second concept are these AIobjectives or principles, and basically
+00:01:18.593 these are kind of high level directiveswhich you want your AI systems to follow.
+00:01:24.382 And there can be many of theseobjectives or principles like privacy,
+00:01:28.762 cybersecurity, safety, maintainability,environmental impact, accountability,
+00:01:34.642 fairness, robustness, transparency,human oversight, and so on.
+00:01:39.072 And then, the third concept is veryimportant and actually it lies at the
+00:01:43.339 core of AI governance, and this isbasically assessment of AI risks and then
+00:01:47.719 applying controls to decrease those risks.
+00:01:50.349 Now, why is this important?
+00:01:51.879 Because if you want to achievethis AI trustworthiness, then
+00:01:54.729 you have to decrease all thepotential bad things from happening.
+00:01:58.660 And to achieve that, you actuallyhave to analyze what could go wrong,
+00:02:02.657 meaning, you have to do the riskassessment and then you actually have
+00:02:05.790 to do some things upfront so thatthese bad things do not happen, and
+00:02:09.656 basically these are these AI controls.
+00:02:11.982 So ultimately, you could say that AIgovernance is basically doing the risk
+00:02:16.014 assessment and applying controls inorder to achieve this AI trustworthiness,
+00:02:20.352 while at the same time complyingwith these objectives and principles.
+00:02:25.036 Okay, let's now go through acouple of concepts that are key
+00:02:28.059 for understanding how AI works.
+00:02:30.204 So, an AI system is basically an ITsystem that produces as output text or
+00:02:35.906 video or audio or various other typesof outputs, based on data and based
+00:02:40.783 on reasoning of various AI models.
+00:02:43.727 Okay, next, generative AI or sometimescalled GenAI, is basically any AI
+00:02:49.091 system that creates a new content.
+00:02:51.412 Again, this could be text,video, audio, computer code,
+00:02:54.702 or anything similar to this.
+00:02:56.034 And there are different typesof generative AI, large language
+00:02:59.634 models, video models, audio models,code generation models, and so on.
+00:03:04.221 Next, a large language modelor LLM, is an AI model that is
+00:03:08.586 trained on a huge amount of text.
+00:03:10.416 And it is actually designed fornatural language processing tasks,
+00:03:14.001 like answering questions, writingessays, these kind of things.
+00:03:17.705 And basically, each major chatbot likeChatGPT or Gemini or Claude has an
+00:03:23.129 LLM behind it, and basically, this LLMenables this chatbot to speak to you.
+00:03:28.180 Okay, next machine learning is basicallya process where these parameters within
+00:03:33.200 large language models and other AI models,where they're optimized, so that they
+00:03:37.544 actually behave in a way that you want.
+00:03:40.377 So basically, these parameters areused to configure these AI models.
+00:03:44.901 And when I say configure, I mean thatbasically the output is what you expected.
+00:03:49.329 So, if you give the large language modela task to translate a sentence, so that
+00:03:54.026 this sentence is translated into thisother language in the best possible way.
+00:03:58.285 Okay, training data is basically theknowledge which the AI system has.
+00:04:02.940 And it uses this knowledge to actuallyrecognize patterns within this data,
+00:04:07.621 so that it can actually predictwhat the best answer could be based
+00:04:11.886 on the input it got from a user.
+00:04:14.777 And basically, these large language modelscome with a huge data set of training data
+00:04:20.457 that was used for training this model,and this is usually all the internet
+00:04:25.797 web pages, but also transcripts fromYouTube videos and so on and so forth.
+00:04:30.513 And a different type of trainingdata that you will very often use
+00:04:34.384 is your company specific data.
+00:04:36.197 And this company specific datawas, well hopefully, not used for
+00:04:40.414 training the large language model,rather it is your proprietary data,
+00:04:44.446 but still you can actually usethis data when asking a particular
+00:04:47.724 question towards these large languagemodel, let's say, towards ChatGPT.
+00:04:52.394 Now, when uploading your own proprietarydata to ChatGPT, you have to make sure
+00:04:57.514 that you do not allow this chatbot touse this data to train their own model.
+00:05:03.511 And as another source of trainingdata, you can actually ask the chat
+00:05:07.359 application to perform a web search,so that the latest data is collected
+00:05:12.061 from the internet, if you needthis kind of an input for whatever
+00:05:15.777 task you are giving to AI system.
+00:05:17.975 Okay, next is AI inference.
+00:05:20.375 AI inference is basically theprocessing of these inputs using the
+00:05:24.429 training data, using the reasoningfrom AI model, and then using this to
+00:05:28.754 transform your input into an output.
+00:05:31.186 Now, this AI inference is very, verycomputer intensive, and this is why
+00:05:35.449 all of these AI data centers are builtto put all of these computers with all
+00:05:39.366 of these AI chips, so that they canprocess all of these inputs from various
+00:05:44.178 users, AI agents, and other AI apps.
+00:05:47.112 And finally, there is one AIconcept that is really emerging,
+00:05:50.992 and these are AI agents.
+00:05:52.616 And basically, AI agents are partsof an AI system, that actually
+00:05:56.606 understand their environment andtake some actions autonomously.
+00:06:00.195 For example, in the future you might haveAI agents which actually perform certain
+00:06:04.643 shopping for you, simply tell them, okay,I want to purchase this kind of device
+00:06:08.903 on the internet, up to this price, andthen they will find the most appropriate
+00:06:13.073 price, and the most reliable vendor,and simply do the shopping for you.
+00:06:17.158 Or AI agents might reply to very simplequestions that you receive through
+00:06:22.031 email, whereas leave to you actuallyto answer some more complex questions.
+00:06:26.228 And of course, in the future we'll seemany other use cases for these AI agents.
+00:06:31.243 Okay, now let's see some mostcommon risks related to AI systems.
+00:06:35.252 I'll go through only three of them,whereas, there are, of course, numerous
+00:06:38.420 other risks that I don't have reallythe time to cover in this very video.
+00:06:42.543 Okay, one common risk is bias.
+00:06:44.703 And this is basically when an AIsystem treats one group of people
+00:06:48.256 differently or preferentiallyover the other group of people.
+00:06:51.820 So an example could be an AIsystem for hiring new employees,
+00:06:55.891 and then that this hiring systemactually prefers men over women.
+00:07:00.401 And this is of course not only ethicallywrong, this could also be very bad for the
+00:07:05.114 company that is using such an AI system.
+00:07:07.617 Okay, second common riskis this hallucination.
+00:07:10.167 And basically hallucination is when anAI system provides you with an answer
+00:07:15.027 and it does it very convincingly,however, the answer is simply wrong.
+00:07:19.602 And the problem is that you cannot knowwhether this is right or wrong, because
+00:07:23.589 the AI system presents this as a fact,and again, it does it very convincingly.
+00:07:30.006 And the third common riskis data leakage and privacy.
+00:07:33.539 And this can happen when, for example,as I already mentioned, when you actually
+00:07:37.123 upload some proprietary or sensitivedata into a chatbot application,
+00:07:41.462 and then if you're not careful, thenthe chatbot can actually use this
+00:07:45.938 data for training its own model.
+00:07:48.240 And then, when some other user asks arelated question, he or she actually
+00:07:52.348 can get the answer which is basedon your data, which means that some
+00:07:56.158 of your sensitive data might leak.
+00:07:58.342 And, as I mentioned earlier, one ofthe key concepts of AI governance
+00:08:02.542 is that you actually find the mostappropriate controls to actually
+00:08:06.208 resolve or reduce these risks.
+00:08:08.152 And now you might wonder, how to put allof this together, how to assess the risks
+00:08:12.864 and find these controls, how to put allof these policies and procedures in place,
+00:08:17.827 and this is basically, where this ISO42001, this is an international standard,
+00:08:22.920 comes into play, because it actuallyexplains how to implement AI governance.
+00:08:27.278 And by the way, this standard is acceptedin all countries around the world, and
+00:08:32.095 you can certify your company against it,so you can prove to your customers and
+00:08:36.207 other stakeholders that you are governingyour AI systems in the best possible way.
+00:08:41.162 Okay, let me now show you a free coursethat will teach you how to set up AI
+00:08:45.369 governance according to ISO 42001.
+00:08:48.468 Okay, I am showing you now this ISO 42001Foundations Online Course from Advisera.
+00:08:53.984 And here you can find some basicinformation about the course.
+00:08:57.363 But here you can see that youcan sign up for the whole course,
+00:09:00.838 for all these lessons for free.
+00:09:03.182 And you would have to pay only ifyou go for the certification exam.
+00:09:07.035 Okay, now let's see thecurriculum, so the lessons.
+00:09:09.495 So here in this module one, you cansee some introduction lessons about
+00:09:13.586 the standard, but more importantly,you actually have these lessons that
+00:09:16.851 explain in detail these things that Iwas explaining you earlier in this video.
+00:09:21.172 So, here you have this explanation ofbasic AI terminology, basically this
+00:09:24.879 is almost the same as you've seenalready in the video, but here you
+00:09:28.179 actually have a separate lesson aboutmachine learning, and main types.
+00:09:31.853 Here you have a lesson about neuralnetworks, about main components of an AI
+00:09:35.886 system, what is this AI system lifecycle,what are these stages of a lifecycle.
+00:09:40.406 And then, basically from module twoand further, you will see these lessons
+00:09:43.864 that explain all the clauses from ISO42001, but these clauses are basically
+00:09:49.323 building elements of AI governance.
+00:09:51.307 So basically, these modules two to sixexplain you how to build systematic
+00:09:56.036 AI governance in a company, so forexample, you have these lessons here
+00:09:59.186 about understanding the organization inits context, expectations of interested
+00:10:03.213 parties, and so on and so forth.
+00:10:04.881 Also here you can see about thetop level policy, organizational
+00:10:08.373 roles, resources, and so on.
+00:10:10.096 And then, module three providesyou in detail how to list the AI
+00:10:14.196 risks, how to analyze the levelof impact and likelihoods, and
+00:10:18.719 then how to select particularcontrols to decrease these risks.
+00:10:22.686 So module four is about how to implementall of these controls into practice.
+00:10:27.146 Module five is about how to monitor andmeasure the whole AI governance system.
+00:10:32.491 And module six is about all of theseAI controls, and by the way, there
+00:10:36.496 are 38 controls in this Annex A. Andhere is an explanation of all of them,
+00:10:41.420 including for example, the controlsrelated to training data, including
+00:10:45.919 also controls that explain what you haveto do as part of each lifecycle stage.
+00:10:50.922 Some controls for the regularuse of AI systems, and so on.
+00:10:54.476 Okay, hope this was helpful, and let meknow in the comments below if you have
+00:10:58.496 any questions about these AI concepts,and I'll get back to you as soon as I can.
+00:11:03.197 And to access this ISO 42001 FoundationsCourse that I was showing you, click the
+00:11:08.687 link in the description below and you'llbe able to open this free student account
+00:11:13.191 where you can actually go through allthe training videos without any payment.
+00:11:17.005 And you would have to pay onlyfor this certification exam,
+00:11:20.035 if this is what you want to do.
+00:11:22.040 And see also my next video,which explains in further details
+00:11:25.610 what is this AI governance.
+00:11:27.320 And if you like this video,please give it a thumbs up.
+00:11:30.190 And you can also subscribe to my YouTubechannel not to miss any of my new videos,
+00:11:34.183 and I publish videos about AI governanceand cybersecurity governance every week.
+00:11:38.923 Thanks for watching!

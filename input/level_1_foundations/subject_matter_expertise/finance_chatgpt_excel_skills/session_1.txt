@@ -1,0 +1,232 @@
+# tactiq.io free youtube transcript
+# How to 10X Your Excel Skills With ChatGPT For Finance
+# https://www.youtube.com/watch/eW53T_6WQis
+
+00:00:00.080 in this video I will walk you through
+00:00:02.800 how you can combine chpt and Excel to
+00:00:06.480 make your work easier and become
+00:00:09.160 Irreplaceable I will show you Hands-On
+00:00:11.599 examples that you can Implement into
+00:00:14.040 your workflow right after watching this
+00:00:16.720 video let's get into it imagine you work
+00:00:19.279 for a supermarket in finance and your
+00:00:21.640 boss comes to you and want to know which
+00:00:24.720 product had a promotion that worked this
+00:00:27.519 year and which one didn't work who are
+00:00:29.439 you going to do this analysis if you
+00:00:31.199 never made it I'm going to show you how
+00:00:33.200 you can use chpt for this even if you
+00:00:36.239 don't have a chpt Enterprise contract
+00:00:39.160 because yes I'm going to give you my
+00:00:41.320 trick on how to use data analysis
+00:00:43.960 without giving your data inside AI stay
+00:00:47.239 tuned because this trick not a lot of
+00:00:49.680 people know it so I'm going to give it
+00:00:51.760 to you first we have this file where we
+00:00:54.520 have our product the revenue of last
+00:00:56.600 year the revenue of current year and the
+00:00:58.399 promiss of last year and permission of
+00:01:00.079 this year let's select the header and
+00:01:02.320 copy the header and you will understand
+00:01:04.119 soon why now let's move to chpt and
+00:01:06.560 let's explain CH GPT the situation I
+00:01:09.680 work for a
+00:01:12.439 supermarket in the finance
+00:01:15.200 team my boss wants to
+00:01:18.479 know how the
+00:01:21.920 promotion was working this
+00:01:25.960 year help me
+00:01:28.520 calculate the best t kpis for this in my
+00:01:33.799 Excel file really important to explain
+00:01:37.200 that here are the headers of my Excel
+00:01:44.280 file and you see I just copy inside the
+00:01:47.840 header but I don't give any confidential
+00:01:49.840 information giving the header of a file
+00:01:52.119 there is nothing confidential it doesn't
+00:01:53.880 know about my sales it doesn't know
+00:01:56.159 about my promotion so let's see how CH
+00:01:58.119 GPT can help us
+00:02:02.320 okay so we have here the different kpis
+00:02:04.840 we can calculate we have first the
+00:02:06.439 promotion Effectiveness which is quite
+00:02:08.440 good we have the revenue gross rate we
+00:02:10.598 have the promotion spending gross rate
+00:02:12.720 we have the revenue promotion ratio and
+00:02:14.879 we have the incremental Revenue per nit
+00:02:17.239 of promotion so a lot of different kbis
+00:02:19.560 I'm actually quite curious with the last
+00:02:21.280 one because I think this is the most
+00:02:23.319 relevant so I will ask how to do the kpi
+00:02:28.519 number five in my Excel
+00:02:34.000 file wow so now I have even the formula
+00:02:37.160 that's awesome what I really like here
+00:02:39.000 is we go from the theory of explaining
+00:02:41.239 the kpi where I can also challenge it to
+00:02:43.879 have exactly here the formula on top
+00:02:46.800 here it shows you that we assume that
+00:02:48.959 the revenue last year is in column D
+00:02:51.040 Revenue current year is column e Etc so
+00:02:53.319 you can check now if tgpt understood how
+00:02:55.840 your file works so we are going to do a
+00:02:58.400 check to see if we can use this form I'm
+00:03:00.200 going side by side to verify and revenue
+00:03:02.800 of last year column D yes Revenue
+00:03:05.159 current year e yes promotion last year F
+00:03:08.239 yes and protion is here G yes so we can
+00:03:11.080 use the formula let's copy the
+00:03:13.599 code now I have the incremental Revenue
+00:03:17.120 per unit of promotion awesome so I'm
+00:03:19.319 just going to format and I can double
+00:03:24.440 click to apply this formula everywhere
+00:03:27.120 in my file but you might ask yourself
+00:03:29.239 what does it mean well why should I
+00:03:30.959 answer you when I can ask jbt to answer
+00:03:34.000 to you so I can say how can I explain
+00:03:37.319 this kpi to my boss and my
+00:03:44.480 colleagues so you see here is really the
+00:03:47.760 information for each additional dollar
+00:03:50.720 we put into the promotion this is the
+00:03:53.360 additional Revenue we will get and we
+00:03:55.040 have example quite good right and we
+00:03:56.599 have even proposition on how to present
+00:03:58.560 that to the boss now that we have this I
+00:04:01.280 want to highlight which one are good
+00:04:03.599 which one are bad so I'm going to ask
+00:04:06.159 how to
+00:04:07.640 highlight the good ones from the bad
+00:04:11.400 ones in my Excel
+00:04:19.478 file here it gives us the answer by
+00:04:22.120 saying that we can use conditional
+00:04:23.919 formatting so first we need to identify
+00:04:26.120 what is good or bad and then we need to
+00:04:27.840 apply the conditional formatting so how
+00:04:30.240 to add the conditional formatting I just
+00:04:32.400 need to select my column go home and
+00:04:35.600 click conditional formatting there is a
+00:04:37.680 lot of different possibilities I can use
+00:04:39.960 greater than if we want but just a tip
+00:04:42.919 for you you can also use color scale
+00:04:45.280 just Bas on the value you can show when
+00:04:47.759 something is good or not so here for
+00:04:49.880 example we want to show that the bad
+00:04:53.360 ones are in red and the good ones are in
+00:04:55.400 blue so we can see for example the
+00:04:56.919 walnuts has a really good use of our
+00:04:59.280 promotion but just under soda was not so
+00:05:02.199 quite cool right but this is still a bit
+00:05:04.120 too complex because we have 50
+00:05:06.440 references it's really hard to present
+00:05:08.440 that to your boss so how are you going
+00:05:09.840 to do let's ask again CH GPT which graph
+00:05:14.360 can I use to
+00:05:17.039 represent this kpi for my 50
+00:05:23.680 skus so we can use bar chart okay
+00:05:27.039 conditional column chart scatter plot
+00:05:29.720 hit map or bubble chart so here we can
+00:05:32.280 use maybe some of the graphs and that's
+00:05:34.479 why I wanted to do this video as well is
+00:05:36.319 to show you something you don't know
+00:05:37.800 what I will recommend here based on my
+00:05:39.440 experience and that's why experience is
+00:05:40.880 also really important and you should
+00:05:42.880 practice to learn and try here to see
+00:05:45.400 which one is the best for you but I
+00:05:46.639 would recommend to use this one let's
+00:05:49.080 see why I'm going to ask how to do the
+00:05:54.440 scatter plot in my Excel file
+00:06:05.000 so the data we know is already organized
+00:06:07.720 and here insert the scatter plot how to
+00:06:10.280 insert the scatter plot select the data
+00:06:12.720 go to insert chart scatter plot select
+00:06:15.680 the data
+00:06:17.759 insert and in chart we have here scatter
+00:06:20.960 plot wow PR good okay so that's quite
+00:06:24.520 interesting but here when I click I
+00:06:26.919 don't know which product is this one so
+00:06:28.639 I'm going to ask
+00:06:30.120 or can I see which point
+00:06:34.319 corresponds to which product and you see
+00:06:38.280 how I'm using it like an
+00:06:41.639 assistant
+00:06:43.639 so okay I have here the full detail so
+00:06:48.680 click on the scatter plot okay right
+00:06:50.840 click on any data
+00:06:53.039 point add data labels okay so we have
+00:06:56.479 here the data labels but it's not what
+00:06:58.199 we want yeah at thisp Excel will add
+00:06:59.879 numeric values okay but we don't really
+00:07:01.840 want that so format data labels and what
+00:07:05.960 we want is value from sales okay so
+00:07:09.080 we're going to remove first this and get
+00:07:11.319 value from cell and that's when we are
+00:07:14.960 able to select the name of the
+00:07:18.080 product let's check yes now we have our
+00:07:23.120 products now what I can ask is how to
+00:07:28.319 interpret the this
+00:07:32.240 graph so we can see Trends we can
+00:07:35.080 identify clusters and spot out layers so
+00:07:37.759 how to interpret this actually I like
+00:07:40.120 this explanation
+00:07:41.479 here what does it say if I take low
+00:07:44.919 promotional spending so more here
+00:07:47.599 because means you see like this line is0
+00:07:50.800 spending $600 spending so we we spend a
+00:07:53.960 lot of lot for the meat the Y AIS is how
+00:07:57.680 much revenue we generated by unit of
+00:07:59.680 promotion so what does that mean is
+00:08:01.319 basically walnuts is really well
+00:08:03.080 performing we didn't spend a lot of
+00:08:04.759 money but generated a lot of promotion
+00:08:06.879 chicken was really bad actually and
+00:08:09.080 generally meat I think we spend too much
+00:08:11.199 money on promotion one thing I want to
+00:08:13.280 check is per category I just want to
+00:08:15.319 analyze the meat so what I can do as
+00:08:17.479 well is move the table here
+00:08:20.680 under and I want to analyze just for
+00:08:24.120 example the mid section so I will select
+00:08:26.639 meat and now you see that I have my
+00:08:28.960 graph just based on meat so like this
+00:08:31.360 actually beef was quite well performing
+00:08:33.880 but chicken not imagine going to your
+00:08:36.200 bus and you can answer to all of the
+00:08:38.880 questions that we almost didn't spend
+00:08:41.399 more than 5 to 10 minutes and we have a
+00:08:43.360 super tool that can analyze how much
+00:08:45.680 revenue you did based on your promotion
+00:08:48.040 and help your management for the future
+00:08:50.279 to improve the way you spend money on
+00:08:52.640 promotion to increase Revenue so this is
+00:08:55.080 how you use CH GPT with Excel if you
+00:08:57.720 want to do data analysis and financial
+00:08:59.800 analysis and to go from identifying kpis
+00:09:02.800 based on your data but without giving
+00:09:05.000 data then having the right formula to
+00:09:07.320 calculate it because you saw that is
+00:09:09.079 quite a complicated kpi but here I got
+00:09:11.760 the help of CH GPT to generate this kpi
+00:09:14.160 and understand it then I did the formula
+00:09:16.360 thanks to conditional formatting we
+00:09:18.480 could identify the outliers and finally
+00:09:21.399 we have a tool with a graph that is even
+00:09:24.320 Dynamic where we can generate a visual
+00:09:26.480 analysis of your data amazing right I'm
+00:09:28.839 sure if go now to your bus you will be
+00:09:31.200 amazed and you will be ask more and more
+00:09:33.560 interesting analyses and certainly get a
+00:09:35.560 promotion in the future so this is
+00:09:37.440 exactly how you can Tex your Excel
+00:09:40.240 skills as a finance Pro using your GPT
+00:09:43.519 now apart from using it for Excel there
+00:09:46.680 are a lot of other ways that AI can help
+00:09:50.200 you save time and improve the quality of
+00:09:53.440 your work so if you are working in
+00:09:55.720 corporate finance I created a free 5day
+00:09:59.000 Emil course covering everything you need
+00:10:01.800 to know to get the maximum out of AI and
+00:10:05.279 not get left behind just click the first
+00:10:08.000 link in the description to get access to
+00:10:10.640 this free 5day email course and if you
+00:10:13.440 want to learn more about how AI is
+00:10:15.680 transferring Finance then check out this
+00:10:18.000 video I will see you there

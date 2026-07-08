@@ -1,0 +1,197 @@
+# tactiq.io free youtube transcript
+# Asana: Human and AI Coordination for Project Management
+# https://www.youtube.com/watch/AyYEtHtAcHI
+
+00:00:00.920 Hi, I'm Neal Patel and I'm excited to
+00:00:03.240 introduce you to Asana, the platform for
+00:00:05.840 human and AI coordination.
+00:00:08.440 Every company has goals, but the
+00:00:10.280 challenge is connecting the teams and
+00:00:12.160 work to those critical business efforts
+00:00:14.320 and operationalizing them at scale.
+00:00:17.400 With Asana, you can visualize what
+00:00:19.200 you're trying to achieve and how it's in
+00:00:21.280 support of your company's mission.
+00:00:23.880 From here, you can track goal progress
+00:00:26.440 and see all the related work and key
+00:00:28.600 initiatives in service of this goal.
+00:00:32.680 At the portfolio view,
+00:00:34.560 you can get frequent updates on the
+00:00:35.920 health of projects from smart summaries
+00:00:38.320 to quickly see if there's any blockers
+00:00:40.000 or risks.
+00:00:41.640 AI wrote this update with links to all
+00:00:44.080 the relevant work so I can get up to
+00:00:46.040 speed in an instant.
+00:00:48.240 No more needing to block my Friday
+00:00:49.960 afternoons for writing status updates
+00:00:51.720 with the help of AI.
+00:00:53.960 You can also see all the work laddering
+00:00:56.160 up to your global initiatives and when
+00:00:58.400 it comes to actually tracking it,
+00:00:59.960 whether that's for events and campaigns
+00:01:01.560 for marketing teams,
+00:01:03.320 strategic planning initiatives for ops,
+00:01:05.600 or company enhancements for IT,
+00:01:07.880 you can create an AI-powered workflow to
+00:01:10.200 automate a lot of the manual work at
+00:01:12.080 every stage. So, you can go from weeks
+00:01:14.240 of prioritization to minutes.
+00:01:17.200 Now, every project starts off with a
+00:01:18.880 request, whether that's a creative
+00:01:21.360 request, a question for your legal team,
+00:01:24.320 an IT request, and that can be from
+00:01:27.080 email, Slack, or an intake form like
+00:01:29.480 this one.
+00:01:31.080 Once the request is submitted, it's
+00:01:33.120 automatically added to your respective
+00:01:34.960 intake project for easy tracking.
+00:01:38.560 From here, each request is accurately
+00:01:40.960 tailored to your workflow and with AI on
+00:01:43.080 the team, it becomes your first line of
+00:01:44.760 defense at triaging and reviewing each
+00:01:46.960 request.
+00:01:48.320 This is done by AI-powered rules in AI
+00:01:51.120 studio,
+00:01:52.320 which means
+00:01:54.080 AI can take on the work that you don't
+00:01:56.040 want to,
+00:01:57.080 like renaming tasks so they're easy to
+00:01:59.200 read and follow a standard naming
+00:02:00.680 convention.
+00:02:02.160 Here, we've created a rule where anytime
+00:02:04.920 a request comes in, AI is going to go
+00:02:06.960 ahead and rename it.
+00:02:08.919 It's going to use the guidance we gave
+00:02:10.240 it and the associated naming framework.
+00:02:15.080 Back in the project, AI can also quickly
+00:02:17.440 screen requests for accuracy and
+00:02:19.520 completeness. And if not all required
+00:02:21.760 information has been provided, it will
+00:02:24.240 follow up with the submitter directly to
+00:02:26.320 request the missing details.
+00:02:29.280 Back in AI Studio, you can see the rule
+00:02:30.880 behind it.
+00:02:32.320 AI is going to check if there's enough
+00:02:33.640 information. If there is, it'll move it
+00:02:36.000 to the next section. If not, it'll flag
+00:02:38.560 that we need more information.
+00:02:40.760 That's based on the guidance, the
+00:02:42.080 instructions we've given it of what to
+00:02:44.080 look for and what's a complete checklist
+00:02:46.840 of information.
+00:02:50.360 It looks like AI has flagged that this
+00:02:52.360 request needs more information.
+00:02:54.640 So, let's go ahead and see what's going
+00:02:55.800 on.
+00:02:57.320 It's gone ahead and already responded
+00:02:59.000 with the questions that it needs answers
+00:03:01.280 to.
+00:03:02.160 So, let's go ahead and give AI those
+00:03:03.440 details.
+00:03:05.760 Great.
+00:03:07.239 From there,
+00:03:08.680 we can go ahead and move to the
+00:03:10.400 prioritization process.
+00:03:12.840 This alone saves hours of time in busy
+00:03:15.080 work so you can focus your time on the
+00:03:17.160 actual strategic work.
+00:03:19.360 Now, how do you make sure you're
+00:03:20.840 prioritizing the right work?
+00:03:22.880 Well, that's where AI can play a role as
+00:03:24.760 your teammate in the planning stage of a
+00:03:26.320 workflow.
+00:03:27.640 By providing a priority framework,
+00:03:30.800 we can give AI the guidance it needs to
+00:03:33.120 ensure it's looking at requests that are
+00:03:35.519 in support of your goals.
+00:03:38.480 It takes all the guesswork right off
+00:03:40.080 your plate.
+00:03:41.600 You can also prompt AI to add custom
+00:03:43.360 fields to each request so you always
+00:03:45.320 have a clear stack ranking of priorities
+00:03:47.440 in one bird's-eye view.
+00:03:50.400 Here, we can see that AI has gone ahead
+00:03:52.800 and assigned this for review and tagged
+00:03:56.120 the respective custom fields.
+00:03:58.600 Looking at this request in more detail,
+00:04:00.720 we can see it's high priority, high
+00:04:02.440 impact, and it's for our marketing team.
+00:04:06.440 Great. We have all the information we
+00:04:08.200 need, so we're going to go ahead and
+00:04:09.560 approve this request.
+00:04:11.760 Now, as we move to staffing, this is
+00:04:14.000 where universal workload comes in and
+00:04:15.840 can help
+00:04:17.440 see capacity across the team and who can
+00:04:20.200 take on this next project.
+00:04:22.520 But now, instead of doing this manually
+00:04:24.919 and looking at each team's bandwidth,
+00:04:28.040 AI can take this on and do the work for
+00:04:30.240 you.
+00:04:31.720 Gone are the days of holding status
+00:04:33.320 meetings to discuss team priorities.
+00:04:35.680 It's all available right at your
+00:04:37.520 fingertips with the help of AI.
+00:04:40.160 And we can see that AI has gone ahead
+00:04:42.360 and reviewed team bandwidth and assigned
+00:04:44.840 this request to Neha.
+00:04:47.640 Neha's going to take this on,
+00:04:49.480 but more importantly, if I want to see
+00:04:52.280 how AI came to this conclusion, I am
+00:04:55.000 still in the loop and can drill into its
+00:04:56.919 recommendations to see its reasoning for
+00:04:59.400 added transparency.
+00:05:01.160 Here, I can see its thought process and
+00:05:03.160 what it analyzed, as well as how it came
+00:05:05.160 to the conclusion of Neha being the
+00:05:07.000 right fit for this role.
+00:05:09.760 From here,
+00:05:11.040 AI can also step in to do the actual
+00:05:13.440 work, too.
+00:05:15.480 It can use your company's best practices
+00:05:17.240 to do things like draft project briefs
+00:05:19.240 to ensure all teams are on the same
+00:05:21.080 page.
+00:05:24.160 It can also do research
+00:05:26.320 for you and pull in information across
+00:05:28.480 the web or your connected apps.
+00:05:31.040 And then, you can go in and make any
+00:05:32.440 final edits to this brief before you're
+00:05:34.640 ready to notify the team and kick off.
+00:05:38.720 And with smart workflow gallery, you
+00:05:40.960 never have to start a project from
+00:05:42.480 scratch.
+00:05:44.800 With a suite of AI-powered workflows
+00:05:47.640 built on customer best practices, it
+00:05:49.960 gives you a blueprint for effective
+00:05:52.040 human and AI coordination to unlock
+00:05:54.360 greater employee productivity.
+00:05:56.480 It makes jumping into the actual work in
+00:05:58.240 the way your teams work seamless.
+00:06:02.600 And as work progresses, it's imperative
+00:06:04.440 that you're able to keep
+00:06:05.600 cross-functional teams and stakeholders
+00:06:07.400 in the loop.
+00:06:08.600 So zooming back out to the portfolio
+00:06:10.280 view,
+00:06:11.200 you can get a bird's-eye look into all
+00:06:12.840 work in flight with real-time reporting.
+00:06:16.600 This allows you to better align your
+00:06:18.120 resources to delivering true ROI.
+00:06:22.120 And if you want to see if anything is
+00:06:23.680 currently at risk,
+00:06:25.400 you can ask AI.
+00:06:27.440 You can ask, are there any blockers or
+00:06:29.160 risks on our Q2 global initiatives?
+00:06:31.919 And AI's going to go ahead and summarize
+00:06:33.640 key themes and blockers and create an
+00:06:35.960 action plan for you to help
+00:06:38.160 triage.
+00:06:39.720 With the power of humans and AI
+00:06:41.680 coordinating work at scale,
+00:06:43.680 you're able to hit your goals and
+00:06:45.440 achieve them much faster.
+00:06:48.560 That's a quick overview of Asana, the
+00:06:50.480 leading work management platform for
+00:06:52.160 human and AI coordination.

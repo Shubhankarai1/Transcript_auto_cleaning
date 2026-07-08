@@ -1,0 +1,857 @@
+# tactiq.io free youtube transcript
+# Crafting Stories with Data | Google Data Analytics Certificate
+# https://www.youtube.com/watch/r8KZGpVns3o
+
+00:00:04.886 SPEAKER: Storytelling isthe oldest form of teaching.
+00:00:07.797 Humans have beensharing knowledge
+00:00:09.597 through stories for tensof thousands of years,
+00:00:12.837 back when TVs andcomputer screens were
+00:00:15.477 the walls in a cave.
+00:00:17.277 In fact, scientistshave confirmed
+00:00:19.737 that cave paintings werecreated by early humans who
+00:00:23.247 used their art to convey thestories of their imaginations.
+00:00:26.967 Today, storytelling is still themost natural form of education.
+00:00:31.947 That's becausestories make learning
+00:00:34.167 easier by helping us processand remember information.
+00:00:37.557 Everyone tells stories,even if we're just sharing
+00:00:40.527 how our day went with a friend.
+00:00:42.477 Many experts believe thathuman brains automatically
+00:00:45.777 organize events witha beginning, a middle,
+00:00:49.327 and an end.
+00:00:50.957 Thinking aboutthings in this way,
+00:00:52.547 like stories, helps us makesense of the past, the present,
+00:00:56.787 and the future.
+00:00:58.407 On top of that, stories alsohelp us relate to other people
+00:01:02.247 and create importanthuman connections.
+00:01:05.367 It's no wonder that peopleare so captivated by stories.
+00:01:09.957 Over the course of history,many important inventions
+00:01:13.557 have changed howstories are told.
+00:01:15.487 For example, the inventionof the printing press
+00:01:18.237 led to newspapers,magazines, and books.
+00:01:21.447 The invention of motion picturecamera made movies possible.
+00:01:25.647 And soon we had TV--
+00:01:27.207 videos, on demand, andstreaming services that let us
+00:01:31.077 enjoy all kinds of storiesanywhere, any time.
+00:01:34.497 The invention of datavisualization tools
+00:01:37.017 changed the way peopletell stories once again.
+00:01:40.477 As you've learned,data visualization
+00:01:42.956 is the representationand presentation
+00:01:45.687 of data to helpwith understanding.
+00:01:48.357 Coming up, you'll discoverhow to use data visualization
+00:01:51.687 to transform data intoa meaningful story
+00:01:54.627 that people connectto and care about.
+00:01:57.327 You'll also start workingwith dashboards and dashboard
+00:01:59.927 filters.
+00:02:01.367 A dashboard is a tool thatorganizes information,
+00:02:04.757 typically frommultiple datasets,
+00:02:06.827 into one central location fortracking analysis and simple
+00:02:11.447 visualization throughcharts, graphs, and maps.
+00:02:15.467 And just like filters andspreadsheets and queries,
+00:02:18.797 a dashboard filteris a tool for showing
+00:02:21.317 only the data that meets aspecific criteria while hiding
+00:02:25.067 the rest.
+00:02:27.227 Soon, you'll know how to usethese tools to tell stories
+00:02:30.197 that motivate and persuadepeople to take action
+00:02:32.927 based on the data you present.
+00:02:35.547 Finally, you'll understandthe key attributes
+00:02:38.207 of data-driven storiesand effective ways
+00:02:40.457 to communicate them in allsorts of business situations.
+00:02:44.297 Ready to become anexpert storyteller?
+00:02:46.517 Then let's turn to the nextchapter of your data analytics
+00:02:49.097 story.
+00:02:51.567 [MUSIC PLAYING]
+00:02:56.797 Stephen Few, an innovator,author, teacher,
+00:02:59.617 and data visualizationexpert once
+00:03:01.477 said, "Numbers have animportant story to tell.
+00:03:05.197 They rely on you to give thema clear and convincing voice."
+00:03:09.897 Facts and figures are veryimportant in the business
+00:03:12.417 world, but they rarelymake a lasting impression.
+00:03:15.627 To create strong communicationsthat make people think
+00:03:19.137 and convince themto take action,
+00:03:21.177 you need data storytelling.
+00:03:23.637 Data storytelling iscommunicating the meaning
+00:03:25.857 of a data set with visuals anda narrative that are customized
+00:03:29.397 for each particular audience.
+00:03:32.157 A narrative is anotherword for a story.
+00:03:34.917 In this video, you'll learnabout data storytelling steps.
+00:03:39.597 These are, engage your audience,create compelling visuals,
+00:03:44.097 and tell the story inan interesting way.
+00:03:47.637 Here's an example from themusic streaming industry.
+00:03:50.397 Some companies sendtheir customers
+00:03:52.107 a year-in-review email.
+00:03:53.457 It highlights the songs theusers have listened to most,
+00:03:56.517 and sometimes congratulatesthem for being a top fan
+00:03:59.337 of a particular artist.
+00:04:00.657 This is a much moreexciting way to share data
+00:04:03.087 than just a printout ofthe customer's activity.
+00:04:05.467 It also reminds the listenerabout how much time they
+00:04:08.337 spend enjoying theservice, a great way
+00:04:10.977 to build customer loyalty.
+00:04:12.927 Here's another example.
+00:04:14.727 Some ridesharing companiesare using data storytelling
+00:04:17.697 to show their customers howmany miles they've traveled
+00:04:20.877 and how that equalsspending less money on gas,
+00:04:23.967 reducing carbonemissions, and saving
+00:04:26.697 time they might otherwisehave spent fighting traffic.
+00:04:30.507 It makes it reallyeasy for the rider
+00:04:32.337 to clearly see the value of theservice in this simple and fun
+00:04:35.847 visual.
+00:04:37.077 Data stories like thesekeep the customer engaged
+00:04:40.107 and make them feel liketheir choices matter
+00:04:42.687 because the companies are takingthe time to create something
+00:04:45.867 just for them.
+00:04:47.217 And importantly, thestories are interesting.
+00:04:50.337 Knowing how to reachpeople in this way
+00:04:52.167 is an essential partof data storytelling.
+00:04:54.687 Images can draw us inat a subconscious level.
+00:04:58.617 This is the conceptof engaging people
+00:05:00.777 through data visualizations.
+00:05:02.725 So far, you've been learningabout the importance
+00:05:04.767 of focusing on your audience.
+00:05:06.447 Coming up, you'll keepbuilding on that knowledge.
+00:05:09.127 You'll discover that there arethree data storytelling steps.
+00:05:12.727 And the first is knowinghow to engage your audience.
+00:05:16.327 Engagement is capturing andholding someone's interest
+00:05:19.537 and attention.
+00:05:20.677 When your audienceis engaged, you're
+00:05:22.837 much more likely toconnect with them
+00:05:24.937 and convince them to seethe same story you see.
+00:05:28.777 Every data story should startwith audience engagement.
+00:05:32.257 All successful storytellersconsider who's listening first.
+00:05:36.097 For instance, when akindergarten teacher
+00:05:38.887 is choosing booksfor their class,
+00:05:40.687 they'll pick ones that areappropriate for five-year-olds.
+00:05:43.837 If they were to choosehigh school-level novels,
+00:05:47.047 the complex subject matterwould probably confuse the kids,
+00:05:50.467 and they'd getbored and tune out.
+00:05:53.507 The second step is tocreate compelling visuals.
+00:05:57.177 In other words, you want toshow the story of your data,
+00:06:00.447 not just tell it.
+00:06:02.377 Visuals shouldtake your audience
+00:06:04.147 on a journey of how thedata changed over time
+00:06:06.967 or highlight the meaningbehind the numbers.
+00:06:09.677 Here's an example.
+00:06:11.447 Let's say a cosmeticcompany keeps
+00:06:13.027 track of stores that buy itsproduct and how much they buy.
+00:06:16.987 You could communicatethe data to others
+00:06:18.817 in a spreadsheet like this.
+00:06:20.947 Or you could create a colorfulvisual, such as this pie chart,
+00:06:25.187 which makes it easyto see which stores
+00:06:27.397 are most and least profitableas business partners.
+00:06:30.517 That's a much clearer and morevisually interesting approach.
+00:06:34.117 Now, the third and finalstep is to tell the story
+00:06:37.117 in an interesting narrative.
+00:06:39.097 A narrative has a beginning,a middle, and an end.
+00:06:42.217 It should connect the datayou've collected to the project
+00:06:45.097 objective and clearlyexplain important insights
+00:06:48.187 from your analysis.
+00:06:50.177 To do this, it's importantthat your data storytelling
+00:06:52.997 is organized and concise.
+00:06:55.397 Soon, you'll learnhow to do that
+00:06:56.897 using Slides for adiscussion during a meeting
+00:06:59.447 and a formal presentation.
+00:07:01.677 We'll discuss how thecontent, visuals, and tone
+00:07:04.277 of your message changesdepending on the way
+00:07:06.377 you're communicating it.
+00:07:08.127 And speaking ofbusiness communications,
+00:07:10.337 one of the manyways that companies
+00:07:12.317 use visualization to tell datastories is with word clouds.
+00:07:15.977 Word clouds are a prettysimple visualization of data.
+00:07:19.217 These words are presentedin different sizes
+00:07:21.587 based on how often theyappear in your dataset.
+00:07:24.647 It's a great way toget someone's attention
+00:07:26.687 and to unlock storiesfrom big blocks of text
+00:07:29.627 where each word alonecould never be seen.
+00:07:33.147 Word clouds can be usedin all sorts of ways.
+00:07:35.847 On social media,they can show you
+00:07:37.827 which topics show upin posts most often.
+00:07:40.707 Or you can use them inblogs to highlight the ideas
+00:07:43.527 that interest readers the most.
+00:07:45.207 This word cloud wascreated using text
+00:07:47.637 from the syllabusof this course.
+00:07:49.977 It tells a prettyengaging story,
+00:07:52.047 where data, analytics,analysis, SQL,
+00:07:55.377 and spreadsheetsare, unsurprisingly,
+00:07:57.747 some of the lead characters.
+00:07:59.697 All right, let's continueturning the pages of your data
+00:08:02.187 analytics story.
+00:08:03.147 There's lots of actionand adventure to come.
+00:08:07.543 [MUSIC PLAYING]
+00:08:12.396 When you want to communicatesomething to others,
+00:08:14.497 a great story can help youreach people's hearts and minds
+00:08:17.887 and make them more opento what you have to say.
+00:08:20.867 In other words, storiesmake people care.
+00:08:24.487 As you learned before, the firstof the three data storytelling
+00:08:28.147 steps teach us that, fora story to be successful,
+00:08:31.297 you need to focuson who's listening.
+00:08:33.967 Data analysts dothis by making sure
+00:08:36.397 that they're engagingtheir audience.
+00:08:38.227 That's what we'llexplore together now.
+00:08:40.687 First, you need toknow your audience.
+00:08:42.667 Think back to the exampleof telling someone
+00:08:44.647 a joke they've heardmany times before
+00:08:46.477 and expecting them to laughat the punchline-- not likely.
+00:08:50.257 To get the responseyou're seeking,
+00:08:52.147 you've got to understand youraudience's point of view.
+00:08:55.207 That means thinkingabout how your data
+00:08:57.487 project might affect them.
+00:08:59.737 It helps to ask yourselfa few questions.
+00:09:02.467 What role doesthis audience play?
+00:09:04.757 What is their stakein the project?
+00:09:06.937 And what do they hope toget from the data insights
+00:09:09.787 I deliver?
+00:09:11.437 Let's say you're analyzingreadership data from customers
+00:09:14.097 to help a magazinepublisher decide
+00:09:16.227 if they should switch fromquarterly to monthly issues.
+00:09:20.067 If your stakeholderaudience includes people
+00:09:22.827 from the printingcompany, they're
+00:09:24.957 going to care becausethe change means
+00:09:27.057 they have to order paperand ink more frequently.
+00:09:30.917 They also might needto assign more staff
+00:09:33.227 members to the project.
+00:09:35.027 Or if your stakeholdersinclude the magazine authors
+00:09:38.477 and editors, you'llwant to keep in mind
+00:09:41.057 that your recommendationsmight change the way they work.
+00:09:45.047 For instance, they might needto write and edit stories
+00:09:48.527 at a faster pacethan they're used to.
+00:09:51.427 Once you've considered theanswers to those questions,
+00:09:54.217 it's time to chooseyour primary message.
+00:09:56.827 Every single part of your storyflows from this one key point.
+00:10:01.877 So it's got to beclear and direct.
+00:10:04.507 With that in mind, let'sthink about the key message
+00:10:07.717 for the data project aboutour pretend magazine.
+00:10:11.137 Maybe the readershipdata from customers
+00:10:13.357 shows that printmagazine subscriptions
+00:10:15.607 have been going down recently.
+00:10:17.797 You discover, in surveydata, that this is mainly
+00:10:21.037 because readers feel theinformation is outdated.
+00:10:24.217 So this finding suggeststhat readers would probably
+00:10:27.697 appreciate a publication cyclethat gets the information
+00:10:31.447 into their hands more often.
+00:10:33.097 But that's not all.
+00:10:34.627 Your reader surveydata also shows
+00:10:37.207 that readers prefer shorterarticles with quick takeaways.
+00:10:41.257 The data is generating a lotof possible decision points.
+00:10:44.677 The volume and variety ofinformation in front of you
+00:10:47.677 may feel challenging.
+00:10:49.787 So to get the keymessage, you'll
+00:10:51.727 need to take a few stepsback and pinpoint only
+00:10:54.727 the most useful pieces.
+00:10:56.197 Not every piece of data isrelevant to the questions
+00:10:59.047 you're trying to answer.
+00:11:00.757 A big part of beinga data analyst
+00:11:02.707 is knowing how to eliminatethe less important details.
+00:11:06.427 One way to do this is withsomething called spotlighting.
+00:11:10.477 Spotlighting is scanningthrough the data
+00:11:12.877 to quickly identify themost important insights.
+00:11:16.117 There are manyways to spotlight,
+00:11:17.947 but lots of data analystslike to use sticky notes
+00:11:20.527 on a whiteboard, kind oflike how archaeologists
+00:11:23.317 make sense of the artifactsthey discover in a dig.
+00:11:26.407 To do this, youwrite each insight
+00:11:28.687 from your analysison a piece of paper,
+00:11:30.997 spread them out, and displaythem on a whiteboard.
+00:11:34.387 Then you examine it.
+00:11:36.367 It's important not to get boggeddown in every tiny detail.
+00:11:39.857 Instead, look for broad,universal ideas and messages.
+00:11:44.167 Try to find ideasor concepts that
+00:11:46.507 keep popping up again andagain or numbers and words that
+00:11:51.097 are repeated often.
+00:11:53.194 Maybe you're finding thingsthat look like they're
+00:11:55.277 connecting or forming patterns.
+00:11:57.497 Highlight theseitems or group them
+00:11:59.297 together on your whiteboard.
+00:12:01.037 Next, explore your discoveries.
+00:12:03.407 Find the meaningbehind the numbers.
+00:12:05.457 The idea is toidentify which insights
+00:12:07.667 are most likely to helpsolve your business problem
+00:12:10.517 or give you the answersyou've been seeking.
+00:12:13.367 This is how spotlighting canlead you to your key message.
+00:12:17.027 Remember to keep your keymessage clear and concise,
+00:12:20.147 as an overly long message,like this one shown on screen,
+00:12:23.867 has less chance of conveyingthe most important conclusion.
+00:12:28.217 Here's a clear,concise message that's
+00:12:31.067 likely to engage youraudience because it's
+00:12:33.227 short and to the point.
+00:12:36.002 Of course, no matterhow much time and effort
+00:12:37.877 you put into studyingyour audience,
+00:12:39.377 you can't predictexactly how they'll
+00:12:41.387 react to your recommendations.
+00:12:43.497 But if you follow thesteps we're discussing,
+00:12:45.707 you'll be much more likelyto have good results.
+00:12:48.227 [MUSIC PLAYING]
+00:12:52.967 Have you ever beendriving a car when
+00:12:54.827 one of the warning lights onthe dashboard suddenly comes on?
+00:12:57.947 Maybe the gas gauge startsblinking because you're
+00:13:00.227 getting low on fuel.
+00:13:01.967 It's handy when you havethat alert right in front
+00:13:04.217 of you clearly showing youthat you need to pay attention
+00:13:06.797 to your gas level.
+00:13:08.027 Can you imagine if carsdidn't have dashboards?
+00:13:11.357 We'd never know if we'reabout to run out of gas.
+00:13:14.207 We'd have no idea if ourtire pressure was low
+00:13:16.817 or if it was timefor an oil change.
+00:13:19.547 Without dashboards, if our carstarted acting differently,
+00:13:23.147 we'd have to pullout the user manual,
+00:13:26.877 sift through allthat information
+00:13:29.247 inside, and try to figureout the problem ourselves.
+00:13:33.957 Car dashboards makeit easy for drivers
+00:13:36.087 to understand and respond toany issues with their vehicles
+00:13:39.177 because they're constantlytracking and analyzing
+00:13:41.697 the car's status.
+00:13:43.327 But as you've beenlearning, dashboards
+00:13:46.257 aren't just for cars.
+00:13:47.727 Companies also use them to shareinformation, get people engaged
+00:13:52.047 with business plans and goals,and uncover potential problems.
+00:13:56.347 And just like a car'sdashboard, data analytics
+00:13:59.437 dashboards taketons of information
+00:14:01.897 and bring it to life in aclear, visually interesting way.
+00:14:05.737 This is extremely importantwhen telling a story
+00:14:08.167 with data, which is whyit's a big part of number
+00:14:11.197 two in our three datastorytelling steps.
+00:14:15.337 You've learnedthat a dashboard is
+00:14:17.107 a tool thatorganizes information
+00:14:19.087 from multiple datasets into onecentral location for tracking,
+00:14:23.917 analysis, andsimple visualization
+00:14:26.617 through tables,charts, and graphs.
+00:14:30.017 Dashboards do this by constantlymonitoring live, incoming data.
+00:14:35.057 As we've beendiscussing, you can
+00:14:37.247 make dashboards that arespecifically designed
+00:14:39.587 to speak to your stakeholders.
+00:14:41.717 You can think about whowill be looking at the data
+00:14:44.687 and what they need from itand how often they'll use it.
+00:14:48.597 Then you can make a dashboardwith the perfect information
+00:14:51.827 just for them.
+00:14:53.157 This is helpful because peoplecan get confused and distracted
+00:14:56.477 when they're presentedwith too much data.
+00:14:58.832 A dashboard keeps thingsneat and tidy and easy
+00:15:01.937 to understand.
+00:15:03.267 When designing adashboard, it's best
+00:15:05.267 to start simple with just themost important data points.
+00:15:08.717 And if, later on, youdiscover something's missing,
+00:15:11.207 you can always go backand tweak your dashboard
+00:15:13.877 or create a new one.
+00:15:15.317 An important partof dashboard design
+00:15:17.597 is the placement or layoutof your charts, graphs,
+00:15:21.087 and other visuals.
+00:15:22.547 These elements needto be cohesive,
+00:15:25.067 which means they'rebalanced and make good use
+00:15:27.767 of the space on the dashboard.
+00:15:29.747 After you decide whatinformation should
+00:15:31.967 be on your dashboard,you might need
+00:15:34.247 to resize and reorganize it soit works better for your users.
+00:15:38.807 One option inTableau is choosing
+00:15:41.057 between a verticalor horizontal layout.
+00:15:44.267 A vertical layoutadjusts the height.
+00:15:47.167 A horizontal layout resizes thewidth of the views and objects
+00:15:50.977 it contains.
+00:15:52.567 Also, as you can see here,evenly distributing the items
+00:15:56.587 within your layout helps createa clear and organized data
+00:16:00.157 visual.
+00:16:02.497 You can select eithertiled or floating layouts.
+00:16:06.497 Tiled items are partof a single-layer grid
+00:16:09.407 that automatically resizes basedon the overall dashboard size.
+00:16:14.707 Floating items can belayered over other objects.
+00:16:18.317 In this example, the mapand scatter plots are tiled.
+00:16:21.667 They don't overlap.
+00:16:24.217 This really helpsmake clear what
+00:16:25.957 the data is all about,which is valuable
+00:16:28.567 because the majorityof people in the world
+00:16:30.397 are visual learners.
+00:16:32.407 They process informationbased on what they see.
+00:16:35.587 That's why sharing yourdashboards with stakeholders
+00:16:37.957 is such a valuable practice.
+00:16:40.517 Now, there's something importantto keep in mind about that.
+00:16:43.157 Sharing dashboardswith others likely
+00:16:45.737 means that you'll losecontrol of the narrative.
+00:16:47.897 In other words,you won't be there
+00:16:49.967 to tell the story of your dataand share your key messages.
+00:16:53.867 Dashboards putstorytelling power
+00:16:55.907 in the hands of the viewer.
+00:16:57.767 That means they'll crafttheir own narrative
+00:16:59.687 and draw their own conclusions.
+00:17:01.707 But don't let that scareyou away from being
+00:17:03.617 collaborative and open.
+00:17:05.597 Just understandthe risks that come
+00:17:07.877 with sharing your dashboards.
+00:17:09.557 After all, sharinginformation and resources
+00:17:12.196 means that you'll have morepeople working on the solution
+00:17:14.717 to a big problem or comingup with that next big idea.
+00:17:18.587 This leads to moreconnections, which
+00:17:20.567 can result in really excitingnew practices and innovations.
+00:17:26.416 [MUSIC PLAYING]
+00:17:31.227 So far, we've focused a loton understanding our audience.
+00:17:34.697 Whether you're trying to engagepeople with data storytelling
+00:17:37.967 or creating dashboards designedfor a certain person or group,
+00:17:41.657 understanding youraudience is key.
+00:17:44.437 As you've learned, youcan make dashboards
+00:17:46.897 that are tailored to meetdifferent stakeholder
+00:17:49.237 requirements.
+00:17:50.807 To do this, it'simportant to think
+00:17:52.807 about who will belooking at the data
+00:17:54.967 and what they need from it.
+00:17:56.797 In this video, we'llcontinue exploring
+00:17:59.377 how to create compellingvisuals to tell
+00:18:01.837 an interesting andpersuasive data story.
+00:18:05.197 One great tool fordoing this is a filter.
+00:18:08.437 You've learned about filtersand spreadsheets and queries.
+00:18:11.887 But as a refresher,filtering means
+00:18:14.197 showing only the data thatmeets a specific criteria,
+00:18:17.737 while hiding the rest.
+00:18:20.767 Filtering works the sameway with dashboards.
+00:18:23.737 You can apply differentfilters for different users,
+00:18:26.797 based on their needs.
+00:18:28.897 Tableau lets you limitthe data you see based
+00:18:31.747 on the criteria you specify.
+00:18:33.787 Maybe you want to filterdata in a data set to show
+00:18:37.027 only the last six months.
+00:18:39.247 Or maybe you wantto see information
+00:18:40.987 from one particular customer.
+00:18:43.307 You can even limit the numberof rows or columns in a view.
+00:18:47.107 To explore these options, let'sreturn to our World Happiness
+00:18:51.187 example.
+00:18:52.337 Say your stakeholders wereinterested in only a few
+00:18:54.997 of the topics thataffect overall happiness.
+00:18:58.197 Filtering for just grossdomestic product, family,
+00:19:02.307 generosity, freedom,trust, and health,
+00:19:06.117 and then creating individualscatter plots for each
+00:19:09.117 would make this possible.
+00:19:11.807 You can also use filtersto highlight or hide
+00:19:14.687 individual data points.
+00:19:16.227 For instance, if you have ascatterplot with outliers,
+00:19:19.277 you may want explorewhat your plot would
+00:19:21.197 look like without them.
+00:19:23.067 However, note that this isjust an example to show you
+00:19:26.517 how filters work.
+00:19:28.167 It's not OK to drop a data pointjust because it's an outlier.
+00:19:31.737 Outliers can be importantobservations, sometimes even
+00:19:34.917 the most interesting ones.
+00:19:36.147 So be sure to put onyour data detective hat
+00:19:38.697 and investigate that outlierbefore deciding to remove it
+00:19:41.667 from your dashboard.
+00:19:42.777 Here's how to do it.
+00:19:44.397 To filter datapoints from the view,
+00:19:46.687 we can choose a single datapoint or Click and Drag
+00:19:49.977 in the view to selectseveral points.
+00:19:52.557 Let's choose just one.
+00:19:54.057 Then, on the Tooltipthat appears,
+00:19:56.367 we'll select Exclude to hide it.
+00:19:59.697 Or we could have chosen to doit the other way by keeping
+00:20:02.547 only selected data points.
+00:20:06.417 Here's another example.
+00:20:07.917 If your data is in a table,you can filter entire rows
+00:20:10.907 or columns from your view.
+00:20:12.687 To do this, we'll select therows we want in the view.
+00:20:16.847 Then, on the Tooltipthat appears,
+00:20:19.247 we'll choose to keeponly those countries.
+00:20:23.007 Again, we couldhave also selected
+00:20:25.137 the data points wewanted to exclude
+00:20:26.997 and picked that option instead.
+00:20:29.907 Or if you like, we can evenpre-filter a Tableau dashboard.
+00:20:34.107 This means that yourstakeholders don't have
+00:20:36.927 to filter the data themselves.
+00:20:38.847 Basically, by doingthe filtering for them,
+00:20:41.757 you can save themtime and effort
+00:20:43.887 and direct them to the importantdata you want them to focus on.
+00:20:48.197 Personally, I think thebest thing about filters
+00:20:50.777 is they let you zero-inon what's important.
+00:20:53.567 Sometimes I'm workingwith a huge dataset,
+00:20:55.817 and I want to concentrateonly on a specific area.
+00:20:58.487 So I'll add a filter tolimit the data displayed
+00:21:01.067 on my dashboard.
+00:21:02.147 This cuts the clutter and givesme a simple, clear visual.
+00:21:06.077 I use filters a lot when workingwith data about advertising
+00:21:09.137 campaign performance.
+00:21:10.757 Filters help me isolatespecific tactics such as Search
+00:21:14.327 or YouTube ads to seewhich ones are working best
+00:21:17.447 and which onescould be improved.
+00:21:19.637 By limiting and customizingthe information I'm looking at,
+00:21:22.697 it's much easier for me to seethe story behind the numbers.
+00:21:26.367 And, as I'm sure you've noticed.
+00:21:28.037 I love a good data story.
+00:21:29.987 As a data analyst, you'll oftenbe relying on spreadsheets
+00:21:33.467 to create quickvisualizations of your data
+00:21:35.717 to tell your story.
+00:21:37.307 Let's practice buildinga chart in a spreadsheet.
+00:21:39.947 To follow along, usethe Spreadsheet link
+00:21:42.347 in the previous readingalso included in the video.
+00:21:45.577 We'll be using Google Sheets.
+00:21:47.097 So this might look a littledifferent in other spreadsheet
+00:21:49.827 platforms like Excel.
+00:21:52.207 We'll begin by filtering justthe data on how many customers
+00:21:55.837 purchase Basic, Plus, orPremium software packages.
+00:22:00.037 To start, select the columnfor the Software package,
+00:22:03.157 and Insert a Chart.
+00:22:04.387 The spreadsheetsuggests what it thinks
+00:22:06.872 is the best type ofchart for our data.
+00:22:11.547 But we can choose anytype of chart you'd like.
+00:22:14.187 Spreadsheet chartsalso let you assign
+00:22:16.737 different styles,access titles, a legend,
+00:22:19.917 and many other options.
+00:22:21.477 Feel free to explore thedifferent functionality
+00:22:23.847 later on.
+00:22:25.077 We'll also cover thismore in a reading.
+00:22:27.267 There's lots of differentoptions to choose from.
+00:22:29.977 Let's say we also havedata on which countries
+00:22:32.307 our customers are from andtheir overall satisfaction
+00:22:35.457 score for the softwarethey purchased.
+00:22:37.677 First, highlight columns Aand B. Then click on Insert,
+00:22:43.017 and then Chart again.
+00:22:45.087 Under Chart Type, you'll wantto select the first Map option.
+00:22:49.377 Voila.
+00:22:50.647 Now we have a map thatsummarizes the customer survey
+00:22:53.367 scores by country.
+00:22:54.837 We can also customize thischart by clicking Customize
+00:22:57.897 in the top-right corner.
+00:22:59.757 Let's say we wanted to changeour colors from red and green
+00:23:02.787 to a gradient soit's more accessible.
+00:23:05.127 We can do that byclicking Geo, and then
+00:23:08.787 change the Min color tothe lightest shade of blue,
+00:23:12.207 the Mid color to themiddle shade of blue,
+00:23:15.027 and the Max color to thedarkest shade of blue
+00:23:17.787 to show the spectrum ofscores from low to high.
+00:23:21.087 Now, we have a map chartthat shows where respondents
+00:23:24.177 are most satisfied withtheir software in dark blue
+00:23:27.387 and least satisfied withtheir software in light blue.
+00:23:31.027 And this will beeasier for anyone
+00:23:32.787 in our audience withcolor vision deficiencies
+00:23:35.097 to understand.
+00:23:36.177 Tableau and spreadsheetsare common tools
+00:23:38.787 for creating datavisualizations.
+00:23:41.097 By using their built-infunctionalities,
+00:23:43.557 like filters andcharts, you can zero-in
+00:23:46.677 on what informationis most important
+00:23:48.687 and create compellingvisuals for your audience.
+00:23:52.107 And now that we've exploredsome ways to create visuals,
+00:23:55.347 it's time to start preparingour data narrative.
+00:23:57.837 Coming up, we'regoing to talk more
+00:23:59.697 about telling stories with dataand organizing presentations.
+00:24:03.087 I'll see you soon.
+00:24:06.487 [MUSIC PLAYING]
+00:24:11.247 Businesses everywhereknow the power
+00:24:13.167 of using data to solveproblems and achieve goals.
+00:24:16.437 But all the data in theworld won't get you anywhere
+00:24:19.587 if your stakeholderscan't understand it
+00:24:22.107 or if they can't stay focusedon what you're telling them.
+00:24:24.957 So you want tocreate presentations
+00:24:27.027 that are logicallyorganized, interesting,
+00:24:29.757 and communicate yourkey messages clearly.
+00:24:32.547 An effective presentationsupports your narrative
+00:24:35.277 by making it moreinteresting than words alone.
+00:24:38.697 It starts with how you want toorganize your data insights.
+00:24:42.937 The narrative you sharewith your stakeholders
+00:24:45.127 needs characters, a setting,a plot, a big reveal,
+00:24:49.057 and an aha moment, justlike any other story.
+00:24:52.777 The characters are the peopleaffected by your story.
+00:24:55.987 This could be your stakeholders,customers, clients, and others.
+00:25:00.397 When adding information aboutyour characters to your story,
+00:25:03.667 you have a great opportunityto include a personal account
+00:25:06.937 and bring more humancontext to the facts
+00:25:09.847 that the data has revealed.
+00:25:11.827 Think about why they care.
+00:25:13.717 Next up is the setting,which describes what's
+00:25:16.927 going on, how often it'shappening, what tasks are
+00:25:20.767 involved, and otherbackground information
+00:25:23.197 about the dataproject that describes
+00:25:25.147 the current situation.
+00:25:27.247 The plot, sometimescalled the conflict,
+00:25:30.187 is what creates tensionin the current situation.
+00:25:33.677 This could be a challengefrom a competitor,
+00:25:35.797 an inefficient processthat needs to be fixed,
+00:25:38.467 or a new opportunity that thecompany just can't pass up.
+00:25:41.737 This complication ofthe current situation
+00:25:44.317 should reveal the problemyour analysis is solving
+00:25:47.167 and compel thecharacters to act.
+00:25:49.897 The big reveal,or resolution, is
+00:25:52.687 how the data hasshown that you can
+00:25:54.697 solve the problem the charactersare facing by becoming more
+00:25:58.147 competitive,improving a process,
+00:26:00.607 inventing a newsystem, or whatever
+00:26:02.737 the ultimate goal ofyour data project may be.
+00:26:05.497 Finally, your aha moment is whenyou share your recommendations
+00:26:10.147 and explain why youthink they'll help
+00:26:12.307 your company be successful.
+00:26:14.397 When I'm workingon a presentation,
+00:26:16.747 this is where Ilike to start, too.
+00:26:18.987 Using these basic elementsto outline your presentation
+00:26:22.377 can be a great placeto start, and they
+00:26:24.777 can help you organize yourfindings into a clear story.
+00:26:28.507 And once you decided on thesefive key parts of your story,
+00:26:31.767 it's time to think abouthow to pair your narrative
+00:26:34.437 with interesting visualsbecause, as you're learning,
+00:26:38.097 an interesting andpersuasive data story
+00:26:40.557 needs interesting andpersuasive visuals.
+00:26:43.467 Coming up, you'lllearn even more
+00:26:45.297 about how to be anexpert data storyteller.
+00:26:50.409 [MUSIC PLAYING]
+00:26:54.747 Now that you know how to preparethe key parts of your data
+00:26:57.387 story--
+00:26:57.897 the character, setting,plot, big reveal,
+00:27:01.047 and the aha moment--
+00:27:02.547 it's time to thinkabout the visuals
+00:27:04.287 and how yourslideshow should look.
+00:27:06.267 It's always good to rememberthat your presentation reflects
+00:27:09.357 on you.
+00:27:10.587 If it's messy, disorganized,or full of images
+00:27:13.767 that don't support yourstory, your audience
+00:27:16.317 could easily loseconfidence in your results
+00:27:18.597 and recommendations.
+00:27:19.947 On the other hand,if your slideshow
+00:27:22.317 looks professionaland appealing,
+00:27:24.267 you've got a better chanceto capture your audience's
+00:27:26.787 attention and keep themfocused on your main points.
+00:27:30.087 Themes are a greattool for this.
+00:27:32.397 They control the color, fonttypes and sizes, formatting
+00:27:36.507 and positioning oftext and visuals.
+00:27:38.697 Some themes are fun orcreative, while others
+00:27:41.427 have a more professional look.
+00:27:42.867 By choosing a theme that matchesthe tone and information you're
+00:27:46.557 communicating, your presentationwill have a consistent look
+00:27:49.797 and support the argumentyou are trying to make.
+00:27:52.107 Next comes the title.
+00:27:53.697 It's good to include a titleand subtitle that describe
+00:27:56.637 what you're about to present.
+00:27:58.047 You should include thedate of your presentation
+00:28:00.177 too, especially if you'reincluding data that's
+00:28:02.727 likely to change over time.
+00:28:04.407 Specifying a date,such as a date
+00:28:06.837 created or date lastupdated, gives anyone viewing
+00:28:10.527 your presentationimportant context.
+00:28:13.227 A good slideshowguides the audience
+00:28:15.327 through your maincommunication points.
+00:28:17.227 But it doesn't repeatevery word you say or give
+00:28:20.277 a lot of written information.
+00:28:22.317 Part of your job is to choosewhat information to include.
+00:28:26.127 This might be a description ofwhat's being shown in a visual,
+00:28:29.307 the first step in a process,a set of directions,
+00:28:32.787 or an importantmessage that you want
+00:28:35.067 to be sure your audienceunderstands and remembers.
+00:28:37.707 Also, be sure toadjust the font size
+00:28:40.587 so your audience can easilyread what you've written.
+00:28:43.137 A good rule is to keep textto less than 5 lines and 25
+00:28:47.337 words per slide.
+00:28:48.447 Basically, youwant your audience
+00:28:50.367 focused on what you're saying,not busy reading the slides.
+00:28:54.717 Also, choose yourwords carefully.
+00:28:56.877 It's always smart to avoidslang terms, abbreviations
+00:29:00.747 that people might not know,and words or phrases that
+00:29:03.897 are specific to oneparticular region.
+00:29:06.367 Now, let's discuss visuals.
+00:29:08.157 Visuals help the audiencequickly understand
+00:29:10.407 the content of each slide.
+00:29:12.207 They can help youmake a point in a way
+00:29:14.247 that words might notbe able to alone.
+00:29:16.827 Great visuals don't leaveroom for interpretation,
+00:29:19.887 because the meaning isinstantly understood.
+00:29:22.957 When you includevisuals on a slide,
+00:29:25.327 try not to share toomany details all at once.
+00:29:28.867 Choose just the data points thatsupport your points, especially
+00:29:32.647 your key message.
+00:29:34.027 I like to ask myself, what'sthe single most important thing
+00:29:37.087 I want my audience tolearn from my analysis?
+00:29:40.147 That helps me decidewhich visuals will be most
+00:29:43.267 likely to get the point across.
+00:29:45.737 If you have several importantthings you need to include,
+00:29:48.977 don't cram themall on one slide.
+00:29:51.197 Instead, create a newvisual for each point.
+00:29:54.747 Then add an arrow, a callout, oranother clearly labeled element
+00:29:59.387 to direct your audience'sattention toward what
+00:30:01.907 you want them to look at.
+00:30:04.107 And finally, when you get toyour big reveal and aha moment,
+00:30:08.177 your visuals mustcommunicate these messages
+00:30:10.637 with clarity and excitement.
+00:30:12.647 These are the most powerfuldiscoveries from your analysis.
+00:30:15.917 Make it feel that way.
+00:30:18.147 Before you go, there's onelast thing I'd like to share.
+00:30:21.687 It's a quick tipfor knowing when
+00:30:23.547 to copy and paste,link, or embed
+00:30:26.157 a visual into a slideshow.
+00:30:27.837 This can be challengingfor new data analysts,
+00:30:30.517 but there are some simplepoints to keep in mind.
+00:30:33.117 When you copy and paste avisual into your presentation,
+00:30:36.057 you can edit it directlywithin your slideshow.
+00:30:39.237 If your visual orits data points
+00:30:41.187 exist in other places, suchas a Tableau dashboard,
+00:30:44.787 any changes you make willnot affect them there.
+00:30:48.147 Now, this alsomeans your visuals
+00:30:50.517 won't be updated if theoriginal dataset changes.
+00:30:53.697 This means your visual mightnot be reflecting the latest
+00:30:56.607 information.
+00:30:57.547 But if you link your visualwithin your presentation,
+00:31:00.897 the visual lives within itsoriginal file and the slideshow
+00:31:05.007 connects to it withthe visual's URL.
+00:31:07.857 Because the twofiles are now linked,
+00:31:10.527 when you make changesto the original file,
+00:31:13.047 say a spreadsheet, thechanges will automatically
+00:31:16.017 appear in your presentation.
+00:31:17.967 This can be useful if the datais likely to change over time.
+00:31:22.057 Your slideshow willalways be up to date.
+00:31:24.577 Finally, an embedded object alsolives in the original source
+00:31:28.347 file, but the difference is thatit doesn't get automatically
+00:31:31.797 update if thesource file changes.
+00:31:34.257 The embedded copy iscompletely independent.
+00:31:36.837 Similarly, you can make changesto it in your presentation
+00:31:40.737 without affecting thevisual or data points
+00:31:43.347 from the original source file.
+00:31:45.357 So the main difference betweenpasted, linked, and embedded
+00:31:49.257 objects has to do withwhere you store them
+00:31:51.807 and how you update themafter you place them
+00:31:54.147 in your slideshow.
+00:31:55.017 Now that you'rebeginning to understand
+00:31:56.727 how to make great slideshows,take a few minutes to practice
+00:32:00.627 what you've learned.
+00:32:01.887 Create a new slideshow.
+00:32:03.357 And select an appropriate theme.
+00:32:05.487 Add your text, visuals, andan exciting reveal at the end.
+00:32:10.047 Try pasting, linking,and embedding visuals
+00:32:13.227 from different sources to seehow they behave differently.
+00:32:16.587 You can design apresentation about any data
+00:32:18.987 set that interests you.
+00:32:20.517 It doesn't need to be longor have a ton of information.
+00:32:23.637 Just take the first steps, andhave fun telling your own data
+00:32:26.787 story.
+00:32:29.225 [MUSIC PLAYING]
+00:32:34.367 As a data analyst, communicationis a big part of what I do.
+00:32:38.127 I'm very comfortablewith it now,
+00:32:39.677 but that wasn't always the case.
+00:32:42.167 Early in my career, I wouldn'tthink very strategically
+00:32:45.017 about the meetings Iorganized, and I dreaded making
+00:32:47.837 presentations, even tosmall groups of people.
+00:32:50.777 But with practiceand experience,
+00:32:52.607 I've learned some things thatcan help any analyst become
+00:32:55.337 a better communicator.
+00:32:56.717 Data analysts needto know how to use
+00:32:59.117 all sorts ofcommunication methods
+00:33:00.917 for sharing their data insights.
+00:33:03.557 In this video, we'll go over twocommon ways, informal meetings
+00:33:07.697 and presentations.
+00:33:09.587 You'll learn how toadjust your visuals, tone,
+00:33:12.287 and the content of your messagedepending on that situation.
+00:33:16.167 Let's start withinformal meetings.
+00:33:18.527 One of the bestthings about meetings
+00:33:20.537 is that they can geteveryone on the same page
+00:33:22.847 and help get ridof any confusion.
+00:33:25.707 Whether meetingsare face-to-face
+00:33:27.567 or by phone or video, they alsogive people a great opportunity
+00:33:31.497 to ask questions, providefeedback, and brainstorm
+00:33:34.827 together.
+00:33:35.667 The problem is,people often complain
+00:33:38.127 that meetings are toolong, not well prepared,
+00:33:40.977 don't lead to any action,or even that they're
+00:33:43.317 a complete waste of time.
+00:33:45.357 To help make sure your audiencefeels your meetings are
+00:33:48.507 valuable, follow these steps.
+00:33:50.857 First, chooseparticipants thoughtfully.
+00:33:54.237 Decide if your meeting wouldbe most effective if it's
+00:33:57.057 large or small.
+00:33:58.827 And always consider ifpeople will add value
+00:34:01.647 before inviting them to attend.
+00:34:04.636 Once you've chosenthe participants,
+00:34:07.007 give them plentyof advance notice
+00:34:09.297 so they're able to add yourmeeting to their schedules.
+00:34:12.136 In an informalmeeting, you might not
+00:34:14.297 need to share any supportingdocuments or visuals.
+00:34:17.567 If you do, make sure tokeep handouts to a minimum.
+00:34:21.616 Give people concise,easy-to-read materials.
+00:34:25.456 If you're using awhiteboard or screen share,
+00:34:28.067 be sure all participantscan see what you present.
+00:34:31.587 It helps to use the skillsyou learned in earlier videos
+00:34:34.647 about creating effectivevisuals and slideshows.
+00:34:37.827 When speaking with groupsof people in a meeting,
+00:34:40.197 make sure people feel involved.
+00:34:42.177 Make eye contact.
+00:34:43.587 Ask for feedback.
+00:34:44.726 And encourage discussion.
+00:34:46.737 It's also a goodidea to ask someone
+00:34:48.567 to take notes, or have away to take notes yourself
+00:34:52.016 in case something comes upthat you want to work on later.
+00:34:55.137 Keep an eye on the clock.
+00:34:57.117 When you get to 5 or 10minutes before the end,
+00:34:59.697 recap the meeting's events.
+00:35:01.857 Include any decisions madeand next steps so they're
+00:35:05.217 fresh in people'sminds when they leave.
+00:35:07.677 And always thank yourparticipants for their time
+00:35:10.437 and contributions.
+00:35:12.287 OK, now let's switchover to presentations.
+00:35:15.597 Presentations are moreformal, generally involve
+00:35:18.357 a large group of people, andshould include visual aids.
+00:35:21.777 And as you'velearned, when you've
+00:35:24.087 written a compelling storywith well-designed visuals,
+00:35:27.087 you'll have a great opportunityto engage your audience.
+00:35:30.327 To start, it's importantto be prepared,
+00:35:32.787 have an attention-grabbingopening,
+00:35:34.827 an interesting and persuasivestory, and effective visuals.
+00:35:39.117 Let's start with preparation.
+00:35:41.397 Being prepared is key.
+00:35:43.557 It's only natural to getnervous when you're standing up
+00:35:46.257 in front of a crowd.
+00:35:47.337 But if you practice andorganize your thoughts,
+00:35:50.157 you're much more likelyto be successful.
+00:35:53.077 As you're preparing,always think
+00:35:55.207 about whom you're speaking to,why they care about your topic,
+00:35:58.777 and what they'reprobably hoping to learn
+00:36:00.667 from your presentation.
+00:36:02.747 Next, think about your opening.
+00:36:05.017 You can grab people's attentionwith a surprising statistic,
+00:36:08.527 an inspiring quote, or athought-provoking question.
+00:36:12.847 This gives your presentationan easy-to-follow structure.
+00:36:15.907 As we've beendiscussing, it helps
+00:36:18.157 to break down your presentationinto three simple sections.
+00:36:22.057 Your data story-- it needsa beginning, a middle,
+00:36:26.417 and an end.
+00:36:28.057 Again, remember what you'velearned about good slideshows.
+00:36:32.167 They should support yourstory, not be the story.
+00:36:35.377 Your presentationshould include evidence
+00:36:37.897 that backs up your messages,including facts and quotes.
+00:36:41.947 Always try to look at youraudience, not your slides,
+00:36:44.917 when speaking.
+00:36:47.097 And just as withmeetings, ask for feedback
+00:36:50.127 and encourage discussion.
+00:36:51.867 It's great to ask youraudience for feedback.
+00:36:54.207 You can learn from them, too.
+00:36:56.337 You might get somechallenging questions.
+00:36:58.857 If that happens, it's OKto say you need some time
+00:37:01.857 to research the answer.
+00:37:03.567 The conclusion ofyour presentation
+00:37:05.607 is when you loop back toyour original statement
+00:37:08.097 and give the audience somekey takeaway and next steps.
+00:37:12.217 Finally, don't beafraid to mess up.
+00:37:14.797 The fear of a mistake canmake you incredibly nervous.
+00:37:18.337 Whether you're presenting ina casual gathering with people
+00:37:21.157 inside your owncompany, speaking
+00:37:23.347 at a more formalmeeting with a client
+00:37:25.237 or partner, or another audiencealtogether, be sure to practice
+00:37:29.737 and get feedbackfrom your team first.
+00:37:32.407 This will help buildyour confidence
+00:37:34.267 and calm your nervesduring your presentation.
+00:37:37.157 And if something does go wrong,it's not the end of the world.
+00:37:40.447 Just be genuine.
+00:37:42.097 Admit the mistake.
+00:37:43.477 And maybe even have a laugh.
+00:37:44.887 No one's perfect.
+00:37:47.297 The important thing is that youproudly share your narrative.
+00:37:50.507 And the tools you've beenlearning-- data visualization,
+00:37:53.957 dashboards, filters,and more will
+00:37:56.867 help you make it a great story.
+00:37:59.207 By now, you can applyways to present your data
+00:38:02.327 to help with understanding.
+00:38:03.452 You can transform the datayou present into something
+00:38:07.067 meaningful that people willconnect with and actually care
+00:38:10.277 about.
+00:38:11.487 And you can applydifferent methods
+00:38:13.187 for organizing informationfrom multiple datasets,
+00:38:16.157 turning them intosimple visualizations.
+00:38:18.947 Most importantly,all of these skills
+00:38:21.437 will help you motivateand persuade people
+00:38:23.687 to take action basedon your data insights.
+00:38:27.527 This will make you an evenstronger data analyst.
+00:38:30.497 You'll be more able toanswer business questions,
+00:38:33.107 solve problems, andhelp take your company
+00:38:36.047 to a successful future.
+00:38:40.307 TONY: Congratulationson finishing this video
+00:38:42.367 from the Google DataAnalytics Certificate.
+00:38:44.557 Access the full experience,including job search help,
+00:38:47.617 and start to earn theofficial certificate
+00:38:49.897 by clicking the Icon or theLink in the description.
+00:38:52.777 Watch the next video in thecourse by clicking Here.
+00:38:55.567 And Subscribe to our channelfor more from upcoming

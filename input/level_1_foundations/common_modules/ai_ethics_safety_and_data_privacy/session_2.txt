@@ -1,0 +1,292 @@
+# tactiq.io free youtube transcript
+# No title found
+# https://www.youtube.com/watch/aOl4BgXoa6Y
+
+00:00:00.240 It's too early to say yes AI works better in the next 10 years won't need doctors
+00:00:06.480 for initial diagnostics the way we do things today gets augmented or assisted by by AI of course
+00:00:15.040 they are it will take a lot of time before we get autonomous if and when AI reaches human level
+00:00:21.680 reasoning we talk about the AGI I think one of the toughest questions of today is can we trust AI today we are
+00:00:29.599 joined joined by Dr. Tibbo, a biotech and AI expert who was leading AIdriven
+00:00:35.840 R&D strategies at Charles River Laboratories globally. Now, as an AI
+00:00:41.520 consultant and the host of tech and drugs podcast, he helps life sciences
+00:00:46.559 companies harness AI and data to bring better medicines to the market.
+00:00:52.640 Recognized in LinkedIn's top 1% voice, his insights are highly respected and
+00:00:58.719 valuable in the industry. Also joining me is my co-host Mr. Akar Raj, CEO of
+00:01:05.280 UNLabs. Welcome. Welcome to data and AI exchange. Well, thank you for having me.
+00:01:12.640 Most welcome. So Dr. Tibo uh you come from a very critical industry of pharma where every
+00:01:20.080 new tech is carefully and slowly implemented to ensure that there are no adverse effects right but the AI
+00:01:27.040 adoption has been quite fast in the past recent years but generally speaking when
+00:01:32.400 we talk about trust in AI are we referring to the accuracy reliability
+00:01:37.759 fairness or the entire system life cycle what is it yeah so so so you're right I think you
+00:01:44.479 know like when When you think about the pharmaceutical industry, you don't think of it as the industry
+00:01:50.880 that will adopt all the latest the latest technology. I mean, we have a tendency to be quite quite careful
+00:01:57.040 simply because uh you know we we're not in in tech where you can just make and break things and see what happens. I
+00:02:03.600 mean here the stakes are quite high because we are talking about patient about health. So, so we need to be we
+00:02:10.080 need to be really cautious uh about how we are implementing new technologies.
+00:02:15.920 Now, before I answer your question, I think it's it's really important to frame to frame the conversation because
+00:02:21.040 everything that I will tell you is really about this this industry, the life science industry, uh pharma, but
+00:02:26.800 also you know like healthcare in general. Um you know there approximately 24,000 diseases that are known today. Uh
+00:02:34.000 and on the market we have three to 4,000 drugs. uh knowing that you have multiple
+00:02:39.920 drugs treating the same the same diseases. So you know you have a huge gap between the number of disease that
+00:02:46.640 are that are known and the number of drugs that we have on the market. Also if you look at if you look at it from a
+00:02:53.440 historical perspective the cost of developing a drug is getting higher and higher and higher. you know it takes you
+00:03:00.000 know like two to six billion depending on the on the benchmark you're looking at 10 to 12 years without counting all
+00:03:06.159 the all the work that was done that was done before and the failure rate is is quite high it's like 95% approximately
+00:03:14.400 so which brings me now to AI um I think everyone in the industry recognize that
+00:03:20.720 you know like the the the tools that we've been using until now I mean they don't really they don't really work so
+00:03:27.360 well you know we we still have this huge gap between all the disease we need to treat and how fast we are bringing drug
+00:03:33.680 to the market. So we need to do better. We need to we need to get new new ways of developing drugs faster, cheaper with
+00:03:42.640 a lower fail rate. So that's kind of where there is so much uh you know so
+00:03:47.920 much exit excitement about about AI like in every industry you know we are looking at this new tool because in the
+00:03:53.920 end it's a tool uh and asking ourself well is is this it? I mean is this is
+00:03:59.120 this the tool that will help us address a number of our problems at the moment we don't know but uh you know I think
+00:04:06.480 like every industry we are giving it a shot so now going to your question so we
+00:04:11.840 talk about trust in AI so for us trusting the tool that we are using is super important because as I said I mean
+00:04:18.639 you know like the stake are really high we can't use a tool that gives us a recommendation let let's take you know
+00:04:25.840 like an example during the life cycle of a of a drug development at some point you know you will move from the lab to
+00:04:31.759 animal to human and you need to decide what will be the first dose of of a drug it's very important thing that uh that
+00:04:38.240 you need to uh that you need to decide uh there are there are multiple ways of doing that but at the moment you know
+00:04:44.479 it's not like we will take an an AI an AI tool and just say hey you know AI AI give us the starting dose and and we
+00:04:51.600 will trust it blindly we are not there yet um so to your question you know like when we talk about trust Is it accuracy,
+00:04:58.400 reliability, fairness or the entire life cycle? It is the entire life cycle. So at the moment it's very it's very much
+00:05:05.040 we we we are at this phase where we are we've been experimenting with AI you know like kind of research. We've been
+00:05:11.600 doing P and I think the vast majority of the industry is still stuck in in this
+00:05:17.199 Purgatory. Let's put it like that. And we want to move to the next phase but you know the
+00:05:23.440 trust uh is not there yet. I mean of course I could you know I could go into much more detail because there are areas
+00:05:29.759 where there is higher trust other areas where there's not because you can't just say AI you know across the board I mean
+00:05:35.919 it's there are thousands of use case literally so there are areas where it's more okay uh to rely on AI whereas other
+00:05:43.680 areas where we are still not there yet. Okay that makes sense. So um see I
+00:05:50.800 believe uh in pharma collection of data or the presence of huge amount of data
+00:05:56.639 is not a problem. So what are the specific key factors or benchmarks that
+00:06:02.320 you're looking when you say you don't trust AI yet?
+00:06:08.080 So, so there are you know like there are there are a number of benchmarks you know like uh and and you know in prep
+00:06:13.280 for this uh for this uh for this discussion I was looking at the type of benchmark that are that are used in uh
+00:06:19.919 in in pharma uh or or specifically in healthcare you know like there is uh
+00:06:25.360 fries mass TCMM I mean a lot scale a lot of benchmark that I was you know to be
+00:06:31.680 honest not not even not even really aware of I think I think in the And um
+00:06:37.120 it's it goes beyond just a number because if we if we step back a little bit I mean you know like uh last last
+00:06:43.680 week we had the launch of GPT5 uh and with every launch of a new model you
+00:06:48.720 have tons of benchmarks and uh and of course you know like the new model does
+00:06:53.759 better in every single benchmark uh than the previous one. I mean that's kind of what we expect from a from a new model.
+00:07:00.080 But then interestingly a lot of people were like huh I'm not I'm not sure I
+00:07:05.440 really like it. I don't I don't think that he's doing so well here and there. So I think what I'm trying to say is
+00:07:11.039 that I don't think that we have yet found benchmarks that really you know
+00:07:16.800 cover it or really you know like translate uh you know like the feeling
+00:07:22.400 that we have toward a new a new AI tool and uh you know and the the reality of
+00:07:28.000 the performance. So I don't know if it's very clear what I'm saying but I think like a benchmark will evaluate as as big
+00:07:33.039 as we are making it as comprehensive as we are trying to make it. It evaluate like relatively specific and uh and
+00:07:40.560 objective criteria but then when people start to use the tool then there are a lot of things where they like uh that
+00:07:47.280 are more you know like a feeling that something else. So I don't know I don't
+00:07:53.039 know if I'm explaining explaining it very well but that don't necessarily get get captured in uh in in the benchmark
+00:08:00.960 and um and and you know again if you recall the the GPT announcement there
+00:08:06.479 was a lot of discussion on healthcare you know they were talking about patient using it for understanding like their
+00:08:12.479 their diagnosis they were talking about cancer so I think like a lot of AI
+00:08:17.840 companies they look at healthcare you know uh the the hospital side of things,
+00:08:22.879 the patient side of thing, but also the farmer side of thing and say, "Look, it's it's a very attractive market. We want to get there. So, we need to have
+00:08:29.120 benchmark. Uh I've been working also with a lot of farmer companies lately that we're looking at different models
+00:08:35.200 and and looking at all those benchmarks, but I don't think the benchmark that we're using are telling the the whole
+00:08:41.360 story yet. Do I have something better to offer right now?" Not really. I think
+00:08:46.399 it's still it's still one of these area where there is there is a need for a lot of uh a lot more research uh to to truly
+00:08:55.839 find something that will give us the confidence that when we have a new model
+00:09:01.040 it's performing better than than the previous one and and you know when I say better I think that we could talk also
+00:09:07.360 for hours what does it mean better what does it mean performing better
+00:09:14.560 thanks Jibbo uh t you know at on labs we are constantly working with our clients
+00:09:20.480 to build AI solutions that are not just powerful but also responsible and fair.
+00:09:26.160 So having said that you know uh a core part of this particular conversation is
+00:09:32.560 addressing towards the biased part on AI. So let me start with this. Can bias
+00:09:40.000 ever be fully eliminated by AI models?
+00:09:45.600 Okay, short answer, no. Uh now I'll try to try to to elaborate a little bit more
+00:09:51.279 and and um you know in the end uh models are developed by people uh and people
+00:09:57.920 have bias. So I think that's that the simple uh that the simple answer of course now a lot of things can be done
+00:10:04.800 to uh to eliminate the the bias. I mean you can have like for instance when you look at the data that go into the model
+00:10:11.360 really look at look at the data see you know if there is data that are you know like representing more of certain
+00:10:17.839 category less of certain categories then change the weight of that so there are lots of technical things where to be
+00:10:23.120 honest I'm not necessarily the expert in the in how do you prevent that but I know that there are number of ways to
+00:10:29.600 eliminate bias now if I looked at it from the lens of my own industry um the
+00:10:35.760 pharmaceutical industry is hugely bias as well. You know, when when we develop a drug, you know, like the typical
+00:10:40.959 patient is a Caucasian middle-aged man. So, you know, that's what a drug is
+00:10:47.040 developed for. Now, hey, of course, you know, there kids will take the drugs, women will take the drug, non-Caucasian
+00:10:53.519 will take the drug, but if you look at the vast majority of data that we have
+00:10:58.560 that, you know, that we use to develop a drug to make a decision on how we
+00:11:03.680 develop a drug, then there is a huge bias and and the bias doesn't really represent the diversity of the
+00:11:09.519 population. So I think in if I again if I look at you if I if I take your question and look at it through the lens
+00:11:16.000 of what we do in life science and in pharma uh
+00:11:21.519 yes we can try to reduce bias. I don't think that we can completely eliminate
+00:11:28.320 it. We know the problems we have now and we know that to develop a drug uh that
+00:11:35.200 works better for different people, we'll need to increase the diversity of of the
+00:11:40.399 data or sometime actually you know you you decide okay we we have a drug that would be more specific but also how
+00:11:46.480 things are evolving now in this industry where you don't necessarily try to make a drug that works for everyone but drugs
+00:11:52.160 that works for specific part of a population. In this case, yes, you want a certain bias because you want the data
+00:11:58.240 to represent the the population for which the drug uh has been developed and for which the drug will be uh will be
+00:12:05.920 effective. Um so yeah, that's uh that's kind of my my take on on on bias in uh
+00:12:12.720 in in life science and and and and again I think you know I think when when we talk about diversity in in life science,
+00:12:19.680 you know, diversity means so many things in so many different industry. For us, it's really biolog biological diversity.
+00:12:26.560 You know, I'm Caucasian. Uh you're from India. We have lots of things that are
+00:12:31.760 similar, but there are some small differences. You know, like if if we look for instance in how not the best
+00:12:38.560 example, but how liver process alcohol for instance, you know, the the way the
+00:12:43.680 way the liver is processing alcohol in Caucasian and in Asian is very different
+00:12:48.800 uh very different expression of of an enzyme. And you can you can look at this from many many different ways. So the
+00:12:56.160 body will process drugs, will process any type of things that you put into the body diff in different ways depending on
+00:13:03.360 your on your genetic profile. And this has huge implication of how effective and efficient the drugs are. So when you
+00:13:10.639 develop a drug, you definitely want to capture this kind of data um to to develop the drugs. But and that was that
+00:13:17.680 was true before AI and that's even more true now because then we want to use all those data to train models. So if you
+00:13:24.240 want your model to work I mean you need to have uh data that represent the population that that you want to
+00:13:29.519 address. Yep. Uh thanks uh that's really you know
+00:13:36.160 insightful point. So you are saying it's less about complete elimination and more about you
+00:13:43.760 know uh continuous mitigation kind of thing. So uh we often see this in our you know own
+00:13:51.360 projects especially when we are trying to build robust and fair models for our clients. It brings me to the second part
+00:13:58.560 of my questions. You know, how effective are techniques like, you know, counterfactual data augmentation?
+00:14:07.040 Uh, I mean, again, so I I I wouldn't necessarily be the right person to go
+00:14:13.839 into into all the the technical the technical details on which which method is is the best. I
+00:14:20.959 think I'm coming more from, you know, from uh from from the user side and and the way I'm thinking about it is really
+00:14:28.240 is the is the data representing the the population
+00:14:34.000 uh and the use case uh that we want you know that we want to uh to address. Uh
+00:14:40.240 if it's not then what do you want to what can you do about it? And and what
+00:14:46.079 can you do about it? I think there are a number of ways you can think about this problem. I think like the the way the
+00:14:51.519 way I've been tackling it in my career is more um
+00:14:56.560 less on you know like on the how what can we do from a technical perspective and more what can we do from in term of
+00:15:03.360 data sourcing and data generation. So if you know if we say we want to do a certain thing and we need certain type
+00:15:09.600 of data the question I will always ask is well do we have those data? So do we
+00:15:14.720 have historical data that we can uh that we can uh look for in in our archive and
+00:15:20.160 the pharmaceutical industry is sitting on tons of data. Uh now the question is
+00:15:25.279 are these tons of data that are actually accessible which is very important
+00:15:30.480 question. I've seen that in previous organization where we had decades of data but if you looked into the data
+00:15:36.320 after you know like data that were older than four, five, six years were barely usable. So okay that's the first thing
+00:15:43.760 then if we can't use the old data can you source the data that you need externally or can you actually reproduce
+00:15:50.079 those data in some case you can reproduce them you know if you're thinking about in vitro experiment in
+00:15:55.279 other cases you can't reproduce them because if it's data coming from human from clinical trials then you can't so I
+00:16:00.800 think that's that's more I'm I'm thinking about your question more from this perspective rather than is there a
+00:16:07.440 technical way to uh to address this problem but I think as usual it's never you know like a simp it's never a simple
+00:16:13.920 answer it's always a combination of a few things I think it's a combination of hey can we do things at the data level
+00:16:20.720 and I think if you can fix things at the data level is always cleaner because in the end you know this is really the the
+00:16:26.560 data are the source of truth and then the next thing is is there a technical you know technical tool that we tech or
+00:16:33.839 method that we can use to work with what we have and I think that will always be a combination of those two approaches
+00:16:41.519 uh rightly said you know tibo tibo the thing is this is you know as per our experience as well data is everywhere
+00:16:48.880 but the thing is the data is not in a know right save so and that's the whole
+00:16:54.959 point you know where the things where we talk about you know the bias of the AI part so thanks a lot for answering my
+00:17:01.600 question the way you was saying about AI and uh that the discussion that we were having
+00:17:06.640 on trust right I am remembering uh very celebrated US entrepreneur Vinod
+00:17:12.880 Kosla in one of the talks he said that in the next 10 years we know won't need
+00:17:18.559 doctors for initial diagnostics he predicted that you know there will be some kind of an AI watch which will tell
+00:17:25.839 you 3 days before that you know you're going to get a heart attack so go to the doctor so my question is that maybe in
+00:17:35.840 drug creation drug production there are still trust factors in AI but is
+00:17:41.120 diagnostics one field where AI can do better than humans. Um that's actually a great question and
+00:17:48.080 I think I mean one thing that we always get wrong I think it's a timeline prediction. Uh you know by by by this
+00:17:53.840 time we should all be uh in you know self-driving cars and uh we should just
+00:17:59.679 have someone doing the diagnostic for us. It's not there yet. Uh that being said I think we made tremendous
+00:18:06.559 progress. So I'll give you an anecdote. A good friend of mine is actually a medical physicist. So you know he's a is
+00:18:12.559 a guy he's not a he's not a medical doctor but he's is working with medical doctors to help them with uh you know
+00:18:20.320 setting up the the instruments you know when they are uh images to uh to analyze
+00:18:25.520 or for instance when there is a cancer to to look at the tumor and uh you know
+00:18:30.559 like make sure that the tumor is identified precisely by an instrument so
+00:18:36.400 that X-rays can can be used to uh you know to destroy the tumor.
+00:18:41.440 Um what he was telling me is that 10 years ago this would be done manually. So you will you know you will look at
+00:18:47.520 the images and you will you know like with your hand you know like circle this thing and think about it it's it's
+00:18:53.440 something that is in three dimensions. So it's it's not easy. I mean you know you have like two dimensional plane and
+00:18:58.880 you need to turn it and turn it and turn it and surround this. And when you're talking about cancer uh you want to make
+00:19:05.039 sure that you catch everything. So when you do this manually, you tend to leave a certain margin and the margin was
+00:19:11.600 actually quite big because you want to you you really want to be on the safe side. However, when you do that, it
+00:19:17.679 means that you're burning uh healthy tissue. So you're burning the tumor, but you're also burning healthy tissues.
+00:19:23.200 What he was telling me is that now you know in the the 10 15 years that he's been active, it went through from a
+00:19:29.120 fully manual uh process to something which is fully automatized. So now the
+00:19:34.160 the instrument can actually see the tumor do the you know like surround it
+00:19:39.280 you know like really like say okay this is this is it and have it you know with
+00:19:44.559 sub millimeter accuracy uh two advantage so first of all it's much more accurate
+00:19:50.160 so you have like less side effects because you're burning less of a of a healthy tissue and it's also much faster
+00:19:56.240 because that's also a bottleneck you know like doctors had to work with him verify things doctor never had enough
+00:20:02.880 time to do that. So, you know, like they had to do it fast. They wanted to do it, you know, as fast as they can, but also
+00:20:09.600 as safe as they can. So, you know, it's always it was always like a balance between speed and, you know, speed and
+00:20:15.280 uh and and security. So, they will do it a little bit more just to make sure that they catch everything. So, now like to
+00:20:21.679 your question, uh can you know can machine can AI do it better than human? Yes, for for this case it's it does it
+00:20:28.480 better than human. And I think you know like we'll certainly talk about AGI later but I think we are at this stage
+00:20:34.320 where we have hundreds of examples of specific AI that will do specific use
+00:20:41.360 case better than a human. You know like if you're into chess I mean you'll know Magnus Carlson you know like the the
+00:20:48.240 chess world champion. Uh he says that you know he can't he can't even beat his uh his phone now at chess because it's
+00:20:54.960 much much better than human. Uh same thing with with a go game now you know like AI are much better than human. So
+00:21:01.520 you can have a list of hundreds of use cases where AI will do a much better job than human. Uh it's not but it's not
+00:21:09.840 it's not at everything. I think you know we have things that are very well optimized for which it it does a it does
+00:21:15.280 a really good job. And in in drug R&D so now what's interesting is that we start to see companies that can bring drugs to
+00:21:23.360 a certain stage. So you know like the drug discovery and development you can cut it in four phases.
+00:21:29.120 There is the discovery phase you know which is very much like very early R&D then you go from from like an invitro to
+00:21:37.520 animal invivo so preclinical phase then you transition from animal to human
+00:21:43.120 clinical phase and then on the the clinical phases are done then the the
+00:21:48.480 drug will be marketed and launched. So the first two phases the discovery and preclinical now they are norm normally
+00:21:55.520 like the traditional ways maybe six years approximately and now they are uh
+00:22:00.720 pharmaceutical companies that are using AI so that are natively using AI we call
+00:22:06.240 them tech bios or pharmachch depending who who you ask um they can do that in
+00:22:11.360 eight months so from six years to eight months and for much much cheaper and
+00:22:16.480 with a much higher success rate. Now this is still very early phase. So if
+00:22:22.159 you look at the the pipelines of drugs coming from the the tech buyers I think
+00:22:28.640 it's it's 0.1% of the overall industry pipeline. So it's it's not
+00:22:35.440 representative at all. I mean it's still so early that we can't you know the number I'm giving you are the number
+00:22:40.880 coming from a handful of companies. uh so you know 10 years from now I don't know if it will still be you know like
+00:22:47.600 an average of eight months compared to six years using like traditional approach or if it will be less or more
+00:22:54.880 but what I think what I'm telling you is that we are starting to see very strong signals that we have a number of use
+00:23:01.120 cases in pharma where AI is doing much better than the traditional approach but
+00:23:07.200 this remains to be confirmed it's too early to say yes AI works better you
+00:23:12.320 know you You can, you know, kiss goodbye to the traditional old farmer. We are not there yet.
+00:23:19.039 If and when AI reaches human level reasoning, we talk about the AGI, right?
+00:23:25.280 Will we require continuous verification mechanisms, right? And how would a
+00:23:31.280 company like Unolapabs even begin to prepare its infrastructure for the next level of oversight?
+00:23:40.480 So, so I I think I think The simple answer is yes. I mean you know like anything new you know you need you need
+00:23:46.960 to have a you need to have a certain level of control. Uh now you know I was thinking about that before before our
+00:23:53.919 discussion. Uh I mean depending on the on the maturity of a system you know you
+00:24:00.159 I think the the level of control and what is expected in term of control really varies you know depending on on
+00:24:07.520 where we are in term of of development with certain tools. I'll go back to what we were discussing before, you know,
+00:24:12.720 like self-driving cars. I mean, you already have self some level of self-driving car. It's not completely
+00:24:19.039 autonomous. So, for instance, my car, it's it's very basic. So, you know, like if I'm on the motorway and there are
+00:24:25.520 like, you know, big curves, I can I can, you know, like get my hands off the wheels uh and the the car will steer
+00:24:32.640 itself and it will not crash into the car in front of me because there is a radar. uh but after like 20 seconds of
+00:24:40.159 not touching the wheel the car starts to beep. I I guess 10 years from now you know we won't have that. I mean you know
+00:24:45.919 we we will have something which is tested you know which is which is very reliable where you don't need to have
+00:24:52.799 this this level of oversight and I'm sure we could find example across so many other technologies that uh that
+00:24:59.200 we've used. I mean you know like planes have autopilot. Okay I guess everyone is
+00:25:04.640 trusting that. I mean we still have a pilot in the plane but for the vast majority of the trip you know things
+00:25:09.760 will be on on autopilot. Thank you. U when you were saying the example about uh self-driving cars right
+00:25:16.720 I was I was kind of thinking that you know robotic arms in surgeries are already in place. Yeah.
+00:25:23.039 More or less, right? But do you think that at some stage it will be completely
+00:25:28.720 automated like an AI doing the complete surgery? Is it I mean do you think that
+00:25:35.120 is happening? Will that happen someday? I'm sure I'm sure it will. I mean you
+00:25:41.360 know it's it always depends on uh on timelines. I mean, you know, like
+00:25:47.520 when you think about it, all the thing that we talking talk about, they they've been written in science fiction books.
+00:25:53.360 So, you know, it's interesting that you're talking about surgery and robots. I'm I'm reading
+00:26:00.799 an old novel from Arus C. Clark. Uh it's called Rendevu with Ramen. Um and in the
+00:26:07.360 second uh in the second uh book uh they are in space and uh and one of the one
+00:26:13.760 of the astronaut uh is feeling a very sharp pain and they think it's an append
+00:26:19.840 how do you say append appendicitis I can't pronounce that so he has a problem and essentially he needs a surgery so
+00:26:26.640 they they have this robot that fits in a small uh you know in small luggage they
+00:26:31.840 take it out you know they put it on the on the bed they fix it and then the robot start the whole thing and then all
+00:26:37.760 of a sudden like the the spaceship moves unexpectedly and then the robot
+00:26:42.799 essentially cut the person open and the person dies. Um and and this robot and all the safeguard all the thing you can
+00:26:49.919 imagine and to be honest I think I think we are we are there you know we are there today. I think this thing was
+00:26:55.360 written in the what was it in the 70s uh and uh it took us well 50 years to to
+00:27:02.000 get there where we have where we have robots now that that are not they are not autonomous like the surgery robots
+00:27:07.919 they are not autonomous um but they they can be used to uh uh you know where you
+00:27:13.840 have surgery where you have a surgeon which is not in the same place as the as the robots of for remote surgery which
+00:27:19.679 can be really really useful you know as we are uh as we have a shortage of of qualified of qualified surgeons. So you
+00:27:26.559 can really think that uh you know having those robots at some point you know when they get cheaper to manufacture will be
+00:27:32.720 really a solution. Now of course they are it will take a lot of time before
+00:27:38.159 they get autonomous. Now an interesting thing you know the company I'm working with Zulka has worked in this in this
+00:27:45.840 area actually. So we have we worked with a company that developed a robot that can you know cut through through bones
+00:27:52.320 and tissues and we help them develop an AI to make sure that you know the depth of the gut is very well controlled and
+00:27:59.279 that you know it does exactly what it's supposed to do. So again here you know we we we have a tendency to talk about
+00:28:05.600 things you know it's either all or nothing. I think there are all the shades and all the possibilities in
+00:28:11.279 between where uh you know like the way we do things today gets augmented or
+00:28:17.039 assisted by by AI just like I was talking before you know with medical
+00:28:22.960 physicist where they have you know AI that will help them identify a tumor and
+00:28:28.480 you know and delinate it in a much more accurate and much faster way than when when they do it manually. I think it
+00:28:35.120 will be the same with with robot surgeon where initially it might help the surgeon assist it for a number of steps
+00:28:42.799 that can be a bit challenging uh help them maybe also prevent them from from
+00:28:48.399 doing errors. So think about all the way people can be can be augmented by that. You know it's also you know you have
+00:28:54.480 only two hands you know like with a robot you can have five hands or six hands. Uh so that that's also in the way
+00:29:01.440 people can be augmented by by um a surgical robot a fully automated
+00:29:07.520 surgical robot again you know like it will take times and I'm not sure I want to make a prediction in term of timeline
+00:29:13.279 because you know people always get them wrong.
+00:29:19.600 Thank you. Thank you Tibbo. I think uh we had a great conversation today and uh
+00:29:26.080 you gave us a real good insight into what AI's future looks like in healthcare and pharma industry. We can
+00:29:33.120 soon expect a heavy use of AI in some aspects of healthcare as you mentioned but maybe not so much in some critical
+00:29:39.200 aspects of pharma. I don't know some people may find that uh good and some may think that's scary
+00:29:48.480 but yeah AI is here to stay and uh in healthcare and pharma industry it will
+00:29:53.840 increase its presence. Thank you Dr. Dau for today's conversation. It was great talking to you.
+00:29:59.919 Well thank you very much. Thanks for the discussion and uh yeah happy happy happy to continue.
+00:30:06.960 Thank you. Thanks Cebo.

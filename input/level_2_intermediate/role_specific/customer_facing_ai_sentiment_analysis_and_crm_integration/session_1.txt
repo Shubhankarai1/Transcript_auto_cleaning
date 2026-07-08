@@ -1,0 +1,404 @@
+# tactiq.io free youtube transcript
+# AI in CRM: The Guide to Smarter Customer Relationships
+# https://www.youtube.com/watch/6Rr9EjqPfcc
+
+00:00:00.800 For years now, CRM software has been
+00:00:03.600 viewed as a technology that it's really
+00:00:06.720 a glorified spreadsheet, something that
+00:00:09.120 sales people don't like using. It
+00:00:10.639 requires them to enter information that
+00:00:12.080 they don't want to have to capture. But
+00:00:13.920 here in the late 2020s, things are
+00:00:15.759 changing. There's been a 200% uptick in
+00:00:18.800 interest related to CRM software
+00:00:20.640 according to Google and other analytics.
+00:00:23.039 And what I want to do today is talk
+00:00:24.720 about how AI is changing the game of CRM
+00:00:28.800 and changing the role of CRM from being
+00:00:30.560 a system of record to a system of
+00:00:32.719 innovation. And I'm going to share with
+00:00:34.559 you three specific ways that AI is
+00:00:37.280 completely changing CRM. And I'm also
+00:00:39.520 going to talk about the specific CRM
+00:00:42.000 vendors that are currently winning the
+00:00:43.600 race here in the late 2020s.
+00:00:57.520 My name is Eric Kimberling. I'm the CEO
+00:00:59.120 of Third Stage Consulting. We're an
+00:01:00.719 independent tech agnostic consulting
+00:01:02.160 firm that helps clients throughout the
+00:01:03.600 world with their digital
+00:01:04.479 transformations, including CRM
+00:01:06.400 initiatives. And one of the common
+00:01:08.880 things we do is we'll help clients
+00:01:10.400 select and implement CRM software. And
+00:01:12.799 I'll admit a lot of our clients view CRM
+00:01:14.720 as a necessary evil. They don't want to
+00:01:17.040 spend a lot of time and money on the
+00:01:18.640 technology. Sales people resist it a lot
+00:01:21.040 of times because it enforces a sort of
+00:01:23.200 standardized structure and data
+00:01:25.360 capturing that they don't like to do
+00:01:26.799 because it often times doesn't drive
+00:01:28.560 more revenue for them directly. And so
+00:01:30.799 historically CRM has had sort of a mixed
+00:01:32.960 perception in the B2B enterprise tech
+00:01:36.000 space where I work. And what's happening
+00:01:38.720 though here in the late 2020s is that is
+00:01:40.799 slowly shifting. We're starting to see
+00:01:43.040 CRM systems shift from being a system of
+00:01:46.000 record where sales reps are forced to
+00:01:47.920 enter information that they don't want
+00:01:49.200 to have to enter to where now CRM
+00:01:51.840 systems have the capability to actually
+00:01:53.439 support salespeople and help them close
+00:01:55.680 more deals and help them generate more
+00:01:57.759 revenue, more commissions for
+00:01:58.960 themselves. And it's actually helping
+00:02:00.719 drive a lot of efficiency and
+00:02:02.960 effectiveness amongst these sales teams.
+00:02:05.280 Not to say that everything's perfect and
+00:02:06.799 sales reps all love CRM software now,
+00:02:09.280 but it is providing a lot more uplift to
+00:02:11.920 their capabilities. So, what I want to
+00:02:13.920 do today is talk about what's changing
+00:02:15.520 in the industry and why the shift is
+00:02:17.599 happening. I also want to talk about
+00:02:19.520 three common ways that organizations are
+00:02:22.959 driving more ROI from their CRM software
+00:02:25.760 in ways they never have in the past. And
+00:02:27.840 then later in the video, I'll talk about
+00:02:29.360 who some of the leading CRM software
+00:02:31.360 vendors are and some of the ones you
+00:02:32.720 should consider as part of your digital
+00:02:34.560 transformation evaluation and strategy.
+00:02:37.280 If you're leading a digital
+00:02:38.640 transformation or ERP initiative and you
+00:02:41.280 want to avoid the costly mistakes that
+00:02:43.280 most organizations make, that's where
+00:02:45.040 Third Stage Consulting comes in. We are
+00:02:47.120 an independent and technology advisory
+00:02:49.440 firm, meaning that we don't sell
+00:02:51.200 software. We don't take commissions from
+00:02:53.519 vendors. Our only job is to protect your
+00:02:56.239 interest and be on your side. We help
+00:02:58.480 executives and project teams plan,
+00:03:01.360 deliver, and recover digital
+00:03:03.440 transformations and ERP projects,
+00:03:05.840 reducing risk, improving adoption, and
+00:03:08.159 delivering real business value. If you
+00:03:10.159 want clarity before you commit to your
+00:03:11.920 digital strategy, or if something feels
+00:03:13.920 off track to you, feel free to reach out
+00:03:16.159 to us at thirdstage-conulting.com
+00:03:19.120 and my team and I would be happy to
+00:03:20.640 help. [music]
+00:03:25.840 I talked earlier in this video about how
+00:03:27.840 CRM software is changing from being a
+00:03:30.720 system of record that sales reps often
+00:03:32.879 times present to more of a system of
+00:03:36.000 action, a system of innovation. So
+00:03:38.159 what's driving this change? What is
+00:03:39.440 that? What do I mean by this? Well,
+00:03:41.040 let's start by looking at historically
+00:03:42.799 what CRM software has been.
+00:03:44.879 Historically, if we go back 10, 20
+00:03:46.640 years, CRM software was generally meant
+00:03:49.519 to just capture and centralize a sales
+00:03:52.480 rep's pipeline so that they could keep
+00:03:54.720 track of what's happening within their
+00:03:56.720 pipeline. Their management and
+00:03:58.319 higher-ups could could see and have
+00:04:00.000 visibility into what was happening with
+00:04:01.840 the pipeline. And if you're lucky, that
+00:04:04.239 pipeline was accurate enough that the
+00:04:05.840 finance people and others could forecast
+00:04:07.920 what revenue could be expected from that
+00:04:10.159 pipeline. And again, this was a sticking
+00:04:13.040 point or sore point for a lot of sales
+00:04:14.720 teams we worked with because it imposed
+00:04:16.798 a certain amount of discipline and
+00:04:18.720 structure and nonvalue ad work in the
+00:04:21.680 minds of sales reps in terms of
+00:04:23.600 capturing information in a system that
+00:04:25.280 didn't directly help them close more
+00:04:26.880 deals. It might have been better for the
+00:04:29.280 overall organization and provide a
+00:04:30.720 better visibility to the overall
+00:04:32.000 organization, but at the individual
+00:04:33.440 sales rep level, it tended to create a
+00:04:35.680 lot of resentment and resistance at that
+00:04:38.960 level. But now we have an opportunity
+00:04:40.720 with the way CRM is evolving to where
+00:04:42.479 it's becoming less of just simply a
+00:04:44.479 system of record to one that's more
+00:04:46.479 contextbased. It's one that now is
+00:04:48.800 assisting sales rep and really acting as
+00:04:50.800 a sort of assistant to help them close
+00:04:53.120 more deals. Everything from listening in
+00:04:55.520 on sales calls to identifying trends and
+00:04:59.360 behaviors in the pipeline, automatically
+00:05:02.400 updating records in the system without
+00:05:04.479 them having to manually go in and track
+00:05:06.400 step by step what's happening in the
+00:05:07.919 pipeline. and also to potentially
+00:05:10.720 recommend next steps and to help sales
+00:05:13.199 reps focus on the high value or the
+00:05:15.600 highest value activities. So this is
+00:05:18.080 some of the context of how CRM software
+00:05:20.639 is evolving. What I want to do next is
+00:05:22.960 talk about three areas where we're
+00:05:25.520 seeing the most ROI come from these new
+00:05:28.560 evolutions in the CRM software space.
+00:05:35.840 The first way that CRM is evolving, the
+00:05:38.800 first feature that we're seeing that's
+00:05:40.639 really changing CRM software is
+00:05:44.479 predictive analytics and lead scoring.
+00:05:47.280 So this is looking at trends and
+00:05:49.360 patterns in the pipeline to give more
+00:05:52.800 structure and more predictability to
+00:05:54.960 what can be expected in that pipeline.
+00:05:56.960 In other words, what AI is able to do
+00:05:59.280 with all the data that's being captured
+00:06:01.199 within the systems is that it's now
+00:06:03.520 allowing organizations and sales reps to
+00:06:06.240 not just guess what they should be doing
+00:06:08.479 next or not to treat each prospect
+00:06:11.280 equally, but to help drive insights and
+00:06:14.160 understanding where the real
+00:06:15.680 opportunities are and where the problem
+00:06:17.360 areas are, maybe where the sales rep
+00:06:19.039 needs to focus more time. So, that is
+00:06:21.680 one area that we're seeing a big
+00:06:23.520 improvement. A second feature that AI is
+00:06:25.600 extremely helpful in with CRM software
+00:06:28.080 is sentiment analysis. What this means
+00:06:30.800 is it helps prioritize different
+00:06:33.360 customers, the ones that are at risk.
+00:06:35.520 Maybe they haven't gotten enough
+00:06:36.400 attention or they haven't gotten the
+00:06:37.520 information they need. AI can help track
+00:06:39.600 the patterns and the behaviors of what's
+00:06:41.360 happening with those customers or those
+00:06:42.880 potential customers so that the sales
+00:06:44.720 rep can take action or in some cases
+00:06:46.880 Agentic AI can take action for you via
+00:06:49.120 an email or a text or a way to outreach
+00:06:52.000 and engage with that person with or
+00:06:54.880 without the sales rep's human
+00:06:56.639 involvement. And a third feature that is
+00:06:58.880 driving a high ROI using AI is
+00:07:02.000 hyperpersonalization.
+00:07:03.520 And this is sort of the holy grail of
+00:07:05.919 CRM and the holy grail of sales pursuits
+00:07:08.560 in general is rather than treating every
+00:07:11.120 customer equally and having the same
+00:07:12.639 message for every potential prospect out
+00:07:14.560 there, AI is allowing us to customize
+00:07:17.280 and tailor the messaging to speak the
+00:07:19.199 language of that potential buyer based
+00:07:21.280 on website behavior and things that
+00:07:23.919 they've done to engage with our brand,
+00:07:25.680 with our content, whether it's website
+00:07:29.199 visits or whether it's email responses
+00:07:31.120 or whether they've read our emails. or
+00:07:33.520 not, whether they've called into a call
+00:07:35.280 center or not. Capturing all that data
+00:07:37.120 and analyzing what it is they're
+00:07:39.440 interested, what their hot buttons are,
+00:07:40.720 and allowing us to have better insights
+00:07:43.599 into how we can personalize the outreach
+00:07:46.479 and the pursuits that we have with these
+00:07:48.479 prospects. So, these are three of the
+00:07:50.479 leading features that we see driving ROI
+00:07:53.360 from an AI perspective. Now, let's shift
+00:07:55.360 gears and talk about the specific
+00:07:56.720 vendors that are winning the race of AI
+00:08:00.639 within CRM solutions.
+00:08:05.360 >> [music]
+00:08:06.960 >> The good news is that most CRM vendors
+00:08:10.080 are investing heavily in AI. The bad
+00:08:13.199 news is that some of them are better
+00:08:15.360 than others in terms of their use of AI
+00:08:17.199 and the reality of how AI can be used in
+00:08:19.280 their systems. So I want to share with
+00:08:20.960 you today based on our experience some
+00:08:23.280 of the vendors that are really leading
+00:08:24.479 the pack in terms of their use of AI
+00:08:26.960 within their CRM offerings. First is
+00:08:29.840 Microsoft Dynamics 365. This is a
+00:08:32.799 solution that many of you may have heard
+00:08:34.880 of. Perhaps you use Copilot already.
+00:08:36.880 Perhaps you use Office 365 and perhaps
+00:08:38.958 you use their Dynamics 365 ERP solution.
+00:08:42.320 But Microsoft has historically been
+00:08:44.000 pretty strong at CRM. They've had a
+00:08:46.160 strong standalone CRM offering as well
+00:08:48.160 as a CRM module offering within their
+00:08:50.480 broader ERP solution. And the reason why
+00:08:54.160 Microsoft is so strong in this area is
+00:08:55.839 partly because they have such broad
+00:08:58.480 scale and reach across so many different
+00:09:01.120 midsize organizations, but also because
+00:09:03.680 they have other tools that provide a lot
+00:09:05.519 of insights and flexibility and
+00:09:07.040 technology to support CRM and AI within
+00:09:09.920 CRM. So they have C-pilot, for example,
+00:09:12.720 that works side by side with the CRM
+00:09:14.880 solution. They've got other power apps
+00:09:17.600 that can integrate with your CRM
+00:09:20.399 solution. And in many cases, D365
+00:09:23.440 customers are using industry specific or
+00:09:26.240 functionally specific solutions that are
+00:09:29.040 built on the D365 platform to give them
+00:09:31.760 breadth and capabilities outside of CRM,
+00:09:33.680 but also feeds into the CRM offering or
+00:09:36.320 solution. Another leader in the CRM
+00:09:38.800 space is Salesforce. Salesforce has been
+00:09:41.440 somewhat of the gold standard in the CRM
+00:09:43.680 software space for decades now since
+00:09:45.440 their inception a couple decades ago,
+00:09:47.920 but they've really doubled down on AI
+00:09:50.240 with their use of Einstein. They've also
+00:09:52.720 built out their overall platform to
+00:09:54.399 where now you have thirdparty solutions
+00:09:56.080 that are built on the Salesforce
+00:09:57.600 platform. So in addition to CRM, you can
+00:10:00.000 also go find configure price quote and
+00:10:02.480 other types of bolt-ons or add-ons that
+00:10:04.880 are built within the Salesforce
+00:10:06.399 platform. And you can also find ERP like
+00:10:09.839 capabilities with some of these
+00:10:11.440 thirdparty providers too which is
+00:10:13.440 helpful or can be helpful in driving AI
+00:10:16.079 capabilities within your CRM system. And
+00:10:18.640 then two other vendors worth mentioning
+00:10:20.720 here are SAP with S4 HANA and Oracle
+00:10:23.680 Fusion ERP. These are the two leading
+00:10:26.560 biggest ERP providers in the software
+00:10:29.120 space, but they're also very strong at
+00:10:31.360 CRM. And part of the reason they're so
+00:10:33.600 strong at CRM is not only because of the
+00:10:35.519 core capabilities within the CRM modules
+00:10:38.480 and offerings that they provide, but
+00:10:39.839 also because of the scale and reach that
+00:10:42.079 they have within any given organization.
+00:10:44.160 They capture a lot of data and
+00:10:45.760 information within any given
+00:10:47.200 organization, which then feeds into the
+00:10:48.959 CRM system. But on top of that, you also
+00:10:51.360 have the thousands or tens of thousands
+00:10:53.519 of customers that are using SAP or
+00:10:56.320 Oracle. And many of those customers,
+00:10:58.720 most of those customers are opting in to
+00:11:00.640 train the AI models that SAP and Oracle
+00:11:03.120 are rolling out to other customers. So
+00:11:04.959 that's a very powerful combination to
+00:11:07.440 have that scale, that data, that
+00:11:09.440 training, the breath of capability that
+00:11:11.839 can feed into and provide a strong CRM
+00:11:14.480 solution, especially if you're looking
+00:11:16.560 at this as a broader digital
+00:11:18.079 transformation that not only touches
+00:11:19.600 your sales and customer service team,
+00:11:21.600 but also touches your other operational
+00:11:23.760 and finance teams as well. So these are
+00:11:25.920 just a few of the solutions to consider,
+00:11:28.399 but if you check out our website and our
+00:11:30.160 digital transformation report, you'll
+00:11:32.079 find a lot more analysis around other
+00:11:34.000 providers out there. You can actually
+00:11:35.760 read that 2026 digital transformation
+00:11:38.079 report by scanning the QR code right
+00:11:39.680 here, or you can go to the links below.
+00:11:41.360 And that report, by the way, contains a
+00:11:43.519 number of tech agnostic reviews and
+00:11:45.040 rankings based on our experience having
+00:11:46.640 worked with these and other vendors in
+00:11:48.320 the marketplace.
+00:11:53.760 Now, I've talked about the potential of
+00:11:56.480 AI within CRM, but it doesn't come
+00:11:58.480 without risks. You still have to figure
+00:12:00.079 out how to implement that technology
+00:12:01.760 effectively. You still have to figure
+00:12:03.279 out how to navigate the change
+00:12:04.480 management and the people side of
+00:12:06.480 transformation. And you have to figure
+00:12:08.160 out how to make sure that your workflows
+00:12:09.839 and your data and everything feeds into
+00:12:11.440 that CRM system to achieve the benefits
+00:12:14.480 and the opportunities that we've talked
+00:12:16.160 about throughout this video. So, there
+00:12:18.160 are implementation risks. Just like any
+00:12:19.760 digital transformation, there are risks.
+00:12:21.760 You have risks of not finding the right
+00:12:23.680 software, not deploying the right
+00:12:24.959 software. So, it's important that you
+00:12:26.880 find the CRM system that best fits your
+00:12:29.200 needs. And if you're looking at a
+00:12:31.040 broader digital transformation, you not
+00:12:32.639 only want the CRM system that fits your
+00:12:34.320 needs, but you want to make sure that
+00:12:35.440 you know what the rest of your tech
+00:12:36.880 stack's going to look like to
+00:12:38.000 potentially support that CRM system. You
+00:12:40.160 also want to make sure that change
+00:12:41.279 management is heavily focused on in your
+00:12:44.560 CRM deployment because you're still
+00:12:46.160 dealing with sales reps that are largely
+00:12:48.560 commission driven and revenue driven and
+00:12:51.360 any sort of activity or change
+00:12:52.959 initiative that doesn't help them
+00:12:54.399 achieve their revenue targets and their
+00:12:56.399 commission goals for right now is going
+00:12:59.200 to be hard to overcome. So you want to
+00:13:01.279 make sure that you focus heavily on
+00:13:02.639 change management and just recognize
+00:13:04.399 that there's going to be likely more
+00:13:06.160 resistance to change in your sales
+00:13:07.600 organization and amongst your CRM users
+00:13:10.000 than you might see in other parts of
+00:13:11.920 your business using other types of
+00:13:13.200 technologies. And then finally, you have
+00:13:15.360 to recognize that AI requires strong
+00:13:18.560 data. Not only in terms of having clean
+00:13:20.399 data migrated to the new CRM system, but
+00:13:22.880 you need to make sure that you have
+00:13:24.000 strong data governance so that the data
+00:13:26.240 continues to stay clean and continues to
+00:13:28.720 drive the right behavior, the right
+00:13:30.560 analysis, and the right outputs from
+00:13:33.120 your AI solution within your CRM
+00:13:35.200 systems. Now, we've actually put
+00:13:37.120 together a guide of how to make your
+00:13:39.279 digital transformation more successful.
+00:13:41.519 We've shared in this book a number of
+00:13:43.839 lessons from having helped over a
+00:13:45.200 thousand different organizations with
+00:13:46.639 their CRM and their ERP and other
+00:13:48.480 digital types of initiatives. You can
+00:13:50.800 read that book for free on our website
+00:13:52.240 by scanning the QR code right here or
+00:13:54.079 you can go to the links below. But I'd
+00:13:55.920 love to hear from you. Where do you
+00:13:57.199 think AI is headed in the world of CRM?
+00:13:59.519 Are you seeing some of these realities
+00:14:01.360 within your CRM environment? Are you
+00:14:03.040 trying to implement it now? Are you
+00:14:04.959 seeing uh some of the benefits or risks
+00:14:06.800 that we've talked about here in this
+00:14:07.920 video? Love to hear your feedback in the
+00:14:09.680 comments below. And as always, if you'd
+00:14:11.279 like to learn more about how Third Stage
+00:14:12.639 can help you through your digital
+00:14:14.160 transformation, even if you just like to
+00:14:15.920 informally bounce ideas off of me, feel
+00:14:18.079 free to reach out to me. My team and I
+00:14:19.440 would be happy to chat with you. You can
+00:14:20.959 reach me with my contact information,
+00:14:22.800 which I've included below. So, I hope
+00:14:24.399 you found this information useful and
+00:14:25.680 hope you have a great day
+00:14:27.884 [music]
+00:14:34.560 in the pipeline. And what was the other
+00:14:37.199 thing I was going to mention from and
+00:14:39.199 with CRM? Well, let me change it way.
