@@ -118,6 +118,7 @@ This file reflects the current state of the transcript/course RAG system against
 - Add stronger retrieval diagnostics for offline evaluation.
 - Add thresholding or weak-match handling before answering.
 - Add automated retrieval-quality checks using fixed benchmark questions.
+- Extend retrieval filtering to support `level + module` scoping for the new multi-level content structure.
 
 ## Phase 5: Query Transformation
 
@@ -202,6 +203,28 @@ This file reflects the current state of the transcript/course RAG system against
 
 ### Pending
 
+- Replace the current advanced-only module selection flow with a two-step selector:
+  - `Foundations`
+  - `Intermediate`
+  - `Advanced`
+- After level selection, show only the modules for that level:
+  - `Foundations`
+    - `ai_foundations_curriculum`
+    - `prompt_engineering`
+    - `ai_ethics_safety_and_data_privacy`
+    - `finance_chatgpt_excel_skills`
+    - `operations_process_mapping_and_automated_reporting`
+    - `hr_ai_enhanced_jd_design_and_skills_gap_mapping`
+  - `Intermediate`
+    - `human_in_the_loop_designing_hybrid_systems`
+    - `ai_data_analysis_extracting_insights`
+    - `project_management_predictive_resource_allocation_and_automated_risk_tracking`
+    - `customer_facing_ai_sentiment_analysis_and_crm_integration`
+  - `Advanced`
+    - `cms`
+    - `map`
+    - `wdp`
+- Pass both `level` and `module` from the Streamlit UI into backend retrieval so users can ask module-specific questions inside each learning level.
 - Move source/debug details back into a cleaner collapsed UI instead of appending them directly to the answer.
 - Improve source formatting with score and short previews where useful.
 - Add clearer retrieval/debug view for evaluation without cluttering the normal chat experience.
