@@ -1,6 +1,91 @@
 Test Questions for Retrieval Evaluation
 Source basis: cleaned output documents in `output/` and `output/sessions/`
 
+
+
+LEVEL 1: FOUNDATIONS
+
+COMMON MODULES
+
+Module: AI Ethics, Safety and Data Privacy
+1. What are the main ethical risks and safety concerns discussed in this module?
+2. How does the module explain the importance of privacy when working with AI systems and data?
+3. What principles are highlighted for building responsible and trustworthy AI applications?
+4. How does the module describe the role of fairness, transparency, and accountability in AI?
+5. What kinds of safeguards are suggested to reduce harm or misuse of AI systems?
+
+Module: AI Foundations Curriculum
+1. What foundational concepts are introduced in this module?
+2. How does the module explain the basic building blocks of AI systems?
+3. What are the key differences between traditional programming approaches and AI-based approaches?
+4. How does the module describe the relationship between data, models, training, and inference?
+5. What core ideas should a beginner understand before moving to more advanced AI topics?
+
+Module: Prompt Engineering
+1. What is the purpose of prompt engineering in AI workflows?
+2. How does the module explain how to write clearer and more effective prompts?
+3. What elements are important for improving prompt quality, such as context, instructions, and constraints?
+4. Why is prompt design considered important for getting useful outputs from LLMs?
+5. What examples or patterns are emphasized for crafting prompts that guide model behavior?
+
+SUBJECT MATTER EXPERTISE
+
+Module: Finance ChatGPT Excel Skills
+1. What is the main purpose of this module in combining ChatGPT with Excel-based workflows?
+2. How does the module explain using AI tools to improve spreadsheet analysis and reporting?
+3. What kinds of finance-related tasks or examples are highlighted in this module?
+4. Why is Excel still considered valuable when using AI tools in finance workflows?
+5. What practical benefits are described for applying ChatGPT and Excel together?
+
+Module: HR AI Enhanced JD Design and Skills Gap Mapping
+1. What is the focus of this module on job design and skills gap analysis?
+2. How does the module explain using AI to improve hiring and role design processes?
+3. What role does skills mapping play in identifying gaps and workforce needs?
+4. How are AI tools described as helpful in HR-related planning and evaluation?
+5. What outcomes or improvements are expected from using AI in this HR context?
+
+Module: Operations Process Mapping and Automated Reporting
+1. What is the main objective of this module in process mapping and operations improvement?
+2. How does the module explain identifying workflows and operational steps using AI-supported methods?
+3. What is the role of automation in reporting and process monitoring?
+4. How does the module connect process mapping to operational efficiency and visibility?
+5. What examples or use cases are highlighted for automating operational reporting?
+
+LEVEL 2: INTERMEDIATE
+
+COMMON MODULES
+
+Module: AI Data Analysis and Extracting Insights
+1. What is the main goal of this module in relation to data analysis and insight generation?
+2. How does the module explain turning raw data into useful business or analytical insights?
+3. What steps are described for analyzing data effectively and extracting meaningful patterns?
+4. How does the module connect data analysis to decision-making and practical AI use cases?
+5. What role does context and domain understanding play in interpreting analytical results?
+
+Module: Human in the Loop Designing Hybrid Systems
+1. What is the purpose of human-in-the-loop design in AI systems?
+2. How does the module explain combining automation with human review and control?
+3. What kinds of tasks are better handled by a hybrid system rather than a fully automated one?
+4. Why is human feedback important when building or improving AI applications?
+5. How does the module describe the balance between efficiency and human oversight in hybrid systems?
+
+ROLE SPECIFIC
+
+Module: Customer Facing AI Sentiment Analysis and CRM Integration
+1. What is the main purpose of this module in customer-facing AI applications?
+2. How does the module explain sentiment analysis in relation to customer feedback?
+3. What role does CRM integration play in making AI insights actionable?
+4. How are customer experience and service quality connected to AI-based analysis in this module?
+5. What business value is described for combining sentiment analysis with CRM workflows?
+
+Module: Project Management Predictive Resource Allocation and Automated Risk Tracking
+1. What is the focus of this module on project management and resource planning?
+2. How does the module explain using AI for predictive resource allocation?
+3. What is the role of automated risk tracking in project delivery and monitoring?
+4. How does the module connect predictive planning to more effective project execution?
+5. What benefits are described for using AI in managing project risk and resource use? 
+
+Level3:0 Advanced 
 GENERAL QUESTIONS
 1. Across the course outputs, why is context or history described as a critical backbone for chatbot and agentic AI systems?
 2. How do the cleaned documents explain the role of Pinecone or vector databases in a RAG workflow?
@@ -73,6 +158,3 @@ Session 5
 1. What three main nodes are used in the customer complaint workflow, and what does each node do?
 2. How is the Direct Agent Module presented as a simplification over manually handling LLM graph nodes and if-else logic?
 3. What guidance is given about what the intake agent should see when a reviewer agent is part of the workflow?
-
-\\\\\\\\\\\\\\\\\ the end    \\\\\\\\\\\\\\\\\\\
-Phase 2 
