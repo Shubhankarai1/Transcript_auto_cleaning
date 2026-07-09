@@ -223,42 +223,32 @@ def render_header() -> None:
         st.markdown(
             """
             <div class='hero-description'>
-                This is an AI-powered RAG-based mentor designed to guide learners through foundations, intermediate, and advanced modules using natural language interaction.
+                <strong>AI Mentor</strong><br>
+                Clear your doubts. Learn with confidence.
             </div>
             <div class='hero-description'>
-                Knowledge Base Includes:
+                <strong>Who is it for?</strong><br>
+                • Learners at Level 1, Level 2, and Level 3<br>
+                • Students who want quick clarification on complex topics<br>
+                • Anyone who wants support while studying AI and related modules
             </div>
             <div class='hero-description'>
-                <strong>Foundations</strong><br>
-                AI foundations, prompt engineering, ethics, and domain-focused starter modules<br><br>
-                <strong>Intermediate</strong><br>
-                Applied workflow, analytics, and role-specific implementation modules<br><br>
-                <strong>Advanced</strong><br>
-                Contextual reasoning, multi-agent planning, and workflow design modules
+                <strong>What problem it solves</strong><br>
+                • Removes confusion when concepts feel unclear<br>
+                • Helps you understand topics without getting stuck<br>
+                • Gives guided support based on your learning stage
+            </div>
+            <div class='hero-description'>
+                <strong>How it helps</strong><br>
+                • Answers your questions in a clear and simple way<br>
+                • Explains topics using the course content and learning stages<br>
+                • Supports deeper understanding with follow-up questions<br>
+                • Makes learning feel more structured, interactive, and confident
             </div>
             """,
             unsafe_allow_html=True,
         )
-        st.markdown(
-            """
-            What this AI Mentor helps you do:
-
-            - Ask questions and clarify doubts instantly
-            - Focus on a learning level and a specific module
-            - Understand concepts with grounded, context-aware explanations
-            - Connect concepts across sessions inside the selected module
-            - Revisit explanations and deepen understanding at your pace
-            """
-        )
-        st.markdown(
-            """
-            <div class='hero-footer'>
-                The mentor retrieves relevant insights from these modules and delivers grounded, context-rich responses to help you learn more effectively.
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        st.caption('Note: Ask one question at a time for best results. The chatbot remembers the last 5 exchanges.')
+        st.caption('Ask one question at a time for the best experience. The chatbot remembers the last 5 exchanges.')
         st.markdown('---')
 
 
