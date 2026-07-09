@@ -5,8 +5,13 @@ from typing import Any
 import requests
 import streamlit as st
 
+from config import get_env
 
-API_BASE_URL = "https://iitm-curriculem-intelligence-layer.onrender.com"
+
+API_BASE_URL = get_env(
+    'API_BASE_URL',
+    'https://iitm-curriculem-intelligence-layer.onrender.com',
+)
 REQUEST_TIMEOUT = 60
 MAX_HISTORY_MESSAGES = 10
 PAGE_TITLE = "IITM Curriculum – AI Mentor (Prototype)"
@@ -431,3 +436,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+

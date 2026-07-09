@@ -1,0 +1,24 @@
+Level: intermediate
+Category: common_modules
+Module: ai_data_analysis_extracting_insights
+Session: 1
+Topic: Data Storytelling - Understanding Your Audience
+Chunk: 2
+
+Explanation:
+In data storytelling, understanding your audience is crucial for success. Data analysts engage their audience by focusing on who's listening, understanding their point of view, and considering how the project might affect them. To get the desired response, it's important to know the role an audience plays, their stake in the project, and what they hope to gain from the data insights delivered.
+
+Key Points:
+- Understanding the audience's perspective is essential for effective communication.
+- Consider how the data project may affect each audience member.
+- Ask questions about the audience's role, stake, and expectations.
+- Tailor your primary message to be clear and direct based on these insights.
+- Use spotlighting to identify the most important insights and form a concise key message.
+
+Student Doubts:
+- How can I determine my audience's perspective in a data analysis project?
+- What are some effective methods for understanding an audience's stake in a project?
+- How can I tailor my primary message based on the insights gathered about my audience?
+- Can you provide examples of using spotlighting in data analysis to identify key insights?
+
+---

@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import logging
 import re
@@ -163,6 +163,8 @@ def _split_by_paragraphs(
 
 
 def save_rag_chunk(
+    level: str,
+    category: str | None,
     module: str,
     session_number: int,
     topic_name: str,
@@ -177,6 +179,8 @@ def save_rag_chunk(
 
     sanitized_body = re.sub(r"^###\s*Topic\s*:\s*.*$\n", "", body_text, flags=re.MULTILINE).strip()
     content = (
+        f"Level: {level}\n"
+        f"Category: {category or 'advanced'}\n"
         f"Module: {module}\n"
         f"Session: {session_number}\n"
         f"Topic: {topic_name}\n"
@@ -185,6 +189,15 @@ def save_rag_chunk(
     )
     file_path.write_text(content, encoding="utf-8")
     return file_path
+
+
+def extract_output_header_value(text: str, label: str, fallback: str) -> str:
+    match = re.search(rf"^{re.escape(label)}:\s*(.+)$", text, re.MULTILINE)
+    if match:
+        value = match.group(1).strip()
+        if value:
+            return value
+    return fallback
 
 
 def process_rag_chunking(base_dir: Path) -> None:
@@ -201,6 +214,8 @@ def process_rag_chunking(base_dir: Path) -> None:
         module = final_file.stem.replace("_final_cleaned", "")
         logging.info("Processing %s...", final_file.name)
         text = final_file.read_text(encoding="utf-8")
+        level = extract_output_header_value(text, "Level", "advanced")
+        category = extract_output_header_value(text, "Category", "advanced")
         session_texts = split_by_session(text)
         chunk_id = 0
         saved_paths: list[Path] = []
@@ -217,6 +232,8 @@ def process_rag_chunking(base_dir: Path) -> None:
                 for subchunk in topic_chunks:
                     chunk_id += 1
                     saved_path = save_rag_chunk(
+                        level,
+                        category,
                         module,
                         session_number,
                         topic_name,
@@ -252,11 +269,19 @@ def main() -> None:
         return
 
     cleaned_by_module: dict[str, dict[int, str]] = defaultdict(dict)
+    module_metadata: dict[str, dict[str, str | None]] = {}
 
     for session in session_files:
         module_name = str(session["module_name"])
         session_number = int(session["session_number"])
+        level = str(session.get("level") or "advanced")
+        category = session.get("category")
         transcript_text = str(session["text"])
+
+        module_metadata[module_name] = {
+            "level": level,
+            "category": str(category) if category is not None else None,
+        }
 
         existing_output = load_cached_session_output(
             paths["session_output"],
@@ -274,14 +299,19 @@ def main() -> None:
             cleaned_by_module[module_name][session_number] = existing_output
             continue
 
-        logging.info("Processing %s/session_%s", module_name, session_number)
+        logging.info(
+            "Processing %s/%s/session_%s",
+            level,
+            module_name,
+            session_number,
+        )
         chunks = split_text(transcript_text, chunk_size=1200)
         cleaned_chunks: list[str] = []
 
         for chunk_index, chunk_text in enumerate(
             tqdm(
                 chunks,
-                desc=f"{module_name}/session_{session_number}",
+                desc=f"{level}/{module_name}/session_{session_number}",
                 unit="chunk",
             ),
             start=1,
@@ -320,7 +350,14 @@ def main() -> None:
 
     for module_name, cleaned_sessions in sorted(cleaned_by_module.items()):
         module_output = merge_module_output(cleaned_sessions)
-        save_module_output(paths["output"], module_name, module_output)
+        metadata = module_metadata.get(module_name, {})
+        save_module_output(
+            paths["output"],
+            module_name,
+            module_output,
+            level=str(metadata.get("level") or "advanced"),
+            category=metadata.get("category"),
+        )
 
     process_rag_chunking(base_dir)
     logging.info("Pipeline completed successfully.")
@@ -328,3 +365,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+

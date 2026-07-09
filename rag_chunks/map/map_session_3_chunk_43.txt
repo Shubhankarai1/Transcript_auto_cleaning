@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: map
 Session: 3
 Topic: Development and Deployment of Chatbots

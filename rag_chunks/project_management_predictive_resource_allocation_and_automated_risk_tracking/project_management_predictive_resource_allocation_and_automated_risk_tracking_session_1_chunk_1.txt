@@ -1,0 +1,25 @@
+Level: intermediate
+Category: role_specific
+Module: project_management_predictive_resource_allocation_and_automated_risk_tracking
+Session: 1
+Topic: Asana: Human and AI Coordination for Project Management
+Chunk: 1
+
+Explanation: The speaker introduces Asana, a platform that leverages human and AI coordination to manage projects efficiently. The platform allows users to visualize goals, track progress, automate workflows, and prioritize tasks effectively using AI assistance.
+
+Key Points:
+- Visualizing goals and tracking progress in support of the company's mission
+- Automating manual work at every stage
+- Saving time by prioritizing tasks with AI assistance
+- Assigning tasks based on team capacity
+- Using AI for research and drafting project briefs
+- Leveraging smart workflow gallery built on customer best practices
+
+Student Doubts:
+1. Can Asana be integrated with Slack or email for request submissions? Yes, requests can be submitted via email, Slack, or an intake form like the one shown in the video.
+2. How does AI triage and review each request in Asana? AI uses AI-powered rules in AI Studio to triage and review each request based on specific guidelines provided by the user.
+3. Can users create custom fields for requests in Asana? Yes, users can prompt AI to add custom fields to each request for a clear stack ranking of priorities.
+4. How does AI determine team capacity in Asana? AI reviews team bandwidth and assigns tasks accordingly, with the option to drill into its recommendations for added transparency.
+5. Can users edit AI-drafted project briefs in Asana? Yes, users can go in and make any final edits to AI-drafted project briefs before notifying the team and kicking off the project.
+
+---

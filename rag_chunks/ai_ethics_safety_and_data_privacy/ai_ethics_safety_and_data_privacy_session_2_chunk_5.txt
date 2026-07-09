@@ -1,0 +1,23 @@
+Level: beginner
+Category: common_modules
+Module: ai_ethics_safety_and_data_privacy
+Session: 2
+Topic: Bias in Life Science and Effective Techniques for Countering It
+Chunk: 5
+
+Explanation: The lecture discusses the importance of considering biological diversity in life science research, emphasizing that different populations process drugs differently due to genetic differences. The speaker also discusses the need for data representing the targeted population to develop effective models, and the role of counterfactual data augmentation techniques in addressing bias.
+
+Key Points:
+- Biological diversity is crucial in life science research.
+- Different populations have different ways of processing drugs due to genetic differences.
+- It's essential to use data that represent the population when developing models.
+- Counterfactual data augmentation can help address bias, but it's more about data sourcing and generation rather than technical details.
+- Data sourcing, accessibility, and reproducibility are critical for addressing bias in life science research.
+
+Student Doubts:
+1. Is AI watch capable of predicting heart attacks 3 days in advance?
+2. Are there still trust factors in AI for drug creation or production?
+3. Can AI perform diagnostics better than humans?
+4. Why is it difficult to make timeline predictions about technological advancements like self-driving cars and AI diagnostics?
+
+---

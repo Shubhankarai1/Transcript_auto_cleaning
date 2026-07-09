@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: wdp
 Session: 4
 Topic: Issues with passing system message to the LLM (Language Learning Model)

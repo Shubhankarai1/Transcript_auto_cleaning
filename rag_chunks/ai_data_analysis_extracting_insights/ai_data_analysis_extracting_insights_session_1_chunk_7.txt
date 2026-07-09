@@ -1,0 +1,23 @@
+Level: intermediate
+Category: common_modules
+Module: ai_data_analysis_extracting_insights
+Session: 1
+Topic: Delivering Effective Presentations
+Chunk: 7
+
+Explanation: A presentation should include evidence that supports your messages, including facts and quotes. Avoid focusing on slides during speaking; instead, engage with the audience. Encourage discussion and ask for feedback to learn from the audience. It's acceptable to admit if you don't have an immediate answer to a question and to take time to research it. The conclusion of a presentation involves looping back to the original statement, providing key takeaways, and outlining next steps. Don't be afraid to make mistakes; learn from them, and remain genuine. Practice with your team for confidence and calm nerves. If something goes wrong during the presentation, admit the mistake and move on. The important thing is sharing your narrative confidently, utilizing data visualization, dashboards, filters, etc., to create engaging stories from complex data.
+
+Key Points:
+- Include evidence in presentations (facts, quotes)
+- Engage with audience during presentation
+- Encourage discussion and ask for feedback
+- Admit mistakes and remain genuine
+- Practice with team for confidence
+- Utilize data visualization tools to create engaging stories from complex data
+
+Student Doubts:
+- What type of evidence should be included in presentations?
+- How can I encourage audience participation during a presentation?
+- What do I do if I make a mistake during my presentation?
+- How can practicing with my team help me deliver an effective presentation?
+- How can data visualization tools help me create engaging stories from complex data?

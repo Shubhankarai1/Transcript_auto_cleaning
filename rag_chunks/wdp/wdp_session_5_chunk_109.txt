@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: wdp
 Session: 5
 Topic: Understanding State Updates and Appending in Multi-agent Workflows

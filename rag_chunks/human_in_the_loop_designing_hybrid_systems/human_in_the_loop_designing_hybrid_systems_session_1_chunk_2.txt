@@ -1,0 +1,31 @@
+Level: intermediate
+Category: common_modules
+Module: human_in_the_loop_designing_hybrid_systems
+Session: 1
+Topic: Human-in-the-Loop in AI Systems
+Chunk: 2
+
+Explanation: The lecture discusses the importance of integrating human judgment into AI systems, especially in high-stake decisions, irreversible actions, regulatory compliance, and MCP server integration. The speaker also explains how to gradually remove human intervention as trust is built between humans and the AI system.
+
+Key Points:
+1. High-stake decisions require human intervention.
+2. Irreversible actions need human oversight.
+3. Regulatory compliance necessitates human oversight.
+4. MCP server integration requires human judgment.
+5. Sending responses to customers needs human oversight.
+6. Trust building is essential in AI systems.
+7. Human-in-the-loop can be avoided when confidence in the system's performance is high.
+8. Progressive autonomy allows starting with human control and gradually moving towards full autonomy as trust is built.
+9. MCP provides elicitations for building human-in-the-loop aspects.
+10. Step functions have wait for callback capabilities for approvals or task tokens.
+11. Durable functions perform similar work as step functions in Lambda.
+12. LangGraph tools can change the state behind the scenes if a human is in place.
+
+Student Doubts:
+- How to determine when confidence in the system's performance is high enough to remove human intervention?
+- What are other tools or protocols that provide similar capabilities as MCP for building human-in-the-loop aspects?
+- How can trust be built between humans and AI systems effectively?
+- Are there any specific methods for determining high-stake decisions points in an AI system?
+- What is the role of human-in-the-loop in MCP server integration?
+
+---

@@ -1,0 +1,23 @@
+Level: beginner
+Category: common_modules
+Module: ai_ethics_safety_and_data_privacy
+Session: 2
+Topic: Self-Driving Cars and AI in Surgery
+Chunk: 7
+
+Explanation: The speaker discusses the current state of self-driving cars and compares it to future developments, with a focus on autonomous vehicles that don't require human oversight. They also touch upon AI-assisted surgery robots and their potential for augmenting human capabilities in surgery.
+
+Key Points:
+1. Current self-driving cars have limited autonomy and require human oversight.
+2. In the future, autonomous vehicles that are reliable and don't require constant human oversight will be developed.
+3. AI is already being used in surgeries through robots for remote or assisted surgery, helping to address a shortage of qualified surgeons.
+4. The development of fully autonomous surgical robots will take time but could revolutionize the field by improving precision and reducing human error.
+5. AI can help medical professionals identify tumors more accurately and faster than manual methods.
+6. Surgical robots could augment human capabilities by providing more precise control and reducing the risk of errors.
+7. The speaker's company, Zulka, has worked in this field, developing an AI to assist in surgical procedures.
+
+Student Doubts:
+1. Will self-driving cars eventually be completely autonomous? (Answer: Yes, it is expected that they will.)
+2. Will there be fully automated AI-assisted surgery robots? (Answer: Yes, while they are not yet fully autonomous, their development is expected over time.)
+3. Can AI help medical professionals more accurately and quickly identify tumors? (Answer: Yes, AI can assist in this task by providing more accurate and faster results than manual methods.)
+4. Will surgical robots augment human capabilities in surgery? (Answer: Yes, by providing more precise control and reducing the risk of errors.)

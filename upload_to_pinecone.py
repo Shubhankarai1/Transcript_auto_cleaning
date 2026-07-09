@@ -1,4 +1,4 @@
-import json
+﻿import json
 import logging
 import os
 import re
@@ -113,7 +113,9 @@ def load_chunks(base_dir: Path) -> list[dict[str, Any]]:
             chunks.append(
                 {
                     "path": chunk_file,
-                    "module_name": module_name,
+                    "level": extract_header_value(content, "Level", "advanced"),
+                    "category": extract_header_value(content, "Category", "advanced"),
+                    "module_name": extract_header_value(content, "Module", module_name),
                     "session_id": session_id,
                     "chunk_index": chunk_index,
                     "topic_name": extract_topic_from_content(content),
@@ -138,12 +140,21 @@ def extract_chunk_from_filename(filename: str) -> int | None:
     return None
 
 
+def extract_header_value(content: str, label: str, fallback: str) -> str:
+    match = re.search(rf"^{re.escape(label)}:\s*(.+)$", content, re.MULTILINE)
+    if match:
+        value = match.group(1).strip()
+        if value:
+            return value
+    return fallback
+
+
 def extract_chunk_text(content: str) -> str:
     """Extract only the text body from the stored chunk file."""
     lines = content.splitlines()
     text_start = 0
     for index, line in enumerate(lines):
-        if index >= 4 and not line.strip():
+        if index >= 5 and not line.strip():
             text_start = index + 1
             break
     return "\n".join(lines[text_start:]).strip()
@@ -156,12 +167,14 @@ def extract_topic_from_content(content: str) -> str:
     return "Unknown topic"
 
 
-def build_document_id(module_name: str, session_id: int) -> str:
-    return f"{module_name}_{session_id}"
+def build_document_id(module_name: str, session_id: int, level: str = "advanced", category: str | None = None) -> str:
+    category_part = category or "advanced"
+    return f"{level}_{category_part}_{module_name}_{session_id}"
 
 
-def build_chunk_id(module_name: str, session_id: int, chunk_index: int) -> str:
-    return f"{module_name}_{session_id}_{chunk_index}"
+def build_chunk_id(module_name: str, session_id: int, chunk_index: int, level: str = "advanced", category: str | None = None) -> str:
+    category_part = category or "advanced"
+    return f"{level}_{category_part}_{module_name}_{session_id}_{chunk_index}"
 
 
 def _load_json_object(raw_text: str) -> dict[str, Any]:
@@ -284,6 +297,8 @@ def extract_metadata(
     session_id: int,
     module_name: str,
     topic_name: str,
+    level: str,
+    category: str | None,
 ) -> dict[str, Any]:
     """
     Extract semantic metadata for a chunk using OpenAI.
@@ -328,7 +343,9 @@ def extract_metadata(
     difficulty = _normalize_difficulty(parsed_metadata.get("difficulty"))
 
     return {
-        "document_id": build_document_id(module_name, session_id),
+        "document_id": build_document_id(module_name, session_id, level, category),
+        "level": level,
+        "category": category or "advanced",
         "module": module_name,
         "topic": topic,
         "subtopic": subtopic,
@@ -352,10 +369,12 @@ def process_chunk(
     module_name: str,
     chunk_index: int,
     topic_name: str,
+    level: str,
+    category: str | None,
 ) -> dict[str, Any]:
     """Return the structured chunk object expected by the embedding pipeline."""
-    metadata = extract_metadata(chunk_text, session_id, module_name, topic_name)
-    metadata["chunk_id"] = build_chunk_id(module_name, session_id, chunk_index)
+    metadata = extract_metadata(chunk_text, session_id, module_name, topic_name, level, category)
+    metadata["chunk_id"] = build_chunk_id(module_name, session_id, chunk_index, level, category)
 
     logging.info(
         "Metadata created for %s | topic=%s | concept=%s | instructor=%s | type=%s | difficulty=%s | keywords=%s",
@@ -435,6 +454,8 @@ def main() -> None:
                     module_name=chunk["module_name"],
                     chunk_index=chunk["chunk_index"],
                     topic_name=chunk["topic_name"],
+                    level=chunk["level"],
+                    category=chunk["category"],
                 )
             )
         except Exception as exc:
@@ -463,3 +484,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+

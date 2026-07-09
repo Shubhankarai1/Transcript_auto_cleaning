@@ -1,0 +1,18 @@
+Level: intermediate
+Category: role_specific
+Module: project_management_predictive_resource_allocation_and_automated_risk_tracking
+Session: 1
+Topic: Overview of Asana - Leading Work Management Platform
+Chunk: 2
+
+Explanation:
+Asana provides a bird's-eye view of all ongoing work, offering real-time reporting. This helps in aligning resources for delivering true Return on Investment (ROI). The platform allows you to identify potential blockers or risks on projects by asking AI questions. For example, you can ask about the current status of Q2 global initiatives and AI will summarize key themes, blockers, and create an action plan to help triage issues. By coordinating human and AI efforts at scale, Asana helps teams achieve their goals faster.
+
+Key Points:
+- Real-time work reporting
+- Identifying potential risks or blockers with AI
+- Human and AI collaboration for faster goal achievement
+
+Student Doubts:
+- How does the AI summarize key themes and blockers?
+- Can I customize the action plan created by Asana's AI?

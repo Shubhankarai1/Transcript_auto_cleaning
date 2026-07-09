@@ -1,0 +1,21 @@
+Level: beginner
+Category: common_modules
+Module: prompt_engineering
+Session: 1
+Topic: Explaining Few-Shot Training for AI Models
+Chunk: 3
+
+Explanation:
+Few-shot training is a technique used to improve the performance of AI models by providing them with a few examples (few shots) of the task they are expected to perform. This helps the model understand the context and generate more accurate responses.
+
+Key Points:
+- Few-shot training involves giving the AI model a few examples of a task.
+- This helps the model understand the context and generate more accurate responses.
+- In the example provided, the AI was shown a few examples to produce creative, sarcastic, and amusing responses.
+
+Student Doubts:
+- What is the purpose of few-shot training?
+- How does providing examples improve the AI's performance?
+- Can we use any type of knowledge for few-shot training?
+
+---

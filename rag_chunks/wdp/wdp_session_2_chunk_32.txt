@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: wdp
 Session: 2
 Topic: Risks of Passing Codes to AI and Solutions

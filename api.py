@@ -1,18 +1,14 @@
 import logging
-import os
 import re
 from typing import Any, Optional
 
-from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Query
 from openai import OpenAI
 from pinecone import Pinecone
 from pydantic import BaseModel, Field
+from config import get_env
 from retrieval_utils import combine_filters, detect_filters
 
-
-# Load environment variables
-load_dotenv()
 
 # FastAPI app
 app = FastAPI()
@@ -22,9 +18,9 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 
 
 # Init clients
-openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-index = pc.Index("iitm-modules-rag")
+openai_client = OpenAI(api_key=get_env('OPENAI_API_KEY'))
+pc = Pinecone(api_key=get_env('PINECONE_API_KEY'))
+index = pc.Index(get_env('PINECONE_INDEX_NAME', 'iitm-modules-rag'))
 
 
 # Config
@@ -558,3 +554,4 @@ Now generate a COMPLETE and DETAILED answer.
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+

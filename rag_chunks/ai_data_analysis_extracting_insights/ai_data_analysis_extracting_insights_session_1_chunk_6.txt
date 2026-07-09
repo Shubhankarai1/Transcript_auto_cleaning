@@ -1,0 +1,16 @@
+Level: intermediate
+Category: common_modules
+Module: ai_data_analysis_extracting_insights
+Session: 1
+Topic: Creating Effective Presentations for Data Analysts
+Chunk: 6
+
+to change over time. 8. Embedded objects live in the original source file but do not get automatically updated if the source file changes; the embedded copy is completely independent and can be edited without affecting the visual or data points from the original source. ### Presentations vs Informal Meetings:
+
+1. Presentations are more formal, involve a large group of people, and should include visual aids.
+2. Informal meetings may not require supporting documents or visuals, but if used, keep handouts concise and easy to read. Make sure all participants can see what is presented.
+3. During informal meetings, make people feel involved by making eye contact, asking for feedback, encouraging discussion, taking notes, and keeping an eye on the clock.
+4. In presentations, be prepared, have an attention-grabbing opening, an interesting and persuasive story, and effective visuals.
+5. For a successful presentation, think about whom you're speaking to, why they care about your topic, and what they're hoping to learn from your presentation. Break down the presentation into three simple sections: the data story with a beginning, middle, and end. Follow the principles of effective slideshows learned in earlier lectures.
+
+---

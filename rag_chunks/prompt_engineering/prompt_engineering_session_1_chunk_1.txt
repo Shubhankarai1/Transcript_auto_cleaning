@@ -1,0 +1,24 @@
+Level: beginner
+Category: common_modules
+Module: prompt_engineering
+Session: 1
+Topic: Prompt Engineering with OpenAI's GPT-3 and other LLMs
+Chunk: 1
+
+Explanation:
+Prompt Engineering is an emerging discipline within the world of Generative AI that focuses on writing good, intentional prompts to produce desired outputs from generative AI models. Good prompts are crucial for producing better outputs from large language models and other generative art tools.
+
+Key Points:
+- Prompts serve as instructions for AI models, guiding them on what to do, how to use inputs, and how to format outputs.
+- External information or context can be included in prompts to provide additional parts of information to the model.
+- User input is the query or question that a user provides for the AI model to process.
+- Output indicator is a small word or phrase at the end of the prompt that signals the start of the AI's generation, such as "import" for code generation or the name of a chatbot in conversation scenarios.
+
+Student Doubts:
+- What are some effective strategies for creating good prompts?
+- How do we determine the right output indicator for different tasks?
+- Can external information be obtained automatically instead of manually inserting it into the prompt?
+- How do we handle situations where the desired information is not available within the given context?
+- Is there a way to train models using prompts, and if so, how effective is it?
+
+---

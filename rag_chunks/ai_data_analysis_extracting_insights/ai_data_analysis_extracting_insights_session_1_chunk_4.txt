@@ -1,0 +1,23 @@
+Level: intermediate
+Category: common_modules
+Module: ai_data_analysis_extracting_insights
+Session: 1
+Topic: Creating Visualizations with Tableau and Spreadsheets
+Chunk: 4
+
+Explanation:
+In this lecture, the instructor demonstrates how to create visualizations using both Tableau and spreadsheet software. The process involves selecting a column for the Software package, inserting a chart, customizing the chart options, and exploring different functionalities. A specific example is given where data on customer satisfaction by country is visualized as a map chart with customizable colors for better accessibility.
+
+Key Points:
+- Selecting columns for software packages and inserting charts in spreadsheets
+- Customizing chart styles, titles, legends, etc.
+- Using built-in functionalities like filters and charts to zero-in on important information
+- Creating compelling visuals that support data narratives
+- Highlighting the importance of organizing presentations logically and clearly communicating key messages
+
+Student Doubts:
+- Which chart types are best suited for certain types of data?
+- How can I make my visualizations more accessible to people with color vision deficiencies?
+- What are some effective ways to organize a data narrative in a presentation?
+
+---

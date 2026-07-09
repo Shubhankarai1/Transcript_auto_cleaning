@@ -1,0 +1,25 @@
+Level: beginner
+Category: common_modules
+Module: ai_foundations_curriculum
+Session: 1
+Topic: Introduction to AI for building apps
+Chunk: 4
+
+Explanation:
+This lecture discusses the use of AI in app development, focusing on the use of large language models (LLMs) like ChatGPT. The speaker explains that while it's possible to build simple apps using AI, more complex projects like multi-billion dollar media platforms might require a more traditional approach. The speaker also mentions the concept of microservices and how certain services can be built with AI for larger scale systems.
+
+Key Points:
+- AI can be used to build apps, either through prompting or agents, with agents being the current trend.
+- AI can help build entire applications from concept to completion.
+- The lecture focuses on the use of large language models (LLMs) like ChatGPT.
+- Microservices can be built with AI for larger scale systems.
+- It's possible to customize the output of AI tools by adjusting account settings or using prompt engineering.
+
+Student Doubts:
+- What are microservices and how do they relate to AI?
+- How can I determine when it's appropriate to use AI versus a traditional approach for app development?
+- Can AI be used to build complex applications like media platforms?
+- How does customizing account settings or using prompt engineering affect the output of an AI tool?
+- What is prompt engineering and how does it work?
+
+---

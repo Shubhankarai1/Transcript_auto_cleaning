@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 4
 Topic: Converting LLM steps into a function using LA (Language Agnostic)

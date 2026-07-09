@@ -1,0 +1,21 @@
+Level: beginner
+Category: common_modules
+Module: ai_ethics_safety_and_data_privacy
+Session: 1
+Topic: AI Governance Concepts and Terminology
+Chunk: 1
+
+Explanation: This lecture explains the basic concepts, terminologies, key points, and potential risks associated with AI governance. The ultimate goal of AI governance is to achieve trustworthy AI systems that perform as expected and satisfy stakeholders. Key concepts include AI objectives or principles, risk assessment, and controls.
+
+Key Points:
+- AI Trustworthiness (AI performs as expected, satisfies stakeholders, checkable)
+- Safe and Responsible Ethical AI (Same as AI trustworthiness)
+- AI Objectives or Principles (Privacy, cybersecurity, safety, maintainability, environmental impact, accountability, fairness, robustness, transparency, human oversight, etc.)
+- Assessment of AI Risks and Application of Controls
+- Risk assessment leads to identifying potential bad events and applying controls to prevent them
+- AI governance is essentially doing risk assessment and applying controls to achieve trustworthy AI while complying with objectives and principles
+
+Student Doubts:
+- Clarification on the specific risks associated with AI systems (Answer provided in next section)
+
+---

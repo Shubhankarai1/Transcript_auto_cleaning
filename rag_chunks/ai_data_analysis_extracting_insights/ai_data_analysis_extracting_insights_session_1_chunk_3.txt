@@ -1,0 +1,23 @@
+Level: intermediate
+Category: common_modules
+Module: ai_data_analysis_extracting_insights
+Session: 1
+Topic: Designing Dashboards for Easy Data Understanding
+Chunk: 3
+
+Explanation: This lecture discusses the importance and process of creating effective dashboards in data analysis. It highlights the need to start simple with important data points and emphasizes the significance of cohesive layout and visual balance. The instructor also explains the benefits of sharing dashboards, but cautions about losing narrative control when doing so.
+
+Key Points:
+- Start dashboard design with simple, important data points
+- Ensure cohesiveness and visual balance in layout
+- Filters can be used to customize data for different users
+- Sharing dashboards allows collaboration but may lead to loss of narrative control
+
+Student Doubts:
+- How do I decide what information should be on my dashboard?
+- What is the best way to distribute items within a layout for clarity and organization?
+- Can I filter data in Tableau based on criteria specified by me?
+- Is it acceptable to remove outliers from my dashboard without investigating them first?
+- How can I pre-filter a Tableau dashboard for stakeholders to save them time and effort?
+
+---

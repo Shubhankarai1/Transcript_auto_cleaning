@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 4
 Topic: Passing arguments to a Lambda function using Python and invoking it with runnable lambda

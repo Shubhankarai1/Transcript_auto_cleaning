@@ -1,0 +1,24 @@
+Level: intermediate
+Category: common_modules
+Module: human_in_the_loop_designing_hybrid_systems
+Session: 1
+Topic: Implementing Human-in-the-Loop Controls for Multi-Agent AI Systems (CNS428)
+Chunk: 1
+
+Explanation: This session discusses the evolution of AI systems, focusing on human-in-the-loop (HITL) controls for multi-agent AI systems. The speaker explains the importance of HITL in building agentic AI systems, and provides insights into how to implement it using mechanics and key takeaways.
+
+Key Points:
+- Evolution from simple generative AI assistants to agentic AI systems
+- Agentic AI systems can work behind the scenes, not just front-ended by a chatbot
+- Importance of HITL in building agentic AI systems
+- Ownership and human oversight in autonomous systems
+- Background on model inferencing on AWS and why HITL should be considered from the beginning
+- The progression of model usage on AWS, from SageMaker to Bedrock
+- Use of vector stores for contextual responses and Real-Time data handling with agents
+- Security, observability, and authentication considerations when building agents and tools
+- MCP (Model Compression Pruning) servers for external tool integrations and A2A (Agent-to-Agent) integration
+
+Student Doubts:
+- None recorded in the transcript.
+
+---

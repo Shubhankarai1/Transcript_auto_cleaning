@@ -1,4 +1,4 @@
-# Project Phases v2: Execution Plan For AI Learning Mentor
+﻿# Project Phases v2: Execution Plan For AI Learning Mentor
 
 This file translates `PRD V2.md` into an execution roadmap for extending the current IITM transcript RAG project into a full AI Learning Mentor platform.
 
@@ -50,31 +50,92 @@ Restructure the current content layer so the platform can support beginner, inte
 ### Deliverables
 
 - Define the future content hierarchy under `input/`
-- Separate content by learner level:
-  - `input/beginner/`
-  - `input/intermediate/`
-  - `input/advanced/`
-- Decide which existing transcripts map directly into `advanced/`
-- Add initial beginner and intermediate source content
-- Update the ingestion assumptions so content is no longer transcript-only
+- Separate content by learner level using the current agreed structure:
+  - `input/level_1_foundations/`
+  - `input/level_2_intermediate/`
+  - `input/level_3_advanced/`
+- For `level_1_foundations`, support:
+  - `common_modules/`
+  - `subject_matter_expertise/`
+- For `level_2_intermediate`, support:
+  - `common_modules/`
+  - `role_specific/`
+- For `level_3_advanced`, keep the existing open module structure:
+  - `cms/`
+  - `map/`
+  - `wdp/`
+- Move existing advanced transcripts into `level_3_advanced/`
+- Restore level 1 and level 2 to a structured module layout:
+  - category folder
+  - module folder
+  - `session_<n>.txt`
+- Update the ingestion assumptions so content is no longer flat transcript-only
+
+### Current Status
+
+Completed:
+
+- The `input/` folder has been restructured into:
+  - `level_1_foundations`
+  - `level_2_intermediate`
+  - `level_3_advanced`
+- `level_1_foundations` now uses:
+  - `common_modules/<module_name>/session_<n>.txt`
+  - `subject_matter_expertise/<module_name>/session_<n>.txt`
+- `level_2_intermediate` now uses:
+  - `common_modules/<module_name>/session_<n>.txt`
+  - `role_specific/<module_name>/session_<n>.txt`
+- `level_3_advanced` now uses:
+  - `cms/session_<n>.txt`
+  - `map/session_<n>.txt`
+  - `wdp/session_<n>.txt`
+- Existing advanced transcript content has already been placed under `level_3_advanced`
+- A structure note has been added at `input/README_STRUCTURE.md`
+
+Not completed yet:
+
+- The ingestion pipeline still does not read this hierarchy correctly
+- The chunking pipeline still does not attach `level`, `category`, and hierarchy-derived metadata
+- Pinecone vectors are still not formally labeled with the new learning structure
 
 ### Required Pipeline Upgrades
 
-- Update content loading so files can be discovered from level-based folders
+- Update content loading so files can be discovered from the new nested level-based folders
+- Extract structure-aware fields from the file path:
+  - level
+  - category
+  - module
+  - session number
 - Update chunk generation so chunks preserve:
   - level
+  - category
   - module
   - topic
   - session or lesson id
-- Update metadata extraction so level becomes part of the stored metadata
-- Update Pinecone upload so vectors include level metadata
+- Update metadata extraction so stored metadata includes:
+  - level
+  - category
+  - module
+  - session
+  - track when needed
+- Update Pinecone upload so vectors include the new hierarchy metadata
+- Keep `level_3_advanced` compatible without requiring a category layer
 - Rebuild or refresh chunk outputs for the upgraded content structure
+
+### Immediate Implementation Rule
+
+- Do not run full ingestion before the pipeline is upgraded for hierarchy-aware labeling.
+- Code changes for labeling must happen before cleaning, chunking, and Pinecone upload of the new structure.
 
 ### Exit Criteria
 
 - The repository supports beginner, intermediate, and advanced source content
 - Chunks can be generated from the new structure
-- The vector store schema is ready to distinguish content by level
+- The vector store schema can distinguish content by:
+  - level
+  - category
+  - module
+- A small test ingest validates that hierarchy labels flow correctly into Pinecone metadata
 
 ## Phase 1: Foundation And Architecture Alignment
 
@@ -500,10 +561,13 @@ Defer these until after MVP:
 
 ## Immediate Next Actions
 
-1. Restructure the content system under `input/` into beginner, intermediate, and advanced.
-2. Update the ingestion and chunking pipeline so level metadata flows into `rag_chunks/` and Pinecone.
-3. Convert `PRD V2.md` into a scoped MVP backlog with clear in-scope and out-of-scope decisions.
-4. Choose the auth and persistence implementation in Supabase.
-5. Define the database schema and platform API contracts.
-6. Refactor the current backend so mentor chat becomes one service inside a larger application.
-7. Turn the assessment and learning track documents into structured data assets.
+1. Update the ingestion and chunking pipeline so `level`, `category`, `module`, and `session` metadata flow into `rag_chunks/` and Pinecone.
+2. Add the `level_3_advanced` fallback rule so `cms`, `map`, and `wdp` are treated as `advanced` even without extra labels.
+3. Backfill the existing advanced Pinecone records with `level=advanced` metadata instead of deleting the database.
+4. Run a small validation ingest using one sample module from each level.
+5. After validation, run the full ingestion for the complete restructured content base.
+6. Convert `PRD V2.md` into a scoped MVP backlog with clear in-scope and out-of-scope decisions.
+7. Choose the auth and persistence implementation in Supabase.
+8. Define the database schema and platform API contracts.
+9. Refactor the current backend so mentor chat becomes one service inside a larger application.
+10. Turn the assessment and learning track documents into structured data assets.

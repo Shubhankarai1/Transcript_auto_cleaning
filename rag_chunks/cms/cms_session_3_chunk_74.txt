@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 3
 Topic: Mounting Google Drive using GDrive and Accessing Data

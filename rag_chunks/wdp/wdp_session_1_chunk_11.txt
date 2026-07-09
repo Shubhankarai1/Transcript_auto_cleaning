@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: wdp
 Session: 1
 Topic: Setting API Key for Open Router

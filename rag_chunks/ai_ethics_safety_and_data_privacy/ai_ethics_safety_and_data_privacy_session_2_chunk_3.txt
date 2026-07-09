@@ -1,0 +1,22 @@
+Level: beginner
+Category: common_modules
+Module: ai_ethics_safety_and_data_privacy
+Session: 2
+Topic: Trust in AI in Pharma Industry
+Chunk: 3
+
+Explanation: Discussion on the current state of trust in Artificial Intelligence (AI) within the pharmaceutical industry, focusing on the importance of the entire system life cycle for ensuring trust.
+
+Key Points:
+- High stakes in healthcare industry necessitate caution when implementing new technologies
+- AI adoption is accelerating due to potential benefits for developing drugs faster and cheaper with lower failure rates
+- Trust in AI is essential due to high stakes, but not yet fully established
+- Trust in AI within the life sciences industry involves considering accuracy, reliability, fairness, and the entire system life cycle
+- Current phase of experimentation and research, with trust levels varying across different use cases
+
+Student Doubts:
+1. What specific factors determine whether or not the pharmaceutical industry trusts AI?
+2. In which areas is it more acceptable to rely on AI in the pharmaceutical industry compared to others?
+3. How can the life sciences industry progress from experimentation and research to widespread trust in AI?
+
+---

@@ -1,0 +1,22 @@
+Level: beginner
+Category: common_modules
+Module: ai_ethics_safety_and_data_privacy
+Session: 2
+Topic: Benchmarks in AI, Particularly in Healthcare
+Chunk: 4
+
+Explanation: The lecture discusses the limitations of benchmarking in evaluating the performance of AI tools, focusing on healthcare as a specific example. The speaker argues that while benchmarks are essential for objective evaluation, they may not capture subjective aspects like user feelings and experiences with the tool. The speaker also highlights the need for more research to develop comprehensive benchmarks that can accurately evaluate the performance of AI models in various industries, including healthcare.
+
+Key Points:
+- Benchmarks play a crucial role in evaluating AI performance but may not capture subjective aspects like user feelings and experiences.
+- There is a need for more research to develop comprehensive benchmarks that can accurately evaluate the performance of AI models.
+- In healthcare, AI companies focus on hospitals, patients, and farmers as attractive markets, but existing benchmarks do not tell the whole story.
+- Bias in AI models cannot be fully eliminated; however, techniques can be used to reduce bias by examining data sources and weights.
+- The pharmaceutical industry has a significant bias problem due to its focus on Caucasian middle-aged men as the typical patient, which does not represent the diversity of the population.
+
+Student Doubts:
+1. What techniques can be used to reduce bias in AI models?
+2. How can benchmarks be made more comprehensive to capture subjective aspects like user feelings and experiences with AI tools?
+3. How can we address the bias problem in the pharmaceutical industry when developing drugs for diverse populations?
+
+---

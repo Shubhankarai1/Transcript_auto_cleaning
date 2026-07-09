@@ -1,0 +1,22 @@
+Level: beginner
+Category: subject_matter_expertise
+Module: finance_chatgpt_excel_skills
+Session: 1
+Topic: Using ChatGPT for Excel Data Analysis in Finance
+Chunk: 1
+
+Explanation: The video demonstrates how to use ChatGPT to perform data analysis in Excel, specifically focusing on finance. It shows how to calculate key performance indicators (KPIs) and visualize the results using different charts.
+
+Key Points:
+- Using ChatGPT for data analysis even without a ChatGPT Enterprise contract
+- Demonstration of how to calculate different KPIs in Excel
+- Use of conditional formatting to highlight good and bad KPIs
+- Recommendations on which chart to use for visualizing the results for 50 SKUs
+
+Student Doubts:
+1. How to explain incremental Revenue per unit of promotion to the boss and colleagues?
+2. How to identify good or bad KPIs and apply conditional formatting?
+3. Which graph can be used to represent this KPI for 50 SKUs?
+4. How to insert a scatter plot in Excel and see which product is selected?
+
+---

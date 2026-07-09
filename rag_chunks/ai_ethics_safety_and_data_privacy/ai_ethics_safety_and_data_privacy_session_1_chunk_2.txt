@@ -1,0 +1,22 @@
+Level: beginner
+Category: common_modules
+Module: ai_ethics_safety_and_data_privacy
+Session: 1
+Topic: Common Risks in AI Systems and Implementing AI Governance according to ISO 42001
+Chunk: 2
+
+Explanation:
+The lecture discusses common risks associated with AI systems, including bias, hallucination, and data leakage/privacy. It also explains how the international standard ISO 42001 can be used to implement AI governance in a company to mitigate these risks.
+
+Key Points:
+- Bias: An AI system treating one group of people differently or preferentially over another group, which is ethically wrong and bad for the company.
+- Hallucination: An AI system providing incorrect answers convincingly, making it difficult to know whether the answer is right or wrong.
+- Data Leakage/Privacy: Sensitive data being used for training an AI model without proper controls, potentially leading to privacy breaches.
+- ISO 42001: An international standard explaining how to implement AI governance, accepted in all countries and offering certification for companies that adhere to its guidelines.
+
+Student Doubts:
+- How can I set up AI governance according to ISO 42001?
+- Where can I find resources to learn more about AI governance and the standard ISO 42001?
+- What are some specific controls provided by ISO 42001 for addressing AI risks?
+
+---

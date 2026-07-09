@@ -1,0 +1,20 @@
+Level: intermediate
+Category: common_modules
+Module: ai_data_analysis_extracting_insights
+Session: 1
+Topic: Crafting Stories with Data
+Chunk: 1
+
+Explanation: Storytelling is the oldest form of teaching and most natural form of education as it helps us process and remember information. Over the course of history, important inventions have changed how stories are told including datavisualization tools that have transformed data into meaningful stories. In this video, you will learn about data storytelling steps to engage your audience, create compelling visuals, and tell the story in an interesting way.
+
+Key Points:
+- Storytelling is a natural form of education
+- Data visualization changes the way people tell stories
+- Data storytelling involves engaging the audience, creating compelling visuals, and telling the story in an interesting way
+
+Student Doubts:
+- What are examples of data storytelling?
+- How can I create compelling visuals for my data storytelling?
+- How do I organize and structure a data story effectively?
+
+---

@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: wdp
 Session: 4
 Topic: Designing an agent for order tracking and refund eligibility

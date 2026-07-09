@@ -1,0 +1,21 @@
+Level: intermediate
+Category: common_modules
+Module: ai_data_analysis_extracting_insights
+Session: 1
+Topic: Creating Effective Presentations for Data Analysts
+Chunk: 5
+
+Explanation:
+In this lecture, the speaker discusses strategies for creating effective presentations as a data analyst. The emphasis is on using visuals effectively and understanding how to choose between copying, linking, or embedding visuals in slideshows.
+
+Key Points:
+1. Great visuals should not leave room for interpretation as they instantly convey meaning.
+2. When including visuals, only share necessary data points that support the main point, especially the key message.
+3. If you have several important things to include, don't cram them all on one slide; instead, create a new visual for each point and use elements like arrows or callouts to direct attention.
+4. For the big reveal and 'aha moment', visuals must communicate messages with clarity and excitement.
+5. To decide which visuals to use, consider what the single most important thing is that you want your audience to learn from your analysis.
+6. Copying and pasting a visual into a slideshow allows for direct editing within the presentation, but any changes made will not affect the original source, meaning the visual might not reflect the latest information if the original dataset changes.
+7. Linking a visual within a presentation connects to it with the visual's URL, ensuring that when you make changes to the original file, the changes automatically appear in your presentation. This is useful if the data is likely to change over time.
+8. Embedded objects live in the original source file but do not get automatically updated if the source file changes; the embedded copy is completely independent and can be edited without affecting the visual or data points from the original source.
+
+### Presentations vs Informal Meetings:

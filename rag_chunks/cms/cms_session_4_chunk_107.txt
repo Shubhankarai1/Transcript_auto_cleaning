@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 4
 Topic: Converting Query into Vector

@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 1
 Topic: Creating a Chain of Languages for Interaction

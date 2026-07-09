@@ -1,0 +1,25 @@
+Level: beginner
+Category: common_modules
+Module: ai_foundations_curriculum
+Session: 1
+Topic: Creating Compelling Prompts for AI-Generated Content
+Chunk: 5
+
+Explanation: The lecture provides strategies for crafting specific and effective prompts to generate high-performing content using AI tools like Chat EBT or Copilot. The discussion covers the importance of role assignment, clear output format, and hard constraints for efficient and quality results.
+
+Key Points:
+- Use specific and clear prompts
+- Assign roles to AI models
+- Limit responses within a defined format and timeframe
+- Utilize AI tools like Chat EBT or Copilot to generate content
+
+Student Doubts:
+- How to adjust the approach of the content based on the role assignment?
+- What is the purpose of having a clear output format, and how can it benefit daily interaction with AI models?
+- How does Copilot work, and what is its integration with GitHub?
+- What are the differences between Copilot and agents in terms of task completion?
+- Why is it essential to learn about agents when using AI tools?
+- How will AI principles remain relevant as tools evolve?
+- Can an interviewer ask AI-related questions during a software engineering interview, and if so, what topics should be covered?
+
+---

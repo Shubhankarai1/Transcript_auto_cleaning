@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 2
 Topic: Creating Pinecone Account and API Keys

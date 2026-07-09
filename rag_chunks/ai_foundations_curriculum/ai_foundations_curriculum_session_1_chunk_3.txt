@@ -1,0 +1,26 @@
+Level: beginner
+Category: common_modules
+Module: ai_foundations_curriculum
+Session: 1
+Topic: Utilizing AI for Coding
+Chunk: 3
+
+Explanation: AI can assist in learning, writing, debugging, and documenting code. It can help increase learning speed, explain steps taken to solve a problem, enforce code quality, reduce documentation efforts, translate code, summarize meetings, provide answers to questions about code, generate various types of content, automate cross-app processes, and prototype apps.
+
+Key Points:
+- AI as a learning tool
+- AI for explaining code solutions
+- AI for enforcing code quality
+- Reducing documentation efforts with AI
+- Translation of code with AI
+- Summarizing meetings with AI
+- AI chatbots for understanding code and processes
+- Generating various types of content with AI
+- Cross-app automation with AI
+- Prototyping apps with AI
+
+Student Doubts:
+1. Can I use AI to build an entire app if I don't know how to code? (Answer: Yes, but it might be more common to use AI for prototyping initial versions.)
+2. What is MCP and why is it important in the context of LLM? (Answer: MCP is a standard for tools to interact with each other within the context of LLM. It will be discussed in more detail later.)
+
+---

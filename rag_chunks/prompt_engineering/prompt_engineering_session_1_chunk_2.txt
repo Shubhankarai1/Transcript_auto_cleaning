@@ -1,0 +1,26 @@
+Level: beginner
+Category: common_modules
+Module: prompt_engineering
+Session: 1
+Topic: Implementing a Large Language Model using OpenAI API
+Chunk: 2
+
+Explanation:
+The lecture explains how to implement a large language model (LLM) using the OpenAI API, focusing on providing a clear prompt, setting the maximum token limit, and adjusting the temperature parameter to control creativity or randomness in the generated responses.
+
+Key Points:
+1. Install the Everything AI Library.
+2. Initialize the openai instance using an API key from the beta.openai.com account.
+3. Generate responses from the prompt using the Davinci 003 model and set the max token limit to increase the response length.
+4. Adjust the temperature parameter to control creativity or randomness in the generated responses.
+5. Low temperature favors factual answers, while high temperature encourages creative and surprising outputs.
+6. Link to the notebook is provided for following along and running the code.
+
+Student Doubts:
+1. What happens if the model doesn't have the correct information within the context?
+2. How can I get an API key from beta.openai.com account?
+3. Why does the response sometimes stop abruptly?
+4. Can I use a different instructional model other than Davinci 003?
+5. What is the effect of adjusting the temperature parameter on the generated responses?
+
+---

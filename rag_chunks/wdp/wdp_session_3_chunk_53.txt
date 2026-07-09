@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: wdp
 Session: 3
 Topic: Validation of Statements against Cost in LangGraph

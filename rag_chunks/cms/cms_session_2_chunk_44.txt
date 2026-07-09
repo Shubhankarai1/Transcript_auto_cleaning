@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 2
 Topic: Running and Setting Up Code for a New Method

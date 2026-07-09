@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import hashlib
 import json
@@ -14,6 +14,12 @@ SESSION_FILE_PATTERN = re.compile(r"^session_(\d+)\.txt$", re.IGNORECASE)
 MODULE_DIR_PATTERN = re.compile(r"^[a-z0-9_]+$", re.IGNORECASE)
 SENTENCE_SPLIT_PATTERN = re.compile(r"(?<=[.!?])\s+")
 SESSION_SECTION_PATTERN = re.compile(r"(?m)^### Session (\d+)\n\n")
+LEVEL_FOLDER_MAP = {
+    "level_1_foundations": "beginner",
+    "level_2_intermediate": "intermediate",
+    "level_3_advanced": "advanced",
+}
+ADVANCED_MODULES = {"cms", "map", "wdp"}
 
 
 def setup_logging() -> None:
@@ -144,48 +150,90 @@ def load_cached_session_output(
     return None
 
 
-def load_files(input_dir: Path) -> List[Dict[str, str | int]]:
-    session_files: List[Dict[str, str | int]] = []
+def load_files(input_dir: Path) -> List[Dict[str, str | int | None]]:
+    session_files: List[Dict[str, str | int | None]] = []
 
-    for module_dir in sorted(
-        (path for path in input_dir.iterdir() if path.is_dir()),
-        key=lambda item: item.name.lower(),
-    ):
-        module_name = normalize_module_name(module_dir.name)
-        if not MODULE_DIR_PATTERN.match(module_name):
-            logging.warning(
-                "Skipping module folder with unsupported name: %s",
-                module_dir.name,
-            )
+    for session_path in sorted(input_dir.rglob("*.txt"), key=lambda item: str(item).lower()):
+        parsed = _parse_transcript_path(input_dir, session_path)
+        if parsed is None:
             continue
 
-        for session_path in sorted(
-            module_dir.glob("*.txt"),
-            key=lambda item: item.name.lower(),
-        ):
-            session_number = extract_session_number(session_path.name)
-            text = session_path.read_text(encoding="utf-8").strip()
-            if not text:
-                logging.warning("Skipping empty transcript file: %s", session_path)
-                continue
+        text = session_path.read_text(encoding="utf-8").strip()
+        if not text:
+            logging.warning("Skipping empty transcript file: %s", session_path)
+            continue
 
-            session_files.append(
-                {
-                    "module_name": module_name,
-                    "session_number": session_number,
-                    "filename": session_path.name,
-                    "path": str(session_path),
-                    "text": text,
-                }
-            )
+        parsed.update(
+            {
+                "filename": session_path.name,
+                "path": str(session_path),
+                "text": text,
+            }
+        )
+        session_files.append(parsed)
 
     session_files.sort(
         key=lambda item: (
-            str(item["module_name"]).lower(),
+            str(item.get("level") or ""),
+            str(item.get("category") or ""),
+            str(item.get("module_name") or "").lower(),
             int(item["session_number"]),
         )
     )
     return session_files
+
+
+def _parse_transcript_path(input_dir: Path, session_path: Path) -> Dict[str, str | int | None] | None:
+    relative_parts = session_path.relative_to(input_dir).parts
+    if len(relative_parts) < 2:
+        logging.warning("Skipping transcript outside an expected hierarchy: %s", session_path)
+        return None
+
+    level_folder = normalize_module_name(relative_parts[0])
+    level_name = LEVEL_FOLDER_MAP.get(level_folder)
+    if level_name is None:
+        logging.warning("Skipping transcript in unsupported level folder: %s", session_path)
+        return None
+
+    session_number = extract_session_number(session_path.name)
+
+    if level_folder == "level_3_advanced":
+        module_name = normalize_module_name(relative_parts[1])
+        if module_name not in ADVANCED_MODULES:
+            logging.warning("Skipping transcript in unsupported advanced module folder: %s", session_path)
+            return None
+        category_name: str | None = None
+        module_path = module_name
+    else:
+        if len(relative_parts) < 3:
+            logging.warning("Skipping transcript missing category/module folders: %s", session_path)
+            return None
+
+        category_name = normalize_module_name(relative_parts[1])
+        module_name = normalize_module_name(relative_parts[2])
+        module_path = f"{category_name}/{module_name}"
+
+        if not MODULE_DIR_PATTERN.match(category_name) or not MODULE_DIR_PATTERN.match(module_name):
+            logging.warning("Skipping transcript with unsupported folder names: %s", session_path)
+            return None
+
+    content_id = "/".join(
+        [
+            level_folder,
+            *(part for part in relative_parts[1:-1]),
+            f"session_{session_number}",
+        ]
+    )
+
+    return {
+        "level_folder": level_folder,
+        "level": level_name,
+        "category": category_name,
+        "module_name": module_name,
+        "module_path": module_path,
+        "content_id": content_id,
+        "session_number": session_number,
+    }
 
 
 def split_text(text: str, chunk_size: int = 1200) -> List[str]:
@@ -397,9 +445,21 @@ def merge_module_output(cleaned_sessions: Dict[int, str]) -> str:
     return "\n\n---\n\n".join(sections).strip() + "\n"
 
 
-def save_module_output(output_dir: Path, module_name: str, content: str) -> Path:
+def save_module_output(
+    output_dir: Path,
+    module_name: str,
+    content: str,
+    level: str = "advanced",
+    category: str | None = None,
+) -> Path:
     module_key = normalize_module_name(module_name)
     final_path = output_dir / f"{module_key}_final_cleaned.txt"
-    final_path.write_text(content, encoding="utf-8")
+    header = (
+        f"Level: {level}\n"
+        f"Category: {category or 'advanced'}\n\n"
+    )
+    final_path.write_text(header + content.strip() + "\n", encoding="utf-8")
     logging.info("Saved module output: %s", final_path)
     return final_path
+
+

@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: wdp
 Session: 2
 Topic: Calling and using a function with LLM (Language Learning Model)

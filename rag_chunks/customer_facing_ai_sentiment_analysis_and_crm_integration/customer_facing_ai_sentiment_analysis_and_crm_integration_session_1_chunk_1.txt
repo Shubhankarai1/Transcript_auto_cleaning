@@ -1,0 +1,20 @@
+Level: intermediate
+Category: role_specific
+Module: customer_facing_ai_sentiment_analysis_and_crm_integration
+Session: 1
+Topic: AI in CRM: The Guide to Smarter Customer Relationships
+Chunk: 1
+
+Explanation: This lecture discusses the transformation of CRM software due to AI, focusing on how it's shifting from a system of record to a system of innovation and the benefits it brings to sales teams.
+
+Key Points:
+- 200% uptick in interest related to CRM software
+- CRM systems changing from a system of record to one that supports sales teams
+- AI capabilities helping drive efficiency, effectiveness, and revenue for sales teams
+
+Student Doubts:
+- What are the common ways organizations are driving more ROI from their CRM software?
+- Which leading CRM vendors are currently winning the race in the late 2020s?
+- How does predictive analytics and lead scoring change CRM software?
+
+---

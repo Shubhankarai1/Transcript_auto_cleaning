@@ -1,0 +1,22 @@
+Level: beginner
+Category: common_modules
+Module: prompt_engineering
+Session: 1
+Topic: Using Chain Library for OpenAI's GPT-3
+Chunk: 4
+
+Explanation: The lecture explains how to structure prompts when using the chain library with OpenAI's GPT-3. It emphasizes separating instructions, context, and unique prompts, and using specific characters as separators. It also discusses the need to measure the number of tokens in a prompt for efficient usage of the model.
+
+Key Points:
+1. Separate instructions, context, and prompts with specific characters.
+2. Each unique prompt should be separated.
+3. Use new line characters in separators for better formatting.
+4. Add context string to separate sections.
+5. Measure the number of tokens in a prompt using OpenAI's tokenizer.
+
+Student Doubts:
+1. Can we use this method without context and still get a decent answer?
+2. At what point are prompts too large for the model to handle?
+3. How do we measure the number of tokens in a prompt?
+
+---

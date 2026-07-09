@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: wdp
 Session: 2
 Topic: Validating Names using Pattern in Python

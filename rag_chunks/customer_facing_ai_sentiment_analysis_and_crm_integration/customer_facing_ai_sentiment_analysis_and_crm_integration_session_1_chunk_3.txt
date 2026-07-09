@@ -1,0 +1,23 @@
+Level: intermediate
+Category: role_specific
+Module: customer_facing_ai_sentiment_analysis_and_crm_integration
+Session: 1
+Topic: Risks and Considerations in Implementing AI within CRM
+Chunk: 3
+
+Explanation: The speaker discusses the risks and considerations that come with implementing AI in Customer Relationship Management (CRM) systems.
+
+Key Points:
+- Importance of finding the right CRM system for specific needs
+- Need to consider the broader tech stack to support the CRM system
+- Emphasis on change management, particularly in sales organizations
+- Recognition that there might be more resistance to change in sales and CRM users
+- AI requires strong data with clean data migration and good data governance
+- A guide for successful digital transformation is available on the company's website
+
+Student Doubts:
+- Where can I find the guide for successful digital transformation?
+- How can I implement AI within my current CRM environment?
+- Are there any specific benefits or risks of AI in CRM that you have not mentioned?
+- What are your thoughts on the future of AI in CRM?
+- How can Third Stage help with digital transformation initiatives?

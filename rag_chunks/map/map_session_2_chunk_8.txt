@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: map
 Session: 2
 Topic: Query Editing Technique for Information Retrieval

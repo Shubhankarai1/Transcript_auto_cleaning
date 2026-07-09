@@ -1,0 +1,19 @@
+Level: beginner
+Category: common_modules
+Module: prompt_engineering
+Session: 1
+Topic: Explanation of Max Tokens in OpenAI Models
+Chunk: 5
+
+Explanation:
+In OpenAI models, Max Tokens refers to the maximum number of tokens that can be used in a single completion request. The context window tokens are used from the conversation history, and the remaining tokens are available for the model's response. The number of context window tokens varies between models. For most GPT3 models and GT2, the encoder used is r50k base or gpt2, while for recent instructional models, p50k bass is used. For the embedding model 1002, CL 100K base is used. Setting Max Tokens too high may result in longer completion times and an invalid request error if the maximum content length is exceeded.
+
+Key Points:
+- Max Tokens refer to the total number of tokens available for a single completion request.
+- Context window tokens are tokens from the conversation history.
+- Different models use different encoders, such as r50k base or gpt2 for GPT3 and GT2, p50k bass for recent instructional models, and CL 100K base for embedding model 1002.
+- Setting Max Tokens too high may result in longer completion times and an invalid request error if the maximum content length is exceeded.
+
+Student Doubts:
+- What happens if Max Tokens are exceeded?
+   - Answered: If Max Tokens are exceeded, an invalid request error occurs. To avoid this, consider implementing a check into your pipeline to prevent exceeding the maximum content length.

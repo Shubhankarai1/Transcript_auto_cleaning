@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 1
 Topic: Differences between manual and chain method in Langchain

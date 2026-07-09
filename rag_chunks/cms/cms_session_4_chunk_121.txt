@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 4
 Topic: Using Lambda Functions in Lchain to Access Previous Output

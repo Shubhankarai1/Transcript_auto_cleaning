@@ -1,0 +1,22 @@
+Level: beginner
+Category: common_modules
+Module: ai_ethics_safety_and_data_privacy
+Session: 2
+Topic: Automation in Medical Imaging and Drug Discovery
+Chunk: 6
+
+Explanation: The speaker discusses the evolution of medical imaging analysis from a manual process to automated using AI. He also touches on the impact of this change in drug discovery and development, particularly in reducing time and cost, and increasing success rate.
+
+Key Points:
+- Manual vs Automated Analysis: From manually identifying tumors with large margins for safety (resulting in burning healthy tissue) to automated analysis with sub-millimeter accuracy.
+- Speed and Efficiency: Automation results in faster analysis, reducing the time doctors spend verifying things.
+- Success Rate: Higher success rate in drug discovery and development using AI compared to traditional methods.
+- Early Phase: Currently, a small percentage of drugs in the industry pipeline come from tech bios/pharmach companies using AI, but it's still early days.
+- Future Prospects: Strong signals suggest that AI will continue to outperform traditional methods, but it's too early to confirm.
+
+Student Doubts:
+1. Can AI do better than humans in specific use cases? Yes, as demonstrated in medical imaging and games like chess and go.
+2. Will the time taken for drug discovery and development using AI become less or more than six years in the future? It's uncertain but there are strong signs it will be significantly shorter.
+3. Is continuous verification necessary when AI reaches human-level reasoning? Yes, a company like Unolapabs would need to prepare its infrastructure for increased oversight as technology matures.
+
+---

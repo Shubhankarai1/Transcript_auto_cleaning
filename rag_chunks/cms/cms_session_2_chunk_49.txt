@@ -1,3 +1,5 @@
+Level: advanced
+Category: advanced
 Module: cms
 Session: 2
 Topic: Understanding Workflows and Programming for Leadership Roles

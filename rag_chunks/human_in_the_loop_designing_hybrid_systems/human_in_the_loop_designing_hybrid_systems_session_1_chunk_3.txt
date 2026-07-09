@@ -1,0 +1,23 @@
+Level: intermediate
+Category: common_modules
+Module: human_in_the_loop_designing_hybrid_systems
+Session: 1
+Topic: Human Intervention in AI Systems
+Chunk: 3
+
+Explanation: The lecture discusses the ways humans can intervene in AI systems to change their course of action. It also talks about the gradual reduction of human intervention as autonomous systems mature and the importance of maintaining trust, transparency, and graceful degradation.
+
+Key Points:
+- Human intervention can be used to execute or not execute tools, and choose different tools in AI systems like LangGraph.
+- In intelligent communications with MCP and A2A, there are additional capabilities such as using API Gateway, Lambda functions, step functions, and other capabilities for HITL aspect.
+- As autonomous systems grow, the human-in-the-loop aspect will slowly reduce due to continuous agent evaluation.
+- The progressive autonomy approach involves starting with human controls and building trust and transparency as maturity grows in agent setup or multi-agent setup.
+- Maintaining graceful degradation is essential for handling errors, trustworthiness, and deciding how to degrade the system gracefully when things break in production.
+
+Student Doubts:
+- How can humans be involved in executing tools or making decisions about which tool to use?
+- What are some examples of using HITL aspect in intelligent communications with MCP and A2A?
+- How does continuous agent evaluation reduce the human-in-the-loop aspect as autonomous systems grow?
+- Can you elaborate on progressive autonomy, trust, transparency, and graceful degradation in AI systems?
+- How can humans provide capabilities to recover from errors in workflows that build and have errors?
+- What role do technical papers like the one from Harvard play in building centaurian systems, and how does this concept help in making human and machines work properly together without hampering each other?

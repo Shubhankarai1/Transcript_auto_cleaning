@@ -1,0 +1,24 @@
+Level: beginner
+Category: subject_matter_expertise
+Module: operations_process_mapping_and_automated_reporting
+Session: 1
+Topic: How to Use AI for Process Mapping (Beginner’s Guide)
+Chunk: 1
+
+Explanation: This YouTube video tutorial explains the benefits of using AI for process mapping and provides a beginner's guide to implementing it with ClickUp. The speaker emphasizes that AI process mapping can help identify weak spots in processes, lay out how work actually happens, highlight areas where AI could save time, and update itself as workflows change.
+
+Key Points:
+- AI process mapping identifies choke points and missed signoffs in processes
+- It surfaces weak spots before they turn into disasters by laying out how work actually happens
+- AI highlights the spots where it can save time and suggest improvements
+- Using ClickUp Brain, the process map updates itself as workflows change
+- Seven steps to use AI for process mapping: define the process and objectives, involve all affected parties, sketch out current process, identify repetitive tasks that could be handled by AI, analyze patterns in the process, redesign with a human touch, and test with a pilot run before launching companywide
+
+Student Doubts:
+- How can I define the process and objectives for AI process mapping?
+- Who should be involved in creating the process map, and how can I gather everyone's perspective?
+- What tools does ClickUp provide to help with sketching out current processes, analyzing patterns, and redesigning with a human touch?
+- How do I test an AI-enhanced workflow before launching it companywide?
+- What KPIs should I track to measure the success of my AI-powered processes?
+
+---

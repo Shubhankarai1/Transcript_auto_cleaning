@@ -1,0 +1,22 @@
+Level: beginner
+Category: subject_matter_expertise
+Module: finance_chatgpt_excel_skills
+Session: 1
+Topic: Analyzing Sales Data using Excel and CH GPT
+Chunk: 2
+
+Explanation:
+The lecturer explains how to analyze sales data using Excel and CH GPT. They demonstrate the process of interpreting a scatter plot graph, identifying trends, clusters, and outliers, and calculating key performance indicators (KPIs). The lecturer also emphasizes the efficiency of this method in providing quick and accurate results for financial analysis.
+
+Key Points:
+- Using Excel and CH GPT for data analysis and financial analysis
+- Interpreting scatter plot graphs to identify trends, clusters, and outliers
+- Calculating KPIs based on data
+- Identifying outliers using conditional formatting
+- Generating dynamic visual analysis of data
+
+Student Doubts:
+1. How does CH GPT help in generating KPIs?
+2. What is the role of conditional formatting in identifying outliers?
+3. Can this method be used for other types of analysis apart from financial analysis?
+4. Where can one find the free 5-day email course on using AI effectively in corporate finance?
