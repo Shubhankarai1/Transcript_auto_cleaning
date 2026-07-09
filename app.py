@@ -14,66 +14,81 @@ API_BASE_URL = get_env(
 )
 REQUEST_TIMEOUT = 60
 MAX_HISTORY_MESSAGES = 10
-PAGE_TITLE = "IITM Curriculum – AI Mentor (Prototype)"
+PAGE_TITLE = 'IITM Curriculum - AI Mentor (Prototype)'
+LEVEL_LABELS = {
+    'beginner': 'Foundations',
+    'intermediate': 'Intermediate',
+    'advanced': 'Advanced',
+}
 MODULE_LABELS = {
-    "cms": "Contextual Reasoning for Multi-Agent Systems",
-    "map": "Multi-Agent Planning & Workflow Design",
-    "wdp": "Workflow Design & Optimization",
+    'cms': 'Contextual Reasoning for Multi-Agent Systems',
+    'map': 'Multi-Agent Planning & Workflow Design',
+    'wdp': 'Workflow Design & Optimization',
 }
 
 
 def init_state() -> None:
-    if "chat_history" not in st.session_state:
+    if 'chat_history' not in st.session_state:
         st.session_state.chat_history = []
-    if "chat_scope_key" not in st.session_state:
+    if 'chat_scope_key' not in st.session_state:
         st.session_state.chat_scope_key = None
 
 
-def build_scope_key(mode: str, module: str | None = None, session: int | None = None) -> str:
-    if mode == "global":
-        return "global"
-    return f"filtered::{module}::{session}"
+def build_scope_key(
+    mode: str,
+    level: str | None = None,
+    module: str | None = None,
+    session: int | None = None,
+) -> str:
+    if mode == 'global':
+        return 'global'
+    return f'filtered::{level}::{module}::{session}'
 
 
 def get_module_label(module_key: str) -> str:
-    return MODULE_LABELS.get(module_key, module_key)
+    if module_key in MODULE_LABELS:
+        return MODULE_LABELS[module_key]
+    return module_key.replace('_', ' ').title()
+
+
+def get_level_label(level_key: str) -> str:
+    return LEVEL_LABELS.get(level_key, level_key.title())
 
 
 @st.cache_data(show_spinner=False)
-def fetch_modules() -> list[str]:
-    response = requests.get(f"{API_BASE_URL}/modules", timeout=REQUEST_TIMEOUT)
+def fetch_levels() -> list[str]:
+    response = requests.get(f'{API_BASE_URL}/levels', timeout=REQUEST_TIMEOUT)
     response.raise_for_status()
 
     data = response.json()
     if isinstance(data, list):
         return [str(item) for item in data]
     if isinstance(data, dict):
-        modules = data.get("modules", [])
-        return [str(item) for item in modules]
+        levels = data.get('levels', [])
+        return [str(item) for item in levels]
     return []
 
 
 @st.cache_data(show_spinner=False)
-def fetch_sessions(module: str) -> list[int]:
-    response = requests.get(
-        f"{API_BASE_URL}/sessions",
-        params={"module": module},
-        timeout=REQUEST_TIMEOUT,
-    )
+def fetch_modules(level: str | None = None) -> list[str]:
+    params: dict[str, str] = {}
+    if level:
+        params['level'] = level
+    response = requests.get(f'{API_BASE_URL}/modules', params=params, timeout=REQUEST_TIMEOUT)
     response.raise_for_status()
 
     data = response.json()
     if isinstance(data, list):
-        return [int(item) for item in data]
+        return [str(item) for item in data]
     if isinstance(data, dict):
-        sessions = data.get("sessions", [])
-        return [int(item) for item in sessions]
+        modules = data.get('modules', [])
+        return [str(item) for item in modules]
     return []
 
 
 def send_chat_request(payload: dict[str, Any]) -> dict[str, Any]:
     response = requests.post(
-        f"{API_BASE_URL}/chat",
+        f'{API_BASE_URL}/chat',
         json=payload,
         timeout=REQUEST_TIMEOUT,
     )
@@ -81,40 +96,41 @@ def send_chat_request(payload: dict[str, Any]) -> dict[str, Any]:
 
     data = response.json()
     if isinstance(data, dict):
-        answer = data.get("answer") or data.get("response") or data.get("message")
+        answer = data.get('answer') or data.get('response') or data.get('message')
         if isinstance(answer, str) and answer.strip():
-            sources = data.get("sources", [])
+            sources = data.get('sources', [])
             if not isinstance(sources, list):
                 sources = []
             return {
-                "answer": answer,
-                "sources": sources,
+                'answer': answer,
+                'sources': sources,
             }
 
-    raise ValueError("The API response did not include an answer field.")
+    raise ValueError('The API response did not include an answer field.')
 
 
 def format_sources_markdown(sources: list[dict[str, Any]]) -> str:
     if not sources:
-        return ""
+        return ''
 
-    lines = ["Relevant sources:"]
+    lines = ['Relevant sources:']
     for source in sources:
-        citation = source.get("citation") or "UNKNOWN"
-        module = source.get("module") or "unknown"
-        session = source.get("session")
-        chunk = source.get("chunk")
-        preview_text = " ".join(str(source.get("text", "")).split())
+        citation = source.get('citation') or 'UNKNOWN'
+        level = source.get('level') or 'unknown'
+        module = source.get('module') or 'unknown'
+        session = source.get('session')
+        chunk = source.get('chunk')
+        preview_text = ' '.join(str(source.get('text', '')).split())
         if len(preview_text) > 140:
-            preview_text = f"{preview_text[:137].rstrip()}..."
+            preview_text = f'{preview_text[:137].rstrip()}...'
 
         source_line = (
-            f"- `{citation}` | module `{module}` | session `{session}` | chunk `{chunk}`"
+            f"- `{citation}` | level `{get_level_label(str(level))}` | module `{module}` | session `{session}` | chunk `{chunk}`"
         )
         if preview_text:
-            source_line = f"{source_line} | {preview_text}"
+            source_line = f'{source_line} | {preview_text}'
         lines.append(source_line)
-    return "\n".join(lines)
+    return '\n'.join(lines)
 
 
 def trim_chat_history(chat_history: list[dict[str, str]]) -> list[dict[str, str]]:
@@ -200,25 +216,25 @@ def render_styles() -> None:
 def render_header() -> None:
     st.markdown(f"<div class='hero-title'>{PAGE_TITLE}</div>", unsafe_allow_html=True)
     st.markdown(
-        "<div class='hero-subtitle'>Advanced Engineering Program in AI Agent Workflows & Agentic Systems Development</div>",
+        "<div class='hero-subtitle'>AI Mentor across foundations, intermediate, and advanced learning modules</div>",
         unsafe_allow_html=True,
     )
     with st.container():
         st.markdown(
             """
             <div class='hero-description'>
-                This is an AI-powered RAG-based mentor built on selected advanced modules, designed to guide you through complex concepts using natural language interaction.
+                This is an AI-powered RAG-based mentor designed to guide learners through foundations, intermediate, and advanced modules using natural language interaction.
             </div>
             <div class='hero-description'>
                 Knowledge Base Includes:
             </div>
             <div class='hero-description'>
-                <strong>Module 7: Contextual Reasoning for Multi-Agent Systems</strong><br>
-                (Sessions 1, 2, 3, 4)<br><br>
-                <strong>Module 8: Multi-Agent Planning &amp; Workflow Design</strong><br>
-                (Sessions 2, 3)<br><br>
-                <strong>Module 9: Workflow Design &amp; Optimization</strong><br>
-                (Sessions 1, 2, 3, 4, 5)
+                <strong>Foundations</strong><br>
+                AI foundations, prompt engineering, ethics, and domain-focused starter modules<br><br>
+                <strong>Intermediate</strong><br>
+                Applied workflow, analytics, and role-specific implementation modules<br><br>
+                <strong>Advanced</strong><br>
+                Contextual reasoning, multi-agent planning, and workflow design modules
             </div>
             """,
             unsafe_allow_html=True,
@@ -228,104 +244,110 @@ def render_header() -> None:
             What this AI Mentor helps you do:
 
             - Ask questions and clarify doubts instantly
-            - Pull up exactly what was taught in a specific session-even down to the exact point in the lecture
-            - Understand advanced agentic system design with guided explanations
-            - Connect concepts across multiple sessions seamlessly
-            - Dive deep into specific sessions for precise, context-aware clarity
-            - Learn how reasoning, planning, and workflows come together in multi-agent systems
+            - Focus on a learning level and a specific module
+            - Understand concepts with grounded, context-aware explanations
+            - Connect concepts across sessions inside the selected module
+            - Revisit explanations and deepen understanding at your pace
             """
         )
         st.markdown(
             """
             <div class='hero-footer'>
-                The mentor retrieves relevant insights from these sessions and delivers grounded, context-rich responses-helping you grasp complex topics, revisit explanations, and accelerate learning.
+                The mentor retrieves relevant insights from these modules and delivers grounded, context-rich responses to help you learn more effectively.
             </div>
             """,
             unsafe_allow_html=True,
         )
-        st.caption("Note: Ask one question at a time for best results. The chatbot remembers the last 5 exchanges.")
-        st.markdown("---")
-        return
-        st.markdown(
-            """
-            <div class='hero-footer'>
-                The system retrieves relevant information from lecture data and generates grounded responses—helping you explore concepts, clarify doubts, and navigate the program more effectively.
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-    st.markdown("---")
+        st.caption('Note: Ask one question at a time for best results. The chatbot remembers the last 5 exchanges.')
+        st.markdown('---')
 
 
 def render_history(messages: list[dict[str, str]]) -> None:
     for message in messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
-            st.write("")
+        with st.chat_message(message['role']):
+            st.markdown(message['content'])
+            st.write('')
 
 
-def render_sidebar() -> tuple[str, str | None, int | None]:
+def render_sidebar() -> tuple[str, str | None, str | None, int | None]:
     with st.sidebar:
-        st.header("Chat Scope")
+        st.header('Chat Scope')
         chat_mode_label = st.radio(
-            "Chat Mode",
-            options=["All Content", "Select Module & Session"],
+            'Chat Mode',
+            options=['All Content', 'Select Level & Module'],
             index=0,
         )
 
-        if chat_mode_label == "All Content":
-            return "global", None, None
+        if chat_mode_label == 'All Content':
+            return 'global', None, None, None
 
         try:
-            modules = fetch_modules()
+            levels = fetch_levels()
         except requests.RequestException as exc:
-            st.error(f"Failed to load modules: {exc}")
-            return "filtered", None, None
+            st.error(f'Failed to load levels: {exc}')
+            return 'filtered', None, None, None
+
+        if not levels:
+            st.warning('No levels available.')
+            return 'filtered', None, None, None
+
+        selected_level = st.selectbox(
+            'Level',
+            options=levels,
+            index=None,
+            placeholder='Select your level',
+            format_func=get_level_label,
+        )
+
+        if not selected_level:
+            return 'filtered', None, None, None
+
+        try:
+            modules = fetch_modules(selected_level)
+        except requests.RequestException as exc:
+            st.error(f'Failed to load modules: {exc}')
+            return 'filtered', selected_level, None, None
 
         if not modules:
-            st.warning("No modules available.")
-            return "filtered", None, None
+            st.warning('No modules available for the selected level.')
+            return 'filtered', selected_level, None, None
 
         selected_module = st.selectbox(
-            "Module",
+            'Module',
             options=modules,
+            index=None,
+            placeholder='Select your module',
             format_func=get_module_label,
         )
 
-        try:
-            sessions = fetch_sessions(selected_module)
-        except requests.RequestException as exc:
-            st.error(f"Failed to load sessions: {exc}")
-            return "filtered", selected_module, None
+        if not selected_module:
+            return 'filtered', selected_level, None, None
 
-        if not sessions:
-            st.warning("No sessions available for the selected module.")
-            return "filtered", selected_module, None
-
-        selected_session = st.selectbox("Session", options=sessions)
-        return "filtered", selected_module, int(selected_session)
+        return 'filtered', selected_level, selected_module, None
 
 
 def build_payload(
     question: str,
     mode: str,
+    level: str | None,
     module: str | None,
     session: int | None,
     chat_history: list[dict[str, str]],
 ) -> dict[str, Any]:
-    if mode == "global":
+    if mode == 'global':
         return {
-            "question": question,
-            "mode": "global",
-            "chat_history": chat_history,
+            'question': question,
+            'mode': 'global',
+            'chat_history': chat_history,
         }
 
     return {
-        "question": question,
-        "mode": "filtered",
-        "module": module,
-        "session": session,
-        "chat_history": chat_history,
+        'question': question,
+        'mode': 'filtered',
+        'level': level,
+        'module': module,
+        'session': session,
+        'chat_history': chat_history,
     }
 
 
@@ -340,18 +362,26 @@ def render_global_welcome() -> None:
     st.divider()
 
 
-def render_scope_summary(mode: str, module: str | None, session: int | None) -> None:
-    if mode != "filtered" or not module or session is None:
+def render_scope_summary(
+    mode: str,
+    level: str | None,
+    module: str | None,
+    session: int | None,
+) -> None:
+    if mode != 'filtered' or not level or not module:
         return
 
+    parts = [f'Level: {get_level_label(level)}', f'Module: {get_module_label(module)}']
+    if session is not None:
+        parts.append(f'Session: {session}')
     st.markdown(
-        f"<div class='info-bar'>Module: {get_module_label(module)} | Session: {session}</div>",
+        f"<div class='info-bar'>{' | '.join(parts)}</div>",
         unsafe_allow_html=True,
     )
 
 
 def render_disclaimer() -> None:
-    st.markdown("---")
+    st.markdown('---')
     st.markdown(
         """
         <div class='hero-disclaimer'>
@@ -363,78 +393,76 @@ def render_disclaimer() -> None:
 
 
 def main() -> None:
-    st.set_page_config(page_title=PAGE_TITLE, layout="wide")
+    st.set_page_config(page_title=PAGE_TITLE, layout='wide')
     init_state()
 
     render_styles()
     render_header()
 
-    mode, module, session = render_sidebar()
-    render_scope_summary(mode, module, session)
+    mode, level, module, session = render_sidebar()
+    render_scope_summary(mode, level, module, session)
 
-    if mode == "global":
+    if mode == 'global':
         render_global_welcome()
 
-    if mode == "filtered" and (not module or session is None):
-        st.info("Select a module and session from the sidebar to start chatting within that scope.")
+    if mode == 'filtered' and (not level or not module):
+        st.info('Select a level and module from the sidebar to start chatting within that scope.')
         return
 
-    scope_key = build_scope_key(mode, module, session)
+    scope_key = build_scope_key(mode, level, module, session)
     messages = ensure_history(scope_key)
 
     with st.container():
         st.markdown("<div class='chat-shell'>", unsafe_allow_html=True)
         render_history(messages)
-        st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
 
-    prompt = st.chat_input("Ask a question")
+    prompt = st.chat_input('Ask a question')
     if not prompt:
         render_disclaimer()
         return
 
-    messages.append({"role": "user", "content": prompt})
+    messages.append({'role': 'user', 'content': prompt})
     st.session_state.chat_history = trim_chat_history(messages)
     messages = st.session_state.chat_history
-    with st.chat_message("user"):
+    with st.chat_message('user'):
         st.markdown(prompt)
-        st.write("")
+        st.write('')
 
-    payload = build_payload(prompt, mode, module, session, messages)
+    payload = build_payload(prompt, mode, level, module, session, messages)
 
     try:
-        with st.chat_message("assistant"):
-            with st.spinner("Thinking..."):
+        with st.chat_message('assistant'):
+            with st.spinner('Thinking...'):
                 response_data = send_chat_request(payload)
-                answer = response_data["answer"]
-                sources_markdown = format_sources_markdown(response_data["sources"])
+                answer = response_data['answer']
+                sources_markdown = format_sources_markdown(response_data['sources'])
                 rendered_answer = answer
                 if sources_markdown:
-                    rendered_answer = f"{answer}\n\n{sources_markdown}"
+                    rendered_answer = f'{answer}\n\n{sources_markdown}'
                 st.markdown(rendered_answer)
-                st.write("")
+                st.write('')
     except requests.RequestException as exc:
-        error_message = f"Request failed: {exc}"
-        with st.chat_message("assistant"):
+        error_message = f'Request failed: {exc}'
+        with st.chat_message('assistant'):
             st.error(error_message)
-        messages.append({"role": "assistant", "content": error_message})
+        messages.append({'role': 'assistant', 'content': error_message})
         st.session_state.chat_history = trim_chat_history(messages)
         render_disclaimer()
         return
     except ValueError as exc:
         error_message = str(exc)
-        with st.chat_message("assistant"):
+        with st.chat_message('assistant'):
             st.error(error_message)
-        messages.append({"role": "assistant", "content": error_message})
+        messages.append({'role': 'assistant', 'content': error_message})
         st.session_state.chat_history = trim_chat_history(messages)
         render_disclaimer()
         return
 
-    messages.append({"role": "assistant", "content": rendered_answer})
+    messages.append({'role': 'assistant', 'content': rendered_answer})
     st.session_state.chat_history = trim_chat_history(messages)
     render_disclaimer()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
-
-

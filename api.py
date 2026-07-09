@@ -1,47 +1,38 @@
 import logging
 import re
+from pathlib import Path
 from typing import Any, Optional
 
 from fastapi import FastAPI, HTTPException, Query
 from openai import OpenAI
 from pinecone import Pinecone
 from pydantic import BaseModel, Field
+
 from config import get_env
 from retrieval_utils import combine_filters, detect_filters
+from utils import load_files
 
 
-# FastAPI app
 app = FastAPI()
 
-# Logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-
-# Init clients
 openai_client = OpenAI(api_key=get_env('OPENAI_API_KEY'))
 pc = Pinecone(api_key=get_env('PINECONE_API_KEY'))
 index = pc.Index(get_env('PINECONE_INDEX_NAME', 'iitm-modules-rag'))
 
-
-# Config
-MODULE_SESSIONS = {
-    "cms": [1, 2, 3, 4],
-    "map": [2, 3],
-    "wdp": [1, 2, 3, 4, 5],
-}
-
-CHUNK_ID_PATTERN = re.compile(r"_chunk_(\d+)", re.IGNORECASE)
+LEVEL_ORDER = {'beginner': 1, 'intermediate': 2, 'advanced': 3}
+CHUNK_ID_PATTERN = re.compile(r'_chunk_(\d+)', re.IGNORECASE)
 MAX_HISTORY_MESSAGES = 10
-SYSTEM_MESSAGE = {"role": "system", "content": "You are a helpful AI assistant"}
 RETRIEVAL_TOP_K = 25
 FINAL_TOP_K = 5
-LLM_MODEL = "gpt-4o-mini"
-EMBEDDING_MODEL = "text-embedding-3-small"
+LLM_MODEL = 'gpt-4o-mini'
+EMBEDDING_MODEL = 'text-embedding-3-small'
 QUERY_EXPANSION_COUNT = 3
 HYDE_MAX_TOKENS = 180
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_DIR = BASE_DIR / 'input'
 
-
-# -------------------- SCHEMAS --------------------
 
 class ChatMessage(BaseModel):
     role: str
@@ -51,149 +42,190 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     question: Optional[str] = None
     query: Optional[str] = None
-    mode: str = "global"
+    mode: str = 'global'
+    level: Optional[str] = None
     module: Optional[str] = None
     session: Optional[int] = None
     chat_history: list[ChatMessage] = Field(default_factory=list)
 
 
-# -------------------- HEALTH --------------------
-
-@app.get("/")
+@app.get('/')
 def root():
-    return {"status": "API running"}
+    return {'status': 'API running'}
 
 
-@app.get("/health")
+@app.get('/health')
 def health():
-    return {"status": "healthy"}
+    return {'status': 'healthy'}
 
 
-# -------------------- META --------------------
+def get_content_catalog() -> dict[str, dict[str, list[int]]]:
+    catalog: dict[str, dict[str, list[int]]] = {}
+    if not INPUT_DIR.exists():
+        return catalog
 
-@app.get("/modules")
-def get_modules():
-    return sorted(MODULE_SESSIONS.keys())
+    for item in load_files(INPUT_DIR):
+        level = str(item.get('level') or 'advanced')
+        module = str(item.get('module_name') or '')
+        session = int(item['session_number'])
+        if not module:
+            continue
+        level_modules = catalog.setdefault(level, {})
+        module_sessions = level_modules.setdefault(module, [])
+        if session not in module_sessions:
+            module_sessions.append(session)
+
+    for modules in catalog.values():
+        for sessions in modules.values():
+            sessions.sort()
+
+    return catalog
 
 
-@app.get("/sessions")
-def get_sessions(module: str = Query(...)):
-    sessions = MODULE_SESSIONS.get(module)
-    if sessions is None:
-        raise HTTPException(status_code=404, detail=f"Unknown module: {module}")
-    return sessions
+@app.get('/levels')
+def get_levels():
+    catalog = get_content_catalog()
+    return sorted(catalog.keys(), key=lambda level: LEVEL_ORDER.get(level, 99))
 
 
-# -------------------- HELPERS --------------------
+@app.get('/modules')
+def get_modules(level: str | None = Query(default=None)):
+    catalog = get_content_catalog()
+    if level is None:
+        all_modules = {module for modules in catalog.values() for module in modules}
+        return sorted(all_modules)
 
-def build_filter(req: ChatRequest) -> Optional[dict[str, Any]]:
-    if req.mode == "global":
-        return None
+    normalized_level = level.strip().lower()
+    modules = catalog.get(normalized_level)
+    if modules is None:
+        raise HTTPException(status_code=404, detail=f'Unknown level: {level}')
+    return sorted(modules.keys())
 
-    if req.mode != "filtered":
-        raise HTTPException(status_code=400, detail="Invalid mode")
 
-    if not req.module or req.session is None:
-        raise HTTPException(status_code=400, detail="Module + session required")
+@app.get('/sessions')
+def get_sessions(module: str = Query(...), level: str | None = Query(default=None)):
+    catalog = get_content_catalog()
+    normalized_module = module.strip().lower()
 
-    return {"module": req.module, "session": req.session}
+    if level is not None:
+        normalized_level = level.strip().lower()
+        modules = catalog.get(normalized_level)
+        if modules is None:
+            raise HTTPException(status_code=404, detail=f'Unknown level: {level}')
+        sessions = modules.get(normalized_module)
+        if sessions is None:
+            raise HTTPException(status_code=404, detail=f"Unknown module '{module}' for level '{level}'")
+        return sessions
+
+    for modules in catalog.values():
+        sessions = modules.get(normalized_module)
+        if sessions is not None:
+            return sessions
+
+    raise HTTPException(status_code=404, detail=f'Unknown module: {module}')
 
 
 def build_fallback_filters(req: ChatRequest) -> list[tuple[str, Optional[dict[str, Any]]]]:
-    """Return retrieval scopes from narrowest to broadest."""
-    if req.mode == "global":
-        return [("global", None)]
+    if req.mode == 'global':
+        return [('global', None)]
 
-    if req.mode != "filtered":
-        raise HTTPException(status_code=400, detail="Invalid mode")
+    if req.mode != 'filtered':
+        raise HTTPException(status_code=400, detail='Invalid mode')
 
-    if not req.module or req.session is None:
-        raise HTTPException(status_code=400, detail="Module + session required")
+    if not req.level or not req.module:
+        raise HTTPException(status_code=400, detail='Level + module required')
 
-    return [
-        ("module_session", {"module": req.module, "session": req.session}),
-        ("module_only", {"module": req.module}),
-        ("global", None),
+    fallback_filters: list[tuple[str, Optional[dict[str, Any]]]] = [
+        ('level_module', {'level': req.level, 'module': req.module}),
+        ('level_only', {'level': req.level}),
+        ('module_only', {'module': req.module}),
+        ('global', None),
     ]
+    if req.session is not None:
+        fallback_filters.insert(
+            0,
+            ('level_module_session', {'level': req.level, 'module': req.module, 'session': req.session}),
+        )
+    return fallback_filters
 
 
 def extract_chunk_number(match: dict[str, Any]) -> Optional[int]:
-    metadata = match.get("metadata", {})
-    if metadata.get("chunk"):
-        return int(metadata["chunk"])
+    metadata = match.get('metadata', {})
+    if metadata.get('chunk'):
+        return int(metadata['chunk'])
 
-    match_id = str(match.get("id", ""))
+    match_id = str(match.get('id', ''))
     m = CHUNK_ID_PATTERN.search(match_id)
     return int(m.group(1)) if m else None
 
 
 def build_source_entry(match: dict[str, Any], index_position: int):
-    metadata = match.get("metadata", {})
-    module = metadata.get("module")
-    session = metadata.get("session")
+    metadata = match.get('metadata', {})
+    level = metadata.get('level')
+    module = metadata.get('module')
+    session = metadata.get('session')
     chunk = extract_chunk_number(match)
 
     citation = f"{str(module).upper()}-S{session}-C{chunk or index_position}"
 
     return {
-        "id": match.get("id"),
-        "score": match.get("score"),
-        "text": metadata.get("text", ""),
-        "module": module,
-        "session": session,
-        "chunk": chunk,
-        "citation": citation,
-        "matched_query": match.get("matched_query"),
+        'id': match.get('id'),
+        'score': match.get('score'),
+        'text': metadata.get('text', ''),
+        'level': level,
+        'module': module,
+        'session': session,
+        'chunk': chunk,
+        'citation': citation,
+        'matched_query': match.get('matched_query'),
     }
 
 
-def build_context(sources):
-    return "\n\n".join(
-        f"[{s['citation']}]\n{s['text']}" for s in sources if s.get("text")
+def build_context(sources: list[dict[str, Any]]) -> str:
+    return '\n\n'.join(
+        f"[{source['citation']}]\n{source['text']}" for source in sources if source.get('text')
     )
 
 
 def trim_sources_for_ui(sources: list[dict[str, Any]], limit: int = 3) -> list[dict[str, Any]]:
-    """Keep only the most useful source fields for the normal chat UI."""
     trimmed: list[dict[str, Any]] = []
     for source in sources[:limit]:
         trimmed.append(
             {
-                "citation": source.get("citation"),
-                "module": source.get("module"),
-                "session": source.get("session"),
-                "chunk": source.get("chunk"),
-                "text": source.get("text", ""),
+                'citation': source.get('citation'),
+                'level': source.get('level'),
+                'module': source.get('module'),
+                'session': source.get('session'),
+                'chunk': source.get('chunk'),
+                'text': source.get('text', ''),
             }
         )
     return trimmed
 
 
-def normalize_chat_history(chat_history):
+def normalize_chat_history(chat_history: list[ChatMessage]) -> list[dict[str, str]]:
     return [
-        {"role": m.role, "content": m.content}
-        for m in chat_history
-        if m.role in {"user", "assistant"} and m.content
+        {'role': message.role, 'content': message.content}
+        for message in chat_history
+        if message.role in {'user', 'assistant'} and message.content
     ][-MAX_HISTORY_MESSAGES:]
 
 
 def parse_query_lines(text: str) -> list[str]:
-    """Parse one-query-per-line LLM output into clean query strings."""
     queries: list[str] = []
     for line in text.splitlines():
-        cleaned = re.sub(r"^\s*(?:[-*]|\d+[\).\:-])\s*", "", line).strip()
-        cleaned = cleaned.strip("\"'")
+        cleaned = re.sub(r'^\s*(?:[-*]|\d+[\).\:-])\s*', '', line).strip()
+        cleaned = cleaned.strip('"\'')
         if cleaned:
             queries.append(cleaned)
     return queries
 
 
 def unique_queries(queries: list[str]) -> list[str]:
-    """Keep query variants in order while removing near-identical duplicates."""
     seen: set[str] = set()
     unique: list[str] = []
     for query in queries:
-        normalized = re.sub(r"\s+", " ", query.strip().lower())
+        normalized = re.sub(r'\s+', ' ', query.strip().lower())
         if not normalized or normalized in seen:
             continue
         seen.add(normalized)
@@ -204,7 +236,7 @@ def unique_queries(queries: list[str]) -> list[str]:
 def rewrite_query(question: str) -> str:
     rewrite = openai_client.chat.completions.create(
         model=LLM_MODEL,
-        messages=[{"role": "user", "content": question}],
+        messages=[{'role': 'user', 'content': question}],
     )
     return (rewrite.choices[0].message.content or question).strip()
 
@@ -226,14 +258,14 @@ Current rewritten query:
     try:
         response = openai_client.chat.completions.create(
             model=LLM_MODEL,
-            messages=[{"role": "user", "content": prompt}],
+            messages=[{'role': 'user', 'content': prompt}],
             temperature=0.3,
         )
     except Exception:
-        logging.exception("Query expansion failed; falling back to base queries")
+        logging.exception('Query expansion failed; falling back to base queries')
         return []
 
-    expanded = parse_query_lines(response.choices[0].message.content or "")
+    expanded = parse_query_lines(response.choices[0].message.content or '')
     return expanded[:QUERY_EXPANSION_COUNT]
 
 
@@ -254,22 +286,22 @@ Rewritten query:
     try:
         response = openai_client.chat.completions.create(
             model=LLM_MODEL,
-            messages=[{"role": "user", "content": prompt}],
+            messages=[{'role': 'user', 'content': prompt}],
             temperature=0.2,
             max_tokens=HYDE_MAX_TOKENS,
         )
     except Exception:
-        logging.exception("HyDE generation failed; continuing without HyDE")
-        return ""
+        logging.exception('HyDE generation failed; continuing without HyDE')
+        return ''
 
-    return (response.choices[0].message.content or "").strip()
+    return (response.choices[0].message.content or '').strip()
 
 
 def build_search_queries(question: str, rewritten: str) -> tuple[list[str], str]:
     hyde_query = generate_hyde_query(question, rewritten)
     expanded = expand_query(question, rewritten)
     queries = unique_queries([question, rewritten, hyde_query, *expanded])
-    logging.info("Using %d retrieval queries: %s", len(queries), queries)
+    logging.info('Using %d retrieval queries: %s', len(queries), queries)
     return queries, hyde_query
 
 
@@ -282,17 +314,16 @@ def create_embeddings(queries: list[str]) -> list[list[float]]:
 
 
 def deduplicate_matches(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Deduplicate pooled query results, retaining the highest score per chunk."""
     best_by_key: dict[str, dict[str, Any]] = {}
 
     for match in matches:
-        metadata = match.get("metadata", {})
-        key = str(match.get("id") or metadata.get("text") or "")
+        metadata = match.get('metadata', {})
+        key = str(match.get('id') or metadata.get('text') or '')
         if not key:
             continue
 
         existing = best_by_key.get(key)
-        if existing is None or match.get("score", 0) > existing.get("score", 0):
+        if existing is None or match.get('score', 0) > existing.get('score', 0):
             best_by_key[key] = match
 
     return list(best_by_key.values())
@@ -300,7 +331,7 @@ def deduplicate_matches(matches: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 def _metadata_matches_filter_value(metadata_value: Any, filter_value: Any) -> bool:
     if isinstance(filter_value, dict):
-        allowed_values = filter_value.get("$in")
+        allowed_values = filter_value.get('$in')
         if isinstance(allowed_values, list):
             return metadata_value in allowed_values
         return False
@@ -311,7 +342,7 @@ def _match_strength(match: dict[str, Any], filters: Optional[dict[str, Any]]) ->
     if not filters:
         return 0
 
-    metadata = match.get("metadata", {})
+    metadata = match.get('metadata', {})
     strength = 0
     for key, filter_value in filters.items():
         if _metadata_matches_filter_value(metadata.get(key), filter_value):
@@ -323,12 +354,6 @@ def post_filter_matches(
     matches: list[dict[str, Any]],
     filters: Optional[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """
-    Refine the retrieved pool using metadata after broad retrieval.
-
-    This is intentionally conservative: keep exact metadata matches when enough
-    exist, otherwise preserve the broader semantic pool to avoid recall collapse.
-    """
     if not matches or not filters:
         return matches
 
@@ -343,7 +368,7 @@ def post_filter_matches(
     strongest_matches = [match for match, strength in ranked_with_strength if strength == max_strength]
     if len(strongest_matches) >= FINAL_TOP_K:
         logging.info(
-            "Post-filtering retained %d strongest matches at metadata strength %d",
+            'Post-filtering retained %d strongest matches at metadata strength %d',
             len(strongest_matches),
             max_strength,
         )
@@ -356,14 +381,14 @@ def post_filter_matches(
     ]
     if len(near_strongest_matches) >= FINAL_TOP_K:
         logging.info(
-            "Post-filtering retained %d near-strongest matches at metadata strength >= %d",
+            'Post-filtering retained %d near-strongest matches at metadata strength >= %d',
             len(near_strongest_matches),
             max_strength - 1,
         )
         return near_strongest_matches
 
     logging.info(
-        "Post-filtering left too few matches after metadata pruning; keeping broader pool"
+        'Post-filtering left too few matches after metadata pruning; keeping broader pool'
     )
     return matches
 
@@ -384,28 +409,28 @@ def retrieve_context_for_filter(
             include_metadata=True,
             filter=filters if filters else None,
         )
-        for match in results.get("matches", []):
+        for match in results.get('matches', []):
             pooled_matches.append(
                 {
-                    "id": match.get("id"),
-                    "score": match.get("score"),
-                    "metadata": match.get("metadata", {}),
-                    "matched_query": query,
+                    'id': match.get('id'),
+                    'score': match.get('score'),
+                    'metadata': match.get('metadata', {}),
+                    'matched_query': query,
                 }
             )
 
     matches = sorted(
         deduplicate_matches(pooled_matches),
-        key=lambda x: x["score"],
+        key=lambda x: x['score'],
         reverse=True,
     )
     post_filtered_matches = sorted(
         post_filter_matches(matches, filters),
-        key=lambda x: x["score"],
+        key=lambda x: x['score'],
         reverse=True,
     )
     logging.info(
-        "Retrieved %d pooled matches, retained %d unique matches, and kept %d matches after post-filtering",
+        'Retrieved %d pooled matches, retained %d unique matches, and kept %d matches after post-filtering',
         len(pooled_matches),
         len(matches),
         len(post_filtered_matches),
@@ -414,14 +439,13 @@ def retrieve_context_for_filter(
 
 
 def has_strong_enough_results(matches: list[dict[str, Any]]) -> bool:
-    """Decide whether retrieval is good enough to stop widening the search scope."""
     if not matches:
         return False
 
     if len(matches) >= 3:
         return True
 
-    top_score = float(matches[0].get("score") or 0.0)
+    top_score = float(matches[0].get('score') or 0.0)
     return top_score >= 0.45
 
 
@@ -438,7 +462,7 @@ def retrieve_context_with_fallback(req: ChatRequest, original_query: str, search
             base_filter,
         )
         logging.info(
-            "Retrieval scope=%s applied_filters=%s returned %d matches",
+            'Retrieval scope=%s applied_filters=%s returned %d matches',
             scope_name,
             applied_filters,
             len(matches),
@@ -453,21 +477,16 @@ def retrieve_context_with_fallback(req: ChatRequest, original_query: str, search
     return last_matches, last_scope, last_filters
 
 
-# -------------------- MAIN CHAT --------------------
-
-@app.post("/chat")
+@app.post('/chat')
 def chat(req: ChatRequest):
-
-    question = (req.question or req.query or "").strip()
+    question = (req.question or req.query or '').strip()
     if not question:
-        raise HTTPException(status_code=400, detail="Empty question")
+        raise HTTPException(status_code=400, detail='Empty question')
 
     try:
-        # Rewrite
         rewritten = rewrite_query(question)
         search_queries, hyde_query = build_search_queries(question, rewritten)
 
-        # Retrieve
         docs, retrieval_scope, applied_filters = retrieve_context_with_fallback(
             req,
             question,
@@ -475,12 +494,11 @@ def chat(req: ChatRequest):
         )
 
         if not docs:
-            return {"answer": "Not in module.", "sources": []}
+            return {'answer': 'Not in module.', 'sources': []}
 
-        sources = [build_source_entry(d, i) for i, d in enumerate(docs, 1)]
+        sources = [build_source_entry(document, index_position) for index_position, document in enumerate(docs, 1)]
         context = build_context(sources)
 
-        # Answer
         answer_prompt = f"""
 You are an expert instructor explaining concepts from a course.
 
@@ -505,7 +523,7 @@ STRICT INSTRUCTIONS:
 6. If context is available:
    - Use it fully
    - Combine ideas across chunks
-   - Do NOT say "not in module" unless absolutely no relevant info exists
+   - Do NOT say 'not in module' unless absolutely no relevant info exists
 
 7. If partial context is available:
    - Answer using available context
@@ -517,7 +535,7 @@ STRICT INSTRUCTIONS:
 10. Write like a human instructor, not a checklist generator.
 11. When you use a factual point from the context, cite it inline using the context labels, for example [MAP-S3-C42].
 12. Use only the most relevant citations. Do not cite every sentence and do not invent citations.
-13. Do not add a separate "Sources", "Courses", or "Debug" section inside the answer.
+13. Do not add a separate 'Sources', 'Courses', or 'Debug' section inside the answer.
 
 ---
 
@@ -537,21 +555,20 @@ Now generate a COMPLETE and DETAILED answer.
         response = openai_client.chat.completions.create(
             model=LLM_MODEL,
             messages=[
-                {"role": "user", "content": answer_prompt},
+                {'role': 'user', 'content': answer_prompt},
             ],
         )
 
         ui_sources = trim_sources_for_ui(sources)
 
         return {
-            "answer": response.choices[0].message.content,
-            "sources": ui_sources,
-            "retrieval_queries": search_queries,
-            "hyde_query": hyde_query,
-            "retrieval_scope": retrieval_scope,
-            "applied_filters": applied_filters,
+            'answer': response.choices[0].message.content,
+            'sources': ui_sources,
+            'retrieval_queries': search_queries,
+            'hyde_query': hyde_query,
+            'retrieval_scope': retrieval_scope,
+            'applied_filters': applied_filters,
         }
 
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
