@@ -1,5 +1,6 @@
 import logging
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
@@ -10,7 +11,7 @@ from pydantic import BaseModel, Field
 
 from config import get_env
 from retrieval_utils import combine_filters, detect_filters
-from supabase_client import is_supabase_configured
+from supabase_client import get_supabase_admin_client, is_supabase_configured
 from utils import load_files
 
 
@@ -50,6 +51,27 @@ class ChatRequest(BaseModel):
     chat_history: list[ChatMessage] = Field(default_factory=list)
 
 
+class ProfileBase(BaseModel):
+    email: Optional[str] = None
+    full_name: Optional[str] = None
+    job_role: Optional[str] = None
+    industry: Optional[str] = None
+    years_experience: Optional[int] = None
+    career_aspirations: Optional[str] = None
+    ai_learning_goals: Optional[str] = None
+    weekly_learning_availability: Optional[str] = None
+    onboarding_completed: bool = False
+
+
+class ProfileUpsertRequest(ProfileBase):
+    user_id: str
+
+
+class ProfileResponse(ProfileUpsertRequest):
+    created_at: Optional[str] = None
+    updated_at: Optional[str] = None
+
+
 @app.get('/')
 def root():
     return {'status': 'API running'}
@@ -61,6 +83,93 @@ def health():
         'status': 'healthy',
         'supabase_configured': is_supabase_configured(),
     }
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _get_supabase_client():
+    if not is_supabase_configured():
+        raise HTTPException(status_code=503, detail='Supabase is not configured')
+    try:
+        return get_supabase_admin_client()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f'Failed to initialize Supabase client: {exc}') from exc
+
+
+def _normalize_profile_record(record: dict[str, Any]) -> dict[str, Any]:
+    return {
+        'user_id': record.get('user_id'),
+        'email': record.get('email'),
+        'full_name': record.get('full_name'),
+        'job_role': record.get('job_role'),
+        'industry': record.get('industry'),
+        'years_experience': record.get('years_experience'),
+        'career_aspirations': record.get('career_aspirations'),
+        'ai_learning_goals': record.get('ai_learning_goals'),
+        'weekly_learning_availability': record.get('weekly_learning_availability'),
+        'onboarding_completed': bool(record.get('onboarding_completed', False)),
+        'created_at': record.get('created_at'),
+        'updated_at': record.get('updated_at'),
+    }
+
+
+def _serialize_profile_payload(profile: ProfileUpsertRequest) -> dict[str, Any]:
+    payload = profile.model_dump()
+    payload['updated_at'] = _utc_now_iso()
+    return payload
+
+
+def _fetch_profile_record(user_id: str) -> dict[str, Any] | None:
+    client = _get_supabase_client()
+    try:
+        response = client.table('profiles').select('*').eq('user_id', user_id).limit(1).execute()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f'Failed to fetch profile: {exc}') from exc
+
+    data = response.data or []
+    if not data:
+        return None
+    return dict(data[0])
+
+
+def _upsert_profile_record(profile: ProfileUpsertRequest) -> dict[str, Any]:
+    client = _get_supabase_client()
+    payload = _serialize_profile_payload(profile)
+    try:
+        response = client.table('profiles').upsert(payload).execute()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f'Failed to save profile: {exc}') from exc
+
+    data = response.data or []
+    if not data:
+        return payload
+    return dict(data[0])
+
+
+@app.get('/v1/profile', response_model=ProfileResponse)
+def get_profile(user_id: str = Query(...)):
+    record = _fetch_profile_record(user_id)
+    if record is None:
+        raise HTTPException(status_code=404, detail='Profile not found')
+    return _normalize_profile_record(record)
+
+
+@app.post('/v1/profile', response_model=ProfileResponse)
+def create_profile(req: ProfileUpsertRequest):
+    existing = _fetch_profile_record(req.user_id)
+    if existing is not None:
+        raise HTTPException(status_code=409, detail='Profile already exists')
+
+    record = _upsert_profile_record(req)
+    return _normalize_profile_record(record)
+
+
+@app.put('/v1/profile', response_model=ProfileResponse)
+def update_profile(req: ProfileUpsertRequest):
+    record = _upsert_profile_record(req)
+    return _normalize_profile_record(record)
 
 
 def get_content_catalog() -> dict[str, dict[str, list[int]]]:
