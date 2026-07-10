@@ -10,6 +10,7 @@ from pydantic import BaseModel, Field
 
 from config import get_env
 from retrieval_utils import combine_filters, detect_filters
+from supabase_client import is_supabase_configured
 from utils import load_files
 
 
@@ -56,7 +57,10 @@ def root():
 
 @app.get('/health')
 def health():
-    return {'status': 'healthy'}
+    return {
+        'status': 'healthy',
+        'supabase_configured': is_supabase_configured(),
+    }
 
 
 def get_content_catalog() -> dict[str, dict[str, list[int]]]:

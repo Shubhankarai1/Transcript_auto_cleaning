@@ -4,3 +4,4 @@ requests>=2.31.0
 openai>=1.0.0
 pinecone
 python-dotenv
+supabase>=2.6.0
