@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-from typing import Optional
+from typing import Any, Optional
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 
+from routers.deps import get_current_user_optional
 from services import profile_service
 
 
@@ -24,7 +25,7 @@ class ProfileBase(BaseModel):
 
 
 class ProfileUpsertRequest(ProfileBase):
-    user_id: str
+    user_id: Optional[str] = None
 
 
 class ProfileResponse(ProfileUpsertRequest):
@@ -32,9 +33,28 @@ class ProfileResponse(ProfileUpsertRequest):
     updated_at: Optional[str] = None
 
 
+def _authenticated_user_id(
+    token_user: dict[str, Any] | None,
+    explicit_user_id: str | None = None,
+) -> str:
+    """Resolve user identity: prefer the JWT-authenticated user, fall back to an explicit user_id."""
+    if token_user:
+        return token_user['id']
+    if explicit_user_id:
+        return explicit_user_id
+    raise HTTPException(
+        status_code=401,
+        detail='Provide an Authorization header (Bearer token) or pass user_id explicitly.',
+    )
+
+
 @router.get('', response_model=ProfileResponse)
-def get_profile(user_id: str = Query(...)):
-    record = profile_service.fetch_record(user_id)
+def get_profile(
+    token_user: dict[str, Any] | None = Depends(get_current_user_optional),
+    user_id: str = Query(default=None),
+):
+    resolved_id = _authenticated_user_id(token_user, user_id)
+    record = profile_service.fetch_record(resolved_id)
     if record is profile_service.UNAVAILABLE:
         raise HTTPException(status_code=503, detail='Supabase is not configured')
     if record is None:
@@ -43,15 +63,19 @@ def get_profile(user_id: str = Query(...)):
 
 
 @router.post('', response_model=ProfileResponse)
-def create_profile(req: ProfileUpsertRequest):
-    existing = profile_service.fetch_record(req.user_id)
+def create_profile(
+    req: ProfileUpsertRequest,
+    token_user: dict[str, Any] | None = Depends(get_current_user_optional),
+):
+    resolved_id = _authenticated_user_id(token_user, req.user_id)
+    existing = profile_service.fetch_record(resolved_id)
     if existing is profile_service.UNAVAILABLE:
         raise HTTPException(status_code=503, detail='Supabase is not configured')
     if existing is not None:
         raise HTTPException(status_code=409, detail='Profile already exists')
 
     payload = profile_service._serialize_payload(
-        user_id=req.user_id, email=req.email, full_name=req.full_name,
+        user_id=resolved_id, email=req.email, full_name=req.full_name,
         job_role=req.job_role, industry=req.industry,
         years_experience=req.years_experience,
         career_aspirations=req.career_aspirations,
@@ -68,9 +92,13 @@ def create_profile(req: ProfileUpsertRequest):
 
 
 @router.put('', response_model=ProfileResponse)
-def update_profile(req: ProfileUpsertRequest):
+def update_profile(
+    req: ProfileUpsertRequest,
+    token_user: dict[str, Any] | None = Depends(get_current_user_optional),
+):
+    resolved_id = _authenticated_user_id(token_user, req.user_id)
     payload = profile_service._serialize_payload(
-        user_id=req.user_id, email=req.email, full_name=req.full_name,
+        user_id=resolved_id, email=req.email, full_name=req.full_name,
         job_role=req.job_role, industry=req.industry,
         years_experience=req.years_experience,
         career_aspirations=req.career_aspirations,

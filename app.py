@@ -4,6 +4,7 @@ from typing import Any
 
 import requests
 import streamlit as st
+from supabase import create_client
 
 from config import get_env
 
@@ -12,6 +13,8 @@ API_BASE_URL = get_env(
     'API_BASE_URL',
     'https://iitm-curriculem-intelligence-layer.onrender.com',
 )
+SUPABASE_URL = get_env('SUPABASE_URL')
+SUPABASE_ANON_KEY = get_env('SUPABASE_ANON_KEY')
 REQUEST_TIMEOUT = 60
 MAX_HISTORY_MESSAGES = 10
 PAGE_TITLE = 'IITM Curriculum - AI Mentor (Prototype)'
@@ -26,6 +29,123 @@ MODULE_LABELS = {
     'wdp': 'Workflow Design & Optimization',
 }
 
+
+# ---------------------------------------------------------------------------
+# Auth helpers
+# ---------------------------------------------------------------------------
+
+def _supabase_client():
+    if not SUPABASE_URL or not SUPABASE_ANON_KEY:
+        st.error('Supabase is not configured. Set SUPABASE_URL and SUPABASE_ANON_KEY.')
+        st.stop()
+    return create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+
+def _auth_headers() -> dict[str, str] | None:
+    token = st.session_state.get('auth_token')
+    if token:
+        return {'Authorization': f'Bearer {token}'}
+    return None
+
+
+def do_signup(email: str, password: str) -> str | None:
+    try:
+        client = _supabase_client()
+        resp = client.auth.sign_up({'email': email, 'password': password})
+        if resp.user:
+            return None
+        return 'Signup failed — no user returned.'
+    except Exception as exc:
+        return str(exc)
+
+
+def _verify_token_with_backend() -> dict | None:
+    """Call /v1/auth/me to confirm the backend accepts the current token."""
+    headers = _auth_headers()
+    if not headers:
+        return None
+    try:
+        resp = requests.get(f'{API_BASE_URL}/v1/auth/me', headers=headers, timeout=10)
+        if resp.status_code == 200:
+            return resp.json()
+    except requests.RequestException:
+        pass
+    return None
+
+
+def do_login(email: str, password: str) -> str | None:
+    try:
+        client = _supabase_client()
+        resp = client.auth.sign_in_with_password({'email': email, 'password': password})
+        if resp.session:
+            st.session_state.auth_token = resp.session.access_token
+            st.session_state.user_email = email
+            return None
+        return 'Login failed — no session returned.'
+    except Exception as exc:
+        return str(exc)
+
+
+def do_logout() -> None:
+    st.session_state.pop('auth_token', None)
+    st.session_state.pop('user_email', None)
+    st.session_state.pop('user_info', None)
+    st.session_state.pop('chat_history', None)
+    st.session_state.pop('chat_scope_key', None)
+
+
+def is_authenticated() -> bool:
+    return bool(st.session_state.get('auth_token'))
+
+
+# ---------------------------------------------------------------------------
+# Auth UI
+# ---------------------------------------------------------------------------
+
+def render_auth_page() -> None:
+    st.title('AI Mentor')
+    st.markdown('Sign in to access your learning assistant.')
+
+    tab_login, tab_signup = st.tabs(['Sign In', 'Sign Up'])
+
+    with tab_login:
+        with st.form('login_form'):
+            email = st.text_input('Email', key='login_email')
+            password = st.text_input('Password', type='password', key='login_password')
+            submitted = st.form_submit_button('Sign In', use_container_width=True)
+            if submitted:
+                if not email or not password:
+                    st.error('Email and password are required.')
+                else:
+                    err = do_login(email, password)
+                    if err:
+                        st.error(err)
+                    else:
+                        st.rerun()
+
+    with tab_signup:
+        with st.form('signup_form'):
+            email = st.text_input('Email', key='signup_email')
+            password = st.text_input('Password', type='password', key='signup_password',
+                                     help='At least 6 characters')
+            submitted = st.form_submit_button('Create Account', use_container_width=True)
+            if submitted:
+                if not email or not password:
+                    st.error('Email and password are required.')
+                elif len(password) < 6:
+                    st.error('Password must be at least 6 characters.')
+                else:
+                    err = do_signup(email, password)
+                    if err:
+                        st.error(err)
+                    else:
+                        st.success('Account created! Check your email for a confirmation link, then sign in.')
+    st.stop()
+
+
+# ---------------------------------------------------------------------------
+# Chat helpers (unchanged logic, added auth header support)
+# ---------------------------------------------------------------------------
 
 def init_state() -> None:
     if 'chat_history' not in st.session_state:
@@ -57,7 +177,8 @@ def get_level_label(level_key: str) -> str:
 
 @st.cache_data(show_spinner=False)
 def fetch_levels() -> list[str]:
-    response = requests.get(f'{API_BASE_URL}/levels', timeout=REQUEST_TIMEOUT)
+    headers = _auth_headers()
+    response = requests.get(f'{API_BASE_URL}/levels', headers=headers, timeout=REQUEST_TIMEOUT)
     response.raise_for_status()
 
     data = response.json()
@@ -74,7 +195,8 @@ def fetch_modules(level: str | None = None) -> list[str]:
     params: dict[str, str] = {}
     if level:
         params['level'] = level
-    response = requests.get(f'{API_BASE_URL}/modules', params=params, timeout=REQUEST_TIMEOUT)
+    headers = _auth_headers()
+    response = requests.get(f'{API_BASE_URL}/modules', params=params, headers=headers, timeout=REQUEST_TIMEOUT)
     response.raise_for_status()
 
     data = response.json()
@@ -87,9 +209,11 @@ def fetch_modules(level: str | None = None) -> list[str]:
 
 
 def send_chat_request(payload: dict[str, Any]) -> dict[str, Any]:
+    headers = _auth_headers()
     response = requests.post(
         f'{API_BASE_URL}/chat',
         json=payload,
+        headers=headers,
         timeout=REQUEST_TIMEOUT,
     )
     response.raise_for_status()
@@ -248,8 +372,8 @@ def render_header() -> None:
             """,
             unsafe_allow_html=True,
         )
-        st.caption('Ask one question at a time for the best experience. The chatbot remembers the last 5 exchanges.')
-        st.markdown('---')
+    st.caption('Ask one question at a time for the best experience. The chatbot remembers the last 5 exchanges.')
+    st.markdown('---')
 
 
 def render_history(messages: list[dict[str, str]]) -> None:
@@ -382,9 +506,25 @@ def render_disclaimer() -> None:
     )
 
 
-def main() -> None:
-    st.set_page_config(page_title=PAGE_TITLE, layout='wide')
+def render_main_app() -> None:
+
+    # Verify the stored token is still valid with the backend
+    user_info = _verify_token_with_backend()
+    if user_info is None:
+        do_logout()
+        st.warning('Session expired. Please sign in again.')
+        render_auth_page()
+        return
+
     init_state()
+
+    with st.sidebar:
+        ui_email = st.session_state.get('user_email', '') or (user_info or {}).get('email', '')
+        st.markdown(f"**Signed in as:** {ui_email}")
+        if st.button('Sign Out', use_container_width=True):
+            do_logout()
+            st.rerun()
+        st.markdown('---')
 
     render_styles()
     render_header()
@@ -454,5 +594,16 @@ def main() -> None:
     render_disclaimer()
 
 
-if __name__ == '__main__':
-    main()
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
+
+st.set_page_config(
+    page_title=PAGE_TITLE if is_authenticated() else 'Sign In - AI Mentor',
+    layout='wide' if is_authenticated() else 'centered',
+)
+
+if is_authenticated():
+    render_main_app()
+else:
+    render_auth_page()
