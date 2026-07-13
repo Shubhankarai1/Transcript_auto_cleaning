@@ -118,13 +118,19 @@ def fetch_profile_from_backend() -> dict | None:
 def save_profile_to_backend(payload: dict) -> dict | None:
     headers = _auth_headers()
     if not headers:
+        st.error('Not authenticated. Please sign in again.')
         return None
     try:
         resp = requests.put(f'{API_BASE_URL}/v1/profile', json=payload, headers=headers, timeout=10)
         if resp.status_code == 200:
             return resp.json()
-    except requests.RequestException:
-        pass
+        st.error(f'Backend returned status {resp.status_code}: {resp.text[:200]}')
+    except requests.ConnectionError:
+        st.error(f'Cannot reach {API_BASE_URL}. Is the backend running?')
+    except requests.Timeout:
+        st.error('Backend request timed out.')
+    except requests.RequestException as exc:
+        st.error(f'Request failed: {exc}')
     return None
 
 
@@ -268,8 +274,6 @@ def render_onboarding_page() -> None:
                     st.session_state.pop('onboarding_step', None)
                     st.success('Profile saved!')
                     st.rerun()
-                else:
-                    st.error('Failed to save profile. Check that the backend is running.')
 
     st.stop()
 
@@ -806,9 +810,10 @@ st.set_page_config(
 if not is_authenticated():
     render_auth_page()
 
-# Authenticated — load profile and decide where to route
-profile = fetch_profile_from_backend()
-st.session_state.profile = profile or {}
+# Authenticated — load profile once, then use session state
+if st.session_state.get('profile') is None:
+    profile = fetch_profile_from_backend()
+    st.session_state.profile = profile or {}
 
 if not is_onboarding_complete():
     render_onboarding_page()
