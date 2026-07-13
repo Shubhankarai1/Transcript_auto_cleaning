@@ -115,13 +115,11 @@ Completed:
   - chunk
   - topic-derived metadata
 - `level_3_advanced` remains compatible without requiring a category layer
+- `module_path` and session-specific `content_id` now flow through regenerated `rag_chunks/` and refreshed Pinecone upload metadata
 
 Not completed yet:
 
-- The repository documentation still contains some old flat-layout examples
-- The warning text in parts of the pipeline still references old `input/<module>/session_<n>.txt` examples
 - A fresh validation run should still be done whenever content is changed, so regenerated `rag_chunks/` and Pinecone data stay fully aligned with the current structure
-- Optional hierarchy fields such as `module_path` and `content_id` are parsed during ingestion but are not yet written into `rag_chunks/` or Pinecone metadata
 
 ### Required Pipeline Upgrades
 
@@ -134,7 +132,7 @@ Not completed yet:
 - Remaining:
   - Rebuild or refresh chunk outputs whenever transcript content changes
   - Verify a small end-to-end ingest after each structural change
-  - Decide whether richer hierarchy fields such as `module_path` and `content_id` should also flow into stored chunk metadata and Pinecone
+  - Keep validating regenerated chunk outputs and Pinecone metadata whenever transcript content is updated
 
 ### Immediate Implementation Rule
 
@@ -154,7 +152,7 @@ Not completed yet:
 Status:
 
 - Core implementation is complete.
-- Final operational verification depends on running a fresh ingest and Pinecone sync against the current content set.
+- Regenerated chunk outputs and refreshed Pinecone metadata now reflect the current hierarchy-aware structure.
 
 ## Phase 1: Foundation And Architecture Alignment
 
@@ -190,13 +188,16 @@ Stabilize the current codebase and define the target architecture before adding 
 
 ### Current Status
 
-- Configuration loading is centralized through `config.py`
-- Local and deployment environment separation is in place through `.env` and `.env.local`
-- Some service boundaries are starting to emerge:
-  - retrieval utilities
-  - Supabase client helpers
-  - config helpers
-- Full architecture alignment and backend separation are still pending
+- [x] Architecture boundaries documented (`Dev Docs/architecture.md`)
+- [x] MVP feature checklist documented (`Dev Docs/mvp-checklist.md`)
+- [x] Entity relationship draft documented (`Dev Docs/database_schema.md`)
+- [x] API surface draft documented (`Dev Docs/api-surface.md`)
+- [x] Canonical environment variables documented (`Dev Docs/environment-variables.md`)
+- [x] Deployment topology: single FastAPI + Streamlit
+- [x] Configuration loading is centralized through `config.py`
+- [x] Local and deployment environment separation is in place through `.env` and `.env.local`
+- All Phase 1 deliverables are complete.
+- Phase 2 (backend refactor) is the next step.
 
 ### Exit Criteria
 
@@ -620,4 +621,6 @@ Defer these until after MVP:
 8. Define the database schema and platform API contracts.
 9. Refactor the current backend so mentor chat becomes one service inside a larger application.
 10. Turn the assessment and learning track documents into structured data assets.
+
+
 
