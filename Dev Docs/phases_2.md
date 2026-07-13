@@ -355,6 +355,7 @@ Improve the visual design of the authentication and onboarding screens to feel c
 - The app launches directly on the auth page. No marketing/landing page.
 - The theme is minimal with white cards, soft shadows, and consistent spacing.
 - Cleanup is sufficient for the prototype phase.
+- The planned navigation structure is a left sidebar with three pages: **Assessment** → **AI Mentor** → **Profile**. The user lands on a dashboard after onboarding and navigates between pages. This replaces the linear login → onboarding → chat flow.
 
 ## Phase 5: AI Readiness Assessment Engine
 

@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+import uuid
+from pathlib import Path
 from typing import Any
 
 import requests
@@ -7,6 +10,10 @@ import streamlit as st
 from supabase import create_client
 
 from config import get_env
+
+
+SESSIONS_DIR = Path(__file__).resolve().parent / 'sessions'
+SESSIONS_DIR.mkdir(exist_ok=True)
 
 
 API_BASE_URL = get_env(
@@ -60,15 +67,10 @@ def do_signup(email: str, password: str) -> str | None:
         return str(exc)
 
 
-def _verify_token_with_backend() -> dict | None:
-    headers = _auth_headers()
-    if not headers:
-        return None
-    try:
-        resp = requests.get(f'{API_BASE_URL}/v1/auth/me', headers=headers, timeout=10)
-        return resp.json() if resp.status_code == 200 else None
-    except requests.RequestException:
-        return None
+def _handle_auth_error() -> None:
+    do_logout()
+    st.error('Your session has expired. Please sign in again.')
+    st.rerun()
 
 
 def do_login(email: str, password: str) -> str | None:
@@ -76,8 +78,13 @@ def do_login(email: str, password: str) -> str | None:
         client = _supabase_client()
         resp = client.auth.sign_in_with_password({'email': email, 'password': password})
         if resp.session:
-            st.session_state.auth_token = resp.session.access_token
+            access_token = resp.session.access_token
+            refresh_token = resp.session.refresh_token or ''
+            sid = _save_session(access_token, refresh_token, email)
+            _set_sid(sid)
+            st.session_state.auth_token = access_token
             st.session_state.user_email = email
+            st.session_state._sid = sid
             return None
         return 'Login failed.'
     except Exception as exc:
@@ -85,13 +92,76 @@ def do_login(email: str, password: str) -> str | None:
 
 
 def do_logout() -> None:
-    for key in ('auth_token', 'user_email', 'user_info', 'profile',
-                'chat_history', 'chat_scope_key'):
+    sid = st.session_state.pop('_sid', None) or _get_sid()
+    if sid:
+        _delete_session(sid)
+    _clear_sid()
+    for key in ('auth_token', 'user_email', 'profile',
+                'chat_history', 'chat_scope_key', '_sid'):
         st.session_state.pop(key, None)
 
 
 def is_authenticated() -> bool:
     return bool(st.session_state.get('auth_token'))
+
+
+# ---------------------------------------------------------------------------
+# Session persistence (survives browser refresh)
+# ---------------------------------------------------------------------------
+
+def _get_sid() -> str | None:
+    return st.query_params.get('sid') or None
+
+
+def _set_sid(sid: str) -> None:
+    st.query_params['sid'] = sid
+
+
+def _clear_sid() -> None:
+    st.query_params.clear()
+
+
+def _session_path(sid: str) -> Path:
+    return SESSIONS_DIR / f'{sid}.json'
+
+
+def _save_session(access_token: str, refresh_token: str, email: str) -> str:
+    sid = uuid.uuid4().hex
+    data = {'access_token': access_token, 'refresh_token': refresh_token, 'email': email}
+    _session_path(sid).write_text(json.dumps(data, indent=2), encoding='utf-8')
+    return sid
+
+
+def _load_session(sid: str) -> dict | None:
+    path = _session_path(sid)
+    if not path.exists():
+        return None
+    try:
+        return json.loads(path.read_text(encoding='utf-8'))
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def _delete_session(sid: str) -> None:
+    path = _session_path(sid)
+    if path.exists():
+        path.unlink()
+
+
+def _recover_session() -> None:
+    sid = _get_sid()
+    if not sid:
+        return
+    data = _load_session(sid)
+    if data is None:
+        _clear_sid()
+        return
+    st.session_state.auth_token = data['access_token']
+    st.session_state.user_email = data.get('email', '')
+    st.session_state._sid = sid
+    saved_page = st.query_params.get('p')
+    if saved_page in ('dashboard', 'assessment', 'mentor', 'profile'):
+        st.session_state.page = saved_page
 
 
 # ---------------------------------------------------------------------------
@@ -104,9 +174,14 @@ def fetch_profile() -> dict | None:
         return None
     try:
         resp = requests.get(f'{API_BASE_URL}/v1/profile', headers=headers, timeout=10)
-        return resp.json() if resp.status_code == 200 else None
+        if resp.status_code == 200:
+            return resp.json()
+        if resp.status_code in (401, 403):
+            _handle_auth_error()
+            return None
     except requests.RequestException:
-        return None
+        pass
+    return None
 
 
 def save_profile(payload: dict) -> dict | None:
@@ -118,6 +193,9 @@ def save_profile(payload: dict) -> dict | None:
         resp = requests.put(f'{API_BASE_URL}/v1/profile', json=payload, headers=headers, timeout=10)
         if resp.status_code == 200:
             return resp.json()
+        if resp.status_code in (401, 403):
+            _handle_auth_error()
+            return None
         st.error(f'Error {resp.status_code}: {resp.text[:200]}')
     except requests.ConnectionError:
         st.error('Cannot reach the backend.')
@@ -162,6 +240,7 @@ def inject_css() -> None:
     <style>
         .stApp { background: #fafafa; }
         .block-container { max-width: 1100px; padding-top: 0.5rem; }
+        html { font-size: 125%; }
         .auth-card {
             max-width: 420px; margin: 0 auto; padding: 2.5rem 2rem;
             background: #fff; border-radius: 14px;
@@ -169,7 +248,6 @@ def inject_css() -> None:
         }
         .auth-card h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 0.25rem; }
         .auth-card .subtitle { color: #6b7280; font-size: 0.92rem; margin-bottom: 1.5rem; }
-        .auth-card .powered { text-align: center; color: #9ca3af; font-size: 0.78rem; margin-top: 1.5rem; }
         .auth-card .stButton > button { border-radius: 8px; font-weight: 600; }
         .card {
             background: #fff; border-radius: 12px; padding: 2rem;
@@ -180,6 +258,10 @@ def inject_css() -> None:
         .stButton > button { border-radius: 8px; font-weight: 600; }
         div[data-testid="stSidebar"] { background: #fff; }
         div[data-testid="stSidebar"] .stButton > button { width: 100%; }
+        div[data-testid="stSidebar"] label { font-size: 1.5rem; padding: 0.4rem 0; }
+        div[data-testid="stSidebar"] .stRadio > label { display: none; }
+        header[data-testid="stHeader"] { display: none; }
+        .block-container { padding-top: 1.5rem; }
         hr { margin: 2rem 0; }
     </style>
     """, unsafe_allow_html=True)
@@ -461,29 +543,180 @@ def disclaimer() -> None:
     )
 
 
-def mentor_page() -> None:
-    if _verify_token_with_backend() is None:
-        do_logout()
-        st.warning('Session expired.')
-        auth_page()
-        return
+# ---------------------------------------------------------------------------
+# Navigation sidebar
+# ---------------------------------------------------------------------------
 
-    if st.session_state.get('editing_profile'):
-        profile_edit_page()
-        return
+def render_nav_sidebar() -> str:
+    with st.sidebar:
+        p = st.session_state.get('profile', {})
+        name = p.get('full_name', '') or st.session_state.get('user_email', '')
+        st.markdown(f"**{name}**")
+        st.divider()
 
-    init_state()
-    inject_css()
+        page_to_label = {'assessment': 'Assessment', 'mentor': 'AI Mentor', 'profile': 'Profile'}
+        labels = ['Assessment', 'AI Mentor', 'Profile']
+        current_page = st.session_state.get('page', 'dashboard')
+        current_label = page_to_label.get(current_page, 'Assessment')
+        selected = st.radio(
+            'Navigate',
+            options=labels,
+            index=labels.index(current_label),
+            label_visibility='collapsed',
+        )
+        label_to_page = {'Assessment': 'assessment', 'AI Mentor': 'mentor', 'Profile': 'profile'}
+        st.session_state.page = label_to_page[selected]
+        st.query_params['p'] = st.session_state.page
 
+        if st.session_state.page == 'mentor':
+            st.divider()
+            st.markdown("**Chat Scope**")
+            chat_mode = st.radio(
+                'Scope',
+                options=['All Content', 'Select Level & Module'],
+                index=0 if st.session_state.get('chat_mode') != 'Select Level & Module' else 1,
+                label_visibility='collapsed',
+            )
+            st.session_state.chat_mode = chat_mode
+
+            if chat_mode == 'Select Level & Module':
+                try:
+                    levels = fetch_levels()
+                    if levels:
+                        sel_level = st.selectbox(
+                            'Level', levels, index=None, placeholder='Select',
+                            format_func=get_level_label,
+                            key='chat_level',
+                        )
+                        if sel_level:
+                            try:
+                                mods = fetch_modules(sel_level)
+                                if mods:
+                                    st.selectbox(
+                                        'Module', mods, index=None, placeholder='Select',
+                                        format_func=get_module_label,
+                                        key='chat_module',
+                                    )
+                            except requests.RequestException:
+                                pass
+                except requests.RequestException:
+                    pass
+
+        st.divider()
+        if st.button('Sign Out', use_container_width=True):
+            do_logout()
+            st.rerun()
+
+    return st.session_state.page
+
+
+# ---------------------------------------------------------------------------
+# Dashboard page
+# ---------------------------------------------------------------------------
+
+def dashboard_page() -> None:
     p = st.session_state.get('profile', {})
     name = p.get('full_name', '')
     greeting = f', {name}' if name else ''
 
     st.markdown(f"<h1 style='margin-bottom: 0.25rem;'>Welcome{greeting}</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #6b7280; margin-bottom: 2rem;'>What would you like to do today?</p>",
+                unsafe_allow_html=True)
+
+    cols = st.columns(3)
+    cards = [
+        ('📝', 'Assessment', 'Discover your AI readiness level and get a personalized learning track.', 'assessment'),
+        ('🤖', 'AI Mentor', 'Ask questions and get answers grounded in IITM course material.', 'mentor'),
+        ('👤', 'Profile', 'View and edit your learning profile and preferences.', 'profile'),
+    ]
+    for col, (icon, title, desc, target) in zip(cols, cards):
+        with col:
+            st.markdown(
+                f"<div class='card' style='text-align: center; height: 100%; cursor: pointer;'>"
+                f"<div style='font-size: 2rem;'>{icon}</div>"
+                f"<div style='font-weight: 700; margin: 0.5rem 0 0.25rem;'>{title}</div>"
+                f"<div style='color: #6b7280; font-size: 0.9rem; margin-bottom: 1rem;'>{desc}</div>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
+            if st.button(f'Go to {title}', key=f'dash_{target}', use_container_width=True):
+                st.session_state.page = target
+                st.query_params['p'] = target
+                st.rerun()
+
+
+# ---------------------------------------------------------------------------
+# Assessment page (placeholder)
+# ---------------------------------------------------------------------------
+
+def assessment_page() -> None:
+    st.markdown("<h1 style='margin-bottom: 0.25rem;'>AI Readiness Assessment</h1>", unsafe_allow_html=True)
+    st.markdown(
+        "<p style='color: #6b7280; margin-bottom: 1.5rem;'>"
+        "Discover your AI skill level and get a personalized learning track recommendation.</p>",
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        "<div class='card' style='max-width: 700px;'>"
+        "<p style='color: #374151; line-height: 1.7;'>"
+        "This assessment includes 15 questions covering your AI experience, workflow habits, "
+        "and learning preferences. Based on your answers, you'll be mapped to one of three tracks: "
+        "<strong>Foundations</strong>, <strong>Intermediate</strong>, or <strong>Advanced</strong>.</p>"
+        "<p style='color: #374151; line-height: 1.7;'>"
+        "The assessment takes about 5 minutes. You can retake it anytime.</p>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
+    st.info('The assessment will be available in the next update.', icon='ℹ️')
+
+
+# ---------------------------------------------------------------------------
+# Profile page
+# ---------------------------------------------------------------------------
+
+def profile_page() -> None:
+    profile = st.session_state.get('profile', {})
+    st.markdown("<h1 style='margin-bottom: 0.25rem;'>Your Profile</h1>", unsafe_allow_html=True)
+    st.markdown(
+        "<p style='color: #6b7280; margin-bottom: 1.5rem;'>Manage your learning preferences.</p>",
+        unsafe_allow_html=True,
+    )
+
+    if st.button('Edit Profile', use_container_width=True):
+        st.session_state.editing_profile = True
+        st.rerun()
+
+    if st.session_state.get('editing_profile'):
+        profile_edit_page()
+        return
+
+    st.markdown("<div class='card' style='max-width: 700px;'>", unsafe_allow_html=True)
+    fields = [
+        ('Full Name', profile.get('full_name', '—')),
+        ('Industry', profile.get('industry', '—')),
+        ('Years of Experience', str(profile.get('years_experience', '—'))),
+        ('Career Goal', profile.get('career_aspirations', '—')),
+        ('AI Learning Goals', profile.get('ai_learning_goals', '—')),
+        ('Weekly Availability', profile.get('weekly_learning_availability', '—')),
+    ]
+    for label, value in fields:
+        st.markdown(f"**{label}:** {value}")
+    st.markdown("</div>", unsafe_allow_html=True)
+
+
+# ---------------------------------------------------------------------------
+# Mentor / Chat page
+# ---------------------------------------------------------------------------
+
+def mentor_page() -> None:
+    init_state()
+
+    st.markdown(f"<h1 style='margin-bottom: 0.25rem;'>AI Mentor</h1>", unsafe_allow_html=True)
     st.markdown("<p style='color: #6b7280; margin-bottom: 1.5rem;'>Ask me anything about your course.</p>",
                 unsafe_allow_html=True)
 
-    st.markdown("""
+    with st.expander('About AI Mentor', expanded=True):
+        st.markdown("""
 **AI Mentor** — Clear your doubts. Learn with confidence.
 
 **Who is it for?**  
@@ -501,19 +734,15 @@ def mentor_page() -> None:
 - Explains topics using the course content and learning stages  
 - Supports deeper understanding with follow-up questions  
 - Makes learning feel more structured, interactive, and confident
-    """)
-    st.caption('Ask one question at a time. The chatbot remembers the last 5 exchanges.')
+        """)
+        st.caption('Ask one question at a time. The chatbot remembers the last 5 exchanges.')
 
-    mode, level, module, session = sidebar()
+    chat_mode = st.session_state.get('chat_mode', 'All Content')
+    level = st.session_state.get('chat_level') if chat_mode == 'Select Level & Module' else None
+    module = st.session_state.get('chat_module') if chat_mode == 'Select Level & Module' else None
 
-    if mode == 'global':
-        st.info('Welcome! Ask me anything about your course material.', icon='💬')
-
-    if mode == 'filtered' and (not level or not module):
-        st.info('Select a level and module from the sidebar.')
-        return
-
-    scope_key = build_scope_key(mode, level, module, session)
+    mode_param = 'global' if chat_mode == 'All Content' else 'filtered'
+    scope_key = build_scope_key(mode_param, level, module, None)
     messages = ensure_history(scope_key)
 
     for msg in messages:
@@ -531,9 +760,9 @@ def mentor_page() -> None:
     with st.chat_message('user'):
         st.markdown(prompt)
 
-    payload = {'question': prompt, 'mode': mode, 'chat_history': messages}
-    if mode != 'global':
-        payload.update({'level': level, 'module': module, 'session': session})
+    payload = {'question': prompt, 'mode': mode_param, 'chat_history': messages}
+    if mode_param != 'global':
+        payload.update({'level': level, 'module': module})
 
     try:
         with st.chat_message('assistant'):
@@ -570,10 +799,29 @@ def ensure_history(key: str) -> list:
 
 
 # ---------------------------------------------------------------------------
+# App shell — sidebar nav + page routing
+# ---------------------------------------------------------------------------
+
+def app_shell() -> None:
+    inject_css()
+    current_page = render_nav_sidebar()
+
+    page_map = {
+        'dashboard': dashboard_page,
+        'assessment': assessment_page,
+        'mentor': mentor_page,
+        'profile': profile_page,
+    }
+    page_map.get(current_page, dashboard_page)()
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
 st.set_page_config(page_title='AI Mentor', layout='wide')
+
+_recover_session()
 
 if not is_authenticated():
     inject_css()
@@ -586,4 +834,7 @@ if st.session_state.get('profile') is None:
 if not onboarding_done():
     onboarding_page()
 
-mentor_page()
+if st.session_state.get('page') is None:
+    st.session_state.page = st.query_params.get('p') or 'dashboard'
+
+app_shell()

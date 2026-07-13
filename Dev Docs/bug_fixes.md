@@ -72,3 +72,15 @@ Transcript files were in a flat structure instead of the `level_<n>/<category>/<
 
 ### Metadata not flowing into Pinecone
 Level, category, module, and session metadata were not being preserved in the chunk generation → Pinecone upload pipeline. Updated `rag_chunks/` generation and Pinecone metadata to include all hierarchy fields.
+
+## Performance
+
+### Auth verification running on every Streamlit rerun
+`_verify_token_with_backend()` was called inside `app_shell()`, triggering a `GET /v1/auth/me` request to FastAPI and then to Supabase on **every** widget interaction (button click, dropdown, chat input, nav change, etc.). This made the UI feel slow and laggy.
+
+Removed the function entirely from the rerun path. The app now trusts `st.session_state.auth_token` as the session — auth only happens at login, logout, browser refresh, or when a protected endpoint returns 401/403. Backend endpoints independently validate the JWT on each protected request, so security is unchanged.
+
+## UI
+
+### Streamlit header bar cutting into page content
+The default Streamlit header bar (containing the hamburger menu and deploy button) overlapped with the main page heading, cutting off the top of the text. Added `header[data-testid="stHeader"] { display: none; }` to hide it and adjusted `block-container` padding so content aligns properly.
