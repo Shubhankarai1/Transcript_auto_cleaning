@@ -317,47 +317,44 @@ Enable secure sign-in and persistent user records.
 
 Build the first-run onboarding flow that captures the learner context required for personalization.
 
-### Deliverables
+### What was implemented
 
-- Multi-step onboarding form
-- Validation and save/resume behavior
-- Profile edit screen
-- Backend endpoints to create, update, and fetch profile state
+- 3-step onboarding form (Full Name + Industry → Experience + Career Goal → AI Goals + Weekly Hours)
+- Profile edit screen accessible from the sidebar
+- Data saved to backend only on final "Complete Setup" step
+- Onboarding gates access to mentor chat until completed
 
-### Product Rules
+### Current Status
 
-- Onboarding must be short enough to complete quickly
-- Every field should have downstream use in assessment or roadmap generation
-- Users should not access the full dashboard until minimum profile data is captured
-
-### Exit Criteria
-
-- A first-time user can complete onboarding and land on a personalized dashboard shell.
+- Onboarding is functional and complete for the prototype.
+- Users who skip onboarding mid-way will need to re-enter data (no partial save/resume across sessions).
+- The profile edit screen allows updating all fields after onboarding.
 
 ## Phase 4.5: UI/UX Redesign
 
 ### Objective
 
-Redesign the application to feel like a modern SaaS product while keeping it fully compatible with Streamlit. The full spec is in `Dev Docs/design.md`.
+Improve the visual design of the authentication and onboarding screens to feel clean and modern.
 
-### Deliverables
+### What was implemented
 
-- Apply theme (background `#FAFAFA`, primary `#2563EB`, accent `#14B8A6`, 12px border-radius, soft shadows, 1000px max-width centered)
-- Add a landing page before login (hero with Get Started / Login buttons, 3 feature cards, How It Works 4-step section, footer)
-- Redesign login page as a centered card (max 450px)
-- Redesign onboarding as centered cards (max 700px) with a progress bar, dropdowns/radios instead of text areas
-- Clean up AI Mentor page: remove long intro paragraphs, show a single welcome message, tidy sidebar
-- Consistent typography and spacing throughout
+- Auth page redesigned as a centered white card (420px max) with soft shadow and rounded corners
+- Auth uses Streamlit tabs for Sign In / Sign Up
+- Onboarding steps wrapped in centered cards (max 700px) with dropdowns replacing text areas for Industry, Experience, and Weekly Hours
+- Mentor header restored with permanent visible intro content (not collapsible)
+- Streamlit default header hidden for a cleaner look
 
-### Implementation Notes
+### Not implemented (explicitly removed)
 
-- Entirely CSS + Streamlit native components. No backend changes, no new libraries.
-- Estimated effort: 2–3 hours.
+- Landing page (hero, features, about, footer) — removed completely, app starts on auth
+- "Powered by IITM" footer text — removed
+- Full SaaS landing page spec from `design.md` — not pursued
 
-### Exit Criteria
+### Current Status
 
-- The app looks clean, centered, and presentable — like a modern SaaS product.
-- No backend changes required.
+- The app launches directly on the auth page. No marketing/landing page.
+- The theme is minimal with white cards, soft shadows, and consistent spacing.
+- Cleanup is sufficient for the prototype phase.
 
 ## Phase 5: AI Readiness Assessment Engine
 
