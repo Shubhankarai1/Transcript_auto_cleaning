@@ -9,15 +9,16 @@ The goal is not to rebuild the knowledge layer. The existing transcript ingestio
 Already available in this repository:
 
 - Transcript ingestion and cleaning pipeline
-- RAG-ready chunk generation
-- Pinecone upload workflow
+- Hierarchy-aware content ingestion for level, category, module, and session
+- RAG-ready chunk generation with level/category/module/session metadata
+- Pinecone upload workflow with structure-aware vector metadata
 - FastAPI backend for retrieval and chat
 - Streamlit frontend for AI Mentor chat
-- Basic module/session scoped learning support
+- Basic level/module scoped learning support
+- Basic profile persistence endpoints backed by Supabase helpers
 
 What is missing for PRD v2:
 
-- A multi-level content system for beginner, intermediate, and advanced learners
 - Authentication
 - Persistent user data model
 - Learner onboarding and profile management
@@ -91,41 +92,54 @@ Completed:
   - `wdp/session_<n>.txt`
 - Existing advanced transcript content has already been placed under `level_3_advanced`
 - A structure note has been added at `input/README_STRUCTURE.md`
-
-Not completed yet:
-
-- The ingestion pipeline still does not read this hierarchy correctly
-- The chunking pipeline still does not attach `level`, `category`, and hierarchy-derived metadata
-- Pinecone vectors are still not formally labeled with the new learning structure
-
-### Required Pipeline Upgrades
-
-- Update content loading so files can be discovered from the new nested level-based folders
-- Extract structure-aware fields from the file path:
+- The ingestion pipeline now reads the new hierarchy using recursive discovery under `input/`
+- File path parsing now extracts:
   - level
   - category
   - module
   - session number
-- Update chunk generation so chunks preserve:
+  - hierarchy-aware identifiers
+- Module outputs now preserve `Level` and `Category` headers
+- RAG chunk generation now preserves:
   - level
   - category
   - module
   - topic
-  - session or lesson id
-- Update metadata extraction so stored metadata includes:
+  - session
+  - chunk id
+- Pinecone upload now includes:
   - level
   - category
   - module
   - session
-  - track when needed
-- Update Pinecone upload so vectors include the new hierarchy metadata
-- Keep `level_3_advanced` compatible without requiring a category layer
-- Rebuild or refresh chunk outputs for the upgraded content structure
+  - chunk
+  - topic-derived metadata
+- `level_3_advanced` remains compatible without requiring a category layer
+
+Not completed yet:
+
+- The repository documentation still contains some old flat-layout examples
+- The warning text in parts of the pipeline still references old `input/<module>/session_<n>.txt` examples
+- A fresh validation run should still be done whenever content is changed, so regenerated `rag_chunks/` and Pinecone data stay fully aligned with the current structure
+- Optional hierarchy fields such as `module_path` and `content_id` are parsed during ingestion but are not yet written into `rag_chunks/` or Pinecone metadata
+
+### Required Pipeline Upgrades
+
+- Done:
+  - Content loading now discovers files from nested level-based folders
+  - Structure-aware fields are extracted from the file path
+  - Chunk generation now preserves level/category/module/topic/session metadata
+  - Pinecone upload now includes the new hierarchy metadata
+  - `level_3_advanced` is supported without a category layer
+- Remaining:
+  - Rebuild or refresh chunk outputs whenever transcript content changes
+  - Verify a small end-to-end ingest after each structural change
+  - Decide whether richer hierarchy fields such as `module_path` and `content_id` should also flow into stored chunk metadata and Pinecone
 
 ### Immediate Implementation Rule
 
-- Do not run full ingestion before the pipeline is upgraded for hierarchy-aware labeling.
-- Code changes for labeling must happen before cleaning, chunking, and Pinecone upload of the new structure.
+- Hierarchy-aware labeling is now implemented.
+- Future full ingests should use the updated pipeline so regenerated chunks and Pinecone vectors stay consistent with the current content tree.
 
 ### Exit Criteria
 
@@ -136,6 +150,11 @@ Not completed yet:
   - category
   - module
 - A small test ingest validates that hierarchy labels flow correctly into Pinecone metadata
+
+Status:
+
+- Core implementation is complete.
+- Final operational verification depends on running a fresh ingest and Pinecone sync against the current content set.
 
 ## Phase 1: Foundation And Architecture Alignment
 
@@ -168,6 +187,16 @@ Stabilize the current codebase and define the target architecture before adding 
 - Entity relationship draft
 - API surface draft
 - MVP feature checklist
+
+### Current Status
+
+- Configuration loading is centralized through `config.py`
+- Local and deployment environment separation is in place through `.env` and `.env.local`
+- Some service boundaries are starting to emerge:
+  - retrieval utilities
+  - Supabase client helpers
+  - config helpers
+- Full architecture alignment and backend separation are still pending
 
 ### Exit Criteria
 
@@ -205,6 +234,17 @@ Refactor the current backend from a single-purpose chat API into a platform back
 
 - This phase should mainly improve structure, not user-facing functionality.
 - Do not merge assessment logic or roadmap generation directly into `api.py`.
+
+### Current Status
+
+- The backend still centers on `api.py`, so this phase is not complete
+- Existing reusable platform-facing pieces already present:
+  - `/chat`
+  - `/levels`
+  - `/modules`
+  - `/sessions`
+  - `/v1/profile`
+- Configuration and service helpers already exist, but the backend is not yet refactored into clear modules for auth, assessment, roadmap, and mentor services
 
 ### Exit Criteria
 
@@ -260,6 +300,15 @@ Enable secure sign-in and persistent user records.
 ### Exit Criteria
 
 - A user can sign in, sign out, and persist a profile record across sessions.
+
+### Current Status
+
+- Partial progress exists:
+  - Supabase client helpers are implemented
+  - profile create, read, and update endpoints exist at `/v1/profile`
+  - profile fields and persistence scaffolding are present
+- Authentication itself is not implemented yet
+- Frontend login and authenticated session handling are not implemented yet
 
 ## Phase 4: Learner Profile Onboarding
 
@@ -571,3 +620,4 @@ Defer these until after MVP:
 8. Define the database schema and platform API contracts.
 9. Refactor the current backend so mentor chat becomes one service inside a larger application.
 10. Turn the assessment and learning track documents into structured data assets.
+
