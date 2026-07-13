@@ -334,6 +334,31 @@ Build the first-run onboarding flow that captures the learner context required f
 
 - A first-time user can complete onboarding and land on a personalized dashboard shell.
 
+## Phase 4.5: UI/UX Redesign
+
+### Objective
+
+Redesign the application to feel like a modern SaaS product while keeping it fully compatible with Streamlit. The full spec is in `Dev Docs/design.md`.
+
+### Deliverables
+
+- Apply theme (background `#FAFAFA`, primary `#2563EB`, accent `#14B8A6`, 12px border-radius, soft shadows, 1000px max-width centered)
+- Add a landing page before login (hero with Get Started / Login buttons, 3 feature cards, How It Works 4-step section, footer)
+- Redesign login page as a centered card (max 450px)
+- Redesign onboarding as centered cards (max 700px) with a progress bar, dropdowns/radios instead of text areas
+- Clean up AI Mentor page: remove long intro paragraphs, show a single welcome message, tidy sidebar
+- Consistent typography and spacing throughout
+
+### Implementation Notes
+
+- Entirely CSS + Streamlit native components. No backend changes, no new libraries.
+- Estimated effort: 2–3 hours.
+
+### Exit Criteria
+
+- The app looks clean, centered, and presentable — like a modern SaaS product.
+- No backend changes required.
+
 ## Phase 5: AI Readiness Assessment Engine
 
 ### Objective

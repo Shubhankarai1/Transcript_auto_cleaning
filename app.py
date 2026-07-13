@@ -211,9 +211,7 @@ def render_onboarding_page() -> None:
                 if not full_name.strip():
                     st.error('Full name is required.')
                 else:
-                    profile.update({'full_name': full_name.strip(), 'job_role': job_role.strip(),
-                                    'onboarding_completed': False})
-                    save_profile_to_backend(profile)
+                    profile.update({'full_name': full_name.strip(), 'job_role': job_role.strip()})
                     st.session_state.profile = profile
                     st.session_state.onboarding_step = 2
                     st.rerun()
@@ -239,7 +237,6 @@ def render_onboarding_page() -> None:
                     'years_experience': int(years_exp),
                     'career_aspirations': career_aspirations.strip(),
                 })
-                save_profile_to_backend(profile)
                 st.session_state.profile = profile
                 st.session_state.onboarding_step = 3
                 st.rerun()
