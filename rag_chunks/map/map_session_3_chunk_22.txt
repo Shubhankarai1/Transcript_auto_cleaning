@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: map
+Module_path: map
+Content_id: level_3_advanced/map/session_3
 Session: 3
 Topic: Understanding LLM and Function Calling with Weather API
 Chunk: 22

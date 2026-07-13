@@ -1,6 +1,8 @@
 Level: beginner
 Category: subject_matter_expertise
 Module: operations_process_mapping_and_automated_reporting
+Module_path: subject_matter_expertise/operations_process_mapping_and_automated_reporting
+Content_id: level_1_foundations/subject_matter_expertise/operations_process_mapping_and_automated_reporting/session_1
 Session: 1
 Topic: Simplifying Workflows with AI and Dashboards
 Chunk: 2

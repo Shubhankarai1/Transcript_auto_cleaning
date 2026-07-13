@@ -1,6 +1,8 @@
 Level: beginner
 Category: subject_matter_expertise
 Module: hr_ai_enhanced_jd_design_and_skills_gap_mapping
+Module_path: subject_matter_expertise/hr_ai_enhanced_jd_design_and_skills_gap_mapping
+Content_id: level_1_foundations/subject_matter_expertise/hr_ai_enhanced_jd_design_and_skills_gap_mapping/session_1
 Session: 1
 Topic: How to Use AI in HR: Real Use Cases and What to Do Next [2025]
 Chunk: 1

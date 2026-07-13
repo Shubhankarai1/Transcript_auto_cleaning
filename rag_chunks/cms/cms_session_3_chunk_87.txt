@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: cms
+Module_path: cms
+Content_id: level_3_advanced/cms/session_3
 Session: 3
 Topic: Processing Documents in Vector Database
 Chunk: 87

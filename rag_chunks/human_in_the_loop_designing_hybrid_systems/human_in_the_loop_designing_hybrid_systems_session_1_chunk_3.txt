@@ -1,6 +1,8 @@
 Level: intermediate
 Category: common_modules
 Module: human_in_the_loop_designing_hybrid_systems
+Module_path: common_modules/human_in_the_loop_designing_hybrid_systems
+Content_id: level_2_intermediate/common_modules/human_in_the_loop_designing_hybrid_systems/session_1
 Session: 1
 Topic: Human Intervention in AI Systems
 Chunk: 3

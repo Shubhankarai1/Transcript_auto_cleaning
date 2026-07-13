@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: cms
+Module_path: cms
+Content_id: level_3_advanced/cms/session_1
 Session: 1
 Topic: Understanding Prompt Templates in Langchain_Core
 Chunk: 25

@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: wdp
+Module_path: wdp
+Content_id: level_3_advanced/wdp/session_5
 Session: 5
 Topic: Multi-Agent Systems within Multi-Agent Systems
 Chunk: 122

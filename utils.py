@@ -445,18 +445,35 @@ def merge_module_output(cleaned_sessions: Dict[int, str]) -> str:
     return "\n\n---\n\n".join(sections).strip() + "\n"
 
 
+LEVEL_NAME_TO_FOLDER = {v: k for k, v in LEVEL_FOLDER_MAP.items()}
+
+
+def build_content_id(
+    level: str,
+    category: str,
+    module: str,
+    session_number: int,
+) -> str:
+    level_folder = LEVEL_NAME_TO_FOLDER.get(level, "")
+    if level == "advanced":
+        return f"{level_folder}/{module}/session_{session_number}"
+    return f"{level_folder}/{category}/{module}/session_{session_number}"
+
+
 def save_module_output(
     output_dir: Path,
     module_name: str,
     content: str,
     level: str = "advanced",
     category: str | None = None,
+    module_path: str = "",
 ) -> Path:
     module_key = normalize_module_name(module_name)
     final_path = output_dir / f"{module_key}_final_cleaned.txt"
     header = (
         f"Level: {level}\n"
-        f"Category: {category or 'advanced'}\n\n"
+        f"Category: {category or 'advanced'}\n"
+        f"Module_path: {module_path}\n\n"
     )
     final_path.write_text(header + content.strip() + "\n", encoding="utf-8")
     logging.info("Saved module output: %s", final_path)

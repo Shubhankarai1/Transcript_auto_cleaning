@@ -1,6 +1,8 @@
 Level: intermediate
 Category: role_specific
 Module: customer_facing_ai_sentiment_analysis_and_crm_integration
+Module_path: role_specific/customer_facing_ai_sentiment_analysis_and_crm_integration
+Content_id: level_2_intermediate/role_specific/customer_facing_ai_sentiment_analysis_and_crm_integration/session_1
 Session: 1
 Topic: AI in CRM and its benefits
 Chunk: 2

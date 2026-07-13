@@ -1,6 +1,8 @@
 Level: intermediate
 Category: role_specific
 Module: project_management_predictive_resource_allocation_and_automated_risk_tracking
+Module_path: role_specific/project_management_predictive_resource_allocation_and_automated_risk_tracking
+Content_id: level_2_intermediate/role_specific/project_management_predictive_resource_allocation_and_automated_risk_tracking/session_1
 Session: 1
 Topic: Asana: Human and AI Coordination for Project Management
 Chunk: 1

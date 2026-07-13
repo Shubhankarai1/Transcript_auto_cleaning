@@ -1,6 +1,8 @@
 Level: beginner
 Category: common_modules
 Module: prompt_engineering
+Module_path: common_modules/prompt_engineering
+Content_id: level_1_foundations/common_modules/prompt_engineering/session_1
 Session: 1
 Topic: Using Chain Library for OpenAI's GPT-3
 Chunk: 4

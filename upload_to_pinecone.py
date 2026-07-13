@@ -116,6 +116,8 @@ def load_chunks(base_dir: Path) -> list[dict[str, Any]]:
                     "level": extract_header_value(content, "Level", "advanced"),
                     "category": extract_header_value(content, "Category", "advanced"),
                     "module_name": extract_header_value(content, "Module", module_name),
+                    "module_path": extract_header_value(content, "Module_path", module_name),
+                    "content_id": extract_header_value(content, "Content_id", ""),
                     "session_id": session_id,
                     "chunk_index": chunk_index,
                     "topic_name": extract_topic_from_content(content),
@@ -299,6 +301,8 @@ def extract_metadata(
     topic_name: str,
     level: str,
     category: str | None,
+    module_path: str = "",
+    content_id: str = "",
 ) -> dict[str, Any]:
     """
     Extract semantic metadata for a chunk using OpenAI.
@@ -347,6 +351,8 @@ def extract_metadata(
         "level": level,
         "category": category or "advanced",
         "module": module_name,
+        "module_path": module_path,
+        "content_id": content_id,
         "topic": topic,
         "subtopic": subtopic,
         "topic_header": topic_name,
@@ -371,9 +377,11 @@ def process_chunk(
     topic_name: str,
     level: str,
     category: str | None,
+    module_path: str = "",
+    content_id: str = "",
 ) -> dict[str, Any]:
     """Return the structured chunk object expected by the embedding pipeline."""
-    metadata = extract_metadata(chunk_text, session_id, module_name, topic_name, level, category)
+    metadata = extract_metadata(chunk_text, session_id, module_name, topic_name, level, category, module_path, content_id)
     metadata["chunk_id"] = build_chunk_id(module_name, session_id, chunk_index, level, category)
 
     logging.info(
@@ -456,6 +464,8 @@ def main() -> None:
                     topic_name=chunk["topic_name"],
                     level=chunk["level"],
                     category=chunk["category"],
+                    module_path=chunk.get("module_path", ""),
+                    content_id=chunk.get("content_id", ""),
                 )
             )
         except Exception as exc:

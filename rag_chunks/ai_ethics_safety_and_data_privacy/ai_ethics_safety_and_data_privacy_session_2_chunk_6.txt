@@ -1,6 +1,8 @@
 Level: beginner
 Category: common_modules
 Module: ai_ethics_safety_and_data_privacy
+Module_path: common_modules/ai_ethics_safety_and_data_privacy
+Content_id: level_1_foundations/common_modules/ai_ethics_safety_and_data_privacy/session_2
 Session: 2
 Topic: Automation in Medical Imaging and Drug Discovery
 Chunk: 6

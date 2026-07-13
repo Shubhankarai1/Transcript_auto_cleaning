@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: wdp
+Module_path: wdp
+Content_id: level_3_advanced/wdp/session_4
 Session: 4
 Topic: Module Overview and Clarification on Covered and Remaining Modules
 Chunk: 76

@@ -1,6 +1,8 @@
 Level: beginner
 Category: common_modules
 Module: prompt_engineering
+Module_path: common_modules/prompt_engineering
+Content_id: level_1_foundations/common_modules/prompt_engineering/session_1
 Session: 1
 Topic: Explanation of Max Tokens in OpenAI Models
 Chunk: 5

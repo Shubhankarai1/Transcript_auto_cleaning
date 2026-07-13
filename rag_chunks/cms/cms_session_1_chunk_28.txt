@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: cms
+Module_path: cms
+Content_id: level_3_advanced/cms/session_1
 Session: 1
 Topic: Persistence of Chat History in AI Model
 Chunk: 28

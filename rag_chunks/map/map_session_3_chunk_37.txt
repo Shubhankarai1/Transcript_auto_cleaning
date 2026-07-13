@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: map
+Module_path: map
+Content_id: level_3_advanced/map/session_3
 Session: 3
 Topic: Creating a Tool for City Weather Function using lchain and decorators
 Chunk: 37

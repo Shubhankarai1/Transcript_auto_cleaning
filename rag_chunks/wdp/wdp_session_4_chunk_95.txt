@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: wdp
+Module_path: wdp
+Content_id: level_3_advanced/wdp/session_4
 Session: 4
 Topic: Creating and Testing an LLM Node in Agentic AI Workflow
 Chunk: 95

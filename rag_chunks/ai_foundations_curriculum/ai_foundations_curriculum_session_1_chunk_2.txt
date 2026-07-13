@@ -1,6 +1,8 @@
 Level: beginner
 Category: common_modules
 Module: ai_foundations_curriculum
+Module_path: common_modules/ai_foundations_curriculum
+Content_id: level_1_foundations/common_modules/ai_foundations_curriculum/session_1
 Session: 1
 Topic: Applications of AI in Various Industries
 Chunk: 2

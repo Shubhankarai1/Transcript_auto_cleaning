@@ -1,6 +1,8 @@
 Level: beginner
 Category: common_modules
 Module: ai_foundations_curriculum
+Module_path: common_modules/ai_foundations_curriculum
+Content_id: level_1_foundations/common_modules/ai_foundations_curriculum/session_1
 Session: 1
 Topic: Importance of Reproducibility and MCP in AI
 Chunk: 6

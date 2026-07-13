@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: wdp
+Module_path: wdp
+Content_id: level_3_advanced/wdp/session_4
 Session: 4
 Topic: Designing a State for Ticket Raising Assistant
 Chunk: 80

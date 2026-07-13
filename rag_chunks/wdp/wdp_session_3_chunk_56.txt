@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: wdp
+Module_path: wdp
+Content_id: level_3_advanced/wdp/session_3
 Session: 3
 Topic: Creating a Chatbot with Python
 Chunk: 56

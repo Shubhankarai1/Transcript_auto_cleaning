@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: wdp
+Module_path: wdp
+Content_id: level_3_advanced/wdp/session_2
 Session: 2
 Topic: Understanding the differences between Google Colab and VS Code for AI development
 Chunk: 23

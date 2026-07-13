@@ -1,6 +1,8 @@
 Level: advanced
 Category: advanced
 Module: wdp
+Module_path: wdp
+Content_id: level_3_advanced/wdp/session_1
 Session: 1
 Topic: Designing a Workflow with Langraph for Fraud Detection and IT Support
 Chunk: 20

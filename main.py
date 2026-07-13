@@ -10,6 +10,7 @@ from tqdm import tqdm
 from api import app
 from utils import (
     bootstrap_module_session_cache,
+    build_content_id,
     clean_chunk,
     ensure_directories,
     load_files,
@@ -171,6 +172,8 @@ def save_rag_chunk(
     chunk_id: int,
     body_text: str,
     base_dir: Path,
+    module_path: str = "",
+    content_id: str = "",
 ) -> Path:
     module_dir = base_dir / "rag_chunks" / module
     module_dir.mkdir(parents=True, exist_ok=True)
@@ -182,6 +185,8 @@ def save_rag_chunk(
         f"Level: {level}\n"
         f"Category: {category or 'advanced'}\n"
         f"Module: {module}\n"
+        f"Module_path: {module_path}\n"
+        f"Content_id: {content_id}\n"
         f"Session: {session_number}\n"
         f"Topic: {topic_name}\n"
         f"Chunk: {chunk_id}\n\n"
@@ -216,12 +221,14 @@ def process_rag_chunking(base_dir: Path) -> None:
         text = final_file.read_text(encoding="utf-8")
         level = extract_output_header_value(text, "Level", "advanced")
         category = extract_output_header_value(text, "Category", "advanced")
+        module_path = extract_output_header_value(text, "Module_path", module)
         session_texts = split_by_session(text)
         chunk_id = 0
         saved_paths: list[Path] = []
 
         for session_text in session_texts:
             session_number = extract_session_number(session_text)
+            content_id = build_content_id(level, category, module, session_number)
             topic_texts = split_by_topic(session_text)
 
             for topic_text in topic_texts:
@@ -240,6 +247,8 @@ def process_rag_chunking(base_dir: Path) -> None:
                         chunk_id,
                         subchunk,
                         base_dir,
+                        module_path=module_path,
+                        content_id=content_id,
                     )
                     saved_paths.append(saved_path)
 
@@ -259,11 +268,11 @@ def main() -> None:
         legacy_files = sorted(paths["input"].glob("*.txt"))
         if legacy_files:
             logging.warning(
-                "Found flat transcript files in %s, but the pipeline now expects module folders like input/cms/session_1.txt.",
+                "Found flat transcript files in %s, but the pipeline now expects a hierarchy like input/level_1_foundations/<category>/<module>/session_1.txt.",
                 paths["input"],
             )
         logging.warning(
-            "No valid transcript files found in %s. Add files in module folders like input/cms/session_1.txt and rerun.",
+            "No valid transcript files found in %s. Add files in the hierarchy like input/level_1_foundations/common_modules/<module>/session_1.txt and rerun.",
             paths["input"],
         )
         return
@@ -276,11 +285,13 @@ def main() -> None:
         session_number = int(session["session_number"])
         level = str(session.get("level") or "advanced")
         category = session.get("category")
+        module_path = str(session.get("module_path", ""))
         transcript_text = str(session["text"])
 
         module_metadata[module_name] = {
             "level": level,
             "category": str(category) if category is not None else None,
+            "module_path": module_path,
         }
 
         existing_output = load_cached_session_output(
@@ -357,6 +368,7 @@ def main() -> None:
             module_output,
             level=str(metadata.get("level") or "advanced"),
             category=metadata.get("category"),
+            module_path=str(metadata.get("module_path", "")),
         )
 
     process_rag_chunking(base_dir)

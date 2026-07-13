@@ -1,6 +1,8 @@
 Level: beginner
 Category: subject_matter_expertise
 Module: finance_chatgpt_excel_skills
+Module_path: subject_matter_expertise/finance_chatgpt_excel_skills
+Content_id: level_1_foundations/subject_matter_expertise/finance_chatgpt_excel_skills/session_1
 Session: 1
 Topic: Using ChatGPT for Excel Data Analysis in Finance
 Chunk: 1

@@ -1,6 +1,8 @@
 Level: intermediate
 Category: common_modules
 Module: ai_data_analysis_extracting_insights
+Module_path: common_modules/ai_data_analysis_extracting_insights
+Content_id: level_2_intermediate/common_modules/ai_data_analysis_extracting_insights/session_1
 Session: 1
 Topic: Designing Dashboards for Easy Data Understanding
 Chunk: 3
