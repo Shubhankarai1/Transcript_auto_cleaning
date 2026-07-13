@@ -60,7 +60,6 @@ def do_signup(email: str, password: str) -> str | None:
 
 
 def _verify_token_with_backend() -> dict | None:
-    """Call /v1/auth/me to confirm the backend accepts the current token."""
     headers = _auth_headers()
     if not headers:
         return None
@@ -90,12 +89,50 @@ def do_logout() -> None:
     st.session_state.pop('auth_token', None)
     st.session_state.pop('user_email', None)
     st.session_state.pop('user_info', None)
+    st.session_state.pop('profile', None)
     st.session_state.pop('chat_history', None)
     st.session_state.pop('chat_scope_key', None)
 
 
 def is_authenticated() -> bool:
     return bool(st.session_state.get('auth_token'))
+
+
+# ---------------------------------------------------------------------------
+# Profile / Onboarding helpers
+# ---------------------------------------------------------------------------
+
+def fetch_profile_from_backend() -> dict | None:
+    headers = _auth_headers()
+    if not headers:
+        return None
+    try:
+        resp = requests.get(f'{API_BASE_URL}/v1/profile', headers=headers, timeout=10)
+        if resp.status_code == 200:
+            return resp.json()
+    except requests.RequestException:
+        pass
+    return None
+
+
+def save_profile_to_backend(payload: dict) -> dict | None:
+    headers = _auth_headers()
+    if not headers:
+        return None
+    try:
+        resp = requests.put(f'{API_BASE_URL}/v1/profile', json=payload, headers=headers, timeout=10)
+        if resp.status_code == 200:
+            return resp.json()
+    except requests.RequestException:
+        pass
+    return None
+
+
+def is_onboarding_complete() -> bool:
+    profile = st.session_state.get('profile')
+    if profile is None:
+        return False
+    return bool(profile.get('onboarding_completed'))
 
 
 # ---------------------------------------------------------------------------
@@ -144,7 +181,157 @@ def render_auth_page() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Chat helpers (unchanged logic, added auth header support)
+# Onboarding UI
+# ---------------------------------------------------------------------------
+
+def render_onboarding_page() -> None:
+    profile = st.session_state.get('profile', {})
+    step = st.session_state.get('onboarding_step', 1)
+
+    st.title('Welcome to AI Mentor')
+    st.markdown('Let\'s set up your learning profile.')
+
+    progress_text = f'Step {step} of 3'
+    st.progress(step / 3, text=progress_text)
+
+    if step == 1:
+        st.subheader('Tell us about yourself')
+        full_name = st.text_input('Full Name', value=profile.get('full_name', '') or '')
+        job_role = st.text_input('Job Role / Title', value=profile.get('job_role', '') or '',
+                                 placeholder='e.g. Software Engineer, Student, Product Manager')
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            if st.button('Next', use_container_width=True, type='primary'):
+                if not full_name.strip():
+                    st.error('Full name is required.')
+                else:
+                    profile.update({'full_name': full_name.strip(), 'job_role': job_role.strip(),
+                                    'onboarding_completed': False})
+                    save_profile_to_backend(profile)
+                    st.session_state.profile = profile
+                    st.session_state.onboarding_step = 2
+                    st.rerun()
+
+    elif step == 2:
+        st.subheader('Your background')
+        industry = st.text_input('Industry', value=profile.get('industry', '') or '',
+                                 placeholder='e.g. Technology, Healthcare, Finance, Education')
+        years_exp = st.number_input('Years of Experience', min_value=0, max_value=60,
+                                    value=profile.get('years_experience') or 0, step=1)
+        career_aspirations = st.text_area('Career Aspirations', value=profile.get('career_aspirations', '') or '',
+                                          placeholder='What do you want to achieve in your career?',
+                                          height=100)
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            if st.button('Back', use_container_width=True):
+                st.session_state.onboarding_step = 1
+                st.rerun()
+        with col2:
+            if st.button('Next', use_container_width=True, type='primary'):
+                profile.update({
+                    'industry': industry.strip(),
+                    'years_experience': int(years_exp),
+                    'career_aspirations': career_aspirations.strip(),
+                })
+                save_profile_to_backend(profile)
+                st.session_state.profile = profile
+                st.session_state.onboarding_step = 3
+                st.rerun()
+
+    elif step == 3:
+        st.subheader('Learning preferences')
+        ai_goals = st.text_area('AI Learning Goals', value=profile.get('ai_learning_goals', '') or '',
+                                placeholder='What specific AI skills or topics do you want to learn?',
+                                height=100)
+        availability = st.selectbox(
+            'Weekly learning availability',
+            options=['', '1–2 hours', '3–5 hours', '5–10 hours', '10+ hours'],
+            index=0 if not profile.get('weekly_learning_availability') else
+                  ['', '1–2 hours', '3–5 hours', '5–10 hours', '10+ hours'].index(
+                      profile.get('weekly_learning_availability', '')),
+        )
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            if st.button('Back', use_container_width=True):
+                st.session_state.onboarding_step = 2
+                st.rerun()
+        with col2:
+            if st.button('Complete Setup', use_container_width=True, type='primary'):
+                profile.update({
+                    'ai_learning_goals': ai_goals.strip(),
+                    'weekly_learning_availability': availability,
+                    'onboarding_completed': True,
+                })
+                result = save_profile_to_backend(profile)
+                if result:
+                    st.session_state.profile = result
+                    st.session_state.pop('onboarding_step', None)
+                    st.success('Profile saved!')
+                    st.rerun()
+                else:
+                    st.error('Failed to save profile. Check that the backend is running.')
+
+    st.stop()
+
+
+# ---------------------------------------------------------------------------
+# Profile edit UI
+# ---------------------------------------------------------------------------
+
+def render_profile_edit_page() -> None:
+    profile = st.session_state.get('profile', {})
+
+    st.title('Edit Profile')
+
+    with st.form('profile_edit_form'):
+        full_name = st.text_input('Full Name', value=profile.get('full_name', '') or '')
+        job_role = st.text_input('Job Role / Title', value=profile.get('job_role', '') or '')
+        industry = st.text_input('Industry', value=profile.get('industry', '') or '')
+        years_exp = st.number_input('Years of Experience', min_value=0, max_value=60,
+                                    value=profile.get('years_experience') or 0, step=1)
+        career_aspirations = st.text_area('Career Aspirations',
+                                          value=profile.get('career_aspirations', '') or '',
+                                          height=100)
+        ai_goals = st.text_area('AI Learning Goals',
+                                value=profile.get('ai_learning_goals', '') or '',
+                                height=100)
+        availability_options = ['', '1–2 hours', '3–5 hours', '5–10 hours', '10+ hours']
+        default_idx = 0 if not profile.get('weekly_learning_availability') else \
+            availability_options.index(profile.get('weekly_learning_availability', ''))
+        availability = st.selectbox('Weekly learning availability', options=availability_options, index=default_idx)
+
+        col1, col2 = st.columns([1, 1])
+        with col1:
+            if st.button('Cancel', use_container_width=True):
+                st.session_state.pop('editing_profile', None)
+                st.rerun()
+        with col2:
+            submitted = st.form_submit_button('Save Changes', use_container_width=True, type='primary')
+            if submitted:
+                payload = {
+                    'full_name': full_name.strip(),
+                    'job_role': job_role.strip(),
+                    'industry': industry.strip(),
+                    'years_experience': int(years_exp),
+                    'career_aspirations': career_aspirations.strip(),
+                    'ai_learning_goals': ai_goals.strip(),
+                    'weekly_learning_availability': availability,
+                    'onboarding_completed': True,
+                }
+                result = save_profile_to_backend(payload)
+                if result:
+                    st.session_state.profile = result
+                    st.session_state.pop('editing_profile', None)
+                    st.success('Profile updated!')
+                    st.rerun()
+                else:
+                    st.error('Failed to update profile.')
+
+    st.stop()
+
+
+# ---------------------------------------------------------------------------
+# Chat helpers
 # ---------------------------------------------------------------------------
 
 def init_state() -> None:
@@ -338,7 +525,10 @@ def render_styles() -> None:
 
 
 def render_header() -> None:
-    st.markdown(f"<div class='hero-title'>{PAGE_TITLE}</div>", unsafe_allow_html=True)
+    profile = st.session_state.get('profile', {})
+    name = profile.get('full_name', '')
+    greeting = f', {name}' if name else ''
+    st.markdown(f"<div class='hero-title'>AI Mentor{greeting}</div>", unsafe_allow_html=True)
     st.markdown(
         "<div class='hero-subtitle'>AI Mentor across foundations, intermediate, and advanced learning modules</div>",
         unsafe_allow_html=True,
@@ -385,6 +575,18 @@ def render_history(messages: list[dict[str, str]]) -> None:
 
 def render_sidebar() -> tuple[str, str | None, str | None, int | None]:
     with st.sidebar:
+        profile = st.session_state.get('profile', {})
+        name = profile.get('full_name', '')
+        label = f"**{name}**" if name else f"**{st.session_state.get('user_email', '')}**"
+        st.markdown(label)
+        if st.button('Edit Profile', use_container_width=True):
+            st.session_state.editing_profile = True
+            st.rerun()
+        if st.button('Sign Out', use_container_width=True):
+            do_logout()
+            st.rerun()
+        st.markdown('---')
+
         st.header('Chat Scope')
         chat_mode_label = st.radio(
             'Chat Mode',
@@ -466,9 +668,14 @@ def build_payload(
 
 
 def render_global_welcome() -> None:
+    profile = st.session_state.get('profile', {})
+    name = profile.get('full_name', '')
+    greeting = f", {name}!" if name else "!"
     st.markdown(
-        """
+        f"""
         <div class="welcome-card">
+            <strong>Welcome{greeting}</strong><br>
+            Ask anything about your course material.
         </div>
         """,
         unsafe_allow_html=True,
@@ -507,8 +714,6 @@ def render_disclaimer() -> None:
 
 
 def render_main_app() -> None:
-
-    # Verify the stored token is still valid with the backend
     user_info = _verify_token_with_backend()
     if user_info is None:
         do_logout()
@@ -516,16 +721,11 @@ def render_main_app() -> None:
         render_auth_page()
         return
 
+    if st.session_state.get('editing_profile'):
+        render_profile_edit_page()
+        return
+
     init_state()
-
-    with st.sidebar:
-        ui_email = st.session_state.get('user_email', '') or (user_info or {}).get('email', '')
-        st.markdown(f"**Signed in as:** {ui_email}")
-        if st.button('Sign Out', use_container_width=True):
-            do_logout()
-            st.rerun()
-        st.markdown('---')
-
     render_styles()
     render_header()
 
@@ -603,7 +803,14 @@ st.set_page_config(
     layout='wide' if is_authenticated() else 'centered',
 )
 
-if is_authenticated():
-    render_main_app()
-else:
+if not is_authenticated():
     render_auth_page()
+
+# Authenticated — load profile and decide where to route
+profile = fetch_profile_from_backend()
+st.session_state.profile = profile or {}
+
+if not is_onboarding_complete():
+    render_onboarding_page()
+
+render_main_app()
