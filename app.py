@@ -554,17 +554,17 @@ def render_nav_sidebar() -> str:
         st.markdown(f"**{name}**")
         st.divider()
 
-        page_to_label = {'assessment': 'Assessment', 'learning_path': 'Learning Path', 'mentor': 'AI Mentor', 'profile': 'Profile'}
-        labels = ['Assessment', 'Learning Path', 'AI Mentor', 'Profile']
+        page_to_label = {'dashboard': 'Dashboard', 'assessment': 'Assessment', 'learning_path': 'Learning Path', 'mentor': 'AI Mentor', 'profile': 'Profile'}
+        labels = ['Dashboard', 'Assessment', 'Learning Path', 'AI Mentor', 'Profile']
         current_page = st.session_state.get('page', 'dashboard')
-        current_label = page_to_label.get(current_page, 'Assessment')
+        current_label = page_to_label.get(current_page, 'Dashboard')
         selected = st.radio(
             'Navigate',
             options=labels,
             index=labels.index(current_label),
             label_visibility='collapsed',
         )
-        label_to_page = {'Assessment': 'assessment', 'Learning Path': 'learning_path', 'AI Mentor': 'mentor', 'Profile': 'profile'}
+        label_to_page = {'Dashboard': 'dashboard', 'Assessment': 'assessment', 'Learning Path': 'learning_path', 'AI Mentor': 'mentor', 'Profile': 'profile'}
         st.session_state.page = label_to_page[selected]
         st.query_params['p'] = st.session_state.page
 
@@ -619,28 +619,106 @@ def dashboard_page() -> None:
     name = p.get('full_name', '')
     greeting = f', {name}' if name else ''
 
-    st.markdown(f"<h1 style='margin-bottom: 0.25rem;'>Welcome{greeting}</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='color: #6b7280; margin-bottom: 2rem;'>What would you like to do today?</p>",
-                unsafe_allow_html=True)
+    assessment = _fetch_latest_assessment()
+    assessment_result = assessment.get('result', {}) if assessment else None
+    track = assessment_result.get('recommended_track', '') if assessment_result else ''
+    track_info = TRACK_INFO.get(track, {})
 
-    cols = st.columns(4)
-    cards = [
-        ('📝', 'Assessment', 'Discover your AI readiness level.', 'assessment'),
-        ('🗺️', 'Learning Path', 'Your personalized 4-week study plan.', 'learning_path'),
-        ('🤖', 'AI Mentor', 'Ask questions grounded in course material.', 'mentor'),
-        ('👤', 'Profile', 'Manage your learning preferences.', 'profile'),
-    ]
-    for col, (icon, title, desc, target) in zip(cols, cards):
-        with col:
+    roadmap_data = _fetch_active_roadmap()
+    roadmap = roadmap_data.get('roadmap', {}) if roadmap_data else None
+    weeks = roadmap.get('weeks', []) if roadmap else []
+
+    st.markdown(f"<h1 style='margin-bottom: 0.25rem;'>Welcome{greeting}</h1>", unsafe_allow_html=True)
+
+    if track:
+        st.markdown(
+            f"<div style='display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;'>"
+            f"<span style='color: #6b7280;'>Current Track:</span>"
+            f"<span style='background: {track_info.get('color', '#6b7280')}; color: white; padding: 0.25rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;'>{track_info.get('label', track)}</span>"
+            f"</div>",
+            unsafe_allow_html=True,
+        )
+    else:
+        st.markdown("<p style='color: #6b7280; margin-bottom: 1.5rem;'>Complete the assessment to get your personalized learning track.</p>",
+                    unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if assessment_result:
+            score = assessment_result.get('total_score', 0)
             st.markdown(
-                f"<div class='card' style='text-align: center; height: 100%; cursor: pointer;'>"
-                f"<div style='font-size: 2rem;'>{icon}</div>"
-                f"<div style='font-weight: 700; margin: 0.5rem 0 0.25rem;'>{title}</div>"
-                f"<div style='color: #6b7280; font-size: 0.9rem; margin-bottom: 1rem;'>{desc}</div>"
+                f"<div class='card' style='height: 100%;'>"
+                f"<div style='font-weight: 700; margin-bottom: 0.75rem;'>📊 Assessment Result</div>"
+                f"<div style='display: flex; justify-content: space-between; align-items: center;'>"
+                f"<div><span style='font-size: 2rem; font-weight: 800; color: {track_info.get('color', '#6b7280')};'>{score}</span><span style='color: #9ca3af;'>/75</span></div>"
+                f"<div style='background: {track_info.get('color', '#6b7280')}15; color: {track_info.get('color', '#6b7280')}; padding: 0.25rem 0.75rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;'>{track_info.get('label', '')}</div>"
+                f"</div>"
+                f"<div style='margin-top: 0.75rem;'>"
+                f"<span style='color: #10b981;'>{len(assessment_result.get('strengths', []))} strengths</span>"
+                f"<span style='color: #9ca3af; margin: 0 0.5rem;'>·</span>"
+                f"<span style='color: #f59e0b;'>{len(assessment_result.get('gaps', []))} growth areas</span>"
+                f"</div>"
                 f"</div>",
                 unsafe_allow_html=True,
             )
-            if st.button(f'Go to {title}', key=f'dash_{target}', use_container_width=True):
+        else:
+            st.markdown(
+                f"<div class='card' style='height: 100%; text-align: center;'>"
+                f"<div style='font-size: 2rem; margin-bottom: 0.5rem;'>📝</div>"
+                f"<div style='font-weight: 600;'>Take the Assessment</div>"
+                f"<div style='color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0 1rem;'>Discover your AI readiness level</div>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
+            if st.button('Start Assessment', key='dash_start_assessment', use_container_width=True, type='primary'):
+                st.session_state.page = 'assessment'
+                st.query_params['p'] = 'assessment'
+                st.rerun()
+
+    with col2:
+        if weeks:
+            completed = sum(1 for w in weeks if w.get('week', 0) > 0)
+            total = len(weeks)
+            pct = int((0 / total) * 100)
+            st.markdown(
+                f"<div class='card' style='height: 100%;'>"
+                f"<div style='font-weight: 700; margin-bottom: 0.75rem;'>🗺️ Learning Path Progress</div>"
+                f"<div style='display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;'>"
+                f"<div><span style='font-size: 2rem; font-weight: 800;'>0</span><span style='color: #9ca3af;'>/{total} weeks</span></div>"
+                f"<div style='color: #6b7280; font-size: 0.85rem;'>{roadmap.get('estimated_duration', '4 weeks')}</div>"
+                f"</div>"
+                f"<div style='background: #e5e7eb; border-radius: 8px; height: 8px;'>"
+                f"<div style='background: #6366f1; border-radius: 8px; height: 8px; width: {pct}%;'></div>"
+                f"</div>"
+                f"<div style='margin-top: 0.5rem; color: #6b7280; font-size: 0.85rem;'>"
+                f"Week 1: {weeks[0].get('focus', '') if weeks else ''}"
+                f"</div>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
+        else:
+            st.markdown(
+                f"<div class='card' style='height: 100%; text-align: center;'>"
+                f"<div style='font-size: 2rem; margin-bottom: 0.5rem;'>🗺️</div>"
+                f"<div style='font-weight: 600;'>No Learning Path Yet</div>"
+                f"<div style='color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0 1rem;'>Complete the assessment first</div>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
+
+    st.markdown("<div style='margin-top: 1.5rem;'></div>", unsafe_allow_html=True)
+
+    cols = st.columns(4)
+    actions = [
+        ('📝', 'Assessment', 'assessment'),
+        ('🗺️', 'Learning Path', 'learning_path'),
+        ('🤖', 'AI Mentor', 'mentor'),
+        ('👤', 'Profile', 'profile'),
+    ]
+    for col, (icon, label, target) in zip(cols, actions):
+        with col:
+            if st.button(f'{icon} {label}', key=f'nav_{target}', use_container_width=True):
                 st.session_state.page = target
                 st.query_params['p'] = target
                 st.rerun()
