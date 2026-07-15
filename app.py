@@ -846,6 +846,24 @@ def _fetch_latest_assessment() -> dict | None:
     return None
 
 
+def _fetch_track_modules(track_id: str) -> list | None:
+    headers = _auth_headers()
+    if not headers:
+        return None
+    try:
+        resp = requests.get(
+            f'{API_BASE_URL}/v1/tracks/{track_id}/modules',
+            headers=headers,
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            data = resp.json()
+            return data.get('modules', [])
+    except requests.RequestException:
+        pass
+    return None
+
+
 def _render_assessment_result(result_data: dict) -> None:
     result = result_data.get('result', {})
     track = result.get('recommended_track', 'foundations')
@@ -908,6 +926,26 @@ def _render_assessment_result(result_data: dict) -> None:
         st.markdown("<h3 style='color: #f59e0b;'>Growth Areas</h3>", unsafe_allow_html=True)
         for g in gaps:
             st.markdown(f"📈 {g}")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    track_modules = _fetch_track_modules(track)
+    if track_modules:
+        st.markdown("<div class='card' style='max-width: 700px;'>", unsafe_allow_html=True)
+        st.markdown("<h3>Recommended Learning Path</h3>", unsafe_allow_html=True)
+        for mod in track_modules:
+            mod_name = mod.get('module', '').replace('_', ' ').title()
+            sessions = mod.get('sessions', [])
+            session_count = len(sessions)
+            role_tag = ''
+            if mod.get('role_specific'):
+                role_tag = ' <span style="background: #e0f2fe; color: #0369a1; font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 4px; margin-left: 0.5rem;">Role-specific</span>'
+            st.markdown(
+                f"<div style='padding: 0.5rem 0; border-bottom: 1px solid #f3f4f6;'>"
+                f"<span style='font-weight: 600;'>{mod_name}</span>{role_tag}"
+                f"<span style='float: right; color: #6b7280; font-size: 0.85rem;'>{session_count} session{'s' if session_count != 1 else ''}</span>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
         st.markdown("</div>", unsafe_allow_html=True)
 
     if st.button('Retake Assessment', use_container_width=True, type='primary'):
