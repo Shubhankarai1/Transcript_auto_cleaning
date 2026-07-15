@@ -649,6 +649,273 @@ def dashboard_page() -> None:
 # Assessment page (placeholder)
 # ---------------------------------------------------------------------------
 
+ASSESSMENT_QUESTIONS = [
+    {
+        'id': 'q1',
+        'text': 'What is the most repetitive task you perform daily that you wish a computer could handle?',
+        'options': [
+            {'label': 'Writing routine emails/reports', 'value': 'A'},
+            {'label': 'Analyzing data or customer feedback', 'value': 'B'},
+            {'label': 'Building custom tools or automated systems', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q2',
+        'text': 'How much time per week do you believe could be saved if you had an AI partner?',
+        'options': [
+            {'label': '1-2 hours', 'value': 'A'},
+            {'label': '3-5 hours', 'value': 'B'},
+            {'label': '5+ hours', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q3',
+        'text': 'Which department function do you think is currently most behind in using AI?',
+        'options': [
+            {'label': 'General Administration', 'value': 'A'},
+            {'label': 'Operations/Project Management', 'value': 'B'},
+            {'label': 'IT Infrastructure/Development', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q4',
+        'text': 'How do you currently ask an AI to help you?',
+        'options': [
+            {'label': 'Casual, simple queries', 'value': 'A'},
+            {'label': 'Structured, persona-based prompts', 'value': 'B'},
+            {'label': 'Iterative chains of prompts and fine-tuned instructions', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q5',
+        'text': 'What do you do when an AI gives you an almost perfect answer?',
+        'options': [
+            {'label': 'I re-type the question or move on', 'value': 'A'},
+            {'label': 'I provide more context/instructions to refine it', 'value': 'B'},
+            {'label': 'I adjust model settings or chain new prompts to fix it', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q6',
+        'text': 'Have you ever tried to chain multiple AI requests to get a complex outcome?',
+        'options': [
+            {'label': 'No', 'value': 'A'},
+            {'label': 'Occasionally', 'value': 'B'},
+            {'label': 'Frequently/As part of my workflow', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q7',
+        'text': 'How comfortable are you with terms like API, Model, or RAG?',
+        'options': [
+            {'label': '1-2 (Not comfortable)', 'value': 'A'},
+            {'label': '3 (Somewhat comfortable)', 'value': 'B'},
+            {'label': '4-5 (Very comfortable)', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q8',
+        'text': 'Do you currently use AI features inside apps (e.g., Copilot in Excel, CRM AI)?',
+        'options': [
+            {'label': 'No, I stick to basic chat', 'value': 'A'},
+            {'label': 'Yes, occasionally', 'value': 'B'},
+            {'label': 'Yes, I actively leverage them for deep tasks', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q9',
+        'text': 'Are you interested in learning how to connect AI to your own data or spreadsheets?',
+        'options': [
+            {'label': 'Perhaps later', 'value': 'A'},
+            {'label': 'Yes, definitely', 'value': 'B'},
+            {'label': 'Yes, it is a priority', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q10',
+        'text': 'What is your primary concern when sharing company information with an AI?',
+        'options': [
+            {'label': 'Not saying anything wrong/biased', 'value': 'A'},
+            {'label': 'Data privacy/company policy', 'value': 'B'},
+            {'label': 'Scalability and system vulnerabilities', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q11',
+        'text': 'How do you verify if the information provided by an AI is actually accurate?',
+        'options': [
+            {'label': 'I trust the first result', 'value': 'A'},
+            {'label': 'I do a quick manual check', 'value': 'B'},
+            {'label': 'I perform cross-verification and logic testing', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q12',
+        'text': 'Are you familiar with your company internal guidelines for using AI safely?',
+        'options': [
+            {'label': 'No', 'value': 'A'},
+            {'label': 'Partially', 'value': 'B'},
+            {'label': 'Yes, fully familiar', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q13',
+        'text': 'What is your dream outcome from this training?',
+        'options': [
+            {'label': 'Save time on daily tasks', 'value': 'A'},
+            {'label': 'Lead AI projects in my department', 'value': 'B'},
+            {'label': 'Build/deploy AI solutions for the team', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q14',
+        'text': 'Do you prefer learning by reading theory or by building actual AI projects?',
+        'options': [
+            {'label': 'Theory/Articles', 'value': 'A'},
+            {'label': 'Guided walkthroughs', 'value': 'B'},
+            {'label': 'Hands-on project building', 'value': 'C'},
+        ],
+    },
+    {
+        'id': 'q15',
+        'text': 'Are you aiming to be a user of AI tools or an architect of AI solutions?',
+        'options': [
+            {'label': 'User', 'value': 'A'},
+            {'label': 'Integrator', 'value': 'B'},
+            {'label': 'Architect', 'value': 'C'},
+        ],
+    },
+]
+
+TRACK_INFO = {
+    'foundations': {
+        'label': 'AI Foundations',
+        'color': '#10b981',
+        'description': 'You are in the early stages of your AI journey. This track will build your foundational understanding of AI concepts, prompt engineering, and ethical AI use.',
+    },
+    'practitioner': {
+        'label': 'AI Practitioner',
+        'color': '#f59e0b',
+        'description': 'You have solid AI awareness and are ready to integrate AI into your workflows. This track deepens your skills in data analysis, RAG, and human-in-the-loop systems.',
+    },
+    'builder': {
+        'label': 'AI Builder',
+        'color': '#ef4444',
+        'description': 'You are technically advanced and ready to architect AI solutions. This track covers enterprise AI strategy, agentic frameworks, and model optimization.',
+    },
+}
+
+
+def _submit_assessment(answers: list[dict]) -> dict | None:
+    headers = _auth_headers()
+    if not headers:
+        return None
+    try:
+        resp = requests.post(
+            f'{API_BASE_URL}/v1/assessment/submit',
+            json={'answers': answers},
+            headers=headers,
+            timeout=30,
+        )
+        if resp.status_code == 200:
+            return resp.json()
+        st.error(f'Error {resp.status_code}: {resp.text[:200]}')
+    except requests.ConnectionError:
+        st.error('Cannot reach the backend.')
+    except requests.Timeout:
+        st.error('Request timed out.')
+    except requests.RequestException as exc:
+        st.error(str(exc))
+    return None
+
+
+def _fetch_latest_assessment() -> dict | None:
+    headers = _auth_headers()
+    if not headers:
+        return None
+    try:
+        resp = requests.get(
+            f'{API_BASE_URL}/v1/assessment/result',
+            headers=headers,
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            return resp.json()
+    except requests.RequestException:
+        pass
+    return None
+
+
+def _render_assessment_result(result_data: dict) -> None:
+    result = result_data.get('result', {})
+    track = result.get('recommended_track', 'foundations')
+    track_info = TRACK_INFO.get(track, TRACK_INFO['foundations'])
+    total_score = result.get('total_score', 0)
+
+    st.markdown(
+        f"<div style='text-align: center; padding: 2rem 1rem;'>"
+        f"<h2 style='margin-bottom: 0.5rem;'>Your AI Readiness Result</h2>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        f"<div class='card' style='max-width: 700px; text-align: center;'>"
+        f"<div style='font-size: 1rem; color: #6b7280; margin-bottom: 0.5rem;'>Your Score</div>"
+        f"<div style='font-size: 3rem; font-weight: 800; color: {track_info['color']};'>{total_score}/75</div>"
+        f"<div style='font-size: 1.5rem; font-weight: 700; color: {track_info['color']}; margin: 1rem 0 0.5rem;'>{track_info['label']}</div>"
+        f"<div style='color: #374151; line-height: 1.6;'>{track_info['description']}</div>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+
+    category_scores = result.get('category_scores', [])
+    if category_scores:
+        st.markdown("<div class='card' style='max-width: 700px;'>", unsafe_allow_html=True)
+        st.markdown("<h3>Category Breakdown</h3>", unsafe_allow_html=True)
+        for cat in category_scores:
+            label = cat.get('label', cat.get('category', ''))
+            score = cat.get('score', 0)
+            pct = int((score / 5) * 100)
+            bar_color = '#10b981' if pct >= 70 else '#f59e0b' if pct >= 50 else '#ef4444'
+            st.markdown(
+                f"<div style='margin-bottom: 0.75rem;'>"
+                f"<div style='display: flex; justify-content: space-between;'>"
+                f"<span>{label}</span><span>{score}/5</span>"
+                f"</div>"
+                f"<div style='background: #e5e7eb; border-radius: 8px; height: 10px;'>"
+                f"<div style='background: {bar_color}; border-radius: 8px; height: 10px; width: {pct}%;'></div>"
+                f"</div>"
+                f"</div>",
+                unsafe_allow_html=True,
+            )
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    strengths = result.get('strengths', [])
+    gaps = result.get('gaps', [])
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("<div class='card' style='height: 100%;'>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #10b981;'>Strengths</h3>", unsafe_allow_html=True)
+        for s in strengths:
+            st.markdown(f"✅ {s}")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("<div class='card' style='height: 100%;'>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #f59e0b;'>Growth Areas</h3>", unsafe_allow_html=True)
+        for g in gaps:
+            st.markdown(f"📈 {g}")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    if st.button('Retake Assessment', use_container_width=True, type='primary'):
+        st.session_state.assessment_done = False
+        st.session_state.assessment_result = None
+        st.rerun()
+
+
 def assessment_page() -> None:
     st.markdown("<h1 style='margin-bottom: 0.25rem;'>AI Readiness Assessment</h1>", unsafe_allow_html=True)
     st.markdown(
@@ -656,18 +923,69 @@ def assessment_page() -> None:
         "Discover your AI skill level and get a personalized learning track recommendation.</p>",
         unsafe_allow_html=True,
     )
-    st.markdown(
-        "<div class='card' style='max-width: 700px;'>"
-        "<p style='color: #374151; line-height: 1.7;'>"
-        "This assessment includes 15 questions covering your AI experience, workflow habits, "
-        "and learning preferences. Based on your answers, you'll be mapped to one of three tracks: "
-        "<strong>Foundations</strong>, <strong>Intermediate</strong>, or <strong>Advanced</strong>.</p>"
-        "<p style='color: #374151; line-height: 1.7;'>"
-        "The assessment takes about 5 minutes. You can retake it anytime.</p>"
-        "</div>",
-        unsafe_allow_html=True,
-    )
-    st.info('The assessment will be available in the next update.', icon='ℹ️')
+
+    if 'assessment_done' not in st.session_state:
+        st.session_state.assessment_done = False
+    if 'assessment_result' not in st.session_state:
+        st.session_state.assessment_result = None
+
+    if st.session_state.assessment_result is None:
+        existing = _fetch_latest_assessment()
+        if existing:
+            st.session_state.assessment_result = existing
+
+    if st.session_state.assessment_result and st.session_state.assessment_done is False:
+        st.session_state.assessment_done = True
+
+    if st.session_state.assessment_done and st.session_state.assessment_result:
+        _render_assessment_result(st.session_state.assessment_result)
+        return
+
+    if not st.session_state.assessment_done:
+        st.markdown(
+            "<div class='card' style='max-width: 700px;'>"
+            "<p style='color: #374151; line-height: 1.7;'>"
+            "This assessment includes 15 questions covering your AI experience, workflow habits, "
+            "and learning preferences. Based on your answers, you'll be mapped to one of three tracks: "
+            "<strong>Foundations</strong>, <strong>Intermediate</strong>, or <strong>Advanced</strong>.</p>"
+            "<p style='color: #374151; line-height: 1.7;'>"
+            "The assessment takes about 5 minutes. You can retake it anytime.</p>"
+            "</div>",
+            unsafe_allow_html=True,
+        )
+
+        if st.button('Start Assessment', use_container_width=True, type='primary'):
+            st.session_state.assessment_done = None
+            st.rerun()
+
+    if st.session_state.assessment_done is None:
+        with st.form('assessment_form'):
+            answers = {}
+            for i, q in enumerate(ASSESSMENT_QUESTIONS, 1):
+                st.markdown(f"**Q{i}.** {q['text']}")
+                opts = {o['label']: o['value'] for o in q['options']}
+                selected = st.radio(
+                    '',
+                    list(opts.keys()),
+                    index=None,
+                    key=f'assess_{q["id"]}',
+                    label_visibility='collapsed',
+                )
+                if selected:
+                    answers[q['id']] = opts[selected]
+                st.markdown("<hr style='margin: 0.75rem 0; opacity: 0.3;'>", unsafe_allow_html=True)
+
+            submitted = st.form_submit_button('Submit Assessment', use_container_width=True, type='primary')
+            if submitted:
+                if len(answers) < len(ASSESSMENT_QUESTIONS):
+                    st.error(f'Please answer all {len(ASSESSMENT_QUESTIONS)} questions before submitting.')
+                else:
+                    formatted = [{'question_id': qid, 'selected_value': val} for qid, val in answers.items()]
+                    result = _submit_assessment(formatted)
+                    if result:
+                        st.session_state.assessment_done = True
+                        st.session_state.assessment_result = result
+                        st.rerun()
 
 
 # ---------------------------------------------------------------------------
