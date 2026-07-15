@@ -554,8 +554,8 @@ def render_nav_sidebar() -> str:
         st.markdown(f"**{name}**")
         st.divider()
 
-        page_to_label = {'assessment': 'Assessment', 'mentor': 'AI Mentor', 'profile': 'Profile'}
-        labels = ['Assessment', 'AI Mentor', 'Profile']
+        page_to_label = {'assessment': 'Assessment', 'learning_path': 'Learning Path', 'mentor': 'AI Mentor', 'profile': 'Profile'}
+        labels = ['Assessment', 'Learning Path', 'AI Mentor', 'Profile']
         current_page = st.session_state.get('page', 'dashboard')
         current_label = page_to_label.get(current_page, 'Assessment')
         selected = st.radio(
@@ -564,7 +564,7 @@ def render_nav_sidebar() -> str:
             index=labels.index(current_label),
             label_visibility='collapsed',
         )
-        label_to_page = {'Assessment': 'assessment', 'AI Mentor': 'mentor', 'Profile': 'profile'}
+        label_to_page = {'Assessment': 'assessment', 'Learning Path': 'learning_path', 'AI Mentor': 'mentor', 'Profile': 'profile'}
         st.session_state.page = label_to_page[selected]
         st.query_params['p'] = st.session_state.page
 
@@ -623,11 +623,12 @@ def dashboard_page() -> None:
     st.markdown("<p style='color: #6b7280; margin-bottom: 2rem;'>What would you like to do today?</p>",
                 unsafe_allow_html=True)
 
-    cols = st.columns(3)
+    cols = st.columns(4)
     cards = [
-        ('📝', 'Assessment', 'Discover your AI readiness level and get a personalized learning track.', 'assessment'),
-        ('🤖', 'AI Mentor', 'Ask questions and get answers grounded in IITM course material.', 'mentor'),
-        ('👤', 'Profile', 'View and edit your learning profile and preferences.', 'profile'),
+        ('📝', 'Assessment', 'Discover your AI readiness level.', 'assessment'),
+        ('🗺️', 'Learning Path', 'Your personalized 4-week study plan.', 'learning_path'),
+        ('🤖', 'AI Mentor', 'Ask questions grounded in course material.', 'mentor'),
+        ('👤', 'Profile', 'Manage your learning preferences.', 'profile'),
     ]
     for col, (icon, title, desc, target) in zip(cols, cards):
         with col:
@@ -864,6 +865,49 @@ def _fetch_track_modules(track_id: str) -> list | None:
     return None
 
 
+def _generate_roadmap(track_id: str) -> dict | None:
+    headers = _auth_headers()
+    if not headers:
+        return None
+    profile = st.session_state.get('profile', {})
+    try:
+        resp = requests.post(
+            f'{API_BASE_URL}/v1/roadmap/generate',
+            json={
+                'track_id': track_id,
+                'industry': profile.get('industry'),
+                'job_role': profile.get('job_role'),
+            },
+            headers=headers,
+            timeout=30,
+        )
+        if resp.status_code == 200:
+            return resp.json()
+        st.error(f'Error {resp.status_code}: {resp.text[:200]}')
+    except requests.ConnectionError:
+        st.error('Cannot reach the backend.')
+    except requests.RequestException as exc:
+        st.error(str(exc))
+    return None
+
+
+def _fetch_active_roadmap() -> dict | None:
+    headers = _auth_headers()
+    if not headers:
+        return None
+    try:
+        resp = requests.get(
+            f'{API_BASE_URL}/v1/roadmap/active',
+            headers=headers,
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            return resp.json()
+    except requests.RequestException:
+        pass
+    return None
+
+
 def _render_assessment_result(result_data: dict) -> None:
     result = result_data.get('result', {})
     track = result.get('recommended_track', 'foundations')
@@ -948,10 +992,17 @@ def _render_assessment_result(result_data: dict) -> None:
             )
         st.markdown("</div>", unsafe_allow_html=True)
 
-    if st.button('Retake Assessment', use_container_width=True, type='primary'):
-        st.session_state.assessment_done = False
-        st.session_state.assessment_result = None
-        st.rerun()
+    c1, c2 = st.columns(2)
+    with c1:
+        if st.button('Generate My Learning Path', use_container_width=True, type='primary'):
+            st.session_state.page = 'learning_path'
+            st.query_params['p'] = 'learning_path'
+            st.rerun()
+    with c2:
+        if st.button('Retake Assessment', use_container_width=True):
+            st.session_state.assessment_done = False
+            st.session_state.assessment_result = None
+            st.rerun()
 
 
 def assessment_page() -> None:
@@ -1024,6 +1075,107 @@ def assessment_page() -> None:
                         st.session_state.assessment_done = True
                         st.session_state.assessment_result = result
                         st.rerun()
+
+
+# ---------------------------------------------------------------------------
+# Learning Path page
+# ---------------------------------------------------------------------------
+
+def learning_path_page() -> None:
+    st.markdown("<h1 style='margin-bottom: 0.25rem;'>Your Learning Path</h1>", unsafe_allow_html=True)
+    st.markdown(
+        "<p style='color: #6b7280; margin-bottom: 1.5rem;'>A personalized 4-week study plan based on your assessment and profile.</p>",
+        unsafe_allow_html=True,
+    )
+
+    if 'roadmap_data' not in st.session_state:
+        st.session_state.roadmap_data = None
+
+    if st.session_state.roadmap_data is None:
+        existing = _fetch_active_roadmap()
+        if existing:
+            st.session_state.roadmap_data = existing
+
+    if st.session_state.roadmap_data is None:
+        latest_assessment = _fetch_latest_assessment()
+        if not latest_assessment:
+            st.warning('Complete the AI Readiness Assessment first to generate your learning path.')
+            if st.button('Go to Assessment', use_container_width=True, type='primary'):
+                st.session_state.page = 'assessment'
+                st.query_params['p'] = 'assessment'
+                st.rerun()
+            return
+
+        track = latest_assessment.get('result', {}).get('recommended_track', 'foundations')
+        if st.button('Generate My 4-Week Learning Plan', use_container_width=True, type='primary'):
+            with st.spinner('Creating your personalized learning path...'):
+                result = _generate_roadmap(track)
+                if result:
+                    st.session_state.roadmap_data = result
+                    st.rerun()
+        return
+
+    roadmap = st.session_state.roadmap_data.get('roadmap', {})
+    track_info = roadmap.get('track', {})
+    weeks = roadmap.get('weeks', [])
+
+    st.markdown(
+        f"<div class='card' style='max-width: 800px;'>"
+        f"<div style='display: flex; justify-content: space-between; align-items: center;'>"
+        f"<div><strong style='font-size: 1.2rem;'>{track_info.get('label', '')}</strong>"
+        f"<br><span style='color: #6b7280;'>{roadmap.get('estimated_duration', '')} · ~{roadmap.get('estimated_total_hours', 0)} hours total</span></div>"
+        f"<div style='background: #f3f4f6; padding: 0.5rem 1rem; border-radius: 8px; text-align: center;'>"
+        f"<div style='font-size: 1.5rem; font-weight: 700;'>{len(weeks)}</div>"
+        f"<div style='font-size: 0.8rem; color: #6b7280;'>Weeks</div>"
+        f"</div></div></div>",
+        unsafe_allow_html=True,
+    )
+
+    for week in weeks:
+        week_num = week.get('week', 0)
+        focus = week.get('focus', '')
+        hours = week.get('estimated_hours', 0)
+        objectives = week.get('objectives', [])
+        sessions_detail = week.get('sessions_detail', [])
+
+        is_expanded = week_num == 1
+        expander_label = f'Week {week_num}: {focus} ({hours}h)'
+
+        with st.expander(expander_label, expanded=is_expanded):
+            st.markdown("**Learning Objectives**")
+            for obj in objectives:
+                st.markdown(f"- {obj}")
+
+            if sessions_detail:
+                st.markdown("---")
+                st.markdown("**Recommended Sessions**")
+                for sd in sessions_detail:
+                    label = sd.get('label', sd.get('module', ''))
+                    snums = sd.get('session_numbers', [])
+                    avail = sd.get('available_sessions', [])
+                    role_tag = ''
+                    if sd.get('role_specific'):
+                        role_tag = ' 🎯 Role-specific'
+                    sessions_str = ', '.join(str(s) for s in snums)
+                    st.markdown(f"- **{label}**{role_tag} — Session{'s' if len(snums) != 1 else ''} {sessions_str}")
+                    if avail:
+                        st.caption(f"  Available sessions: {', '.join(str(s) for s in avail)}")
+
+    st.divider()
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button('Start AI Mentor', use_container_width=True, type='primary'):
+            st.session_state.page = 'mentor'
+            st.query_params['p'] = 'mentor'
+            st.rerun()
+    with col2:
+        if st.button('Regenerate Plan', use_container_width=True):
+            with st.spinner('Regenerating...'):
+                track = track_info.get('id', 'foundations')
+                result = _generate_roadmap(track)
+                if result:
+                    st.session_state.roadmap_data = result
+                    st.rerun()
 
 
 # ---------------------------------------------------------------------------
@@ -1165,6 +1317,7 @@ def app_shell() -> None:
     page_map = {
         'dashboard': dashboard_page,
         'assessment': assessment_page,
+        'learning_path': learning_path_page,
         'mentor': mentor_page,
         'profile': profile_page,
     }

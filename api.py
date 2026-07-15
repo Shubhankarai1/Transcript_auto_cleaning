@@ -8,6 +8,7 @@ from routers.health import router as health_router
 from routers.v1_assessment import router as assessment_router
 from routers.v1_auth import router as auth_router
 from routers.v1_profiles import router as profiles_router
+from routers.v1_roadmap import router as roadmap_router
 from routers.v1_tracks import router as tracks_router
 
 
@@ -22,3 +23,4 @@ app.include_router(auth_router)
 app.include_router(profiles_router)
 app.include_router(assessment_router)
 app.include_router(tracks_router)
+app.include_router(roadmap_router)
