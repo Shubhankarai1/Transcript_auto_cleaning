@@ -370,9 +370,20 @@ def inject_css() -> None:
 
 def auth_page() -> None:
     st.markdown("<div class='auth-card'>", unsafe_allow_html=True)
-    st.markdown("<h2>AI Mentor</h2>", unsafe_allow_html=True)
+    st.markdown("<h2>Agentic Learning Management System</h2>", unsafe_allow_html=True)
     st.markdown(
-        "<div class='subtitle'>Sign in to access your personalized AI learning assistant.</div>",
+        "<div class='subtitle'>Your customized AI learning agent — assess your skills, follow a personalized path, and get mentored by AI in an enterprise-ready platform.</div>",
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        "<ul style='text-align: left; margin: 1rem 0 1.5rem 0; line-height: 1.8; padding-left: 1.2rem;'>"
+        "<li><strong>AI Readiness Assessment</strong> — Answer 15 questions to discover your skill level and get matched to Foundations, Intermediate, or Advanced track.</li>"
+        "<li><strong>Personalized Learning Path</strong> — Get a tailored 4-week study plan built from your assessment results and career goals.</li>"
+        "<li><strong>Curated Content Catalog</strong> — Explore modules across levels, from prompt engineering to multi-agent systems, each with structured sessions.</li>"
+        "<li><strong>AI Mentor Chat</strong> — Ask questions about any topic and get clear, contextual answers based on your current level and module.</li>"
+        "<li><strong>Track Your Progress</strong> — Your profile, assessment history, and learning path are saved so you can pick up where you left off.</li>"
+        "<li><strong>Enterprise-Ready Architecture</strong> — Role-based access, session persistence, and a modular RAG-based content system designed for organizational deployment.</li>"
+        "</ul>",
         unsafe_allow_html=True,
     )
 
@@ -1538,7 +1549,7 @@ def app_shell() -> None:
 # Entry point
 # ---------------------------------------------------------------------------
 
-st.set_page_config(page_title='AI Mentor', page_icon='🤖', layout='wide')
+st.set_page_config(page_title='Agentic LMS', page_icon='🤖', layout='wide')
 
 _recover_session()
 
