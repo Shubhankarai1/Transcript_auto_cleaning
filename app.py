@@ -358,7 +358,7 @@ def onboarding_page() -> None:
     elif step == 3:
         ai_goals = st.text_input('AI Learning Goals', value=profile.get('ai_learning_goals', '') or '',
                                  placeholder='e.g. Learn RAG and LLM deployment')
-        avail_idx = HOURS_OPTIONS.index(profile['weekly_learning_availability']) \
+        avail_idx = HOURS_OPTIONS.index(profile.get('weekly_learning_availability', '')) \
             if profile.get('weekly_learning_availability', '') in HOURS_OPTIONS else 0
         avail = st.selectbox('Weekly Learning Hours', options=HOURS_OPTIONS, index=avail_idx)
         c1, c2 = st.columns([1, 1])
