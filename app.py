@@ -217,9 +217,10 @@ def _recover_session() -> None:
     st.session_state.auth_token = data['access_token']
     st.session_state.user_email = data.get('email', '')
     st.session_state._sid = sid
-    saved_page = st.query_params.get('p')
-    if saved_page in ('dashboard', 'assessment', 'mentor', 'profile'):
-        st.session_state.page = saved_page
+    if 'page' not in st.session_state:
+        saved_page = st.query_params.get('p')
+        if saved_page in ('dashboard', 'assessment', 'mentor', 'profile', 'modules', 'learning_path'):
+            st.session_state.page = saved_page
 
 
 # ---------------------------------------------------------------------------
@@ -623,10 +624,10 @@ def render_nav_sidebar() -> str:
             options=labels,
             index=labels.index(current_label),
             label_visibility='collapsed',
+            key='nav_radio',
         )
         label_to_page = {'Dashboard': 'dashboard', 'Modules': 'modules', 'Assessment': 'assessment', 'Learning Path': 'learning_path', 'AI Mentor': 'mentor', 'Profile': 'profile'}
         st.session_state.page = label_to_page[selected]
-        st.query_params['p'] = st.session_state.page
 
         if st.session_state.page == 'mentor':
             st.divider()
@@ -735,7 +736,6 @@ def dashboard_page() -> None:
             )
             if st.button('Start Assessment', key='dash_start_assessment', use_container_width=True, type='primary'):
                 st.session_state.page = 'assessment'
-                st.query_params['p'] = 'assessment'
                 st.rerun()
 
     with col2:
@@ -782,7 +782,6 @@ def dashboard_page() -> None:
         with col:
             if st.button(f'{icon} {label}', key=f'nav_{target}', use_container_width=True):
                 st.session_state.page = target
-                st.query_params['p'] = target
                 st.rerun()
 
 
@@ -1137,7 +1136,6 @@ def _render_assessment_result(result_data: dict) -> None:
     with c1:
         if st.button('Generate My Learning Path', use_container_width=True, type='primary'):
             st.session_state.page = 'learning_path'
-            st.query_params['p'] = 'learning_path'
             st.rerun()
     with c2:
         if st.button('Retake Assessment', use_container_width=True):
@@ -1244,7 +1242,6 @@ def learning_path_page() -> None:
             st.warning('Complete the AI Readiness Assessment first to generate your learning path.')
             if st.button('Go to Assessment', use_container_width=True, type='primary'):
                 st.session_state.page = 'assessment'
-                st.query_params['p'] = 'assessment'
                 st.rerun()
             return
 
@@ -1308,7 +1305,6 @@ def learning_path_page() -> None:
     with col1:
         if st.button('Start AI Mentor', use_container_width=True, type='primary'):
             st.session_state.page = 'mentor'
-            st.query_params['p'] = 'mentor'
             st.rerun()
     with col2:
         if st.button('Regenerate Plan', use_container_width=True):
@@ -1516,7 +1512,6 @@ def modules_page() -> None:
     with cols[1]:
         if st.button('🤖 Ask the AI Mentor', use_container_width=True, type='primary'):
             st.session_state.page = 'mentor'
-            st.query_params['p'] = 'mentor'
             st.rerun()
 
 
