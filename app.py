@@ -30,9 +30,67 @@ LEVEL_LABELS = {
     'advanced': 'Advanced',
 }
 MODULE_LABELS = {
+    'ai_foundations_curriculum': 'AI Foundations Curriculum',
+    'prompt_engineering': 'Prompt Engineering',
+    'ai_ethics_safety_and_data_privacy': 'AI Ethics, Safety & Data Privacy',
+    'finance_chatgpt_excel_skills': 'Finance: ChatGPT & Excel Skills',
+    'hr_ai_enhanced_jd_design_and_skills_gap_mapping': 'HR: JD Design & Skills-Gap Mapping',
+    'operations_process_mapping_and_automated_reporting': 'Operations: Process Mapping & Reporting',
+    'ai_data_analysis_extracting_insights': 'AI Data Analysis: Extracting Insights',
+    'human_in_the_loop_designing_hybrid_systems': 'Human-in-the-Loop Design',
+    'customer_facing_ai_sentiment_analysis_and_crm_integration': 'Customer Facing: Sentiment Analysis & CRM',
+    'project_management_predictive_resource_allocation_and_automated_risk_tracking': 'Project Management: Resource Allocation & Risk',
     'cms': 'Contextual Reasoning for Multi-Agent Systems',
     'map': 'Multi-Agent Planning & Workflow Design',
     'wdp': 'Workflow Design & Optimization',
+}
+
+MODULE_DESCRIPTIONS = {
+    'ai_foundations_curriculum': 'Core AI concepts, terminology, and real-world applications for beginners.',
+    'prompt_engineering': 'Craft effective prompts and interact with LLMs for business tasks.',
+    'ai_ethics_safety_and_data_privacy': 'Ethical AI use, bias mitigation, data privacy, and responsible deployment.',
+    'finance_chatgpt_excel_skills': 'Apply AI to financial workflows — Excel automation, analysis, and reporting.',
+    'hr_ai_enhanced_jd_design_and_skills_gap_mapping': 'Use AI for job descriptions, skill-gap mapping, and HR operations.',
+    'operations_process_mapping_and_automated_reporting': 'Leverage AI for process mapping, workflow automation, and reporting.',
+    'ai_data_analysis_extracting_insights': 'Extract actionable insights from data using AI-driven analysis.',
+    'human_in_the_loop_designing_hybrid_systems': 'Design systems where humans and AI collaborate in decision-making.',
+    'customer_facing_ai_sentiment_analysis_and_crm_integration': 'Integrate AI into customer workflows with sentiment analysis and CRM.',
+    'project_management_predictive_resource_allocation_and_automated_risk_tracking': 'Use AI for resource allocation, risk tracking, and project oversight.',
+    'cms': 'Build multi-agent systems with contextual reasoning, memory, and tool-use capabilities.',
+    'map': 'Design multi-agent planning workflows with query expansion and reranking.',
+    'wdp': 'Optimize LLM workflows with LangGraph, LangFlow, tool calling, and production deployment.',
+}
+
+MODULE_SESSION_COUNTS = {
+    'ai_foundations_curriculum': 1,
+    'prompt_engineering': 1,
+    'ai_ethics_safety_and_data_privacy': 2,
+    'finance_chatgpt_excel_skills': 1,
+    'hr_ai_enhanced_jd_design_and_skills_gap_mapping': 1,
+    'operations_process_mapping_and_automated_reporting': 1,
+    'ai_data_analysis_extracting_insights': 1,
+    'human_in_the_loop_designing_hybrid_systems': 1,
+    'customer_facing_ai_sentiment_analysis_and_crm_integration': 1,
+    'project_management_predictive_resource_allocation_and_automated_risk_tracking': 1,
+    'cms': 4,
+    'map': 2,
+    'wdp': 5,
+}
+
+MODULE_TRACK_MAP = {
+    'ai_foundations_curriculum': 'foundations',
+    'prompt_engineering': 'foundations',
+    'ai_ethics_safety_and_data_privacy': 'foundations',
+    'finance_chatgpt_excel_skills': 'foundations',
+    'hr_ai_enhanced_jd_design_and_skills_gap_mapping': 'foundations',
+    'operations_process_mapping_and_automated_reporting': 'foundations',
+    'ai_data_analysis_extracting_insights': 'practitioner',
+    'human_in_the_loop_designing_hybrid_systems': 'practitioner',
+    'customer_facing_ai_sentiment_analysis_and_crm_integration': 'practitioner',
+    'project_management_predictive_resource_allocation_and_automated_risk_tracking': 'practitioner',
+    'cms': 'builder',
+    'map': 'builder',
+    'wdp': 'builder',
 }
 INDUSTRIES = ['', 'Technology', 'Healthcare', 'Finance', 'Education',
               'Manufacturing', 'Retail', 'Media', 'Consulting', 'Other']
@@ -554,8 +612,8 @@ def render_nav_sidebar() -> str:
         st.markdown(f"**{name}**")
         st.divider()
 
-        page_to_label = {'dashboard': 'Dashboard', 'assessment': 'Assessment', 'learning_path': 'Learning Path', 'mentor': 'AI Mentor', 'profile': 'Profile'}
-        labels = ['Dashboard', 'Assessment', 'Learning Path', 'AI Mentor', 'Profile']
+        page_to_label = {'dashboard': 'Dashboard', 'modules': 'Modules', 'assessment': 'Assessment', 'learning_path': 'Learning Path', 'mentor': 'AI Mentor', 'profile': 'Profile'}
+        labels = ['Dashboard', 'Modules', 'Assessment', 'Learning Path', 'AI Mentor', 'Profile']
         current_page = st.session_state.get('page', 'dashboard')
         current_label = page_to_label.get(current_page, 'Dashboard')
         selected = st.radio(
@@ -564,7 +622,7 @@ def render_nav_sidebar() -> str:
             index=labels.index(current_label),
             label_visibility='collapsed',
         )
-        label_to_page = {'Dashboard': 'dashboard', 'Assessment': 'assessment', 'Learning Path': 'learning_path', 'AI Mentor': 'mentor', 'Profile': 'profile'}
+        label_to_page = {'Dashboard': 'dashboard', 'Modules': 'modules', 'Assessment': 'assessment', 'Learning Path': 'learning_path', 'AI Mentor': 'mentor', 'Profile': 'profile'}
         st.session_state.page = label_to_page[selected]
         st.query_params['p'] = st.session_state.page
 
@@ -709,8 +767,9 @@ def dashboard_page() -> None:
 
     st.markdown("<div style='margin-top: 1.5rem;'></div>", unsafe_allow_html=True)
 
-    cols = st.columns(4)
+    cols = st.columns(5)
     actions = [
+        ('📚', 'Modules', 'modules'),
         ('📝', 'Assessment', 'assessment'),
         ('🗺️', 'Learning Path', 'learning_path'),
         ('🤖', 'AI Mentor', 'mentor'),
@@ -1385,6 +1444,77 @@ def ensure_history(key: str) -> list:
 
 
 # ---------------------------------------------------------------------------
+# Modules / Content Catalog page
+# ---------------------------------------------------------------------------
+
+def modules_page() -> None:
+    st.markdown("<h1>Content Catalog</h1>", unsafe_allow_html=True)
+    st.markdown(
+        "<p style='color: #6b7280; margin-bottom: 1.5rem;'>"
+        "Browse all available modules organized by level. Each module contains lecture sessions "
+        "you can explore through the AI Mentor.</p>",
+        unsafe_allow_html=True,
+    )
+
+    levels = {
+        'beginner': ('Foundations', 1, '#10b981'),
+        'intermediate': ('Intermediate', 2, '#f59e0b'),
+        'advanced': ('Advanced', 3, '#ef4444'),
+    }
+
+    categories = {
+        'beginner': [
+            ('Common Modules', ['ai_foundations_curriculum', 'prompt_engineering', 'ai_ethics_safety_and_data_privacy']),
+            ('Role-Specific', ['finance_chatgpt_excel_skills', 'hr_ai_enhanced_jd_design_and_skills_gap_mapping', 'operations_process_mapping_and_automated_reporting']),
+        ],
+        'intermediate': [
+            ('Common Modules', ['ai_data_analysis_extracting_insights', 'human_in_the_loop_designing_hybrid_systems']),
+            ('Role-Specific', ['customer_facing_ai_sentiment_analysis_and_crm_integration', 'project_management_predictive_resource_allocation_and_automated_risk_tracking']),
+        ],
+        'advanced': [
+            ('Core', ['cms', 'map', 'wdp']),
+        ],
+    }
+
+    for level_key in ('beginner', 'intermediate', 'advanced'):
+        level_label, level_order, level_color = levels[level_key]
+        with st.expander(f"**{level_label}**", icon='📘' if level_key == 'beginner' else ('📙' if level_key == 'intermediate' else '📕'), expanded=level_key == 'beginner'):
+            for cat_name, module_ids in categories[level_key]:
+                st.markdown(f"<p style='color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0 0.25rem;'><strong>{cat_name}</strong></p>", unsafe_allow_html=True)
+                cols = st.columns(2)
+                for i, mod_id in enumerate(module_ids):
+                    with cols[i % 2]:
+                        label = MODULE_LABELS.get(mod_id, mod_id.replace('_', ' ').title())
+                        desc = MODULE_DESCRIPTIONS.get(mod_id, '')
+                        sessions = MODULE_SESSION_COUNTS.get(mod_id, '?')
+                        track_id = MODULE_TRACK_MAP.get(mod_id, '')
+                        track_label = TRACK_INFO.get(track_id, {}).get('label', '')
+                        track_color = TRACK_INFO.get(track_id, {}).get('color', '#6b7280')
+
+                        session_label = f'{sessions} session{"s" if sessions != 1 else ""}'
+                        st.markdown(
+                            f"<div class='card' style='padding: 0.75rem 1rem; margin-bottom: 0.5rem;'>"
+                            f"<div style='font-weight: 600; font-size: 0.95rem;'>{label}</div>"
+                            f"<div style='color: #6b7280; font-size: 0.82rem; margin: 0.25rem 0;'>{desc}</div>"
+                            f"<div style='display: flex; gap: 0.5rem; align-items: center; margin-top: 0.35rem;'>"
+                            f"<span style='font-size: 0.75rem; color: #9ca3af;'>{session_label}</span>"
+                            f"<span style='font-size: 0.7rem; color: #9ca3af;'>|</span>"
+                            f"<span style='background: {track_color}15; color: {track_color}; padding: 0.1rem 0.5rem; border-radius: 8px; font-size: 0.72rem; font-weight: 500;'>{track_label}</span>"
+                            f"</div>"
+                            f"</div>",
+                            unsafe_allow_html=True,
+                        )
+
+    st.markdown("<hr style='margin: 1.5rem 0;'>", unsafe_allow_html=True)
+    cols = st.columns(3)
+    with cols[1]:
+        if st.button('🤖 Ask the AI Mentor', use_container_width=True, type='primary'):
+            st.session_state.page = 'mentor'
+            st.query_params['p'] = 'mentor'
+            st.rerun()
+
+
+# ---------------------------------------------------------------------------
 # App shell — sidebar nav + page routing
 # ---------------------------------------------------------------------------
 
@@ -1394,6 +1524,7 @@ def app_shell() -> None:
 
     page_map = {
         'dashboard': dashboard_page,
+        'modules': modules_page,
         'assessment': assessment_page,
         'learning_path': learning_path_page,
         'mentor': mentor_page,

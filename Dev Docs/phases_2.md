@@ -488,6 +488,72 @@ Replace the current single-purpose chat screen with a dashboard-centered learnin
 
 - A user can navigate from dashboard to profile, assessment result, roadmap, and AI Mentor without leaving the product flow.
 
+## Phase 8.5: Content Catalog / Modules Page
+
+### Objective
+
+Give learners a browsable view of all available content — modules, levels, sessions, and topics — so they know what the platform knows and can self-navigate.
+
+### Proposed Structure
+
+A collapsible tree or tabbed page that renders the full content hierarchy:
+
+```
+Modules
+├── Foundations (Beginner)
+│   ├── Common
+│   │   ├── AI Foundations Curriculum · 1 session
+│   │   ├── Prompt Engineering · 1 session
+│   │   └── AI Ethics, Safety & Data Privacy · 2 sessions
+│   └── Role-Specific
+│       ├── Finance: ChatGPT & Excel Skills · 1 session
+│       ├── HR: JD Design & Skills-Gap Mapping · 1 session
+│       └── Operations: Process Mapping & Reporting · 1 session
+├── Intermediate
+│   ├── Common
+│   │   ├── AI Data Analysis: Extracting Insights · 1 session
+│   │   └── Human-in-the-Loop Design · 1 session
+│   └── Role-Specific
+│       ├── Customer Facing: Sentiment Analysis & CRM · 1 session
+│       └── Project Management: Resource Allocation & Risk · 1 session
+└── Advanced
+    ├── Contextual Reasoning for Multi-Agent Systems · 4 sessions
+    ├── Multi-Agent Planning & Workflow Design · 2 sessions
+    └── Workflow Design & Optimization · 5 sessions
+```
+
+### Card Content (per module)
+
+| Field | Example |
+|---|---|
+| Module name | Prompt Engineering |
+| Level | Foundations |
+| Sessions | 1 |
+| One-liner | Learn to write effective prompts for LLMs |
+| Track | Explorer / Workflow Architect / Solutions Builder |
+| Key topics | comma-separated from chunk metadata |
+
+### Implementation Options
+
+1. **Sidebar expander** — collapsible tree in the sidebar, always accessible
+2. **Dedicated page** — full `/Modules` page reachable from the sidebar nav, alongside Assessment → AI Mentor → Profile
+3. **Dashboard widget** — a "Browse Content" card on the dashboard home
+
+### Data Source
+
+Already available through `services/catalog_service.py`:
+- `get_levels()` — returns all levels
+- `get_modules_by_level(level)` — returns modules for a level
+- `get_sessions(module, level)` — returns sessions for a module
+
+Chunk metadata in `rag_chunks/` and Pinecone also carries `level`, `category`, `module`, `topic`, and `session` fields — can be used to derive per-module topic summaries.
+
+### Exit Criteria
+
+- A user can browse all 13 modules organized by level and category
+- Each module card shows level, session count, and key topics
+- Clicking a module could optionally pre-scope the AI Mentor chat to that module
+
 ## Phase 9: AI Mentor Integration With Learner Context
 
 ### Objective
