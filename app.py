@@ -296,9 +296,11 @@ def _value_to_exp(value: int) -> str:
 def inject_css() -> None:
     st.markdown("""
     <style>
+        *, *::before, *::after { box-sizing: border-box; }
         .stApp { background: #fafafa; }
-        .block-container { max-width: 1100px; padding-top: 0.5rem; }
+        .block-container { max-width: 1100px; padding-top: 1.5rem; }
         html { font-size: 125%; }
+
         .auth-card {
             max-width: 420px; margin: 0 auto; padding: 2.5rem 2rem;
             background: #fff; border-radius: 14px;
@@ -307,20 +309,56 @@ def inject_css() -> None:
         .auth-card h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 0.25rem; }
         .auth-card .subtitle { color: #6b7280; font-size: 0.92rem; margin-bottom: 1.5rem; }
         .auth-card .stButton > button { border-radius: 8px; font-weight: 600; }
+
         .card {
             background: #fff; border-radius: 12px; padding: 2rem;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1.5rem;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
         }
+        .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-1px); }
+        .card-sm { padding: 0.75rem 1rem; margin-bottom: 0.5rem; }
         .card-medium { max-width: 700px; margin: 1rem auto; }
+
         h1, h2, h3 { color: #111827; }
-        .stButton > button { border-radius: 8px; font-weight: 600; }
+        .stButton > button { border-radius: 8px; font-weight: 600; transition: opacity 0.15s ease; }
+        .stButton > button:hover { opacity: 0.9; }
+
         div[data-testid="stSidebar"] { background: #fff; }
         div[data-testid="stSidebar"] .stButton > button { width: 100%; }
         div[data-testid="stSidebar"] label { font-size: 1.5rem; padding: 0.4rem 0; }
         div[data-testid="stSidebar"] .stRadio > label { display: none; }
         header[data-testid="stHeader"] { display: none; }
-        .block-container { padding-top: 1.5rem; }
         hr { margin: 2rem 0; }
+        .main > div { animation: fadeIn 0.2s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        div[data-testid="stChatMessage"] { margin-bottom: 0.5rem; }
+        div[data-testid="stChatMessageContent"] { line-height: 1.6; }
+
+        .badge-foundations { background: rgba(16,185,129,0.12); color: #10b981; }
+        .badge-practitioner { background: rgba(245,158,11,0.12); color: #f59e0b; }
+        .badge-builder { background: rgba(239,68,68,0.12); color: #ef4444; }
+        .badge { display: inline-block; padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; }
+        .badge-pill { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 8px; font-size: 0.72rem; font-weight: 500; }
+
+        .page-title { margin-bottom: 0.25rem; }
+        .page-subtitle { color: #6b7280; margin-bottom: 1.5rem; }
+        .text-muted { color: #6b7280; }
+        .text-light { color: #9ca3af; }
+        .stat-number { font-size: 2rem; font-weight: 800; }
+        .stat-label { color: #9ca3af; }
+        .score-number { font-size: 3rem; font-weight: 800; }
+        .flex-center { display: flex; align-items: center; gap: 0.75rem; }
+        .mt-1 { margin-top: 0.75rem; }
+        .mb-1 { margin-bottom: 0.75rem; }
+
+        @media (max-width: 768px) {
+            .block-container { max-width: 100%; padding: 1rem; }
+            .card { padding: 1.25rem; }
+        }
+        @media (max-width: 480px) {
+            html { font-size: 100%; }
+        }
     </style>
     """, unsafe_allow_html=True)
 
@@ -556,42 +594,6 @@ def format_sources(sources: list[dict]) -> str:
     return '\n'.join(lines)
 
 
-def sidebar() -> tuple[str, str | None, str | None, int | None]:
-    with st.sidebar:
-        p = st.session_state.get('profile', {})
-        name = p.get('full_name', '') or st.session_state.get('user_email', '')
-        st.markdown(f"**{name}**")
-        if st.button('Edit Profile', use_container_width=True):
-            st.session_state.editing_profile = True
-            st.rerun()
-        if st.button('Sign Out', use_container_width=True):
-            do_logout()
-            st.rerun()
-        st.divider()
-        st.markdown("**Chat Scope**")
-        mode = st.radio('Mode', ['All Content', 'Select Level & Module'], index=0, label_visibility='collapsed')
-        if mode == 'All Content':
-            return 'global', None, None, None
-
-        try:
-            levels = fetch_levels()
-        except requests.RequestException:
-            return 'filtered', None, None, None
-        if not levels:
-            return 'filtered', None, None, None
-        sl = st.selectbox('Level', levels, index=None, placeholder='Select', format_func=get_level_label)
-        if not sl:
-            return 'filtered', None, None, None
-        try:
-            mods = fetch_modules(sl)
-        except requests.RequestException:
-            return 'filtered', sl, None, None
-        if not mods:
-            return 'filtered', sl, None, None
-        sm = st.selectbox('Module', mods, index=None, placeholder='Select', format_func=get_module_label)
-        return ('filtered', sl, sm, None) if sm else ('filtered', sl, None, None)
-
-
 def disclaimer() -> None:
     st.markdown(
         "<p style='text-align: center; color: #9ca3af; font-size: 0.78rem; padding: 1.5rem 0;'>"
@@ -686,18 +688,19 @@ def dashboard_page() -> None:
     roadmap = roadmap_data.get('roadmap', {}) if roadmap_data else None
     weeks = roadmap.get('weeks', []) if roadmap else []
 
-    st.markdown(f"<h1 style='margin-bottom: 0.25rem;'>Welcome{greeting}</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='page-title'>Welcome{greeting}</h1>", unsafe_allow_html=True)
 
     if track:
+        track_cls = f"badge-{track}"
         st.markdown(
-            f"<div style='display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;'>"
-            f"<span style='color: #6b7280;'>Current Track:</span>"
-            f"<span style='background: {track_info.get('color', '#6b7280')}; color: white; padding: 0.25rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem;'>{track_info.get('label', track)}</span>"
+            f"<div class='flex-center' style='margin-bottom: 1.5rem;'>"
+            f"<span class='text-muted'>Current Track:</span>"
+            f"<span class='badge {track_cls}'>{track_info.get('label', track)}</span>"
             f"</div>",
             unsafe_allow_html=True,
         )
     else:
-        st.markdown("<p style='color: #6b7280; margin-bottom: 1.5rem;'>Complete the assessment to get your personalized learning track.</p>",
+        st.markdown("<p class='text-muted page-subtitle'>Complete the assessment to get your personalized learning track.</p>",
                     unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
@@ -705,14 +708,15 @@ def dashboard_page() -> None:
     with col1:
         if assessment_result:
             score = assessment_result.get('total_score', 0)
+            track_cls = f"badge-{track}"
             st.markdown(
                 f"<div class='card' style='height: 100%;'>"
                 f"<div style='font-weight: 700; margin-bottom: 0.75rem;'>📊 Assessment Result</div>"
                 f"<div style='display: flex; justify-content: space-between; align-items: center;'>"
-                f"<div><span style='font-size: 2rem; font-weight: 800; color: {track_info.get('color', '#6b7280')};'>{score}</span><span style='color: #9ca3af;'>/75</span></div>"
-                f"<div style='background: {track_info.get('color', '#6b7280')}15; color: {track_info.get('color', '#6b7280')}; padding: 0.25rem 0.75rem; border-radius: 12px; font-weight: 600; font-size: 0.85rem;'>{track_info.get('label', '')}</div>"
+                f"<div><span class='stat-number' style='color: {track_info.get('color', '#6b7280')};'>{score}</span><span class='stat-label'>/75</span></div>"
+                f"<div class='badge {track_cls}'>{track_info.get('label', '')}</div>"
                 f"</div>"
-                f"<div style='margin-top: 0.75rem;'>"
+                f"<div class='mt-1'>"
                 f"<span style='color: #10b981;'>{len(assessment_result.get('strengths', []))} strengths</span>"
                 f"<span style='color: #9ca3af; margin: 0 0.5rem;'>·</span>"
                 f"<span style='color: #f59e0b;'>{len(assessment_result.get('gaps', []))} growth areas</span>"
@@ -725,7 +729,7 @@ def dashboard_page() -> None:
                 f"<div class='card' style='height: 100%; text-align: center;'>"
                 f"<div style='font-size: 2rem; margin-bottom: 0.5rem;'>📝</div>"
                 f"<div style='font-weight: 600;'>Take the Assessment</div>"
-                f"<div style='color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0 1rem;'>Discover your AI readiness level</div>"
+                f"<div class='text-muted' style='font-size: 0.9rem; margin: 0.5rem 0 1rem;'>Discover your AI readiness level</div>"
                 f"</div>",
                 unsafe_allow_html=True,
             )
@@ -736,20 +740,19 @@ def dashboard_page() -> None:
 
     with col2:
         if weeks:
-            completed = sum(1 for w in weeks if w.get('week', 0) > 0)
             total = len(weeks)
-            pct = int((0 / total) * 100)
+            pct = 0
             st.markdown(
                 f"<div class='card' style='height: 100%;'>"
                 f"<div style='font-weight: 700; margin-bottom: 0.75rem;'>🗺️ Learning Path Progress</div>"
                 f"<div style='display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;'>"
-                f"<div><span style='font-size: 2rem; font-weight: 800;'>0</span><span style='color: #9ca3af;'>/{total} weeks</span></div>"
-                f"<div style='color: #6b7280; font-size: 0.85rem;'>{roadmap.get('estimated_duration', '4 weeks')}</div>"
+                f"<div><span class='stat-number'>0</span><span class='stat-label'>/{total} weeks</span></div>"
+                f"<div class='text-muted' style='font-size: 0.85rem;'>{roadmap.get('estimated_duration', '4 weeks')}</div>"
                 f"</div>"
                 f"<div style='background: #e5e7eb; border-radius: 8px; height: 8px;'>"
                 f"<div style='background: #6366f1; border-radius: 8px; height: 8px; width: {pct}%;'></div>"
                 f"</div>"
-                f"<div style='margin-top: 0.5rem; color: #6b7280; font-size: 0.85rem;'>"
+                f"<div class='mt-1 text-muted' style='font-size: 0.85rem;'>"
                 f"Week 1: {weeks[0].get('focus', '') if weeks else ''}"
                 f"</div>"
                 f"</div>",
@@ -760,12 +763,12 @@ def dashboard_page() -> None:
                 f"<div class='card' style='height: 100%; text-align: center;'>"
                 f"<div style='font-size: 2rem; margin-bottom: 0.5rem;'>🗺️</div>"
                 f"<div style='font-weight: 600;'>No Learning Path Yet</div>"
-                f"<div style='color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0 1rem;'>Complete the assessment first</div>"
+                f"<div class='text-muted' style='font-size: 0.9rem; margin: 0.5rem 0 1rem;'>Complete the assessment first</div>"
                 f"</div>",
                 unsafe_allow_html=True,
             )
 
-    st.markdown("<div style='margin-top: 1.5rem;'></div>", unsafe_allow_html=True)
+    st.markdown("<div class='mt-1'></div>", unsafe_allow_html=True)
 
     cols = st.columns(5)
     actions = [
@@ -1051,6 +1054,7 @@ def _render_assessment_result(result_data: dict) -> None:
     track_info = TRACK_INFO.get(track, TRACK_INFO['foundations'])
     total_score = result.get('total_score', 0)
 
+    track_cls = f"badge-{track}"
     st.markdown(
         f"<div style='text-align: center; padding: 2rem 1rem;'>"
         f"<h2 style='margin-bottom: 0.5rem;'>Your AI Readiness Result</h2>"
@@ -1060,8 +1064,8 @@ def _render_assessment_result(result_data: dict) -> None:
 
     st.markdown(
         f"<div class='card' style='max-width: 700px; text-align: center;'>"
-        f"<div style='font-size: 1rem; color: #6b7280; margin-bottom: 0.5rem;'>Your Score</div>"
-        f"<div style='font-size: 3rem; font-weight: 800; color: {track_info['color']};'>{total_score}/75</div>"
+        f"<div class='text-muted' style='margin-bottom: 0.5rem;'>Your Score</div>"
+        f"<div class='score-number' style='color: {track_info['color']};'>{total_score}/75</div>"
         f"<div style='font-size: 1.5rem; font-weight: 700; color: {track_info['color']}; margin: 1rem 0 0.5rem;'>{track_info['label']}</div>"
         f"<div style='color: #374151; line-height: 1.6;'>{track_info['description']}</div>"
         f"</div>",
@@ -1083,7 +1087,7 @@ def _render_assessment_result(result_data: dict) -> None:
                 f"<span>{label}</span><span>{score}/5</span>"
                 f"</div>"
                 f"<div style='background: #e5e7eb; border-radius: 8px; height: 10px;'>"
-                f"<div style='background: {bar_color}; border-radius: 8px; height: 10px; width: {pct}%;'></div>"
+                f"<div style='background: {bar_color}; border-radius: 8px; height: 10px; width: {pct}%; transition: width 0.3s ease;'></div>"
                 f"</div>"
                 f"</div>",
                 unsafe_allow_html=True,
@@ -1143,9 +1147,9 @@ def _render_assessment_result(result_data: dict) -> None:
 
 
 def assessment_page() -> None:
-    st.markdown("<h1 style='margin-bottom: 0.25rem;'>AI Readiness Assessment</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='page-title'>AI Readiness Assessment</h1>", unsafe_allow_html=True)
     st.markdown(
-        "<p style='color: #6b7280; margin-bottom: 1.5rem;'>"
+        "<p class='page-subtitle'>"
         "Discover your AI skill level and get a personalized learning track recommendation.</p>",
         unsafe_allow_html=True,
     )
@@ -1207,7 +1211,8 @@ def assessment_page() -> None:
                     st.error(f'Please answer all {len(ASSESSMENT_QUESTIONS)} questions before submitting.')
                 else:
                     formatted = [{'question_id': qid, 'selected_value': val} for qid, val in answers.items()]
-                    result = _submit_assessment(formatted)
+                    with st.spinner('Scoring your assessment...'):
+                        result = _submit_assessment(formatted)
                     if result:
                         st.session_state.assessment_done = True
                         st.session_state.assessment_result = result
@@ -1219,9 +1224,9 @@ def assessment_page() -> None:
 # ---------------------------------------------------------------------------
 
 def learning_path_page() -> None:
-    st.markdown("<h1 style='margin-bottom: 0.25rem;'>Your Learning Path</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='page-title'>Your Learning Path</h1>", unsafe_allow_html=True)
     st.markdown(
-        "<p style='color: #6b7280; margin-bottom: 1.5rem;'>A personalized 4-week study plan based on your assessment and profile.</p>",
+        "<p class='page-subtitle'>A personalized 4-week study plan based on your assessment and profile.</p>",
         unsafe_allow_html=True,
     )
 
@@ -1321,9 +1326,9 @@ def learning_path_page() -> None:
 
 def profile_page() -> None:
     profile = st.session_state.get('profile', {})
-    st.markdown("<h1 style='margin-bottom: 0.25rem;'>Your Profile</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='page-title'>Your Profile</h1>", unsafe_allow_html=True)
     st.markdown(
-        "<p style='color: #6b7280; margin-bottom: 1.5rem;'>Manage your learning preferences.</p>",
+        "<p class='page-subtitle'>Manage your learning preferences.</p>",
         unsafe_allow_html=True,
     )
 
@@ -1356,8 +1361,8 @@ def profile_page() -> None:
 def mentor_page() -> None:
     init_state()
 
-    st.markdown(f"<h1 style='margin-bottom: 0.25rem;'>AI Mentor</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='color: #6b7280; margin-bottom: 1.5rem;'>Ask me anything about your course.</p>",
+    st.markdown("<h1 class='page-title'>AI Mentor</h1>", unsafe_allow_html=True)
+    st.markdown("<p class='page-subtitle'>Ask me anything about your course.</p>",
                 unsafe_allow_html=True)
 
     with st.expander('About AI Mentor', expanded=True):
@@ -1448,9 +1453,9 @@ def ensure_history(key: str) -> list:
 # ---------------------------------------------------------------------------
 
 def modules_page() -> None:
-    st.markdown("<h1>Content Catalog</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='page-title'>Content Catalog</h1>", unsafe_allow_html=True)
     st.markdown(
-        "<p style='color: #6b7280; margin-bottom: 1.5rem;'>"
+        "<p class='page-subtitle'>"
         "Browse all available modules organized by level. Each module contains lecture sessions "
         "you can explore through the AI Mentor.</p>",
         unsafe_allow_html=True,
@@ -1480,7 +1485,7 @@ def modules_page() -> None:
         level_label, level_order, level_color = levels[level_key]
         with st.expander(f"**{level_label}**", icon='📘' if level_key == 'beginner' else ('📙' if level_key == 'intermediate' else '📕'), expanded=level_key == 'beginner'):
             for cat_name, module_ids in categories[level_key]:
-                st.markdown(f"<p style='color: #6b7280; font-size: 0.9rem; margin: 0.5rem 0 0.25rem;'><strong>{cat_name}</strong></p>", unsafe_allow_html=True)
+                st.markdown(f"<p class='text-muted' style='font-size: 0.9rem; margin: 0.5rem 0 0.25rem;'><strong>{cat_name}</strong></p>", unsafe_allow_html=True)
                 cols = st.columns(2)
                 for i, mod_id in enumerate(module_ids):
                     with cols[i % 2]:
@@ -1491,15 +1496,16 @@ def modules_page() -> None:
                         track_label = TRACK_INFO.get(track_id, {}).get('label', '')
                         track_color = TRACK_INFO.get(track_id, {}).get('color', '#6b7280')
 
+                        track_cls = f"badge-{track_id}" if track_id else ''
                         session_label = f'{sessions} session{"s" if sessions != 1 else ""}'
                         st.markdown(
-                            f"<div class='card' style='padding: 0.75rem 1rem; margin-bottom: 0.5rem;'>"
+                            f"<div class='card-sm card'>"
                             f"<div style='font-weight: 600; font-size: 0.95rem;'>{label}</div>"
-                            f"<div style='color: #6b7280; font-size: 0.82rem; margin: 0.25rem 0;'>{desc}</div>"
+                            f"<div class='text-muted' style='font-size: 0.82rem; margin: 0.25rem 0;'>{desc}</div>"
                             f"<div style='display: flex; gap: 0.5rem; align-items: center; margin-top: 0.35rem;'>"
-                            f"<span style='font-size: 0.75rem; color: #9ca3af;'>{session_label}</span>"
+                            f"<span class='text-light' style='font-size: 0.75rem;'>{session_label}</span>"
                             f"<span style='font-size: 0.7rem; color: #9ca3af;'>|</span>"
-                            f"<span style='background: {track_color}15; color: {track_color}; padding: 0.1rem 0.5rem; border-radius: 8px; font-size: 0.72rem; font-weight: 500;'>{track_label}</span>"
+                            f"<span class='badge-pill {track_cls}'>{track_label}</span>"
                             f"</div>"
                             f"</div>",
                             unsafe_allow_html=True,
@@ -1537,7 +1543,7 @@ def app_shell() -> None:
 # Entry point
 # ---------------------------------------------------------------------------
 
-st.set_page_config(page_title='AI Mentor', layout='wide')
+st.set_page_config(page_title='AI Mentor', page_icon='🤖', layout='wide')
 
 _recover_session()
 
