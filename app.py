@@ -328,7 +328,8 @@ def inject_css() -> None:
         div[data-testid="stSidebar"] .stButton > button { width: 100%; }
         div[data-testid="stSidebar"] label { font-size: 1.5rem; padding: 0.4rem 0; }
         div[data-testid="stSidebar"] .stRadio > label { display: none; }
-        header[data-testid="stHeader"] { display: none; }
+        header[data-testid="stHeader"] { background: transparent; box-shadow: none; }
+        button[data-testid="stAppMenuButton"] { display: none; }
         hr { margin: 2rem 0; }
         .main > div { animation: fadeIn 0.2s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
